@@ -87,7 +87,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                 </div>
 
                                 <select name="ppc-frontend-features-role" class="ppc-frontend-features-role">
-                                    <optgroup label="Users">
+                                    <optgroup label="<?php esc_attr_e('Users');?>">
                                         <?php 
                                             foreach ($ppc_other_permissions as $p_value => $p_title) { 
                                                 ?>
@@ -102,7 +102,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                         ?>
                                     </optgroup>
 
-                                    <optgroup label="Roles">
+                                    <optgroup label="<?php esc_attr_e('Roles');?>">
                                         <?php 
                                         foreach ($roles as $role_name => $name)  {
                                             $name = translate_user_role($name); 
