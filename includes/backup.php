@@ -188,7 +188,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                         if ($backup_data = get_option($name)) :?>
                                                             <div id="cme_display_<?php echo esc_attr($name); ?>" style="display:none;"
                                                                 class="cme-show-backup">
-                                                                <h3><?php printf(esc_html__("%s (%s roles)", 'capsman-enhanded'), esc_html($caption), count($backup_data)); ?></h3>
+                                                                <h3><?php printf(esc_html__("%s (%s roles)", 'capability-manager-enhanced'), esc_html($caption), count($backup_data)); ?></h3>
 
                                                                 <?php
                                                                 foreach ($wp_roles->role_objects as $role_name => $role_object) {
