@@ -142,8 +142,8 @@ class CoreAdmin {
 
         $features['admin-menus'] = [
             'promo'        => 1,
-            'label'        => esc_html__('Admin Menus', 'capabilities-pro'),
-            'description'  => esc_html__('Admin Menus allows you to edit the admin menu links and control who has access.', 'capabilities-pro'),
+            'label'        => esc_html__('Admin Menus', 'capability-manager-enhanced'),
+            'description'  => esc_html__('Admin Menus allows you to edit the admin menu links and control who has access.', 'capability-manager-enhanced'),
         ];
 
         return $features;

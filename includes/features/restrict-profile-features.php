@@ -24,7 +24,7 @@ class PP_Capabilities_Profile_Features
     public static function profileElementUpdateAjaxHandler()
     {
         $response['status']  = 'error';
-        $response['message'] = __('An error occured!', 'capabilities-pro');
+        $response['message'] = __('An error occured!', 'capability-manager-enhanced');
         $response['content'] = '';
         $redirect_url = admin_url('admin.php?page=pp-capabilities-profile-features');
 
