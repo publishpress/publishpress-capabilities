@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Plugins - PublishPress Capabilities &#8211; User Role "
 "Access, Editor Permissions, Admin Menus - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2025-02-20 15:04+0000\n"
-"PO-Revision-Date: 2025-02-25 19:43+0100\n"
+"POT-Creation-Date: 2025-07-24 08:28+0000\n"
+"PO-Revision-Date: 2025-09-03 11:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.7\n"
 
 #: includes/pp-ui.php:69
 #, php-format
@@ -44,23 +44,23 @@ msgstr "%1$d  usuarios movidos al perfil por defecto %2$s."
 msgid "%1$s = Apply custom styling"
 msgstr "%1$s = Aplica estilo personalizado"
 
-#: includes/admin.php:1537
+#: includes/admin.php:1552
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr ""
 "%1$s = Capacidad denegada, aunque haya sido otorgada por otro perfil %2$s"
 
-#: includes/admin.php:1535
+#: includes/admin.php:1550
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Capacidad concedida %2$s"
 
-#: includes/admin.php:1536
+#: includes/admin.php:1551
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Capacidad no concedida %2$s"
 
-#: includes/features/admin-features.php:313
+#: includes/features/admin-features.php:320
 #: includes/features/editor-features.php:237
 #: includes/features/nav-menus.php:303
 #: includes/features/profile-features.php:239
@@ -69,7 +69,7 @@ msgstr "%1$s = Capacidad no concedida %2$s"
 msgid "%1$s = No change"
 msgstr "%1$s = Sin cambios"
 
-#: includes/features/admin-features.php:314
+#: includes/features/admin-features.php:321
 #: includes/features/editor-features.php:238
 #: includes/features/nav-menus.php:304
 #: includes/features/profile-features.php:240
@@ -77,12 +77,12 @@ msgstr "%1$s = Sin cambios"
 msgid "%1$s = This feature is denied"
 msgstr "%1$s = Esta característica está denegada"
 
-#: includes/admin.php:1767
+#: includes/admin.php:1782
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$scomprar%2$s %3$s"
 
-#: includes/admin.php:1765
+#: includes/admin.php:1780
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sobtener%2$s %3$s"
@@ -101,7 +101,7 @@ msgstr ""
 "%1s Error: %2s PublishPress Capabilities no puede funcionar porque hay otra "
 "copia del plugin activa."
 
-#: includes/admin.php:1765
+#: includes/admin.php:1780
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (instalación gratuita)"
@@ -111,7 +111,12 @@ msgstr "%s (instalación gratuita)"
 msgid "%s (level %s)"
 msgstr "%s (nivel %s)"
 
-#: includes/admin.php:1767
+#: includes/admin.php:601
+#, php-format
+msgid "%s Capabilities"
+msgstr "%s Capacidades"
+
+#: includes/admin.php:1782
 #, php-format
 msgid "%s info/purchase"
 msgstr "información/compra de %s"
@@ -145,8 +150,8 @@ msgstr "El perfil de %s se ha actualizado correctamente."
 msgid "%s successfully imported from uploaded data."
 msgstr "%s correctamente importado desde los datos subidos."
 
-#: includes/admin.php:792 includes/admin.php:1045 includes/admin.php:1212
-#: includes/admin.php:1452
+#: includes/admin.php:800 includes/admin.php:1049 includes/admin.php:1218
+#: includes/admin.php:1467
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: asignada por el «Grupo de permisos»"
@@ -184,7 +189,7 @@ msgstr "Acerca de PublishPress Capabilities"
 msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
 msgstr "activar los %1$sajustes avanzados%2$s, consulta Uso de perfiles"
 
-#: includes/admin.php:1639
+#: includes/admin.php:1654
 msgid "Add a New Capability"
 msgstr "Añadir nueva capacidad"
 
@@ -192,18 +197,18 @@ msgstr "Añadir nueva capacidad"
 msgid "Add block"
 msgstr "Añadir un bloque"
 
-#: includes/features/frontend-features/frontend-features-ui.php:74
+#: includes/features/frontend-features/frontend-features-ui.php:75
 msgid "Add Body Class"
 msgstr "Añadir clase de cuerpo"
 
-#: includes/features/frontend-features/frontend-features-ui.php:73
+#: includes/features/frontend-features/frontend-features-ui.php:74
 msgid "Add Custom CSS"
 msgstr "Añadir CSS personalizado"
 
 #: includes/features/restrict-editor-features.php:47
 #: includes/roles/roles.php:10
-#: includes/features/frontend-features/frontend-features-ui.php:151
-#: includes/features/frontend-features/frontend-features-ui.php:154
+#: includes/features/frontend-features/frontend-features-ui.php:152
+#: includes/features/frontend-features/frontend-features-ui.php:155
 msgid "Add New"
 msgstr "Añadir nuevo"
 
@@ -230,11 +235,11 @@ msgstr "Añadir o quitar capacidades del perfil normalmente"
 msgid "Add or remove this capability from the WordPress role"
 msgstr "Añadir o quitar esta capacidad del perfil de WordPress"
 
-#: includes/features/frontend-features/frontend-features-ui.php:132
+#: includes/features/frontend-features/frontend-features-ui.php:133
 msgid "Add post metabox:"
 msgstr "Añadir caja meta de entrada:"
 
-#: includes/admin.php:1649
+#: includes/admin.php:1664
 msgid "Add to role"
 msgstr "Añadir al perfil"
 
@@ -242,11 +247,11 @@ msgstr "Añadir al perfil"
 msgid "Additional"
 msgstr "Adicional"
 
-#: includes/admin.php:1376
+#: includes/admin.php:1391
 msgid "Additional Capabilities"
 msgstr "Capacidades adicionales"
 
-#: includes/admin.php:523 includes/admin.php:980
+#: includes/admin.php:523 includes/admin.php:984
 msgid "Admin"
 msgstr "Administrador"
 
@@ -273,14 +278,14 @@ msgstr "Restricciones de características de administración"
 msgid "Admin Features"
 msgstr "Características de administración"
 
-#: includes/functions-admin.php:380 includes/features/admin-features.php:311
+#: includes/functions-admin.php:380 includes/features/admin-features.php:318
 msgid ""
 "Admin Features allows you to remove elements from the admin area and toolbar."
 msgstr ""
 "Las características de administración te permiten eliminar elementos del "
 "área de administración y de la barra de herramientas."
 
-#: includes/admin.php:919
+#: includes/admin.php:923
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -312,6 +317,7 @@ msgstr "El estado de aviso de administración se ha actualizado correctamente."
 #: includes/functions-admin.php:409 includes/settings-ui.php:37
 #: includes/admin-notices/admin-notices.php:179
 #: includes/admin-notices/admin-notices.php:217
+#: includes/admin-notices/admin-notices.php:220
 msgid "Admin Notices"
 msgstr "Avisos de administración"
 
@@ -327,7 +333,7 @@ msgstr[0] "Todo el %s"
 msgstr[1] "Todos los %s"
 
 #: includes/features/frontend-features/frontend-features-action.php:58
-#: includes/features/frontend-features/frontend-features-ui.php:150
+#: includes/features/frontend-features/frontend-features-ui.php:151
 msgid "All fields are required."
 msgstr "Todos los campos son obligatorios."
 
@@ -399,14 +405,14 @@ msgstr "¿Seguro que quieres borrar este elemento?"
 msgid "Are you sure you want to delete this role?"
 msgstr "¿Estás seguro que quieres borrar este perfil?"
 
-#: includes/admin.php:1718
+#: includes/admin.php:1733
 msgid ""
 "Assign custom WP roles supplementally for a specific post type <em>(Pro)</em>"
 msgstr ""
 "Asignar perfiles de WP personalizados de forma suplementaria para un tipo de "
 "contenido específico <em>(Pro)</em>"
 
-#: includes/admin.php:1714
+#: includes/admin.php:1729
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr ""
 "Asignar perfiles de WP estándar de forma suplementaria para un tipo de "
@@ -417,7 +423,7 @@ msgstr ""
 msgid "Auto-backup of all roles (%s)"
 msgstr "Copia de seguridad automática de todos los perfiles (%s)"
 
-#: includes/admin.php:1710
+#: includes/admin.php:1725
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -499,7 +505,7 @@ msgstr "Bloquear a los usuarios con este perfil de que accedan a este sitio."
 msgid "Body"
 msgstr "Cuerpo"
 
-#: includes/features/frontend-features/frontend-features-ui.php:225
+#: includes/features/frontend-features/frontend-features-ui.php:226
 msgid "Body Class"
 msgstr "Clase de cuerpo"
 
@@ -553,7 +559,7 @@ msgstr ""
 "Puede leer las entradas que estén publicados actualmente con visibilidad "
 "privada."
 
-#: includes/features/frontend-features/frontend-features-ui.php:147
+#: includes/features/frontend-features/frontend-features-ui.php:148
 msgid "Cancel Edit"
 msgstr "Cancelar edición"
 
@@ -569,14 +575,14 @@ msgstr ""
 msgid "Capabilites Documentation"
 msgstr "Documentación de capacidades"
 
-#: includes/admin-load.php:485 includes/functions-admin.php:369
-#: includes/functions-admin.php:447 includes/manager.php:371
-#: includes/settings-ui.php:34
+#: includes/admin-load.php:488 includes/admin-load.php:791
+#: includes/functions-admin.php:369 includes/functions-admin.php:447
+#: includes/manager.php:371 includes/settings-ui.php:34
 #: includes/roles/class/class-pp-roles-admin.php:637
 msgid "Capabilities"
 msgstr "Capacidades"
 
-#: includes/admin.php:1534
+#: includes/admin.php:1549
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "Las capacidades te permiten cambiar los permisos de cualquier perfil de "
@@ -623,7 +629,7 @@ msgstr ""
 "utilizar los «Grupos permitidos» para asignar perfiles suplementarios "
 "específicos de estados."
 
-#: includes/admin.php:1603
+#: includes/admin.php:1618
 msgid "Capabilities is Safe to Use"
 msgstr "Capacidades seguras de usar"
 
@@ -631,15 +637,15 @@ msgstr "Capacidades seguras de usar"
 msgid "Capabilities Settings"
 msgstr "Ajustes de capacidades"
 
-#: includes/admin.php:1010 includes/admin.php:1083 includes/admin.php:1120
-#: includes/admin.php:1129 includes/admin.php:1177 includes/admin.php:1257
-#: includes/admin.php:1388 includes/admin.php:1517
+#: includes/admin.php:1014 includes/admin.php:1087 includes/admin.php:1124
+#: includes/admin.php:1133 includes/admin.php:1183 includes/admin.php:1270
+#: includes/admin.php:1403 includes/admin.php:1532
 msgid "Capability Name"
 msgstr "Nombre de la capacidad"
 
-#: includes/admin.php:1010 includes/admin.php:1083 includes/admin.php:1120
-#: includes/admin.php:1129 includes/admin.php:1177 includes/admin.php:1257
-#: includes/admin.php:1388 includes/admin.php:1517
+#: includes/admin.php:1014 includes/admin.php:1087 includes/admin.php:1124
+#: includes/admin.php:1133 includes/admin.php:1183 includes/admin.php:1270
+#: includes/admin.php:1403 includes/admin.php:1532
 msgid "check / uncheck all"
 msgstr "marcar / desmarcar todo"
 
@@ -701,16 +707,15 @@ msgstr "Controlar el acceso a los estados de visibilidad"
 msgid "Control Allowed Editors"
 msgstr "Controlar editores permitidos"
 
-#: includes/admin.php:251
 #: includes/roles/class/class-pp-roles-list-table.php:233
 msgid "Copy"
 msgstr "Copiar"
 
-#: includes/admin.php:1847
+#: includes/admin.php:1862
 msgid "Copy / update this role definition to all sites now"
 msgstr "Copiar/actualizar esta definición de perfil a todos los sitios ahora"
 
-#: includes/admin.php:1850
+#: includes/admin.php:1865
 msgid "Copy option settings to all sites now"
 msgstr "Copia los ajustes de opciones a todos los sitios ahora"
 
@@ -726,7 +731,11 @@ msgstr "Descripción del cupón"
 msgid "Create New Role"
 msgstr "Crear nuevo perfil"
 
-#: includes/admin.php:1844
+#: includes/admin.php:251
+msgid "Create Revision"
+msgstr "Crear revisión"
+
+#: includes/admin.php:1859
 msgid "Create this role definition in new (future) sites"
 msgstr "Crear esta definición de perfil en nuevos (futuros) sitios"
 
@@ -734,7 +743,7 @@ msgstr "Crear esta definición de perfil en nuevos (futuros) sitios"
 msgid "Custom"
 msgstr "Personalizado"
 
-#: includes/features/frontend-features/frontend-features-ui.php:230
+#: includes/features/frontend-features/frontend-features-ui.php:231
 msgid "Custom CSS"
 msgstr "CSS personalizado"
 
@@ -746,7 +755,7 @@ msgstr "Elemento personalizado uno"
 msgid "Custom Items"
 msgstr "Elementos personalizados"
 
-#: includes/admin.php:1734
+#: includes/admin.php:1749
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -754,7 +763,7 @@ msgstr ""
 "Estados de moderación personalizados para el flujo de trabajo de publicación "
 "multipaso y de acceso controlado <em>(Pro)</em>"
 
-#: includes/admin.php:1730
+#: includes/admin.php:1745
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -762,18 +771,18 @@ msgstr ""
 "Estados de Custom Post Visibility, totalmente implementados en todo el "
 "escritorio <em>(Pro)</em>"
 
-#: includes/admin.php:1726
+#: includes/admin.php:1741
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "Personalizar los permisos de edición por categoría o por tipo de contenido "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:1722
+#: includes/admin.php:1737
 msgid "Customize reading permissions per-category or per-post"
 msgstr ""
 "Personalizar los permisos de lectura por categoría o por tipo de contenido"
 
-#: includes/admin.php:1742
+#: includes/admin.php:1757
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -781,7 +790,7 @@ msgstr ""
 "Personalizar la edición moderada de los contenidos publicados con "
 "Revisionary o Post Forking <em>(Pro)</em>"
 
-#: includes/dashboard.php:25
+#: includes/admin-load.php:790 includes/dashboard.php:25
 msgid "Dashboard"
 msgstr "Escritorio"
 
@@ -859,7 +868,7 @@ msgstr "Paneles de documentos"
 msgid "Documentation"
 msgstr "Documentación"
 
-#: includes/admin-load.php:363
+#: includes/admin-load.php:366
 msgid "Drag multiple roles selection to change order."
 msgstr "Arrastra la selección de perfiles múltiples para cambiar su orden."
 
@@ -872,7 +881,7 @@ msgstr ""
 "tiene por defecto el nivel más bajo (0). El perfil de administrador tiene "
 "por defecto el nivel 10."
 
-#: includes/features/admin-features.php:243
+#: includes/features/admin-features.php:250
 #: includes/features/editor-features-classic.php:123
 #: includes/features/editor-features-gutenberg.php:120
 msgid "Edit"
@@ -882,10 +891,6 @@ msgstr "Editar"
 #, php-format
 msgid "Edit Role: %s"
 msgstr "Editar el perfil: %s"
-
-#: includes/filters.php:254
-msgid "Edit Roles"
-msgstr "Editar perfiles"
 
 #: includes/admin-notices/admin-notices.php:218
 msgid "Edit the settings."
@@ -902,7 +907,7 @@ msgstr[1] "Editables %s"
 msgid "Editing"
 msgstr "Edición"
 
-#: includes/features/frontend-features/frontend-features-ui.php:44
+#: includes/features/frontend-features/frontend-features-ui.php:45
 msgid "Editing:"
 msgstr "Edición:"
 
@@ -940,7 +945,7 @@ msgstr "Activar la pestaña del editor clásico"
 msgid "Enhance the power of PublishPress Capabilities with the Pro version:"
 msgstr "Mejora la potencia de PublishPress Capabilities con la versión Pro:"
 
-#: includes/features/frontend-features/frontend-features-ui.php:100
+#: includes/features/frontend-features/frontend-features-ui.php:101
 msgid ""
 "Enter classes that should be added to the body HTML. Separate multiple "
 "values with a space (custom-item-one custom-item-two)."
@@ -949,14 +954,14 @@ msgstr ""
 "múltiples con un espacio ( elemento-personalizado-uno elemento-personalizado-"
 "dos)."
 
-#: includes/features/frontend-features/frontend-features-ui.php:97
+#: includes/features/frontend-features/frontend-features-ui.php:98
 msgid ""
 "Enter classes to add the body HTML. Do not include the . before the HTML."
 msgstr ""
 "Introduce las clases para añadir el body HTML. No incluye el «.» antes del "
 "HTML."
 
-#: includes/features/frontend-features/frontend-features-ui.php:91
+#: includes/features/frontend-features/frontend-features-ui.php:92
 msgid ""
 "Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 "
 "{ color: red; } #custom-header { background: red; } "
@@ -965,7 +970,7 @@ msgstr ""
 "pública. Ejemplos: .custom-style-1 { color: red; } #custom-header "
 "{ background: red; } "
 
-#: includes/features/frontend-features/frontend-features-ui.php:80
+#: includes/features/frontend-features/frontend-features-ui.php:81
 msgid ""
 "Enter IDs or classes to hide. Separate multiple values with a comma (.custom-"
 "item-one, .custom-item-two, #new-item-id)."
@@ -1029,7 +1034,7 @@ msgstr "Avisos de error"
 msgid "Error: Failed creating the new role."
 msgstr "Error: no se ha podido crear el nuevo perfil."
 
-#: includes/admin-load.php:618
+#: includes/admin-load.php:621
 msgid "Error: wrong data"
 msgstr "Error: datos incorrectos"
 
@@ -1083,20 +1088,20 @@ msgstr "Imagen destacada"
 msgid "Featured image"
 msgstr "Imagen destacada"
 
-#: includes/features/frontend-features/frontend-features-ui.php:65
+#: includes/features/frontend-features/frontend-features-ui.php:66
 msgid "Features:"
 msgstr "Características:"
 
-#: includes/admin.php:996 includes/admin.php:1106 includes/admin.php:1163
-#: includes/admin.php:1379
+#: includes/admin.php:1000 includes/admin.php:1110 includes/admin.php:1169
+#: includes/admin.php:1394
 msgid "Filter by capability"
 msgstr "Filtrar por capacidad"
 
-#: includes/admin.php:603
+#: includes/admin.php:611
 msgid "Filter by post type"
 msgstr "Filtrar por tipo de contenido"
 
-#: includes/admin.php:603
+#: includes/admin.php:611
 msgid "Filter by taxonomy"
 msgstr "Filtrar por taxonomía"
 
@@ -1134,11 +1139,11 @@ msgstr ""
 msgid "General"
 msgstr "General"
 
-#: includes/admin.php:1620
+#: includes/admin.php:1635
 msgid "Go to the Backup feature"
 msgstr "Ir a la característica de copia de seguridad"
 
-#: includes/admin.php:1746
+#: includes/admin.php:1761
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -1146,7 +1151,7 @@ msgstr ""
 "Otorgar al espectador, participante o moderador acceso a foros específicos "
 "de bbPress <em>(Pro)</em>"
 
-#: includes/admin.php:1750
+#: includes/admin.php:1765
 msgid ""
 "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
@@ -1189,7 +1194,7 @@ msgid_plural "Has Users %s"
 msgstr[0] "Tiene usuarios %s"
 msgstr[1] "Tiene usuarios %s"
 
-#: includes/features/frontend-features/frontend-features-ui.php:220
+#: includes/features/frontend-features/frontend-features-ui.php:221
 msgid "Hidden IDs or Classes"
 msgstr "ID o clases ocultas"
 
@@ -1213,7 +1218,7 @@ msgstr "Ocultar los widgets del escritorio"
 msgid "Hide Default Items"
 msgstr "Ocultar los elementos por defecto"
 
-#: includes/features/frontend-features/frontend-features-ui.php:72
+#: includes/features/frontend-features/frontend-features-ui.php:73
 msgid "Hide IDs or Classes"
 msgstr "Oculta ID o clases"
 
@@ -1225,11 +1230,11 @@ msgstr "Ocultar este aviso"
 msgid "Hide Twenty Twenty-Three Credit Footer"
 msgstr "Ocultar los créditos de pie de página de Twenty Twenty-Three"
 
-#: includes/features/admin-features.php:317
+#: includes/features/admin-features.php:324
 msgid "How to use Admin Features"
 msgstr "Cómo utilizar las características de administración"
 
-#: includes/admin.php:1565
+#: includes/admin.php:1580
 msgid "How to use Capabilities"
 msgstr "Cómo utilizar las capacidades"
 
@@ -1297,7 +1302,7 @@ msgstr ""
 "puede obtener mediante la exportación de los ajustes en otro sitio usando el "
 "formulario de arriba."
 
-#: includes/admin.php:1844
+#: includes/admin.php:1859
 msgid "Include in new sites."
 msgstr "Incluir en los nuevos sitios."
 
@@ -1328,7 +1333,7 @@ msgstr "Copia de seguridad inicial de todos los perfiles"
 msgid "Invalid action. Reload this page and try again."
 msgstr "Acción no válida. Recarga esta página e inténtalo de nuevo."
 
-#: includes/admin.php:559 includes/admin.php:1275
+#: includes/admin.php:559 includes/admin.php:1288
 msgid "Invalid Capabilities"
 msgstr "Capacidades no válidas"
 
@@ -1340,7 +1345,7 @@ msgstr "Formulario no válido."
 msgid "Invalid form. Reload this page and try again."
 msgstr "Formulario no válido. Recarga esta página e inténtalo de nuevo."
 
-#: includes/admin-load.php:614
+#: includes/admin-load.php:617
 msgid "Invalid nonce token!"
 msgstr "¡Token nonce no válido!"
 
@@ -1370,7 +1375,7 @@ msgstr "Última copia de seguridad manual: %s"
 msgid "Legacy"
 msgstr "Heredado"
 
-#: includes/admin.php:1801
+#: includes/admin.php:1816
 msgid "Level:"
 msgstr "Nivel:"
 
@@ -1390,16 +1395,16 @@ msgstr "Cargar más"
 msgid "Load on page types is required."
 msgstr "Es obligatorio subir los tipos de página."
 
-#: includes/features/frontend-features/frontend-features-ui.php:108
+#: includes/features/frontend-features/frontend-features-ui.php:109
 msgid "Load on page types:"
 msgstr "Subir los tipos de página:"
 
-#: includes/admin-load.php:723 includes/features/nav-menus.php:26
+#: includes/admin-load.php:726 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:39
 msgid "Logged In Users"
 msgstr "Usuarios conectados"
 
-#: includes/admin-load.php:724 includes/features/nav-menus.php:26
+#: includes/admin-load.php:727 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:40
 msgid "Logged Out Users"
 msgstr "Usuarios desconectados"
@@ -1416,15 +1421,6 @@ msgstr "Redirección de acceso"
 msgid "Logout Redirect"
 msgstr "Redirección al salir"
 
-#. Description of the plugin
-msgid ""
-"Manage WordPress role definitions, per-site or network-wide. Organizes post "
-"capabilities by post type and operation."
-msgstr ""
-"Gestiona las definiciones de los perfiles de WordPress, por sitio o en toda "
-"la red. Organiza las capacidades de las entradas por tipo de contenido y "
-"operación."
-
 #: includes/backup.php:74
 msgid "Manual Backup"
 msgstr "Copia de seguridad manual"
@@ -1438,7 +1434,7 @@ msgstr "Copia de seguridad manual de %s (%s)"
 msgid "Media Buttons (all)"
 msgstr "Botones de medios (todos)"
 
-#: includes/admin.php:1758
+#: includes/admin.php:1773
 msgid "Member support forum"
 msgstr "Foro de soporte de miembros"
 
@@ -1481,7 +1477,7 @@ msgstr "Múltiplos perfiles en la pantalla «Añadir nuevo usuario»."
 msgid "Multiples roles on \"User Edit\" screen"
 msgstr "Múltiplos perfiles en la pantalla «Añadir nuevo usuario»."
 
-#: includes/admin.php:519 includes/admin.php:976 includes/admin.php:1668
+#: includes/admin.php:519 includes/admin.php:980 includes/admin.php:1683
 msgid "Multisite"
 msgstr "Multisito"
 
@@ -1494,11 +1490,11 @@ msgstr "Menú de navigación"
 msgid "Nav Menus"
 msgstr "Menú de navegación"
 
-#: includes/admin.php:180 includes/admin.php:705
+#: includes/admin.php:180 includes/admin.php:713
 msgid "Nav Menus (Block)"
 msgstr "Menú de navegación (bloque)"
 
-#: includes/admin.php:189 includes/admin.php:707
+#: includes/admin.php:189 includes/admin.php:715
 msgid "Nav Menus (Legacy)"
 msgstr "Menú de navegación (heredado)"
 
@@ -1523,12 +1519,12 @@ msgstr ""
 "defecto!"
 
 #: includes/admin.php:77
-msgid "negate all (storing as disabled capabilities)"
-msgstr "negar todas (almacenar como capacidades desactivadas)"
+msgid "Negate All"
+msgstr "Rechazar todo"
 
 #: includes/admin.php:81
-msgid "negate none (add/remove all capabilities normally)"
-msgstr "no negar ninguna (añadir/quitar todas las capacidades normalmente)"
+msgid "Negate None"
+msgstr "Rechazar nada"
 
 #: includes/features/restrict-admin-features.php:98
 #: includes/features/restrict-admin-features.php:99
@@ -1539,7 +1535,7 @@ msgstr "Nuevo"
 msgid "New backup saved."
 msgstr "Se ha guardado una nueva copia de seguridad."
 
-#: includes/admin.php:1652
+#: includes/admin.php:1667
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Las nuevas capacidades se controlan en la pestaña «Adicional»."
 
@@ -1576,7 +1572,7 @@ msgstr ""
 "visitar la pantalla de las entradas y actualiza esta página después para "
 "cargar las nuevas cajas meta."
 
-#: includes/admin-load.php:604
+#: includes/admin-load.php:607
 msgid "No permission!"
 msgstr "¡No tienes permiso!"
 
@@ -1584,8 +1580,8 @@ msgstr "¡No tienes permiso!"
 msgid "No results found."
 msgstr "No se han encontrado resultados."
 
-#: includes/admin.php:999 includes/admin.php:1109 includes/admin.php:1166
-#: includes/admin.php:1382
+#: includes/admin.php:1003 includes/admin.php:1113 includes/admin.php:1172
+#: includes/admin.php:1397
 msgid "No results found. Please try again with a different word."
 msgstr ""
 "No se han encontrado resultados. Por favor, inténtalo de nuevo con una "
@@ -1646,11 +1642,11 @@ msgstr "Cajas de página"
 msgid "Page Lists"
 msgstr "Listas de páginas"
 
-#: includes/admin-load.php:366
+#: includes/admin-load.php:369
 msgid "Page title"
 msgstr "Título de la página"
 
-#: includes/features/frontend-features/frontend-features-ui.php:239
+#: includes/features/frontend-features/frontend-features-ui.php:240
 msgid "Pages"
 msgstr "Páginas"
 
@@ -1687,12 +1683,12 @@ msgstr "Por favor, sube un archivo para importar"
 msgid "Please upload a valid .json file"
 msgstr "Por favor, sube un archivo .json válido"
 
-#: includes/admin.php:1160
+#: includes/admin.php:1166
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Capacidades del plugin &ndash; %s"
 
-#: includes/admin.php:597
+#: includes/admin.php:602
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Capacidades del contenido %s"
@@ -1701,17 +1697,13 @@ msgstr "Capacidades del contenido %s"
 msgid "Post Attributes"
 msgstr "Atributos de la entrada"
 
-#: includes/features/frontend-features/frontend-features-ui.php:247
+#: includes/features/frontend-features/frontend-features-ui.php:248
 msgid "Post Type Metabox"
 msgstr "Caja meta de tipo de contenido"
 
 #: includes/manager.php:232
 msgid "Post type registration does not define this capability distinctly"
 msgstr "El registro del tipo de contenido no define claramente esta capacidad"
-
-#: includes/admin.php:240
-msgid "Private"
-msgstr "Privado"
 
 #: includes/features/profile-features.php:43
 msgid "Profile Feature Restrictions"
@@ -1768,15 +1760,24 @@ msgstr ""
 "instalación y cada vez que se guardan los cambios. Se mantiene la copia de "
 "seguridad inicial y las últimas %d copias de seguridad automáticas."
 
-#: includes/admin-load.php:731
+#. Description of the plugin
+msgid ""
+"PublishPress Capabilities is the access control plugin for WordPress. You "
+"can manage all your WordPress user roles, from Administrators to Subscribers."
+msgstr ""
+"PublishPress Capabilities se el plugin de control de acceso para WordPress. "
+"Puedes gestionar todos tus perfiles de usuario de WordPress, desde "
+"administradores a suscriptores."
+
+#: includes/admin-load.php:734
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Restricción del menú de PublishPress Capabilities"
 
-#: includes/admin.php:1708
+#: includes/admin.php:1723
 msgid "PublishPress Permissions"
 msgstr "Permisos de PublishPress"
 
-#: includes/admin-load.php:367
+#: includes/admin-load.php:370
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
@@ -1825,7 +1826,7 @@ msgstr "Actualiza las características del perfil"
 msgid "Registration Redirect"
 msgstr "Redirección de inscription"
 
-#: includes/admin.php:1738
+#: includes/admin.php:1753
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr ""
 "Regular los permisos de los estados de las entradas de Edit Flow <em>(Pro)</"
@@ -1906,10 +1907,6 @@ msgstr "Restaurar los perfiles seleccionados"
 msgid "Restricted:"
 msgstr "Restringido:"
 
-#: includes/admin.php:255
-msgid "Revise"
-msgstr "Revisar"
-
 #: includes/features/restrict-admin-features.php:96
 msgid "Right bar"
 msgstr "Barra derecha"
@@ -1926,7 +1923,7 @@ msgstr "Capacidades del perfil"
 msgid "Role Level"
 msgstr "Nivel del perfil"
 
-#: includes/admin.php:1799
+#: includes/admin.php:1814
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1950,8 +1947,9 @@ msgstr "Slug del perfil"
 msgid "Role Type"
 msgstr "Tipo del perfil"
 
-#: includes/functions-admin.php:364 includes/functions-admin.php:440
-#: includes/settings-ui.php:33 includes/roles/roles.php:8
+#: includes/admin-load.php:792 includes/functions-admin.php:364
+#: includes/functions-admin.php:440 includes/settings-ui.php:33
+#: includes/roles/roles.php:8
 msgid "Roles"
 msgstr "Perfiles"
 
@@ -1988,7 +1986,7 @@ msgstr ""
 msgid "Save Changes"
 msgstr "Guardar los cambios"
 
-#: includes/features/frontend-features/frontend-features-ui.php:152
+#: includes/features/frontend-features/frontend-features-ui.php:153
 msgid "Save Edit"
 msgstr "Guardar edición"
 
@@ -2074,11 +2072,11 @@ msgstr ""
 msgid "Selected item deleted successfully"
 msgstr "Los elementos seccionados han sido borrado con éxito"
 
-#: includes/features/frontend-features/frontend-features-ui.php:116
+#: includes/features/frontend-features/frontend-features-ui.php:117
 msgid "Selected Pages"
 msgstr "Páginas seleccionadas"
 
-#: includes/features/frontend-features/frontend-features-ui.php:98
+#: includes/features/frontend-features/frontend-features-ui.php:99
 msgid ""
 "Separate multiple values with a space (custom-style-one custom-style-two)."
 msgstr ""
@@ -2088,6 +2086,10 @@ msgstr ""
 #: includes/settings-ui.php:88
 msgid "Set login redirect cookie"
 msgstr "Establece la cookie de redirección de acceso"
+
+#: includes/admin-load.php:793
+msgid "Settings"
+msgstr "Ajustes"
 
 #: includes/features/restrict-editor-features.php:421
 msgid "Settings Panel"
@@ -2163,6 +2165,10 @@ msgstr ""
 msgid "Status & visibility"
 msgstr "Estado y visibilidad"
 
+#: includes/admin.php:255
+msgid "Submit Revision"
+msgstr "Enviar revisión"
+
 #: includes/settings-ui.php:274
 msgid "Success notices"
 msgstr "Avisos de éxito"
@@ -2171,11 +2177,11 @@ msgstr "Avisos de éxito"
 msgid "Switch to Draft"
 msgstr "Cambiar a borrador"
 
-#: includes/admin.php:1850
+#: includes/admin.php:1865
 msgid "Sync options to all sites."
 msgstr "Sincronizar opciones a todos los sitios."
 
-#: includes/admin.php:1847
+#: includes/admin.php:1862
 msgid "Sync role to all sites."
 msgstr "Sincronizar perfil a todos los sitios."
 
@@ -2194,6 +2200,10 @@ msgstr "Características de la vista pública para páginas específicas"
 msgid "Taxonomies"
 msgstr "Taxonomías"
 
+#: includes/admin.php:605
+msgid "Taxonomy"
+msgstr "Taxonomía"
+
 #: includes/features/restrict-editor-features.php:91
 msgid "Taxonomy Boxes"
 msgstr "Cajas de taxonomía"
@@ -2202,7 +2212,7 @@ msgstr "Cajas de taxonomía"
 msgid "TaxoPress - Settings"
 msgstr "TaxoPress - Ajustes"
 
-#: includes/admin.php:597
+#: includes/admin.php:598
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Capacidades del término %s"
@@ -2260,7 +2270,7 @@ msgstr ""
 "administrador. Esto no eliminará ningún mensaje que aparezca al realizar una "
 "acción."
 
-#: includes/admin.php:1280
+#: includes/admin.php:1293
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -2306,17 +2316,17 @@ msgstr "Los perfiles %1$s seleccionados se borraron correctamente. %2$s"
 msgid "The selected role is not editable."
 msgstr "El perfil seleccionado no es editable."
 
-#: includes/admin.php:716 includes/pp-ui.php:156
+#: includes/admin.php:724 includes/pp-ui.php:156
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "El slug para este tipo de contenido es %s"
 
-#: includes/admin.php:714 includes/pp-ui.php:256 includes/pp-ui.php:335
+#: includes/admin.php:722 includes/pp-ui.php:256 includes/pp-ui.php:335
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "El slug para esta taxonomía es %s"
 
-#: includes/admin.php:1218
+#: includes/admin.php:1224
 #, php-format
 msgid ""
 "The User Testing feature also requires the %1$s edit_users %2$s capability."
@@ -2357,17 +2367,17 @@ msgstr "Esto te permite asignar un nuevo usuario a múltiples perfiles."
 msgid "This allows you to assign an existing user to multiple roles."
 msgstr "Esto te permite asignar un usuario existente a múltiples perfiles."
 
-#: includes/admin.php:795
+#: includes/admin.php:803
 #, php-format
 msgid "This capability is %s"
 msgstr "Esta capacidad está %s"
 
-#: includes/admin.php:829
+#: includes/admin.php:833
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Esta capacidad está controlada por %s"
 
-#: includes/admin.php:832
+#: includes/admin.php:836
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -2382,11 +2392,11 @@ msgstr ""
 "Esta capacidad está explícitamente negada. Haz clic para añadir/quitar "
 "normalmente."
 
-#: includes/admin.php:851 includes/admin.php:855
+#: includes/admin.php:855 includes/admin.php:859
 msgid "This capability is not available for this post type."
 msgstr "Esta capacidad no está disponible para este tipo de contenido."
 
-#: includes/features/frontend-features/frontend-features-ui.php:41
+#: includes/features/frontend-features/frontend-features-ui.php:42
 msgid ""
 "This feature allows you to modify the site frontend by hiding IDs or "
 "classes, adding CSS styles, or adding body classes."
@@ -2394,11 +2404,11 @@ msgstr ""
 "Esta característica te permite modificar la vista pública del sitio "
 "ocultando ID o clases, añadiendo estilos CSS o añadiendo clases de cuerpo."
 
-#: includes/features/frontend-features/frontend-features-ui.php:124
+#: includes/features/frontend-features/frontend-features-ui.php:125
 msgid "This feature will be added to all pages."
 msgstr "Esta característica se añadirá a todas las páginas."
 
-#: includes/admin-load.php:732
+#: includes/admin-load.php:735
 msgid "This menu is restricted for the following roles"
 msgstr "Este menú está restringido a los siguientes perfiles"
 
@@ -2434,7 +2444,7 @@ msgstr ""
 "perfiles. Normalmente, la creación de entradas se controla mediante la "
 "capacidad «Editar»."
 
-#: includes/features/frontend-features/frontend-features-ui.php:58
+#: includes/features/frontend-features/frontend-features-ui.php:59
 msgid "This will only show here in the WordPress admin area."
 msgstr "Esto solo se mostrará aquí en el área de administración de WordPress."
 
@@ -2446,11 +2456,11 @@ msgstr ""
 "Esto mostrará todas las taxonomías en la pantalla de «Capacidades», incluso "
 "las que normalmente están ocultas en el área de administración de WordPress."
 
-#: includes/features/frontend-features/frontend-features-ui.php:52
+#: includes/features/frontend-features/frontend-features-ui.php:53
 msgid "Title:"
 msgstr "Título:"
 
-#: includes/features/admin-features.php:163 includes/features/nav-menus.php:127
+#: includes/features/admin-features.php:170 includes/features/nav-menus.php:127
 #: includes/features/nav-menus.php:147
 #: includes/features/profile-features.php:103
 #: includes/features/profile-features.php:122
@@ -2508,16 +2518,17 @@ msgstr "Actualizar"
 msgid "Upgrade to Capabilities Pro"
 msgstr "Actualizar a Capabilities Pro"
 
-#: includes/functions.php:685 includes-core/admin-features-promo.php:79
+#: includes/admin-load.php:778 includes/functions.php:685
+#: includes-core/admin-features-promo.php:79
 #: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:46
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
 msgid "Upgrade to Pro"
 msgstr "Actualiza a Pro"
 
-#: includes/admin.php:1535 includes/admin.php:1536 includes/admin.php:1537
-#: includes/features/admin-features.php:313
-#: includes/features/admin-features.php:314
+#: includes/admin.php:1550 includes/admin.php:1551 includes/admin.php:1552
+#: includes/features/admin-features.php:320
+#: includes/features/admin-features.php:321
 #: includes/features/editor-features.php:237
 #: includes/features/editor-features.php:238
 #: includes/features/nav-menus.php:303 includes/features/nav-menus.php:304
@@ -2543,7 +2554,7 @@ msgid "Use the \"Create\" capability for selected post types"
 msgstr ""
 "Utilizar la capacidad «Crear» para los tipos de contenido seleccionados"
 
-#: includes/admin.php:849
+#: includes/admin.php:853
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
 "Utiliza los ajustes de la barra lateral para permitir que esto se controle "
@@ -2562,7 +2573,7 @@ msgstr "Nombre del usuario a mostrar"
 msgid "User Testing"
 msgstr "Pruebas de usuario"
 
-#: includes/admin.php:1579 includes/features/admin-features.php:316
+#: includes/admin.php:1594 includes/features/admin-features.php:323
 #: includes/features/editor-features.php:240
 #: includes/features/nav-menus.php:306
 #: includes/features/profile-features.php:242
@@ -2574,6 +2585,10 @@ msgstr "Ver la documentación"
 #: includes/functions.php:710
 msgid "View Knowledge Base"
 msgstr "Ver la base de conocimientos"
+
+#: includes/admin.php:240
+msgid "Visibility"
+msgstr "Visibilidad"
 
 #: includes/settings-ui.php:276
 msgid "Warning notices"
@@ -2608,7 +2623,7 @@ msgstr ""
 "Al hacer la prueba, muestra un enlace de retorno en el pie de página de la "
 "vista pública."
 
-#: includes/admin.php:1617
+#: includes/admin.php:1632
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -2617,7 +2632,7 @@ msgstr ""
 "cambios, también se crea una copia de seguridad que puedes utilizar para "
 "restaurar una configuración anterior."
 
-#: includes/features/frontend-features/frontend-features-ui.php:115
+#: includes/features/frontend-features/frontend-features-ui.php:116
 msgid "Whole Site"
 msgstr "Sitio completo"
 
@@ -2633,7 +2648,7 @@ msgstr "Recuento de palabras"
 msgid "WordPress Core"
 msgstr "Núcleo de WordPress"
 
-#: includes/admin.php:1103
+#: includes/admin.php:1107
 msgid "WordPress Core Capabilities"
 msgstr "Capacidades del núcleo de WordPress"
 
@@ -2645,7 +2660,7 @@ msgstr "Enlaces externos de WordPress"
 msgid "WordPress Logo"
 msgstr "Logotipo de WordPress"
 
-#: includes/admin.php:1616
+#: includes/admin.php:1631
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -2653,7 +2668,7 @@ msgstr ""
 "WordPress almacena las capacidades de los perfiles en su base de datos, "
 "donde permanecen incluso si el plugin está desactivado."
 
-#: includes/admin.php:1754
+#: includes/admin.php:1769
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr ""
 "Integración de WPML para replicar los permisos a las traducciones <em>(Pro)</"
@@ -2672,13 +2687,13 @@ msgstr ""
 "defecto de WordPress.\n"
 "«Cancelar» para detener, «Aceptar» para restablecer."
 
-#: includes/features/frontend-features/frontend-features-ui.php:99
+#: includes/features/frontend-features/frontend-features-ui.php:100
 msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
 msgstr ""
 "Puedes añadir el CSS para tus clases haciendo clic en «Añadir CSS "
 "personalizado»."
 
-#: includes/admin.php:1545
+#: includes/admin.php:1560
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "También puede configurar este perfil como un %sGrupo de permisos%s."
@@ -2792,7 +2807,7 @@ msgstr "No tienes permisos para restaurar perfiles."
 msgid "You do not have sufficient permissions to perform this action."
 msgstr "No tienes permisos suficientes para realizar esta acción."
 
-#: includes/admin.php:1510
+#: includes/admin.php:1525
 msgid "You have no additional capabilities."
 msgstr "No tienes capacidades adicionales."
 
@@ -2830,6 +2845,29 @@ msgstr "Tu enlace caducó, actualiza la página e intentalo de nuevo."
 msgid "Your Role"
 msgstr "Tu perfil"
 
+#~ msgid "Edit Roles"
+#~ msgstr "Editar perfiles"
+
+#~ msgid ""
+#~ "Manage WordPress role definitions, per-site or network-wide. Organizes "
+#~ "post capabilities by post type and operation."
+#~ msgstr ""
+#~ "Gestiona las definiciones de los perfiles de WordPress, por sitio o en "
+#~ "toda la red. Organiza las capacidades de las entradas por tipo de "
+#~ "contenido y operación."
+
+#~ msgid "negate all (storing as disabled capabilities)"
+#~ msgstr "negar todas (almacenar como capacidades desactivadas)"
+
+#~ msgid "negate none (add/remove all capabilities normally)"
+#~ msgstr "no negar ninguna (añadir/quitar todas las capacidades normalmente)"
+
+#~ msgid "Private"
+#~ msgstr "Privado"
+
+#~ msgid "Revise"
+#~ msgstr "Revisar"
+
 #~ msgid "Admin Toolbar"
 #~ msgstr "Barra de herramientas de administración"
 
@@ -2841,9 +2879,6 @@ msgstr "Tu perfil"
 
 #~ msgid "Reading"
 #~ msgstr "Lectura"
-
-#~ msgid "Create Role"
-#~ msgstr "Crear perfil"
 
 #~ msgid "Description here."
 #~ msgstr "Aquí va la descipción."
@@ -2944,14 +2979,8 @@ msgstr "Tu perfil"
 #~ msgid "Publish Status "
 #~ msgstr "Estado de la publicación "
 
-#~ msgid "Publish Visibility"
-#~ msgstr "Visibilidad de la publicación"
-
 #~ msgid "Redo"
 #~ msgstr "Rehacer"
-
-#~ msgid "Revisions"
-#~ msgstr "Revisiones"
 
 #~ msgid "Save Draft"
 #~ msgstr "Guardar el borrador"
