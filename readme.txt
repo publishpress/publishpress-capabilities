@@ -7,7 +7,7 @@ Tags: capabilities, permissions, admin menus, user roles, user role editor
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.8
-Stable tag: 2.20.0
+Stable tag: 2.21.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -434,6 +434,15 @@ Fixed : Non-administrators with user editing capabilities could add new Administ
 Fixed : Security issue. Please update.
 
 == Changelog ==
+
+= 2.21.0 = - 22 September 2025 =
+  * Fixed : WooCommerce sub-menus restriction bugs, #1447
+  * Fixed : Unable to Restrict access to Submenus under Settings menu, #1456
+  * Update : Disable Admin Notices by default, #1444
+  * Fixed : Pro: License key input limits key length, #1440
+  * Compat : PublishPress Revisions: Support Approve Revision capabilities, #1445
+  * Compat : Support management of Approve Revision capabilities, #1446
+  * Update : Translation Updates Capabilities 2.20.0-ES-FR-IT-BR, #1435
 
 = 2.20.0 = - 25 July 2025 =
   * Fixed : Error Message on Admin Features Restrictions screen, #1415
