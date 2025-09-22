@@ -405,6 +405,10 @@ PublishPress is the official brandname. When writing about this user role editor
 
 Common and incorrect typos include Capabilitise, Cpabilities, Capabiliites, Cspabilities, Capsbilities, Caoabilities, Calabilities.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the PublishPress Capabilities plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/9e5fb68c-2e40-4533-8563-1138f4dcbad5). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. Control user permissions: You can customize all the user roles on your site, from Administrator to Subscriber.
