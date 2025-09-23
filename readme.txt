@@ -435,7 +435,7 @@ Fixed : Security issue. Please update.
 
 == Changelog ==
 
-= 2.21.0 = - 22 September 2025 =
+= 2.21.0 = - 23 September 2025 =
   * Fixed : WooCommerce sub-menus restriction bugs, #1447
   * Fixed : Unable to Restrict access to Submenus under Settings menu, #1456
   * Update : Disable Admin Notices by default, #1444
