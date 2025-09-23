@@ -66,11 +66,18 @@ if( defined('PRESSPERMIT_ACTIVE') ) {
 }
 
 if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option')) {
-    $pp_revisions_copy   = rvy_get_option("copy_posts_capability");
-    $pp_revisions_revise = rvy_get_option("revise_posts_capability");
+	$pp_revisions_copy   = rvy_get_option("copy_posts_capability");
+	$pp_revisions_revise = rvy_get_option("revise_posts_capability");
+
+	if (version_compare(PUBLISHPRESS_REVISIONS_VERSION, '3.7.15-beta3', '>=')) {
+		$pp_revisions_approve = true;
+	} else {
+		$pp_revisions_approve = false;
+	}
 } else {
-    $pp_revisions_copy   = false;
-    $pp_revisions_revise = false;
+	$pp_revisions_copy   = false;
+	$pp_revisions_revise = false;
+	$pp_revisions_approve = false;
 }
 
 $cme_negate_all_tooltip_msg = '<span class="tool-tip-text">
@@ -221,13 +228,17 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
                 $cap_properties['list']['type'] = ['list_posts', 'list_others_posts', 'list_published_posts', 'list_private_posts'];
             }
 
-            if ($pp_revisions_copy) {
-                $cap_properties['copy']['type'] = ['copy_posts', 'copy_others_posts', 'copy_published_posts', 'copy_private_posts'];
-            }
+			if ($pp_revisions_copy) {
+				$cap_properties['copy']['type'] = ['copy_posts', 'copy_others_posts', 'copy_published_posts', 'copy_private_posts'];
+			}
 
-            if ($pp_revisions_revise) {
-                $cap_properties['revise']['type'] = ['revise_posts', 'revise_others_posts', 'revise_published_posts', 'revise_private_posts'];
-            }
+			if ($pp_revisions_revise) {
+				$cap_properties['revise']['type'] = ['revise_posts', 'revise_others_posts', 'revise_published_posts', 'revise_private_posts'];
+			}
+
+			if ($pp_revisions_approve) {
+				$cap_properties['approve']['type'] = ['approve_posts', 'approve_others_posts'];
+			}
 
 			$cap_properties['read']['type'] = array( 'read_private_posts' );
 
@@ -254,6 +265,10 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
             if ($pp_revisions_revise) {
                 $cap_type_names['revise'] = __('Submit Revision', 'capability-manager-enhanced');
             }
+
+			if ($pp_revisions_approve) {
+				$cap_type_names['approve'] = __('Approve Revision', 'capability-manager-enhanced');
+			}
 
 			$cap_tips = array(
 				'read_private' => esc_attr__( 'Can read posts which are currently published with private visibility.', 'capability-manager-enhanced' ),
@@ -689,25 +704,35 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
                                         }
                                     }
 
-                                    if ($pp_revisions_copy) {
-                                        //add copy capabilities
-                                        if (isset($type_obj->cap->edit_posts) && !isset($type_obj->cap->copy_posts)) {
-                                            $type_obj->cap->copy_posts = str_replace('edit_', 'copy_', $type_obj->cap->edit_posts);
-                                        }
-                                        if (isset($type_obj->cap->edit_others_posts) && !isset($type_obj->cap->copy_others_posts)) {
-                                            $type_obj->cap->copy_others_posts = str_replace('edit_', 'copy_', $type_obj->cap->edit_others_posts);
-                                        }
-                                    }
+									if ($pp_revisions_copy) {
+										//add copy capabilities
+										if (isset($type_obj->cap->edit_posts) && !isset($type_obj->cap->copy_posts)) {
+											$type_obj->cap->copy_posts = str_replace('edit_', 'copy_', $type_obj->cap->edit_posts);
+										}
+										if (isset($type_obj->cap->edit_others_posts) && !isset($type_obj->cap->copy_others_posts)) {
+											$type_obj->cap->copy_others_posts = str_replace('edit_', 'copy_', $type_obj->cap->edit_others_posts);
+										}
+									}
 
-                                    if ($pp_revisions_revise) {
-                                        //add revise capabilities
-                                        if (isset($type_obj->cap->edit_posts) && !isset($type_obj->cap->revise_posts)) {
-                                            $type_obj->cap->revise_posts = str_replace('edit_', 'revise_', $type_obj->cap->edit_posts);
-                                        }
-                                        if (isset($type_obj->cap->edit_others_posts) && !isset($type_obj->cap->revise_others_posts)) {
-                                            $type_obj->cap->revise_others_posts = str_replace('edit_', 'revise_', $type_obj->cap->edit_others_posts);
-                                        }
-                                    }
+									if ($pp_revisions_revise) {
+										//add revise capabilities
+										if (isset($type_obj->cap->edit_posts) && !isset($type_obj->cap->revise_posts)) {
+											$type_obj->cap->revise_posts = str_replace('edit_', 'revise_', $type_obj->cap->edit_posts);
+										}
+										if (isset($type_obj->cap->edit_others_posts) && !isset($type_obj->cap->revise_others_posts)) {
+											$type_obj->cap->revise_others_posts = str_replace('edit_', 'revise_', $type_obj->cap->edit_others_posts);
+										}
+									}
+
+									if ($pp_revisions_approve) {
+										//add approve capabilities
+										if (isset($type_obj->cap->edit_posts) && !isset($type_obj->cap->approve_posts)) {
+											$type_obj->cap->approve_posts = str_replace('edit_', 'approve_', $type_obj->cap->edit_posts);
+										}
+										if (isset($type_obj->cap->edit_others_posts) && !isset($type_obj->cap->approve_others_posts)) {
+											$type_obj->cap->approve_others_posts = str_replace('edit_', 'approve_', $type_obj->cap->edit_others_posts);
+										}
+									}
 
 									if ('wp_navigation' == $type_obj->name) {
 										$type_label = __('Nav Menus (Block)', 'capability-manager-enhanced');

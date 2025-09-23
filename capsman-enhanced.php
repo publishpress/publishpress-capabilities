@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Capabilities
  * Plugin URI: https://publishpress.com/capability-manager/
  * Description: PublishPress Capabilities is the access control plugin for WordPress. You can manage all your WordPress user roles, from Administrators to Subscribers.
- * Version: 2.20.0
+ * Version: 2.21.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: capability-manager-enhanced
@@ -69,7 +69,7 @@ if (
 add_action('plugins_loaded', function () {
 
 	if (!defined('CAPSMAN_VERSION')) {
-		define('CAPSMAN_VERSION', '2.20.0');
+		define('CAPSMAN_VERSION', '2.21.0');
 		define('CAPSMAN_ENH_VERSION', CAPSMAN_VERSION);
 		define('PUBLISHPRESS_CAPS_VERSION', CAPSMAN_VERSION);
 	}

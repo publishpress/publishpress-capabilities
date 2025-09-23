@@ -7,7 +7,7 @@ Tags: capabilities, permissions, admin menus, user roles, user role editor
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.8
-Stable tag: 2.20.0
+Stable tag: 2.21.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -405,6 +405,10 @@ PublishPress is the official brandname. When writing about this user role editor
 
 Common and incorrect typos include Capabilitise, Cpabilities, Capabiliites, Cspabilities, Capsbilities, Caoabilities, Calabilities.
 
+= Where do I report security bugs found in this plugin? =
+
+Please report security bugs found in the source code of the PublishPress Capabilities plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/9e5fb68c-2e40-4533-8563-1138f4dcbad5). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. Control user permissions: You can customize all the user roles on your site, from Administrator to Subscriber.
@@ -430,6 +434,15 @@ Fixed : Non-administrators with user editing capabilities could add new Administ
 Fixed : Security issue. Please update.
 
 == Changelog ==
+
+= 2.21.0 = - 23 September 2025 =
+  * Fixed : WooCommerce sub-menus restriction bugs, #1447
+  * Fixed : Unable to Restrict access to Submenus under Settings menu, #1456
+  * Update : Disable Admin Notices by default, #1444
+  * Fixed : Pro: License key input limits key length, #1440
+  * Compat : PublishPress Revisions: Support Approve Revision capabilities, #1445
+  * Compat : Support management of Approve Revision capabilities, #1446
+  * Update : Translation Updates Capabilities 2.20.0-ES-FR-IT-BR, #1435
 
 = 2.20.0 = - 25 July 2025 =
   * Fixed : Error Message on Admin Features Restrictions screen, #1415

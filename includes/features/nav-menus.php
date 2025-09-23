@@ -71,7 +71,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
 
                                     <div class="publishpress-filters">
                                         <select name="ppc-nav-menu-role" class="ppc-nav-menu-role">
-                                            <optgroup label="Users">
+                                            <optgroup label="<?php esc_attr_e('Users');?>">
                                                 <?php
                                                 foreach ($ppc_other_permissions as $p_value => $p_title) {
                                                     ?>
@@ -82,7 +82,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                 ?>
                                             </optgroup>
 
-                                            <optgroup label="Roles">
+                                            <optgroup label="<?php esc_attr_e('Roles');?>">
                                                 <?php
                                                 foreach ($roles as $role_name => $name) {
                                                     $name = translate_user_role($name);

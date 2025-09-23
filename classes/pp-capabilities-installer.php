@@ -12,7 +12,6 @@ class PP_Capabilities_Installer
     public static function runInstallTasks($currentVersion)
     {
         self::addPluginCapabilities();
-        self::addAdminNoticesSettings();
 
         /**
          * @param string $currentVersion
@@ -36,9 +35,6 @@ class PP_Capabilities_Installer
         if (version_compare($currentVersions, '2.17.0', '<')) {
             self::addRedirectsCapabilities();
         }
-        if (version_compare($currentVersions, '2.19.0', '<')) {
-            self::addAdminNoticesSettings();
-        }
 
         /**
          * @param string $previousVersion
@@ -53,7 +49,7 @@ class PP_Capabilities_Installer
 
         /**
          * We're not saving installation version prior to 2.8.0.
-         * So, we need another way to know if this is an upgrade or 
+         * So, we need another way to know if this is an upgrade or
          * new installs to add or upgrade role capabilities.
          */
         foreach ( wp_roles()->roles as $role_name => $role ) {
@@ -114,10 +110,10 @@ class PP_Capabilities_Installer
                 $role->add_cap('manage_capabilities_redirects');
             }
         }
-        
+
         /**
          * Migrate roles redirect setting to new option
-         * 
+         *
          */
         $role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
         foreach ( wp_roles()->roles as $role_name => $role ) {
@@ -141,17 +137,6 @@ class PP_Capabilities_Installer
         if (!empty($role_redirects)) {
             update_option('capsman_role_redirects', $role_redirects);
         }
-    }
-
-    private static function addAdminNoticesSettings() {
-
-        $admin_notice_settings = [];
-        foreach ( wp_roles()->roles as $role_name => $role ) {
-            $admin_notice_settings[$role_name]['enable_toolbar_access'] = true;
-            $admin_notice_settings[$role_name]['notice_type_remove'] =  ['success', 'error', 'warning', 'info'];
-            $admin_notice_settings[$role_name]['notice_type_display'] =  ['success', 'error', 'warning', 'info'];
-        }
-        update_option('cme_admin_notice_options', $admin_notice_settings);
     }
 
 }
