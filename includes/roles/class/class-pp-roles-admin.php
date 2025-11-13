@@ -118,7 +118,7 @@ class Pp_Roles_Admin
                 'icon'     => 'dashicons dashicons-products',
             ];
         }
-        
+
         $fields_tabs['advanced'] = [
             'label' => esc_html__('Advanced', 'capability-manager-enhanced'),
             'icon'     => 'dashicons dashicons-admin-generic',
@@ -268,7 +268,7 @@ class Pp_Roles_Admin
                 'options'     => $editor_options,
             ];
         }
-        
+
         if (defined('WC_PLUGIN_FILE')) {
             //add disable_woocommerce_admin_restrictions
             $fields['disable_woocommerce_admin_restrictions'] = [
@@ -281,7 +281,7 @@ class Pp_Roles_Admin
                 'required'     => false,
             ];
         }
-        
+
         /**
          * Customize fields presented on role screen.
          *
@@ -318,7 +318,7 @@ class Pp_Roles_Admin
         $tab_class = 'pp-roles-tab-tr pp-roles-' . $args['tab'] . '-tab';
         $tab_style = ($args['tab'] === $default_tab) ? '' : 'display:none;';
         ?>
-        <tr valign="top" 
+        <tr valign="top"
             class="<?php echo esc_attr('form-field role-' . $key . '-wrap '. $tab_class); ?>"
             data-tab="<?php echo esc_attr($args['tab']); ?>"
             style="<?php echo esc_attr($tab_style); ?>"
@@ -338,15 +338,15 @@ class Pp_Roles_Admin
                 <?php } ?>
             </th>
             <td>
-                <?php 
+                <?php
                 if ($key === 'role_editor') : ?>
-                    <?php 
-                    $allowed_editor = (isset($args['value']) && is_array($args['value']) && !empty($args['value'])) ? true : false;             
+                    <?php
+                    $allowed_editor = (isset($args['value']) && is_array($args['value']) && !empty($args['value'])) ? true : false;
                     $select_style   = ($allowed_editor) ? '' : 'display:none;';
                     ?>
                     <div class="role-editor-toggle-box">
-                        <input name="<?php echo esc_attr($key.'-toggle'); ?>" 
-                            id="<?php echo esc_attr($key); ?>" 
+                        <input name="<?php echo esc_attr($key.'-toggle'); ?>"
+                            id="<?php echo esc_attr($key); ?>"
                             class="allowed-editor-toggle"
                             type="checkbox"
                             value="1"
@@ -354,7 +354,7 @@ class Pp_Roles_Admin
                     </div>
 
                     <div class="role-editor-select-box" style="<?php echo esc_attr($select_style); ?>">
-                        <select 
+                        <select
                             name="<?php echo esc_attr($key); ?><?php echo $args['multiple'] ? '[]' : '';?>"
                             id="<?php echo esc_attr($key.'-select'); ?>"
                             class="pp-capabilities-role-choosen"
@@ -382,9 +382,9 @@ class Pp_Roles_Admin
                             </p>
                         <?php endif; ?>
                         </div>
-                <?php 
+                <?php
                 elseif ($args['type'] === 'select') : ?>
-                    <select 
+                    <select
                         name="<?php echo esc_attr($key); ?><?php echo $args['multiple'] ? '[]' : '';?>"
                         id="<?php echo esc_attr($key); ?>"
                         class="<?php echo (!$args['editable'] ? '' : 'pp-capabilities-role-choosen'); ?>"
@@ -419,8 +419,8 @@ class Pp_Roles_Admin
                 <?php
                 elseif ($args['type'] === 'button') :
                     ?>
-                    <input type="submit" 
-                        class="button-secondary pp-roles-delete-botton" 
+                    <input type="submit"
+                        class="button-secondary pp-roles-delete-botton"
                         id="<?php echo esc_attr($key); ?>"
                         name="<?php echo esc_attr($key); ?>"
                         value="<?php echo esc_attr($args['label']); ?>"
@@ -432,22 +432,22 @@ class Pp_Roles_Admin
                         <?php
                 elseif ($args['type'] === 'checkbox') :
                     ?>
-                    <input name="<?php echo esc_attr($key); ?>" 
-                        id="<?php echo esc_attr($key); ?>" 
+                    <input name="<?php echo esc_attr($key); ?>"
+                        id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="1"
                         <?php checked(1, (int)$args['value']); ?>
-                        <?php echo ($args['required'] ? 'required="true"' : '');?> 
+                        <?php echo ($args['required'] ? 'required="true"' : '');?>
                         <?php echo (!$args['editable'] ? 'readonly="readonly"' : ''); ?>/>
                         <?php if (isset($args['description'])) : ?>
                             <span class="description"><?php echo $args['description']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
                         <?php endif; ?>
                 <?php else : ?>
-                    <input name="<?php echo esc_attr($key); ?>" 
+                    <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
-                       <?php echo ($args['required'] ? 'required="true"' : '');?> 
+                       <?php echo ($args['required'] ? 'required="true"' : '');?>
                        <?php echo (!$args['editable'] ? 'readonly="readonly"' : ''); ?>/>
                         <?php if (isset($args['description'])) : ?>
                             <p class="description"><?php echo esc_html($args['description']); ?></p>
@@ -465,7 +465,7 @@ class Pp_Roles_Admin
     public function get_roles_edit_ui()
     {
         global $wp_roles;
-        
+
         if (!empty($_GET) && !empty($_GET['role_action'])) {
             $role_action = sanitize_key($_GET['role_action']);
         } else {
@@ -498,7 +498,7 @@ class Pp_Roles_Admin
             //add role level
             $current['role_level'] = (is_array($current) && isset($current['capabilities'])) ? ak_caps2level($current['capabilities']) : '0';
         }
-        
+
         $fields_tabs  = apply_filters('pp_roles_fields_tabs', self::get_fields_tabs($current, $role_edit, $role_copy), $current, $role_edit, $role_copy);
         $fields       = apply_filters('pp_roles_fields', self::get_fields($current, $role_edit, $role_copy), $current, $role_edit, $role_copy);
 
@@ -524,7 +524,7 @@ class Pp_Roles_Admin
                 esc_html__('Admin Features', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-admin-features&role=' . $current['role'] . '') . '">(' . $admin_features_counts . ')</a>',
                 esc_html__('Profile Features', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $current['role'] . '') . '">(' . $profile_features_counts . ')</a>',
                 esc_html__('Admin Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-admin-menus&role=' . $current['role'] . '') . '">(' . $admin_menus_counts . ')</a>',
-                esc_html__('Nav Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $current['role'] . '') . '">(' . $nav_menus_counts . ')</a>',
+                esc_html__('Navigation Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $current['role'] . '') . '">(' . $nav_menus_counts . ')</a>',
             ];
         } else {
             $features_counts = [];
@@ -534,7 +534,7 @@ class Pp_Roles_Admin
         ?>
         <div class="wrap pp-role-edit-wrap <?php echo esc_attr($tab_class); ?>">
             <h1>
-            <?php 
+            <?php
             if ($role_edit) {
                 printf( esc_html__('Edit Role: %s', 'capability-manager-enhanced'), esc_html($current['name']));
             } elseif ($role_copy) {
@@ -549,12 +549,12 @@ class Pp_Roles_Admin
             </h1>
             <div class="wp-clearfix"></div>
 
-            <form method="post" action="" onkeydown="return event.key != 'Enter';"> 
+            <form method="post" action="" onkeydown="return event.key != 'Enter';">
                 <input type="hidden" name="active_tab" class="ppc-roles-active-tab" value="<?php echo esc_attr($default_tab); ?>">
                 <input type="hidden" name="role_action" value="<?php echo esc_attr($role_action); ?>">
                 <input type="hidden" name="action" value="<?php echo ($role_action === 'edit' ? 'pp-roles-edit-role' : 'pp-roles-add-role'); ?>">
                 <input type="hidden" class="ppc-roles-all-roles" value="<?php echo esc_attr(join(',', array_keys($wp_roles->get_names()))); ?>">
-                <input type="hidden" name="_wpnonce" 
+                <input type="hidden" name="_wpnonce"
                 value="<?php echo esc_attr($role_action === 'edit' ? wp_create_nonce('edit-role') : wp_create_nonce('add-role') ); ?>"
                 >
                 <input type="hidden" name="current_role" class="ppc-roles-current-role" value="<?php echo esc_attr($current_role); ?>">
@@ -562,16 +562,16 @@ class Pp_Roles_Admin
                     <div id="post-body" class="metabox-holder columns-2">
                         <div id="post-body-content">
                             <div class="ppc-roles-section postbox">
-                                
+
                                 <div class="inside">
                                     <div class="main">
 
                                         <ul class="ppc-roles-tab">
-                                            <?php     
+                                            <?php
                                             foreach ($fields_tabs as $key => $args) {
                                                 $active_tab = ($key === $default_tab) ? ' active' : '';
                                                 ?>
-                                                <li class="<?php echo esc_attr($active_tab); ?>" 
+                                                <li class="<?php echo esc_attr($active_tab); ?>"
                                                     data-tab="<?php echo esc_attr($key); ?>"
                                                     >
                                                     <a href="#">
@@ -580,13 +580,13 @@ class Pp_Roles_Admin
                                                     </a>
                                                 </li>
                                                 <?php
-                                            } 
+                                            }
                                             ?>
                                         </ul>
-                                       
+
                                         <div class="ppc-roles-tab-content">
                                             <table class="form-table">
-                                                <?php     
+                                                <?php
                                                 foreach ($fields as $key => $args) {
                                                     $args['key']   = $key;
                                                     $args['value'] = (is_array($current) && isset($current[$args['value_key']])) ? $current[$args['value_key']] : '';
@@ -595,13 +595,13 @@ class Pp_Roles_Admin
                                                 }
                                                 ?>
                                             </table>
-                                        </div>                    
+                                        </div>
                                         <div class="clear"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-        
+
                         <div id="postbox-container-1" class="postbox-container ppc-roles-sidebar">
                             <div id="submitdiv" class="postbox">
                                 <div class="inside">
@@ -609,14 +609,14 @@ class Pp_Roles_Admin
                                         <div id="misc-publishing-actions">
                                             <div class="misc-pub-section misc-pub-section-last" style="margin:0;">
                                                 <p>
-                                                    <input type="submit" 
+                                                    <input type="submit"
                                                         value="<?php echo esc_attr($save_button_text); ?>" class="submit-role-form button-primary" id="publish" name="publish">
                                                 </p>
                                                 <p class="role-submit-response"></p>
                                             </div>
                                         </div>
 
-                                        
+
                                         <div id="major-publishing-actions">
                                             <div id="publishing-action">
                                                 <div class="features-counts">
@@ -638,8 +638,8 @@ class Pp_Roles_Admin
                                                 <span class="link">(<?php echo $capabilities_counts; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>)</span>
                                                 </h2>
                                                 <p class="description">
-                                                <?php 
-                                                
+                                                <?php
+
                                                 if ($role_action === 'edit' && current_user_can('manage_capabilities') && pp_capabilities_feature_enabled('capabilities')) {
                                                     $edit_link = '<a href="' . esc_url(add_query_arg(['page' => 'pp-capabilities', 'role' => esc_attr($current_role)], admin_url('admin.php'))) .'">';
                                                     $closing_tag = '</a>';
@@ -647,10 +647,10 @@ class Pp_Roles_Admin
                                                     $edit_link = '';
                                                     $closing_tag = '</a>';
                                                 }
-                                                
+
                                                     printf(
                                                         esc_html__(
-                                                            'These can be edited on the %1s Capabilities screen %2s', 
+                                                            'These can be edited on the %1s Capabilities screen %2s',
                                                             'capability-manager-enhanced'
                                                         ),
                                                         $edit_link,
@@ -683,7 +683,7 @@ class Pp_Roles_Admin
                                                         <?php echo esc_html__('Load Less', 'capability-manager-enhanced'); ?>
                                                     </div>
                                                     <?php endif;?>
-                                                    
+
                                                 <?php endif; ?>
                                                 </ul>
                                             </div>

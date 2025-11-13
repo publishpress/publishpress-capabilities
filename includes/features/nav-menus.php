@@ -154,7 +154,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                         </tfoot>
 
                                                         <tbody>
-                                                        
+
                                                         <?php
 
                                                         if (count($nav_menus) > 0) {
@@ -163,7 +163,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                             foreach ($nav_menus as $menu_id => $menu_name) {
                                                                 ?>
 
-                                                                <tr class="ppc-menu-row parent-menu section-menu opened" 
+                                                                <tr class="ppc-menu-row parent-menu section-menu opened"
                                                                     data-menu-id="<?php echo esc_attr($menu_id); ?>"
                                                                     >
 
@@ -174,7 +174,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                                         <label for="check-item-<?php echo (int) $sn; ?>">
                                                                         <span class="menu-item-link">
                                                                         <strong>
-                                                                        <i class="dashicons dashicons-open-folder"></i> 
+                                                                        <i class="dashicons dashicons-open-folder"></i>
                                                                             <?php if (!$fse_theme) : ?>
                                                                                 <i class="dashicons dashicons-arrow-right"></i>
                                                                             <?php endif; ?>
@@ -213,7 +213,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                                     } else {
                                                                         $depth_space = '&emsp;&emsp;';
                                                                     }
-                                                                    
+
                                                                     if (isset($menu_item->depth) && $menu_item->depth > 0) {
                                                                         if (isset($menu_item->is_parent_page) && $menu_item->is_parent_page === 1 && $menu_item->depth === 1) {
                                                                             //depth?
@@ -296,15 +296,15 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                     </fieldset>
                 </div><!-- .pp-column-left -->
                 <div class="pp-column-right pp-capabilities-sidebar">
-                <?php 
+                <?php
                 $banner_messages = ['<p>'];
-                $banner_messages[] = esc_html__('Nav Menus allows you to block access to frontend menu links.', 'capability-manager-enhanced');
+                $banner_messages[] = esc_html__('Navigation Menus allows you to block access to frontend menu links.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
                 $banner_messages[] = sprintf(esc_html__('%1$s = No change', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled>') . ' <br />';
                 $banner_messages[] = sprintf(esc_html__('%1$s = This feature is denied', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled>') . ' <br />';
                 $banner_messages[] = '</p>';
                 $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/nav-menus/"target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
-                $banner_title  = __('How to use Nav Menus', 'capability-manager-enhanced');
+                $banner_title  = __('How to use Navigation Menus', 'capability-manager-enhanced');
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
                 // add promo sidebar
                 pp_capabilities_pro_sidebox();
