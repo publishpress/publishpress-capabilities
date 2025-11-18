@@ -88,8 +88,8 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
 
                                 <select name="ppc-frontend-features-role" class="ppc-frontend-features-role">
                                     <optgroup label="<?php esc_attr_e('Users');?>">
-                                        <?php 
-                                            foreach ($ppc_other_permissions as $p_value => $p_title) { 
+                                        <?php
+                                            foreach ($ppc_other_permissions as $p_value => $p_title) {
                                                 ?>
                                             <option
                                                 value="<?php echo esc_attr($p_value); ?>"
@@ -103,9 +103,9 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                     </optgroup>
 
                                     <optgroup label="<?php esc_attr_e('Roles');?>">
-                                        <?php 
+                                        <?php
                                         foreach ($roles as $role_name => $name)  {
-                                            $name = translate_user_role($name); 
+                                            $name = translate_user_role($name);
                                         ?>
                                         <option
                                             value="<?php echo esc_attr($role_name); ?>"
@@ -114,7 +114,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                             &nbsp;
                                         </option>
                                         <?php
-                                        } 
+                                        }
                                         ?>
                                     </optgroup>
 
@@ -142,8 +142,8 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                                         <table
                                                             class="wp-list-table widefat striped fixed pp-capability-menus-select <?php echo esc_attr($section_slug); ?>-table">
                                                             <tbody>
-                                                                <?php do_action("pp_capabilities_frontend_features_{$section_slug}_before_subsection_tr"); 
-                                                                $display_title_class = empty($section_elements) ? 'temporarily hidden-element' : ''; 
+                                                                <?php do_action("pp_capabilities_frontend_features_{$section_slug}_before_subsection_tr");
+                                                                $display_title_class = empty($section_elements) ? 'temporarily hidden-element' : '';
                                                                 ?>
                                                                 <tr class="custom-table-title <?php echo esc_attr($display_title_class); ?>">
                                                                     <td colspan="2" class="title-td">
@@ -230,7 +230,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                             </div>
 
                             <div class="editor-features-footer-meta">
-                                <div style="float:right">
+                                <div class="ppc-footer-button" style="float:right">
                                     <input type="submit" name="frontend-features-submit"
                                         value="<?php esc_attr_e('Save Changes');?>"
                                         class="button-primary ppc-frontend-features-submit" />
@@ -242,7 +242,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                 </table>
             </div><!-- .pp-column-left -->
             <div class="pp-column-right pp-capabilities-sidebar">
-                <?php 
+                <?php
                 $banner_messages = ['<p>'];
                 $banner_messages[] = esc_html__('Frontend Features allows you to add or remove elements from the frontend of your site.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
