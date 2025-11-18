@@ -287,7 +287,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                     </div>
                                     <input type="submit" name="nav-menu-submit"
                                         value="<?php esc_attr_e('Save Changes');?>"
-                                        class="button-primary ppc-nav-menu-submit"/>
+                                        class="button-primary ppc-nav-menu-submit ppc-footer-button" style="float:right"/>
 
                                 </td>
                             </tr>
