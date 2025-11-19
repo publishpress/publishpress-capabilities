@@ -391,7 +391,7 @@ $active_tab_slug = (!empty($_REQUEST['pp_caps_tab'])) ? sanitize_key($_REQUEST['
                 //   reload page for instant reflection if user is updating own role
                 // -------------------------------------------------------------
                 <?php if(isset($ppc_page_reload) && !empty($ppc_page_reload) && (int)$ppc_page_reload === 1){ ?>
-                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-features&role=' . $default_role . '')); ?>'
+                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-features&role=' . $default_role . '&pp_caps_tab=' . $active_tab_slug . '')); ?>'
                 <?php } ?>
 
                 // -------------------------------------------------------------
