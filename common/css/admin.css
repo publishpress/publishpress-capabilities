@@ -1565,6 +1565,24 @@ ul.ppc-redirects-tab li.active a {
   text-decoration: none;
 }
 
+.ppc-item-highlight {
+    animation: highlightRow 2s ease-in-out;
+}
+
+.admin-item-highlight {
+  background-color: #fff3cd !important;
+}
+
+.admin-item-highlight.disabled,
+.ppc-disabled-button {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+.spinner.ppc-feature-post-loader:not(.is-active) {
+    display: none;
+}
+
 /* Start COPIED FROM PP BLOCKS */
 .pp-capability-menus-wrapper.capabilities-dashboard input {
     float: right;
@@ -1848,6 +1866,13 @@ ul.ppc-redirects-tab li.active a {
     .ppc-floating-status {
         left: 60px;
     }
+}
+
+.ppc-floating-status.ppc-floating-status--success {
+    color: #00d084;
+}
+.ppc-floating-status.ppc-floating-status--error {
+    color: #d63638;
 }
 
 .ppc-hide-menu-item {
