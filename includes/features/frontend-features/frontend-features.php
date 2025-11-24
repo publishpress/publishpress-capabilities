@@ -148,7 +148,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                                                 <tr class="custom-table-title <?php echo esc_attr($display_title_class); ?>">
                                                                     <td colspan="2" class="title-td">
                                                                         <label>
-                                                                            <?php printf(esc_html__('Apply for %1$s', 'capability-manager-enhanced'), esc_html($role_caption)); ?>
+                                                                            <?php printf(esc_html__('Enable Frontend Features for %1$s Role', 'capability-manager-enhanced'), esc_html($role_caption)); ?>
                                                                         </label>
                                                                     </td>
                                                                 </tr>
