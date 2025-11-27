@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
   * Fixed : Ensure user stay on same tab after saving changes, #1431
   * Fixed : Highlight enabled/checked "Frontend Features" options, #1488
   * Fixed : Improve Admin Feature Restrictions new CSS elements response messages, #1433
+    * Fixed : Admin menu restriction only working for the first 2 roles user belong, #1501
   * Compact : Remove "PublishPress Status Capabilities" from loco translate support, #1496
   * Removed : Translation Updates Capabilities 2.21.0-ES-FR-IT, #1461
 
