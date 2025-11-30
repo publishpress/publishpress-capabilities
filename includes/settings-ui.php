@@ -230,7 +230,7 @@ class Capabilities_Settings_UI {
                                                         value="<?php echo esc_attr($role); ?>"
                                                         <?php selected(in_array($role, $excluded_roles), true); ?>
                                                         >
-                                                        <?php echo esc_html($detail['name']); ?>
+                                                        <?php echo esc_html(translate_user_role($detail['name'])); ?>
                                                     </option>
                                                 <?php endforeach; ?>
                                             </select>
@@ -303,7 +303,7 @@ class Capabilities_Settings_UI {
                                                                 data-content="<?php echo esc_attr('.pp-admin-notices-settings-' . $role . '-content'); ?>"
                                                                 <?php selected($active_option, true); ?>
                                                             >
-                                                                <?php echo esc_html($detail['name']); ?>
+                                                                <?php echo esc_html(translate_user_role($detail['name'])); ?>
                                                             </option>
                                                             <?php     
                                                         endforeach; ?>
@@ -333,7 +333,7 @@ class Capabilities_Settings_UI {
                                                         <?php checked($toolbar_access, true);?>
                                                     >
                                                     <span class="description">
-                                                        <?php printf(esc_html__('Enable %1s access to the Admin Notices area.', 'capability-manager-enhanced'), esc_html($detail['name'])); ?>
+                                                        <?php printf(esc_html__('Enable %1s access to the Admin Notices area.', 'capability-manager-enhanced'), esc_html(translate_user_role($detail['name']))); ?>
                                                     </span>
                                                 </label>
                                                 <br>
@@ -357,7 +357,7 @@ class Capabilities_Settings_UI {
                                                 <?php endforeach; ?>
                                                 
                                                 <span class="description">
-                                                    <?php printf(esc_html__('Select the notification types that should be hidden when a user in the %1s role is viewing WordPress admin screens.', 'capability-manager-enhanced'), esc_html($detail['name'])); ?> <a target="_blank" href="https://publishpress.com/knowledge-base/notice-types"><?php esc_html_e('Click here for more on notice types.', 'capability-manager-enhanced'); ?></a>
+                                                    <?php printf(esc_html__('Select the notification types that should be hidden when a user in the %1s role is viewing WordPress admin screens.', 'capability-manager-enhanced'), esc_html(translate_user_role($detail['name']))); ?> <a target="_blank" href="https://publishpress.com/knowledge-base/notice-types"><?php esc_html_e('Click here for more on notice types.', 'capability-manager-enhanced'); ?></a>
                                                 </span>
                                             </td>
                                         </tr>
