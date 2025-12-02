@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-= 2.22.0 = - 24 November 2025 =
+= 2.22.0 = - 02 December 2025 =
   * Changed : Change "Nav Menus" to "Navigation Menus", #1443
   * Fixed : Link "Revision Status Capabilities" directly to the Post Access tab, #1480
   * Fixed : Wrong text in Editor Features screen, #1413
