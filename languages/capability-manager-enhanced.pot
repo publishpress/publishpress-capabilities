@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-22 14:52+0000\n"
+"POT-Creation-Date: 2025-11-24 14:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
@@ -368,11 +368,6 @@ msgstr ""
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 msgid "An error occured!"
-msgstr ""
-
-#: includes/features/frontend-features/frontend-features.php:151
-#, php-format
-msgid "Apply for %1$s"
 msgstr ""
 
 #: includes/admin.php:270
@@ -853,6 +848,11 @@ msgstr ""
 msgid "Enable Classic Editor tab"
 msgstr ""
 
+#: includes/features/frontend-features/frontend-features.php:151
+#, php-format
+msgid "Enable Frontend Features for %1$s Role"
+msgstr ""
+
 #: includes/features/frontend-features/frontend-features-ui.php:101
 msgid ""
 "Enter classes that should be added to the body HTML. Separate multiple "
@@ -1113,7 +1113,7 @@ msgid "How to use Frontend Features"
 msgstr ""
 
 #: includes/features/nav-menus.php:307
-msgid "How to use Nav Menus"
+msgid "How to use Navigation Menus"
 msgstr ""
 
 #: includes/features/profile-features.php:243
@@ -1344,11 +1344,6 @@ msgstr ""
 msgid "Nav Menu"
 msgstr ""
 
-#: includes/functions-admin.php:399 includes/functions-admin.php:498
-#: includes/roles/class/class-pp-roles-admin.php:527
-msgid "Nav Menus"
-msgstr ""
-
 #: includes/admin.php:187 includes/admin.php:738
 msgid "Nav Menus (Block)"
 msgstr ""
@@ -1357,12 +1352,17 @@ msgstr ""
 msgid "Nav Menus (Legacy)"
 msgstr ""
 
-#: includes/functions-admin.php:400 includes/features/nav-menus.php:301
-msgid "Nav Menus allows you to block access to frontend menu links."
-msgstr ""
-
 #: includes/features/nav-menus.php:61
 msgid "Navigation Menu Restrictions"
+msgstr ""
+
+#: includes/functions-admin.php:399 includes/functions-admin.php:498
+#: includes/roles/class/class-pp-roles-admin.php:527
+msgid "Navigation Menus"
+msgstr ""
+
+#: includes/functions-admin.php:400 includes/features/nav-menus.php:301
+msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr ""
 
 #: includes/functions.php:665
@@ -1410,11 +1410,11 @@ msgstr ""
 msgid "No changes"
 msgstr ""
 
-#: includes/features/editor-features-classic.php:162
+#: includes/features/editor-features-classic.php:163
 #: includes/features/editor-features-gutenberg.php:158
 #, php-format
 msgid ""
-"No metaboxes found for %1s. %2s Click here %3s to visit the Posts screen and "
+"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
 "refresh this page afterwards to load the new metaboxes."
 msgstr ""
 

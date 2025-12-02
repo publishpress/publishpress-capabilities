@@ -117,23 +117,33 @@ class CME_Cap_Helper {
 					continue;
 				}
 
-				// If a cap property is non-generic and not used by any other post types, keep it as is
-				if ( $this->all_type_caps[ $type_caps[$cap_property] ] <= 1 ) {
-					unset( $cap_properties[$k] );
+				if ( isset( $type_caps[$cap_property] ) ) {
+					$current_cap = $type_caps[$cap_property];
 
-				// If a cap property is used by any other post types, still keep it if it is the standard type-specific capability form for this post type
-				} elseif ( ( $type_caps[$cap_property] == str_replace( "_posts", "_{$post_type}s", $cap_property ) )
-						|| ( $type_caps[$cap_property] == str_replace( "_pages", "_{$post_type}s", $cap_property ) ) ) {
+					if ( isset( $this->all_type_caps[$current_cap] ) ) {
 
-					unset( $cap_properties[$k] );
+						// If a cap property is non-generic and not used by any other post types, keep it as is
+						if ( $this->all_type_caps[$current_cap] <= 1 ) {
+							unset( $cap_properties[$k] );
 
-				// If a cap property is used by any other post types, still keep it if it is the custom pluralized type-specific capability form for this post type
-				} else {
-					$plural_type = _cme_get_plural( $post_type, $wp_post_types[$post_type] );
-					if ( ( $type_caps[$cap_property] == str_replace( "_posts", "_{$plural_type}", $cap_property ) )
-						|| ( $type_caps[$cap_property] == str_replace( "_pages", "_{$plural_type}", $cap_property ) ) ) {
+						// If a cap property is used by any other post types, still keep it if it is the standard type-specific capability form for this post type
+						} elseif (
+							$current_cap == str_replace( "_posts", "_{$post_type}s", $cap_property ) ||
+							$current_cap == str_replace( "_pages", "_{$post_type}s", $cap_property )
+						) {
+							unset( $cap_properties[$k] );
 
-						unset( $cap_properties[$k] );
+						// If a cap property is used by any other post types, still keep it if it is the custom pluralized type-specific capability form for this post type
+						} else {
+							$plural_type = _cme_get_plural( $post_type, $wp_post_types[$post_type] );
+
+							if (
+								$current_cap == str_replace( "_posts", "_{$plural_type}", $cap_property ) ||
+								$current_cap == str_replace( "_pages", "_{$plural_type}", $cap_property )
+							) {
+								unset( $cap_properties[$k] );
+							}
+						}
 					}
 				}
 			}

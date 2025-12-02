@@ -3,7 +3,7 @@
     <?php foreach(['thead', 'tfoot'] as $tag_name):?>
     <<?php echo esc_attr($tag_name);?>>
     <tr>
-        <th class="restrict-column ppc-menu-row"> 
+        <th class="restrict-column ppc-menu-row">
             <input class="check-item gutenberg check-all-menu-item" type="checkbox" data-pp_type="<?php echo esc_attr($type_obj->name);?>" />
         </th>
         <th class="menu-column"></th>
@@ -58,8 +58,8 @@
                     }
                 } else {
                     /**
-                     * Skip this element for post type if for some reason 
-                     * global $_wp_post_type_features is empty or doesn't 
+                     * Skip this element for post type if for some reason
+                     * global $_wp_post_type_features is empty or doesn't
                      * contain data for current post type
                      */
                     if (empty($_wp_post_type_features) || !is_array($_wp_post_type_features) || !isset($_wp_post_type_features[$type_obj->name])) {
@@ -75,7 +75,7 @@
             //unset if it has feature support
             if (isset($empty_post_type_feature[$type_obj->name][$section_slug])) {
                 /**
-                 * add phpcs ignore due to false alarm 
+                 * add phpcs ignore due to false alarm
                  * as the variable is defined in main page
                  */
                 // phpcs:ignore WordPressVIPMinimum.Variables.VariableAnalysis.UndefinedUnsetVariable
@@ -112,18 +112,18 @@
                     </div>
                     <div class="ppc-flex-item">
                         <div class="button view-custom-item"><?php esc_html_e('View'); ?></div>
-                            <div class="button edit-features-custom-item" 
+                            <div class="button edit-features-custom-item"
                                 data-section="<?php echo esc_attr($section_slug); ?>"
                                 data-label="<?php echo esc_attr($arr_feature['label']); ?>"
                                 data-element="<?php echo esc_attr($arr_feature['element_items']); ?>"
                                 data-id="<?php echo esc_attr($arr_feature['button_data_id']); ?>">
                                 <?php esc_html_e('Edit', 'capability-manager-enhanced'); ?>
                             </div>
-                            <div 
-                                class="button <?php echo esc_attr($arr_feature['button_class']); ?> feature-red" 
-                                data-parent="<?php echo esc_attr($arr_feature['button_data_parent']); ?>" 
+                            <div
+                                class="button <?php echo esc_attr($arr_feature['button_class']); ?> feature-red"
+                                data-parent="<?php echo esc_attr($arr_feature['button_data_parent']); ?>"
                                 data-id="<?php echo esc_attr($arr_feature['button_data_id']); ?>">
-                                <?php esc_html_e('Delete'); ?>    
+                                <?php esc_html_e('Delete'); ?>
                             </div>
                         </div>
                     </div>
@@ -156,12 +156,13 @@
                     <p class="cme-subtext">
                         <?php printf(
                             esc_html__(
-                                'No metaboxes found for %1s. %2s Click here %3s to visit the Posts screen and refresh this page afterwards to load the new metaboxes.',
+                                'No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and refresh this page afterwards to load the new metaboxes.',
                                 'capability-manager-enhanced'
-                            ), 
-                            esc_html($type_obj->labels->singular_name), 
-                            '<a href="'. esc_url(admin_url('post-new.php?post_type='.$type_obj->name)) .'">', 
+                            ),
+                            esc_html($type_obj->labels->singular_name),
+                            '<a href="'. esc_url(admin_url('post-new.php?post_type='.$type_obj->name)) .'">',
                             '</a>',
+                            esc_html($type_obj->labels->singular_name),
                             esc_html($type_obj->labels->singular_name)
                         ); ?>
                     </p>

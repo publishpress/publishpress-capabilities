@@ -331,9 +331,16 @@ class PP_Capabilities_Admin_Features
             }
         }
 
-		//merge all array values incase it's more than role
-        //$all_disabled_elements = array_merge(...$all_disabled_elements);  // This is a PHP 7.4 operator
-        $all_disabled_elements = (is_array($all_disabled_elements) && isset($all_disabled_elements[0])) ? array_merge($all_disabled_elements[0]) : [];
+        if (is_array($all_disabled_elements) && !empty($all_disabled_elements)) {
+            $all_disabled_elements = array_filter($all_disabled_elements, 'is_array');
+            if (!empty($all_disabled_elements)) {
+                $all_disabled_elements = call_user_func_array('array_merge', $all_disabled_elements);
+            } else {
+                $all_disabled_elements = [];
+            }
+        } else {
+            $all_disabled_elements = [];
+        }
 
         do_action('ppc_admin_feature_restriction', $all_disabled_elements);
 
