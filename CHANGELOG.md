@@ -1,6 +1,24 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= 2.22.0 = - 02 December 2025 =
+  * Changed : Change "Nav Menus" to "Navigation Menus", #1443
+  * Fixed : Link "Revision Status Capabilities" directly to the Post Access tab, #1480
+  * Fixed : Wrong text in Editor Features screen, #1413
+  * Fixed : PHP message: PHP Warning: Undefined array key 0, #1469
+  * Removed : Remove the social links from admin footer, #1465
+  * Update : Improve new admin menu links messages, #1450
+  * Fixed : More room for long capabilities names, #1492
+  * Fixed : Frontend Features save button spacing, #1491
+  * Fixed : Nav Menus screen save button spacing, #1463
+  * Update : Update text for new admin menu links, #1448
+  * Fixed : Ensure user stay on same tab after saving changes, #1431
+  * Fixed : Highlight enabled/checked "Frontend Features" options, #1488
+  * Fixed : Improve Admin Feature Restrictions new CSS elements response messages, #1433
+    * Fixed : Admin menu restriction only working for the first 2 roles user belong, #1501
+  * Compact : Remove "PublishPress Status Capabilities" from loco translate support, #1496
+  * Removed : Translation Updates Capabilities 2.21.0-ES-FR-IT, #1461
+
 = 2.21.0 = - 23 September 2025 =
   * Fixed : WooCommerce sub-menus restriction bugs, #1447
   * Fixed : Unable to Restrict access to Submenus under Settings menu, #1456

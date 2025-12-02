@@ -116,9 +116,9 @@ $active_tab_text = is_object($active_tab_type_obj)
                                             class="button-secondary ppc-editor-features-submit" style="float:right" />
 
                                     <input type="submit" name="editor-features-submit"
-                                        value="<?php esc_attr_e(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), esc_html($active_tab_text))); ?>"
+                                        value="<?php echo esc_attr(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), esc_html($active_tab_text))); ?>"
                                         class="button-primary ppc-editor-features-submit" style="float:right"
-                                        data-current_cpt="<?php esc_attr_e(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), 'post_type')); ?>" />
+                                        data-current_cpt="<?php echo esc_attr(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), 'post_type')); ?>" />
                                 </div>
 
                             <?php if ($classic_editor) : ?>
@@ -218,9 +218,9 @@ $active_tab_text = is_object($active_tab_type_obj)
                                     class="button-secondary ppc-editor-features-submit" style="float:right" />
 
                                 <input type="submit" name="editor-features-submit"
-                                    value="<?php esc_attr_e(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), esc_html($active_tab_text))); ?>"
+                                    value="<?php echo esc_attr(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), esc_html($active_tab_text))); ?>"
                                     class="button-primary ppc-editor-features-submit" style="float:right"
-                                    data-current_cpt="<?php esc_attr_e(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), 'post_type')); ?>" />
+                                    data-current_cpt="<?php echo esc_attr(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), 'post_type')); ?>" />
 
                                 </div>
                             </div>

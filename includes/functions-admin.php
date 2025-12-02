@@ -380,11 +380,6 @@ function pp_capabilities_dashboard_options() {
         'description'  => esc_html__('Admin Features allows you to remove elements from the admin area and toolbar.', 'capability-manager-enhanced'),
     ];
 
-    $features['frontend-features'] = [
-        'label'        => esc_html__('Frontend Features', 'capability-manager-enhanced'),
-        'description'  => esc_html__('Frontend Features allows you to add or remove elements from the frontend of your site.', 'capability-manager-enhanced'),
-    ];
-
     $features['profile-features'] = [
         'label'        => esc_html__('Profile Features', 'capability-manager-enhanced'),
         'description'  => esc_html__('Profile Features allows you to remove elements from the Profile screen.', 'capability-manager-enhanced'),
@@ -393,6 +388,11 @@ function pp_capabilities_dashboard_options() {
     $features['redirects'] = [
         'label'        => esc_html__('Redirects', 'capability-manager-enhanced'),
         'description'  => esc_html__('Redirects allows you to redirect users in a role after Registration, Login or Logout.', 'capability-manager-enhanced'),
+    ];
+
+    $features['frontend-features'] = [
+        'label'        => esc_html__('Frontend Features', 'capability-manager-enhanced'),
+        'description'  => esc_html__('Frontend Features allows you to add or remove elements from the frontend of your site.', 'capability-manager-enhanced'),
     ];
 
     $features['nav-menus'] = [
@@ -464,13 +464,6 @@ function pp_capabilities_sub_menu_lists($cme_fakefunc = false) {
         'callback'          => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminFeatures'],
         'dashboard_control' => true,
     ];
-    $sub_menu_pages['frontend-features'] = [
-        'title'             => __('Frontend Features', 'capability-manager-enhanced'),
-        'capabilities'      => $super_user ? 'read' : 'manage_capabilities_frontend_features',
-        'page'              => 'pp-capabilities-frontend-features',
-        'callback'          => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageFrontendFeatures'],
-        'dashboard_control' => true,
-    ];
     if ($cme_fakefunc) {
         $sub_menu_pages['admin-menus'] = [
             'title'             => __('Admin Menus', 'capability-manager-enhanced'),
@@ -492,6 +485,13 @@ function pp_capabilities_sub_menu_lists($cme_fakefunc = false) {
         'capabilities'      => $super_user ? 'read' : 'manage_capabilities_redirects',
         'page'              => 'pp-capabilities-redirects',
         'callback'          => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageRedirects'],
+        'dashboard_control' => true,
+    ];
+    $sub_menu_pages['frontend-features'] = [
+        'title'             => __('Frontend Features', 'capability-manager-enhanced'),
+        'capabilities'      => $super_user ? 'read' : 'manage_capabilities_frontend_features',
+        'page'              => 'pp-capabilities-frontend-features',
+        'callback'          => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageFrontendFeatures'],
         'dashboard_control' => true,
     ];
     $sub_menu_pages['nav-menus'] = [
