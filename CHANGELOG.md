@@ -1,6 +1,10 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+= 2.23.0 = - 04 December 2025 =
+  * Fixed : Undefined function causing fatal error, #1510
+  * Update : Translation Updates Capabilities 2.22.0 ES-FR-BR, #1508
+
 = 2.22.0 = - 02 December 2025 =
   * Changed : Change "Nav Menus" to "Navigation Menus", #1443
   * Fixed : Link "Revision Status Capabilities" directly to the Post Access tab, #1480
