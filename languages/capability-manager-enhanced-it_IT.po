@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Plugins - PublishPress Capabilities &#8211; User Role "
 "Access, Editor Permissions, Admin Menus - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2025-09-22 14:52+0000\n"
-"PO-Revision-Date: 2025-09-24 09:27+0200\n"
+"POT-Creation-Date: 2025-11-24 14:25+0000\n"
+"PO-Revision-Date: 2025-12-03 10:39+0100\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -102,7 +102,6 @@ msgstr ""
 
 #: includes/backup.php:191
 #, php-format
-#| msgid "%s (level %s)"
 msgid "%s (%s roles)"
 msgstr "%s (ruoli %s)"
 
@@ -401,11 +400,6 @@ msgstr ""
 #: includes/features/frontend-features/frontend-features-action.php:110
 msgid "An error occured!"
 msgstr "Si è verificato un errore!"
-
-#: includes/features/frontend-features/frontend-features.php:151
-#, php-format
-msgid "Apply for %1$s"
-msgstr "Applica a %1$s"
 
 #: includes/admin.php:270
 msgid "Approve Revision"
@@ -937,6 +931,11 @@ msgstr "Abilita %1s accesso all'area degli avvisi dell'amministratore."
 msgid "Enable Classic Editor tab"
 msgstr "Abilita la scheda dell'Editor classico"
 
+#: includes/features/frontend-features/frontend-features.php:151
+#, php-format
+msgid "Enable Frontend Features for %1$s Role"
+msgstr "Abilita le caratteristiche del frontend per il ruolo %1$s"
+
 #: includes/features/frontend-features/frontend-features-ui.php:101
 msgid ""
 "Enter classes that should be added to the body HTML. Separate multiple "
@@ -1234,7 +1233,7 @@ msgid "How to use Frontend Features"
 msgstr "Come si usano le funzionalità di frontend"
 
 #: includes/features/nav-menus.php:307
-msgid "How to use Nav Menus"
+msgid "How to use Navigation Menus"
 msgstr "Come utilizzare i menu di navigazione"
 
 #: includes/features/profile-features.php:243
@@ -1470,11 +1469,6 @@ msgstr "Multisito"
 msgid "Nav Menu"
 msgstr "Menu di navigazione"
 
-#: includes/functions-admin.php:399 includes/functions-admin.php:498
-#: includes/roles/class/class-pp-roles-admin.php:527
-msgid "Nav Menus"
-msgstr "Menu navigazione"
-
 #: includes/admin.php:187 includes/admin.php:738
 msgid "Nav Menus (Block)"
 msgstr "Menu navigazione (blocco)"
@@ -1483,15 +1477,20 @@ msgstr "Menu navigazione (blocco)"
 msgid "Nav Menus (Legacy)"
 msgstr "Menu navigazione (legacy)"
 
-#: includes/functions-admin.php:400 includes/features/nav-menus.php:301
-msgid "Nav Menus allows you to block access to frontend menu links."
-msgstr ""
-"Menu di navigazione - ti permette di bloccare l'accesso ai link dei menu del "
-"frontend."
-
 #: includes/features/nav-menus.php:61
 msgid "Navigation Menu Restrictions"
 msgstr "Limitazioni menu di navigazione"
+
+#: includes/functions-admin.php:399 includes/functions-admin.php:498
+#: includes/roles/class/class-pp-roles-admin.php:527
+msgid "Navigation Menus"
+msgstr "Menu di navigazione"
+
+#: includes/functions-admin.php:400 includes/features/nav-menus.php:301
+msgid "Navigation Menus allows you to block access to frontend menu links."
+msgstr ""
+"I menu di navigazione ti permettono di bloccare l'accesso ai link dei menu "
+"del frontend."
 
 #: includes/functions.php:665
 msgid "Need PublishPress Capabilities Support?"
@@ -1542,16 +1541,15 @@ msgstr "Il nuovo ruolo é stato creato."
 msgid "No changes"
 msgstr "Nessuna modifica"
 
-#: includes/features/editor-features-classic.php:162
+#: includes/features/editor-features-classic.php:163
 #: includes/features/editor-features-gutenberg.php:158
 #, php-format
 msgid ""
-"No metaboxes found for %1s. %2s Click here %3s to visit the Posts screen and "
+"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
 "refresh this page afterwards to load the new metaboxes."
 msgstr ""
 "Nessun metabox trovato per %1s. %2s Fai clic qui %3s per visitare la "
-"schermata dgli articoli e aggiornare questa pagina dopo aver caricato il "
-"nuovo metabox."
+"schermata %4s e aggiornare questa pagina dopo aver caricato i nuovi metabox."
 
 #: includes/admin-load.php:607
 msgid "No permission!"
@@ -2802,6 +2800,13 @@ msgstr "Il tuo link è scaduto, ricarica la pagina e prova ancora."
 msgid "Your Role"
 msgstr "Il tuo ruolo"
 
+#, php-format
+#~ msgid "Apply for %1$s"
+#~ msgstr "Applica a %1$s"
+
+#~ msgid "Nav Menus"
+#~ msgstr "Menu navigazione"
+
 #~ msgid "Admin Menu restrictions"
 #~ msgstr "Restrizioni menu amministrazione"
 
@@ -2832,9 +2837,6 @@ msgstr "Il tuo ruolo"
 
 #~ msgid "Remove metaboxes on the editing screen"
 #~ msgstr "Rimuovi i metabox nella schermata di modifica"
-
-#~ msgid "Target Frontend Features for specific pages"
-#~ msgstr "Caratteristiche di frontend mirate per pagine specifiche"
 
 #~ msgid "Upgrade to Capabilities Pro"
 #~ msgstr "Aggiorna a Capabilities Pro"
