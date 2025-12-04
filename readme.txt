@@ -7,7 +7,7 @@ Tags: capabilities, permissions, admin menus, user roles, user role editor
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 6.8
-Stable tag: 2.22.0
+Stable tag: 2.23.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
