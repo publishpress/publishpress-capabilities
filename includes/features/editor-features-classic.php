@@ -153,7 +153,6 @@
          //add class to remove row list
          if (isset($empty_post_type_feature[$type_obj->name][$section_slug])) {
             if ($section_slug === 'metaboxes') {
-                write_log($type_obj);
                 //we want to leave metabox header with message
                 ?>
                 <tr class="ppc-menu-row parent-menu">
