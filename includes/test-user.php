@@ -44,7 +44,7 @@ class PP_Capabilities_Test_User
     public function handleUserAction()
     {
         global $current_user;
-            
+
         if (!is_user_logged_in() || !isset($_GET['ppc_test_user']) || !isset($_GET['_wpnonce'])) {
             return;
         }
@@ -57,7 +57,7 @@ class PP_Capabilities_Test_User
         $ppc_return_back = isset($_GET['ppc_return_back']) ? (int) sanitize_text_field($_GET['ppc_return_back']) : 0;
         $current_user_id = get_current_user_id();
         $request_user    = get_userdata($request_user_id);
-        
+
         if (!$request_user || (is_object($request_user) && !isset($request_user->ID))) {
             wp_die(esc_html__('Unable to retrieve user data.', 'capability-manager-enhanced'));
         } else {
@@ -94,12 +94,14 @@ class PP_Capabilities_Test_User
 
                 if ($profile_feature_action === 1) {
                     $redirect_url = admin_url('profile.php?ppc_profile_element=1');
-                } else {
+                } elseif (user_can($request_user->ID, 'read')) {
                     $redirect_url = admin_url();
+                } else {
+                    $redirect_url = home_url();;
                 }
 
                 $original_user_id = $current_user_id;
-                
+
                 // Create and set auth cookie for current user before switching
                 $token = function_exists('wp_get_session_token') ? wp_get_session_token() : '';
                 $orig_auth_cookie = wp_generate_auth_cookie($current_user->ID, time() + self::AUTH_COOKIE_EXPIRATION, 'logged_in', $token);
@@ -159,8 +161,8 @@ class PP_Capabilities_Test_User
         $excluded_roles = (array) get_option('cme_test_user_excluded_roles', []);
 
         $can_test_user  = false;
-        if (current_user_can('manage_capabilities_user_testing') 
-            && current_user_can('edit_user', $user->ID) 
+        if (current_user_can('manage_capabilities_user_testing')
+            && current_user_can('edit_user', $user->ID)
             && $user->ID !== get_current_user_id()
             && !array_intersect($excluded_roles, $user->roles)
         ) {
