@@ -300,6 +300,12 @@ function ppc_role_redirect_after_registration($user_id) {
     $user = get_user_by('ID', $user_id);
 
     if (pp_capabilities_feature_enabled('redirects') && is_object($user) && isset($user->roles) && is_array($user->roles)) {
+
+        $bypass = apply_filters('ppc_registration_redirect_bypass', false, '', $user);
+        if ($bypass) {
+            return;
+        }
+
         $role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
 
         foreach ($user->roles as $user_role) {
@@ -358,6 +364,12 @@ add_filter('woocommerce_registration_redirect', 'woocommerce_registration_redire
 function ppc_roles_login_redirect($redirect_to, $request, $user) {
 
     if (pp_capabilities_feature_enabled('redirects') && isset($user->roles) && is_array($user->roles)) {
+
+        $bypass = apply_filters('ppc_login_redirect_bypass', false, $redirect_to, $user);
+        if ($bypass) {
+            return $redirect_to;
+        }
+
         $role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
         $is_first_login = get_user_meta($user->ID, '_ppc_first_login', true);
         foreach ($user->roles as $user_role) {
@@ -405,6 +417,12 @@ add_filter('login_redirect', 'ppc_roles_login_redirect', 10, 3);
 function ppc_roles_woocommerce_login_redirect($redirect_to, $user) {
 
     if (pp_capabilities_feature_enabled('redirects') && isset($user->roles) && is_array($user->roles)) {
+
+        $bypass = apply_filters('ppc_woocommerce_login_redirect_bypass', false, $redirect_to, $user);
+        if ($bypass) {
+            return $redirect_to;
+        }
+
         $role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
         $is_first_login = get_user_meta($user->ID, '_ppc_first_login', true);
         foreach ($user->roles as $user_role) {
@@ -485,6 +503,11 @@ add_action( 'wp_footer', 'ppc_roles_last_visited_page_cookie' );
 function ppc_roles_logout_redirect($redirect_to, $request, $user) {
 
     if (pp_capabilities_feature_enabled('redirects') && isset($user->roles) && is_array($user->roles)) {
+        $bypass = apply_filters('ppc_logout_redirect_bypass', false, $redirect_to, $user);
+        if ($bypass) {
+            return $redirect_to;
+        }
+
         $role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
         foreach ($user->roles as $user_role) {
             //get role option
