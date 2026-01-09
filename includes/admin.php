@@ -129,10 +129,20 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 		<div class="pp-column-left">
             <div style="margin-bottom: 20px;">
                 <div class="pp-capabilities-submit-top" style="float:right">
-                    <?php
-                    $caption = (in_array(sanitize_key(get_locale()), ['en_EN', 'en_US'])) ? 'Save Capabilities' : __('Save Changes');
-                    ?>
-                    <input type="submit" name="SaveRole" value="<?php echo esc_attr($caption);?>" class="button-primary" />
+					<div class="capabilities-top-action">
+						<div class="pp-capabilities-global-search">
+							<input type="text" id="pp-global-capability-search"
+								class="regular-text"
+								placeholder="<?php esc_attr_e('Search capabilities...', 'capability-manager-enhanced'); ?>" />
+							<div id="pp-search-results-summary" style="font-size: 12px; color: #666;"></div>
+						</div>
+						<div>
+							<?php
+							$caption = (in_array(sanitize_key(get_locale()), ['en_EN', 'en_US'])) ? 'Save Capabilities' : __('Save Changes');
+							?>
+							<input type="submit" name="SaveRole" value="<?php echo esc_attr($caption);?>" class="button-primary" />
+						</div>
+					</div>
                 </div>
 
                 <select name="role">
@@ -318,7 +328,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 				}
 
 				// Tabs and Content display
-				$('.ppc-capabilities-tabs > ul > li').click( function() {
+				$(document).on('click', '.ppc-capabilities-tabs > ul > li', function() {
 					var $pp_tab = $(this).attr('data-content');
 					var data_slug = $(this).attr('data-slug');
 
@@ -350,6 +360,19 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 					// Active current Tab
 					$('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active');
 					$(this).addClass('ppc-capabilities-tab-active');
+
+					// Add search functionality
+					var searchTerm = $('#pp-global-capability-search').val().trim();
+					if (searchTerm.length >= 2) {
+						// Handle special case for taxonomies tab
+						var filterInputId = (data_slug === 'taxonomies') ?
+							'cme-cap-type-tables-' + data_slug + '-taxonomy .ppc-filter-text' :
+							'cme-cap-type-tables-' + data_slug + ' .ppc-filter-text';
+						var $filterInput = $(filterInputId);
+						if ($filterInput.length > 0) {
+							$filterInput.val(searchTerm).trigger('input');
+						}
+					}
 
 					// Scroll to content area (for responsive display)
 					if ($(window).width() <= 1199) {

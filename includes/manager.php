@@ -205,6 +205,22 @@ class CapabilityManager
 		wp_enqueue_style( $this->ID . 'framework_admin');
 
 		if ('pp-capabilities' == $_REQUEST['page']) {
+			// search script and css
+			wp_enqueue_script(
+				'capabilities-search',
+				$this->mod_url . '/common/js/capabilities-search.js',
+				['jquery'],
+				PUBLISHPRESS_CAPS_VERSION,
+				true
+			);
+
+			wp_enqueue_style(
+				'capabilities-search',
+				$this->mod_url . '/common/css/capabilities-search.css',
+				[],
+				PUBLISHPRESS_CAPS_VERSION
+			);
+			// cap admin css
 			wp_register_style( $this->ID . '_admin', $this->mod_url . '/common/css/admin-caps.css', false, PUBLISHPRESS_CAPS_VERSION);
 		} else {
 			// @todo: remove Capabilities-specific styles from admin.css
