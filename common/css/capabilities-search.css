@@ -1,0 +1,43 @@
+.ppc-capabilities-tabs > ul > li .search-count {
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+    margin: 1px 0 -1px 5px;
+    padding: 2px 7px;
+    min-height: 17px;
+    border-radius: 9px;
+    background-color: #2271b1;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1.4;
+    font-weight: 600;
+    text-align: center;
+}
+
+.ppc-capabilities-tabs > ul > li.ppc-capabilities-tab-active .search-count {
+    background-color: #0073aa;
+}
+
+.ppc-capabilities-tabs > ul > li:hover .search-count {
+    background-color: #0073aa;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+.capabilities-top-action {
+    display: flex;
+    gap: 200px;
+}
+
+.pp-capabilities-global-search input {
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .pp-capabilities-global-search {
+        float: none;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px !important;
+    }
+}
