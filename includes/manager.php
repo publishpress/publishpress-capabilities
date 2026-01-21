@@ -193,7 +193,7 @@ class CapabilityManager
 		if (empty($_REQUEST['page'])
 		|| !in_array(
 			$_REQUEST['page'],
-			['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects']
+			['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles']
 			)
 		) {
 			return;
@@ -728,6 +728,20 @@ class CapabilityManager
 		}
 
         include(dirname(CME_FILE) . '/includes/features/frontend-features/frontend-features.php');
+    }
+
+	/**
+	 * Manages Admin Styles
+	 *
+	 * @return void
+	 */
+	public function ManageAdminStyles() {
+		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_admin_styles')) {
+            // TODO: Implement exceptions.
+		    wp_die('<strong>' . esc_html__('You do not have permission to manage admin styles.', 'capability-manager-enhanced') . '</strong>');
+		}
+
+        include(dirname(CME_FILE) . '/includes/features/admin-styles/admin-styles-ui.php');
     }
 
 	/**

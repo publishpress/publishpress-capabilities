@@ -216,6 +216,11 @@ function pp_capabilities_backup_sections()
    $backup_sections[$cms_id . '_admin_features_backup']['label']     = esc_html__('Admin Features', 'capability-manager-enhanced');
    $backup_sections[$cms_id . '_admin_features_backup']['options'][] = "capsman_disabled_admin_features";
 
+    //Admin Styles
+    $backup_sections[$cms_id . '_admin_styles_backup']['label']     = esc_html__('Admin Styles', 'capability-manager-enhanced');
+    $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles";
+    $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles_roles";
+
    //Frontend Features
    $backup_sections[$cms_id . '_frontend_features_backup']['label']     = esc_html__('Frontend Features', 'capability-manager-enhanced');
    $backup_sections[$cms_id . '_frontend_features_backup']['options'][] = "capsman_disabled_frontend_features";
@@ -331,6 +336,7 @@ function cme_publishpress_capabilities_capabilities($capabilities) {
             'manage_capabilities',
             'manage_capabilities_editor_features',
             'manage_capabilities_admin_features',
+            'manage_capabilities_admin_styles',
             'manage_capabilities_admin_menus',
             'manage_capabilities_frontend_features',
             'manage_capabilities_profile_features',
@@ -378,6 +384,11 @@ function pp_capabilities_dashboard_options() {
     $features['admin-features'] = [
         'label'        => esc_html__('Admin Features', 'capability-manager-enhanced'),
         'description'  => esc_html__('Admin Features allows you to remove elements from the admin area and toolbar.', 'capability-manager-enhanced'),
+    ];
+
+    $features['admin-styles'] = [
+        'label'        => esc_html__('Admin Styles', 'capability-manager-enhanced'),
+        'description'  => esc_html__('Admin Styles allows you to customize the admin area with your own branding.', 'capability-manager-enhanced'),
     ];
 
     $features['profile-features'] = [
@@ -462,6 +473,13 @@ function pp_capabilities_sub_menu_lists($cme_fakefunc = false) {
         'capabilities'      => $super_user ? 'read' : 'manage_capabilities_admin_features',
         'page'              => 'pp-capabilities-admin-features',
         'callback'          => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminFeatures'],
+        'dashboard_control' => true,
+    ];
+    $sub_menu_pages['admin-styles'] = [
+        'title'             => __('Admin Styles', 'capability-manager-enhanced'),
+        'capabilities'      => $super_user ? 'read' : 'manage_capabilities_admin_styles',
+        'page'              => 'pp-capabilities-admin-styles',
+        'callback'          => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminStyles'],
         'dashboard_control' => true,
     ];
     if ($cme_fakefunc) {
