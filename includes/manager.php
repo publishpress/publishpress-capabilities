@@ -905,7 +905,7 @@ class CapabilityManager
 			$this->current = array_shift($roles);
 		}
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && isset($_POST['redirects-features-submit']) && !empty($_REQUEST['_wpnonce'])) {
+		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && (isset($_POST['redirects-features-submit']) || isset($_POST['redirects-features-all-submit'])) && !empty($_REQUEST['_wpnonce'])) {
 			if (!wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'pp-capabilities-redirects-features')) {
 				wp_die('<strong>' . esc_html__('Invalid form. Reload this page and try again.', 'capability-manager-enhanced') . '</strong>');
 			} else {
@@ -922,14 +922,31 @@ class CapabilityManager
 
 				$role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
 
-				$role_redirects[$features_role] = [
-					'custom_redirect' => $custom_redirect,
-					'referer_redirect' => $referer_redirect,
-					'login_redirect' => $login_redirect,
-					'logout_redirect' => $logout_redirect,
-					'registration_redirect' => $registration_redirect,
-					'first_login_redirect' => $first_login_redirect
-				];
+				if (isset($_POST['redirects-features-all-submit'])) {
+					// Save for all roles
+					$all_roles = array_keys($this->roles);
+
+					foreach ($all_roles as $role) {
+						$role_redirects[$role] = [
+							'custom_redirect' => $custom_redirect,
+							'referer_redirect' => $referer_redirect,
+							'login_redirect' => $login_redirect,
+							'logout_redirect' => $logout_redirect,
+							'registration_redirect' => $registration_redirect,
+							'first_login_redirect' => $first_login_redirect
+						];
+					}
+				} else {
+					// Save for current role only
+					$role_redirects[$features_role] = [
+						'custom_redirect' => $custom_redirect,
+						'referer_redirect' => $referer_redirect,
+						'login_redirect' => $login_redirect,
+						'logout_redirect' => $logout_redirect,
+						'registration_redirect' => $registration_redirect,
+						'first_login_redirect' => $first_login_redirect
+					];
+				}
 
 				update_option('capsman_role_redirects', $role_redirects);
 
