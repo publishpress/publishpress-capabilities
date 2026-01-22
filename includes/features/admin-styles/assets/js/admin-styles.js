@@ -287,6 +287,34 @@
         return;
     }
 
+    // Helper to ensure we only use safe stylesheet URLs
+    function isSafeCssUrl(url) {
+        if (typeof url !== 'string') {
+            return false;
+        }
+
+        url = url.trim();
+        if (!url) {
+            return false;
+        }
+
+        // Disallow javascript: and other explicit dangerous schemes
+        var lower = url.toLowerCase();
+        if (lower.indexOf('javascript:') === 0 || lower.indexOf('data:') === 0) {
+            return false;
+        }
+
+        // Allow relative URLs, protocol-relative URLs, and http/https URLs
+        return (
+            lower.indexOf('http://') === 0 ||
+            lower.indexOf('https://') === 0 ||
+            lower.indexOf('//') === 0 ||
+            lower.charAt(0) === '/' ||
+            // simple relative path or filename (no scheme part before colon)
+            lower.indexOf(':') === -1
+        );
+    }
+
     // Update selected state
     $('.color-option').removeClass('selected');
     $('.color-checkbox').removeClass('checked').empty();
@@ -304,14 +332,14 @@
 
     // Set the stylesheet URL
     var cssUrl = $option.children('.css_url').val();
-    if (cssUrl) {
+    if (cssUrl && isSafeCssUrl(cssUrl)) {
       // Add cache busting timestamp
       var newUrl = cssUrl;
       if (this.currentScheme === 'publishpress-custom') {
         newUrl = cssUrl.replace(/(\?|&)ver=\d+/, '') + '&ver=' + Date.now();
       }
 
-      PP_Admin_Styles.$stylesheet.attr('href', cssUrl);
+      PP_Admin_Styles.$stylesheet.attr('href', newUrl);
     }
 
     // Repaint icons if wp.svgPainter exists (WordPress 5.7+)
