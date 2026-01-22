@@ -465,7 +465,10 @@
 
           // Add the 5 color shades as shown in the palette
           [baseColor, highlightColor, textColor, notificationColor, backgroundColor].forEach(function (color) {
-            $palette.append('<div class="color-palette-shade" style="background-color: ' + color + '"></div>');
+            $('<div>')
+              .addClass('color-palette-shade')
+              .css('background-color', color)
+              .appendTo($palette);
           });
         }
 
