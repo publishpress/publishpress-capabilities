@@ -8,6 +8,67 @@
 (function ($) {
   'use strict';
 
+  /**
+   * Sanitize and normalize a CSS stylesheet URL before assigning it to the DOM.
+   *
+   * @param {string} cssUrl        Raw URL read from the DOM.
+   * @param {string} currentScheme Currently selected color scheme.
+   * @param {Function|null} isSafe Optional existing validator; if provided, it must return true for safe URLs.
+   * @returns {string|null}        A safe URL string or null if the URL should not be used.
+   */
+  function sanitizeCssUrl(cssUrl, currentScheme, isSafe) {
+    if (!cssUrl || typeof cssUrl !== 'string') {
+      return null;
+    }
+
+    var trimmed = cssUrl.trim();
+    if (!trimmed) {
+      return null;
+    }
+
+    // Optional additional safety check using existing validator, if provided.
+    if (typeof isSafe === 'function' && !isSafe(trimmed)) {
+      return null;
+    }
+
+    // Reject obvious dangerous protocols (e.g., javascript:, data:, vbscript:).
+    var lower = trimmed.toLowerCase();
+    if (lower.indexOf('javascript:') === 0 ||
+        lower.indexOf('data:') === 0 ||
+        lower.indexOf('vbscript:') === 0) {
+      return null;
+    }
+
+    // If URL API is available, ensure protocol is http/https or relative.
+    try {
+      if (typeof URL === 'function') {
+        var parsed = new URL(trimmed, window.location.origin);
+        var protocol = parsed.protocol.toLowerCase();
+        if (protocol !== 'http:' && protocol !== 'https:') {
+          return null;
+        }
+      }
+    } catch (e) {
+      // If parsing fails, fall back to basic checks and continue.
+    }
+
+    var newUrl = trimmed;
+    // Add cache busting timestamp for custom scheme
+    if (currentScheme === 'publishpress-custom') {
+      // Remove existing ver param if present, then append a new one
+      newUrl = trimmed.replace(/([?&])ver=\d+(&?)/, function (match, p1, p2) {
+        return p2 ? p1 : '';
+      });
+      if (newUrl.indexOf('?') === -1) {
+        newUrl += '?ver=' + Date.now();
+      } else {
+        newUrl += '&ver=' + Date.now();
+      }
+    }
+
+    return newUrl;
+  }
+
   var PP_Admin_Styles = {
     currentScheme: null,
     $colorpicker: null,
@@ -332,14 +393,9 @@
 
     // Set the stylesheet URL
     var cssUrl = $option.children('.css_url').val();
-    if (cssUrl && isSafeCssUrl(cssUrl)) {
-      // Add cache busting timestamp
-      var newUrl = cssUrl;
-      if (this.currentScheme === 'publishpress-custom') {
-        newUrl = cssUrl.replace(/(\?|&)ver=\d+/, '') + '&ver=' + Date.now();
-      }
-
-      PP_Admin_Styles.$stylesheet.attr('href', newUrl);
+    var newUrl = sanitizeCssUrl(cssUrl, this.currentScheme, typeof isSafeCssUrl === 'function' ? isSafeCssUrl : null);
+    if (newUrl) {
+        PP_Admin_Styles.$stylesheet.attr('href', newUrl);
     }
 
     // Repaint icons if wp.svgPainter exists (WordPress 5.7+)
