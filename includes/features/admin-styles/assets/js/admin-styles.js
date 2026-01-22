@@ -359,9 +359,13 @@
             return false;
         }
 
-        // Disallow javascript: and other explicit dangerous schemes
+        // Disallow javascript:, vbscript:, data: and other explicit dangerous schemes
         var lower = url.toLowerCase();
-        if (lower.indexOf('javascript:') === 0 || lower.indexOf('data:') === 0) {
+        if (
+            lower.indexOf('javascript:') === 0 ||
+            lower.indexOf('vbscript:') === 0 ||
+            lower.indexOf('data:') === 0
+        ) {
             return false;
         }
 
