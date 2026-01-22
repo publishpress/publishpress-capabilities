@@ -580,13 +580,13 @@ class PP_Capabilities_Admin_Styles
             return;
         }
 
-        check_admin_referer('pp-capabilities-admin-styles', '_wpnonce');
-
-        if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_admin_styles')) {
-            wp_die('<strong>' . esc_html__('You do not have permission to manage admin styles.', 'capability-manager-enhanced') . '</strong>');
-        }
-
         if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && (isset($_POST['admin-styles-submit']) || isset($_POST['admin-styles-all-submit'])) && !empty($_REQUEST['_wpnonce'])) {
+
+            check_admin_referer('pp-capabilities-admin-styles', '_wpnonce');
+
+            if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_admin_styles')) {
+                wp_die('<strong>' . esc_html__('You do not have permission to manage admin styles.', 'capability-manager-enhanced') . '</strong>');
+            }
 
             // Get the target role
             $target_role = isset($_POST['ppc-admin-styles-role']) ? sanitize_key($_POST['ppc-admin-styles-role']) : '';
