@@ -104,6 +104,22 @@ class Capabilities_Settings_UI {
 
                                 <tr>
                                     <?php
+                                        $checked = checked(!empty(get_option('cme_capabilities_show_private_post_types', 0)), true, false);
+                                    ?>
+                                    <th scope="row"><?php esc_html_e('Show private post types', 'capability-manager-enhanced'); ?></th>
+                                    <td>
+                                        <label>
+                                        <input type="checkbox" name="cme_capabilities_show_private_post_types" id="cme_capabilities_show_private_post_types" autocomplete="off" value="1" <?php echo $checked;?>>
+                                        <span class="description">
+                                            <?php esc_html_e('This will show all post types on the "Capabilities" screen, even ones normally hidden in the WordPress admin area.', 'capability-manager-enhanced'); ?>
+                                        </span>
+                                        </label>
+                                        <br>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <?php
                                         $checked = checked(!empty(get_option('cme_capabilities_show_private_taxonomies', 0)), true, false);
                                     ?>
                                     <th scope="row"> <?php esc_html_e('Show private taxonomies', 'capability-manager-enhanced'); ?></th>
@@ -274,7 +290,7 @@ class Capabilities_Settings_UI {
                                         'success' => esc_html__('Success notices', 'capability-manager-enhanced'),
                                         'error'  => esc_html__('Error notices', 'capability-manager-enhanced'),
                                         'warning' => esc_html__('Warning notices', 'capability-manager-enhanced'),
-                                        'info' => esc_html__('Info notices', 'capability-manager-enhanced'), 
+                                        'info' => esc_html__('Info notices', 'capability-manager-enhanced'),
                                     ];
 
                                     $admin_notice_settings = (array) get_option('cme_admin_notice_options', []);
@@ -289,28 +305,28 @@ class Capabilities_Settings_UI {
                                                 <label>
                                                     <span><?php esc_html_e('Select Role', 'capability-manager-enhanced'); ?>:</span>
                                                     <select class="ppc-settings-role-subtab">
-                                                        <?php 
+                                                        <?php
                                                         $table_default_tab_role = '';
                                                         $table_tabs = [];
-                                                        foreach (wp_roles()->roles as $role => $detail) : 
+                                                        foreach (wp_roles()->roles as $role => $detail) :
                                                             if ($table_default_tab_role == '') {
                                                                 $table_default_tab_role = $role;
                                                             }
                                                             $active_option = ($table_default_tab_role == $role);
                                                             ?>
-                                                            <option 
-                                                                value="tab1" 
+                                                            <option
+                                                                value="tab1"
                                                                 data-content="<?php echo esc_attr('.pp-admin-notices-settings-' . $role . '-content'); ?>"
                                                                 <?php selected($active_option, true); ?>
                                                             >
                                                                 <?php echo esc_html(translate_user_role($detail['name'])); ?>
                                                             </option>
-                                                            <?php     
+                                                            <?php
                                                         endforeach; ?>
-                                                        
-                                                            <?php 
+
+                                                            <?php
                                                             // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                                            echo join(' | ', $table_tabs); 
+                                                            echo join(' | ', $table_tabs);
                                                             ?>
                                                     </select>
                                                 </label>
@@ -327,9 +343,9 @@ class Capabilities_Settings_UI {
                                             <th scope="row"><?php esc_html_e('Notification center access', 'capability-manager-enhanced'); ?></th>
                                             <td>
                                                 <label>
-                                                    <input type="checkbox" 
-                                                        name="cme_admin_notice_options[<?php echo esc_attr($role); ?>][enable_toolbar_access]" id="cme_admin_notice_options_<?php echo esc_attr($role); ?>_enable_toolbar_access" 
-                                                        value="1" 
+                                                    <input type="checkbox"
+                                                        name="cme_admin_notice_options[<?php echo esc_attr($role); ?>][enable_toolbar_access]" id="cme_admin_notice_options_<?php echo esc_attr($role); ?>_enable_toolbar_access"
+                                                        value="1"
                                                         <?php checked($toolbar_access, true);?>
                                                     >
                                                     <span class="description">
@@ -348,14 +364,14 @@ class Capabilities_Settings_UI {
                                             <td>
                                                 <?php foreach ($notice_type_options as $option_key => $option_label) : ?>
                                                 <label>
-                                                    <input type="checkbox" 
-                                                        name="cme_admin_notice_options[<?php echo esc_attr($role); ?>][notice_type_remove][]" id="cme_admin_notice_options_<?php echo esc_attr($role); ?>_notice_type_remove_<?php echo esc_attr($option_key); ?>" 
-                                                        value="<?php echo esc_attr($option_key); ?>" 
+                                                    <input type="checkbox"
+                                                        name="cme_admin_notice_options[<?php echo esc_attr($role); ?>][notice_type_remove][]" id="cme_admin_notice_options_<?php echo esc_attr($role); ?>_notice_type_remove_<?php echo esc_attr($option_key); ?>"
+                                                        value="<?php echo esc_attr($option_key); ?>"
                                                         <?php checked(in_array($option_key, $notice_type_remove), true); ?>> <?php echo esc_html($option_label); ?>
                                                 </label>
                                                 <br><br>
                                                 <?php endforeach; ?>
-                                                
+
                                                 <span class="description">
                                                     <?php printf(esc_html__('Select the notification types that should be hidden when a user in the %1s role is viewing WordPress admin screens.', 'capability-manager-enhanced'), esc_html(translate_user_role($detail['name']))); ?> <a target="_blank" href="https://publishpress.com/knowledge-base/notice-types"><?php esc_html_e('Click here for more on notice types.', 'capability-manager-enhanced'); ?></a>
                                                 </span>
@@ -370,14 +386,14 @@ class Capabilities_Settings_UI {
                                             <td>
                                                 <?php foreach ($notice_type_options as $option_key => $option_label) : ?>
                                                 <label>
-                                                    <input type="checkbox" 
-                                                        name="cme_admin_notice_options[<?php echo esc_attr($role); ?>][notice_type_display][]" id="cme_admin_notice_options_<?php echo esc_attr($role); ?>_notice_type_display_<?php echo esc_attr($option_key); ?>" 
-                                                        value="<?php echo esc_attr($option_key); ?>" 
+                                                    <input type="checkbox"
+                                                        name="cme_admin_notice_options[<?php echo esc_attr($role); ?>][notice_type_display][]" id="cme_admin_notice_options_<?php echo esc_attr($role); ?>_notice_type_display_<?php echo esc_attr($option_key); ?>"
+                                                        value="<?php echo esc_attr($option_key); ?>"
                                                         <?php checked(in_array($option_key, $notice_type_display), true); ?>> <?php echo esc_html($option_label); ?>
                                                 </label>
                                                 <br><br>
                                                 <?php endforeach; ?>
-                                                
+
                                                 <span class="description">
                                                     <?php esc_html_e('Select the notification types that should be displayed in the Admin Notices area after been removed from the WordPress admin screens.', 'capability-manager-enhanced'); ?> <a target="_blank" href="https://publishpress.com/knowledge-base/notice-types"><?php esc_html_e('Click here for more on notice types.', 'capability-manager-enhanced'); ?></a>
                                                 </span>
@@ -405,7 +421,7 @@ class Capabilities_Settings_UI {
 
             $('#publishpress-capability-settings-tabs').find('li').click(function (e) {
                 e.preventDefault();
-                let active_tab_value = $(this).find('a').attr('href'); 
+                let active_tab_value = $(this).find('a').attr('href');
                 let active_tab = active_tab_value.replace('#ppcs-tab-', '');
 
                 $('#pp_tab').val(active_tab);
