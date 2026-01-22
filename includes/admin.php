@@ -191,7 +191,17 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 			$custom_tax = get_taxonomies( array( '_builtin' => false ), 'names' );
 
 			$defined = [];
-			$defined['type'] = apply_filters('cme_filterable_post_types', get_post_types(['public' => true, 'show_ui' => true], 'object', 'or'));
+
+			// Get public post types
+			$post_types = get_post_types(['public' => true, 'show_ui' => true], 'object', 'or');
+
+			// Include private post types if setting is enabled
+			if (get_option('cme_capabilities_show_private_post_types', 0)) {
+				$private_types = get_post_types(['public' => false, 'show_ui' => true], 'object', 'or');
+				$post_types = array_merge($post_types, $private_types);
+			}
+
+			$defined['type'] = apply_filters('cme_filterable_post_types', $post_types);
 
 			if (in_array(get_locale(), ['en_EN', 'en_US'])) {
 				$defined['type']['wp_navigation']->label = __('Nav Menus (Block)', 'capability-manager-enhanced');
@@ -209,7 +219,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 			}
 
 			// bbPress' dynamic role def requires additional code to enforce stored caps
-			$unfiltered['type'] = apply_filters('presspermit_unfiltered_post_types', ['forum','topic','reply','wp_block']);
+			$unfiltered['type'] = apply_filters('presspermit_unfiltered_post_types', ['forum','topic','reply', 'customize_changeset']);
 			$unfiltered['type'] = (defined('PP_CAPABILITIES_NO_LEGACY_FILTERS')) ? $unfiltered['type'] : apply_filters('pp_unfiltered_post_types', $unfiltered['type']);
 
 			$unfiltered['taxonomy'] = apply_filters('presspermit_unfiltered_post_types', ['post_status', 'topic-tag']);  // avoid confusion with Edit Flow administrative taxonomy
