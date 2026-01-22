@@ -36,6 +36,9 @@ $title_lists                = (array)PP_Capabilities_Admin_Features::elementLayo
 $section_actions            = (array)PP_Capabilities_Admin_Features::elementLayoutItemActions();
 
 $active_tab_slug = (!empty($_REQUEST['pp_caps_tab'])) ? sanitize_key($_REQUEST['pp_caps_tab']) : 'admintoolbar';
+
+$admin_menu_settings = (array) get_option('ppc_admin_features_settings', []);
+$hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
 ?>
 
     <div class="wrap publishpress-caps-manage pressshack-admin-wrapper pp-capability-menus-wrapper admin-features">
@@ -196,8 +199,19 @@ $active_tab_slug = (!empty($_REQUEST['pp_caps_tab'])) ? sanitize_key($_REQUEST['
                                                                                 } else {
                                                                                     $additional_class = '';
                                                                                 }
+
+                                                                                if ((isset($section_array['step']) && $section_array['step'] > 0) && isset($section_array['parent']) && !empty($section_array['parent'])) {
+                                                                                    if ($hide_submenu) {
+                                                                                        $tr_style = 'display: none;';
+                                                                                    } else {
+                                                                                        $tr_style = '';
+                                                                                    }
+                                                                                    $additional_class .= ' child-subitem';
+                                                                                } else {
+                                                                                    $tr_style = '';
+                                                                                }
                                                                                 ?>
-                                                                                <tr class="ppc-menu-row child-menu <?php echo esc_attr($section_slug); ?> <?php echo esc_attr($additional_class); ?>">
+                                                                                <tr class="ppc-menu-row child-menu <?php echo esc_attr($section_slug); ?> <?php echo esc_attr($additional_class); ?>" style="<?php echo esc_attr($tr_style);?>">
                                                                                     <td class="restrict-column ppc-menu-checkbox">
                                                                                         <input
                                                                                             id="check-item-<?php echo (int) $sn; ?>"
@@ -323,6 +337,15 @@ $active_tab_slug = (!empty($_REQUEST['pp_caps_tab'])) ? sanitize_key($_REQUEST['
                 $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/admin-features-screen/"target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
                 $banner_title  = __('How to use Admin Features', 'capability-manager-enhanced');
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
+                ?>
+                <?php
+                $banner_title  = __('Admin Features Settings', 'capabilities-pro');
+                $banner_messages = ['<p>'];
+                $banner_messages[] = sprintf(esc_html__('%1$s Hide Submenus', 'capabilities-pro'), '<input type="checkbox" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '>') . ' <br />';
+                $banner_messages[] = '</p>';
+                pp_capabilities_sidebox_banner($banner_title, $banner_messages);
+                ?>
+                <?php
                 // add promo sidebar
                 pp_capabilities_pro_sidebox();
                 ?>
