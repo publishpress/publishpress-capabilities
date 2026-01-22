@@ -215,6 +215,7 @@ function pp_capabilities_backup_sections()
    //Admin Features
    $backup_sections[$cms_id . '_admin_features_backup']['label']     = esc_html__('Admin Features', 'capability-manager-enhanced');
    $backup_sections[$cms_id . '_admin_features_backup']['options'][] = "capsman_disabled_admin_features";
+   $backup_sections[$cms_id . '_admin_features_backup']['options'][] = "ppc_admin_features_settings";
 
     //Admin Styles
     $backup_sections[$cms_id . '_admin_styles_backup']['label']     = esc_html__('Admin Styles', 'capability-manager-enhanced');

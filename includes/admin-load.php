@@ -32,6 +32,9 @@ class PP_Capabilities_Admin_UI {
             add_action('admin_init', [$this, 'featureRestrictionsClassic'], PHP_INT_MAX - 1);
             add_action('wp_ajax_save_dashboard_feature_by_ajax', [$this, 'saveDashboardFeature']);
 
+            // Admin feature settings update ajax callback
+            add_action('wp_ajax_ppc_update_admin_feature_settings', [$this, 'ajaxUpdateAdminFeatureSettings']);
+
             // Installation hooks
             add_action(
                 'pp_capabilities_install',
@@ -632,6 +635,35 @@ class PP_Capabilities_Admin_UI {
         update_option('capsman_dashboard_features_status', $capsman_dashboard_features_status, false);
 
         wp_send_json( true, 200 );
+    }
+
+    /**
+     * Ajax handler for updating admin feature settings
+     */
+    public function ajaxUpdateAdminFeatureSettings() {
+
+        $response['status']  = 'error';
+        $response['message'] = __('An error occured!', 'capability-manager-enhanced');
+        $response['content'] = '';
+
+        // Verify nonce and capabilities
+        if (empty($_POST['nonce']) || !wp_verify_nonce(sanitize_key($_POST['nonce']), 'pp-capabilities-admin-features')) {
+            $response['message'] =  __('Security check failed', 'capability-manager-enhanced');
+        } elseif (!current_user_can('manage_capabilities_admin_features')) {
+            $response['message'] =  __('Permission denied', 'capability-manager-enhanced');
+        } else {
+            $hide_submenu      = !empty($_POST['hide_submenu']) ? (int)($_POST['hide_submenu']) : 0;
+
+            $admin_feature_settings = (array) get_option('ppc_admin_features_settings', []);
+            $admin_feature_settings['hide_submenu'] = $hide_submenu;
+
+            update_option('ppc_admin_features_settings', $admin_feature_settings);
+
+            $response['status']  = 'success';
+            $response['message'] = __('Settings updated successfully.', 'capability-manager-enhanced');
+        }
+
+        wp_send_json($response);
     }
 
     /**
