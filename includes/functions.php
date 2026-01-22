@@ -11,6 +11,11 @@
 //frontend features restrict instance
 require_once (dirname(__FILE__) . '/features/frontend-features/frontend-features-restrict.php');
 \PublishPress\Capabilities\PP_Capabilities_Frontend_Features_Restrict::instance();
+
+// Admin styles feature
+require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/features/admin-styles/admin-styles.php');
+\PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance();
+
 /**
  * Sanitizes a string entry
  *
@@ -257,7 +262,6 @@ function ppc_admin_feature_restrictions() {
     }
 }
 add_action('init', 'ppc_admin_feature_restrictions', 999);
-
 
 /**
  * Implement test user feature
@@ -595,7 +599,8 @@ function pp_capabilities_admin_pages(){
         'pp-capabilities-admin-features',
         'pp-capabilities-frontend-features',
         'pp-capabilities-redirects',
-        'pp-capabilities-profile-features'
+        'pp-capabilities-profile-features',
+        'pp-capabilities-admin-styles'
     ];
 
    return apply_filters('pp_capabilities_admin_pages', $pp_capabilities_pages);
