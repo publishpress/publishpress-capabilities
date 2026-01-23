@@ -411,15 +411,26 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                             <td class="value-column ppc-menu-checkbox">
                                                                 <textarea name="settings[admin_custom_footer_text]"
                                                                     id="admin_custom_footer_text" rows="3"
+                                                                    style="resize: none;"
                                                                     class="large-text"><?php echo esc_textarea($settings['admin_custom_footer_text']); ?></textarea>
-                                                                <p style="margin-top: 5px;">
-                                                                    <label>
-                                                                        <input type="checkbox"
-                                                                            name="settings[admin_remove_footer_text]"
-                                                                            value="1" <?php checked(!empty($settings['admin_remove_footer_text'])); ?>>
-                                                                        <?php esc_html_e('Remove the "Thanks for creating with WordPress" message', 'capability-manager-enhanced'); ?>
-                                                                    </label>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="ppc-menu-row parent-menu">
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="admin_replace_howdy">
+                                                                    <strong><?php esc_html_e('Replace "Howdy"', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                                <p class="cme-subtext">
+                                                                    <?php esc_html_e('Replace "Howdy" in admin bar (e.g., "Welcome", "Hello")', 'capability-manager-enhanced'); ?>
                                                                 </p>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text" name="settings[admin_replace_howdy]"
+                                                                    id="admin_replace_howdy"
+                                                                    value="<?php echo esc_attr($settings['admin_replace_howdy']); ?>"
+                                                                    style="width: 99%"
+                                                                    class="regular-text">
                                                             </td>
                                                         </tr>
 
@@ -455,41 +466,6 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                             </td>
                                                         </tr>
 
-                                                        <tr class="ppc-menu-row parent-menu">
-                                                            <td class="menu-column ppc-menu-item">
-                                                                <strong><?php esc_html_e('Admin Interface', 'capability-manager-enhanced'); ?></strong>
-                                                                <p class="cme-subtext">
-                                                                    <?php esc_html_e('Customize admin interface elements.', 'capability-manager-enhanced'); ?>
-                                                                </p>
-                                                            </td>
-                                                            <td class="value-column ppc-menu-checkbox">
-                                                                <fieldset>
-                                                                    <label>
-                                                                        <input type="checkbox"
-                                                                            name="settings[admin_hide_wp_credit]"
-                                                                            value="1" <?php checked(!empty($settings['admin_hide_wp_credit'])); ?>>
-                                                                        <?php esc_html_e('Hide WordPress credit in admin bar', 'capability-manager-enhanced'); ?>
-                                                                    </label>
-                                                                </fieldset>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr class="ppc-menu-row parent-menu">
-                                                            <td class="menu-column ppc-menu-item">
-                                                                <label for="admin_replace_howdy">
-                                                                    <strong><?php esc_html_e('Replace "Howdy"', 'capability-manager-enhanced'); ?></strong>
-                                                                </label>
-                                                                <p class="cme-subtext">
-                                                                    <?php esc_html_e('Replace "Howdy" in admin bar (e.g., "Welcome", "Hello")', 'capability-manager-enhanced'); ?>
-                                                                </p>
-                                                            </td>
-                                                            <td class="value-column ppc-menu-checkbox">
-                                                                <input type="text" name="settings[admin_replace_howdy]"
-                                                                    id="admin_replace_howdy"
-                                                                    value="<?php echo esc_attr($settings['admin_replace_howdy']); ?>"
-                                                                    class="regular-text">
-                                                            </td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>

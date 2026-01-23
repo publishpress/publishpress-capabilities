@@ -91,7 +91,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
 
                                                     <div id="ppc-capabilities-wrapper" class="postbox">
                                                         <div class="ppc-capabilities-tabs">
-                                                            <ul>
+                                                            <ul style="min-width: 220px;">
                                                                 <?php
                                                                     $sn = 0;
                                                                     foreach ($admin_features_elements as $section_title => $section_elements) {
@@ -110,7 +110,6 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
 
                                                                         $disabled_count  = count(PP_Capabilities_Admin_Features::adminFeaturesRestrictedElements($disabled_admin_items, $feature_action));
 
-                                                                        $count_html = ($disabled_count > 0) ? '('. $disabled_count .')' : '';
                                                                         $pro_icon = '';
                                                                         if (! defined('PUBLISHPRESS_CAPS_PRO_VERSION') &&
                                                                             in_array($section_slug, ['hidecsselement', 'blockedbyurl'])
@@ -127,9 +126,11 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                             <div>
                                                                                 <?php echo $pro_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> <?php echo esc_html($translated_title); ?>
                                                                             </div>
-                                                                            <div style="color:#a00;">
-                                                                                <?php echo esc_html($count_html); ?>
-                                                                            </div>
+                                                                            <?php if ($disabled_count > 0) : ?>
+                                                                                <div class="pp-capabilities-count-indicator">
+                                                                                    <?php echo esc_html($disabled_count); ?>
+                                                                                </div>
+                                                                            <?php endif; ?>
                                                                         </li>
                                                                         <?php
                                                                     }

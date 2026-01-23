@@ -173,7 +173,7 @@ jQuery(document).ready(function ($) {
 
         if (count > 0) {
             // Add colored count badge
-            $tab.append('<span class="search-count">' + count + '</span>');
+            $tab.find('.pp-capabilities-count-container').append('<span class="search-count">' + count + '</span>');
         }
     }
 

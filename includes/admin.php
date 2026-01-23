@@ -391,13 +391,44 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						}, 500);
 					}
 				});
+
+				// Tab capabilities counting
+				function updateTabCounts() {
+					$('.ppc-capabilities-tabs > ul > li').each(function() {
+						var $tab = $(this);
+						var tabSlug = $tab.data('slug');
+						var $content = $('#' + $tab.data('content'));
+
+						// Count checked checkboxes in this tab's content
+						var checkedCount = $content.find('input[type="checkbox"]:checked').length;
+
+						// Remove existing count and title wrapper if present
+						$tab.find('.pp-capabilities-count-indicator').remove();
+						$tab.find('.tab-title').contents().unwrap();
+
+						// Wrap existing text in title span
+						$tab.contents().filter(function() {
+							return this.nodeType === 3 && this.textContent.trim() !== '';
+						}).wrap('<span class="tab-title"></span>');
+
+						// Add count if > 0
+						if (checkedCount > 0) {
+							$tab.append(' <span class="pp-capabilities-count-container"><span class="pp-capabilities-count-indicator">' + checkedCount + '</span></span>');
+						} else {
+							$tab.append(' <span class="pp-capabilities-count-container"></span>');
+						}
+					});
+				}
+
+				// Initialize tab capabilities counting
+				updateTabCounts();
 			});
 			/* ]]> */
 			</script>
 
 			<div id="ppc-capabilities-wrapper" class="postbox">
 				<div class="ppc-capabilities-tabs">
-					<ul>
+					<ul style="min-width: 220px;">
 						<?php
 						$full_width_tabs = apply_filters('pp_capabilities_full_width_tabs', []);
 
