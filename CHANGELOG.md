@@ -1,6 +1,20 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.30.0] - 26 December, 2025
+
+- Feature : Add new feature "Admin Styles", to customize branding for the admin area
+(requires manage_capabilities_admin_styles capability), #1250
+- Update : Add a global search for Capabilities, #1477
+- Update : Add capabilities count to each tab and improve count consistency for other screens, #1416
+- Update : Add "Save for all roles to "Redirects" screen, #1442
+- Update : Add a setting to enable private post type in Capabilities, #1471
+- Fixed : Active notification still shows after deletion in "Hide CSS Elements", #1430
+- Fixed : Add the option to hide the sub-menu items in Admin Features, #1336
+- Update : Add hover tooltip to all capabilities, #1487
+- Fixed : PHP Fatal Error Fix, Array to String Conversion in cap-helper.php, #1426
+- Fixed : User not been redirect back to homepage when testing as a role without admin Access, #1364
+
 [2.23.0] - 04 December, 2025
 
 - Fixed: Undefined function causing fatal error, #1510
