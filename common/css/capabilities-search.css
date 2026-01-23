@@ -1,26 +1,25 @@
-.ppc-capabilities-tabs > ul > li .search-count {
+.ppc-capabilities-tabs>ul>li .search-count {
     display: inline-block;
-    vertical-align: top;
+    position: absolute;
+    top: -8px;
+    right: -8px;
     box-sizing: border-box;
-    margin: 1px 0 -1px 5px;
-    padding: 2px 7px;
-    min-height: 17px;
-    border-radius: 9px;
-    background-color: #2271b1;
+    padding: 1px 4px;
+    min-width: 14px;
+    height: 14px;
+    border-radius: 7px;
+    background-color: #655897;
     color: #fff;
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 9px;
+    line-height: 1.2;
     font-weight: 600;
     text-align: center;
+    z-index: 10;
+    transform: scale(0.9);
 }
 
-.ppc-capabilities-tabs > ul > li.ppc-capabilities-tab-active .search-count {
-    background-color: #0073aa;
-}
-
-.ppc-capabilities-tabs > ul > li:hover .search-count {
-    background-color: #0073aa;
-    transform: scale(1.1);
+.ppc-capabilities-tabs>ul>li:hover .search-count {
+     transform: scale(1);
     transition: all 0.2s ease;
 }
 

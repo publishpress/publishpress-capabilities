@@ -39,12 +39,10 @@ class PP_Capabilities_Admin_Styles
             // WordPress Builtin Features
             'admin_color_scheme' => 'fresh',
             'admin_custom_footer_text' => '',
-            'admin_remove_footer_text' => false,
 
             // Custom CSS based features
             'hide_color_scheme_ui' => false,
             'force_role_settings' => true,
-            'admin_hide_wp_credit' => false,
             'admin_replace_howdy' => '',
 
             // Image based features
@@ -103,10 +101,8 @@ class PP_Capabilities_Admin_Styles
         $override_settings = [
             'admin_color_scheme',
             'admin_custom_footer_text',
-            'admin_remove_footer_text',
             'hide_color_scheme_ui',
             'force_role_settings',
-            'admin_hide_wp_credit',
             'admin_replace_howdy',
             'admin_logo',
             'admin_favicon',
@@ -128,10 +124,8 @@ class PP_Capabilities_Admin_Styles
                         // For checkboxes, check if true
                         if (
                             in_array($key, [
-                                'admin_remove_footer_text',
                                 'hide_color_scheme_ui',
-                                'force_role_settings',
-                                'admin_hide_wp_credit'
+                                'force_role_settings'
                             ])
                         ) {
                             if (!empty($role_setting[$key])) {
@@ -209,15 +203,6 @@ class PP_Capabilities_Admin_Styles
             ';
         }
 
-        // Hide WordPress credit but keep logo if custom logo is set
-        if ($this->settings['admin_hide_wp_credit']) {
-            if (empty($this->settings['admin_logo'])) {
-                $css .= '#wpadminbar #wp-admin-bar-wp-logo { display: none !important; }';
-            } else {
-                $css .= '#wpadminbar #wp-admin-bar-wp-logo .ab-sub-wrapper { display: none !important; }';
-            }
-        }
-
         // Apply custom CSS
         if (!empty($css)) {
             echo '<style id="pp-capabilities-admin-styles">' . $css . '</style>';
@@ -250,9 +235,6 @@ class PP_Capabilities_Admin_Styles
      */
     public function custom_footer_text_for_settings($text, $settings)
     {
-        if (!empty($settings['admin_remove_footer_text'])) {
-            return '';
-        }
 
         if (!empty($settings['admin_custom_footer_text'])) {
             return wp_kses_post($settings['admin_custom_footer_text']);
@@ -441,86 +423,10 @@ class PP_Capabilities_Admin_Styles
     }
 
     /**
-     * Apply admin area styles via CSS
-     */
-    public function apply_admin_styles()
-    {
-        $css = '';
-
-        // Custom admin logo
-        if (!empty($this->settings['admin_logo'])) {
-            $logo_url = esc_url($this->settings['admin_logo']);
-
-            $css .= '
-                /* Hide the entire WordPress logo icon container */
-                #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon {
-                    display: none !important;
-                }
-
-                /* Use the parent menu item as logo container */
-                #wpadminbar #wp-admin-bar-wp-logo > .ab-item {
-                    background-image: url("' . $logo_url . '") !important;
-                    background-position: center center !important;
-                    background-size: 20px 20px !important;
-                    background-repeat: no-repeat !important;
-                    min-width: 20px !important;
-                    min-height: 32px !important;
-                    padding: 0 7px !important;
-                    position: relative !important;
-                }
-
-                /* Add overlay to hide any remaining dashicon */
-                #wpadminbar #wp-admin-bar-wp-logo > .ab-item:after {
-                    content: "" !important;
-                    position: absolute !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    right: 0 !important;
-                    bottom: 0 !important;
-                    background: inherit !important;
-                    z-index: 1 !important;
-                }
-
-                /* Ensure the dashicon text is hidden */
-                #wpadminbar #wp-admin-bar-wp-logo > .ab-item .screen-reader-text {
-                    display: none !important;
-                }
-
-                /* Mobile */
-                @media screen and (max-width: 782px) {
-                    #wpadminbar #wp-admin-bar-wp-logo > .ab-item {
-                        background-size: 26px 26px !important;
-                        min-width: 30px !important;
-                        min-height: 46px !important;
-                        padding: 0 10px !important;
-                    }
-                }
-            ';
-        }
-
-        // Hide WordPress credit but keep logo if custom logo is set
-        if ($this->settings['admin_hide_wp_credit']) {
-            if (empty($this->settings['admin_logo'])) {
-                $css .= '#wpadminbar #wp-admin-bar-wp-logo { display: none !important; }';
-            } else {
-                $css .= '#wpadminbar #wp-admin-bar-wp-logo .ab-sub-wrapper { display: none !important; }';
-            }
-        }
-
-        // Apply custom CSS
-        if (!empty($css)) {
-            echo '<style id="pp-capabilities-admin-styles">' . $css . '</style>';
-        }
-    }
-
-    /**
      * Custom footer text with removal option
      */
     public function custom_footer_text($text)
     {
-        if (!empty($this->settings['admin_remove_footer_text'])) {
-            return '';
-        }
 
         if (!empty($this->settings['admin_custom_footer_text'])) {
             return wp_kses_post($this->settings['admin_custom_footer_text']);
@@ -785,7 +691,7 @@ class PP_Capabilities_Admin_Styles
         foreach ($this->defaults as $key => $default) {
             if (!isset($input[$key])) {
                 // For checkboxes, set to false if not submitted
-                if (in_array($key, ['admin_hide_wp_credit', 'admin_remove_footer_text', 'hide_color_scheme_ui', 'force_role_settings'])) {
+                if (in_array($key, ['hide_color_scheme_ui', 'force_role_settings'])) {
                     $sanitized[$key] = false;
                 } else {
                     $sanitized[$key] = $default;
@@ -812,8 +718,6 @@ class PP_Capabilities_Admin_Styles
                     $sanitized[$key] = absint($value);
                     break;
 
-                case 'admin_hide_wp_credit':
-                case 'admin_remove_footer_text':
                 case 'hide_color_scheme_ui':
                 case 'force_role_settings':
                     $sanitized[$key] = (bool) $value;

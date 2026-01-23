@@ -149,7 +149,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                                                 <div id="ppc-capabilities-wrapper" class="postbox">
 
                                                 <div class="ppc-capabilities-tabs">
-                                                    <ul>
+                                                    <ul style="min-width: 200px;">
                                                         <?php
 
                                                             foreach($def_post_types as $type_name) {
@@ -164,11 +164,14 @@ $active_tab_text = is_object($active_tab_type_obj)
                                                                 <li data-slug="<?php echo esc_attr($type_name); ?>"
                                                                     data-content="cme-cap-type-tables-<?php echo esc_attr($type_name); ?>"
                                                                     data-name="<?php echo esc_attr($type_obj->labels->singular_name); ?>"
-                                                                    class="<?php echo esc_attr($active_class); ?>">
-                                                                    <?php echo esc_html($type_obj->labels->singular_name); ?>
+                                                                    class="<?php echo esc_attr($active_class); ?>"
+                                                                    style="display: flex;justify-content: space-between;">
+                                                                    <span class="feature-post-type-title">
+                                                                        <?php echo esc_html($type_obj->labels->singular_name); ?>
+                                                                    </span>
                                                                     <?php if ($disabled_count > 0) : ?>
-                                                                        <span class="pp-capabilities-feature-count">
-                                                                            <?php echo esc_html__('Restricted:', 'capability-manager-enhanced') . ' ' . esc_html($disabled_count); ?>
+                                                                        <span class="pp-capabilities-count-indicator">
+                                                                            <?php echo esc_html($disabled_count); ?>
                                                                         </span>
                                                                     <?php endif; ?>
                                                                 </li>
