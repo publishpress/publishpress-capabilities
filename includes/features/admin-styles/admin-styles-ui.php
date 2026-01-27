@@ -212,7 +212,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             <?php esc_html_e('Custom Color Scheme Editor', 'capsman-enhanced'); ?>
                                                                         </h4>
                                                                         <p class="cme-subtext" style="margin-top: 5px;">
-                                                                            <?php esc_html_e('Customize the colors for your custom scheme. Changes are previewed instantly.', 'capsman-enhanced'); ?>
+                                                                            <?php esc_html_e('Choose the colors for your custom scheme. Changes are previewed instantly.', 'capsman-enhanced'); ?>
                                                                         </p>
 
                                                                         <table
@@ -346,7 +346,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Custom Admin Logo', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Upload a custom logo to replace the WordPress icon in admin bar (recommended: 20×20 SVG or PNG).', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Upload a custom logo to replace the WordPress icon in the admin bar. Recommended: 20px by 20px in SVG or PNG format.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -382,7 +382,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Custom Favicon', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Upload a custom favicon (16x16 or 32x32 PNG) for admin area.', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Upload a custom favicon for the admin area. Recommended: 16px by 16px or 32px by 32px in SVG or PNG format.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -411,7 +411,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Admin Footer Text', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Replace the default "Thanks for creating with WordPress" message in admin footer.', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Replace the default "Thanks for creating with WordPress" message in the admin footer.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -428,7 +428,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Replace "Howdy"', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Replace "Howdy" in admin bar (e.g., "Welcome", "Hello")', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Replace "Howdy" in the admin bar.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -464,7 +464,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             value="1" <?php checked(!empty($settings['force_role_settings'])); ?>>
                                                                         <strong><?php esc_html_e('Force role settings (override user selection)', 'capability-manager-enhanced'); ?></strong>
                                                                         <p class="cme-subtext">
-                                                                            <?php esc_html_e('When enabled, role settings will always apply, overriding any user selection even if color scheme UI is visible to them.', 'capability-manager-enhanced'); ?>
+                                                                            <?php esc_html_e('When enabled, role settings will always apply, overriding any user selection even if the color scheme UI is visible to them.', 'capability-manager-enhanced'); ?>
                                                                         </p>
                                                                     </label>
                                                                 </fieldset>
