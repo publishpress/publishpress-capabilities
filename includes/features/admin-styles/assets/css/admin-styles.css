@@ -320,6 +320,19 @@
     width: 100px;
 }
 
+.color-picker-row .wp-picker-container .wp-color-result.button {
+    padding: 0 0 0 30px !important;
+}
+
+.color-picker-row .wp-picker-input-wrap input {
+    width: 100px !important;
+    margin-top: 0 !important;
+    margin-left: 6px !important;
+    padding: 0 8px !important;
+    line-height: 2.54545455 !important;
+    min-height: 30px !important;
+}
+
 /* Checkbox styling */
 .admin-styles .pp-capability-menus-select fieldset {
     margin: 0;
@@ -328,7 +341,6 @@
 }
 
 .admin-styles .pp-capability-menus-select fieldset label {
-    display: block;
     margin-bottom: 8px;
     line-height: 1.4;
 }
@@ -381,11 +393,6 @@ input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
 
 .ppc-admin-color-schemes .wp-picker-input-wrap {
     display: inline-block;
-    margin-left: 10px;
-}
-
-.ppc-admin-color-schemes .wp-picker-input-wrap input {
-    width: 100px !important;
 }
 
 /* Make sure tables are visible in tabs */

@@ -194,6 +194,14 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                         <?php endforeach; ?>
                                                                     </div>
 
+                                                                </fieldset>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr class="ppc-menu-row parent-menu">
+                                                            <td colspan="2" class="value-column ppc-menu-checkbox">
+                                                                <fieldset class="ppc-admin-color-schemes">
                                                                     <!-- Custom Scheme Color Editor (hidden by default) -->
                                                                     <div class="custom-scheme-editor"
                                                                         style="<?php echo ($settings['admin_color_scheme'] !== 'publishpress-custom') ? 'display: none;' : ''; ?> margin-top: 20px; padding: 20px; background: #f6f7f7; border: 1px solid #dcdcde; border-radius: 4px;">
@@ -207,7 +215,8 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             <?php esc_html_e('Customize the colors for your custom scheme. Changes are previewed instantly.', 'capsman-enhanced'); ?>
                                                                         </p>
 
-                                                                        <table class="custom-scheme-colors"
+                                                                        <table
+                                                                            class="custom-scheme-colors color-picker-row"
                                                                             style="width: 100%; margin-top: 15px;">
                                                                             <tr>
                                                                                 <td
@@ -305,9 +314,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             </tr>
                                                                         </table>
 
-                                                                        <div
-                                                                        style=""
-                                                                        class="custom-scheme-preview-area"
+                                                                        <div style="" class="custom-scheme-preview-area"
                                                                             style="margin-top: 20px; padding: 15px; background: <?php echo esc_attr($settings['custom_scheme_background'] ?? '#f0f0f1'); ?>; border-radius: 4px; border: 1px solid #dcdcde;">
                                                                             <div
                                                                                 style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
@@ -329,7 +336,6 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                                 <?php esc_html_e('Live preview of your custom color scheme', 'capsman-enhanced'); ?>
                                                                             </p>
                                                                         </div>
-
                                                                 </fieldset>
                                                             </td>
                                                         </tr>
@@ -429,8 +435,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                 <input type="text" name="settings[admin_replace_howdy]"
                                                                     id="admin_replace_howdy"
                                                                     value="<?php echo esc_attr($settings['admin_replace_howdy']); ?>"
-                                                                    style="width: 99%"
-                                                                    class="regular-text">
+                                                                    style="width: 99%" class="regular-text">
                                                             </td>
                                                         </tr>
 
