@@ -333,6 +333,17 @@
     min-height: 30px !important;
 }
 
+/* Make sure picker is visible when open */
+.wp-picker-container.wp-picker-active .wp-picker-holder,
+.wp-picker-container.wp-picker-active .wp-picker-holder .iris-picker {
+  display: block !important;
+}
+
+/* Ensure our outside click handler doesn't interfere with picker clicks */
+.wp-picker-container * {
+  pointer-events: auto;
+}
+
 /* Checkbox styling */
 .admin-styles .pp-capability-menus-select fieldset {
     margin: 0;

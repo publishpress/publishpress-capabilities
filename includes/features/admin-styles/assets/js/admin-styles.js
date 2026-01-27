@@ -34,8 +34,8 @@
     // Reject obvious dangerous protocols (e.g., javascript:, data:, vbscript:).
     var lower = trimmed.toLowerCase();
     if (lower.indexOf('javascript:') === 0 ||
-        lower.indexOf('data:') === 0 ||
-        lower.indexOf('vbscript:') === 0) {
+      lower.indexOf('data:') === 0 ||
+      lower.indexOf('vbscript:') === 0) {
       return null;
     }
 
@@ -86,13 +86,13 @@
       this.initColorPickers();
       this.initCheckboxes();
       this.initHiddenInputs();
-
-      // Ensure PublishPress Custom is first in the list
+      this.initColorPickerCloseBehavior();
+      this.fixIrisPaletteLinks();
       this.reorderColorSchemes();
 
       // If custom scheme is selected on page load, update preview
       if (this.currentScheme === 'publishpress-custom') {
-          this.updateCustomSchemePreview();
+        this.updateCustomSchemePreview();
       }
     },
 
@@ -193,12 +193,32 @@
           change: function (event, ui) {
             var $input = $(this);
             if ($input.data('preview')) {
+              // Immediate preview update
+              var color = ui.color.toString();
+              $input.val(color);
+
+              // Update preview in admin area
+              PP_Admin_Styles.applyAdminAreaPreview();
+
+              // Also update the small preview area
               PP_Admin_Styles.updateCustomSchemePreview($input);
 
-              // Update custom scheme URL with new timestamp
+              // Update custom scheme URL
               if (PP_Admin_Styles.currentScheme === 'publishpress-custom') {
                 PP_Admin_Styles.updateCustomSchemeUrl();
               }
+            }
+          },
+          clear: function () {
+            var $input = $(this);
+            if ($input.data('preview')) {
+              // Clear the preview styles
+              $('#ppc-admin-area-preview').remove();
+
+              // Update small preview
+              setTimeout(function () {
+                PP_Admin_Styles.updateCustomSchemePreview($input);
+              }, 100);
             }
           }
         });
@@ -339,90 +359,193 @@
     /**
      * Handle color scheme selection
      */
-    handleSchemeSelection: function() {
-    var $option = $(this);
-    var scheme = $option.find('input[type="radio"]').val();
+    handleSchemeSelection: function () {
+      var $option = $(this);
+      var scheme = $option.find('input[type="radio"]').val();
 
-    // If already selected, do nothing
-    if ($option.hasClass('selected')) {
+      // If already selected, do nothing
+      if ($option.hasClass('selected')) {
         return;
-    }
+      }
 
-    // Helper to ensure we only use safe stylesheet URLs
-    function isSafeCssUrl(url) {
-        if (typeof url !== 'string') {
-            return false;
-        }
+      // Update selected state
+      $('.color-option').removeClass('selected');
+      $('.color-checkbox').removeClass('checked').empty();
+      $option.addClass('selected');
+      $option.find('.color-checkbox').addClass('checked').html('<span class="dashicons dashicons-yes"></span>');
 
-        url = url.trim();
-        if (!url) {
-            return false;
-        }
+      // Update hidden input
+      $('#admin_color_scheme').val(scheme);
 
-        // Disallow javascript:, vbscript:, data: and other explicit dangerous schemes
-        var lower = url.toLowerCase();
-        if (
-            lower.indexOf('javascript:') === 0 ||
-            lower.indexOf('vbscript:') === 0 ||
-            lower.indexOf('data:') === 0
-        ) {
-            return false;
-        }
+      // Remove any admin area preview styles
+      $('#ppc-admin-area-preview').remove();
 
-        // Allow relative URLs, protocol-relative URLs, and http/https URLs
-        return (
-            lower.indexOf('http://') === 0 ||
-            lower.indexOf('https://') === 0 ||
-            lower.indexOf('//') === 0 ||
-            lower.charAt(0) === '/' ||
-            // simple relative path or filename (no scheme part before colon)
-            lower.indexOf(':') === -1
-        );
-    }
-
-    // Update selected state
-    $('.color-option').removeClass('selected');
-    $('.color-checkbox').removeClass('checked').empty();
-    $option.addClass('selected');
-    $option.find('.color-checkbox').addClass('checked').html('<span class="dashicons dashicons-yes"></span>');
-
-    // Update hidden input
-    $('#admin_color_scheme').val(scheme);
-
-    // Load the colors stylesheet
-    // The default color scheme won't have one, so we'll need to create an element
-    if (PP_Admin_Styles.$stylesheet.length === 0) {
+      // Load the colors stylesheet
+      if (PP_Admin_Styles.$stylesheet.length === 0) {
         PP_Admin_Styles.$stylesheet = $('<link rel="stylesheet" />').appendTo('head');
-    }
+      }
 
-    // Set the stylesheet URL
-    var cssUrl = $option.children('.css_url').val();
-    var newUrl = sanitizeCssUrl(cssUrl, this.currentScheme, typeof isSafeCssUrl === 'function' ? isSafeCssUrl : null);
-    if (newUrl) {
+      // Set the stylesheet URL
+      var cssUrl = $option.children('.css_url').val();
+      var newUrl = sanitizeCssUrl(cssUrl, this.currentScheme, typeof isSafeCssUrl === 'function' ? isSafeCssUrl : null);
+      if (newUrl) {
         PP_Admin_Styles.$stylesheet.attr('href', newUrl);
-    }
+      }
 
-    // Repaint icons if wp.svgPainter exists (WordPress 5.7+)
-    if (typeof wp !== 'undefined' && wp.svgPainter) {
-        try {
-            var colors = JSON.parse($option.children('.icon_colors').val());
-        } catch (error) {}
-
-        if (colors) {
-            wp.svgPainter.setColors(colors.icons);
-            wp.svgPainter.paint();
-        }
-    }
-
-    // Show/hide custom scheme editor
-    if (scheme === 'publishpress-custom') {
+      // Show/hide custom scheme editor
+      if (scheme === 'publishpress-custom') {
         $('.custom-scheme-editor').slideDown(300);
-        PP_Admin_Styles.updateCustomSchemePreview();
-    } else {
+        // Apply preview for custom scheme
+        PP_Admin_Styles.applyAdminAreaPreview();
+      } else {
         $('.custom-scheme-editor').slideUp(300);
-    }
-    PP_Admin_Styles.currentScheme = scheme;
-},
+      }
+
+      PP_Admin_Styles.currentScheme = scheme;
+    },
+
+    handleOutsideClick: function (e) {
+      var $target = $(e.target);
+
+      // If click is outside color picker container and not on a color picker input
+      // AND not in the admin area preview (since we want to keep preview visible)
+      if (!$target.closest('.wp-picker-container').length &&
+        !$target.hasClass('wp-color-result') &&
+        !$target.parent().hasClass('wp-color-result') &&
+        !$target.closest('#adminmenu').length && // Don't close when clicking admin menu
+        !$target.closest('#wpadminbar').length) { // Don't close when clicking admin bar
+
+        // Close all open color pickers
+        $('.wp-picker-container').each(function () {
+          var $picker = $(this);
+
+          if ($picker.find('.wp-picker-holder').is(':visible')) {
+            // Hide the picker
+            $picker.find('.wp-picker-holder').hide();
+          }
+        });
+      }
+    },
+
+    /**
+     * Initialize color picker close behavior
+     */
+    /**
+     * Initialize color picker close behavior
+     */
+    initColorPickerCloseBehavior: function () {
+      var self = this;
+      var $document = $(document);
+
+      // Use event capturing to close pickers when clicking outside
+      $document.on('click', function (e) {
+        var $target = $(e.target);
+
+        // If clicking on a color picker button, let WordPress handle it
+        if ($target.hasClass('wp-color-result') ||
+          $target.closest('.wp-color-result').length ||
+          $target.closest('.iris-picker').length ||
+          $target.hasClass('wp-picker-clear')) {
+          return; // Let WordPress handle these clicks
+        }
+
+        // Check if clicking on iris palette (we handle this separately)
+        if ($target.hasClass('iris-palette') || $target.closest('.iris-palette').length) {
+          return; // Let our fixIrisPaletteLinks handler handle this
+        }
+
+        // Close all open color pickers
+        $('.wp-picker-holder:visible').each(function () {
+          var $holder = $(this);
+          var $container = $holder.closest('.wp-picker-container');
+
+          // Only close if click is outside this picker
+          if (!$target.closest($container).length) {
+            $holder.hide();
+            $container.find('.wp-color-result').attr('aria-expanded', 'false');
+            $container.find('.wp-picker-input-wrap').addClass('hidden');
+          }
+        });
+      });
+
+      // Handle escape key
+      $document.on('keyup', function (e) {
+        if (e.keyCode === 27) { // Escape key
+          $('.wp-picker-holder:visible').hide();
+          $('.wp-color-result').attr('aria-expanded', 'false');
+          $('.wp-picker-input-wrap').addClass('hidden');
+        }
+      });
+    },
+
+
+    /**
+     * Fix iris palette links to prevent page jumps
+     */
+    fixIrisPaletteLinks: function () {
+      var self = this;
+
+      // Remove href="#" and handle clicks properly
+      $('.iris-palette').each(function () {
+        var $palette = $(this);
+
+        // Remove href to prevent page jumps
+        $palette.removeAttr('href');
+
+        // Store the color
+        var bgColor = $palette.css('background-color');
+        $palette.data('color', bgColor);
+
+        // Handle clicks
+        $palette.on('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          var color = $(this).data('color');
+          if (color) {
+            // Find the color picker input
+            var $picker = $(this).closest('.wp-picker-container');
+            var $input = $picker.find('.pp-capabilities-color-picker');
+
+            if ($input.length) {
+              // Convert RGB to hex if needed
+              if (color.indexOf('rgb') === 0) {
+                color = self.rgbToHex(color);
+              }
+
+              // Update the input
+              $input.val(color).trigger('change');
+
+              // Update the button color
+              $picker.find('.wp-color-result').css('background-color', color);
+
+              // Trigger preview updates if needed
+              if ($input.data('preview')) {
+                setTimeout(function () {
+                  self.updateCustomSchemePreview($input);
+                  self.applyAdminAreaPreview();
+                }, 50);
+              }
+            }
+          }
+
+          return false;
+        });
+
+        // Handle double-click - just close the picker
+        $palette.on('dblclick', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          var $picker = $(this).closest('.wp-picker-container');
+          $picker.find('.wp-picker-holder').hide();
+          $picker.find('.wp-color-result').attr('aria-expanded', 'false');
+
+          return false;
+        });
+      });
+    },
+
 
     /**
      * Update custom scheme URL with new timestamp
@@ -450,16 +573,215 @@
     },
 
     /**
-     * Handle custom color change
+     * Handle custom color change with instant admin area preview
      */
     handleCustomColorChange: function () {
       var $input = $(this);
+      var color = $input.val();
+
+      // Update the preview buttons area
       PP_Admin_Styles.updateCustomSchemePreview($input);
 
-      // If custom scheme is selected, update the CSS URL
+      // Apply immediate preview to the entire admin area
+      PP_Admin_Styles.applyAdminAreaPreview();
+
+      // Update custom scheme URL
       if (PP_Admin_Styles.currentScheme === 'publishpress-custom') {
         PP_Admin_Styles.updateCustomSchemeUrl();
       }
+    },
+
+    /**
+     * Apply custom colors as inline styles to the entire admin area
+     */
+    applyAdminAreaPreview: function () {
+      // Get current color values
+      var colors = {
+        base: $('#custom_scheme_base').val() || '#655997',
+        text: $('#custom_scheme_text').val() || '#ffffff',
+        highlight: $('#custom_scheme_highlight').val() || '#8a7bb9',
+        notification: $('#custom_scheme_notification').val() || '#d63638',
+        background: $('#custom_scheme_background').val() || '#f0f0f1'
+      };
+
+      // Create or update preview style tag
+      var $previewStyle = $('#ppc-admin-area-preview');
+      if (!$previewStyle.length) {
+        $previewStyle = $('<style id="ppc-admin-area-preview"></style>').appendTo('head');
+      }
+
+      // Generate comprehensive CSS for admin area preview
+      var css = `
+    /* Instant admin area preview */
+    #adminmenuback,
+    #adminmenuwrap,
+    #adminmenu {
+      background-color: ${colors.base} !important;
+    }
+
+    #adminmenu a {
+      color: ${colors.text} !important;
+    }
+
+    #adminmenu li.menu-top:hover,
+    #adminmenu li.opensub > a.menu-top,
+    #adminmenu li > a.menu-top:focus {
+      background-color: ${colors.highlight} !important;
+      color: ${colors.text} !important;
+    }
+
+    /* Admin menu submenu */
+    #adminmenu .wp-submenu,
+    #adminmenu .wp-has-current-submenu .wp-submenu,
+    #adminmenu .wp-has-current-submenu.opensub .wp-submenu {
+      background-color: ${this.lightenColor(colors.base, 20)} !important;
+    }
+
+    #adminmenu .wp-submenu a {
+      color: rgba(${this.hexToRgb(colors.text)}, 0.8) !important;
+    }
+
+    #adminmenu .wp-submenu a:hover,
+    #adminmenu .wp-submenu a:focus {
+      color: ${colors.text} !important;
+    }
+
+    /* Admin menu current item */
+    #adminmenu li.current a.menu-top,
+    #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {
+      background-color: ${colors.highlight} !important;
+      color: ${colors.text} !important;
+    }
+
+    /* Admin bar */
+    #wpadminbar {
+      background-color: ${colors.base} !important;
+    }
+
+    #wpadminbar .ab-item,
+    #wpadminbar a.ab-item {
+      color: ${colors.text} !important;
+    }
+
+    #wpadminbar .ab-icon:before,
+    #wpadminbar .ab-item:before,
+    #wpadminbar .ab-item:after {
+      color: rgba(${this.hexToRgb(colors.text)}, 0.8) !important;
+    }
+
+    #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+    #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
+      background-color: ${colors.highlight} !important;
+      color: ${colors.text} !important;
+    }
+
+    /* Admin bar submenu */
+    #wpadminbar .menupop .ab-sub-wrapper {
+      background-color: ${this.lightenColor(colors.base, 20)} !important;
+    }
+
+    /* Primary buttons */
+    .wp-core-ui .button-primary {
+      background: ${colors.base} !important;
+      border-color: ${this.darkenColor(colors.base, 15)} !important;
+      color: ${colors.text} !important;
+    }
+
+    .wp-core-ui .button-primary:hover,
+    .wp-core-ui .button-primary:focus {
+      background: ${colors.highlight} !important;
+      border-color: ${colors.highlight} !important;
+      color: ${colors.text} !important;
+    }
+
+    /* Links */
+    a {
+      color: ${colors.base} !important;
+    }
+
+    a:hover,
+    a:focus {
+      color: ${colors.highlight} !important;
+    }
+
+    /* Notifications and highlights */
+    .notice,
+    .update-nag,
+    #adminmenu .awaiting-mod,
+    #adminmenu .update-plugins {
+      background-color: ${colors.notification} !important;
+      color: ${colors.text} !important;
+    }
+
+    /* Background elements */
+    body.wp-admin {
+      background-color: ${colors.background} !important;
+    }
+  `;
+
+      $previewStyle.text(css);
+    },
+
+    /**
+     * Helper: Convert hex to RGB
+     */
+    hexToRgb: function (hex) {
+      hex = hex.replace('#', '');
+
+      if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+      }
+
+      var r = parseInt(hex.substring(0, 2), 16);
+      var g = parseInt(hex.substring(2, 4), 16);
+      var b = parseInt(hex.substring(4, 6), 16);
+
+      return r + ', ' + g + ', ' + b;
+    },
+
+    rgbToHex: function (rgb) {
+      // If already hex, return it
+      if (rgb.indexOf('#') === 0) return rgb;
+
+      // Convert rgb(r, g, b) or rgba(r, g, b, a) to hex
+      var rgbArray = rgb.match(/\d+/g);
+      if (rgbArray && rgbArray.length >= 3) {
+        var r = parseInt(rgbArray[0]).toString(16).padStart(2, '0');
+        var g = parseInt(rgbArray[1]).toString(16).padStart(2, '0');
+        var b = parseInt(rgbArray[2]).toString(16).padStart(2, '0');
+        return '#' + r + g + b;
+      }
+      return rgb;
+    },
+
+    /**
+     * Helper: Lighten color
+     */
+    lightenColor: function (color, percent) {
+      var num = parseInt(color.replace('#', ''), 16),
+        amt = Math.round(2.55 * percent),
+        R = (num >> 16) + amt,
+        G = (num >> 8 & 0x00FF) + amt,
+        B = (num & 0x0000FF) + amt;
+
+      return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
+    },
+
+    /**
+     * Helper: Darken color
+     */
+    darkenColor: function (color, percent) {
+      var num = parseInt(color.replace('#', ''), 16),
+        amt = Math.round(2.55 * percent) * -1,
+        R = (num >> 16) + amt,
+        G = (num >> 8 & 0x00FF) + amt,
+        B = (num & 0x0000FF) + amt;
+
+      return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 +
+        (G < 255 ? G < 1 ? 0 : G : 255) * 0x100 +
+        (B < 255 ? B < 1 ? 0 : B : 255)).toString(16).slice(1);
     },
 
     /**

@@ -314,7 +314,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             </tr>
                                                                         </table>
 
-                                                                        <div style="" class="custom-scheme-preview-area"
+                                                                        <div style="display:none;" class="custom-scheme-preview-area"
                                                                             style="margin-top: 20px; padding: 15px; background: <?php echo esc_attr($settings['custom_scheme_background'] ?? '#f0f0f1'); ?>; border-radius: 4px; border: 1px solid #dcdcde;">
                                                                             <div
                                                                                 style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
