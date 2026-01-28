@@ -194,6 +194,14 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                         <?php endforeach; ?>
                                                                     </div>
 
+                                                                </fieldset>
+                                                            </td>
+                                                        </tr>
+
+
+                                                        <tr class="ppc-menu-row parent-menu">
+                                                            <td colspan="2" class="value-column ppc-menu-checkbox">
+                                                                <fieldset class="ppc-admin-color-schemes">
                                                                     <!-- Custom Scheme Color Editor (hidden by default) -->
                                                                     <div class="custom-scheme-editor"
                                                                         style="<?php echo ($settings['admin_color_scheme'] !== 'publishpress-custom') ? 'display: none;' : ''; ?> margin-top: 20px; padding: 20px; background: #f6f7f7; border: 1px solid #dcdcde; border-radius: 4px;">
@@ -204,10 +212,11 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             <?php esc_html_e('Custom Color Scheme Editor', 'capsman-enhanced'); ?>
                                                                         </h4>
                                                                         <p class="cme-subtext" style="margin-top: 5px;">
-                                                                            <?php esc_html_e('Customize the colors for your custom scheme. Changes are previewed instantly.', 'capsman-enhanced'); ?>
+                                                                            <?php esc_html_e('Choose the colors for your custom scheme. Changes are previewed instantly.', 'capsman-enhanced'); ?>
                                                                         </p>
 
-                                                                        <table class="custom-scheme-colors"
+                                                                        <table
+                                                                            class="custom-scheme-colors color-picker-row"
                                                                             style="width: 100%; margin-top: 15px;">
                                                                             <tr>
                                                                                 <td
@@ -305,9 +314,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             </tr>
                                                                         </table>
 
-                                                                        <div
-                                                                        style=""
-                                                                        class="custom-scheme-preview-area"
+                                                                        <div style="display:none;" class="custom-scheme-preview-area"
                                                                             style="margin-top: 20px; padding: 15px; background: <?php echo esc_attr($settings['custom_scheme_background'] ?? '#f0f0f1'); ?>; border-radius: 4px; border: 1px solid #dcdcde;">
                                                                             <div
                                                                                 style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
@@ -329,7 +336,6 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                                 <?php esc_html_e('Live preview of your custom color scheme', 'capsman-enhanced'); ?>
                                                                             </p>
                                                                         </div>
-
                                                                 </fieldset>
                                                             </td>
                                                         </tr>
@@ -340,7 +346,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Custom Admin Logo', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Upload a custom logo to replace the WordPress icon in admin bar (recommended: 20×20 SVG or PNG).', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Upload a custom logo to replace the WordPress icon in the admin bar. Recommended: 20px by 20px in SVG or PNG format.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -376,7 +382,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Custom Favicon', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Upload a custom favicon (16x16 or 32x32 PNG) for admin area.', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Upload a custom favicon for the admin area. Recommended: 16px by 16px or 32px by 32px in SVG or PNG format.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -405,7 +411,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Admin Footer Text', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Replace the default "Thanks for creating with WordPress" message in admin footer.', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Replace the default "Thanks for creating with WordPress" message in the admin footer.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
@@ -422,15 +428,14 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <strong><?php esc_html_e('Replace "Howdy"', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
                                                                 <p class="cme-subtext">
-                                                                    <?php esc_html_e('Replace "Howdy" in admin bar (e.g., "Welcome", "Hello")', 'capability-manager-enhanced'); ?>
+                                                                    <?php esc_html_e('Replace "Howdy" in the admin bar.', 'capability-manager-enhanced'); ?>
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
                                                                 <input type="text" name="settings[admin_replace_howdy]"
                                                                     id="admin_replace_howdy"
                                                                     value="<?php echo esc_attr($settings['admin_replace_howdy']); ?>"
-                                                                    style="width: 99%"
-                                                                    class="regular-text">
+                                                                    style="width: 99%" class="regular-text">
                                                             </td>
                                                         </tr>
 
@@ -459,7 +464,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                             value="1" <?php checked(!empty($settings['force_role_settings'])); ?>>
                                                                         <strong><?php esc_html_e('Force role settings (override user selection)', 'capability-manager-enhanced'); ?></strong>
                                                                         <p class="cme-subtext">
-                                                                            <?php esc_html_e('When enabled, role settings will always apply, overriding any user selection even if color scheme UI is visible to them.', 'capability-manager-enhanced'); ?>
+                                                                            <?php esc_html_e('When enabled, role settings will always apply, overriding any user selection even if the color scheme UI is visible to them.', 'capability-manager-enhanced'); ?>
                                                                         </p>
                                                                     </label>
                                                                 </fieldset>
@@ -500,13 +505,14 @@ $role_caption = translate_user_role($roles[$default_role]);
                 $banner_messages = ['<p>'];
                 $banner_messages[] = esc_html__('Admin Styles allows you to customize the WordPress admin area with your own branding.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
-                $banner_messages[] = '<strong>' . esc_html__('Features include:', 'capability-manager-enhanced') . '</strong><br>';
-                $banner_messages[] = '&dot; ' . esc_html__('Custom admin color schemes', 'capability-manager-enhanced') . '<br>';
-                $banner_messages[] = '&dot; ' . esc_html__('Replace WordPress logo and favicon', 'capability-manager-enhanced') . '<br>';
-                $banner_messages[] = '&dot; ' . esc_html__('Custom footer text or removal', 'capability-manager-enhanced') . '<br>';
-                $banner_messages[] = '&dot; ' . esc_html__('Replace "Howdy" text', 'capability-manager-enhanced');
-                $banner_messages[] = '<p>';
-                $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/admin-styles/"target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
+                $banner_messages[] = '<strong>' . esc_html__('Features include:', 'capability-manager-enhanced') . '</strong>';
+                $banner_messages[] = '<ul class="pp-features-list">';
+                $banner_messages[] = '<li class="pp-features-list-item">' . esc_html__('Custom admin color schemes', 'capability-manager-enhanced') . '</li>';
+                $banner_messages[] = '<li class="pp-features-list-item">' . esc_html__('Replace the WordPress logo and favicon', 'capability-manager-enhanced') . '</li>';
+                $banner_messages[] = '<li class="pp-features-list-item">' . esc_html__('Custom footer text', 'capability-manager-enhanced') . '</li>';
+                $banner_messages[] = '<li class="pp-features-list-item">' . esc_html__('Replace "Howdy" text', 'capability-manager-enhanced') . '</li>';
+                $banner_messages[] = '</ul>';
+                $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/admin-styles/" target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
                 $banner_title = __('How to use Admin Styles', 'capability-manager-enhanced');
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
                 // add promo sidebar
