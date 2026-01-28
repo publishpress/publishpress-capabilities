@@ -92,10 +92,9 @@ class PP_Capabilities_Admin_Styles
     private function get_user_settings($user_roles)
     {
         $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
-        $global_settings = get_option('pp_capabilities_admin_styles', $this->defaults);
 
         // Start with global settings
-        $user_settings = $global_settings;
+        $user_settings = $this->defaults;
 
         // Define which settings should be overridden by roles
         $override_settings = [
@@ -281,7 +280,7 @@ class PP_Capabilities_Admin_Styles
             $this->settings = wp_parse_args($all_role_settings[$role], $this->defaults);
         } else {
             // Fallback to global settings
-            $this->settings = get_option('pp_capabilities_admin_styles', $this->defaults);
+            $this->settings = $this->defaults;
         }
 
         return $this->settings;
@@ -337,7 +336,7 @@ class PP_Capabilities_Admin_Styles
         // Register the color scheme
         wp_admin_css_color(
             'publishpress-custom',
-            __('PublishPress Custom', 'capsman-enhanced'),
+            __('Custom Colors', 'capsman-enhanced'),
             $this->custom_scheme_url,
             $colors,
             [
@@ -528,10 +527,6 @@ class PP_Capabilities_Admin_Styles
 
                 // Update option
                 update_option('pp_capabilities_admin_styles_roles', $role_settings);
-
-                // Also update global settings for backward compatibility
-                update_option('pp_capabilities_admin_styles', $settings);
-
             } else {
                 // Save for specific role
                 if (empty($target_role)) {
@@ -661,7 +656,7 @@ class PP_Capabilities_Admin_Styles
         // Add our custom scheme if not already there
         if (!isset($schemes['publishpress-custom'])) {
             $schemes['publishpress-custom'] = [
-                'name' => __('PublishPress Custom', 'capsman-enhanced'),
+                'name' => __('Custom Colors', 'capsman-enhanced'),
                 'url' => $this->custom_scheme_url,
                 'colors' => [
                     $fresh_settings['custom_scheme_base'] ?? '#655997',
@@ -746,8 +741,8 @@ class PP_Capabilities_Admin_Styles
 
         $schemes = [];
 
-        // Add our custom scheme first - FIXED name and slug
-        $schemes['publishpress-custom'] = __('PublishPress Custom', 'capsman-enhanced');
+        // Add our custom scheme first
+        $schemes['publishpress-custom'] = __('Custom Colors', 'capsman-enhanced');
 
         if (!empty($_wp_admin_css_colors)) {
             foreach ($_wp_admin_css_colors as $key => $scheme) {
@@ -781,7 +776,7 @@ class PP_Capabilities_Admin_Styles
         ];
 
         if ($scheme === 'publishpress-custom') {
-            $data['name'] = __('PublishPress Custom', 'capsman-enhanced');
+            $data['name'] = __('Custom Colors', 'capsman-enhanced');
             $data['colors'] = [
                 $this->settings['custom_scheme_base'] ?? '#655997',
                 $this->settings['custom_scheme_text'] ?? '#ffffff',

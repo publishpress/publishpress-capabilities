@@ -89,11 +89,27 @@
       this.initColorPickerCloseBehavior();
       this.fixIrisPaletteLinks();
       this.reorderColorSchemes();
+      this.registerEventsActions();
 
       // If custom scheme is selected on page load, update preview
       if (this.currentScheme === 'publishpress-custom') {
         this.updateCustomSchemePreview();
       }
+    },
+
+    /**
+     * Register event actions
+     */
+    registerEventsActions: function () {
+      $('#ppc-admin-styles-form input, #ppc-admin-styles-form select').on('keydown', function(e) {
+        if (e.keyCode === 13 || e.which === 13) {
+            // Check if this is a submit button
+            if (!$(this).is(':submit') && !$(this).is('button[type="submit"]')) {
+                e.preventDefault();
+                return false;
+            }
+        }
+    });
     },
 
     /**

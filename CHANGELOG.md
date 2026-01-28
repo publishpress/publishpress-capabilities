@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.30.0] - 26 December, 2025
+[2.30.0] - 28 December, 2025
 
 - Feature : Add new feature "Admin Styles", to customize branding for the admin area
 (requires manage_capabilities_admin_styles capability), #1250
