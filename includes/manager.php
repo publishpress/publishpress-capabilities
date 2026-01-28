@@ -193,7 +193,7 @@ class CapabilityManager
 		if (empty($_REQUEST['page'])
 		|| !in_array(
 			$_REQUEST['page'],
-			['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects']
+			['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles']
 			)
 		) {
 			return;
@@ -205,6 +205,22 @@ class CapabilityManager
 		wp_enqueue_style( $this->ID . 'framework_admin');
 
 		if ('pp-capabilities' == $_REQUEST['page']) {
+			// search script and css
+			wp_enqueue_script(
+				'capabilities-search',
+				$this->mod_url . '/common/js/capabilities-search.js',
+				['jquery'],
+				PUBLISHPRESS_CAPS_VERSION,
+				true
+			);
+
+			wp_enqueue_style(
+				'capabilities-search',
+				$this->mod_url . '/common/css/capabilities-search.css',
+				[],
+				PUBLISHPRESS_CAPS_VERSION
+			);
+			// cap admin css
 			wp_register_style( $this->ID . '_admin', $this->mod_url . '/common/css/admin-caps.css', false, PUBLISHPRESS_CAPS_VERSION);
 		} else {
 			// @todo: remove Capabilities-specific styles from admin.css
@@ -715,6 +731,37 @@ class CapabilityManager
     }
 
 	/**
+	 * Manages Admin Styles
+	 *
+	 * @return void
+	 */
+	public function ManageAdminStyles() {
+		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_admin_styles')) {
+            // TODO: Implement exceptions.
+		    wp_die('<strong>' . esc_html__('You do not have permission to manage admin styles.', 'capability-manager-enhanced') . '</strong>');
+		}
+
+		$this->generateNames();
+		$roles = array_keys($this->roles);
+
+		if (!isset($this->current)) {
+			if ('POST' !== $_SERVER['REQUEST_METHOD'] && !empty($_REQUEST['role'])) {
+				$this->set_current_role(sanitize_key($_REQUEST['role']));
+			}
+		}
+
+		if (!isset($this->current) || !get_role($this->current)) {
+			$this->current = get_option('default_role');
+		}
+
+		if (!in_array($this->current, $roles)) {
+			$this->current = array_shift($roles);
+		}
+
+        include(dirname(CME_FILE) . '/includes/features/admin-styles/admin-styles-ui.php');
+    }
+
+	/**
 	 * Manage Nave Menus
 	 *
 	 * @return void
@@ -875,7 +922,7 @@ class CapabilityManager
 			$this->current = array_shift($roles);
 		}
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && isset($_POST['redirects-features-submit']) && !empty($_REQUEST['_wpnonce'])) {
+		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && (isset($_POST['redirects-features-submit']) || isset($_POST['redirects-features-all-submit'])) && !empty($_REQUEST['_wpnonce'])) {
 			if (!wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'pp-capabilities-redirects-features')) {
 				wp_die('<strong>' . esc_html__('Invalid form. Reload this page and try again.', 'capability-manager-enhanced') . '</strong>');
 			} else {
@@ -892,14 +939,31 @@ class CapabilityManager
 
 				$role_redirects = !empty(get_option('capsman_role_redirects')) ? (array)get_option('capsman_role_redirects') : [];
 
-				$role_redirects[$features_role] = [
-					'custom_redirect' => $custom_redirect,
-					'referer_redirect' => $referer_redirect,
-					'login_redirect' => $login_redirect,
-					'logout_redirect' => $logout_redirect,
-					'registration_redirect' => $registration_redirect,
-					'first_login_redirect' => $first_login_redirect
-				];
+				if (isset($_POST['redirects-features-all-submit'])) {
+					// Save for all roles
+					$all_roles = array_keys($this->roles);
+
+					foreach ($all_roles as $role) {
+						$role_redirects[$role] = [
+							'custom_redirect' => $custom_redirect,
+							'referer_redirect' => $referer_redirect,
+							'login_redirect' => $login_redirect,
+							'logout_redirect' => $logout_redirect,
+							'registration_redirect' => $registration_redirect,
+							'first_login_redirect' => $first_login_redirect
+						];
+					}
+				} else {
+					// Save for current role only
+					$role_redirects[$features_role] = [
+						'custom_redirect' => $custom_redirect,
+						'referer_redirect' => $referer_redirect,
+						'login_redirect' => $login_redirect,
+						'logout_redirect' => $logout_redirect,
+						'registration_redirect' => $registration_redirect,
+						'first_login_redirect' => $first_login_redirect
+					];
+				}
 
 				update_option('capsman_role_redirects', $role_redirects);
 

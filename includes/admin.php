@@ -129,10 +129,20 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 		<div class="pp-column-left">
             <div style="margin-bottom: 20px;">
                 <div class="pp-capabilities-submit-top" style="float:right">
-                    <?php
-                    $caption = (in_array(sanitize_key(get_locale()), ['en_EN', 'en_US'])) ? 'Save Capabilities' : __('Save Changes');
-                    ?>
-                    <input type="submit" name="SaveRole" value="<?php echo esc_attr($caption);?>" class="button-primary" />
+					<div class="capabilities-top-action">
+						<div class="pp-capabilities-global-search">
+							<input type="text" id="pp-global-capability-search"
+								class="regular-text"
+								placeholder="<?php esc_attr_e('Search capabilities...', 'capability-manager-enhanced'); ?>" />
+							<div id="pp-search-results-summary" style="font-size: 12px; color: #666;"></div>
+						</div>
+						<div>
+							<?php
+							$caption = (in_array(sanitize_key(get_locale()), ['en_EN', 'en_US'])) ? 'Save Capabilities' : __('Save Changes');
+							?>
+							<input type="submit" name="SaveRole" value="<?php echo esc_attr($caption);?>" class="button-primary" />
+						</div>
+					</div>
                 </div>
 
                 <select name="role">
@@ -181,7 +191,17 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 			$custom_tax = get_taxonomies( array( '_builtin' => false ), 'names' );
 
 			$defined = [];
-			$defined['type'] = apply_filters('cme_filterable_post_types', get_post_types(['public' => true, 'show_ui' => true], 'object', 'or'));
+
+			// Get public post types
+			$post_types = get_post_types(['public' => true, 'show_ui' => true], 'object', 'or');
+
+			// Include private post types if setting is enabled
+			if (get_option('cme_capabilities_show_private_post_types', 0)) {
+				$private_types = get_post_types(['public' => false, 'show_ui' => true], 'object', 'or');
+				$post_types = array_merge($post_types, $private_types);
+			}
+
+			$defined['type'] = apply_filters('cme_filterable_post_types', $post_types);
 
 			if (in_array(get_locale(), ['en_EN', 'en_US'])) {
 				$defined['type']['wp_navigation']->label = __('Nav Menus (Block)', 'capability-manager-enhanced');
@@ -199,7 +219,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 			}
 
 			// bbPress' dynamic role def requires additional code to enforce stored caps
-			$unfiltered['type'] = apply_filters('presspermit_unfiltered_post_types', ['forum','topic','reply','wp_block']);
+			$unfiltered['type'] = apply_filters('presspermit_unfiltered_post_types', ['forum','topic','reply', 'customize_changeset']);
 			$unfiltered['type'] = (defined('PP_CAPABILITIES_NO_LEGACY_FILTERS')) ? $unfiltered['type'] : apply_filters('pp_unfiltered_post_types', $unfiltered['type']);
 
 			$unfiltered['taxonomy'] = apply_filters('presspermit_unfiltered_post_types', ['post_status', 'topic-tag']);  // avoid confusion with Edit Flow administrative taxonomy
@@ -318,7 +338,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 				}
 
 				// Tabs and Content display
-				$('.ppc-capabilities-tabs > ul > li').click( function() {
+				$(document).on('click', '.ppc-capabilities-tabs > ul > li', function() {
 					var $pp_tab = $(this).attr('data-content');
 					var data_slug = $(this).attr('data-slug');
 
@@ -351,6 +371,19 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 					$('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active');
 					$(this).addClass('ppc-capabilities-tab-active');
 
+					// Add search functionality
+					var searchTerm = $('#pp-global-capability-search').val().trim();
+					if (searchTerm.length >= 2) {
+						// Handle special case for taxonomies tab
+						var filterInputId = (data_slug === 'taxonomies') ?
+							'cme-cap-type-tables-' + data_slug + '-taxonomy .ppc-filter-text' :
+							'cme-cap-type-tables-' + data_slug + ' .ppc-filter-text';
+						var $filterInput = $(filterInputId);
+						if ($filterInput.length > 0) {
+							$filterInput.val(searchTerm).trigger('input');
+						}
+					}
+
 					// Scroll to content area (for responsive display)
 					if ($(window).width() <= 1199) {
 						$([document.documentElement, document.body]).animate({
@@ -358,13 +391,44 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						}, 500);
 					}
 				});
+
+				// Tab capabilities counting
+				function updateTabCounts() {
+					$('.ppc-capabilities-tabs > ul > li').each(function() {
+						var $tab = $(this);
+						var tabSlug = $tab.data('slug');
+						var $content = $('#' + $tab.data('content'));
+
+						// Count checked checkboxes in this tab's content
+						var checkedCount = $content.find('input[type="checkbox"]:checked').length;
+
+						// Remove existing count and title wrapper if present
+						$tab.find('.pp-capabilities-count-indicator').remove();
+						$tab.find('.tab-title').contents().unwrap();
+
+						// Wrap existing text in title span
+						$tab.contents().filter(function() {
+							return this.nodeType === 3 && this.textContent.trim() !== '';
+						}).wrap('<span class="tab-title"></span>');
+
+						// Add count if > 0
+						if (checkedCount > 0) {
+							$tab.append(' <span class="pp-capabilities-count-container"><span class="pp-capabilities-count-indicator">' + checkedCount + '</span></span>');
+						} else {
+							$tab.append(' <span class="pp-capabilities-count-container"></span>');
+						}
+					});
+				}
+
+				// Initialize tab capabilities counting
+				updateTabCounts();
 			});
 			/* ]]> */
 			</script>
 
 			<div id="ppc-capabilities-wrapper" class="postbox">
 				<div class="ppc-capabilities-tabs">
-					<ul>
+					<ul style="min-width: 220px;">
 						<?php
 						$full_width_tabs = apply_filters('pp_capabilities_full_width_tabs', []);
 
@@ -1071,21 +1135,30 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
-								$title_text = sprintf( __( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), $cap_name );
+								$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
 							} else {
-								$title_text = $cap_name;
+								$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
 							}
 
 							$disabled = '';
 							$checked = !empty($rcaps[$cap_name]) ? 'checked' : '';
-							$cap_title = $title_text;
+							$cap_title = '';
+
+                            $tooltip_html = '
+                                 <div class="tool-tip-text">
+                                    <p>'. $tool_tip .'</p>
+                                    <i></i>
+                                </div>
+                            ';
 							?>
 							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap_name));
 							?>
-							</span></label></span><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
+							</span></label>
+								<?php echo $tooltip_html; ?>
+							</span><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
 							<?php if ( false !== strpos( $class, 'cap-neg' ) ) :?>
 								<input type="hidden" class="cme-negation-input" name="caps[<?php echo esc_attr($cap_name); ?>]" value="" />
 							<?php endif; ?>
@@ -1240,9 +1313,9 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
-								$title_text = sprintf( __( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), $cap_name );
+								$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
 							} else {
-								$title_text = $cap_name;
+								$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
 							}
 
                             if ($cap_name === 'manage_capabilities_user_testing') {
@@ -1254,14 +1327,23 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							$disabled = '';
 							$checked = !empty($rcaps[$cap_name]) ? 'checked' : '';
 
-							$cap_title = $title_text;
+							$cap_title = '';
+
+                            $tooltip_html = '
+                                 <div class="tool-tip-text">
+                                    <p>'. $tool_tip .'</p>
+                                    <i></i>
+                                </div>
+                            ';
 							?>
 							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap_name));
 							?>
-							</span></label></span><?php echo $warning_message; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
+							</span></label>
+								<?php echo $tooltip_html; ?>
+							</span><?php echo $warning_message; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
 							<?php if ( false !== strpos( $class, 'cap-neg' ) ) :?>
 								<input type="hidden" class="cme-negation-input" name="caps[<?php echo esc_attr($cap_name); ?>]" value="" />
 							<?php endif; ?>
@@ -1357,12 +1439,22 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							$disabled = '';
 							$checked = !empty($rcaps[$cap_name]) ? 'checked' : '';
                             $invalid_caps_capabilities[] = $cap_name;
+
+							$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
+
+                            $tooltip_html = '
+                                 <div class="tool-tip-text">
+                                    <p>'. $tool_tip .'</p>
+                                    <i></i>
+                                </div>
+                            ';
 						?>
 							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><label title="<?php echo esc_attr($title_text);?>"><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap ));
 							?>
+								<?php echo $tooltip_html; ?>
 							</span></label><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
 							<?php if ( false !== strpos( $class, 'cap-neg' ) ) :?>
 								<input type="hidden" class="cme-negation-input" name="caps[<?php echo esc_attr($cap_name); ?>]" value="" />
@@ -1490,8 +1582,9 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
 								$title_text = sprintf( esc_html__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
+								$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
 							} else {
-								$title_text = '';
+								$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
 							}
 
 							$disabled = '';
@@ -1508,12 +1601,20 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							}
 
 						$caps_empty = false;
+
+                            $tooltip_html = '
+                                 <div class="tool-tip-text">
+                                    <p>'. $tool_tip .'</p>
+                                    <i></i>
+                                </div>
+                            ';
 						?>
 							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . ' ' . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap ));
 							?>
+								<?php echo $tooltip_html; ?>
 							</span></label><?php if ($title_text) :?><span class="tool-tip-text" style="text-align: center;">
 								<p><?php echo $title_text; ?></p>
 								<i></i>

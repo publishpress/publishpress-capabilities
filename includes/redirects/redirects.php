@@ -107,9 +107,16 @@ $fields = [
                                         <p>
                                         <div class="publishpress-filters" style="margin-bottom:5px;">
                                             <div class="pp-capabilities-submit-top" style="float:right;">
-                                                <input type="submit" name="redirects-features-submit"
-                                                    value="<?php esc_attr_e('Save Changes');?>"
-                                                    class="button-primary ppc-redirects-features-submit" />
+
+                                            <input type="submit" name="redirects-features-submit"
+                                                value="<?php esc_attr_e('Save Changes');?>"
+                                                class="button-primary ppc-redirects-features-submit"
+                                                style="margin-right: 10px;" />
+
+                                            <input type="submit" name="redirects-features-all-submit"
+                                                value="<?php esc_attr_e('Save for all Roles');?>"
+                                                class="button-secondary ppc-redirects-features-submit" />
+
                                             </div>
 
                                             <select name="ppc-redirects-features-role" class="ppc-redirects-features-role">
@@ -305,8 +312,13 @@ $fields = [
                                     </div>
                                     <div class="pp-capabilities-submit-bottom" style="float:right;">
                                         <input type="submit" name="redirects-features-submit"
-                                            value="<?php esc_attr_e('Save Changes');?>"
-                                            class="button-primary ppc-redirects-features-submit"/>
+                                                value="<?php esc_attr_e('Save Changes');?>"
+                                                class="button-primary ppc-redirects-features-submit"
+                                                style="margin-right: 10px;" />
+
+                                            <input type="submit" name="redirects-features-all-submit"
+                                                value="<?php esc_attr_e('Save for all Roles');?>"
+                                                class="button-secondary ppc-redirects-features-submit" />
                                     </div>
                                     <div class="clear"></div>
                                 </td>

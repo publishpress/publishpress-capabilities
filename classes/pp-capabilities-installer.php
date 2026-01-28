@@ -36,6 +36,10 @@ class PP_Capabilities_Installer
             self::addRedirectsCapabilities();
         }
 
+        if (version_compare($currentVersions, '2.30.0', '<')) {
+            self::addAdminStylesCapabilities();
+        }
+
         /**
          * @param string $previousVersion
          */
@@ -136,6 +140,21 @@ class PP_Capabilities_Installer
         }
         if (!empty($role_redirects)) {
             update_option('capsman_role_redirects', $role_redirects);
+        }
+    }
+
+    private static function addAdminStylesCapabilities()
+    {
+        $eligible_roles = ['administrator', 'editor'];
+
+        /**
+         * Add admin styles capabilities to admin and editor roles
+         */
+        foreach ($eligible_roles as $eligible_role) {
+            $role = get_role($eligible_role);
+            if (is_object($role) && !$role->has_cap('manage_capabilities_admin_styles')) {
+                $role->add_cap('manage_capabilities_admin_styles');
+            }
         }
     }
 

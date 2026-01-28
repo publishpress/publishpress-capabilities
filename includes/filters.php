@@ -179,23 +179,29 @@ function _cme_remap_term_meta_cap ( $caps, $cap, $user_id, $args ) {
 
 // Note: this intentionally shares "presspermit_enabled_post_types" option with PublishPress Permissions
 function cme_get_assisted_post_types() {
-	$type_args = array( 'public' => true, 'show_ui' => true );
+    $type_args = array( 'public' => true, 'show_ui' => true );
 
-	$post_types = get_post_types( $type_args, 'names', 'or' );
+    $post_types = get_post_types( $type_args, 'names', 'or' );
 
-	$omit_types = apply_filters('presspermit_unfiltered_post_types', ['forum', 'topic', 'reply', 'wp_block', 'customize_changeset']);
-	$omit_types = (defined('PP_CAPABILITIES_NO_LEGACY_FILTERS')) ? $omit_types : apply_filters('pp_unfiltered_post_types', $omit_types);
+    $omit_types = apply_filters('presspermit_unfiltered_post_types', ['forum', 'topic', 'reply', 'customize_changeset']);
+    $omit_types = (defined('PP_CAPABILITIES_NO_LEGACY_FILTERS')) ? $omit_types : apply_filters('pp_unfiltered_post_types', $omit_types);
 
-	if ($omit_types) {
-		$post_types = array_diff_key( $post_types, array_fill_keys( (array) $omit_types, true ) );
-	}
+    if ($omit_types) {
+        $post_types = array_diff_key( $post_types, array_fill_keys( (array) $omit_types, true ) );
+    }
 
-	$option_name = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp_enabled_post_types' : 'presspermit_enabled_post_types';
-	$enabled = (array) get_option( $option_name, array( 'post' => true, 'page' => true ) );
+    // Include private post types if setting is enabled
+    if (get_option('cme_capabilities_show_private_post_types', 0)) {
+        $private_types = get_post_types(['public' => false, 'show_ui' => true], 'names', 'or');
+        $post_types = array_merge($post_types, $private_types);
+    }
 
-	$post_types = array_intersect( $post_types, array_keys( array_filter( $enabled ) ) );
+    $option_name = (defined('PPC_VERSION') && !defined('PRESSPERMIT_VERSION')) ? 'pp_enabled_post_types' : 'presspermit_enabled_post_types';
+    $enabled = (array) get_option( $option_name, array( 'post' => true, 'page' => true ) );
 
-	return apply_filters( 'cme_assisted_post_types', $post_types, $type_args );
+    $post_types = array_intersect( $post_types, array_keys( array_filter( $enabled ) ) );
+
+    return apply_filters( 'cme_assisted_post_types', $post_types, $type_args );
 }
 
 // Note: this intentionally does NOT share Press Permit' option name, for back compat reasons

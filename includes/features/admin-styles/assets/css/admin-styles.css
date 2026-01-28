@@ -1,0 +1,527 @@
+/**
+ * Admin Styles CSS
+ *
+ * @package PublishPress\Capabilities
+ * @since 2.30.0
+ */
+
+/* Main wrapper styling */
+.admin-styles .pp-column-left .nav-tab-wrapper,
+.admin-styles .pp-column-left .postbox {
+    border: unset;
+    background: transparent;
+}
+
+.pp-capability-menus {
+    overflow: initial;
+}
+
+.admin-styles #pp-capability-menus-general {
+    border: 1px solid #c3c4c7;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+    background: #fff;
+}
+
+/* Tab navigation */
+.admin-styles .nav-tab-wrapper {
+    border-bottom: 1px solid #c3c4c7;
+    margin: 0;
+    padding: 0;
+    background: #f0f0f1;
+}
+
+.admin-styles .nav-tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    margin: 0 5px -1px 0;
+    padding: 10px 20px;
+    font-size: 14px;
+    line-height: 1.71428571;
+    font-weight: 600;
+    color: #50575e;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.admin-styles .nav-tab:hover {
+    color: #135e96;
+    background-color: #fff;
+}
+
+.admin-styles .nav-tab-active {
+    background: #fff;
+    border-color: #c3c4c7;
+    border-bottom-color: #fff;
+    color: #23282d;
+}
+
+/* Tab content styling - FIXED */
+.admin-styles-tab-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.admin-styles-tab-content.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Ensure table content is visible */
+.admin-styles-tab-content .pp-capability-menus-select {
+    display: table;
+    width: 100%;
+}
+
+.admin-styles-tab-content.active .pp-capability-menus-select {
+    display: table;
+}
+
+/* Form table styling */
+.admin-styles .pp-capability-menus-select {
+    margin: 0;
+    border: none;
+    box-shadow: none;
+}
+
+.admin-styles .pp-capability-menus-select th.menu-column {
+    width: 250px;
+    padding: 20px 10px;
+    font-weight: 600;
+}
+
+.admin-styles .pp-capability-menus-select td.menu-column {
+    vertical-align: top;
+    padding: 20px 10px;
+}
+
+.admin-styles .pp-capability-menus-select td.restrict-column {
+    vertical-align: middle;
+    padding: 20px 10px;
+}
+
+.admin-styles .pp-capability-menus-select textarea.large-text,
+.admin-styles .pp-capability-menus-select input.regular-text {
+    width: 100%;
+    max-width: 400px;
+}
+
+.admin-styles .pp-capability-menus-select select.regular-text {
+    width: 200px;
+}
+
+/* WordPress-style Color Scheme Swatches */
+.ppc-admin-color-schemes .color-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.ppc-admin-color-schemes .color-option {
+    position: relative;
+    width: 180px;
+    border: 2px solid #dcdcde;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #fff;
+}
+
+.ppc-admin-color-schemes .color-option:hover {
+    border-color: #8c8f94;
+}
+
+.ppc-admin-color-schemes .color-option.selected {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1, 0 0 0 4px rgba(34, 113, 177, 0.1);
+}
+
+.ppc-admin-color-schemes .color-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ppc-admin-color-schemes .color-option label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #1d2327;
+    cursor: pointer;
+    position: relative;
+    padding-right: 24px;
+}
+
+.custom-scheme-edit-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #8c8f94;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.custom-scheme-edit-icon:hover {
+    color: #2271b1;
+}
+
+.custom-scheme-edit-icon .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.current-indicator {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #46b450;
+}
+
+.current-indicator .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.color-palette {
+    display: flex;
+    height: 24px;
+    border-radius: 3px;
+    overflow: hidden;
+    border: 1px solid #dcdcde;
+}
+
+.color-palette-shade {
+    flex: 1;
+    height: 100%;
+}
+
+.custom-scheme-preview {
+    height: 24px;
+    border-radius: 3px;
+    border: 1px solid #dcdcde;
+    background: linear-gradient(135deg, #2271b1 25%, #72aee6 75%);
+    transition: background 0.3s ease;
+}
+
+/* Custom Scheme Editor */
+.custom-scheme-editor {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.custom-scheme-editor h4 {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1d2327;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.custom-scheme-editor h4 .dashicons {
+    color: #2271b1;
+}
+
+.custom-scheme-colors {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+
+.custom-scheme-colors td {
+    padding: 10px 0;
+    vertical-align: top;
+}
+
+.custom-scheme-colors td:first-child {
+    width: 200px;
+}
+
+.custom-scheme-colors strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #1d2327;
+}
+
+.custom-scheme-color {
+    width: 100px !important;
+}
+
+.custom-scheme-preview-area {
+    margin-top: 20px;
+    padding: 15px;
+    background: var(--ppc-custom-background, #f0f0f1);
+    border-radius: 4px;
+    border: 1px solid #dcdcde;
+    transition: all 0.3s ease;
+}
+
+.custom-scheme-preview-area > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.custom-scheme-preview-area > div:first-child > div {
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 120px;
+    text-align: center;
+}
+
+/* Image upload styling */
+.pp-capabilities-image-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.pp-capabilities-image-url {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.pp-capabilities-logo-dimensions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.pp-capabilities-dimension-separator {
+    margin: 0 5px;
+    font-weight: bold;
+    color: #646970;
+}
+
+/* Color picker */
+.pp-capabilities-color-picker {
+    width: 100px;
+}
+
+.color-picker-row .wp-picker-container .wp-color-result.button {
+    padding: 0 0 0 30px !important;
+}
+
+.color-picker-row .wp-picker-input-wrap input {
+    width: 100px !important;
+    margin-top: 0 !important;
+    margin-left: 6px !important;
+    padding: 0 8px !important;
+    line-height: 2.54545455 !important;
+    min-height: 30px !important;
+}
+
+/* Make sure picker is visible when open */
+.wp-picker-container.wp-picker-active .wp-picker-holder,
+.wp-picker-container.wp-picker-active .wp-picker-holder .iris-picker {
+  display: block !important;
+}
+
+/* Ensure our outside click handler doesn't interfere with picker clicks */
+.wp-picker-container * {
+  pointer-events: auto;
+}
+
+/* Checkbox styling */
+.admin-styles .pp-capability-menus-select fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.admin-styles .pp-capability-menus-select fieldset label {
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.admin-styles .pp-capability-menus-select fieldset input[type="checkbox"] {
+    margin-right: 8px;
+    margin-top: 1px;
+    vertical-align: top;
+}
+
+/* Code textareas */
+.admin-styles .code {
+    font-family: Consolas, Monaco, monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+/* Button styling */
+.ppc-admin-styles-submit {
+    margin-top: 5px;
+}
+
+input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
+    margin-left: 10px;
+}
+
+/* Helper text */
+.cme-subtext {
+    color: #646970;
+    font-size: 12px;
+    margin-top: 5px;
+    font-style: normal;
+    line-height: 1.4;
+}
+
+/* Loading indicator */
+.publishpress-caps-manage img.loading {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+/* Color picker adjustments */
+.ppc-admin-color-schemes .wp-color-result {
+    margin: 0 !important;
+}
+
+.ppc-admin-color-schemes .wp-picker-input-wrap {
+    display: inline-block;
+}
+
+/* Make sure tables are visible in tabs */
+#pp-capability-menu-wrapper .pp-capability-menus-select {
+    visibility: visible !important;
+    display: table !important;
+}
+
+/* WordPress style checkboxes for color schemes */
+.color-checkbox {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8c8f94;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.color-checkbox.checked {
+    border-color: #2271b1;
+    background: #2271b1;
+}
+
+.color-checkbox .dashicons {
+    color: #fff;
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    margin: 0;
+    display: none;
+}
+
+.color-checkbox.checked .dashicons {
+    display: block;
+}
+
+/* Adjust label position for checkbox */
+.ppc-admin-color-schemes .color-option label {
+    padding-right: 35px;
+}
+
+/* Custom scheme icon position adjustment */
+.ppc-custom-scheme .custom-scheme-edit-icon {
+    right: 35px;
+}
+
+.ppc-custom-scheme .current-indicator {
+    right: 35px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .admin-styles .pp-capability-menus-select th.menu-column,
+    .admin-styles .pp-capability-menus-select td.menu-column,
+    .admin-styles .pp-capability-menus-select td.restrict-column {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .admin-styles .pp-capability-menus-select th.menu-column {
+        padding-bottom: 5px;
+    }
+
+    .pp-capabilities-image-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pp-capabilities-image-url {
+        width: 100%;
+        max-width: none;
+        margin-bottom: 10px;
+    }
+
+    .admin-styles .pp-capability-menus-select textarea.large-text,
+    .admin-styles .pp-capability-menus-select input.regular-text {
+        width: 100%;
+        max-width: none;
+    }
+
+    .admin-styles .nav-tab {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .ppc-admin-color-schemes .color-options {
+        gap: 10px;
+    }
+
+    .ppc-admin-color-schemes .color-option {
+        width: calc(50% - 10px);
+        min-width: 140px;
+    }
+
+    .custom-scheme-colors td:first-child {
+        width: 150px;
+    }
+
+    .custom-scheme-preview-area > div:first-child {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .custom-scheme-preview-area > div:first-child > div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ppc-admin-color-schemes .color-option {
+        width: 100%;
+    }
+}

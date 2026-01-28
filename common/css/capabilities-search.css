@@ -1,0 +1,38 @@
+.ppc-capabilities-tabs>ul>li .search-count {
+    display: inline-block;
+    background-color: #f0f6fc;
+    color: #2c3338;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-weight: 500;
+    min-width: 16px;
+    text-align: center;
+    line-height: 1.2;
+    background-color: #655897;
+    color: #fff;
+}
+
+.ppc-capabilities-tabs>ul>li:hover .search-count {
+     transform: scale(1);
+    transition: all 0.2s ease;
+}
+
+.capabilities-top-action {
+    display: flex;
+    gap: 200px;
+}
+
+.pp-capabilities-global-search input {
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .pp-capabilities-global-search {
+        float: none;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px !important;
+    }
+}
