@@ -152,8 +152,8 @@ class PP_Capabilities_Admin_Styles
         $css = '';
 
         // Custom admin logo
-        if (!empty($this->settings['admin_logo'])) {
-            $logo_url = esc_url($this->settings['admin_logo']);
+        if (!empty($settings['admin_logo'])) {
+            $logo_url = esc_url($settings['admin_logo']);
 
             $css .= '
                 /* Hide the entire WordPress logo icon container */
