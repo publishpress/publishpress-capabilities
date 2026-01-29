@@ -297,9 +297,7 @@
         $('#' + target).trigger('change');
 
         // If it's a logo, show preview
-        if (target === 'admin_logo') {
-          PP_Admin_Styles.showLogoPreview(attachment.url);
-        }
+        PP_Admin_Styles.showLogoPreview(attachment.url, target);
       });
 
       // Open the media library
@@ -309,17 +307,18 @@
     /**
      * Show logo preview
      */
-    showLogoPreview: function (url) {
-      // Remove existing preview
-      $('.logo-preview').remove();
-
-      // Add new preview
-      var $preview = $('<p class="cme-subtext logo-preview" style="margin-top: 5px;">' +
-        '<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">' +
-        ppCapabilitiesAdminStyles.labels.currentLogoPreview +
-        '</p>');
-
-      $('#admin_logo').after($preview);
+    showLogoPreview: function (url, target) {
+      if (target === 'admin_logo') {
+        // Add new preview
+        var $preview = $('<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
+        $('.logo-preview').empty();
+        $('.logo-preview').append($preview);
+      } else if (target === 'admin_favicon') {
+        // Add new preview
+        var $preview = $('<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
+        $('.favicon-preview').empty();
+        $('.favicon-preview').append($preview);
+      }
     },
 
     /**
@@ -333,7 +332,9 @@
 
       // Remove logo preview if applicable
       if (target === 'admin_logo') {
-        $('.logo-preview').remove();
+        $('.logo-preview').empty();
+      } else if (target === 'admin_favicon') {
+        $('.favicon-preview').empty();
       }
     },
 
