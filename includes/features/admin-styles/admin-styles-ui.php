@@ -98,7 +98,7 @@ $role_caption = translate_user_role($roles[$default_role]);
 
                             </div>
 
-                            <div id="pp-capability-menu-wrapper" class="postbox">
+                            <div id="pp-capability-menu-wrapper">
                                 <div class="pp-capability-menus">
 
                                     <div class="pp-capability-menus-wrap">
