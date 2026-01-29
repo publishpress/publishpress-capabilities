@@ -42,7 +42,7 @@ class PP_Capabilities_Admin_Styles
 
             // Custom CSS based features
             'hide_color_scheme_ui' => false,
-            'force_role_settings' => true,
+            'force_role_settings' => false,
             'admin_replace_howdy' => '',
 
             // Image based features
