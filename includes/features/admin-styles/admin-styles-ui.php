@@ -98,7 +98,7 @@ $role_caption = translate_user_role($roles[$default_role]);
 
                             </div>
 
-                            <div id="pp-capability-menu-wrapper" class="postbox">
+                            <div id="pp-capability-menu-wrapper">
                                 <div class="pp-capability-menus">
 
                                     <div class="pp-capability-menus-wrap">
@@ -355,6 +355,11 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                         id="admin_logo"
                                                                         value="<?php echo esc_url($settings['admin_logo']); ?>"
                                                                         class="regular-text pp-capabilities-image-url">
+                                                                    <span class="logo-preview">
+                                                                        <?php if (!empty($settings['admin_logo'])): ?>
+                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
+                                                                        <?php endif; ?>
+                                                                    </span>
                                                                     <button type="button"
                                                                         class="button pp-capabilities-upload-button"
                                                                         data-target="admin_logo">
@@ -366,13 +371,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                         <?php esc_html_e('Remove', 'capability-manager-enhanced'); ?>
                                                                     </button>
                                                                 </div>
-                                                                <?php if (!empty($settings['admin_logo'])): ?>
-                                                                    <p class="cme-subtext" style="margin-top: 5px;">
-                                                                        <img src="<?php echo esc_url($settings['admin_logo']); ?>"
-                                                                            style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
-                                                                        <?php esc_html_e('Current logo preview', 'capsman-enhanced'); ?>
-                                                                    </p>
-                                                                <?php endif; ?>
+
                                                             </td>
                                                         </tr>
 
@@ -391,6 +390,11 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                         id="admin_favicon"
                                                                         value="<?php echo esc_url($settings['admin_favicon']); ?>"
                                                                         class="regular-text pp-capabilities-image-url">
+                                                                    <span class="favicon-preview">
+                                                                        <?php if (!empty($settings['admin_favicon'])): ?>
+                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
+                                                                        <?php endif; ?>
+                                                                    </span>
                                                                     <button type="button"
                                                                         class="button pp-capabilities-upload-button"
                                                                         data-target="admin_favicon">

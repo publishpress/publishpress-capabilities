@@ -1,6 +1,12 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.31.0] - 29 December, 2025
+
+- Update : Improve Admin Styles logo and favicon preview, #1545
+- Fixed : Admin Styles top save buttons not working, #1544
+- Update : Disable admin style overriding feature by default, #1546
+
 [2.30.0] - 28 December, 2025
 
 - Feature : Add new feature "Admin Styles", to customize branding for the admin area
