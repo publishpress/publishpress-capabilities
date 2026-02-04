@@ -56,6 +56,61 @@ class PP_Capabilities_Admin_Styles
             'custom_scheme_notification' => '#d63638',
             'custom_scheme_background' => '#f0f2f1',
 
+            // Custom element-specific overrides
+            'elements' => [
+                'links' => [
+                    'default' => '',
+                    'hover' => '',
+                    'delete' => '',
+                    'delete_hover' => '',
+                    'trash' => '',
+                    'trash_hover' => '',
+                    'spam' => '',
+                    'spam_hover' => '',
+                    'inactive' => '',
+                    'inactive_hover' => ''
+                ],
+                'buttons' => [
+                    'primary_background' => '',
+                    'primary_hover' => '',
+                    'primary_text' => '',
+                    'secondary_text' => '',
+                    'secondary_hover' => '',
+                    'secondary_border' => '',
+                    'secondary_border_hover' => ''
+                ],
+                'admin_menu' => [
+                    'background' => '',
+                    'text' => '',
+                    'highlight' => '',
+                    'submenu_background' => '',
+                    'submenu_text' => ''
+                ],
+                'admin_bar' => [
+                    'background' => '',
+                    'text' => '',
+                    'highlight' => '',
+                    'submenu_background' => '',
+                    'submenu_text' => ''
+                ],
+                'tables' => [
+                    'header_background' => '',
+                    'header_text' => '',
+                    'row_stripe' => '',
+                    'row_hover' => ''
+                ],
+                'forms' => [
+                    'focus_border' => '',
+                    'focus_shadow' => '',
+                    'checkbox_radio' => ''
+                ],
+                'notices' => [
+                    'background' => '',
+                    'text' => '',
+                    'border' => ''
+                ]
+            ],
+
             // Version for cache busting
             'custom_scheme_version' => 0
         ];
@@ -109,7 +164,8 @@ class PP_Capabilities_Admin_Styles
             'custom_scheme_text',
             'custom_scheme_highlight',
             'custom_scheme_notification',
-            'custom_scheme_background'
+            'custom_scheme_background',
+            'elements'
         ];
 
         // Check each role in reverse order (last role wins for conflicting settings)
@@ -131,8 +187,19 @@ class PP_Capabilities_Admin_Styles
                                 $user_settings[$key] = $role_setting[$key];
                             }
                         }
-                        // For text/color fields, check if not empty
-                        elseif (!empty($role_setting[$key])) {
+                        // For nested element settings, merge non-empty values
+                        elseif ('elements' === $key && is_array($role_setting[$key])) {
+                            foreach ($role_setting[$key] as $group => $values) {
+                                if (!is_array($values)) {
+                                    continue;
+                                }
+                                foreach ($values as $value_key => $value) {
+                                    if (!empty($value)) {
+                                        $user_settings['elements'][$group][$value_key] = $value;
+                                    }
+                                }
+                            }
+                        } elseif (!empty($role_setting[$key])) {
                             $user_settings[$key] = $role_setting[$key];
                         }
                     }
@@ -701,6 +768,10 @@ class PP_Capabilities_Admin_Styles
                     $sanitized[$key] = wp_kses_post($value);
                     break;
 
+                case 'elements':
+                    $sanitized[$key] = $this->sanitize_element_settings($value);
+                    break;
+
                 case 'custom_scheme_base':
                 case 'custom_scheme_text':
                 case 'custom_scheme_highlight':
@@ -726,6 +797,29 @@ class PP_Capabilities_Admin_Styles
                 default:
                     $sanitized[$key] = sanitize_text_field($value);
                     break;
+            }
+        }
+
+        return $sanitized;
+    }
+
+    private function sanitize_element_settings($elements)
+    {
+        $sanitized = [];
+
+        if (!is_array($elements)) {
+            return $this->defaults['elements'];
+        }
+
+        foreach ($this->defaults['elements'] as $group => $values) {
+            $sanitized[$group] = [];
+            foreach ($values as $value_key => $default) {
+                if (isset($elements[$group][$value_key])) {
+                    $value = sanitize_hex_color($elements[$group][$value_key]);
+                    $sanitized[$group][$value_key] = $value ? $value : '';
+                } else {
+                    $sanitized[$group][$value_key] = '';
+                }
             }
         }
 

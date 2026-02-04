@@ -32,17 +32,20 @@ header('Cache-Control: public, max-age=86400'); // 24 hours
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
 
 // Get the plugin instance
-function ppc_get_custom_colors() {
+function ppc_get_custom_settings() {
     global $immediate_colors;
 
     // If immediate colors are provided, use them (for live preview)
     if ($immediate_colors && is_array($immediate_colors)) {
         return [
-            'base' => $immediate_colors['base'] ?? '#655997',
-            'text' => $immediate_colors['text'] ?? '#ffffff',
-            'highlight' => $immediate_colors['highlight'] ?? '#8a7bb9',
-            'notification' => $immediate_colors['notification'] ?? '#d63638',
-            'background' => $immediate_colors['background'] ?? '#f0f2f1'
+            'colors' => [
+                'base' => $immediate_colors['base'] ?? '#655997',
+                'text' => $immediate_colors['text'] ?? '#ffffff',
+                'highlight' => $immediate_colors['highlight'] ?? '#8a7bb9',
+                'notification' => $immediate_colors['notification'] ?? '#d63638',
+                'background' => $immediate_colors['background'] ?? '#f0f2f1'
+            ],
+            'elements' => []
         ];
     }
 
@@ -54,7 +57,6 @@ function ppc_get_custom_colors() {
         $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
         $global_settings = get_option('pp_capabilities_admin_styles', []);
 
-        // Default colors
         $final_colors = [
             'base' => $global_settings['custom_scheme_base'] ?? '#655997',
             'text' => $global_settings['custom_scheme_text'] ?? '#ffffff',
@@ -62,6 +64,8 @@ function ppc_get_custom_colors() {
             'notification' => $global_settings['custom_scheme_notification'] ?? '#d63638',
             'background' => $global_settings['custom_scheme_background'] ?? '#f0f2f1'
         ];
+
+        $final_elements = is_array($global_settings['elements'] ?? null) ? $global_settings['elements'] : [];
 
         // Check each role in reverse order (last role wins)
         foreach (array_reverse($roles) as $role) {
@@ -84,25 +88,65 @@ function ppc_get_custom_colors() {
                 if (!empty($role_settings['custom_scheme_background'])) {
                     $final_colors['background'] = $role_settings['custom_scheme_background'];
                 }
+
+                if (!empty($role_settings['elements']) && is_array($role_settings['elements'])) {
+                    foreach ($role_settings['elements'] as $group => $values) {
+                        if (!is_array($values)) {
+                            continue;
+                        }
+                        foreach ($values as $key => $value) {
+                            if (!empty($value)) {
+                                $final_elements[$group][$key] = $value;
+                            }
+                        }
+                    }
+                }
             }
         }
 
-        return $final_colors;
+        return [
+            'colors' => $final_colors,
+            'elements' => $final_elements
+        ];
     } else {
         // Use global settings
 
+        $global_settings = get_option('pp_capabilities_admin_styles', []);
+
         return [
-            'base' => $settings['custom_scheme_base'] ?? '#655997',
-            'text' => $settings['custom_scheme_text'] ?? '#ffffff',
-            'highlight' => $settings['custom_scheme_highlight'] ?? '#8a7bb9',
-            'notification' => $settings['custom_scheme_notification'] ?? '#d63638',
-            'background' => $settings['custom_scheme_background'] ?? '#f0f2f1'
+            'colors' => [
+                'base' => $global_settings['custom_scheme_base'] ?? '#655997',
+                'text' => $global_settings['custom_scheme_text'] ?? '#ffffff',
+                'highlight' => $global_settings['custom_scheme_highlight'] ?? '#8a7bb9',
+                'notification' => $global_settings['custom_scheme_notification'] ?? '#d63638',
+                'background' => $global_settings['custom_scheme_background'] ?? '#f0f2f1'
+            ],
+            'elements' => is_array($global_settings['elements'] ?? null) ? $global_settings['elements'] : []
         ];
     }
 }
 
 // Function to generate CSS
-function ppc_generate_custom_scheme_css($colors) {
+function ppc_generate_custom_scheme_css($settings) {
+    $colors = $settings['colors'] ?? [];
+    $elements = $settings['elements'] ?? [];
+
+    $colors = array_merge([
+        'base' => '#655997',
+        'text' => '#ffffff',
+        'highlight' => '#8a7bb9',
+        'notification' => '#d63638',
+        'background' => '#f0f2f1'
+    ], $colors);
+
+    $get_element_color = function ($group, $key, $fallback) use ($elements) {
+        if (!empty($elements[$group][$key])) {
+            return $elements[$group][$key];
+        }
+
+        return $fallback;
+    };
+
     // Convert hex to RGB
     function ppc_hex_to_rgb($hex) {
         $hex = str_replace('#', '', $hex);
@@ -149,6 +193,57 @@ function ppc_generate_custom_scheme_css($colors) {
 
     $base_darker = ppc_adjust_brightness($colors['base'], -20);
     $base_lighter = ppc_adjust_brightness($colors['base'], 20);
+    $base_soft = ppc_adjust_brightness($colors['base'], 10);
+
+    $link_default = $get_element_color('links', 'default', $colors['base']);
+    $link_hover = $get_element_color('links', 'hover', $colors['highlight']);
+    $link_delete = $get_element_color('links', 'delete', $colors['base']);
+    $link_delete_hover = $get_element_color('links', 'delete_hover', $colors['highlight']);
+    $link_trash = $get_element_color('links', 'trash', $colors['base']);
+    $link_trash_hover = $get_element_color('links', 'trash_hover', $colors['highlight']);
+    $link_spam = $get_element_color('links', 'spam', $colors['base']);
+    $link_spam_hover = $get_element_color('links', 'spam_hover', $colors['highlight']);
+    $link_inactive = $get_element_color('links', 'inactive', $colors['base']);
+    $link_inactive_hover = $get_element_color('links', 'inactive_hover', $colors['highlight']);
+
+    $button_primary_bg = $get_element_color('buttons', 'primary_background', $colors['base']);
+    $button_primary_hover = $get_element_color('buttons', 'primary_hover', $colors['highlight']);
+    $button_primary_text = $get_element_color('buttons', 'primary_text', $colors['text']);
+    $button_secondary_text = $get_element_color('buttons', 'secondary_text', $colors['base']);
+    $button_secondary_hover = $get_element_color('buttons', 'secondary_hover', $colors['highlight']);
+    $button_secondary_border = $get_element_color('buttons', 'secondary_border', $colors['base']);
+    $button_secondary_border_hover = $get_element_color('buttons', 'secondary_border_hover', $colors['highlight']);
+    $button_primary_border = ppc_adjust_brightness($button_primary_bg, -20);
+
+    $menu_background = $get_element_color('admin_menu', 'background', $colors['base']);
+    $menu_text = $get_element_color('admin_menu', 'text', $colors['text']);
+    $menu_highlight = $get_element_color('admin_menu', 'highlight', $colors['highlight']);
+    $menu_submenu_background = $get_element_color('admin_menu', 'submenu_background', $base_lighter);
+    $menu_submenu_text = $get_element_color('admin_menu', 'submenu_text', $colors['text']);
+
+    $admin_bar_background = $get_element_color('admin_bar', 'background', $colors['base']);
+    $admin_bar_text = $get_element_color('admin_bar', 'text', $colors['text']);
+    $admin_bar_highlight = $get_element_color('admin_bar', 'highlight', $colors['highlight']);
+    $admin_bar_submenu_background = $get_element_color('admin_bar', 'submenu_background', $base_lighter);
+    $admin_bar_submenu_text = $get_element_color('admin_bar', 'submenu_text', $colors['text']);
+
+    $menu_text_rgb = ppc_hex_to_rgb($menu_text);
+    $admin_bar_text_rgb = ppc_hex_to_rgb($admin_bar_text);
+
+    $table_header_background = $get_element_color('tables', 'header_background', $base_soft);
+    $table_header_text = $get_element_color('tables', 'header_text', $colors['text']);
+    $table_row_stripe = $get_element_color('tables', 'row_stripe', $colors['background']);
+    $table_row_hover = $get_element_color('tables', 'row_hover', $base_lighter);
+
+    $form_focus_border = $get_element_color('forms', 'focus_border', $colors['base']);
+    $form_focus_shadow = $get_element_color('forms', 'focus_shadow', $colors['base']);
+    $form_checkbox_radio = $get_element_color('forms', 'checkbox_radio', $colors['base']);
+
+    $notice_background = $get_element_color('notices', 'background', $colors['notification']);
+    $notice_text = $get_element_color('notices', 'text', $colors['text']);
+    $notice_border = $get_element_color('notices', 'border', $colors['notification']);
+
+    $checkbox_svg_color = ltrim($form_checkbox_radio, '#');
 
     // Output CSS
     return <<<CSS
@@ -161,10 +256,10 @@ body {
 
 /* Links */
 a {
-  color: {$colors['base']};
+  color: {$link_default};
 }
 a:hover, a:active, a:focus {
-  color: {$colors['highlight']};
+  color: {$link_hover};
 }
 
 #post-body .misc-pub-post-status:before,
@@ -176,27 +271,64 @@ span.wp-media-buttons-icon:before {
 }
 
 .wp-core-ui .button-link {
-  color: {$colors['base']};
+  color: {$link_default};
 }
 .wp-core-ui .button-link:hover, .wp-core-ui .button-link:active, .wp-core-ui .button-link:focus {
-  color: {$colors['highlight']};
+  color: {$link_hover};
 }
 
 .wp-core-ui .button-link-delete {
-  color: #a00;
+  color: {$link_delete};
 }
 .wp-core-ui .button-link-delete:hover,
 .wp-core-ui .button-link-delete:focus {
-  color: #dc3232;
+  color: {$link_delete_hover};
+}
+
+.submitdelete,
+.submitdelete a,
+.submitdelete a:visited {
+  color: {$link_delete};
+}
+.submitdelete a:hover,
+.submitdelete a:focus {
+  color: {$link_delete_hover};
+}
+
+.row-actions .trash a,
+.row-actions .trash a:visited {
+  color: {$link_trash};
+}
+.row-actions .trash a:hover,
+.row-actions .trash a:focus {
+  color: {$link_trash_hover};
+}
+
+.row-actions .spam a,
+.row-actions .spam a:visited {
+  color: {$link_spam};
+}
+.row-actions .spam a:hover,
+.row-actions .spam a:focus {
+  color: {$link_spam_hover};
+}
+
+.row-actions .inactive a,
+.row-actions .inactive a:visited {
+  color: {$link_inactive};
+}
+.row-actions .inactive a:hover,
+.row-actions .inactive a:focus {
+  color: {$link_inactive_hover};
 }
 
 /* Forms */
 input[type=checkbox]:checked::before {
-  content: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.83%204.89l1.34.94-5.81%208.38H9.02L5.78%209.67l1.34-1.25%202.57%202.4z%27%20fill%3D%27%237e8993%27%2F%3E%3C%2Fsvg%3E");
+  content: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.83%204.89l1.34.94-5.81%208.38H9.02L5.78%209.67l1.34-1.25%202.57%202.4z%27%20fill%3D%27%23{$checkbox_svg_color}%27%2F%3E%3C%2Fsvg%3E");
 }
 
 input[type=radio]:checked::before {
-  background: #7e8993;
+  background: {$form_checkbox_radio};
 }
 
 .wp-core-ui input[type=reset]:hover,
@@ -223,8 +355,8 @@ input[type=checkbox]:focus,
 input[type=radio]:focus,
 select:focus,
 textarea:focus {
-  border-color: {$colors['base']};
-  box-shadow: 0 0 0 1px {$colors['base']};
+  border-color: {$form_focus_border};
+  box-shadow: 0 0 0 1px {$form_focus_shadow};
 }
 
 /* Core UI */
@@ -262,77 +394,96 @@ textarea:focus {
 }
 .wp-core-ui .button,
 .wp-core-ui .button-secondary {
-  color: {$colors['base']};
-  border-color: {$colors['base']};
+  color: {$button_secondary_text};
+  border-color: {$button_secondary_border};
 }
 .wp-core-ui .button.hover,
 .wp-core-ui .button:hover,
 .wp-core-ui .button-secondary:hover {
-  border-color: {$colors['highlight']};
-  color: {$colors['highlight']};
+  border-color: {$button_secondary_border_hover};
+  color: {$button_secondary_hover};
 }
 .wp-core-ui .button.focus,
 .wp-core-ui .button:focus,
 .wp-core-ui .button-secondary:focus {
-  border-color: {$colors['highlight']};
-  color: {$colors['base']};
-  box-shadow: 0 0 0 1px {$colors['highlight']};
+  border-color: {$button_secondary_border_hover};
+  color: {$button_secondary_text};
+  box-shadow: 0 0 0 1px {$button_secondary_border_hover};
 }
 .wp-core-ui .button-primary:hover {
-  color: {$colors['text']};
+  color: {$button_primary_text};
 }
 .wp-core-ui .button-primary {
-  background: {$colors['base']};
-  border-color: {$base_darker};
-  color: {$colors['text']};
+  background: {$button_primary_bg};
+  border-color: {$button_primary_border};
+  color: {$button_primary_text};
 }
 .wp-core-ui .button-primary:hover,
 .wp-core-ui .button-primary:focus {
-  background: {$colors['highlight']};
-  border-color: {$colors['highlight']};
-  color: {$colors['text']};
+  background: {$button_primary_hover};
+  border-color: {$button_primary_hover};
+  color: {$button_primary_text};
 }
 .wp-core-ui .button-primary:focus {
-  box-shadow: 0 0 0 1px {$colors['text']}, 0 0 0 3px {$colors['base']};
+  box-shadow: 0 0 0 1px {$button_primary_text}, 0 0 0 3px {$button_primary_bg};
 }
 .wp-core-ui .button-primary:active {
-  background: {$colors['highlight']};
-  border-color: {$colors['highlight']};
-  color: {$colors['text']};
+  background: {$button_primary_hover};
+  border-color: {$button_primary_hover};
+  color: {$button_primary_text};
 }
 .wp-core-ui .button-primary.active,
 .wp-core-ui .button-primary.active:focus,
 .wp-core-ui .button-primary.active:hover {
-  background: {$colors['base']};
-  color: {$colors['text']};
-  border-color: {$base_darker};
-  box-shadow: inset 0 2px 5px -3px {$colors['base']};
+  background: {$button_primary_bg};
+  color: {$button_primary_text};
+  border-color: {$button_primary_border};
+  box-shadow: inset 0 2px 5px -3px {$button_primary_bg};
 }
 .wp-core-ui .button-group > .button.active {
-  border-color: {$colors['base']};
+  border-color: {$button_primary_bg};
 }
 
 /* List tables */
 .wrap .page-title-action,
 .wrap .page-title-action:active {
-  border: 1px solid {$colors['base']};
-  color: {$colors['base']};
+  border: 1px solid {$button_secondary_border};
+  color: {$button_secondary_text};
 }
 .wrap .page-title-action:hover {
-  color: {$colors['highlight']};
-  border-color: {$colors['highlight']};
+  color: {$button_secondary_hover};
+  border-color: {$button_secondary_border_hover};
 }
 .wrap .page-title-action:focus {
-  border-color: {$colors['highlight']};
-  color: {$colors['base']};
-  box-shadow: 0 0 0 1px {$colors['highlight']};
+  border-color: {$button_secondary_border_hover};
+  color: {$button_secondary_text};
+  box-shadow: 0 0 0 1px {$button_secondary_border_hover};
 }
 
 .view-switch a.current:before {
-  color: {$colors['base']};
+  color: {$button_secondary_text};
 }
 .view-switch a:hover:before {
-  color: {$colors['highlight']};
+  color: {$button_secondary_hover};
+}
+
+/* Table styling */
+.wp-list-table thead th,
+.wp-list-table tfoot th,
+.widefat thead th,
+.widefat tfoot th {
+  background: {$table_header_background};
+  color: {$table_header_text};
+}
+
+.wp-list-table.striped tbody tr:nth-child(odd),
+.widefat.striped tbody tr:nth-child(odd) {
+  background-color: {$table_row_stripe};
+}
+
+.wp-list-table tbody tr:hover,
+.widefat tbody tr:hover {
+  background-color: {$table_row_hover};
 }
 
 /* Active tabs */
@@ -347,50 +498,50 @@ textarea:focus {
 #adminmenuback,
 #adminmenuwrap,
 #adminmenu {
-  background: {$colors['base']};
+  background: {$menu_background};
 }
 
 #adminmenu a {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 
 #adminmenu div.wp-menu-image:before {
-  color: rgba({$text_rgb}, 0.8);
+  color: rgba({$menu_text_rgb}, 0.8);
 }
 
 #adminmenu a:hover,
 #adminmenu li.menu-top:hover,
 #adminmenu li.opensub > a.menu-top,
 #adminmenu li > a.menu-top:focus {
-  color: {$colors['text']};
-  background-color: {$colors['highlight']};
+  color: {$menu_text};
+  background-color: {$menu_highlight};
 }
 
 #adminmenu li.menu-top:hover div.wp-menu-image:before,
 #adminmenu li.opensub > a.menu-top div.wp-menu-image:before {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 
 /* Admin Menu: submenu */
 #adminmenu .wp-submenu,
 #adminmenu .wp-has-current-submenu .wp-submenu,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu {
-  background: {$base_lighter};
+  background: {$menu_submenu_background};
 }
 
 #adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after,
 #adminmenu li.wp-has-submenu.wp-not-current-submenu:focus-within:after {
-  border-right-color: {$base_lighter};
+  border-right-color: {$menu_submenu_background};
 }
 
 #adminmenu .wp-submenu .wp-submenu-head {
-  color: rgba({$text_rgb}, 0.9);
+  color: {$menu_submenu_text};
 }
 
 #adminmenu .wp-submenu a,
 #adminmenu .wp-has-current-submenu .wp-submenu a,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a {
-  color: rgba({$text_rgb}, 0.8);
+  color: {$menu_submenu_text};
 }
 #adminmenu .wp-submenu a:focus,
 #adminmenu .wp-submenu a:hover,
@@ -398,19 +549,19 @@ textarea:focus {
 #adminmenu .wp-has-current-submenu .wp-submenu a:hover,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a:focus,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu a:hover {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 
 /* Admin Menu: current */
 #adminmenu .wp-submenu li.current a,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 #adminmenu .wp-submenu li.current a:hover,
 #adminmenu .wp-submenu li.current a:focus,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a:hover,
 #adminmenu .wp-has-current-submenu.opensub .wp-submenu li.current a:focus {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 
 ul#adminmenu a.wp-has-current-submenu:after,
@@ -422,8 +573,8 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
 #adminmenu li.wp-has-current-submenu .wp-submenu .wp-submenu-head,
 .folded #adminmenu li.current.menu-top {
-  color: {$colors['text']};
-  background: {$colors['highlight']};
+  color: {$menu_text};
+  background: {$menu_highlight};
 }
 
 #adminmenu li.wp-has-current-submenu div.wp-menu-image:before,
@@ -434,14 +585,14 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li:hover div.wp-menu-image:before,
 #adminmenu li a:focus div.wp-menu-image:before,
 #adminmenu li.opensub div.wp-menu-image:before {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 
 /* Admin Menu: bubble */
 #adminmenu .menu-counter,
 #adminmenu .awaiting-mod,
 #adminmenu .update-plugins {
-  color: {$colors['text']};
+  color: {$menu_text};
   background: {$colors['notification']};
 }
 
@@ -449,71 +600,71 @@ ul#adminmenu > li.current > a.current:after {
 #adminmenu li a.wp-has-current-submenu .update-plugins,
 #adminmenu li:hover a .awaiting-mod,
 #adminmenu li.menu-top:hover > a .update-plugins {
-  color: {$colors['text']};
-  background: {$colors['highlight']};
+  color: {$menu_text};
+  background: {$menu_highlight};
 }
 
 /* Admin Menu: collapse button */
 #collapse-button {
-  color: rgba({$text_rgb}, 0.8);
+  color: rgba({$menu_text_rgb}, 0.8);
 }
 #collapse-button:hover,
 #collapse-button:focus {
-  color: {$colors['text']};
+  color: {$menu_text};
 }
 
 /* Admin Bar */
 #wpadminbar {
-  color: {$colors['text']};
-  background: {$colors['base']};
+  color: {$admin_bar_text};
+  background: {$admin_bar_background};
 }
 
 #wpadminbar .ab-item,
 #wpadminbar a.ab-item,
 #wpadminbar > #wp-toolbar span.ab-label {
-  color: {$colors['text']};
+  color: {$admin_bar_text};
 }
 
 #wpadminbar .ab-icon,
 #wpadminbar .ab-icon:before,
 #wpadminbar .ab-item:before,
 #wpadminbar .ab-item:after {
-  color: rgba({$text_rgb}, 0.8);
+  color: rgba({$admin_bar_text_rgb}, 0.8);
 }
 
 #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
 #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
-  background: {$colors['highlight']};
-  color: {$colors['text']};
+  background: {$admin_bar_highlight};
+  color: {$admin_bar_text};
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
 #wpadminbar:not(.mobile) > #wp-toolbar li.hover span.ab-label,
 #wpadminbar:not(.mobile) > #wp-toolbar a:focus span.ab-label {
-  color: {$colors['text']};
+  color: {$admin_bar_text};
 }
 
 #wpadminbar:not(.mobile) li:hover .ab-icon:before,
 #wpadminbar:not(.mobile) li:hover .ab-item:before,
 #wpadminbar:not(.mobile) li:hover .ab-item:after,
 #wpadminbar:not(.mobile) li:hover #adminbarsearch:before {
-  color: {$colors['text']};
+  color: {$admin_bar_text};
 }
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: {$base_lighter};
+  background: {$admin_bar_submenu_background};
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-  background: {$base_lighter};
+  background: {$admin_bar_submenu_background};
 }
 
 #wpadminbar .ab-submenu .ab-item,
 #wpadminbar .quicklinks .menupop ul li a,
 #wpadminbar .quicklinks .menupop.hover ul li a {
-  color: rgba({$text_rgb}, 0.8);
+  color: {$admin_bar_submenu_text};
 }
 
 #wpadminbar .quicklinks li .blavatar,
@@ -601,8 +752,8 @@ div#wp-responsive-toggle a:before {
   color: {$colors['highlight']};
 }
 .wp-core-ui .wp-ui-notification {
-  color: {$colors['text']};
-  background-color: {$colors['notification']};
+  color: {$notice_text};
+  background-color: {$notice_background};
 }
 .wp-core-ui .wp-ui-text-notification {
   color: {$colors['notification']};
@@ -610,10 +761,25 @@ div#wp-responsive-toggle a:before {
 .wp-core-ui .wp-ui-text-icon {
   color: rgba({$text_rgb}, 0.7);
 }
+
+.notice,
+.update-nag,
+.notice-success,
+.notice-warning,
+.notice-error,
+.notice-info {
+  border-left-color: {$notice_border};
+}
+
+.notice,
+.update-nag {
+  background-color: {$notice_background};
+  color: {$notice_text};
+}
 CSS;
 }
 
 // Get colors and output CSS
-$colors = ppc_get_custom_colors();
-echo ppc_generate_custom_scheme_css($colors);
+$settings = ppc_get_custom_settings();
+echo ppc_generate_custom_scheme_css($settings);
 exit;

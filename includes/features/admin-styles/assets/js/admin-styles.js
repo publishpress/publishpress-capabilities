@@ -621,6 +621,51 @@
         background: $('#custom_scheme_background').val() || '#f0f0f1'
       };
 
+      var getElementColor = function (selector, fallback) {
+        var value = $(selector).val();
+        return value ? value : fallback;
+      };
+
+      var elementColors = {
+        linkDefault: getElementColor('#ppc_links_default', colors.base),
+        linkHover: getElementColor('#ppc_links_hover', colors.highlight),
+        linkDelete: getElementColor('#ppc_links_delete', colors.base),
+        linkDeleteHover: getElementColor('#ppc_links_delete_hover', colors.highlight),
+        linkTrash: getElementColor('#ppc_links_trash', colors.base),
+        linkTrashHover: getElementColor('#ppc_links_trash_hover', colors.highlight),
+        linkSpam: getElementColor('#ppc_links_spam', colors.base),
+        linkSpamHover: getElementColor('#ppc_links_spam_hover', colors.highlight),
+        linkInactive: getElementColor('#ppc_links_inactive', colors.base),
+        linkInactiveHover: getElementColor('#ppc_links_inactive_hover', colors.highlight),
+        buttonPrimaryBg: getElementColor('#ppc_buttons_primary_background', colors.base),
+        buttonPrimaryHover: getElementColor('#ppc_buttons_primary_hover', colors.highlight),
+        buttonPrimaryText: getElementColor('#ppc_buttons_primary_text', colors.text),
+        buttonSecondaryText: getElementColor('#ppc_buttons_secondary_text', colors.base),
+        buttonSecondaryHover: getElementColor('#ppc_buttons_secondary_hover', colors.highlight),
+        buttonSecondaryBorder: getElementColor('#ppc_buttons_secondary_border', colors.base),
+        buttonSecondaryBorderHover: getElementColor('#ppc_buttons_secondary_border_hover', colors.highlight),
+        adminMenuBackground: getElementColor('#ppc_admin_menu_background', colors.base),
+        adminMenuText: getElementColor('#ppc_admin_menu_text', colors.text),
+        adminMenuHighlight: getElementColor('#ppc_admin_menu_highlight', colors.highlight),
+        adminMenuSubmenuBackground: getElementColor('#ppc_admin_menu_submenu_background', this.lightenColor(colors.base, 20)),
+        adminMenuSubmenuText: getElementColor('#ppc_admin_menu_submenu_text', colors.text),
+        adminBarBackground: getElementColor('#ppc_admin_bar_background', colors.base),
+        adminBarText: getElementColor('#ppc_admin_bar_text', colors.text),
+        adminBarHighlight: getElementColor('#ppc_admin_bar_highlight', colors.highlight),
+        adminBarSubmenuBackground: getElementColor('#ppc_admin_bar_submenu_background', this.lightenColor(colors.base, 20)),
+        adminBarSubmenuText: getElementColor('#ppc_admin_bar_submenu_text', colors.text),
+        tableHeaderBackground: getElementColor('#ppc_tables_header_background', this.lightenColor(colors.base, 10)),
+        tableHeaderText: getElementColor('#ppc_tables_header_text', colors.text),
+        tableRowStripe: getElementColor('#ppc_tables_row_stripe', colors.background),
+        tableRowHover: getElementColor('#ppc_tables_row_hover', this.lightenColor(colors.base, 20)),
+        formFocusBorder: getElementColor('#ppc_forms_focus_border', colors.base),
+        formFocusShadow: getElementColor('#ppc_forms_focus_shadow', colors.base),
+        formCheckboxRadio: getElementColor('#ppc_forms_checkbox_radio', colors.base),
+        noticeBackground: getElementColor('#ppc_notices_background', colors.notification),
+        noticeText: getElementColor('#ppc_notices_text', colors.text),
+        noticeBorder: getElementColor('#ppc_notices_border', colors.notification)
+      };
+
       // Create or update preview style tag
       var $previewStyle = $('#ppc-admin-area-preview');
       if (!$previewStyle.length) {
@@ -633,92 +678,177 @@
     #adminmenuback,
     #adminmenuwrap,
     #adminmenu {
-      background-color: ${colors.base} !important;
+      background-color: ${elementColors.adminMenuBackground} !important;
     }
 
     #adminmenu a {
-      color: ${colors.text} !important;
+      color: ${elementColors.adminMenuText} !important;
     }
 
     #adminmenu li.menu-top:hover,
     #adminmenu li.opensub > a.menu-top,
     #adminmenu li > a.menu-top:focus {
-      background-color: ${colors.highlight} !important;
-      color: ${colors.text} !important;
+      background-color: ${elementColors.adminMenuHighlight} !important;
+      color: ${elementColors.adminMenuText} !important;
     }
 
     /* Admin menu submenu */
     #adminmenu .wp-submenu,
     #adminmenu .wp-has-current-submenu .wp-submenu,
     #adminmenu .wp-has-current-submenu.opensub .wp-submenu {
-      background-color: ${this.lightenColor(colors.base, 20)} !important;
+      background-color: ${elementColors.adminMenuSubmenuBackground} !important;
     }
 
     #adminmenu .wp-submenu a {
-      color: rgba(${this.hexToRgb(colors.text)}, 0.8) !important;
+      color: ${elementColors.adminMenuSubmenuText} !important;
     }
 
     #adminmenu .wp-submenu a:hover,
     #adminmenu .wp-submenu a:focus {
-      color: ${colors.text} !important;
+      color: ${elementColors.adminMenuText} !important;
     }
 
     /* Admin menu current item */
     #adminmenu li.current a.menu-top,
     #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {
-      background-color: ${colors.highlight} !important;
-      color: ${colors.text} !important;
+      background-color: ${elementColors.adminMenuHighlight} !important;
+      color: ${elementColors.adminMenuText} !important;
     }
 
     /* Admin bar */
     #wpadminbar {
-      background-color: ${colors.base} !important;
+      background-color: ${elementColors.adminBarBackground} !important;
     }
 
     #wpadminbar .ab-item,
     #wpadminbar a.ab-item {
-      color: ${colors.text} !important;
+      color: ${elementColors.adminBarText} !important;
     }
 
     #wpadminbar .ab-icon:before,
     #wpadminbar .ab-item:before,
     #wpadminbar .ab-item:after {
-      color: rgba(${this.hexToRgb(colors.text)}, 0.8) !important;
+      color: rgba(${this.hexToRgb(elementColors.adminBarText)}, 0.8) !important;
     }
 
     #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
     #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
-      background-color: ${colors.highlight} !important;
-      color: ${colors.text} !important;
+      background-color: ${elementColors.adminBarHighlight} !important;
+      color: ${elementColors.adminBarText} !important;
     }
 
     /* Admin bar submenu */
     #wpadminbar .menupop .ab-sub-wrapper {
-      background-color: ${this.lightenColor(colors.base, 20)} !important;
+      background-color: ${elementColors.adminBarSubmenuBackground} !important;
+    }
+
+    #wpadminbar .ab-submenu .ab-item,
+    #wpadminbar .quicklinks .menupop ul li a,
+    #wpadminbar .quicklinks .menupop.hover ul li a {
+      color: ${elementColors.adminBarSubmenuText} !important;
     }
 
     /* Primary buttons */
     .wp-core-ui .button-primary {
-      background: ${colors.base} !important;
-      border-color: ${this.darkenColor(colors.base, 15)} !important;
-      color: ${colors.text} !important;
+      background: ${elementColors.buttonPrimaryBg} !important;
+      border-color: ${this.darkenColor(elementColors.buttonPrimaryBg, 15)} !important;
+      color: ${elementColors.buttonPrimaryText} !important;
     }
 
     .wp-core-ui .button-primary:hover,
     .wp-core-ui .button-primary:focus {
-      background: ${colors.highlight} !important;
-      border-color: ${colors.highlight} !important;
-      color: ${colors.text} !important;
+      background: ${elementColors.buttonPrimaryHover} !important;
+      border-color: ${elementColors.buttonPrimaryHover} !important;
+      color: ${elementColors.buttonPrimaryText} !important;
     }
 
     /* Links */
     a {
-      color: ${colors.base} !important;
+      color: ${elementColors.linkDefault} !important;
     }
 
     a:hover,
     a:focus {
-      color: ${colors.highlight} !important;
+      color: ${elementColors.linkHover} !important;
+    }
+
+    .submitdelete,
+    .submitdelete a,
+    .submitdelete a:visited {
+      color: ${elementColors.linkDelete} !important;
+    }
+    .submitdelete a:hover,
+    .submitdelete a:focus {
+      color: ${elementColors.linkDeleteHover} !important;
+    }
+
+    .row-actions .trash a,
+    .row-actions .trash a:visited {
+      color: ${elementColors.linkTrash} !important;
+    }
+    .row-actions .trash a:hover,
+    .row-actions .trash a:focus {
+      color: ${elementColors.linkTrashHover} !important;
+    }
+
+    .row-actions .spam a,
+    .row-actions .spam a:visited {
+      color: ${elementColors.linkSpam} !important;
+    }
+    .row-actions .spam a:hover,
+    .row-actions .spam a:focus {
+      color: ${elementColors.linkSpamHover} !important;
+    }
+
+    .row-actions .inactive a,
+    .row-actions .inactive a:visited {
+      color: ${elementColors.linkInactive} !important;
+    }
+    .row-actions .inactive a:hover,
+    .row-actions .inactive a:focus {
+      color: ${elementColors.linkInactiveHover} !important;
+    }
+
+    .wp-core-ui .button,
+    .wp-core-ui .button-secondary {
+      color: ${elementColors.buttonSecondaryText} !important;
+      border-color: ${elementColors.buttonSecondaryBorder} !important;
+    }
+    .wp-core-ui .button:hover,
+    .wp-core-ui .button-secondary:hover {
+      color: ${elementColors.buttonSecondaryHover} !important;
+      border-color: ${elementColors.buttonSecondaryBorderHover} !important;
+    }
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: ${elementColors.formFocusBorder} !important;
+      box-shadow: 0 0 0 1px ${elementColors.formFocusShadow} !important;
+    }
+
+    input[type=radio]:checked::before {
+      background: ${elementColors.formCheckboxRadio} !important;
+    }
+
+    .wp-list-table thead th,
+    .wp-list-table tfoot th,
+    .widefat thead th,
+    .widefat tfoot th {
+      background: ${elementColors.tableHeaderBackground} !important;
+      color: ${elementColors.tableHeaderText} !important;
+    }
+
+    .wp-list-table.striped tbody tr:nth-child(odd),
+    .widefat.striped tbody tr:nth-child(odd) {
+      background-color: ${elementColors.tableRowStripe} !important;
+    }
+
+    .wp-list-table tbody tr:hover,
+    .widefat tbody tr:hover {
+      background-color: ${elementColors.tableRowHover} !important;
     }
 
     /* Notifications and highlights */
@@ -726,8 +856,9 @@
     .update-nag,
     #adminmenu .awaiting-mod,
     #adminmenu .update-plugins {
-      background-color: ${colors.notification} !important;
-      color: ${colors.text} !important;
+      background-color: ${elementColors.noticeBackground} !important;
+      color: ${elementColors.noticeText} !important;
+      border-left-color: ${elementColors.noticeBorder} !important;
     }
 
     /* Background elements */

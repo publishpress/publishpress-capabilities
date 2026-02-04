@@ -38,6 +38,10 @@ if (!empty($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pp-capabi
 
 $settings = $admin_styles->settings;
 $color_schemes = $admin_styles->get_color_schemes();
+$element_settings = $settings['elements'] ?? [];
+$get_element_setting = function ($group, $key) use ($element_settings) {
+    return $element_settings[$group][$key] ?? '';
+};
 
 // Get roles and default role
 $roles = $capsman->roles;
@@ -102,6 +106,42 @@ $role_caption = translate_user_role($roles[$default_role]);
                                 <div class="pp-capability-menus">
 
                                     <div class="pp-capability-menus-wrap">
+                                        <h2 class="nav-tab-wrapper">
+                                            <a href="#admin-styles-general"
+                                                class="nav-tab admin-styles-tab nav-tab-active"
+                                                data-tab="#admin-styles-general">
+                                                <?php esc_html_e('General', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-links" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-links">
+                                                <?php esc_html_e('Links', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-buttons" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-buttons">
+                                                <?php esc_html_e('Buttons', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-admin-menu" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-admin-menu">
+                                                <?php esc_html_e('Admin Menu', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-admin-bar" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-admin-bar">
+                                                <?php esc_html_e('Admin Bar', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-tables" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-tables">
+                                                <?php esc_html_e('Tables', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-forms" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-forms">
+                                                <?php esc_html_e('Forms', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                            <a href="#admin-styles-notices" class="nav-tab admin-styles-tab"
+                                                data-tab="#admin-styles-notices">
+                                                <?php esc_html_e('Notices', 'capability-manager-enhanced'); ?>
+                                            </a>
+                                        </h2>
+
                                         <div id="pp-capability-menus-general"
                                             class="pp-capability-menus-content editable-role" style="display: block;">
 
@@ -475,6 +515,693 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                             </td>
                                                         </tr>
 
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-links" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_default">
+                                                                    <strong><?php esc_html_e('Default Link', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                                <p class="cme-subtext">
+                                                                    <?php esc_html_e('Main link color.', 'capability-manager-enhanced'); ?>
+                                                                </p>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][default]"
+                                                                    id="ppc_links_default"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'default')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_hover">
+                                                                    <strong><?php esc_html_e('Default Link Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][hover]"
+                                                                    id="ppc_links_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_delete">
+                                                                    <strong><?php esc_html_e('Delete Link', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                                <p class="cme-subtext">
+                                                                    <?php esc_html_e('Delete actions in lists.', 'capability-manager-enhanced'); ?>
+                                                                </p>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][delete]"
+                                                                    id="ppc_links_delete"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'delete')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_delete_hover">
+                                                                    <strong><?php esc_html_e('Delete Link Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][delete_hover]"
+                                                                    id="ppc_links_delete_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'delete_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_trash">
+                                                                    <strong><?php esc_html_e('Trash Link', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][trash]"
+                                                                    id="ppc_links_trash"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'trash')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_trash_hover">
+                                                                    <strong><?php esc_html_e('Trash Link Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][trash_hover]"
+                                                                    id="ppc_links_trash_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'trash_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_spam">
+                                                                    <strong><?php esc_html_e('Spam Link', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][spam]"
+                                                                    id="ppc_links_spam"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'spam')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_spam_hover">
+                                                                    <strong><?php esc_html_e('Spam Link Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][spam_hover]"
+                                                                    id="ppc_links_spam_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'spam_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_inactive">
+                                                                    <strong><?php esc_html_e('Inactive Plugin Link', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][inactive]"
+                                                                    id="ppc_links_inactive"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'inactive')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_links_inactive_hover">
+                                                                    <strong><?php esc_html_e('Inactive Plugin Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][links][inactive_hover]"
+                                                                    id="ppc_links_inactive_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('links', 'inactive_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-buttons" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_primary_background">
+                                                                    <strong><?php esc_html_e('Primary Button Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][primary_background]"
+                                                                    id="ppc_buttons_primary_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'primary_background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_primary_hover">
+                                                                    <strong><?php esc_html_e('Primary Button Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][primary_hover]"
+                                                                    id="ppc_buttons_primary_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'primary_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_primary_text">
+                                                                    <strong><?php esc_html_e('Primary Button Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][primary_text]"
+                                                                    id="ppc_buttons_primary_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'primary_text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_secondary_text">
+                                                                    <strong><?php esc_html_e('Secondary Button Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][secondary_text]"
+                                                                    id="ppc_buttons_secondary_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'secondary_text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_secondary_hover">
+                                                                    <strong><?php esc_html_e('Secondary Button Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][secondary_hover]"
+                                                                    id="ppc_buttons_secondary_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'secondary_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_secondary_border">
+                                                                    <strong><?php esc_html_e('Secondary Button Border', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][secondary_border]"
+                                                                    id="ppc_buttons_secondary_border"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'secondary_border')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_buttons_secondary_border_hover">
+                                                                    <strong><?php esc_html_e('Secondary Border Hover', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][buttons][secondary_border_hover]"
+                                                                    id="ppc_buttons_secondary_border_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('buttons', 'secondary_border_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-admin-menu" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_menu_background">
+                                                                    <strong><?php esc_html_e('Menu Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_menu][background]"
+                                                                    id="ppc_admin_menu_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_menu', 'background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_menu_text">
+                                                                    <strong><?php esc_html_e('Menu Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_menu][text]"
+                                                                    id="ppc_admin_menu_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_menu', 'text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_menu_highlight">
+                                                                    <strong><?php esc_html_e('Menu Highlight Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_menu][highlight]"
+                                                                    id="ppc_admin_menu_highlight"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_menu', 'highlight')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_menu_submenu_background">
+                                                                    <strong><?php esc_html_e('Submenu Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_menu][submenu_background]"
+                                                                    id="ppc_admin_menu_submenu_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_menu', 'submenu_background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_menu_submenu_text">
+                                                                    <strong><?php esc_html_e('Submenu Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_menu][submenu_text]"
+                                                                    id="ppc_admin_menu_submenu_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_menu', 'submenu_text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-admin-bar" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_bar_background">
+                                                                    <strong><?php esc_html_e('Admin Bar Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_bar][background]"
+                                                                    id="ppc_admin_bar_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_bar', 'background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_bar_text">
+                                                                    <strong><?php esc_html_e('Admin Bar Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_bar][text]"
+                                                                    id="ppc_admin_bar_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_bar', 'text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_bar_highlight">
+                                                                    <strong><?php esc_html_e('Admin Bar Highlight', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_bar][highlight]"
+                                                                    id="ppc_admin_bar_highlight"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_bar', 'highlight')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_bar_submenu_background">
+                                                                    <strong><?php esc_html_e('Admin Bar Submenu Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_bar][submenu_background]"
+                                                                    id="ppc_admin_bar_submenu_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_bar', 'submenu_background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_admin_bar_submenu_text">
+                                                                    <strong><?php esc_html_e('Admin Bar Submenu Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][admin_bar][submenu_text]"
+                                                                    id="ppc_admin_bar_submenu_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('admin_bar', 'submenu_text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-tables" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_tables_header_background">
+                                                                    <strong><?php esc_html_e('Table Header Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][tables][header_background]"
+                                                                    id="ppc_tables_header_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('tables', 'header_background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_tables_header_text">
+                                                                    <strong><?php esc_html_e('Table Header Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][tables][header_text]"
+                                                                    id="ppc_tables_header_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('tables', 'header_text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_tables_row_stripe">
+                                                                    <strong><?php esc_html_e('Row Stripe Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][tables][row_stripe]"
+                                                                    id="ppc_tables_row_stripe"
+                                                                    value="<?php echo esc_attr($get_element_setting('tables', 'row_stripe')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_tables_row_hover">
+                                                                    <strong><?php esc_html_e('Row Hover Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][tables][row_hover]"
+                                                                    id="ppc_tables_row_hover"
+                                                                    value="<?php echo esc_attr($get_element_setting('tables', 'row_hover')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-forms" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_forms_focus_border">
+                                                                    <strong><?php esc_html_e('Field Focus Border', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][forms][focus_border]"
+                                                                    id="ppc_forms_focus_border"
+                                                                    value="<?php echo esc_attr($get_element_setting('forms', 'focus_border')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_forms_focus_shadow">
+                                                                    <strong><?php esc_html_e('Field Focus Shadow', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][forms][focus_shadow]"
+                                                                    id="ppc_forms_focus_shadow"
+                                                                    value="<?php echo esc_attr($get_element_setting('forms', 'focus_shadow')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_forms_checkbox_radio">
+                                                                    <strong><?php esc_html_e('Checkbox/Radio Indicator', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][forms][checkbox_radio]"
+                                                                    id="ppc_forms_checkbox_radio"
+                                                                    value="<?php echo esc_attr($get_element_setting('forms', 'checkbox_radio')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+
+                                            <div id="admin-styles-notices" class="admin-styles-tab-content">
+                                                <table
+                                                    class="wp-list-table widefat fixed striped pp-capability-menus-select">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="menu-column" style="width: 250px;">
+                                                                <?php esc_html_e('Setting', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                            <th class="value-column">
+                                                                <?php esc_html_e('Value', 'capability-manager-enhanced'); ?>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_notices_background">
+                                                                    <strong><?php esc_html_e('Notice Background', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][notices][background]"
+                                                                    id="ppc_notices_background"
+                                                                    value="<?php echo esc_attr($get_element_setting('notices', 'background')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_notices_text">
+                                                                    <strong><?php esc_html_e('Notice Text', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][notices][text]"
+                                                                    id="ppc_notices_text"
+                                                                    value="<?php echo esc_attr($get_element_setting('notices', 'text')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="ppc_notices_border">
+                                                                    <strong><?php esc_html_e('Notice Border', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text"
+                                                                    name="settings[elements][notices][border]"
+                                                                    id="ppc_notices_border"
+                                                                    value="<?php echo esc_attr($get_element_setting('notices', 'border')); ?>"
+                                                                    class="pp-capabilities-color-picker ppc-element-color"
+                                                                    data-preview="true">
+                                                            </td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
