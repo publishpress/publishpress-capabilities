@@ -31,78 +31,222 @@ header('Content-Type: text/css');
 header('Cache-Control: public, max-age=86400'); // 24 hours
 header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
 
-// Get the plugin instance
 function ppc_get_custom_colors() {
-    global $immediate_colors;
 
-    // If immediate colors are provided, use them (for live preview)
-    if ($immediate_colors && is_array($immediate_colors)) {
-        return [
-            'base' => $immediate_colors['base'] ?? '#655997',
-            'text' => $immediate_colors['text'] ?? '#ffffff',
-            'highlight' => $immediate_colors['highlight'] ?? '#8a7bb9',
-            'notification' => $immediate_colors['notification'] ?? '#d63638',
-            'background' => $immediate_colors['background'] ?? '#f0f2f1'
-        ];
-    }
+    $colors = [
+        'base' => '#655997',
+        'text' => '#ffffff',
+        'highlight' => '#8a7bb9',
+        'notification' => '#d63638',
+        'background' => '#f0f2f1',
+        'element_colors' => []
+    ];
 
-    // Check for multiple roles
-    $roles = isset($_GET['roles']) ? explode(',', sanitize_text_field($_GET['roles'])) : [];
+    $element_colors = [];
 
-    if (!empty($roles)) {
-        // Get all role settings
-        $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
-        $global_settings = get_option('pp_capabilities_admin_styles', []);
+    if (isset($_GET['ppc_custom_style'])) {
+        $custom_style_slug = sanitize_key($_GET['ppc_custom_style']);
 
-        // Default colors
-        $final_colors = [
-            'base' => $global_settings['custom_scheme_base'] ?? '#655997',
-            'text' => $global_settings['custom_scheme_text'] ?? '#ffffff',
-            'highlight' => $global_settings['custom_scheme_highlight'] ?? '#8a7bb9',
-            'notification' => $global_settings['custom_scheme_notification'] ?? '#d63638',
-            'background' => $global_settings['custom_scheme_background'] ?? '#f0f2f1'
-        ];
+        $custom_styles = get_option('pp_capabilities_custom_admin_styles', []);
 
-        // Check each role in reverse order (last role wins)
-        foreach (array_reverse($roles) as $role) {
-            if (isset($all_role_settings[$role])) {
-                $role_settings = $all_role_settings[$role];
+        if (isset($custom_styles[$custom_style_slug])) {
+            $style = $custom_styles[$custom_style_slug];
 
-                // Update each color if set for this role
-                if (!empty($role_settings['custom_scheme_base'])) {
-                    $final_colors['base'] = $role_settings['custom_scheme_base'];
-                }
-                if (!empty($role_settings['custom_scheme_text'])) {
-                    $final_colors['text'] = $role_settings['custom_scheme_text'];
-                }
-                if (!empty($role_settings['custom_scheme_highlight'])) {
-                    $final_colors['highlight'] = $role_settings['custom_scheme_highlight'];
-                }
-                if (!empty($role_settings['custom_scheme_notification'])) {
-                    $final_colors['notification'] = $role_settings['custom_scheme_notification'];
-                }
-                if (!empty($role_settings['custom_scheme_background'])) {
-                    $final_colors['background'] = $role_settings['custom_scheme_background'];
-                }
-            }
+            $colors['base'] = $style['custom_scheme_base'] ?? '#655997';
+            $colors['text'] = $style['custom_scheme_text'] ?? '#ffffff';
+            $colors['highlight'] = $style['custom_scheme_highlight'] ?? '#8a7bb9';
+            $colors['notification'] = $style['custom_scheme_notification'] ?? '#d63638';
+            $colors['background'] = $style['custom_scheme_background'] ?? '#f0f2f1';
+            $element_colors = $style['element_colors'] ?? [];
         }
-
-        return $final_colors;
-    } else {
-        // Use global settings
-
-        return [
-            'base' => $settings['custom_scheme_base'] ?? '#655997',
-            'text' => $settings['custom_scheme_text'] ?? '#ffffff',
-            'highlight' => $settings['custom_scheme_highlight'] ?? '#8a7bb9',
-            'notification' => $settings['custom_scheme_notification'] ?? '#d63638',
-            'background' => $settings['custom_scheme_background'] ?? '#f0f2f1'
-        ];
     }
+
+    $colors['element_colors'] = $element_colors;
+    return $colors;
+}
+
+// Function to generate CSS for element-specific colors
+function ppc_generate_element_colors_css($element_colors) {
+    if (empty($element_colors) || !is_array($element_colors)) {
+        return '';
+    }
+
+  $ppc_is_light_color = function ($hex) {
+    if (empty($hex) || !is_string($hex)) {
+      return false;
+    }
+
+    $hex = ltrim($hex, '#');
+    if (strlen($hex) === 3) {
+      $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+    }
+    if (strlen($hex) !== 6) {
+      return false;
+    }
+
+    $r = hexdec(substr($hex, 0, 2));
+    $g = hexdec(substr($hex, 2, 2));
+    $b = hexdec(substr($hex, 4, 2));
+    $luminance = (0.299 * $r + 0.587 * $g + 0.114 * $b) / 255;
+
+    return $luminance > 0.6;
+  };
+
+    $css = "\n/* Element-specific colors */\n";
+    $table_scope = 'body:not(.capabilities_page_pp-capabilities-admin-styles)';
+
+    // Links styling
+    if (!empty($element_colors['links'])) {
+        $links = $element_colors['links'];
+
+        if (!empty($links['link_default'])) {
+            $css .= "a { color: {$links['link_default']} !important; }\n";
+        }
+        if (!empty($links['link_hover'])) {
+            $css .= "a:hover, a:focus { color: {$links['link_hover']} !important; }\n";
+        }
+        if (!empty($links['link_delete'])) {
+            $css .= ".wp-core-ui .button-link-delete { color: {$links['link_delete']} !important; }\n";
+        }
+        if (!empty($links['link_trash'])) {
+            $css .= "a.submitdelete { color: {$links['link_trash']} !important; }\n";
+        }
+        if (!empty($links['link_spam'])) {
+            $css .= "a.submitspam { color: {$links['link_spam']} !important; }\n";
+        }
+        if (!empty($links['link_inactive'])) {
+            $css .= "a.inactive { color: {$links['link_inactive']} !important; }\n";
+        }
+    }
+
+    // Forms styling
+    if (!empty($element_colors['forms'])) {
+        $forms = $element_colors['forms'];
+
+        if (!empty($forms['input_border'])) {
+            $css .= "input[type=text], input[type=password], input[type=email], textarea, select { border-color: {$forms['input_border']}; }\n";
+        }
+        if (!empty($forms['input_focus_border'])) {
+            $css .= "input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus, select:focus { border-color: {$forms['input_focus_border']}; }\n";
+        }
+        if (!empty($forms['input_background'])) {
+            $css .= "input[type=text], input[type=password], input[type=email], textarea, select { background-color: {$forms['input_background']}; }\n";
+        }
+        if (!empty($forms['input_text'])) {
+            $css .= "input[type=text], input[type=password], input[type=email], textarea, select { color: {$forms['input_text']}; }\n";
+        }
+        if (!empty($forms['input_placeholder'])) {
+            $css .= "input::placeholder, textarea::placeholder { color: {$forms['input_placeholder']}; }\n";
+        }
+    }
+
+    // Tables styling
+    if (!empty($element_colors['tables'])) {
+        $tables = $element_colors['tables'];
+
+        if (!empty($tables['table_header_bg'])) {
+            $css .= "{$table_scope} table thead th { background-color: {$tables['table_header_bg']} !important; }\n";
+        }
+        if (!empty($tables['table_header_text'])) {
+            $css .= "{$table_scope} table thead th { color: {$tables['table_header_text']} !important; }\n";
+        }
+        if (!empty($tables['table_row_hover_bg'])) {
+            $css .= "{$table_scope} table tbody tr:hover { background-color: {$tables['table_row_hover_bg']} !important; }\n";
+        }
+        if (!empty($tables['table_border'])) {
+            $css .= "{$table_scope} table, {$table_scope} table td, {$table_scope} table th { border-color: {$tables['table_border']} !important; }\n";
+        }
+        if (!empty($tables['table_alt_row_bg'])) {
+            $css .= "{$table_scope} table tbody tr:nth-child(odd) { background-color: {$tables['table_alt_row_bg']} !important; }\n";
+        }
+    }
+
+    // Buttons styling
+    if (!empty($element_colors['buttons'])) {
+        $buttons = $element_colors['buttons'];
+
+        if (!empty($buttons['button_primary_bg'])) {
+            $css .= ".wp-core-ui .button-primary:not(.wp-picker-container .button-primary) { background-color: {$buttons['button_primary_bg']}; }\n";
+        }
+        if (!empty($buttons['button_primary_text'])) {
+            $css .= ".wp-core-ui .button-primary:not(.wp-picker-container .button-primary) { color: {$buttons['button_primary_text']}; }\n";
+        }
+        if (!empty($buttons['button_primary_hover_bg'])) {
+            $css .= ".wp-core-ui .button-primary:hover:not(.wp-picker-container .button-primary), .wp-core-ui .button-primary:focus:not(.wp-picker-container .button-primary) { background-color: {$buttons['button_primary_hover_bg']}; }\n";
+        }
+        if (!empty($buttons['button_secondary_bg'])) {
+            $css .= ".wp-core-ui .button:not(.wp-picker-container .button) { background-color: {$buttons['button_secondary_bg']}; }\n";
+        }
+        if (!empty($buttons['button_secondary_text'])) {
+            $css .= ".wp-core-ui .button:not(.wp-picker-container .button) { color: {$buttons['button_secondary_text']}; }\n";
+        }
+        if (!empty($buttons['button_secondary_hover_bg'])) {
+            $css .= ".wp-core-ui .button:hover:not(.wp-picker-container .button), .wp-core-ui .button:focus:not(.wp-picker-container .button) { background-color: {$buttons['button_secondary_hover_bg']}; }\n";
+        }
+    }
+
+    // Admin Menu styling
+    if (!empty($element_colors['admin_menu'])) {
+        $menu = $element_colors['admin_menu'];
+
+        if (!empty($menu['menu_bg'])) {
+            $css .= "#adminmenu, #adminmenuback, #adminmenuwrap { background-color: {$menu['menu_bg']} !important; }\n";
+        }
+        if (!empty($menu['menu_text'])) {
+            $css .= "#adminmenu a { color: {$menu['menu_text']} !important; }\n";
+        }
+        if (!empty($menu['menu_icon'])) {
+            $css .= "#adminmenu .dashicons, #adminmenu .dashicons-before:before { color: {$menu['menu_icon']} !important; }\n";
+        }
+        $menu_icon_ref = !empty($menu['menu_bg']) ? $menu['menu_bg'] : $menu['menu_text'];
+        if (!empty($menu_icon_ref)) {
+          if ($ppc_is_light_color($menu_icon_ref)) {
+            $css .= "#adminmenu .wp-menu-image.svg { filter: none !important; }\n";
+          } else {
+            $css .= "#adminmenu .wp-menu-image.svg { filter: invert(1) brightness(1.1) !important; }\n";
+          }
+        }
+        if (!empty($menu['menu_hover_bg'])) {
+            $css .= "#adminmenu li:hover, #adminmenu li.opensub > a { background-color: {$menu['menu_hover_bg']} !important; }\n";
+        }
+        if (!empty($menu['menu_hover_text'])) {
+            $css .= "#adminmenu li:hover a, #adminmenu li.opensub > a { color: {$menu['menu_hover_text']} !important; }\n";
+        }
+        if (!empty($menu['menu_current_bg'])) {
+            $css .= "#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu > a.wp-has-current-submenu { background-color: {$menu['menu_current_bg']} !important; }\n";
+        }
+        if (!empty($menu['menu_current_text'])) {
+            $css .= "#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu > a.wp-has-current-submenu { color: {$menu['menu_current_text']} !important; }\n";
+        }
+        if (!empty($menu['menu_submenu_bg'])) {
+            $css .= "#adminmenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu.opensub .wp-submenu { background-color: {$menu['menu_submenu_bg']} !important; }\n";
+        }
+    }
+
+    // Admin Bar styling
+    if (!empty($element_colors['admin_bar'])) {
+        $adminbar = $element_colors['admin_bar'];
+
+        if (!empty($adminbar['adminbar_bg'])) {
+            $css .= "#wpadminbar { background-color: {$adminbar['adminbar_bg']}; }\n";
+        }
+        if (!empty($adminbar['adminbar_text'])) {
+          $css .= "#wpadminbar .ab-item, #wpadminbar a.ab-item, #wpadminbar > #wp-toolbar a, #wpadminbar > #wp-toolbar span, #wpadminbar > #wp-toolbar span.ab-label, #wpadminbar .ab-submenu .ab-item, #wpadminbar .quicklinks .ab-submenu a, #wpadminbar .quicklinks .menupop ul li a { color: {$adminbar['adminbar_text']} !important; }\n";
+        }
+        if (!empty($adminbar['adminbar_icon'])) {
+            $css .= "#wpadminbar .ab-icon:before, #wpadminbar .ab-item:before, #wpadminbar .dashicons { color: {$adminbar['adminbar_icon']} !important; }\n";
+        }
+        if (!empty($adminbar['adminbar_hover_bg'])) {
+            $css .= "#wpadminbar li:hover > .ab-item, #wpadminbar li.hover > .ab-item { background-color: {$adminbar['adminbar_hover_bg']}; }\n";
+        }
+    }
+
+    return $css;
 }
 
 // Function to generate CSS
 function ppc_generate_custom_scheme_css($colors) {
+
     // Convert hex to RGB
     function ppc_hex_to_rgb($hex) {
         $hex = str_replace('#', '', $hex);
@@ -120,8 +264,29 @@ function ppc_generate_custom_scheme_css($colors) {
         return "$r, $g, $b";
     }
 
-    $base_rgb = ppc_hex_to_rgb($colors['base']);
+    function ppc_is_light_color($hex) {
+        if (empty($hex) || !is_string($hex)) {
+            return false;
+        }
+
+        $hex = ltrim($hex, '#');
+        if (strlen($hex) == 3) {
+            $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+        }
+        if (strlen($hex) !== 6) {
+            return false;
+        }
+
+        $r = hexdec(substr($hex, 0, 2));
+        $g = hexdec(substr($hex, 2, 2));
+        $b = hexdec(substr($hex, 4, 2));
+        $luminance = (0.299 * $r + 0.587 * $g + 0.114 * $b) / 255;
+
+        return $luminance > 0.6;
+    }
+
     $text_rgb = ppc_hex_to_rgb($colors['text']);
+    $menu_svg_filter = ppc_is_light_color($colors['base']) ? 'none' : 'invert(1) brightness(1.1)';
 
     // Generate shade variations
     function ppc_adjust_brightness($hex, $steps) {
@@ -149,6 +314,9 @@ function ppc_generate_custom_scheme_css($colors) {
 
     $base_darker = ppc_adjust_brightness($colors['base'], -20);
     $base_lighter = ppc_adjust_brightness($colors['base'], 20);
+
+    // Generate element colors CSS
+    $element_colors_css = ppc_generate_element_colors_css($colors['element_colors']);
 
     // Output CSS
     return <<<CSS
@@ -356,6 +524,10 @@ textarea:focus {
 
 #adminmenu div.wp-menu-image:before {
   color: rgba({$text_rgb}, 0.8);
+}
+
+#adminmenu .wp-menu-image.svg {
+  filter: {$menu_svg_filter} !important;
 }
 
 #adminmenu a:hover,
@@ -610,6 +782,7 @@ div#wp-responsive-toggle a:before {
 .wp-core-ui .wp-ui-text-icon {
   color: rgba({$text_rgb}, 0.7);
 }
+{$element_colors_css}
 CSS;
 }
 
