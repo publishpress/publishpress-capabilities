@@ -376,6 +376,23 @@ class PP_Capabilities_Admin_UI {
                     ]
                 );
             }
+
+            // Enqueue Chosen library for Profile Features page
+            if (isset($_GET['page']) && $_GET['page'] === 'pp-capabilities-profile-features') {
+                wp_enqueue_script(
+                    'pp-capabilities-chosen-js',
+                    plugin_dir_url(CME_FILE) . 'common/libs/chosen-v1.8.7/chosen.jquery.js',
+                    ['jquery'],
+                    PUBLISHPRESS_CAPS_VERSION
+                );
+
+                wp_enqueue_style(
+                    'pp-capabilities-chosen-css',
+                    plugin_dir_url(CME_FILE) . 'common/libs/chosen-v1.8.7/chosen.css',
+                    false,
+                    PUBLISHPRESS_CAPS_VERSION
+                );
+            }
         }
     }
 

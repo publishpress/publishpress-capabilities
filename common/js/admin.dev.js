@@ -901,6 +901,53 @@ jQuery(document).ready(function ($) {
 
 
   // -------------------------------------------------------------
+  //   Profile Features Settings - Save Enabled Roles
+  // -------------------------------------------------------------
+  $(document).on('click', '.ppc-profile-features-save-setting', function (event) {
+    event.preventDefault();
+
+    var $button = $(this);
+    if ($button.prop('disabled')) {
+      return;
+    }
+    $button.prop('disabled', true).addClass('disabled');
+
+    var enabledRoles = $('#ppc-profile-features-enabled-roles').val() || [];
+    var nonce = $('#ppc-profile-features-form input[name="_wpnonce"]').val();
+
+    var form_data = {
+      action: 'ppc_save_profile_features_setting',
+      security: nonce,
+      enabled_roles: enabledRoles
+    };
+
+    ppcTimerStatus('info', __("Saving Settings...", "capability-manager-enhanced"));
+
+    $.ajax({
+      url: ajaxurl,
+      method: 'POST',
+      data: form_data,
+      success: function (response) {
+        if (response.status === 'success') {
+          ppcTimerStatus('success', response.message);
+          // Reload the page after a short delay to reflect changes
+          setTimeout(function() {
+            location.reload();
+          }, 1500);
+        } else {
+          ppcTimerStatus('error', response.message);
+          $button.prop('disabled', false).removeClass('disabled');
+        }
+      },
+      error: function () {
+        ppcTimerStatus('error', __("Error saving profile features settings.", "capability-manager-enhanced"));
+        $button.prop('disabled', false).removeClass('disabled');
+      }
+    });
+  });
+
+
+  // -------------------------------------------------------------
   //   Settings sub tab change
   // -------------------------------------------------------------
   $(document).on('change', '.ppc-settings-role-subtab', function (e) {

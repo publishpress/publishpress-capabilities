@@ -12,6 +12,8 @@ class PP_Capabilities_Profile_Features
     public static function instance() {
         //ajax handler for updating profile features elements
         add_action('wp_ajax_ppc_update_profile_features_element_by_ajax', [__CLASS__, 'profileElementUpdateAjaxHandler']);
+        //ajax handler for saving profile features enabled roles setting
+        add_action('wp_ajax_ppc_save_profile_features_setting', [__CLASS__, 'saveProfileFeaturesSetting']);
         //implement profile features restriction
         add_action('admin_head', [__CLASS__, 'applyProfileRestriction'], 1);
     }
@@ -30,13 +32,23 @@ class PP_Capabilities_Profile_Features
 
         $security       = isset($_POST['security']) ? sanitize_key($_POST['security']) : false;
         $page_elements  = isset($_POST['page_elements']) ? $_POST['page_elements'] : [];// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-        
+
         if (!$security || !wp_verify_nonce($security, 'ppc-profile-edit-action') || !pp_capabilities_feature_enabled('profile-features')) {
             $response['redirect'] = $redirect_url;
         } else {
+            // Check if the current role is enabled for profile features editing
+            $profile_feature_role = get_option("capsman_profile_features_elements_testing_role", 'subscriber');
+            $enabled_roles = self::getEnabledProfileFeatureRoles();
+
+            if (!in_array($profile_feature_role, $enabled_roles)) {
+                $response['status']  = 'error';
+                $response['message'] = __('This role is not enabled for profile feature editing.', 'capability-manager-enhanced');
+                $response['redirect'] = $redirect_url;
+                wp_send_json($response);
+            }
+
             $response['status']  = 'success';
             $profile_features_elements = self::elementsLayout();
-            $profile_feature_role = get_option("capsman_profile_features_elements_testing_role", 'subscriber');
             $profile_element_updated = (array) get_option("capsman_profile_features_updated", []);
             $profile_element_updated[$profile_feature_role] = 1;
             $role_profile_features_elements = [];
@@ -62,7 +74,7 @@ class PP_Capabilities_Profile_Features
                         'profile_feature_action' => 1,
                         'ppc_return_back' => 1,
                         '_wpnonce'        => wp_create_nonce('ppc-test-user')
-                    ], 
+                    ],
                     home_url()
                 );
                 $response['redirect'] = $redirect_url;
@@ -87,6 +99,70 @@ class PP_Capabilities_Profile_Features
     }
 
     /**
+     * Save profile features enabled roles setting
+     *
+     * @since 2.7.0
+     */
+    public static function saveProfileFeaturesSetting()
+    {
+        $response['status']  = 'error';
+        $response['message'] = __('An error occurred!', 'capability-manager-enhanced');
+
+        $security = isset($_POST['security']) ? sanitize_key($_POST['security']) : false;
+        $enabled_roles = isset($_POST['enabled_roles']) ? (array) $_POST['enabled_roles'] : [];// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+        if (!$security || !wp_verify_nonce($security, 'pp-capabilities-profile-features') || !pp_capabilities_feature_enabled('profile-features') || !current_user_can('manage_capabilities_profile_features')) {
+            wp_send_json($response);
+        }
+
+        // Sanitize the enabled roles
+        $sanitized_roles = [];
+        foreach ($enabled_roles as $role) {
+            $sanitized_roles[] = sanitize_key($role);
+        }
+
+        update_option('capsman_profile_features_roles', $sanitized_roles, false);
+
+        $response['status']  = 'success';
+        $response['message'] = __('Profile features settings saved successfully.', 'capability-manager-enhanced');
+
+        wp_send_json($response);
+    }
+
+    /**
+     * Get enabled profile feature roles
+     *
+     * @return array Array of enabled role slugs
+     */
+    public static function getEnabledProfileFeatureRoles()
+    {
+        $enabled_roles = get_option('capsman_profile_features_roles', []);
+
+        // If empty, return default (administrator)
+        if (empty($enabled_roles)) {
+            return ['administrator'];
+        }
+
+        return (array) $enabled_roles;
+    }
+
+    /**
+     * Check if a specific role is enabled for profile features editing
+     *
+     * @param string $role Role slug
+     * @return bool True if role is enabled
+     */
+    public static function isRoleEnabledForProfileFeatures($role = '')
+    {
+        if (empty($role)) {
+            $role = get_option("capsman_profile_features_elements_testing_role", 'subscriber');
+        }
+
+        $enabled_roles = self::getEnabledProfileFeatureRoles();
+        return in_array($role, $enabled_roles);
+    }
+
+    /**
      * Implement profile features restriction
      *
      * @return void
@@ -108,7 +184,7 @@ class PP_Capabilities_Profile_Features
 
             // Only restrictions associated with this user's role(s) will be applied
             $role_restrictions = array_intersect_key(
-                get_option("capsman_disabled_profile_features", []), 
+                get_option("capsman_disabled_profile_features", []),
                 array_fill_keys(wp_get_current_user()->roles, true)
             );
 
@@ -124,7 +200,7 @@ class PP_Capabilities_Profile_Features
                 /**
                  * Headers are showing for secs before been hidden due
                  * to the fact we're just adding class to them.
-                 * 
+                 *
                  * So, we should hide them by default and then re update
                  * the inline styles value
                  */

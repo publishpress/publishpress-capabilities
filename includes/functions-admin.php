@@ -231,6 +231,7 @@ function pp_capabilities_backup_sections()
    $backup_sections[$cms_id . '_profile_features_backup']['label']     = esc_html__('Profile Features', 'capability-manager-enhanced');
    $backup_sections[$cms_id . '_profile_features_backup']['options'][] = "capsman_disabled_profile_features";
    $backup_sections[$cms_id . '_profile_features_backup']['options'][] = "capsman_profile_features_elements";
+   $backup_sections[$cms_id . '_profile_features_backup']['options'][] = "capsman_profile_features_roles";
 
    //Redirects
    $backup_sections[$cms_id . '_redirects_backup']['label']     = esc_html__('Redirects', 'capability-manager-enhanced');
