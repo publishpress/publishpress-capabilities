@@ -25,8 +25,8 @@ global $capsman, $role_has_user;
 $roles             = $capsman->roles;
 $default_role      = $capsman->get_last_role();
 
-$enabled_profile_roles = \PublishPress\Capabilities\PP_Capabilities_Profile_Features::getEnabledProfileFeatureRoles();
-$role_is_enabled = in_array($default_role, $enabled_profile_roles);
+$temporary_profile_role = \PublishPress\Capabilities\PP_Capabilities_Profile_Features::getTemporaryProfileFeaturesRole();
+$role_is_enabled = ($default_role === $temporary_profile_role);
 
 $disabled_profile_items = !empty(get_option('capsman_disabled_profile_features')) ? (array)get_option('capsman_disabled_profile_features') : [];
 $disabled_profile_items = array_key_exists($default_role, $disabled_profile_items) ? (array)$disabled_profile_items[$default_role] : [];
@@ -35,9 +35,9 @@ $profile_features_elements = \PublishPress\Capabilities\PP_Capabilities_Profile_
 $profile_features_elements = isset($profile_features_elements[$default_role]) ? $profile_features_elements[$default_role] : [];
 
 if (get_option('cme_profile_features_auto_redirect')) {
-    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&refresh_element=1');
+    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $default_role . '&refresh_element=1');
 } else {
-    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&role_refresh=1');
+    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $default_role . '&role_refresh=1');
 }
 ?>
 
@@ -230,33 +230,16 @@ if (get_option('cme_profile_features_auto_redirect')) {
                 <div class="pp-column-right pp-capabilities-sidebar">
                 <?php
                 $current_role_name = translate_user_role($roles[$default_role]);
-
-                $role_dropdown = '<div style="margin-bottom: 15px;">';
-                $role_dropdown .= '<label for="ppc-profile-features-enabled-roles" style="font-weight: 600; display: block; margin-bottom: 8px;">' . esc_html__('Roles that can be edited:', 'capability-manager-enhanced') . '</label>';
-                $role_dropdown .= '<select id="ppc-profile-features-enabled-roles" class="ppc-profile-features-enabled-roles" multiple style="width: 100%;">';
-                foreach ($roles as $role_name => $name) {
-                    $name = translate_user_role($name);
-                    $selected = in_array($role_name, $enabled_profile_roles) ? 'selected' : '';
-                    $role_dropdown .= '<option value="' . esc_attr($role_name) . '" ' . $selected . '>' . esc_html($name) . '</option>';
-                }
-                $role_dropdown .= '</select>';
-                $role_dropdown .= '</div>';
+                $checkbox_checked = $role_is_enabled ? 'checked' : '';
+                $button_disabled = $role_is_enabled ? '' : 'disabled="disabled"';
+                $warning_display = $role_is_enabled ? 'display: none;' : '';
+                $info_display = $role_is_enabled ? '' : 'display: none;';
 
                 $banner_messages = [];
-                $banner_messages[] = $role_dropdown;
-                $banner_messages[] = '<div style="margin-bottom: 15px;"><button type="button" class="button button-primary ppc-profile-features-save-setting">' . esc_html__('Save Settings', 'capability-manager-enhanced') . '</button></div>';
-
-                if (!$role_is_enabled) {
-                    $banner_messages[] = '<div style="padding: 10px; background-color: #fff8e5; border-left: 4px solid #ffb900; color: #856404; margin-bottom: 15px;"><strong>' . esc_html__('⚠ Warning:', 'capability-manager-enhanced') . '</strong> ' . sprintf(esc_html__('The %s role is not enabled for editing. The Refresh button is disabled.', 'capability-manager-enhanced'), '<strong>' . esc_html($current_role_name) . '</strong>') . '</div>';
-                }
-
-                if ($role_is_enabled) {
-                    $banner_messages[] = '<a class="button" href="' . esc_url($refresh_url) . '">' . esc_html__('Refresh available profile items for this role', 'capability-manager-enhanced') . '</a>';
-                } else {
-                    $banner_messages[] = '<a class="button button-disabled" style="opacity: 0.5; cursor: not-allowed;" disabled="disabled">' . esc_html__('Refresh available profile items for this role', 'capability-manager-enhanced') . '</a>';
-                }
-
-                $banner_messages[] = '<div style="padding: 8px; background-color: #e7f7fe; border-left: 4px solid #00a0d2; color: #0073aa; margin-bottom: 15px;"><strong><span class="dashicons dashicons-info-outline" aria-hidden="true"></span> ' . esc_html__('Important:', 'capability-manager-enhanced') . '</strong> ' . sprintf(esc_html__('When you refresh, we test as a user in %s role and save profile elements.', 'capability-manager-enhanced'), '<strong>' . esc_html($current_role_name) . '</strong>') . '</div>';
+                $banner_messages[] = '<label style="display: block; margin-bottom: 8px;"><input type="checkbox" class="ppc-profile-features-allow-role" data-role="' . esc_attr($default_role) . '" ' . $checkbox_checked . '> ' . esc_html__('Allow PublishPress to find profile items for this role', 'capability-manager-enhanced') . '</label>';
+                $banner_messages[] = '<div style="margin-bottom: 15px;"><button type="button" class="button ppc-profile-features-refresh" data-refresh-url="' . esc_url($refresh_url) . '" ' . $button_disabled . '>' . esc_html__('Find profile items for this role', 'capability-manager-enhanced') . '</button></div>';
+                $banner_messages[] = '<div class="ppc-profile-features-warning" style="padding: 10px; background-color: #fff8e5; border-left: 4px solid #ffb900; color: #856404; margin-bottom: 15px; ' . $warning_display . '"><strong><span class="dashicons dashicons-warning" aria-hidden="true"></span> ' . esc_html__('Warning:', 'capability-manager-enhanced') . '</strong> ' . sprintf(esc_html__('The %s role is not enabled for editing. The Find button is disabled.', 'capability-manager-enhanced'), '<strong>' . esc_html($current_role_name) . '</strong>') . '</div>';
+                $banner_messages[] = '<div class="ppc-profile-features-info" style="padding: 8px; background-color: #e7f7fe; border-left: 4px solid #00a0d2; color: #0073aa; margin-bottom: 15px; ' . $info_display . '"><strong><span class="dashicons dashicons-info-outline" aria-hidden="true"></span> ' . esc_html__('Important:', 'capability-manager-enhanced') . '</strong> ' . sprintf(esc_html__('When you refresh, we test as a user in %s role and save profile elements. Access expires automatically after 5 minutes or when the process completes.', 'capability-manager-enhanced'), '<strong>' . esc_html($current_role_name) . '</strong>') . '</div>';
 
                 $banner_title  = __('Refresh Profile Features', 'capability-manager-enhanced');
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
@@ -342,15 +325,6 @@ if (get_option('cme_profile_features_auto_redirect')) {
 
                 })
 
-                // -------------------------------------------------------------
-                //   Initialize Chosen for Profile Features Enabled Roles
-                // -------------------------------------------------------------
-                if ($('.ppc-profile-features-enabled-roles').length > 0) {
-                    $('.ppc-profile-features-enabled-roles').chosen({
-                        placeholder_text_multiple: '<?php echo esc_js(__('Select roles...', 'capability-manager-enhanced')); ?>',
-                        width: '100%'
-                    });
-                }
             })
             /* ]]> */
         </script>
