@@ -1169,6 +1169,12 @@ class PP_Capabilities_Admin_Styles
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
                 $css_url = $this->generate_custom_style_url($slug);
+                $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
+                $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
+                $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '#ffffff');
+                $icon_focus = $menu_hover_text ?: $icon_base;
+                $icon_current = $menu_current_text ?: $icon_base;
 
                 $schemes[$slug] = [
                     'name' => $style['name'],
@@ -1181,11 +1187,10 @@ class PP_Capabilities_Admin_Styles
                         $style['custom_scheme_background'] ?? '#f0f0f1'
                     ],
                     'icon_colors' => [
-                        'base' => $style['custom_scheme_base'] ?? '#655997',
-                        'focus' => $style['custom_scheme_highlight'] ?? '#8a7bb9',
-                        'current' => $style['custom_scheme_text'] ?? '#ffffff'
-                    ]
-                    ,
+                        'base' => $icon_base,
+                        'focus' => $icon_focus,
+                        'current' => $icon_current
+                    ],
                     'element_colors' => $style['element_colors'] ?? []
                 ];
             }
@@ -1594,6 +1599,17 @@ class PP_Capabilities_Admin_Styles
                     $style['custom_scheme_notification'] ?? '#d63638',
                     $style['custom_scheme_background'] ?? '#f0f0f1'
                 ];
+                $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
+                $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
+                $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '#ffffff');
+                $icon_focus = $menu_hover_text ?: $icon_base;
+                $icon_current = $menu_current_text ?: $icon_base;
+                $data['icons'] = [
+                    'base' => $icon_base,
+                    'focus' => $icon_focus,
+                    'current' => $icon_current
+                ];
             } else {
                 // Default scheme
                 $data['name'] = __('Default', 'capsman-enhanced');
@@ -1668,6 +1684,12 @@ class PP_Capabilities_Admin_Styles
                     $style['custom_scheme_notification'] ?? '#d63638',
                     $style['custom_scheme_background'] ?? '#f0f0f1'
                 ];
+                $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
+                $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
+                $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '#ffffff');
+                $icon_focus = $menu_hover_text ?: $icon_base;
+                $icon_current = $menu_current_text ?: $icon_base;
 
                 // Generate CSS URL for this custom style
                 $css_url = $this->generate_custom_style_url($slug);
@@ -1678,9 +1700,9 @@ class PP_Capabilities_Admin_Styles
                     $css_url,
                     $colors,
                     [
-                        'base' => $colors[0],
-                        'focus' => $colors[2],
-                        'current' => $colors[1]
+                        'base' => $icon_base,
+                        'focus' => $icon_focus,
+                        'current' => $icon_current
                     ]
                 );
             }

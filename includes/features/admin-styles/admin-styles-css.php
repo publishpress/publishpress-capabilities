@@ -198,14 +198,7 @@ function ppc_generate_element_colors_css($element_colors) {
         if (!empty($menu['menu_icon'])) {
             $css .= "#adminmenu .dashicons, #adminmenu .dashicons-before:before { color: {$menu['menu_icon']} !important; }\n";
         }
-        $menu_icon_ref = !empty($menu['menu_bg']) ? $menu['menu_bg'] : $menu['menu_text'];
-        if (!empty($menu_icon_ref)) {
-          if ($ppc_is_light_color($menu_icon_ref)) {
-            $css .= "#adminmenu .wp-menu-image.svg { filter: none !important; }\n";
-          } else {
-            $css .= "#adminmenu .wp-menu-image.svg { filter: invert(1) brightness(1.1) !important; }\n";
-          }
-        }
+
         if (!empty($menu['menu_hover_bg'])) {
             $css .= "#adminmenu li:hover, #adminmenu li.opensub > a { background-color: {$menu['menu_hover_bg']} !important; }\n";
         }
@@ -286,7 +279,6 @@ function ppc_generate_custom_scheme_css($colors) {
     }
 
     $text_rgb = ppc_hex_to_rgb($colors['text']);
-    $menu_svg_filter = ppc_is_light_color($colors['base']) ? 'none' : 'invert(1) brightness(1.1)';
 
     // Generate shade variations
     function ppc_adjust_brightness($hex, $steps) {
@@ -524,10 +516,6 @@ textarea:focus {
 
 #adminmenu div.wp-menu-image:before {
   color: rgba({$text_rgb}, 0.8);
-}
-
-#adminmenu .wp-menu-image.svg {
-  filter: {$menu_svg_filter} !important;
 }
 
 #adminmenu a:hover,

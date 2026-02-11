@@ -1302,8 +1302,8 @@
       }
 
       ${(colors.element_colors && colors.element_colors.admin_menu && colors.element_colors.admin_menu.menu_bg) ? '' : (this.isLightColor(colors.base) ?
-        '#adminmenu .wp-menu-image.svg { filter: none !important; }\n' :
-        '#adminmenu .wp-menu-image.svg { filter: invert(1) brightness(1.1) !important; }\n')}
+        '' :
+        '')}
 
       /* Admin bar */
       #wpadminbar {
@@ -1481,14 +1481,7 @@
         if (elementColors.admin_menu.menu_icon) {
           css += `#adminmenu .dashicons, #adminmenu .dashicons-before:before { color: ${elementColors.admin_menu.menu_icon} !important; }\n`;
         }
-        var menuIconRef = elementColors.admin_menu.menu_bg || elementColors.admin_menu.menu_text;
-        if (menuIconRef) {
-          if (this.isLightColor(menuIconRef)) {
-            css += `#adminmenu .wp-menu-image.svg { filter: none !important; }\n`;
-          } else {
-            css += `#adminmenu .wp-menu-image.svg { filter: invert(1) brightness(1.1) !important; }\n`;
-          }
-        }
+
         if (elementColors.admin_menu.menu_hover_bg) {
           css += `#adminmenu li:hover > a, #adminmenu li.menu-top:hover { background-color: ${elementColors.admin_menu.menu_hover_bg} !important; }\n`;
         }
