@@ -1357,8 +1357,6 @@
       }`}
 
       /* Notifications and highlights */
-      .notice,
-      .update-nag,
       #adminmenu .awaiting-mod,
       #adminmenu .update-plugins {
         background-color: ${colors.notification} !important;
