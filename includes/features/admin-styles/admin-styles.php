@@ -105,6 +105,15 @@ class PP_Capabilities_Admin_Styles
                     'adminbar_icon' => '',
                     'adminbar_hover_bg' => '',
                     'adminbar_hover_text' => ''
+                ],
+                'dashboard_widgets' => [
+                    'widget_bg' => '',
+                    'widget_border' => '',
+                    'widget_header_bg' => '',
+                    'widget_title_text' => '',
+                    'widget_body_text' => '',
+                    'widget_link' => '',
+                    'widget_link_hover' => ''
                 ]
             ],
 
@@ -1521,6 +1530,40 @@ class PP_Capabilities_Admin_Styles
                     ],
                     'adminbar_hover_text' => [
                         'label' => __('Admin Bar Hover Text', 'capsman-enhanced'),
+                        'description' => ''
+                    ]
+                ]
+            ],
+            'dashboard_widgets' => [
+                'label' => __('Dashboard Widgets', 'capsman-enhanced'),
+                'description' => __('Dashboard widget colors', 'capsman-enhanced'),
+                'colors' => [
+                    'widget_bg' => [
+                        'label' => __('Widget Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_border' => [
+                        'label' => __('Widget Border', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_header_bg' => [
+                        'label' => __('Widget Header Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_title_text' => [
+                        'label' => __('Widget Title Text', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_body_text' => [
+                        'label' => __('Widget Body Text', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_link' => [
+                        'label' => __('Widget Link', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_link_hover' => [
+                        'label' => __('Widget Link Hover', 'capsman-enhanced'),
                         'description' => ''
                     ]
                 ]

@@ -381,7 +381,7 @@
       }
 
       // Collect element colors from form
-      var elementColorTabs = ['links', 'tables', 'forms', 'buttons', 'admin_menu', 'admin_bar'];
+      var elementColorTabs = ['links', 'tables', 'forms', 'buttons', 'admin_menu', 'admin_bar', 'dashboard_widgets'];
       elementColorTabs.forEach(function (tab) {
         result.element_colors[tab] = {};
         $('.custom-style-color[data-category="element_colors"][data-tab="' + tab + '"]').each(function () {
@@ -663,6 +663,15 @@
           adminbar_icon: 'text',
           adminbar_hover_bg: 'highlight',
           adminbar_hover_text: 'text'
+        },
+        dashboard_widgets: {
+          widget_bg: '',
+          widget_border: '',
+          widget_header_bg: '',
+          widget_title_text: '',
+          widget_body_text: '',
+          widget_link: '',
+          widget_link_hover: ''
         }
       };
 
@@ -701,6 +710,15 @@
         var adminBarText = this.getReadableTextColor(elementColors.admin_bar.adminbar_bg);
         elementColors.admin_bar.adminbar_text = adminBarText;
         elementColors.admin_bar.adminbar_icon = adminBarText;
+      }
+
+      if (elementColors.dashboard_widgets) {
+        if (elementColors.dashboard_widgets.widget_header_bg || elementColors.dashboard_widgets.widget_bg) {
+          elementColors.dashboard_widgets.widget_title_text = this.getReadableTextColor(elementColors.dashboard_widgets.widget_header_bg || elementColors.dashboard_widgets.widget_bg);
+        }
+        if (elementColors.dashboard_widgets.widget_bg) {
+          elementColors.dashboard_widgets.widget_body_text = this.getReadableTextColor(elementColors.dashboard_widgets.widget_bg);
+        }
       }
 
       return {
@@ -1517,6 +1535,31 @@
         }
         if (elementColors.admin_bar.adminbar_hover_bg) {
           css += `#wpadminbar .ab-top-menu > li:hover > .ab-item { background-color: ${elementColors.admin_bar.adminbar_hover_bg} !important; }\n`;
+        }
+      }
+
+      // Dashboard widget colors
+      if (elementColors.dashboard_widgets && Object.keys(elementColors.dashboard_widgets).length > 0) {
+        if (elementColors.dashboard_widgets.widget_bg) {
+          css += `#dashboard-widgets .postbox { background-color: ${elementColors.dashboard_widgets.widget_bg} !important; }\n`;
+        }
+        if (elementColors.dashboard_widgets.widget_border) {
+          css += `#dashboard-widgets .postbox { border-color: ${elementColors.dashboard_widgets.widget_border} !important; }\n`;
+        }
+        if (elementColors.dashboard_widgets.widget_header_bg) {
+          css += `#dashboard-widgets .postbox-header, #dashboard-widgets .postbox .hndle { background-color: ${elementColors.dashboard_widgets.widget_header_bg} !important; }\n`;
+        }
+        if (elementColors.dashboard_widgets.widget_title_text) {
+          css += `#dashboard-widgets .postbox-header h2, #dashboard-widgets .postbox .hndle { color: ${elementColors.dashboard_widgets.widget_title_text} !important; }\n`;
+        }
+        if (elementColors.dashboard_widgets.widget_body_text) {
+          css += `#dashboard-widgets .postbox .inside, #dashboard-widgets .postbox .inside p, #dashboard-widgets .postbox .inside li { color: ${elementColors.dashboard_widgets.widget_body_text} !important; }\n`;
+        }
+        if (elementColors.dashboard_widgets.widget_link) {
+          css += `#dashboard-widgets .postbox .inside a { color: ${elementColors.dashboard_widgets.widget_link} !important; }\n`;
+        }
+        if (elementColors.dashboard_widgets.widget_link_hover) {
+          css += `#dashboard-widgets .postbox .inside a:hover, #dashboard-widgets .postbox .inside a:focus { color: ${elementColors.dashboard_widgets.widget_link_hover} !important; }\n`;
         }
       }
 

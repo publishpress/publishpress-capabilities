@@ -237,6 +237,33 @@ function ppc_generate_element_colors_css($element_colors) {
         }
     }
 
+    // Dashboard widgets styling
+    if (!empty($element_colors['dashboard_widgets'])) {
+        $widgets = $element_colors['dashboard_widgets'];
+
+        if (!empty($widgets['widget_bg'])) {
+            $css .= "#dashboard-widgets .postbox { background-color: {$widgets['widget_bg']} !important; }\n";
+        }
+        if (!empty($widgets['widget_border'])) {
+            $css .= "#dashboard-widgets .postbox { border-color: {$widgets['widget_border']} !important; }\n";
+        }
+        if (!empty($widgets['widget_header_bg'])) {
+            $css .= "#dashboard-widgets .postbox-header, #dashboard-widgets .postbox .hndle { background-color: {$widgets['widget_header_bg']} !important; }\n";
+        }
+        if (!empty($widgets['widget_title_text'])) {
+            $css .= "#dashboard-widgets .postbox-header h2, #dashboard-widgets .postbox .hndle { color: {$widgets['widget_title_text']} !important; }\n";
+        }
+        if (!empty($widgets['widget_body_text'])) {
+            $css .= "#dashboard-widgets .postbox .inside, #dashboard-widgets .postbox .inside p, #dashboard-widgets .postbox .inside li { color: {$widgets['widget_body_text']} !important; }\n";
+        }
+        if (!empty($widgets['widget_link'])) {
+            $css .= "#dashboard-widgets .postbox .inside a { color: {$widgets['widget_link']} !important; }\n";
+        }
+        if (!empty($widgets['widget_link_hover'])) {
+            $css .= "#dashboard-widgets .postbox .inside a:hover, #dashboard-widgets .postbox .inside a:focus { color: {$widgets['widget_link_hover']} !important; }\n";
+        }
+    }
+
     return $css;
 }
 
