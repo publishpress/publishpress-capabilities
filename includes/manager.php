@@ -1422,11 +1422,6 @@ class CapabilityManager
             $refresh_element = isset($_REQUEST['refresh_element']) ? (int) $_REQUEST['refresh_element'] : 0;
             $role_refresh    = isset($_REQUEST['role_refresh']) ? (int) $_REQUEST['role_refresh'] : 0;
 
-			// Check if role is enabled for profile features editing
-			if (!\PublishPress\Capabilities\PP_Capabilities_Profile_Features::isRoleEnabledForProfileFeatures($default_role)) {
-				return;
-			}
-
             //get user in current role
             $role_user = get_users(
                 [
@@ -1440,6 +1435,11 @@ class CapabilityManager
             if (empty($role_user) && $default_role !== 'administrator') {
                 $role_has_user = false;
             }
+
+			// Check if role is enabled for profile features editing
+			if (!\PublishPress\Capabilities\PP_Capabilities_Profile_Features::isRoleEnabledForProfileFeatures($default_role)) {
+				return;
+			}
 
             if (
                 is_array($profile_element_updated)
