@@ -124,16 +124,16 @@ function ppc_generate_element_colors_css($element_colors) {
         $forms = $element_colors['forms'];
 
         if (!empty($forms['input_border'])) {
-            $css .= "input[type=text], input[type=password], input[type=email], textarea, select { border-color: {$forms['input_border']}; }\n";
+            $css .= "input[type=text], input[type=password], input[type=email], input[type=number], input[type=url], input[type=tel], input[type=search], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=file], textarea, select, .wp-core-ui select { border-color: {$forms['input_border']}; }\n";
         }
         if (!empty($forms['input_focus_border'])) {
-            $css .= "input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, textarea:focus, select:focus { border-color: {$forms['input_focus_border']}; }\n";
+            $css .= "input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=search]:focus, input[type=date]:focus, input[type=time]:focus, input[type=datetime-local]:focus, input[type=month]:focus, input[type=week]:focus, input[type=file]:focus, textarea:focus, select:focus, .wp-core-ui select:focus { border-color: {$forms['input_focus_border']}; }\n";
         }
         if (!empty($forms['input_background'])) {
-            $css .= "input[type=text], input[type=password], input[type=email], textarea, select { background-color: {$forms['input_background']}; }\n";
+            $css .= "input[type=text], input[type=password], input[type=email], input[type=number], input[type=url], input[type=tel], input[type=search], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=file], textarea, select, .wp-core-ui select { background-color: {$forms['input_background']}; }\n";
         }
         if (!empty($forms['input_text'])) {
-            $css .= "input[type=text], input[type=password], input[type=email], textarea, select { color: {$forms['input_text']}; }\n";
+            $css .= "input[type=text], input[type=password], input[type=email], input[type=number], input[type=url], input[type=tel], input[type=search], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=file], textarea, select, .wp-core-ui select { color: {$forms['input_text']}; }\n";
         }
         if (!empty($forms['input_placeholder'])) {
             $css .= "input::placeholder, textarea::placeholder { color: {$forms['input_placeholder']}; }\n";

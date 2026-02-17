@@ -1464,19 +1464,19 @@
       // Forms colors
       if (elementColors.forms && Object.keys(elementColors.forms).length > 0) {
         if (elementColors.forms.input_background) {
-          css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select { background-color: ${elementColors.forms.input_background} !important; }\n`;
+          css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="file"], textarea, select, .wp-core-ui select { background-color: ${elementColors.forms.input_background} !important; }\n`;
         }
         if (elementColors.forms.input_border) {
-          css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select { border-color: ${elementColors.forms.input_border} !important; }\n`;
+          css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="file"], textarea, select, .wp-core-ui select { border-color: ${elementColors.forms.input_border} !important; }\n`;
         }
         if (elementColors.forms.input_focus_border) {
-          css += `input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus { border-color: ${elementColors.forms.input_focus_border} !important; }\n`;
+          css += `input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus, input[type="url"]:focus, input[type="tel"]:focus, input[type="search"]:focus, input[type="date"]:focus, input[type="time"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="file"]:focus, textarea:focus, select:focus, .wp-core-ui select:focus { border-color: ${elementColors.forms.input_focus_border} !important; }\n`;
         }
         if (elementColors.forms.input_text) {
-          css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], textarea, select { color: ${elementColors.forms.input_text} !important; }\n`;
+          css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="file"], textarea, select, .wp-core-ui select { color: ${elementColors.forms.input_text} !important; }\n`;
         }
         if (elementColors.forms.input_placeholder) {
-          css += `input::placeholder, textarea::placeholder { color: ${elementColors.forms.input_placeholder} !important; }\n`;
+          css += `input::placeholder, textarea::placeholder, .wp-core-ui select { color: ${elementColors.forms.input_placeholder} !important; }\n`;
         }
       }
 
