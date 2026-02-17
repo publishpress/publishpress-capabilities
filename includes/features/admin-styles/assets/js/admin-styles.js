@@ -654,7 +654,8 @@
           menu_hover_text: 'text',
           menu_current_bg: 'highlight',
           menu_current_text: 'text',
-          menu_submenu_bg: 'base_dark'
+          menu_submenu_bg: 'base_dark',
+          menu_submenu_text: 'text'
         },
         admin_bar: {
           adminbar_bg: 'base',
@@ -693,6 +694,7 @@
         elementColors.admin_menu.menu_icon = menuText;
         elementColors.admin_menu.menu_hover_text = this.getReadableTextColor(elementColors.admin_menu.menu_hover_bg);
         elementColors.admin_menu.menu_current_text = this.getReadableTextColor(elementColors.admin_menu.menu_current_bg);
+        elementColors.admin_menu.menu_submenu_text = this.getReadableTextColor(elementColors.admin_menu.menu_submenu_bg);
       }
 
       if (elementColors.admin_bar) {
@@ -1280,6 +1282,8 @@
 
       /* Admin menu submenu */
       #adminmenu .wp-submenu,
+      #adminmenu .wp-has-submenu:hover .wp-submenu,
+      #adminmenu .wp-has-submenu:focus-within .wp-submenu,
       #adminmenu .wp-has-current-submenu .wp-submenu,
       #adminmenu .wp-has-current-submenu.opensub .wp-submenu {
         background-color: ${this.lightenColor(colors.base, 20)} !important;
@@ -1493,7 +1497,10 @@
           css += `#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu > a.wp-has-current-submenu { color: ${elementColors.admin_menu.menu_current_text} !important; }\n`;
         }
         if (elementColors.admin_menu.menu_submenu_bg) {
-          css += `#adminmenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu.opensub .wp-submenu { background-color: ${elementColors.admin_menu.menu_submenu_bg} !important; }\n`;
+          css += `#adminmenu .wp-submenu, #adminmenu .wp-has-submenu:hover .wp-submenu, #adminmenu .wp-has-submenu:focus-within .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu.opensub .wp-submenu { background-color: ${elementColors.admin_menu.menu_submenu_bg} !important; }\n`;
+        }
+        if (elementColors.admin_menu.menu_submenu_text) {
+          css += `#adminmenu .wp-submenu a, #adminmenu .wp-has-current-submenu .wp-submenu a, #adminmenu .wp-has-current-submenu.opensub .wp-submenu a, #adminmenu .wp-submenu a:hover, #adminmenu .wp-submenu a:focus { color: ${elementColors.admin_menu.menu_submenu_text} !important; }\n`;
         }
       }
 

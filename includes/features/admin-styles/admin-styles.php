@@ -96,7 +96,8 @@ class PP_Capabilities_Admin_Styles
                     'menu_hover_text' => '',
                     'menu_current_bg' => '',
                     'menu_current_text' => '',
-                    'menu_submenu_bg' => ''
+                    'menu_submenu_bg' => '',
+                    'menu_submenu_text' => ''
                 ],
                 'admin_bar' => [
                     'adminbar_bg' => '',
@@ -1490,6 +1491,10 @@ class PP_Capabilities_Admin_Styles
                     ],
                     'menu_submenu_bg' => [
                         'label' => __('Submenu Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'menu_submenu_text' => [
+                        'label' => __('Submenu Text Color', 'capsman-enhanced'),
                         'description' => ''
                     ]
                 ]

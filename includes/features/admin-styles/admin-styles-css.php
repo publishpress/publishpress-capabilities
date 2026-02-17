@@ -212,7 +212,10 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu > a.wp-has-current-submenu { color: {$menu['menu_current_text']} !important; }\n";
         }
         if (!empty($menu['menu_submenu_bg'])) {
-            $css .= "#adminmenu .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu.opensub .wp-submenu { background-color: {$menu['menu_submenu_bg']} !important; }\n";
+          $css .= "#adminmenu .wp-submenu, #adminmenu .wp-has-submenu:hover .wp-submenu, #adminmenu .wp-has-submenu:focus-within .wp-submenu, #adminmenu .wp-has-current-submenu .wp-submenu, #adminmenu .wp-has-current-submenu.opensub .wp-submenu { background-color: {$menu['menu_submenu_bg']} !important; }\n";
+        }
+        if (!empty($menu['menu_submenu_text'])) {
+            $css .= "#adminmenu .wp-submenu a, #adminmenu .wp-has-current-submenu .wp-submenu a, #adminmenu .wp-has-current-submenu.opensub .wp-submenu a, #adminmenu .wp-submenu a:hover, #adminmenu .wp-submenu a:focus { color: {$menu['menu_submenu_text']} !important; }\n";
         }
     }
 
