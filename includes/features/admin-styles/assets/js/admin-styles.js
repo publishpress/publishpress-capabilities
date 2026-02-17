@@ -359,9 +359,9 @@
     getCustomFormPreviewColors: function () {
       var keys = ['custom_scheme_base', 'custom_scheme_text', 'custom_scheme_highlight', 'custom_scheme_notification', 'custom_scheme_background'];
       var result = {
-        base: '#655997',
+        base: '#1d2327',
         text: '#ffffff',
-        highlight: '#8a7bb9',
+        highlight: '#0073aa',
         notification: '#d63638',
         background: '#f0f0f1',
         element_colors: {}
@@ -528,9 +528,9 @@
 
       // Reset general color pickers to defaults
       var generalDefaults = {
-        'custom_scheme_base': '#655997',
+        'custom_scheme_base': '#1d2327',
         'custom_scheme_text': '#ffffff',
-        'custom_scheme_highlight': '#8a7bb9',
+        'custom_scheme_highlight': '#0073aa',
         'custom_scheme_notification': '#d63638',
         'custom_scheme_background': '#f0f0f1'
       };
@@ -586,9 +586,9 @@
 
       // Apply initial preview with default colors for new style
       var defaultPreviewColors = {
-        base: (templateColors && templateColors.custom_scheme_base) ? templateColors.custom_scheme_base : '#655997',
+        base: (templateColors && templateColors.custom_scheme_base) ? templateColors.custom_scheme_base : '#1d2327',
         text: (templateColors && templateColors.custom_scheme_text) ? templateColors.custom_scheme_text : '#ffffff',
-        highlight: (templateColors && templateColors.custom_scheme_highlight) ? templateColors.custom_scheme_highlight : '#8a7bb9',
+        highlight: (templateColors && templateColors.custom_scheme_highlight) ? templateColors.custom_scheme_highlight : '#0073aa',
         notification: (templateColors && templateColors.custom_scheme_notification) ? templateColors.custom_scheme_notification : '#d63638',
         background: (templateColors && templateColors.custom_scheme_background) ? templateColors.custom_scheme_background : '#f0f0f1',
         element_colors: (templateColors && templateColors.element_colors) ? templateColors.element_colors : {}
@@ -1246,9 +1246,9 @@
         var scheme = ppCapabilitiesAdminStyles.colorSchemes[slug];
         return {
           colors: {
-            base: scheme.colors[0] || '#655997',
+            base: scheme.colors[0] || '#1d2327',
             text: scheme.colors[1] || '#ffffff',
-            highlight: scheme.colors[2] || '#8a7bb9',
+            highlight: scheme.colors[2] || '#0073aa',
             notification: scheme.colors[3] || '#d63638',
             background: scheme.colors[4] || '#f0f0f1'
           }
@@ -1458,7 +1458,6 @@
         }
         if (elementColors.tables.table_alt_row_color) {
           css += `${tableScope} table tbody tr:nth-child(odd) td { color: ${elementColors.tables.table_alt_row_color} !important; }\n`;
-        }
         }
       }
 

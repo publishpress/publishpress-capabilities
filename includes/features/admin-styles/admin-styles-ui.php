@@ -329,7 +329,7 @@ if ($admin_styles_saved !== false) {
                                                                                         <tr class="color-row" id="custom-style-name-row">
                                                                                             <td class="color-label">
                                                                                                 <label for="custom_style_name" class="color-label-text">
-                                                                                                    <span id="style-name-label"><?php esc_html_e('Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
+                                                                                                    <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
                                                                                                 </label>
                                                                                             </td>
                                                                                             <td class="color-input-cell">

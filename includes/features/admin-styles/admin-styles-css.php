@@ -34,9 +34,9 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
 function ppc_get_custom_colors() {
 
     $colors = [
-        'base' => '#655997',
+        'base' => '#1d2327',
         'text' => '#ffffff',
-        'highlight' => '#8a7bb9',
+        'highlight' => '#0073aa',
         'notification' => '#d63638',
         'background' => '#f0f2f1',
         'element_colors' => []
@@ -52,9 +52,9 @@ function ppc_get_custom_colors() {
         if (isset($custom_styles[$custom_style_slug])) {
             $style = $custom_styles[$custom_style_slug];
 
-            $colors['base'] = $style['custom_scheme_base'] ?? '#655997';
+            $colors['base'] = $style['custom_scheme_base'] ?? '#1d2327';
             $colors['text'] = $style['custom_scheme_text'] ?? '#ffffff';
-            $colors['highlight'] = $style['custom_scheme_highlight'] ?? '#8a7bb9';
+            $colors['highlight'] = $style['custom_scheme_highlight'] ?? '#72aee6';
             $colors['notification'] = $style['custom_scheme_notification'] ?? '#d63638';
             $colors['background'] = $style['custom_scheme_background'] ?? '#f0f2f1';
             $element_colors = $style['element_colors'] ?? [];

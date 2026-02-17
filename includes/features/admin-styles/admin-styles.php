@@ -49,9 +49,9 @@ class PP_Capabilities_Admin_Styles
             'admin_favicon' => '',
 
             // Custom color scheme settings
-            'custom_scheme_base' => '#655997',
+            'custom_scheme_base' => '#1d2327',
             'custom_scheme_text' => '#ffffff',
-            'custom_scheme_highlight' => '#8a7bb9',
+            'custom_scheme_highlight' => '#0073aa',
             'custom_scheme_notification' => '#d63638',
             'custom_scheme_background' => '#f0f2f1',
             'custom_scheme_name' => '',
@@ -1193,9 +1193,9 @@ class PP_Capabilities_Admin_Styles
                     'name' => $style['name'],
                     'url' => $css_url,
                     'colors' => [
-                        $style['custom_scheme_base'] ?? '#655997',
+                        $style['custom_scheme_base'] ?? '#1d2327',
                         $style['custom_scheme_text'] ?? '#ffffff',
-                        $style['custom_scheme_highlight'] ?? '#8a7bb9',
+                        $style['custom_scheme_highlight'] ?? '#0073aa',
                         $style['custom_scheme_notification'] ?? '#d63638',
                         $style['custom_scheme_background'] ?? '#f0f0f1'
                     ],
@@ -1333,10 +1333,10 @@ class PP_Capabilities_Admin_Styles
         return [
             'general' => [
                 'label' => __('General', 'capsman-enhanced'),
-                'description' => __('Base color settings', 'capsman-enhanced'),
+                'description' => __('Main Admin Color settings', 'capsman-enhanced'),
                 'colors' => [
                     'custom_scheme_base' => [
-                        'label' => __('Base Color', 'capsman-enhanced'),
+                        'label' => __('Main Admin Color', 'capsman-enhanced'),
                         'description' => __('Primary brand color', 'capsman-enhanced')
                     ],
                     'custom_scheme_text' => [
@@ -1656,9 +1656,9 @@ class PP_Capabilities_Admin_Styles
                 $style = $custom_styles[$scheme];
                 $data['name'] = $style['name'];
                 $data['colors'] = [
-                    $style['custom_scheme_base'] ?? '#655997',
+                    $style['custom_scheme_base'] ?? '#1d2327',
                     $style['custom_scheme_text'] ?? '#ffffff',
-                    $style['custom_scheme_highlight'] ?? '#8a7bb9',
+                    $style['custom_scheme_highlight'] ?? '#0073aa',
                     $style['custom_scheme_notification'] ?? '#d63638',
                     $style['custom_scheme_background'] ?? '#f0f0f1'
                 ];
@@ -1676,7 +1676,7 @@ class PP_Capabilities_Admin_Styles
             } else {
                 // Default scheme
                 $data['name'] = __('Default', 'capsman-enhanced');
-                $data['colors'] = ['#2271b1', '#72aee6', '#ffffff', '#d63638', '#f0f0f1'];
+                $data['colors'] = ['#1d2327', '#ffffff', '#0073aa', '#d63638', '#f0f0f1'];
             }
         }
 
@@ -1741,9 +1741,9 @@ class PP_Capabilities_Admin_Styles
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
                 $colors = [
-                    $style['custom_scheme_base'] ?? '#655997',
+                    $style['custom_scheme_base'] ?? '#1d2327',
                     $style['custom_scheme_text'] ?? '#ffffff',
-                    $style['custom_scheme_highlight'] ?? '#8a7bb9',
+                    $style['custom_scheme_highlight'] ?? '#0073aa',
                     $style['custom_scheme_notification'] ?? '#d63638',
                     $style['custom_scheme_background'] ?? '#f0f0f1'
                 ];
