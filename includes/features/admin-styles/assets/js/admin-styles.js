@@ -359,11 +359,11 @@
     getCustomFormPreviewColors: function () {
       var keys = ['custom_scheme_base', 'custom_scheme_text', 'custom_scheme_highlight', 'custom_scheme_notification', 'custom_scheme_background'];
       var result = {
-        base: '#1d2327',
-        text: '#ffffff',
-        highlight: '#0073aa',
-        notification: '#d63638',
-        background: '#f0f0f1',
+        base: '',
+        text: '',
+        highlight: '',
+        notification: '',
+        background: '',
         element_colors: {}
       };
 
@@ -526,13 +526,13 @@
         $('#custom_style_name').val(templateName);
       }
 
-      // Reset general color pickers to defaults
+      // Reset general color pickers to defaults (empty for Default template)
       var generalDefaults = {
-        'custom_scheme_base': '#1d2327',
-        'custom_scheme_text': '#ffffff',
-        'custom_scheme_highlight': '#0073aa',
-        'custom_scheme_notification': '#d63638',
-        'custom_scheme_background': '#f0f0f1'
+        'custom_scheme_base': '',
+        'custom_scheme_text': '',
+        'custom_scheme_highlight': '',
+        'custom_scheme_notification': '',
+        'custom_scheme_background': ''
       };
 
       var templateColors = template ? this.buildTemplateColors(template) : null;
@@ -547,10 +547,19 @@
           $input.val(value);
           var $picker = $input.closest('.wp-picker-container');
           if ($picker.length) {
-            $picker.find('.wp-color-result').css('background-color', value);
-            // If wpColorPicker instance exists, also update its internal color
-            if (typeof $input.wpColorPicker === 'function') {
-              try { $input.wpColorPicker('color', value); } catch (err) { }
+            // Only update color picker visuals if value is not empty
+            if (value) {
+              $picker.find('.wp-color-result').css('background-color', value);
+              // If wpColorPicker instance exists, also update its internal color
+              if (typeof $input.wpColorPicker === 'function') {
+                try { $input.wpColorPicker('color', value); } catch (err) { }
+              }
+            } else {
+              // Clear the color picker for empty values
+              $picker.find('.wp-color-result').css('background-color', '');
+              if (typeof $input.wpColorPicker === 'function') {
+                try { $input.wpColorPicker('color', ''); } catch (err) { }
+              }
             }
           }
         }
@@ -584,16 +593,18 @@
         PP_Admin_Styles.$stylesheet.removeAttr('href');
       }
 
-      // Apply initial preview with default colors for new style
-      var defaultPreviewColors = {
-        base: (templateColors && templateColors.custom_scheme_base) ? templateColors.custom_scheme_base : '#1d2327',
-        text: (templateColors && templateColors.custom_scheme_text) ? templateColors.custom_scheme_text : '#ffffff',
-        highlight: (templateColors && templateColors.custom_scheme_highlight) ? templateColors.custom_scheme_highlight : '#0073aa',
-        notification: (templateColors && templateColors.custom_scheme_notification) ? templateColors.custom_scheme_notification : '#d63638',
-        background: (templateColors && templateColors.custom_scheme_background) ? templateColors.custom_scheme_background : '#f0f0f1',
-        element_colors: (templateColors && templateColors.element_colors) ? templateColors.element_colors : {}
-      };
-      PP_Admin_Styles.applyCustomStylePreview(defaultPreviewColors);
+      // Apply initial preview only if template has colors
+      if (templateColors && templateColors.custom_scheme_base) {
+        var defaultPreviewColors = {
+          base: templateColors.custom_scheme_base,
+          text: templateColors.custom_scheme_text || '',
+          highlight: templateColors.custom_scheme_highlight || '',
+          notification: templateColors.custom_scheme_notification || '',
+          background: templateColors.custom_scheme_background || '',
+          element_colors: templateColors.element_colors || {}
+        };
+        PP_Admin_Styles.applyCustomStylePreview(defaultPreviewColors);
+      }
 
       // Show the custom style form
       PP_Admin_Styles.showCustomStyleForm('new', templateName || '');
@@ -982,11 +993,19 @@
       var styleName = $('#custom_style_name').val().trim();
       var styleSlug = $('#custom_style_slug').val();
       var $errorDiv = $('#custom-style-error');
+      var baseColor = $('#custom_style_custom_scheme_base').val().trim();
 
       // Validate style name
       if (!styleName) {
         $errorDiv.html(ppCapabilitiesAdminStyles.labels.styleNameRequired).show();
         $('#custom_style_name').focus();
+        return false;
+      }
+
+      // Validate Main Admin Color (required)
+      if (!baseColor) {
+        $errorDiv.html('Main Admin Color is required.').show();
+        $('#custom_style_custom_scheme_base').focus();
         return false;
       }
 
@@ -1246,11 +1265,11 @@
         var scheme = ppCapabilitiesAdminStyles.colorSchemes[slug];
         return {
           colors: {
-            base: scheme.colors[0] || '#1d2327',
-            text: scheme.colors[1] || '#ffffff',
-            highlight: scheme.colors[2] || '#0073aa',
-            notification: scheme.colors[3] || '#d63638',
-            background: scheme.colors[4] || '#f0f0f1'
+            base: scheme.colors[0] || '',
+            text: scheme.colors[1] || '',
+            highlight: scheme.colors[2] || '',
+            notification: scheme.colors[3] || '',
+            background: scheme.colors[4] || ''
           }
         };
       }
@@ -1263,6 +1282,11 @@
     applyCustomStylePreview: function (colors) {
       // Remove any existing preview
       $('#ppc-admin-area-preview').remove();
+
+      // If base color is empty, don't apply preview
+      if (!colors || !colors.base || colors.base === '') {
+        return;
+      }
 
       // Create new preview style and insert after stylesheet so it overrides where possible
       var $previewStyle = $('<style id="ppc-admin-area-preview"></style>');
@@ -1281,118 +1305,190 @@
      * Generate preview CSS for custom styles
      */
     generatePreviewCSS: function (colors) {
+      var css = '/* Instant admin area preview */\n';
 
-      var css = `
-      /* Instant admin area preview */
+      // Only generate CSS for colors that are defined
+
+      // Admin menu background
+      if (colors.base) {
+        css += `
       #adminmenuback,
       #adminmenuwrap,
       #adminmenu {
         background-color: ${colors.base} !important;
+      }\n`;
       }
 
+      // Admin menu text
+      if (colors.text) {
+        css += `
       #adminmenu a {
         color: ${colors.text} !important;
+      }\n`;
       }
 
-      #adminmenu li.menu-top:hover,
-      #adminmenu li.opensub > a.menu-top,
-      #adminmenu li > a.menu-top:focus {
-        background-color: ${colors.highlight} !important;
-        color: ${colors.text} !important;
+      // Admin menu hover
+      if (colors.highlight || colors.text) {
+        var hoverCss = '#adminmenu li.menu-top:hover,\n      #adminmenu li.opensub > a.menu-top,\n      #adminmenu li > a.menu-top:focus {';
+        if (colors.highlight) {
+          hoverCss += `\n        background-color: ${colors.highlight} !important;`;
+        }
+        if (colors.text) {
+          hoverCss += `\n        color: ${colors.text} !important;`;
+        }
+        hoverCss += '\n      }\n';
+        css += hoverCss;
       }
 
-      /* Admin menu submenu */
+      // Admin menu submenu background
+      if (colors.base) {
+        var lighterBase = this.lightenColor(colors.base, 20);
+        if (lighterBase) {
+          css += `
       #adminmenu .wp-submenu,
       #adminmenu .wp-has-submenu:hover .wp-submenu,
       #adminmenu .wp-has-submenu:focus-within .wp-submenu,
       #adminmenu .wp-has-current-submenu .wp-submenu,
       #adminmenu .wp-has-current-submenu.opensub .wp-submenu {
-        background-color: ${this.lightenColor(colors.base, 20)} !important;
+        background-color: ${lighterBase} !important;
+      }\n`;
+        }
       }
 
+      // Admin menu submenu text with rgba
+      if (colors.text) {
+        var textRgb = this.hexToRgb(colors.text);
+        if (textRgb) {
+          css += `
       #adminmenu .wp-submenu a {
-        color: rgba(${this.hexToRgb(colors.text)}, 0.8) !important;
+        color: rgba(${textRgb}, 0.8) !important;
+      }\n`;
+        }
       }
 
+      // Admin menu submenu hover
+      if (colors.text) {
+        css += `
       #adminmenu .wp-submenu a:hover,
       #adminmenu .wp-submenu a:focus {
         color: ${colors.text} !important;
+      }\n`;
       }
 
-      /* Admin menu current item */
-      #adminmenu li.current a.menu-top,
-      #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {
-        background-color: ${colors.highlight} !important;
-        color: ${colors.text} !important;
+      // Admin menu current item
+      if (colors.highlight || colors.text) {
+        var currentCss = '#adminmenu li.current a.menu-top,\n      #adminmenu li.wp-has-current-submenu a.wp-has-current-submenu {';
+        if (colors.highlight) {
+          currentCss += `\n        background-color: ${colors.highlight} !important;`;
+        }
+        if (colors.text) {
+          currentCss += `\n        color: ${colors.text} !important;`;
+        }
+        currentCss += '\n      }\n';
+        css += currentCss;
       }
 
-      ${(colors.element_colors && colors.element_colors.admin_menu && colors.element_colors.admin_menu.menu_bg) ? '' : (this.isLightColor(colors.base) ?
-        '' :
-        '')}
-
-      /* Admin bar */
+      // Admin bar
+      if (colors.base) {
+        css += `
       #wpadminbar {
         background-color: ${colors.base} !important;
+      }\n`;
       }
 
+      if (colors.text) {
+        css += `
       #wpadminbar .ab-item,
       #wpadminbar a.ab-item {
         color: ${colors.text} !important;
-      }
+      }\n`;
 
+        var textRgb = this.hexToRgb(colors.text);
+        if (textRgb) {
+          css += `
       #wpadminbar .ab-icon:before,
       #wpadminbar .ab-item:before,
       #wpadminbar .ab-item:after {
-        color: rgba(${this.hexToRgb(colors.text)}, 0.8) !important;
+        color: rgba(${textRgb}, 0.8) !important;
+      }\n`;
+        }
       }
 
-      #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-      #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {
-        background-color: ${colors.highlight} !important;
-        color: ${colors.text} !important;
+      // Admin bar hover
+      if (colors.highlight || colors.text) {
+        var barHoverCss = '#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,\n      #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus {';
+        if (colors.highlight) {
+          barHoverCss += `\n        background-color: ${colors.highlight} !important;`;
+        }
+        if (colors.text) {
+          barHoverCss += `\n        color: ${colors.text} !important;`;
+        }
+        barHoverCss += '\n      }\n';
+        css += barHoverCss;
       }
 
-      /* Admin bar submenu */
+      // Admin bar submenu
+      if (colors.base) {
+        var lighterBase = this.lightenColor(colors.base, 20);
+        if (lighterBase) {
+          css += `
       #wpadminbar .menupop .ab-sub-wrapper {
-        background-color: ${this.lightenColor(colors.base, 20)} !important;
+        background-color: ${lighterBase} !important;
+      }\n`;
+        }
       }
 
-      /* Primary buttons */
-      .wp-core-ui .button-primary {
-        background: ${colors.base} !important;
-        border-color: ${this.darkenColor(colors.base, 15)} !important;
-        color: ${colors.text} !important;
+      // Primary buttons
+      if (colors.base || colors.text) {
+        var btnCss = '.wp-core-ui .button-primary {';
+        if (colors.base) {
+          btnCss += `\n        background: ${colors.base} !important;`;
+          var darkerBase = this.darkenColor(colors.base, 15);
+          if (darkerBase) {
+            btnCss += `\n        border-color: ${darkerBase} !important;`;
+          }
+        }
+        if (colors.text) {
+          btnCss += `\n        color: ${colors.text} !important;`;
+        }
+        btnCss += '\n      }\n';
+        css += btnCss;
       }
 
-      .wp-core-ui .button-primary:hover,
-      .wp-core-ui .button-primary:focus {
-        background: ${colors.highlight} !important;
-        border-color: ${colors.highlight} !important;
-        color: ${colors.text} !important;
+      // Primary buttons hover
+      if (colors.highlight || colors.text) {
+        var btnHoverCss = '.wp-core-ui .button-primary:hover,\n      .wp-core-ui .button-primary:focus {';
+        if (colors.highlight) {
+          btnHoverCss += `\n        background: ${colors.highlight} !important;`;
+          btnHoverCss += `\n        border-color: ${colors.highlight} !important;`;
+        }
+        if (colors.text) {
+          btnHoverCss += `\n        color: ${colors.text} !important;`;
+        }
+        btnHoverCss += '\n      }\n';
+        css += btnHoverCss;
       }
 
-      /* Links */
-      ${(colors.element_colors && colors.element_colors.links && Object.keys(colors.element_colors.links).length > 0) ? '' : `a {
-        color: ${colors.base} !important;
+      // Notifications
+      if (colors.notification || colors.text) {
+        var notifCss = '#adminmenu .awaiting-mod,\n      #adminmenu .update-plugins {';
+        if (colors.notification) {
+          notifCss += `\n        background-color: ${colors.notification} !important;`;
+        }
+        if (colors.text) {
+          notifCss += `\n        color: ${colors.text} !important;`;
+        }
+        notifCss += '\n      }\n';
+        css += notifCss;
       }
 
-      a:hover,
-      a:focus {
-        color: ${colors.highlight} !important;
-      }`}
-
-      /* Notifications and highlights */
-      #adminmenu .awaiting-mod,
-      #adminmenu .update-plugins {
-        background-color: ${colors.notification} !important;
-        color: ${colors.text} !important;
-      }
-
-      /* Background elements */
+      // Background
+      if (colors.background) {
+        css += `
       body.wp-admin {
         background-color: ${colors.background} !important;
+      }\n`;
       }
-    `;
 
       // Add element-specific color CSS if element_colors exist
       if (colors.element_colors) {
@@ -1582,15 +1678,27 @@
      * Convert hex to RGB
      */
     hexToRgb: function (hex) {
+      if (!hex || hex === '') {
+        return null;
+      }
+
       hex = hex.replace('#', '');
 
       if (hex.length === 3) {
         hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
       }
 
+      if (hex.length !== 6) {
+        return null;
+      }
+
       var r = parseInt(hex.substring(0, 2), 16);
       var g = parseInt(hex.substring(2, 4), 16);
       var b = parseInt(hex.substring(4, 6), 16);
+
+      if (isNaN(r) || isNaN(g) || isNaN(b)) {
+        return null;
+      }
 
       return r + ', ' + g + ', ' + b;
     },
@@ -1614,8 +1722,16 @@
      * Lighten color
      */
     lightenColor: function (color, percent) {
-      var num = parseInt(color.replace('#', ''), 16),
-        amt = Math.round(2.55 * percent),
+      if (!color || color === '') {
+        return null;
+      }
+
+      var num = parseInt(color.replace('#', ''), 16);
+      if (isNaN(num)) {
+        return null;
+      }
+
+      var amt = Math.round(2.55 * percent),
         R = (num >> 16) + amt,
         G = (num >> 8 & 0x00FF) + amt,
         B = (num & 0x0000FF) + amt;
@@ -1629,8 +1745,16 @@
      * Darken color
      */
     darkenColor: function (color, percent) {
-      var num = parseInt(color.replace('#', ''), 16),
-        amt = Math.round(2.55 * percent) * -1,
+      if (!color || color === '') {
+        return null;
+      }
+
+      var num = parseInt(color.replace('#', ''), 16);
+      if (isNaN(num)) {
+        return null;
+      }
+
+      var amt = Math.round(2.55 * percent) * -1,
         R = (num >> 16) + amt,
         G = (num >> 8 & 0x00FF) + amt,
         B = (num & 0x0000FF) + amt;

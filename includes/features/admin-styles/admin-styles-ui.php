@@ -177,7 +177,7 @@ if ($admin_styles_saved !== false) {
                                                                     </label>
                                                                     <select id="ppc-custom-style-template" class="custom-style-template-select">
                                                                         <option value="blank">
-                                                                            <?php esc_html_e('Default template', 'capsman-enhanced'); ?>
+                                                                            <?php esc_html_e('Blank Template', 'capsman-enhanced'); ?>
                                                                         </option>
                                                                         <?php foreach ($admin_styles->get_style_templates() as $template_id => $template): ?>
                                                                             <option value="<?php echo esc_attr($template_id); ?>">

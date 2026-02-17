@@ -49,11 +49,11 @@ class PP_Capabilities_Admin_Styles
             'admin_favicon' => '',
 
             // Custom color scheme settings
-            'custom_scheme_base' => '#1d2327',
-            'custom_scheme_text' => '#ffffff',
-            'custom_scheme_highlight' => '#0073aa',
-            'custom_scheme_notification' => '#d63638',
-            'custom_scheme_background' => '#f0f2f1',
+            'custom_scheme_base' => '',
+            'custom_scheme_text' => '',
+            'custom_scheme_highlight' => '',
+            'custom_scheme_notification' => '',
+            'custom_scheme_background' => '',
             'custom_scheme_name' => '',
 
             // Element-specific colors
@@ -1185,7 +1185,7 @@ class PP_Capabilities_Admin_Styles
                 $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
                 $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
                 $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
-                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '#ffffff');
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '');
                 $icon_focus = $menu_hover_text ?: $icon_base;
                 $icon_current = $menu_current_text ?: $icon_base;
 
@@ -1193,11 +1193,11 @@ class PP_Capabilities_Admin_Styles
                     'name' => $style['name'],
                     'url' => $css_url,
                     'colors' => [
-                        $style['custom_scheme_base'] ?? '#1d2327',
-                        $style['custom_scheme_text'] ?? '#ffffff',
-                        $style['custom_scheme_highlight'] ?? '#0073aa',
-                        $style['custom_scheme_notification'] ?? '#d63638',
-                        $style['custom_scheme_background'] ?? '#f0f0f1'
+                        $style['custom_scheme_base'] ?? '',
+                        $style['custom_scheme_text'] ?? '',
+                        $style['custom_scheme_highlight'] ?? '',
+                        $style['custom_scheme_notification'] ?? '',
+                        $style['custom_scheme_background'] ?? ''
                     ],
                     'icon_colors' => [
                         'base' => $icon_base,
@@ -1656,16 +1656,16 @@ class PP_Capabilities_Admin_Styles
                 $style = $custom_styles[$scheme];
                 $data['name'] = $style['name'];
                 $data['colors'] = [
-                    $style['custom_scheme_base'] ?? '#1d2327',
-                    $style['custom_scheme_text'] ?? '#ffffff',
-                    $style['custom_scheme_highlight'] ?? '#0073aa',
-                    $style['custom_scheme_notification'] ?? '#d63638',
-                    $style['custom_scheme_background'] ?? '#f0f0f1'
+                    $style['custom_scheme_base'] ?? '',
+                    $style['custom_scheme_text'] ?? '',
+                    $style['custom_scheme_highlight'] ?? '',
+                    $style['custom_scheme_notification'] ?? '',
+                    $style['custom_scheme_background'] ?? ''
                 ];
                 $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
                 $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
                 $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
-                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '#ffffff');
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '');
                 $icon_focus = $menu_hover_text ?: $icon_base;
                 $icon_current = $menu_current_text ?: $icon_base;
                 $data['icons'] = [
@@ -1741,16 +1741,16 @@ class PP_Capabilities_Admin_Styles
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
                 $colors = [
-                    $style['custom_scheme_base'] ?? '#1d2327',
-                    $style['custom_scheme_text'] ?? '#ffffff',
-                    $style['custom_scheme_highlight'] ?? '#0073aa',
-                    $style['custom_scheme_notification'] ?? '#d63638',
-                    $style['custom_scheme_background'] ?? '#f0f0f1'
+                    $style['custom_scheme_base'] ?? '',
+                    $style['custom_scheme_text'] ?? '',
+                    $style['custom_scheme_highlight'] ?? '',
+                    $style['custom_scheme_notification'] ?? '',
+                    $style['custom_scheme_background'] ?? ''
                 ];
                 $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
                 $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
                 $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
-                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '#ffffff');
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '');
                 $icon_focus = $menu_hover_text ?: $icon_base;
                 $icon_current = $menu_current_text ?: $icon_base;
 
