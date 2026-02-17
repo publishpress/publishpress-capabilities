@@ -150,6 +150,12 @@ function ppc_generate_element_colors_css($element_colors) {
         if (!empty($tables['table_header_text'])) {
             $css .= "{$table_scope} table thead th { color: {$tables['table_header_text']} !important; }\n";
         }
+        if (!empty($tables['table_row_bg'])) {
+            $css .= "{$table_scope} table tbody tr { background-color: {$tables['table_row_bg']} !important; }\n";
+        }
+        if (!empty($tables['table_row_color'])) {
+            $css .= "{$table_scope} table tbody tr td { color: {$tables['table_row_color']} !important; }\n";
+        }
         if (!empty($tables['table_row_hover_bg'])) {
             $css .= "{$table_scope} table tbody tr:hover { background-color: {$tables['table_row_hover_bg']} !important; }\n";
         }
@@ -158,6 +164,9 @@ function ppc_generate_element_colors_css($element_colors) {
         }
         if (!empty($tables['table_alt_row_bg'])) {
             $css .= "{$table_scope} table tbody tr:nth-child(odd) { background-color: {$tables['table_alt_row_bg']} !important; }\n";
+        }
+        if (!empty($tables['table_alt_row_color'])) {
+            $css .= "{$table_scope} table tbody tr:nth-child(odd) td { color: {$tables['table_alt_row_color']} !important; }\n";
         }
     }
 

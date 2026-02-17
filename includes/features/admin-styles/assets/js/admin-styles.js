@@ -627,9 +627,12 @@
         tables: {
           table_header_bg: 'surface',
           table_header_text: 'text',
+          table_row_bg: 'surface',
+          table_row_color: 'text',
           table_row_hover_bg: 'surface_alt',
           table_border: 'border',
-          table_alt_row_bg: 'surface_alt'
+          table_alt_row_bg: 'surface_alt',
+          table_alt_row_color: 'text'
         },
         forms: {
           input_border: 'border',
@@ -1438,6 +1441,12 @@
         if (elementColors.tables.table_header_text) {
           css += `${tableScope} table thead th { color: ${elementColors.tables.table_header_text} !important; }\n`;
         }
+        if (elementColors.tables.table_row_bg) {
+          css += `${tableScope} table tbody tr { background-color: ${elementColors.tables.table_row_bg} !important; }\n`;
+        }
+        if (elementColors.tables.table_row_color) {
+          css += `${tableScope} table tbody tr td { color: ${elementColors.tables.table_row_color} !important; }\n`;
+        }
         if (elementColors.tables.table_row_hover_bg) {
           css += `${tableScope} table tbody tr:hover { background-color: ${elementColors.tables.table_row_hover_bg} !important; }\n`;
         }
@@ -1446,6 +1455,10 @@
         }
         if (elementColors.tables.table_alt_row_bg) {
           css += `${tableScope} table tbody tr:nth-child(odd) { background-color: ${elementColors.tables.table_alt_row_bg} !important; }\n`;
+        }
+        if (elementColors.tables.table_alt_row_color) {
+          css += `${tableScope} table tbody tr:nth-child(odd) td { color: ${elementColors.tables.table_alt_row_color} !important; }\n`;
+        }
         }
       }
 

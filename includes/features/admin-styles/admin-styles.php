@@ -69,9 +69,12 @@ class PP_Capabilities_Admin_Styles
                 'tables' => [
                     'table_header_bg' => '',
                     'table_header_text' => '',
+                    'table_row_bg' => '',
+                    'table_row_color' => '',
                     'table_row_hover_bg' => '',
                     'table_border' => '',
-                    'table_alt_row_bg' => ''
+                    'table_alt_row_bg' => '',
+                    'table_alt_row_color' => ''
                 ],
                 'forms' => [
                     'input_border' => '',
@@ -1396,6 +1399,14 @@ class PP_Capabilities_Admin_Styles
                         'label' => __('Table Header Text', 'capsman-enhanced'),
                         'description' => ''
                     ],
+                    'table_row_bg' => [
+                        'label' => __('Table Row Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'table_row_color' => [
+                        'label' => __('Table Row Text Color', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
                     'table_row_hover_bg' => [
                         'label' => __('Row Hover Background', 'capsman-enhanced'),
                         'description' => ''
@@ -1406,6 +1417,10 @@ class PP_Capabilities_Admin_Styles
                     ],
                     'table_alt_row_bg' => [
                         'label' => __('Alternate Row Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'table_alt_row_color' => [
+                        'label' => __('Alternate Row Text Color', 'capsman-enhanced'),
                         'description' => ''
                     ]
                 ]
