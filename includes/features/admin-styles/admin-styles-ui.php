@@ -32,7 +32,6 @@ if (empty($current_role)) {
 
 // Force reload of settings for the current role after form submission
 if (!empty($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pp-capabilities-admin-styles')) {
-    // Form was just submitted - reload fresh settings
     $admin_styles->load_settings_for_role($current_role);
 }
 
@@ -51,6 +50,45 @@ if (empty($current_user_color)) {
 }
 
 $role_caption = translate_user_role($roles[$default_role]);
+
+// Display custom style success/error messages from transients
+$user_id = get_current_user_id();
+
+// Check for saved custom style
+$saved_style_name = get_transient('ppc_custom_style_saved_' . $user_id);
+if ($saved_style_name !== false) {
+    echo '<div class="notice notice-success is-dismissible"><p>' .
+         sprintf(esc_html__('Custom style "%s" saved successfully.', 'capsman-enhanced'), esc_html($saved_style_name)) .
+         '</p></div>';
+    delete_transient('ppc_custom_style_saved_' . $user_id);
+}
+
+// Check for deleted custom style
+$deleted_style_name = get_transient('ppc_custom_style_deleted_' . $user_id);
+if ($deleted_style_name !== false) {
+    echo '<div class="notice notice-success is-dismissible"><p>' .
+         sprintf(esc_html__('Custom style "%s" deleted successfully.', 'capsman-enhanced'), esc_html($deleted_style_name)) .
+         '</p></div>';
+    delete_transient('ppc_custom_style_deleted_' . $user_id);
+}
+
+// Check for error
+$error_type = get_transient('ppc_custom_style_error_' . $user_id);
+if ($error_type === 'empty_style_name') {
+    echo '<div class="notice notice-error is-dismissible"><p>' .
+         esc_html__('Custom style name cannot be empty.', 'capsman-enhanced') .
+         '</p></div>';
+    delete_transient('ppc_custom_style_error_' . $user_id);
+}
+
+// Check for admin styles saved
+$admin_styles_saved = get_transient('ppc_admin_styles_saved_' . $user_id);
+if ($admin_styles_saved !== false) {
+    echo '<div class="notice notice-success is-dismissible"><p>' .
+         esc_html__('Admin styles saved successfully.', 'capsman-enhanced') .
+         '</p></div>';
+    delete_transient('ppc_admin_styles_saved_' . $user_id);
+}
 ?>
 <div class="wrap publishpress-caps-manage pressshack-admin-wrapper pp-capability-menus-wrapper admin-styles">
     <div id="icon-capsman-admin" class="icon32"></div>
@@ -61,6 +99,12 @@ $role_caption = translate_user_role($roles[$default_role]);
         <?php wp_nonce_field('pp-capabilities-admin-styles', '_wpnonce'); ?>
         <input type="hidden" name="current_user_color" id="current_user_color"
             value="<?php echo esc_attr($current_user_color); ?>" />
+        <input type="hidden" name="page" value="pp-capabilities-admin-styles">
+
+        <div id="ppc-admin-styles-overlay" class="ppc-form-overlay" aria-hidden="true">
+            <span class="spinner is-active" aria-hidden="true"></span>
+            <span class="ppc-form-overlay-text"></span>
+        </div>
 
         <div class="pp-columns-wrapper pp-enable-sidebar">
             <div class="pp-column-left">
@@ -86,7 +130,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                             </div>
 
                             <div>
-                                <div class="pp-capabilities-submit-top" style="float:right; margin-bottom: 20px;">
+                                <div class="pp-capabilities-submit-top" style="display: flex;gap: 10px;float:right; margin-bottom: 20px;">
                                     <input type="submit" name="admin-styles-all-submit"
                                         value="<?php esc_attr_e('Save for all Roles', 'capability-manager-enhanced') ?>"
                                         class="button-secondary ppc-admin-styles-submit" style="float:right" />
@@ -105,7 +149,6 @@ $role_caption = translate_user_role($roles[$default_role]);
                                         <div id="pp-capability-menus-general"
                                             class="pp-capability-menus-content editable-role" style="display: block;">
 
-                                            <div id="admin-styles-general" class="admin-styles-tab-content active">
                                                 <table
                                                     class="wp-list-table widefat fixed striped pp-capability-menus-select">
                                                     <thead>
@@ -119,6 +162,7 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+
                                                         <tr class="ppc-menu-row parent-menu">
                                                             <td class="menu-column ppc-menu-item">
                                                                 <label>
@@ -127,6 +171,25 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                 <p class="cme-subtext">
                                                                     <?php esc_html_e('Sets the admin color scheme for all users. Click a scheme to preview it instantly.', 'capability-manager-enhanced'); ?>
                                                                 </p>
+                                                                <div class="add-new-button-area">
+                                                                    <label for="ppc-custom-style-template" class="custom-style-template-label">
+                                                                        <?php esc_html_e('Start from template', 'capsman-enhanced'); ?>
+                                                                    </label>
+                                                                    <select id="ppc-custom-style-template" class="custom-style-template-select">
+                                                                        <option value="blank">
+                                                                            <?php esc_html_e('Blank Template', 'capsman-enhanced'); ?>
+                                                                        </option>
+                                                                        <?php foreach ($admin_styles->get_style_templates() as $template_id => $template): ?>
+                                                                            <option value="<?php echo esc_attr($template_id); ?>">
+                                                                                <?php echo esc_html($template['name']); ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                    <button type="button"
+                                                                        class="button button-secondary custom-styles-button">
+                                                                        <?php esc_html_e('Add Custom Style', 'capsman-enhanced'); ?>
+                                                                    </button>
+                                                                </div>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
                                                                 <fieldset class="ppc-admin-color-schemes">
@@ -138,12 +201,11 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                     <div class="color-options">
                                                                         <?php foreach ($color_schemes as $key => $name):
                                                                             $scheme_data = PP_Capabilities_Admin_Styles::instance()->get_color_scheme_data($key);
-                                                                            $is_custom = ($key === 'publishpress-custom');
+
                                                                             $is_selected = ($settings['admin_color_scheme'] === $key);
                                                                             $is_current_user = ($current_user_color === $key);
                                                                             ?>
-                                                                            <div
-                                                                                class="color-option <?php echo ($key === 'publishpress-custom') ? 'ppc-custom-scheme' : ''; ?> <?php echo $is_selected ? 'selected' : ''; ?>">
+                                                                            <div class="color-option <?php echo (strpos($key, 'ppc-custom-style-') === 0) ? 'ppc-user-custom-scheme' : ''; ?> <?php echo $is_selected ? 'selected' : ''; ?>">
                                                                                 <input type="radio"
                                                                                     name="admin_color_scheme_radio"
                                                                                     id="color-<?php echo esc_attr($key); ?>"
@@ -151,14 +213,14 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                                     data-scheme="<?php echo esc_attr($key); ?>"
                                                                                     <?php checked($is_selected); ?>
                                                                                     class="tog" />
-                                                                                <label
-                                                                                    for="color-<?php echo esc_attr($key); ?>">
+                                                                                <label for="color-<?php echo esc_attr($key); ?>">
                                                                                     <?php echo esc_html($name); ?>
-                                                                                    <?php if ($key === 'publishpress-custom'): ?>
-                                                                                        <span class="custom-scheme-edit-icon"
-                                                                                            title="<?php esc_attr_e('Edit custom colors', 'capsman-enhanced'); ?>">
-                                                                                            <span
-                                                                                                class="dashicons dashicons-edit"></span>
+                                                                                    <?php if (strpos($key, 'ppc-custom-style-') === 0): ?>
+                                                                                        <span class="custom-style-edit-icon"
+                                                                                            title="<?php esc_attr_e('Edit custom style', 'capsman-enhanced'); ?>"
+                                                                                            data-style="<?php echo esc_attr($key); ?>"
+                                                                                            data-name="<?php echo esc_attr($name); ?>">
+                                                                                            <span class="dashicons dashicons-edit"></span>
                                                                                         </span>
                                                                                     <?php endif; ?>
                                                                                 </label>
@@ -171,7 +233,6 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                                             </div>
                                                                                         <?php endforeach; ?>
                                                                                     <?php else: ?>
-                                                                                        <!-- Default color preview for unknown schemes -->
                                                                                         <div class="color-palette-shade"
                                                                                             style="background-color: #2271b1">
                                                                                         </div>
@@ -198,147 +259,145 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                             </td>
                                                         </tr>
 
-
-                                                        <tr class="ppc-menu-row parent-menu">
-                                                            <td colspan="2" class="value-column ppc-menu-checkbox">
-                                                                <fieldset class="ppc-admin-color-schemes">
-                                                                    <!-- Custom Scheme Color Editor (hidden by default) -->
-                                                                    <div class="custom-scheme-editor"
-                                                                        style="<?php echo ($settings['admin_color_scheme'] !== 'publishpress-custom') ? 'display: none;' : ''; ?> margin-top: 20px; padding: 20px; background: #f6f7f7; border: 1px solid #dcdcde; border-radius: 4px;">
-                                                                        <h4
-                                                                            style="margin-top: 0; display: flex; align-items: center; gap: 10px;">
-                                                                            <span
-                                                                                class="dashicons dashicons-admin-customizer"></span>
-                                                                            <?php esc_html_e('Custom Color Scheme Editor', 'capsman-enhanced'); ?>
+                                                        <tr id="custom-style-form" style="display: none;">
+                                                            <td colspan="2" class="custom-form-td value-column ppc-menu-checkbox">
+                                                                <div>
+                                                                    <div class="color-editor-card">
+                                                                        <h4 class="editor-title form-promo-blur">
+                                                                            <span class="dashicons dashicons-admin-customizer"></span>
+                                                                            <span class="custom-form-title"><?php esc_html_e('Edit Color Style', 'capsman-enhanced'); ?></span>
                                                                         </h4>
-                                                                        <p class="cme-subtext" style="margin-top: 5px;">
-                                                                            <?php esc_html_e('Choose the colors for your custom scheme. Changes are previewed instantly.', 'capsman-enhanced'); ?>
+                                                                        <p class="editor-description form-promo-blur">
+                                                                            <?php esc_html_e('Customize colors for different admin elements. Changes are previewed instantly.', 'capsman-enhanced'); ?>
                                                                         </p>
 
-                                                                        <table
-                                                                            class="custom-scheme-colors color-picker-row"
-                                                                            style="width: 100%; margin-top: 15px;">
-                                                                            <tr>
-                                                                                <td
-                                                                                    style="padding: 10px 0; width: 200px;">
-                                                                                    <label for="custom_scheme_base">
-                                                                                        <strong><?php esc_html_e('Base Color', 'capsman-enhanced'); ?></strong>
-                                                                                    </label>
-                                                                                    <p class="cme-subtext">
-                                                                                        <?php esc_html_e('Primary color for menus and buttons', 'capsman-enhanced'); ?>
-                                                                                    </p>
-                                                                                </td>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <input type="text"
-                                                                                        name="settings[custom_scheme_base]"
-                                                                                        id="custom_scheme_base"
-                                                                                        value="<?php echo esc_attr($settings['custom_scheme_base'] ?? '#655997'); ?>"
-                                                                                        class="pp-capabilities-color-picker custom-scheme-color"
-                                                                                        data-preview="true">
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <label for="custom_scheme_text">
-                                                                                        <strong><?php esc_html_e('Text Color', 'capsman-enhanced'); ?></strong>
-                                                                                    </label>
-                                                                                    <p class="cme-subtext">
-                                                                                        <?php esc_html_e('Text color on colored backgrounds', 'capsman-enhanced'); ?>
-                                                                                    </p>
-                                                                                </td>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <input type="text"
-                                                                                        name="settings[custom_scheme_text]"
-                                                                                        id="custom_scheme_text"
-                                                                                        value="<?php echo esc_attr($settings['custom_scheme_text'] ?? '#ffffff'); ?>"
-                                                                                        class="pp-capabilities-color-picker custom-scheme-color"
-                                                                                        data-preview="true">
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <label
-                                                                                        for="custom_scheme_highlight">
-                                                                                        <strong><?php esc_html_e('Highlight Color', 'capsman-enhanced'); ?></strong>
-                                                                                    </label>
-                                                                                    <p class="cme-subtext">
-                                                                                        <?php esc_html_e('Hover and active states', 'capsman-enhanced'); ?>
-                                                                                    </p>
-                                                                                </td>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <input type="text"
-                                                                                        name="settings[custom_scheme_highlight]"
-                                                                                        id="custom_scheme_highlight"
-                                                                                        value="<?php echo esc_attr($settings['custom_scheme_highlight'] ?? '#8a7bb9'); ?>"
-                                                                                        class="pp-capabilities-color-picker custom-scheme-color"
-                                                                                        data-preview="true">
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <label
-                                                                                        for="custom_scheme_notification">
-                                                                                        <strong><?php esc_html_e('Notification Color', 'capsman-enhanced'); ?></strong>
-                                                                                    </label>
-                                                                                    <p class="cme-subtext">
-                                                                                        <?php esc_html_e('Error and warning indicators', 'capsman-enhanced'); ?>
-                                                                                    </p>
-                                                                                </td>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <input type="text"
-                                                                                        name="settings[custom_scheme_notification]"
-                                                                                        id="custom_scheme_notification"
-                                                                                        value="<?php echo esc_attr($settings['custom_scheme_notification'] ?? '#d63638'); ?>"
-                                                                                        class="pp-capabilities-color-picker custom-scheme-color"
-                                                                                        data-preview="true">
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <label
-                                                                                        for="custom_scheme_background">
-                                                                                        <strong><?php esc_html_e('Background Color', 'capsman-enhanced'); ?></strong>
-                                                                                    </label>
-                                                                                    <p class="cme-subtext">
-                                                                                        <?php esc_html_e('Page and container backgrounds', 'capsman-enhanced'); ?>
-                                                                                    </p>
-                                                                                </td>
-                                                                                <td style="padding: 10px 0;">
-                                                                                    <input type="text"
-                                                                                        name="settings[custom_scheme_background]"
-                                                                                        id="custom_scheme_background"
-                                                                                        value="<?php echo esc_attr($settings['custom_scheme_background'] ?? '#f0f0f1'); ?>"
-                                                                                        class="pp-capabilities-color-picker custom-scheme-color"
-                                                                                        data-preview="true">
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
+                                                                        <input type="hidden" name="custom_style_action" value="">
+                                                                        <input type="hidden" name="custom_style_slug" id="custom_style_slug" value="new">
+                                                                        <input type="hidden" name="custom_style_is_builtin" id="custom_style_is_builtin" value="0">
 
-                                                                        <div style="display:none;" class="custom-scheme-preview-area"
-                                                                            style="margin-top: 20px; padding: 15px; background: <?php echo esc_attr($settings['custom_scheme_background'] ?? '#f0f0f1'); ?>; border-radius: 4px; border: 1px solid #dcdcde;">
-                                                                            <div
-                                                                                style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                                                                                <div
-                                                                                    style="background: <?php echo esc_attr($settings['custom_scheme_base'] ?? '#655997'); ?>; color: <?php echo esc_attr($settings['custom_scheme_text'] ?? '#ffffff'); ?>; padding: 8px 15px; border-radius: 4px; font-weight: 500;">
-                                                                                    <?php esc_html_e('Primary Button', 'capsman-enhanced'); ?>
+                                                                        <div class="custom-style-tabs editor-tabs">
+                                                                            <nav class="nav-tab-wrapper editor-nav-tabs form-promo-blur">
+                                                                            <?php
+                                                                            $color_tabs = $admin_styles->get_element_color_tabs();
+                                                                            $tab_index = 0;
+                                                                            foreach ($color_tabs as $tab_key => $tab_data):
+                                                                                $is_active = ($tab_index === 0) ? 'nav-tab-active' : '';
+                                                                                ?>
+                                                                                <a href="#custom-style-tab-<?php echo esc_attr($tab_key); ?>"
+                                                                                   class="nav-tab  editor-tab-link custom-style-tab <?php echo esc_attr($is_active); ?>"
+                                                                                   data-tab="custom-style-tab-<?php echo esc_attr($tab_key); ?>">
+                                                                                    <?php echo esc_html($tab_data['label']); ?>
+                                                                                </a>
+                                                                                <?php
+                                                                                $tab_index++;
+                                                                            endforeach;
+                                                                            ?>
+                                                                            </nav>
+
+                                                                            <?php if (!defined('PUBLISHPRESS_CAPS_PRO_VERSION')) : ?>
+                                                                                <div class="ppc-menu-row parent-menu pp-promo-overlay-row" style="display: none;">
+                                                                                    <div class="pp-promo-upgrade-notice"
+                                                                                    style="margin-top: 0;left: 15%;">
+                                                                                        <p>
+                                                                                            <?php esc_html_e('Add more than one custom admin styles. This feature is available in PublishPress Capabilities Pro.',
+                                                                                                'capability-manager-enhanced'); ?>
+                                                                                        </p>
+                                                                                        <p>
+                                                                                            <a href="https://publishpress.com/links/capabilities-banner" target="_blank">
+                                                                                                <?php esc_html_e('Upgrade to Pro', 'capability-manager-enhanced'); ?>
+                                                                                            </a>
+                                                                                        </p>
+                                                                                    </div>
                                                                                 </div>
-                                                                                <div
-                                                                                    style="background: <?php echo esc_attr($settings['custom_scheme_highlight'] ?? '#8a7bb9'); ?>; color: <?php echo esc_attr($settings['custom_scheme_text'] ?? '#ffffff'); ?>; padding: 8px 15px; border-radius: 4px; font-weight: 500;">
-                                                                                    <?php esc_html_e('Hover State', 'capsman-enhanced'); ?>
-                                                                                </div>
-                                                                                <div
-                                                                                    style="background: <?php echo esc_attr($settings['custom_scheme_notification'] ?? '#d63638'); ?>; color: <?php echo esc_attr($settings['custom_scheme_text'] ?? '#ffffff'); ?>; padding: 8px 15px; border-radius: 4px; font-weight: 500;">
-                                                                                    <?php esc_html_e('Notification', 'capsman-enhanced'); ?>
+                                                                            <?php endif; ?>
+
+                                                                            <div class="editor-tab-panels form-promo-blur">
+                                                                                <?php
+                                                                                $tab_index = 0;
+                                                                                foreach ($color_tabs as $tab_key => $tab_data):
+                                                                                    $is_active = ($tab_index === 0) ? 'active' : '';
+                                                                                    ?>
+                                                                                    <div id="custom-style-tab-<?php echo esc_attr($tab_key); ?>"
+                                                                                         class="editor-tab-pane custom-style-tab-content <?php echo esc_attr($is_active); ?>">
+
+                                                                                        <table class="color-rows">
+                                                                                    <tbody>
+                                                                                    <?php
+                                                                                    $global_field_index = 0;
+                                                                                    foreach ($tab_data['colors'] as $color_key => $color_config): ?>
+                                                                                        <?php if ($tab_index === 0 && $global_field_index === 0) : ?>
+                                                                                        <tr class="color-row" id="custom-style-name-row">
+                                                                                            <td class="color-label">
+                                                                                                <label for="custom_style_name" class="color-label-text">
+                                                                                                    <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
+                                                                                                </label>
+                                                                                            </td>
+                                                                                            <td class="color-input-cell">
+                                                                                                <input type="text"
+                                                                                                    name="custom_style_name"
+                                                                                                    id="custom_style_name" value=""
+                                                                                                    class="regular-text"
+                                                                                                    placeholder="<?php esc_attr_e('e.g., Company Branding, Dark Mode', 'capsman-enhanced'); ?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                        <?php endif; ?>
+                                                                                        <tr class="color-row">
+                                                                                            <td class="color-label">
+                                                                                                <label for="custom_style_<?php echo esc_attr($color_key); ?>" class="color-label-text">
+                                                                                                    <?php echo esc_html($color_config['label']); ?>
+                                                                                                </label>
+                                                                                            </td>
+                                                                                            <td class="color-input-cell">
+                                                                                                <input type="text"
+                                                                                                    name="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                    id="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                    value=""
+                                                                                                    class="pp-capabilities-color-picker custom-style-color color-input"
+                                                                                                    data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
+                                                                                                    data-tab="<?php echo esc_attr($tab_key); ?>"
+                                                                                                    data-color-key="<?php echo esc_attr($color_key); ?>">
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    <?php $global_field_index++; endforeach; ?>
+</tbody>
+                                                                                </table>
+                                                                            </div>
+                                                                            <?php
+                                                                            $tab_index++;
+                                                                        endforeach;
+                                                                        ?>
+                                                                    </div>
+
+                                                                    <div class="editor-actions form-promo-blur">
+                                                                        <div style="display: flex; gap: 10px;">
+                                                                            <button type="button"
+                                                                                class="button cancel-custom-style">
+                                                                                <?php esc_html_e('Cancel', 'capsman-enhanced'); ?>
+                                                                            </button>
+                                                                            <div class="custom-link-delete ppc-tool-tip click-tooltip" id="custom-style-delete-button" style="display: none; margin-left: auto;">
+                                                                                <button type="button"
+                                                                                    class="button button-secondary ppc-button-delete"
+                                                                                    style="border-color: #d63638 !important;color: #d63638 !important;">
+                                                                                    <?php esc_attr_e('Delete Custom Style', 'capsman-enhanced'); ?>
+                                                                                </button>
+
+                                                                                <div class="tool-tip-text">
+                                                                                    <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capsman-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capsman-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capsman-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capsman-enhanced') .'</a>' ); ?></p>
+                                                                                        <i></i>
                                                                                 </div>
                                                                             </div>
-                                                                            <p class="cme-subtext"
-                                                                                style="margin-top: 10px; margin-bottom: 0;">
-                                                                                <?php esc_html_e('Live preview of your custom color scheme', 'capsman-enhanced'); ?>
-                                                                            </p>
                                                                         </div>
-                                                                </fieldset>
-                                                            </td>
-                                                        </tr>
+                                                                        <input type="submit" name="save_custom_style"
+                                                                            value="<?php esc_attr_e('Save Custom Style', 'capsman-enhanced'); ?>"
+                                                                            class="button-primary">
+                                                                    </div>
+
+                                                                    <div id="custom-style-error" class="editor-error">
+                                                                    </div>
+                                                                        </div>
+                                                                    </div>
+</tr>
+
 
                                                         <tr class="ppc-menu-row parent-menu">
                                                             <td class="menu-column ppc-menu-item">
@@ -392,7 +451,8 @@ $role_caption = translate_user_role($roles[$default_role]);
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="favicon-preview">
                                                                         <?php if (!empty($settings['admin_favicon'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
+                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>"
+                                                                                style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>
                                                                     <button type="button"
@@ -477,7 +537,6 @@ $role_caption = translate_user_role($roles[$default_role]);
 
                                                     </tbody>
                                                 </table>
-                                            </div>
 
                                         </div>
                                     </div>
@@ -487,7 +546,7 @@ $role_caption = translate_user_role($roles[$default_role]);
 
 
                             <div class="editor-features-footer-meta">
-                                <div style="float:right;margin-top: 20px;">
+                                <div style="display: flex;gap: 10px;float:right;margin-top: 20px;">
 
                                     <input type="submit" name="admin-styles-all-submit"
                                         value="<?php esc_attr_e('Save for all Roles', 'capability-manager-enhanced') ?>"

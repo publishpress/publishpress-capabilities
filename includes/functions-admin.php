@@ -221,6 +221,7 @@ function pp_capabilities_backup_sections()
     $backup_sections[$cms_id . '_admin_styles_backup']['label']     = esc_html__('Admin Styles', 'capability-manager-enhanced');
     $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles";
     $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles_roles";
+    $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_custom_admin_styles";
 
    //Frontend Features
    $backup_sections[$cms_id . '_frontend_features_backup']['label']     = esc_html__('Frontend Features', 'capability-manager-enhanced');
@@ -230,6 +231,7 @@ function pp_capabilities_backup_sections()
    $backup_sections[$cms_id . '_profile_features_backup']['label']     = esc_html__('Profile Features', 'capability-manager-enhanced');
    $backup_sections[$cms_id . '_profile_features_backup']['options'][] = "capsman_disabled_profile_features";
    $backup_sections[$cms_id . '_profile_features_backup']['options'][] = "capsman_profile_features_elements";
+    $backup_sections[$cms_id . '_profile_features_backup']['options'][] = "capsman_profile_features_role";
 
    //Redirects
    $backup_sections[$cms_id . '_redirects_backup']['label']     = esc_html__('Redirects', 'capability-manager-enhanced');

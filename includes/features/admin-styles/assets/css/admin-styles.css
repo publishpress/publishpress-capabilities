@@ -6,12 +6,6 @@
  */
 
 /* Main wrapper styling */
-.admin-styles .pp-column-left .nav-tab-wrapper,
-.admin-styles .pp-column-left .postbox {
-    border: unset;
-    background: transparent;
-}
-
 .pp-capability-menus {
     overflow: initial;
 }
@@ -22,68 +16,28 @@
     background: #fff;
 }
 
-/* Tab navigation */
-.admin-styles .nav-tab-wrapper {
-    border-bottom: 1px solid #c3c4c7;
-    margin: 0;
-    padding: 0;
-    background: #f0f0f1;
-}
-
-.admin-styles .nav-tab {
-    background: transparent;
-    border: 1px solid transparent;
-    border-bottom: none;
-    margin: 0 5px -1px 0;
-    padding: 10px 20px;
-    font-size: 14px;
-    line-height: 1.71428571;
-    font-weight: 600;
-    color: #50575e;
-    text-decoration: none;
-    white-space: nowrap;
-    cursor: pointer;
-}
-
-.admin-styles .nav-tab:hover {
-    color: #135e96;
-    background-color: #fff;
-}
-
-.admin-styles .nav-tab-active {
-    background: #fff;
-    border-color: #c3c4c7;
-    border-bottom-color: #fff;
-    color: #23282d;
-}
-
-/* Tab content styling - FIXED */
-.admin-styles-tab-content {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.admin-styles-tab-content.active {
-    display: block;
-    opacity: 1;
-}
-
-/* Ensure table content is visible */
-.admin-styles-tab-content .pp-capability-menus-select {
-    display: table;
-    width: 100%;
-}
-
-.admin-styles-tab-content.active .pp-capability-menus-select {
-    display: table;
-}
-
 /* Form table styling */
 .admin-styles .pp-capability-menus-select {
     margin: 0;
     border: none;
     box-shadow: none;
+}
+
+.admin-styles .add-new-button-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.admin-styles .custom-style-template-label {
+    font-weight: 600;
+}
+
+.admin-styles .custom-style-template-select {
+    width: 100%;
+    max-width: 280px;
 }
 
 .admin-styles .pp-capability-menus-select th.menu-column {
@@ -106,10 +60,6 @@
 .admin-styles .pp-capability-menus-select input.regular-text {
     width: 100%;
     max-width: 400px;
-}
-
-.admin-styles .pp-capability-menus-select select.regular-text {
-    width: 200px;
 }
 
 /* WordPress-style Color Scheme Swatches */
@@ -147,7 +97,8 @@
     height: 0;
 }
 
-.ppc-admin-color-schemes .color-option label {
+.ppc-admin-color-schemes .color-option label,
+.color-row .color-label label {
     display: block;
     margin-bottom: 8px;
     font-weight: 500;
@@ -177,20 +128,6 @@
     height: 16px;
 }
 
-.current-indicator {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #46b450;
-}
-
-.current-indicator .dashicons {
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-}
-
 .color-palette {
     display: flex;
     height: 24px;
@@ -202,14 +139,6 @@
 .color-palette-shade {
     flex: 1;
     height: 100%;
-}
-
-.custom-scheme-preview {
-    height: 24px;
-    border-radius: 3px;
-    border: 1px solid #dcdcde;
-    background: linear-gradient(135deg, #2271b1 25%, #72aee6 75%);
-    transition: background 0.3s ease;
 }
 
 /* Custom Scheme Editor */
@@ -238,7 +167,6 @@
 
 .custom-scheme-colors {
     width: 100%;
-    margin-top: 15px;
     border-collapse: collapse;
 }
 
@@ -302,47 +230,35 @@
     max-width: 300px;
 }
 
-.pp-capabilities-logo-dimensions {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.pp-capabilities-dimension-separator {
-    margin: 0 5px;
-    font-weight: bold;
-    color: #646970;
-}
-
 /* Color picker */
 .pp-capabilities-color-picker {
     width: 100px;
 }
 
-.color-picker-row .wp-picker-container .wp-color-result.button {
-    padding: 0 0 0 30px !important;
+.wp-picker-container .wp-color-result.button .wp-color-result-text {
+   border-left: none !important;
 }
 
-.color-picker-row .wp-picker-input-wrap input {
-    width: 100px !important;
-    margin-top: 0 !important;
-    margin-left: 6px !important;
-    padding: 0 8px !important;
-    line-height: 2.54545455 !important;
-    min-height: 30px !important;
+.wp-picker-container {
+    position: relative !important;
+    display: inline-block !important;
 }
 
-/* Make sure picker is visible when open */
 .wp-picker-container.wp-picker-active .wp-picker-holder,
 .wp-picker-container.wp-picker-active .wp-picker-holder .iris-picker {
-  display: block !important;
+    display: block !important;
 }
 
-/* Ensure our outside click handler doesn't interfere with picker clicks */
+.wp-picker-container .wp-picker-holder {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    z-index: 10000 !important;
+    margin-top: 5px !important;
+}
+
 .wp-picker-container * {
-  pointer-events: auto;
+    pointer-events: auto;
 }
 
 /* Checkbox styling */
@@ -363,26 +279,6 @@
     vertical-align: top;
 }
 
-/* Code textareas */
-.admin-styles .code {
-    font-family: Consolas, Monaco, monospace;
-    font-size: 13px;
-    line-height: 1.5;
-    background: #f6f7f7;
-    border: 1px solid #dcdcde;
-    border-radius: 4px;
-    padding: 8px;
-}
-
-/* Button styling */
-.ppc-admin-styles-submit {
-    margin-top: 5px;
-}
-
-input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
-    margin-left: 10px;
-}
-
 /* Helper text */
 .cme-subtext {
     color: #646970;
@@ -398,7 +294,35 @@ input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
     margin-left: 5px;
 }
 
-/* Color picker adjustments */
+/* Form submit overlay */
+.ppc-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    z-index: 9999;
+}
+
+.ppc-form-overlay.is-active {
+    display: flex;
+}
+
+.ppc-form-overlay .spinner {
+    float: none;
+    margin: 0;
+}
+
+.ppc-form-overlay-text {
+    font-weight: 600;
+    color: #1d2327;
+}
+
 .ppc-admin-color-schemes .wp-color-result {
     margin: 0 !important;
 }
@@ -407,13 +331,11 @@ input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
     display: inline-block;
 }
 
-/* Make sure tables are visible in tabs */
 #pp-capability-menu-wrapper .pp-capability-menus-select {
     visibility: visible !important;
     display: table !important;
 }
 
-/* WordPress style checkboxes for color schemes */
 .color-checkbox {
     position: absolute;
     top: 10px;
@@ -447,21 +369,126 @@ input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
     display: block;
 }
 
-/* Adjust label position for checkbox */
 .ppc-admin-color-schemes .color-option label {
     padding-right: 35px;
 }
 
-/* Custom scheme icon position adjustment */
 .ppc-custom-scheme .custom-scheme-edit-icon {
     right: 35px;
 }
 
-.ppc-custom-scheme .current-indicator {
-    right: 35px;
+/* Custom Style Form Tabs */
+#custom-style-form td.custom-form-td  {
+    background: #f6f7f7;
+    border-top: 1px solid #c3c4c7;
+    border-bottom: 1px solid #c3c4c7;
+    padding: 20px 10px !important;
 }
 
-/* Responsive adjustments */
+#custom-style-form.promo-form .form-promo-blur {
+    filter: blur(1.5px);
+}
+
+.custom-style-tabs {
+    border-radius: 4px;
+    overflow: visible !important;
+}
+
+.custom-style-tab-content table,
+.ppc-scheme-tab-content table {
+    width: 100%;
+}
+
+.button-link-delete {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: none !important;
+    cursor: pointer !important;
+    color: #d63638 !important;
+    text-decoration: none !important;
+    transition-property: border, background, color !important;
+    transition-duration: .05s !important;
+    transition-timing-function: ease-in-out !important;
+}
+
+.admin-styles .ppc-button-delete {
+    border-color: #d63638 !important;
+    color: #d63638 !important;
+}
+
+.admin-styles .ppc-button-delete:hover,
+.admin-styles .ppc-button-delete:focus {
+    border-color: #b32d2e;
+    color: #b32d2e;
+}
+
+.custom-style-tab-content table tbody,
+.ppc-scheme-tab-content table tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    align-items: flex-start;
+    margin-top: 8px;
+}
+
+.custom-style-tab-content table tbody tr,
+.ppc-scheme-tab-content table tbody tr {
+    border: 2px solid #dcdcde;
+    padding: 3px;
+    background: #fff;
+    min-height: 170px;
+    min-width: 235px;
+    border-radius: 4px;
+}
+
+.custom-style-tab-content table tbody tr td,
+.ppc-scheme-tab-content table tbody tr td {
+    display: block;
+    padding: 6px 0;
+    width: 100%;
+}
+
+.custom-style-tab-content strong,
+.ppc-scheme-tab-content strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #1d2327;
+    font-weight: 600;
+}
+
+
+
+/* Tabs Styling */
+
+.tab-content-wrapper {
+    background: #fff;
+}
+
+/* Custom style form error message */
+#custom-style-error.editor-error {
+    display: none;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border: 1px solid #d63638;
+    border-left-width: 4px;
+    background: #fff5f5;
+    color: #d63638;
+    font-weight: 600;
+}
+
+/* Editor actions buttons */
+.editor-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Responsive css */
 @media screen and (max-width: 782px) {
     .admin-styles .pp-capability-menus-select th.menu-column,
     .admin-styles .pp-capability-menus-select td.menu-column,
@@ -490,11 +517,6 @@ input[name="admin-styles-all-submit"].ppc-admin-styles-submit {
     .admin-styles .pp-capability-menus-select input.regular-text {
         width: 100%;
         max-width: none;
-    }
-
-    .admin-styles .nav-tab {
-        padding: 8px 12px;
-        font-size: 13px;
     }
 
     .ppc-admin-color-schemes .color-options {

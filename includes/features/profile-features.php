@@ -25,6 +25,9 @@ global $capsman, $role_has_user;
 $roles             = $capsman->roles;
 $default_role      = $capsman->get_last_role();
 
+$temporary_profile_role = \PublishPress\Capabilities\PP_Capabilities_Profile_Features::getTemporaryProfileFeaturesRole();
+$role_is_enabled = ($default_role === $temporary_profile_role);
+
 $disabled_profile_items = !empty(get_option('capsman_disabled_profile_features')) ? (array)get_option('capsman_disabled_profile_features') : [];
 $disabled_profile_items = array_key_exists($default_role, $disabled_profile_items) ? (array)$disabled_profile_items[$default_role] : [];
 
@@ -32,9 +35,9 @@ $profile_features_elements = \PublishPress\Capabilities\PP_Capabilities_Profile_
 $profile_features_elements = isset($profile_features_elements[$default_role]) ? $profile_features_elements[$default_role] : [];
 
 if (get_option('cme_profile_features_auto_redirect')) {
-    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&refresh_element=1');
+    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $default_role . '&refresh_element=1');
 } else {
-    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&role_refresh=1');
+    $refresh_url = admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $default_role . '&role_refresh=1');
 }
 ?>
 
@@ -81,11 +84,11 @@ if (get_option('cme_profile_features_auto_redirect')) {
 
                                     <div id="pp-capability-menu-wrapper" class="postbox">
                                         <div class="pp-capability-menus">
-	
+
 		                                    <div class="pp-capability-menus-wrap">
 		                                        <div id="pp-capability-menus-general"
 		                                             class="pp-capability-menus-content editable-role" style="display: block;">
-	
+
 		                                            <table
 		                                                class="wp-list-table widefat striped fixed pp-capability-menus-select">
                                                         <thead>
@@ -134,7 +137,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                                 <td colspan="2">
                                                                     <?php
                                                                     if ($role_has_user) {
-                                                                        printf(esc_html__('Click %1$s Refresh profile items %2$s to manage elements for this role.', 'capability-manager-enhanced'), '<a href="'. $refresh_url .'">', '</a>');
+                                                                        esc_html_e('Click the "Find profile items for this role" button.', 'capability-manager-enhanced');
                                                                     } else {
                                                                         esc_html_e('There are no users in this role. Please select a role that has users and is able to access the "Profile" screen.', 'capability-manager-enhanced');
                                                                     }
@@ -151,7 +154,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                                 $element_type   = $section_array['element_type'];
 
                                                                 if (!is_array($section_array) || empty($section_array)) {
-                                                                     continue; 
+                                                                     continue;
                                                                 }
 
                                                                 if (in_array($element_type, ['section', 'header'])) :
@@ -193,7 +196,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                                             <span
                                                                                 class="menu-item-link<?php echo (in_array($restrict_value, $disabled_profile_items)) ? ' restricted' : ''; ?>">
                                                                             <strong>
-                                                                                 <?php echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="dashicons dashicons-arrow-right"></i>'; ?> 
+                                                                                 <?php echo '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="dashicons dashicons-arrow-right"></i>'; ?>
                                                                                 <?php echo esc_html($item_name); ?>
                                                                             </strong></span>
                                                                         </label>
@@ -225,14 +228,23 @@ if (get_option('cme_profile_features_auto_redirect')) {
                     </fieldset>
                 </div><!-- .pp-column-left -->
                 <div class="pp-column-right pp-capabilities-sidebar">
-                <?php 
-                $banner_messages = ['<p>'];
-                $banner_messages[] = '<i class="dashicons dashicons-arrow-right"></i> <a href="'. $refresh_url .'">' . esc_html__('Refresh available profile items for this role', 'capability-manager-enhanced') .'</a>';
-                $banner_messages[] = '</p>';
+                <?php
+                $current_role_name = translate_user_role($roles[$default_role]);
+                $checkbox_checked = $role_is_enabled ? 'checked' : '';
+                $button_disabled = $role_is_enabled ? '' : 'disabled="disabled"';
+                $warning_display = $role_is_enabled ? 'display: none;' : '';
+                $info_display = $role_is_enabled ? '' : 'display: none;';
+
+                $banner_messages = [];
+                $banner_messages[] = '<label style="display: block; margin-bottom: 8px;"><input type="checkbox" class="ppc-profile-features-allow-role" data-role="' . esc_attr($default_role) . '" ' . $checkbox_checked . '> ' . esc_html__('Allow PublishPress to find profile items for this role.', 'capability-manager-enhanced') . '</label>';
+                $banner_messages[] = '<div style="margin-bottom: 15px;"><button type="button" class="button ppc-profile-features-refresh" data-refresh-url="' . esc_url($refresh_url) . '" ' . $button_disabled . '>' . esc_html__('Find profile items for this role', 'capability-manager-enhanced') . '</button></div>';
+                $banner_messages[] = '<div class="ppc-profile-features-warning" style="display: none !important;padding: 10px; background-color: #fff8e5; border-left: 4px solid #ffb900; color: #856404; margin-bottom: 15px; ' . $warning_display . '"><strong><span class="dashicons dashicons-warning" aria-hidden="true"></span> ' . esc_html__('Warning:', 'capability-manager-enhanced') . '</strong> ' . sprintf(esc_html__('The %s role is not enabled for editing. The Find button is disabled.', 'capability-manager-enhanced'), '<strong>' . esc_html($current_role_name) . '</strong>') . '</div>';
+                $banner_messages[] = '<div class="ppc-profile-features-info" style="padding: 8px; background-color: #e7f7fe; border-left: 4px solid #00a0d2; color: #0073aa; margin-bottom: 15px; ' . $info_display . '"><strong><span class="dashicons dashicons-info-outline" aria-hidden="true"></span></strong> ' . sprintf(esc_html__('This feature will test the "Profile" screen as a user in the %s role.', 'capability-manager-enhanced'), '<strong>' . esc_html($current_role_name) . '</strong>') . '</div>';
+
                 $banner_title  = __('Refresh Profile Features', 'capability-manager-enhanced');
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
                 ?>
-                <?php 
+                <?php
                 $banner_messages = ['<p>'];
                 $banner_messages[] = esc_html__('Profile Features allows you to remove elements from the Profile screen.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
@@ -312,6 +324,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                     window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-profile-features&role=')); ?>' + $(this).val() + ''
 
                 })
+
             })
             /* ]]> */
         </script>

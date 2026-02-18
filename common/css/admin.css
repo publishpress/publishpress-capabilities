@@ -1111,7 +1111,7 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
     padding: 0 !important;
 }
 
-.pp-capability-menus-wrapper.profile-features .pp-sidebar-box.advertisement-box-content li:not(.pp-features-list-item) {
+.pp-capability-menus-wrapper.profile-features .pp-sidebar-box.advertisement-box-content li:not(.pp-features-list-item):not(.search-choice):not(.search-field):not(.active-result):not(.result-selected) {
     padding: 0 !important;
 }
 
@@ -1931,9 +1931,6 @@ ul.ppc-redirects-tab li.active a {
 
   .pp-capability-menus-wrapper.nav-menus div.pp-column-right {
       padding-top: 62px;
-  }
-  .pp-capability-menus-wrapper.profile-features div.pp-column-right {
-    padding-top: 81px;
   }
   .publishpress-caps-manage.publishpress-caps-backup div.pp-column-right {
     padding-top: 67px;

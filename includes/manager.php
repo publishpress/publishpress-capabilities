@@ -1436,6 +1436,11 @@ class CapabilityManager
                 $role_has_user = false;
             }
 
+			// Check if role is enabled for profile features editing
+			if (!\PublishPress\Capabilities\PP_Capabilities_Profile_Features::isRoleEnabledForProfileFeatures($default_role)) {
+				return;
+			}
+
             if (
                 is_array($profile_element_updated)
                 && isset($profile_element_updated[$default_role])

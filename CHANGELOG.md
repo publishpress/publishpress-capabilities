@@ -1,13 +1,23 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.31.0] - 29 December, 2025
+[2.32.0] - 18 Feburuary, 2026
+
+- Update : Allow admin to add more custom admin styles, #1523
+- Update : More styling option for Admin Styles, #1535
+- Update : Improvements to Profile Features roles selection, #1547
+- Fixed : Admin Styles issue with some plugin menu icons, #1561
+- Update : Add "Find out more" link for Unique Capabilities, #1541
+- Compact : Pro: Integration with Statuses 1.2.0, #1559
+- Update : Translation Updates Capabilities 2.31.0-ES-FR-IT, #1556
+
+[2.31.0] - 29 January, 2026
 
 - Update : Improve Admin Styles logo and favicon preview, #1545
 - Fixed : Admin Styles top save buttons not working, #1544
 - Update : Disable admin style overriding feature by default, #1546
 
-[2.30.0] - 28 December, 2025
+[2.30.0] - 28 January, 2026
 
 - Feature : Add new feature "Admin Styles", to customize branding for the admin area
 (requires manage_capabilities_admin_styles capability), #1250

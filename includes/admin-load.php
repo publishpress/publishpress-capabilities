@@ -376,6 +376,7 @@ class PP_Capabilities_Admin_UI {
                     ]
                 );
             }
+
         }
     }
 

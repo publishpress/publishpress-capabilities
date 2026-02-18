@@ -901,6 +901,82 @@ jQuery(document).ready(function ($) {
 
 
   // -------------------------------------------------------------
+  //   Profile Features Settings
+  // -------------------------------------------------------------
+  $(document).on('change', '.ppc-profile-features-allow-role', function (event) {
+    event.preventDefault();
+
+    var $checkbox = $(this);
+    var $button = $('.ppc-profile-features-refresh');
+    var $warning = $('.ppc-profile-features-warning');
+    var $info = $('.ppc-profile-features-info');
+    var enabled = $checkbox.is(':checked') ? 1 : 0;
+    var role = $checkbox.data('role') || '';
+    var nonce = $('#ppc-profile-features-form input[name="_wpnonce"]').val();
+
+    $checkbox.prop('disabled', true);
+
+    var form_data = {
+      action: 'ppc_set_profile_features_role',
+      security: nonce,
+      role: role,
+      enabled: enabled
+    };
+
+    ppcTimerStatus('info', __("Updating access...", "capability-manager-enhanced"));
+
+    $.ajax({
+      url: ajaxurl,
+      method: 'POST',
+      data: form_data,
+      success: function (response) {
+        if (response.status === 'success') {
+          ppcTimerStatus('success', response.message);
+          if (enabled) {
+            $button.prop('disabled', false).removeClass('disabled');
+            //$warning.hide();
+            $info.show();
+          } else {
+            $button.prop('disabled', true).addClass('disabled');
+            //$warning.show();
+            $info.hide();
+          }
+        } else {
+          ppcTimerStatus('error', response.message || __("Error updating access.", "capability-manager-enhanced"));
+          $checkbox.prop('checked', !enabled);
+        }
+      },
+      error: function () {
+        ppcTimerStatus('error', __("Error updating access.", "capability-manager-enhanced"));
+        $checkbox.prop('checked', !enabled);
+      },
+      complete: function () {
+        $checkbox.prop('disabled', false);
+      }
+    });
+  });
+
+  // -------------------------------------------------------------
+  //   Profile Features Settings
+  // -------------------------------------------------------------
+  $(document).on('click', '.ppc-profile-features-refresh', function (event) {
+    event.preventDefault();
+
+    var $button = $(this);
+    if ($button.prop('disabled')) {
+      return;
+    }
+
+    var refreshUrl = $button.data('refresh-url');
+    $button.prop('disabled', true).addClass('disabled');
+
+    if (refreshUrl) {
+      window.location = refreshUrl;
+    }
+  });
+
+
+  // -------------------------------------------------------------
   //   Settings sub tab change
   // -------------------------------------------------------------
   $(document).on('change', '.ppc-settings-role-subtab', function (e) {
