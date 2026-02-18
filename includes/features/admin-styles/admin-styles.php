@@ -773,12 +773,13 @@ class PP_Capabilities_Admin_Styles
                 'hoverState' => __('Hover State', 'capsman-enhanced'),
                 'notification' => __('Notification', 'capsman-enhanced'),
                 'livePreview' => __('Live preview of your custom color scheme', 'capsman-enhanced'),
-                'styleNameRequired' => __('Style name is required.', 'capsman-enhanced'),
+                'styleNameRequired' => __('Custom Style Name is required.', 'capsman-enhanced'),
+                'mainAdminColorRequired' => __('Main Admin Color is required.', 'capsman-enhanced'),
                 'publishpressCustom' => __('PublishPress Custom', 'capsman-enhanced'),
                 'displayName' => __('Display Name', 'capsman-enhanced'),
                 'displayNameDescription' => __('Change how this style is displayed', 'capsman-enhanced'),
                 'styleNameDescription' => __('Enter a name for your custom style', 'capsman-enhanced'),
-                'styleName' => __('Style Name', 'capsman-enhanced'),
+                'styleName' => __('Custom Style Name', 'capsman-enhanced'),
             ]
         ]);
     }

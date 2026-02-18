@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.32.0] - 17 Feburuary, 2026
+[2.32.0] - 18 Feburuary, 2026
 
 - Update : Allow admin to add more custom admin styles, #1523
 - Update : More styling option for Admin Styles, #1535

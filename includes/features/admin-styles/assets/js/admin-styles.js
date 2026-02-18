@@ -1004,7 +1004,7 @@
 
       // Validate Main Admin Color (required)
       if (!baseColor) {
-        $errorDiv.html('Main Admin Color is required.').show();
+        $errorDiv.html(ppCapabilitiesAdminStyles.labels.mainAdminColorRequired).show();
         $('#custom_style_custom_scheme_base').focus();
         return false;
       }
