@@ -934,11 +934,11 @@ jQuery(document).ready(function ($) {
           ppcTimerStatus('success', response.message);
           if (enabled) {
             $button.prop('disabled', false).removeClass('disabled');
-            $warning.hide();
+            //$warning.hide();
             $info.show();
           } else {
             $button.prop('disabled', true).addClass('disabled');
-            $warning.show();
+            //$warning.show();
             $info.hide();
           }
         } else {
