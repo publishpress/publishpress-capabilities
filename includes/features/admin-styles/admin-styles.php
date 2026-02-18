@@ -49,11 +49,11 @@ class PP_Capabilities_Admin_Styles
             'admin_favicon' => '',
 
             // Custom color scheme settings
-            'custom_scheme_base' => '#655997',
-            'custom_scheme_text' => '#ffffff',
-            'custom_scheme_highlight' => '#8a7bb9',
-            'custom_scheme_notification' => '#d63638',
-            'custom_scheme_background' => '#f0f2f1',
+            'custom_scheme_base' => '',
+            'custom_scheme_text' => '',
+            'custom_scheme_highlight' => '',
+            'custom_scheme_notification' => '',
+            'custom_scheme_background' => '',
             'custom_scheme_name' => '',
 
             // Element-specific colors
@@ -69,9 +69,12 @@ class PP_Capabilities_Admin_Styles
                 'tables' => [
                     'table_header_bg' => '',
                     'table_header_text' => '',
+                    'table_row_bg' => '',
+                    'table_row_color' => '',
                     'table_row_hover_bg' => '',
                     'table_border' => '',
-                    'table_alt_row_bg' => ''
+                    'table_alt_row_bg' => '',
+                    'table_alt_row_color' => ''
                 ],
                 'forms' => [
                     'input_border' => '',
@@ -96,7 +99,8 @@ class PP_Capabilities_Admin_Styles
                     'menu_hover_text' => '',
                     'menu_current_bg' => '',
                     'menu_current_text' => '',
-                    'menu_submenu_bg' => ''
+                    'menu_submenu_bg' => '',
+                    'menu_submenu_text' => ''
                 ],
                 'admin_bar' => [
                     'adminbar_bg' => '',
@@ -104,6 +108,15 @@ class PP_Capabilities_Admin_Styles
                     'adminbar_icon' => '',
                     'adminbar_hover_bg' => '',
                     'adminbar_hover_text' => ''
+                ],
+                'dashboard_widgets' => [
+                    'widget_bg' => '',
+                    'widget_border' => '',
+                    'widget_header_bg' => '',
+                    'widget_title_text' => '',
+                    'widget_body_text' => '',
+                    'widget_link' => '',
+                    'widget_link_hover' => ''
                 ]
             ],
 
@@ -760,12 +773,13 @@ class PP_Capabilities_Admin_Styles
                 'hoverState' => __('Hover State', 'capsman-enhanced'),
                 'notification' => __('Notification', 'capsman-enhanced'),
                 'livePreview' => __('Live preview of your custom color scheme', 'capsman-enhanced'),
-                'styleNameRequired' => __('Style name is required.', 'capsman-enhanced'),
+                'styleNameRequired' => __('Custom Style Name is required.', 'capsman-enhanced'),
+                'mainAdminColorRequired' => __('Main Admin Color is required.', 'capsman-enhanced'),
                 'publishpressCustom' => __('PublishPress Custom', 'capsman-enhanced'),
                 'displayName' => __('Display Name', 'capsman-enhanced'),
                 'displayNameDescription' => __('Change how this style is displayed', 'capsman-enhanced'),
                 'styleNameDescription' => __('Enter a name for your custom style', 'capsman-enhanced'),
-                'styleName' => __('Style Name', 'capsman-enhanced'),
+                'styleName' => __('Custom Style Name', 'capsman-enhanced'),
             ]
         ]);
     }
@@ -1169,23 +1183,28 @@ class PP_Capabilities_Admin_Styles
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
                 $css_url = $this->generate_custom_style_url($slug);
+                $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
+                $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
+                $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '');
+                $icon_focus = $menu_hover_text ?: $icon_base;
+                $icon_current = $menu_current_text ?: $icon_base;
 
                 $schemes[$slug] = [
                     'name' => $style['name'],
                     'url' => $css_url,
                     'colors' => [
-                        $style['custom_scheme_base'] ?? '#655997',
-                        $style['custom_scheme_text'] ?? '#ffffff',
-                        $style['custom_scheme_highlight'] ?? '#8a7bb9',
-                        $style['custom_scheme_notification'] ?? '#d63638',
-                        $style['custom_scheme_background'] ?? '#f0f0f1'
+                        $style['custom_scheme_base'] ?? '',
+                        $style['custom_scheme_text'] ?? '',
+                        $style['custom_scheme_highlight'] ?? '',
+                        $style['custom_scheme_notification'] ?? '',
+                        $style['custom_scheme_background'] ?? ''
                     ],
                     'icon_colors' => [
-                        'base' => $style['custom_scheme_base'] ?? '#655997',
-                        'focus' => $style['custom_scheme_highlight'] ?? '#8a7bb9',
-                        'current' => $style['custom_scheme_text'] ?? '#ffffff'
-                    ]
-                    ,
+                        'base' => $icon_base,
+                        'focus' => $icon_focus,
+                        'current' => $icon_current
+                    ],
                     'element_colors' => $style['element_colors'] ?? []
                 ];
             }
@@ -1315,10 +1334,10 @@ class PP_Capabilities_Admin_Styles
         return [
             'general' => [
                 'label' => __('General', 'capsman-enhanced'),
-                'description' => __('Base color settings', 'capsman-enhanced'),
+                'description' => __('Main Admin Color settings', 'capsman-enhanced'),
                 'colors' => [
                     'custom_scheme_base' => [
-                        'label' => __('Base Color', 'capsman-enhanced'),
+                        'label' => __('Main Admin Color', 'capsman-enhanced'),
                         'description' => __('Primary brand color', 'capsman-enhanced')
                     ],
                     'custom_scheme_text' => [
@@ -1381,6 +1400,14 @@ class PP_Capabilities_Admin_Styles
                         'label' => __('Table Header Text', 'capsman-enhanced'),
                         'description' => ''
                     ],
+                    'table_row_bg' => [
+                        'label' => __('Table Row Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'table_row_color' => [
+                        'label' => __('Table Row Text Color', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
                     'table_row_hover_bg' => [
                         'label' => __('Row Hover Background', 'capsman-enhanced'),
                         'description' => ''
@@ -1391,6 +1418,10 @@ class PP_Capabilities_Admin_Styles
                     ],
                     'table_alt_row_bg' => [
                         'label' => __('Alternate Row Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'table_alt_row_color' => [
+                        'label' => __('Alternate Row Text Color', 'capsman-enhanced'),
                         'description' => ''
                     ]
                 ]
@@ -1486,6 +1517,10 @@ class PP_Capabilities_Admin_Styles
                     'menu_submenu_bg' => [
                         'label' => __('Submenu Background', 'capsman-enhanced'),
                         'description' => ''
+                    ],
+                    'menu_submenu_text' => [
+                        'label' => __('Submenu Text Color', 'capsman-enhanced'),
+                        'description' => ''
                     ]
                 ]
             ],
@@ -1511,6 +1546,40 @@ class PP_Capabilities_Admin_Styles
                     ],
                     'adminbar_hover_text' => [
                         'label' => __('Admin Bar Hover Text', 'capsman-enhanced'),
+                        'description' => ''
+                    ]
+                ]
+            ],
+            'dashboard_widgets' => [
+                'label' => __('Dashboard Widgets', 'capsman-enhanced'),
+                'description' => __('Dashboard widget colors', 'capsman-enhanced'),
+                'colors' => [
+                    'widget_bg' => [
+                        'label' => __('Widget Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_border' => [
+                        'label' => __('Widget Border', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_header_bg' => [
+                        'label' => __('Widget Header Background', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_title_text' => [
+                        'label' => __('Widget Title Text', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_body_text' => [
+                        'label' => __('Widget Body Text', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_link' => [
+                        'label' => __('Widget Link', 'capsman-enhanced'),
+                        'description' => ''
+                    ],
+                    'widget_link_hover' => [
+                        'label' => __('Widget Link Hover', 'capsman-enhanced'),
                         'description' => ''
                     ]
                 ]
@@ -1588,16 +1657,27 @@ class PP_Capabilities_Admin_Styles
                 $style = $custom_styles[$scheme];
                 $data['name'] = $style['name'];
                 $data['colors'] = [
-                    $style['custom_scheme_base'] ?? '#655997',
-                    $style['custom_scheme_text'] ?? '#ffffff',
-                    $style['custom_scheme_highlight'] ?? '#8a7bb9',
-                    $style['custom_scheme_notification'] ?? '#d63638',
-                    $style['custom_scheme_background'] ?? '#f0f0f1'
+                    $style['custom_scheme_base'] ?? '',
+                    $style['custom_scheme_text'] ?? '',
+                    $style['custom_scheme_highlight'] ?? '',
+                    $style['custom_scheme_notification'] ?? '',
+                    $style['custom_scheme_background'] ?? ''
+                ];
+                $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
+                $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
+                $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '');
+                $icon_focus = $menu_hover_text ?: $icon_base;
+                $icon_current = $menu_current_text ?: $icon_base;
+                $data['icons'] = [
+                    'base' => $icon_base,
+                    'focus' => $icon_focus,
+                    'current' => $icon_current
                 ];
             } else {
                 // Default scheme
                 $data['name'] = __('Default', 'capsman-enhanced');
-                $data['colors'] = ['#2271b1', '#72aee6', '#ffffff', '#d63638', '#f0f0f1'];
+                $data['colors'] = ['#1d2327', '#ffffff', '#0073aa', '#d63638', '#f0f0f1'];
             }
         }
 
@@ -1662,12 +1742,18 @@ class PP_Capabilities_Admin_Styles
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
                 $colors = [
-                    $style['custom_scheme_base'] ?? '#655997',
-                    $style['custom_scheme_text'] ?? '#ffffff',
-                    $style['custom_scheme_highlight'] ?? '#8a7bb9',
-                    $style['custom_scheme_notification'] ?? '#d63638',
-                    $style['custom_scheme_background'] ?? '#f0f0f1'
+                    $style['custom_scheme_base'] ?? '',
+                    $style['custom_scheme_text'] ?? '',
+                    $style['custom_scheme_highlight'] ?? '',
+                    $style['custom_scheme_notification'] ?? '',
+                    $style['custom_scheme_background'] ?? ''
                 ];
+                $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
+                $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
+                $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
+                $icon_base = $menu_icon ?: ($style['custom_scheme_text'] ?? '');
+                $icon_focus = $menu_hover_text ?: $icon_base;
+                $icon_current = $menu_current_text ?: $icon_base;
 
                 // Generate CSS URL for this custom style
                 $css_url = $this->generate_custom_style_url($slug);
@@ -1678,9 +1764,9 @@ class PP_Capabilities_Admin_Styles
                     $css_url,
                     $colors,
                     [
-                        'base' => $colors[0],
-                        'focus' => $colors[2],
-                        'current' => $colors[1]
+                        'base' => $icon_base,
+                        'focus' => $icon_focus,
+                        'current' => $icon_current
                     ]
                 );
             }

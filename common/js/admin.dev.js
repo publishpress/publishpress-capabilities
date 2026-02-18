@@ -901,27 +901,29 @@ jQuery(document).ready(function ($) {
 
 
   // -------------------------------------------------------------
-  //   Profile Features Settings - Save Enabled Roles
+  //   Profile Features Settings
   // -------------------------------------------------------------
-  $(document).on('click', '.ppc-profile-features-save-setting', function (event) {
+  $(document).on('change', '.ppc-profile-features-allow-role', function (event) {
     event.preventDefault();
 
-    var $button = $(this);
-    if ($button.prop('disabled')) {
-      return;
-    }
-    $button.prop('disabled', true).addClass('disabled');
-
-    var enabledRoles = $('#ppc-profile-features-enabled-roles').val() || [];
+    var $checkbox = $(this);
+    var $button = $('.ppc-profile-features-refresh');
+    var $warning = $('.ppc-profile-features-warning');
+    var $info = $('.ppc-profile-features-info');
+    var enabled = $checkbox.is(':checked') ? 1 : 0;
+    var role = $checkbox.data('role') || '';
     var nonce = $('#ppc-profile-features-form input[name="_wpnonce"]').val();
 
+    $checkbox.prop('disabled', true);
+
     var form_data = {
-      action: 'ppc_save_profile_features_setting',
+      action: 'ppc_set_profile_features_role',
       security: nonce,
-      enabled_roles: enabledRoles
+      role: role,
+      enabled: enabled
     };
 
-    ppcTimerStatus('info', __("Saving Settings...", "capability-manager-enhanced"));
+    ppcTimerStatus('info', __("Updating access...", "capability-manager-enhanced"));
 
     $.ajax({
       url: ajaxurl,
@@ -930,20 +932,47 @@ jQuery(document).ready(function ($) {
       success: function (response) {
         if (response.status === 'success') {
           ppcTimerStatus('success', response.message);
-          // Reload the page after a short delay to reflect changes
-          setTimeout(function() {
-            location.reload();
-          }, 1500);
+          if (enabled) {
+            $button.prop('disabled', false).removeClass('disabled');
+            //$warning.hide();
+            $info.show();
+          } else {
+            $button.prop('disabled', true).addClass('disabled');
+            //$warning.show();
+            $info.hide();
+          }
         } else {
-          ppcTimerStatus('error', response.message);
-          $button.prop('disabled', false).removeClass('disabled');
+          ppcTimerStatus('error', response.message || __("Error updating access.", "capability-manager-enhanced"));
+          $checkbox.prop('checked', !enabled);
         }
       },
       error: function () {
-        ppcTimerStatus('error', __("Error saving profile features settings.", "capability-manager-enhanced"));
-        $button.prop('disabled', false).removeClass('disabled');
+        ppcTimerStatus('error', __("Error updating access.", "capability-manager-enhanced"));
+        $checkbox.prop('checked', !enabled);
+      },
+      complete: function () {
+        $checkbox.prop('disabled', false);
       }
     });
+  });
+
+  // -------------------------------------------------------------
+  //   Profile Features Settings
+  // -------------------------------------------------------------
+  $(document).on('click', '.ppc-profile-features-refresh', function (event) {
+    event.preventDefault();
+
+    var $button = $(this);
+    if ($button.prop('disabled')) {
+      return;
+    }
+
+    var refreshUrl = $button.data('refresh-url');
+    $button.prop('disabled', true).addClass('disabled');
+
+    if (refreshUrl) {
+      window.location = refreshUrl;
+    }
   });
 
 

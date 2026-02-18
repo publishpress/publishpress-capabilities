@@ -177,7 +177,7 @@ if ($admin_styles_saved !== false) {
                                                                     </label>
                                                                     <select id="ppc-custom-style-template" class="custom-style-template-select">
                                                                         <option value="blank">
-                                                                            <?php esc_html_e('Default template', 'capsman-enhanced'); ?>
+                                                                            <?php esc_html_e('Blank Template', 'capsman-enhanced'); ?>
                                                                         </option>
                                                                         <?php foreach ($admin_styles->get_style_templates() as $template_id => $template): ?>
                                                                             <option value="<?php echo esc_attr($template_id); ?>">
@@ -329,11 +329,8 @@ if ($admin_styles_saved !== false) {
                                                                                         <tr class="color-row" id="custom-style-name-row">
                                                                                             <td class="color-label">
                                                                                                 <label for="custom_style_name" class="color-label-text">
-                                                                                                    <span id="style-name-label"><?php esc_html_e('Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
+                                                                                                    <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
                                                                                                 </label>
-                                                                                                <p class="color-description" id="style-name-description">
-                                                                                                    <?php esc_html_e('Enter a name for your custom style', 'capsman-enhanced'); ?>
-                                                                                                </p>
                                                                                             </td>
                                                                                             <td class="color-input-cell">
                                                                                                 <input type="text"
@@ -349,11 +346,6 @@ if ($admin_styles_saved !== false) {
                                                                                                 <label for="custom_style_<?php echo esc_attr($color_key); ?>" class="color-label-text">
                                                                                                     <?php echo esc_html($color_config['label']); ?>
                                                                                                 </label>
-                                                                                                <?php if (!empty($color_config['description'])): ?>
-                                                                                                    <p class="color-description">
-                                                                                                        <?php echo esc_html($color_config['description']); ?>
-                                                                                                    </p>
-                                                                                                <?php endif; ?>
                                                                                             </td>
                                                                                             <td class="color-input-cell">
                                                                                                 <input type="text"
@@ -377,25 +369,27 @@ if ($admin_styles_saved !== false) {
                                                                     </div>
 
                                                                     <div class="editor-actions form-promo-blur">
+                                                                        <div style="display: flex; gap: 10px;">
+                                                                            <button type="button"
+                                                                                class="button cancel-custom-style">
+                                                                                <?php esc_html_e('Cancel', 'capsman-enhanced'); ?>
+                                                                            </button>
+                                                                            <div class="custom-link-delete ppc-tool-tip click-tooltip" id="custom-style-delete-button" style="display: none; margin-left: auto;">
+                                                                                <button type="button"
+                                                                                    class="button button-secondary ppc-button-delete"
+                                                                                    style="border-color: #d63638 !important;color: #d63638 !important;">
+                                                                                    <?php esc_attr_e('Delete Custom Style', 'capsman-enhanced'); ?>
+                                                                                </button>
+
+                                                                                <div class="tool-tip-text">
+                                                                                    <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capsman-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capsman-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capsman-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capsman-enhanced') .'</a>' ); ?></p>
+                                                                                        <i></i>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                         <input type="submit" name="save_custom_style"
                                                                             value="<?php esc_attr_e('Save Custom Style', 'capsman-enhanced'); ?>"
                                                                             class="button-primary">
-                                                                        <button type="button"
-                                                                            class="button cancel-custom-style">
-                                                                            <?php esc_html_e('Cancel', 'capsman-enhanced'); ?>
-                                                                        </button>
-                                                                        <div class="custom-link-delete ppc-tool-tip click-tooltip" id="custom-style-delete-button" style="display: none; margin-left: auto;">
-                                                                            <button type="button"
-                                                                                class="button button-secondary ppc-button-delete"
-                                                                                style="border-color: #d63638 !important;color: #d63638 !important;">
-                                                                                <?php esc_attr_e('Delete Custom Style', 'capsman-enhanced'); ?>
-                                                                            </button>
-
-                                                                            <div class="tool-tip-text">
-                                                                                <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capsman-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capsman-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capsman-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capsman-enhanced') .'</a>' ); ?></p>
-                                                                                    <i></i>
-                                                                            </div>
-                                                                        </div>
                                                                     </div>
 
                                                                     <div id="custom-style-error" class="editor-error">
