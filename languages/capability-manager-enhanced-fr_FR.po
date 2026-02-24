@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Plugins - PublishPress Capabilities &#8211; User Role "
 "Access, Editor Permissions, Admin Menus - Stable (latest release)\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
-"POT-Creation-Date: 2026-01-28 10:36+0000\n"
-"PO-Revision-Date: 2026-01-31 10:39+0100\n"
+"POT-Creation-Date: 2026-02-10 14:41+0000\n"
+"PO-Revision-Date: 2026-02-19 19:03+0100\n"
 "Last-Translator: \n"
 "Language-Team: French (France)\n"
 "Language: fr_FR\n"
@@ -63,7 +63,7 @@ msgstr "%1$s = Permission non accordée %2$s"
 #: includes/features/admin-features.php:335
 #: includes/features/editor-features.php:240
 #: includes/features/nav-menus.php:303
-#: includes/features/profile-features.php:239
+#: includes/features/profile-features.php:268
 #: includes/features/frontend-features/frontend-features.php:249
 #, php-format
 msgid "%1$s = No change"
@@ -72,7 +72,7 @@ msgstr "%1$s = Aucune modification"
 #: includes/features/admin-features.php:336
 #: includes/features/editor-features.php:241
 #: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:240
+#: includes/features/profile-features.php:269
 #, php-format
 msgid "%1$s = This feature is denied"
 msgstr "%1$s = Cette fonctionnalité est refusée"
@@ -181,11 +181,11 @@ msgstr ""
 "Le sauvegarde créée sur cet écran remplace toutes les sauvegardes manuelles "
 "précédentes, mais n’est jamais remplacée automatiquement."
 
-#: includes/manager.php:1511
+#: includes/manager.php:1516
 msgid "About"
 msgstr "À propos"
 
-#: includes/manager.php:1511
+#: includes/manager.php:1516
 msgid "About PublishPress Capabilities"
 msgstr "À propos de PublishPress Capabilities"
 
@@ -210,6 +210,14 @@ msgstr "Ajouter une classe de corps"
 msgid "Add Custom CSS"
 msgstr "Ajouter CSS personnalisé"
 
+#: includes/features/admin-styles/admin-styles-ui.php:302
+msgid ""
+"Add more than one custom admin styles. This feature is available in "
+"PublishPress Capabilities Pro."
+msgstr ""
+"Ajouter plusieurs styles d’administration personnalisés. Cette "
+"fonctionnalité est disponible dans PublishPress Capabilities Pro."
+
 #: includes/features/restrict-editor-features.php:47
 #: includes/roles/roles.php:10
 #: includes/features/frontend-features/frontend-features-ui.php:152
@@ -224,8 +232,8 @@ msgstr "Ajouter un bloc"
 #: includes/settings-ui.php:207
 msgid "Add option to search and user testing in the Admin Bar."
 msgstr ""
-"Ajouter une option de recherche et de test des utilisateurs dans la barre "
-"d’administration."
+"Ajouter une option de recherche et de test des utilisateurs/utilisatrices "
+"dans la barre d’administration."
 
 #: includes/manager.php:253
 msgid "Add or clear custom item entry before saving changes."
@@ -274,7 +282,7 @@ msgstr "Modification de la barre d’administration"
 msgid "Admin Bar search"
 msgstr "Rechercher dans la barre d’administration"
 
-#: includes/features/admin-styles/admin-styles-ui.php:125
+#: includes/features/admin-styles/admin-styles-ui.php:169
 msgid "Admin Color Scheme"
 msgstr "Jeu de couleurs pour l’administration"
 
@@ -282,21 +290,20 @@ msgstr "Jeu de couleurs pour l’administration"
 msgid "Admin Feature Restrictions"
 msgstr "Restrictions des fonctionnalités administratives"
 
-#: includes/functions-admin.php:216 includes/functions-admin.php:387
-#: includes/functions-admin.php:474
+#: includes/functions-admin.php:216 includes/functions-admin.php:389
+#: includes/functions-admin.php:476
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
 msgstr "Fonctionnalités administratives"
 
-#: includes/functions-admin.php:388 includes/features/admin-features.php:333
+#: includes/functions-admin.php:390 includes/features/admin-features.php:333
 msgid ""
 "Admin Features allows you to remove elements from the admin area and toolbar."
 msgstr ""
 "Les fonctionnalités administratives vous permettent de retirer des éléments "
 "de la zone d’administration et de la barre d’outils."
 
-#: includes/features/admin-styles/admin-styles-ui.php:411
-#| msgid "Admin Features"
+#: includes/features/admin-styles/admin-styles-ui.php:481
 msgid "Admin Footer Text"
 msgstr "Texte du pied de page administration"
 
@@ -317,13 +324,13 @@ msgstr ""
 msgid "Admin Menu Restrictions"
 msgstr "Restrictions du menu d’administration"
 
-#: includes/functions-admin.php:489 includes-core/CoreAdmin.php:82
-#: includes-core/CoreAdmin.php:145
+#: includes/functions-admin.php:491 includes-core/CoreAdmin.php:84
+#: includes-core/CoreAdmin.php:147
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "Menus d’administration"
 
-#: includes-core/CoreAdmin.php:146
+#: includes-core/CoreAdmin.php:148
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -337,34 +344,27 @@ msgstr ""
 "L’état de la notification de l’administrateur/administratrice a bien été mis "
 "à jour."
 
-#: includes/functions-admin.php:422 includes/settings-ui.php:37
+#: includes/functions-admin.php:424 includes/settings-ui.php:37
 #: includes/admin-notices/admin-notices.php:179
 #: includes/admin-notices/admin-notices.php:217
 #: includes/admin-notices/admin-notices.php:220
 msgid "Admin Notices"
 msgstr "Notifications de l’administrateur/administratrice"
 
-#: includes/functions-admin.php:221 includes/functions-admin.php:392
-#: includes/functions-admin.php:481
-#: includes/features/admin-styles/admin-styles-ui.php:57
-#| msgid "Admin Notices"
+#: includes/functions-admin.php:221 includes/functions-admin.php:394
+#: includes/functions-admin.php:483
+#: includes/features/admin-styles/admin-styles-ui.php:95
 msgid "Admin Styles"
 msgstr "Styles d’administration"
 
-#: includes/functions-admin.php:393
-#| msgid ""
-#| "Admin Features allows you to remove elements from the admin area and "
-#| "toolbar."
+#: includes/functions-admin.php:395
 msgid ""
 "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
 "Admin Styles vous permet de personnaliser la zone d’administration avec "
 "votre propre image de marque."
 
-#: includes/features/admin-styles/admin-styles-ui.php:506
-#| msgid ""
-#| "Admin Features allows you to remove elements from the admin area and "
-#| "toolbar."
+#: includes/features/admin-styles/admin-styles-ui.php:575
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
@@ -396,7 +396,7 @@ msgstr "Tous les rôles"
 msgid "all roles"
 msgstr "tous les rôles"
 
-#: includes/pp-ui.php:304
+#: includes/pp-ui.php:310
 msgid ""
 "Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
 "\"Manage\" capability."
@@ -404,15 +404,17 @@ msgstr ""
 "Vous pouvez « Modifier », « Supprimer » et « Attribuer » les permissions "
 "séparément de la permission de « Gérer »."
 
-#: includes/pp-ui.php:116
+#. %1$s and %2$s are link tags for 'Find out more.'
+#: includes/pp-ui.php:119
+#, php-format
 msgid ""
 "Allow post type permissions to be controlled separately from other areas of "
-"WordPress."
+"WordPress. %1$sFind out more.%2$s"
 msgstr ""
-"Vous pouvez contrôler les permissions des types de publication séparément "
-"des autres zones de WordPress."
+"Autoriser le contrôle des droits des types de publication séparément des "
+"autres zones de WordPress. %1$sEn savoir plus.%2$s"
 
-#: includes/pp-ui.php:223
+#: includes/pp-ui.php:229
 msgid ""
 "Allow taxonomy permissions to be controlled separately from other areas of "
 "WordPress."
@@ -437,11 +439,15 @@ msgstr ""
 "utilisateurs/utilisatrices qui n’ont pas accès à la zone d’administration de "
 "WordPress."
 
-#: includes/admin-load.php:646 includes/admin-notices/admin-notices.php:232
-#: includes/features/restrict-profile-features.php:27
+#: includes/admin-load.php:663 includes/admin-notices/admin-notices.php:232
+#: includes/features/restrict-profile-features.php:29
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 msgid "An error occured!"
+msgstr "Une erreur s’est produite !"
+
+#: includes/features/restrict-profile-features.php:109
+msgid "An error occurred!"
 msgstr "Une erreur s’est produite !"
 
 #: includes/admin.php:290
@@ -491,7 +497,7 @@ msgstr "Actualiser automatiquement les éléments du profil"
 msgid "Available Backups:"
 msgstr "Sauvegardes disponibles :"
 
-#: includes/backup.php:51 includes/functions-admin.php:525
+#: includes/backup.php:51 includes/functions-admin.php:527
 msgid "Backup"
 msgstr "Sauvegarde"
 
@@ -523,7 +529,7 @@ msgstr ""
 msgid "Block"
 msgstr "Bloquer"
 
-#: includes-core/CoreAdmin.php:126
+#: includes-core/CoreAdmin.php:128
 msgid "Block by URL"
 msgstr "Bloquer par URL"
 
@@ -621,12 +627,12 @@ msgstr ""
 "Vous ne pouvez pas modifier le rôle par defaut. Vous devez d’abord <a "
 "href=\"%s\">le modifier</a>."
 
-#: includes/manager.php:1513
+#: includes/manager.php:1518
 msgid "Capabilites Documentation"
 msgstr "Documentation de Capabilities"
 
-#: includes/admin-load.php:492 includes/admin-load.php:824
-#: includes/functions-admin.php:377 includes/functions-admin.php:460
+#: includes/admin-load.php:509 includes/admin-load.php:841
+#: includes/functions-admin.php:379 includes/functions-admin.php:462
 #: includes/manager.php:387 includes/settings-ui.php:34
 #: includes/roles/class/class-pp-roles-admin.php:637
 msgid "Capabilities"
@@ -638,7 +644,7 @@ msgstr ""
 "Permissions vous permet de modifier les permissions pour tout rôle "
 "d’utilisateur/utilisatrice."
 
-#: includes/functions-admin.php:378
+#: includes/functions-admin.php:380
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr ""
 "Permissions vous permet de modifier les permissions pour tout rôle "
@@ -722,26 +728,25 @@ msgstr "Éditeur classique"
 msgid "Classic Editor %s Restrictions"
 msgstr "Restrictions %s de l’éditeur classique"
 
-#: includes/features/profile-features.php:137
-#, php-format
-msgid "Click %1$s Refresh profile items %2$s to manage elements for this role."
-msgstr ""
-"Cliquez sur %1$s Actualiser les éléments du profil %2$s pour gérer les "
-"éléments de ce rôle."
-
 #: includes/settings-ui.php:376 includes/settings-ui.php:398
 msgid "Click here for more on notice types."
 msgstr "Cliquer ici pour en savoir plus sur les types de notification."
+
+#: includes/features/profile-features.php:140
+msgid "Click Refresh profile items to manage elements for this role."
+msgstr ""
+"Cliquer sur « Actualiser les éléments du profil » pour gérer les éléments de "
+"ce rôle."
 
 #: includes/features/restrict-editor-features.php:486
 msgid "Color settings"
 msgstr "Réglages de couleur"
 
-#: includes/manager.php:1515
+#: includes/manager.php:1520
 msgid "Contact"
 msgstr "Contact"
 
-#: includes/manager.php:1515
+#: includes/manager.php:1520
 msgid "Contact the PublishPress team"
 msgstr "Contact de l’équipe de PublishPress"
 
@@ -750,14 +755,13 @@ msgstr "Contact de l’équipe de PublishPress"
 msgid "Control Allowed Editors"
 msgstr "Contrôler les éditeurs/éditrices autorisés"
 
-#: includes/features/admin-styles/admin-styles-ui.php:446
+#: includes/features/admin-styles/admin-styles-ui.php:516
 msgid "Control how admin styles are applied to users."
 msgstr ""
 "Contrôler la manière dont les styles d’administration sont appliqués aux "
 "utilisateurs/utilisatrices."
 
-#: includes/features/admin-styles/admin-styles-ui.php:444
-#| msgid "Color settings"
+#: includes/features/admin-styles/admin-styles-ui.php:514
 msgid "Control Settings"
 msgstr "Réglages de contrôle"
 
@@ -798,12 +802,11 @@ msgstr "Créer cette définition de rôle dans les nouveaux (futurs) sites"
 msgid "Custom"
 msgstr "Personnalisé"
 
-#: includes/features/admin-styles/admin-styles-ui.php:510
+#: includes/features/admin-styles/admin-styles-ui.php:579
 msgid "Custom admin color schemes"
 msgstr "Jeux de couleurs personnalisés pour l’administration"
 
-#: includes/features/admin-styles/admin-styles-ui.php:346
-#| msgid "Custom item one"
+#: includes/features/admin-styles/admin-styles-ui.php:411
 msgid "Custom Admin Logo"
 msgstr "Logo d’administration personnalisé"
 
@@ -811,13 +814,11 @@ msgstr "Logo d’administration personnalisé"
 msgid "Custom CSS"
 msgstr "CSS personnalisé"
 
-#: includes/features/admin-styles/admin-styles-ui.php:382
-#| msgid "Custom item one"
+#: includes/features/admin-styles/admin-styles-ui.php:446
 msgid "Custom Favicon"
 msgstr "Favicon personnalisée"
 
-#: includes/features/admin-styles/admin-styles-ui.php:512
-#| msgid "Custom item one"
+#: includes/features/admin-styles/admin-styles-ui.php:581
 msgid "Custom footer text"
 msgstr "Texte personnalisé du pied de page"
 
@@ -863,7 +864,7 @@ msgstr ""
 "Personnaliser la modification modérée de la publication publié avec "
 "Revisionary ou Post Forking <em> (Pro)</em>"
 
-#: includes/admin-load.php:823 includes/dashboard.php:23
+#: includes/admin-load.php:840 includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -898,7 +899,7 @@ msgstr ""
 "Une documentation détaillée est également disponible sur le site de "
 "l’extension."
 
-#: includes/pp-ui.php:294
+#: includes/pp-ui.php:300
 msgid "Detailed Taxonomy Capabilities"
 msgstr "Permissions de taxonomie détaillées"
 
@@ -939,7 +940,7 @@ msgstr "Vue d’ensemble de la publication"
 msgid "Document Panel"
 msgstr "Panneau de publication"
 
-#: includes/manager.php:1513
+#: includes/manager.php:1518
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -991,13 +992,13 @@ msgstr "Édition :"
 msgid "Editor Feature Restrictions"
 msgstr "Restriction des fonctionnalités de l’éditeur"
 
-#: includes/functions-admin.php:205 includes/functions-admin.php:382
-#: includes/functions-admin.php:467 includes/settings-ui.php:35
+#: includes/functions-admin.php:205 includes/functions-admin.php:384
+#: includes/functions-admin.php:469 includes/settings-ui.php:35
 #: includes/roles/class/class-pp-roles-admin.php:523
 msgid "Editor Features"
 msgstr "Fonctionnalités de l’éditeur"
 
-#: includes/functions-admin.php:383 includes/features/editor-features.php:238
+#: includes/functions-admin.php:385 includes/features/editor-features.php:238
 msgid ""
 "Editor Features allows you to remove elements from the post editing screen."
 msgstr ""
@@ -1111,7 +1112,7 @@ msgstr "Notifications d’erreur"
 msgid "Error: Failed creating the new role."
 msgstr "Erreur : Échec de la création du nouveau rôle."
 
-#: includes/admin-load.php:625
+#: includes/admin-load.php:642
 msgid "Error: wrong data"
 msgstr "Erreur : données incorrectes"
 
@@ -1163,8 +1164,7 @@ msgstr "Image mise en avant"
 msgid "Featured image"
 msgstr "Image mise en avant"
 
-#: includes/features/admin-styles/admin-styles-ui.php:508
-#| msgid "Features:"
+#: includes/features/admin-styles/admin-styles-ui.php:577
 msgid "Features include:"
 msgstr "Les fonctionnalités comprennent :"
 
@@ -1189,7 +1189,7 @@ msgstr "Filtrer par taxonomie"
 msgid "First Login Redirect"
 msgstr "Redirection de la première connexion"
 
-#: includes/features/admin-styles/admin-styles-ui.php:465
+#: includes/features/admin-styles/admin-styles-ui.php:535
 msgid "Force role settings (override user selection)"
 msgstr ""
 "Forcer les réglages de rôle (surcharger la sélection de l’utilisateur/"
@@ -1205,14 +1205,14 @@ msgstr ""
 "L’élément de l’interface publique a bien été mis à jour. Enregistrer les "
 "modifications pour activer le rôle."
 
-#: includes/functions-admin.php:226 includes/functions-admin.php:407
-#: includes/functions-admin.php:511
+#: includes/functions-admin.php:227 includes/functions-admin.php:409
+#: includes/functions-admin.php:513
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
 msgid "Frontend Features"
 msgstr "Fonctionnalités de l’interface publique"
 
-#: includes/functions-admin.php:408
+#: includes/functions-admin.php:410
 #: includes/features/frontend-features/frontend-features.php:247
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
@@ -1288,7 +1288,7 @@ msgstr "Identifiants ou classes masqués"
 msgid "Hidden Notices"
 msgstr "Notifications masquées"
 
-#: includes/features/admin-styles/admin-styles-ui.php:455
+#: includes/features/admin-styles/admin-styles-ui.php:525
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr ""
 "Masquer les réglages du jeu de couleurs pour l’administration dans le profil "
@@ -1298,7 +1298,7 @@ msgstr ""
 msgid "Hide Admin Toolbar"
 msgstr "Masquer la barre d’outils d’administration"
 
-#: includes-core/CoreAdmin.php:125
+#: includes-core/CoreAdmin.php:127
 msgid "Hide CSS Elements"
 msgstr "Masquer les éléments CSS"
 
@@ -1326,8 +1326,7 @@ msgstr "Masquer le pied de page du crédit de Twenty Twenty-Three"
 msgid "How to use Admin Features"
 msgstr "Mode d’emploi des fonctionnalités d’administration"
 
-#: includes/features/admin-styles/admin-styles-ui.php:516
-#| msgid "How to use Admin Features"
+#: includes/features/admin-styles/admin-styles-ui.php:585
 msgid "How to use Admin Styles"
 msgstr "Mode d’emploi des styles d’administration"
 
@@ -1347,7 +1346,7 @@ msgstr "Mode d’emploi des fonctionnalités de l’interface publique"
 msgid "How to use Navigation Menus"
 msgstr "Mode d’emploi des menus de navigation"
 
-#: includes/features/profile-features.php:243
+#: includes/features/profile-features.php:272
 msgid "How to use Profile Features"
 msgstr "Mode d’emploi des caractéristiques du profil"
 
@@ -1375,7 +1374,7 @@ msgstr ""
 "Si vous avez ajouté une extension pour créer de nouveaux rôles ou "
 "permissions, celles-ci seront perdues."
 
-#: includes/manager.php:1500
+#: includes/manager.php:1505
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Si vous appréciez %s, veuillez nous laisser une note de %s. Merci !"
@@ -1398,6 +1397,11 @@ msgstr ""
 "Importez les réglages de l’extension à partir d’un fichier .json. Ce fichier "
 "peut être obtenu en exportant les réglages sur un autre site à l’aide du "
 "formulaire ci-dessus."
+
+#: includes/features/profile-features.php:259
+#| msgid "Import"
+msgid "Important:"
+msgstr "Important :"
 
 #: includes/admin.php:1985
 msgid "Include in new sites."
@@ -1442,7 +1446,7 @@ msgstr "Formulaire invalide."
 msgid "Invalid form. Reload this page and try again."
 msgstr "Formulaire invalide. Recharger cette page et réessayer."
 
-#: includes/admin-load.php:621
+#: includes/admin-load.php:638
 msgid "Invalid nonce token!"
 msgstr "Jeton de nonce invalide !"
 
@@ -1496,12 +1500,12 @@ msgstr "Le chargement des types de pages est obligatoire."
 msgid "Load on page types:"
 msgstr "Le chargement des types de pages :"
 
-#: includes/admin-load.php:759 includes/features/nav-menus.php:26
+#: includes/admin-load.php:776 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:39
 msgid "Logged In Users"
 msgstr "Utilisateurs/utilisatrices connectés"
 
-#: includes/admin-load.php:760 includes/features/nav-menus.php:26
+#: includes/admin-load.php:777 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:40
 msgid "Logged Out Users"
 msgstr "Utilisateurs/utilisatrices déconnectés"
@@ -1578,7 +1582,7 @@ msgstr "Rôles multiples sur l’écran « Modifier le compte »"
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/functions-admin.php:239
+#: includes/functions-admin.php:241
 msgid "Nav Menu"
 msgstr "Menu de navigation"
 
@@ -1594,12 +1598,12 @@ msgstr "Menus de navigation (ancien)"
 msgid "Navigation Menu Restrictions"
 msgstr "Restrictions du menu de navigation"
 
-#: includes/functions-admin.php:412 includes/functions-admin.php:518
+#: includes/functions-admin.php:414 includes/functions-admin.php:520
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "Menus de navigation"
 
-#: includes/functions-admin.php:413 includes/features/nav-menus.php:301
+#: includes/functions-admin.php:415 includes/features/nav-menus.php:301
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr ""
 "Les menus de navigation vous permettent de bloquer l’accès aux liens du menu "
@@ -1663,7 +1667,7 @@ msgstr ""
 "l’écran %4s et rafraîchir cette page par la suite pour charger les nouvelles "
 "boîtes méta."
 
-#: includes/admin-load.php:611
+#: includes/admin-load.php:628
 msgid "No permission!"
 msgstr "Aucun droit !"
 
@@ -1676,8 +1680,7 @@ msgstr "Aucun résultat n’a été trouvé."
 msgid "No results found. Please try again with a different word."
 msgstr "Aucun résultat trouvé. Veuillez réessayer avec un autre mot."
 
-#: includes/features/admin-styles/admin-styles.php:533
-#| msgid "New role created."
+#: includes/features/admin-styles/admin-styles.php:509
 msgid "No role specified."
 msgstr "Aucun rôle spécifié."
 
@@ -1757,8 +1760,7 @@ msgstr "Permalien"
 msgid "Permalink: Descriptive Caption"
 msgstr "Permalien : Légende descriptive"
 
-#: includes/admin-load.php:653
-#| msgid "Permission denied."
+#: includes/admin-load.php:670
 msgid "Permission denied"
 msgstr "Droit refusé"
 
@@ -1806,21 +1808,25 @@ msgstr ""
 "L’enregistrement du type de publication ne définit pas cette permission de "
 "manière distincte"
 
-#: includes/features/profile-features.php:43
+#: includes/features/profile-features.php:46
 msgid "Profile Feature Restrictions"
 msgstr "Restrictions des fonctionnalités du profil"
 
-#: includes/functions-admin.php:230 includes/functions-admin.php:397
-#: includes/functions-admin.php:497 includes/settings-ui.php:36
+#: includes/functions-admin.php:231 includes/functions-admin.php:399
+#: includes/functions-admin.php:499 includes/settings-ui.php:36
 #: includes/roles/class/class-pp-roles-admin.php:525
 msgid "Profile Features"
 msgstr "Fonctionnalités du profil"
 
-#: includes/functions-admin.php:398 includes/features/profile-features.php:237
+#: includes/functions-admin.php:400 includes/features/profile-features.php:266
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr ""
 "Fonctionnalités du profil vous permet de retirer des éléments de l’écran "
 "Profil."
+
+#: includes/features/restrict-profile-features.php:127
+msgid "Profile features settings saved successfully."
+msgstr "Les réglages des fonctionnalités du profil ont bien été enregistrés."
 
 #: includes/features/restrict-editor-features.php:398
 msgid "Publish / Update"
@@ -1871,7 +1877,7 @@ msgstr ""
 "WordPress. Vous pouvez gérer tous vos rôles d’utilisateur/utilisatrice "
 "WordPress, des administrateurs/administratrices aux abonnés/abonnées."
 
-#: includes/admin-load.php:767
+#: includes/admin-load.php:784
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Restriction du menu de PublishPress Capabilities"
 
@@ -1906,12 +1912,12 @@ msgstr ""
 "Rediriger les utilisateurs/utilisatrices vers l’URL qu’ils consultaient "
 "avant la connexion."
 
-#: includes/functions-admin.php:235 includes/functions-admin.php:402
-#: includes/functions-admin.php:504
+#: includes/functions-admin.php:237 includes/functions-admin.php:404
+#: includes/functions-admin.php:506
 msgid "Redirects"
 msgstr "Redirections"
 
-#: includes/functions-admin.php:403
+#: includes/functions-admin.php:405
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
@@ -1919,11 +1925,12 @@ msgstr ""
 "Les redirections vous permettent de rediriger les utilisateurs/utilisatrices "
 "d’un rôle après l’inscription, la connexion ou la déconnexion."
 
-#: includes/features/profile-features.php:230
+#: includes/features/profile-features.php:254
+#: includes/features/profile-features.php:256
 msgid "Refresh available profile items for this role"
 msgstr "Actualiser les éléments de profil disponibles pour ce rôle"
 
-#: includes/features/profile-features.php:232
+#: includes/features/profile-features.php:261
 msgid "Refresh Profile Features"
 msgstr "Actualiser les fonctionnalités de profil"
 
@@ -1937,11 +1944,11 @@ msgstr ""
 "Réglementez les droits pour modifier les états de publication Edit Flow <em> "
 "(Pro)</em>"
 
-#: includes/features/admin-styles/admin-styles-ui.php:366
+#: includes/features/admin-styles/admin-styles-ui.php:436
 msgid "Remove"
 msgstr "Retirer"
 
-#: includes/functions-admin.php:423
+#: includes/functions-admin.php:425
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
@@ -1953,19 +1960,19 @@ msgstr ""
 msgid "Remove Admin Toolbar"
 msgstr "Supprimer la barre d’outils d’administration"
 
-#: includes/features/admin-styles/admin-styles-ui.php:428
+#: includes/features/admin-styles/admin-styles-ui.php:498
 msgid "Replace \"Howdy\""
 msgstr "Remplacer « Bonjour »"
 
-#: includes/features/admin-styles/admin-styles-ui.php:431
+#: includes/features/admin-styles/admin-styles-ui.php:501
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "Remplacer « Bonjour » dans la barre d’administration"
 
-#: includes/features/admin-styles/admin-styles-ui.php:513
+#: includes/features/admin-styles/admin-styles-ui.php:582
 msgid "Replace \"Howdy\" text"
 msgstr "Remplacer le texte « Bonjour »"
 
-#: includes/features/admin-styles/admin-styles-ui.php:414
+#: includes/features/admin-styles/admin-styles-ui.php:484
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
@@ -1973,7 +1980,7 @@ msgstr ""
 "Remplacer le message par défaut « Merci de faire de WordPress votre outil de "
 "création de contenu » dans le pied de page de l’administration."
 
-#: includes/features/admin-styles/admin-styles-ui.php:511
+#: includes/features/admin-styles/admin-styles-ui.php:580
 msgid "Replace the WordPress logo and favicon"
 msgstr "Remplacer le logo et la favicon WordPress"
 
@@ -2064,13 +2071,13 @@ msgstr "Slug du rôle"
 msgid "Role Type"
 msgstr "Type de rôle"
 
-#: includes/admin-load.php:825 includes/functions-admin.php:372
-#: includes/functions-admin.php:453 includes/settings-ui.php:33
+#: includes/admin-load.php:842 includes/functions-admin.php:374
+#: includes/functions-admin.php:455 includes/settings-ui.php:33
 #: includes/roles/roles.php:8
 msgid "Roles"
 msgstr "Rôles"
 
-#: includes/functions-admin.php:373
+#: includes/functions-admin.php:375
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your site."
 msgstr ""
@@ -2096,6 +2103,10 @@ msgstr ""
 "Rôles et capacités restaurés à partir de la sauvegarde automatique "
 "sélectionnée."
 
+#: includes/features/profile-features.php:235
+msgid "Roles that can be edited:"
+msgstr "Rôles qui peuvent être modifiés :"
+
 #: includes/features/editor-features.php:119
 #: includes/features/editor-features.php:121
 #: includes/features/editor-features.php:224
@@ -2112,8 +2123,8 @@ msgstr "Enregistrer les modifications"
 msgid "Save Edit"
 msgstr "Enregistrer la modification"
 
-#: includes/features/admin-styles/admin-styles-ui.php:95
-#: includes/features/admin-styles/admin-styles-ui.php:493
+#: includes/features/admin-styles/admin-styles-ui.php:139
+#: includes/features/admin-styles/admin-styles-ui.php:562
 #, php-format
 msgid "Save for %s"
 msgstr "Enregistrer pour %s"
@@ -2123,18 +2134,20 @@ msgstr "Enregistrer pour %s"
 msgid "Save for all Post Types"
 msgstr "Enregistrer pour tous les types de publication"
 
-#: includes/features/admin-styles/admin-styles-ui.php:91
-#: includes/features/admin-styles/admin-styles-ui.php:489
-#| msgid "Save for all Post Types"
+#: includes/features/admin-styles/admin-styles-ui.php:135
+#: includes/features/admin-styles/admin-styles-ui.php:558
 msgid "Save for all Roles"
 msgstr "Enregistrer pour tous les rôles"
+
+#: includes/features/profile-features.php:247
+msgid "Save Settings"
+msgstr "Enregistrer les réglages"
 
 #: includes/test-user-ui.php:53
 msgid "Search"
 msgstr "Search"
 
 #: includes/admin.php:136
-#| msgid "Role Capabilities"
 msgid "Search capabilities..."
 msgstr "Chercher les permissions…"
 
@@ -2146,9 +2159,13 @@ msgstr "Recherche de rôles"
 msgid "Search user..."
 msgstr "Rechercher un utilisateur/utilisatrice…"
 
-#: includes/admin-load.php:651
+#: includes/admin-load.php:668
 msgid "Security check failed"
-msgstr "Rechercher les permissions…"
+msgstr "Contrôle de sécurité échoué"
+
+#: includes/features/admin-styles/admin-styles.php:441
+msgid "Security check failed."
+msgstr "Contrôle de sécurité échoué."
 
 #: includes/pp-ui.php:62
 #, php-format
@@ -2170,12 +2187,11 @@ msgstr "Sélectionner %s"
 msgid "Select allowed editor"
 msgstr "Sélectionner l’éditeur/éditrice autorisé"
 
-#: includes/features/admin-styles/admin-styles-ui.php:361
-#| msgid "Selected Pages"
+#: includes/features/admin-styles/admin-styles-ui.php:431
 msgid "Select Image"
 msgstr "Sélectionner l’image"
 
-#: includes-core/CoreAdmin.php:156
+#: includes-core/CoreAdmin.php:158
 msgid "Select pages..."
 msgstr "Sélectionner les pages…"
 
@@ -2187,7 +2203,7 @@ msgstr "Sélectionner les types de publication…"
 msgid "Select Role"
 msgstr "Sélectionner le rôle"
 
-#: includes/settings-ui.php:241
+#: includes/settings-ui.php:241 includes/features/profile-features.php:350
 msgid "Select roles..."
 msgstr "Sélectionner les rôles…"
 
@@ -2236,7 +2252,7 @@ msgstr ""
 msgid "Set login redirect cookie"
 msgstr "Définir le cookie de redirection de connexion"
 
-#: includes/features/admin-styles/admin-styles-ui.php:128
+#: includes/features/admin-styles/admin-styles-ui.php:172
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
@@ -2244,12 +2260,11 @@ msgstr ""
 "Définit le jeu de couleurs pour l’administration de tous les utilisateurs/"
 "utilisatrices. Cliquer sur un jeu pour le prévisualiser instantanément."
 
-#: includes/features/admin-styles/admin-styles-ui.php:114
-#| msgid "Settings"
+#: includes/features/admin-styles/admin-styles-ui.php:157
 msgid "Setting"
 msgstr "Réglage"
 
-#: includes/admin-load.php:826
+#: includes/admin-load.php:843
 msgid "Settings"
 msgstr "Réglages"
 
@@ -2257,8 +2272,7 @@ msgstr "Réglages"
 msgid "Settings Panel"
 msgstr "Panneau des réglages"
 
-#: includes/admin-load.php:663
-#| msgid "%s role updated successfully."
+#: includes/admin-load.php:680
 msgid "Settings updated successfully."
 msgstr "Les réglages ont bien été enregistrés."
 
@@ -2388,20 +2402,20 @@ msgstr "Testez cet utilisateur/utilisatrice"
 msgid "Test user"
 msgstr "Test utilisateur·ice"
 
-#: includes/functions-admin.php:418
+#: includes/functions-admin.php:420
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
 msgstr ""
 "Testez votre site en vous connectant instantanément en tant qu’autre "
 "utilisateur/utilisatrice. Les comptes disponibles sont ceux que "
-"l’utilisateur ou utilisatrice actuel peut modifier."
+"l’utilisateur/utilisatrice actuel peut modifier."
 
 #: includes/test-user-ui.php:316
 #, php-format
 msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
 msgstr ""
-"Test en tant qu’utilisateur et utilisatrice : %1$s. %2$sRetour à la vue "
+"Test en tant qu’utilisateur/utilisatrice : %1$s. %2$sRetour à la vue "
 "d’administration%3$s"
 
 #: includes/test-user-ui.php:255
@@ -2423,6 +2437,13 @@ msgid ""
 msgstr ""
 "Le « slug » est la version du rôle adaptée à l’URL. Il est généralement tout "
 "en minuscules et ne contient que des lettres, des chiffres et des tirets bas."
+
+#: includes/features/profile-features.php:250
+#, php-format
+msgid "The %s role is not enabled for editing. The Refresh button is disabled."
+msgstr ""
+"Le rôle %s n’est pas activé pour la modification. El bouton « Trouver » est "
+"désactivé."
 
 #: includes/settings-ui.php:302
 msgid ""
@@ -2481,12 +2502,12 @@ msgstr "Les rôles %1$s sélectionnés ont été supprimés avec succès. %2$s
 msgid "The selected role is not editable."
 msgstr "Le rôle sélectionné n’est pas modifiable."
 
-#: includes/admin.php:813 includes/pp-ui.php:156
+#: includes/admin.php:813 includes/pp-ui.php:162
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Le slug pour ce type de publication est %s"
 
-#: includes/admin.php:811 includes/pp-ui.php:256 includes/pp-ui.php:335
+#: includes/admin.php:811 includes/pp-ui.php:262 includes/pp-ui.php:341
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Le slug de cette taxonomie est %s"
@@ -2496,8 +2517,8 @@ msgstr "Le slug de cette taxonomie est %s"
 msgid ""
 "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
-"La fonctionnalité de test des utilisateurs nécessite également la permission "
-"%1$s edit_users %2$s."
+"La fonctionnalité de test des utilisateurs/utilisatrices nécessite également "
+"la permission %1$s edit_users %2$s."
 
 #: includes/admin-notices/admin-notices.php:218
 msgid "There are currently no admin notices."
@@ -2511,14 +2532,14 @@ msgstr ""
 "Il n’y a pas de liens de menu dans l’interface publique. Pour contrôler "
 "l’accès aux menus de navigation, veuillez ajouter des liens de menu."
 
-#: includes/features/profile-features.php:139
+#: includes/features/profile-features.php:142
 msgid ""
 "There are no users in this role. Please select a role that has users and is "
 "able to access the \"Profile\" screen."
 msgstr ""
 "Il y a aucun utilisateur/utilisatrice dans ce rôle. Veuillez sélectionner un "
-"rôle qui a des utilisateurs et des utilisatrices et qui peut accéder à "
-"l’écran « Profil »."
+"rôle qui a des utilisateurs/utilisatrices et qui peut accéder à l’écran "
+"« Profil »."
 
 #: includes/roles/class/class-pp-roles-admin.php:652
 #, php-format
@@ -2576,7 +2597,7 @@ msgstr ""
 msgid "This feature will be added to all pages."
 msgstr "Cette fonctionnalité sera ajoutée à toutes les pages."
 
-#: includes/admin-load.php:768
+#: includes/admin-load.php:785
 msgid "This menu is restricted for the following roles"
 msgstr "Ce menu est limité aux rôles suivants"
 
@@ -2592,6 +2613,11 @@ msgstr ""
 msgid "This plugin can be deleted."
 msgstr "Cette extension peut être supprimée."
 
+#: includes/features/restrict-profile-features.php:45
+msgid "This role is not enabled for profile feature editing."
+msgstr ""
+"Ce rôle n’sest pas actvé pour la modification de fonctionnalite du profil."
+
 #: includes-core/frontend-features-promo.php:44
 msgid ""
 "This will add a metabox on the post editing screen. You can use this feature "
@@ -2601,7 +2627,7 @@ msgstr ""
 "pouvez utiliser cette fonctionnalité pour ajouter des classes de corps "
 "uniquement pour cette publication."
 
-#: includes/pp-ui.php:185
+#: includes/pp-ui.php:191
 msgid ""
 "This will cause a new capability to be required for creating posts, and "
 "enable a checkbox column here for role assignments. Normally, post creation "
@@ -2617,9 +2643,6 @@ msgid "This will only show here in the WordPress admin area."
 msgstr "Cela n’apparaîtra que dans la zone d’administration de WordPress."
 
 #: includes/settings-ui.php:114
-#| msgid ""
-#| "This will show all taxonomies on the \"Capabilities\" screen, even ones "
-#| "normally hidden in the WordPress admin area."
 msgid ""
 "This will show all post types on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
@@ -2643,8 +2666,8 @@ msgstr "Titre :"
 
 #: includes/features/admin-features.php:174 includes/features/nav-menus.php:127
 #: includes/features/nav-menus.php:147
-#: includes/features/profile-features.php:103
-#: includes/features/profile-features.php:122
+#: includes/features/profile-features.php:106
+#: includes/features/profile-features.php:125
 msgid "Toggle all"
 msgstr "Tout permuter"
 
@@ -2670,7 +2693,7 @@ msgstr "Typographie"
 
 #: includes/test-user.php:62
 msgid "Unable to retrieve user data."
-msgstr "Impossible de récupérer les données de l’utilisateur ou utilisatrice."
+msgstr "Impossible de récupérer les données de l’utilisateur/utilisatrice."
 
 #: includes/roles/class/class-pp-roles-list-table.php:91
 #, php-format
@@ -2687,22 +2710,23 @@ msgstr "Afficher"
 msgid "Unique Post Type Capabilities"
 msgstr "Permissions de type de publication unique"
 
-#: includes/pp-ui.php:214
+#: includes/pp-ui.php:220
 msgid "Unique Taxonomy Capabilities"
 msgstr "Permissions de taxonomie unique"
 
-#: includes/pp-ui.php:193 includes/pp-ui.php:279 includes/pp-ui.php:358
+#: includes/pp-ui.php:199 includes/pp-ui.php:285 includes/pp-ui.php:364
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: includes/admin-load.php:811 includes-core/admin-features-promo.php:79
-#: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:46
+#: includes/admin-load.php:828 includes-core/admin-features-promo.php:79
+#: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:48
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
+#: includes/features/admin-styles/admin-styles-ui.php:307
 msgid "Upgrade to Pro"
 msgstr "Mettre à niveau en Pro"
 
-#: includes/features/admin-styles/admin-styles-ui.php:385
+#: includes/features/admin-styles/admin-styles-ui.php:449
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
@@ -2710,7 +2734,7 @@ msgstr ""
 "Téléverser une favicon personnalisée pour la zone d’administration. "
 "Recommandé : 16px pour 16px ou 32px pour 32px dans le format SVG ou PNG."
 
-#: includes/features/admin-styles/admin-styles-ui.php:349
+#: includes/features/admin-styles/admin-styles-ui.php:414
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
@@ -2725,8 +2749,8 @@ msgstr ""
 #: includes/features/editor-features.php:240
 #: includes/features/editor-features.php:241
 #: includes/features/nav-menus.php:303 includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:239
-#: includes/features/profile-features.php:240
+#: includes/features/profile-features.php:268
+#: includes/features/profile-features.php:269
 #: includes/features/frontend-features/frontend-features.php:249
 #: includes/features/frontend-features/frontend-features.php:250
 msgid "usage key"
@@ -2743,7 +2767,7 @@ msgstr ""
 "la redirection de connexion ne fonctionne pas correctement à cause de la "
 "limitation de wp_get_referer()."
 
-#: includes/pp-ui.php:184
+#: includes/pp-ui.php:190
 msgid "Use the \"Create\" capability for selected post types"
 msgstr ""
 "Utiliser la permission « Créer » pour les types de publication sélectionnés"
@@ -2762,21 +2786,21 @@ msgstr "Actions de l’internaute"
 msgid "User Display Name"
 msgstr "Nom affiché de l’utilisateur/utilisatrice"
 
-#: includes/functions-admin.php:417 includes/settings-ui.php:39
+#: includes/functions-admin.php:419 includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "Test des utilisateurs/utilisatrices"
 
-#: includes/features/admin-styles/admin-styles-ui.php:117
+#: includes/features/admin-styles/admin-styles-ui.php:160
 msgid "Value"
 msgstr "Valeur"
 
 #: includes/admin.php:1720 includes/features/admin-features.php:338
 #: includes/features/editor-features.php:243
 #: includes/features/nav-menus.php:306
-#: includes/features/profile-features.php:242
+#: includes/features/profile-features.php:271
 #: includes/redirects/redirects.php:335
-#: includes/features/admin-styles/admin-styles-ui.php:515
+#: includes/features/admin-styles/admin-styles-ui.php:584
 #: includes/features/frontend-features/frontend-features.php:252
 msgid "View Documentation"
 msgstr "Voir la documentation"
@@ -2810,7 +2834,7 @@ msgstr ""
 msgid "Welcome panel"
 msgstr "Panneau d’accueil"
 
-#: includes/features/admin-styles/admin-styles-ui.php:467
+#: includes/features/admin-styles/admin-styles-ui.php:537
 msgid ""
 "When enabled, role settings will always apply, overriding any user selection "
 "even if the color scheme UI is visible to them."
@@ -2819,7 +2843,7 @@ msgstr ""
 "systématiquement, remplaçant toute sélection effectuée par l’utilisateur/"
 "utilisatrice, même si l’IU du jeu de couleurs lui est visible."
 
-#: includes/features/admin-styles/admin-styles-ui.php:457
+#: includes/features/admin-styles/admin-styles-ui.php:527
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
@@ -2839,6 +2863,15 @@ msgid "When testing, display a return link in the front end footer."
 msgstr ""
 "Lors du test, affichez un lien de retour dans le pied de page de l’interface "
 "publique."
+
+#: includes/features/profile-features.php:259
+#, php-format
+msgid ""
+"When you refresh, we test as a user in %s role and save profile elements."
+msgstr ""
+"Lorsque vous actualisez la page, nous effectuons un test en tant "
+"qu'utilisateur/utilisatrice dans le rôle %s et enregistrons les éléments du "
+"profil."
 
 #: includes/admin.php:1758
 msgid ""
@@ -2946,7 +2979,7 @@ msgstr ""
 "d’administration de WordPress. Cette fonctionnalité est disponible dans "
 "PublishPress Capabilities Pro"
 
-#: includes-core/CoreAdmin.php:161
+#: includes-core/CoreAdmin.php:163
 msgid "You can select page types where this element will be added."
 msgstr "Vous pouvez sélectionner les types de page où cet élément sera ajouté."
 
@@ -2977,8 +3010,7 @@ msgstr ""
 msgid "You do not have permission to manage admin notices."
 msgstr "Vous n’avez pas le droit de gérer les notifications d’administration."
 
-#: includes/manager.php:741 includes/features/admin-styles/admin-styles.php:493
-#| msgid "You do not have permission to manage admin notices."
+#: includes/manager.php:741 includes/features/admin-styles/admin-styles.php:446
 msgid "You do not have permission to manage admin styles."
 msgstr "Vous n’avez pas le droit de gérer les styles d’administration."
 
@@ -3044,8 +3076,8 @@ msgid ""
 "You must select at least one editor for the role when managing allowed "
 "editor."
 msgstr ""
-"Vous devez sélectionner au moins un éditeur ou une éditrice pour le rôle "
-"lors de la gestion des éditeurs et éditrices autorisés."
+"Vous devez sélectionner au moins un éditeur/éditrice pour le rôle lors de la "
+"gestion des éditeurs et éditrices autorisés."
 
 #: includes-core/CoreAdmin.php:13
 #, php-format
@@ -3067,6 +3099,10 @@ msgstr "Votre lien a expiré, rafraîchissez la page et réessayez."
 #: includes/roles/class/class-pp-roles-list-table.php:344
 msgid "Your Role"
 msgstr "Ton rôle"
+
+#: includes/features/profile-features.php:250
+msgid "⚠ Warning:"
+msgstr "⚠ Avertissement :"
 
 #~ msgid "Restricted:"
 #~ msgstr "Limité :"
@@ -3212,9 +3248,6 @@ msgstr "Ton rôle"
 
 #~ msgid "Home Link"
 #~ msgstr "Lien vers l’accueil"
-
-#~ msgid "Import"
-#~ msgstr "Importer"
 
 #~ msgid "Order"
 #~ msgstr "Tri"
