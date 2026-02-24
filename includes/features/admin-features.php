@@ -247,6 +247,11 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                                                                 <?php echo esc_html($section_array['element_label']); ?>
                                                                                                                 <?php if ($section_slug === 'blockedbyurl' && !empty($section_array['wildcard'])) : ?>
                                                                                                                     <span class="ppc-wildcard-badge"><?php esc_html_e('Wildcard enabled', 'capability-manager-enhanced'); ?></span>
+                                                                                                                <?php elseif ($section_slug === 'hidecsselement' && isset($section_array['target_urls']) && trim((string) $section_array['target_urls']) !== '') : ?>
+                                                                                                                    <span class="ppc-url-target-badge"><?php esc_html_e('URL targeted', 'capability-manager-enhanced'); ?></span>
+                                                                                                                    <?php if (!empty($section_array['url_wildcard'])) : ?>
+                                                                                                                        <span class="ppc-wildcard-badge"><?php esc_html_e('URL wildcard', 'capability-manager-enhanced'); ?></span>
+                                                                                                                    <?php endif; ?>
                                                                                                                 <?php endif; ?>
                                                                                                                 </strong>
                                                                                                             </span>
@@ -265,6 +270,8 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                                                             data-label="<?php echo esc_attr($section_array['label']); ?>"
                                                                                                             data-element="<?php echo esc_attr($section_array['element_items']); ?>"
                                                                                                             data-wildcard="<?php echo !empty($section_array['wildcard']) ? '1' : '0'; ?>"
+                                                                                                            data-target-urls="<?php echo isset($section_array['target_urls']) ? esc_attr($section_array['target_urls']) : ''; ?>"
+                                                                                                            data-url-wildcard="<?php echo !empty($section_array['url_wildcard']) ? '1' : '0'; ?>"
                                                                                                             data-id="<?php echo esc_attr($section_array['button_data_id']); ?>">
                                                                                                             <?php esc_html_e('Edit', 'capability-manager-enhanced'); ?>
                                                                                                         </div>
