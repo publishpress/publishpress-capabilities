@@ -187,6 +187,10 @@ class PP_Capabilities_Admin_Features
     {
         global $toolbar_items;
 
+        if (function_exists('ppc_features_get_admin_bar_nodes')) {
+            ppc_features_get_admin_bar_nodes();
+        }
+
         if (!is_array($toolbar_items)) {
             $toolbar_items = [];
         }
@@ -353,7 +357,7 @@ class PP_Capabilities_Admin_Features
                 //backend admin tool bar
                 add_action('admin_head', [__CLASS__, 'disableDashboardBarBackend']);
             } else {
-			    add_action( 'wp_before_admin_bar_render', [ __CLASS__, 'disableDashboardBar' ], 99 );
+                add_action( 'wp_before_admin_bar_render', [ __CLASS__, 'disableDashboardBar' ], 9999 );
             }
 		}
 
