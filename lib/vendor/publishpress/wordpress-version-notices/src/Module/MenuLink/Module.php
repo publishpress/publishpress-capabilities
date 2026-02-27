@@ -163,7 +163,7 @@ class Module
                         $context = [
                             'message' => __(
                                 'Amazing! We are redirecting you to our site...',
-                                'publishpress-wordpress-version-notices'
+                                'wordpress-version-notices'
                             ),
                             'link'    => $settings['link']
                         ];
