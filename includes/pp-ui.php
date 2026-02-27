@@ -93,6 +93,7 @@ class Capsman_PP_UI {
 	// Note: CME can now impose type-specific capabilities without Press Permit Core active
 	function pp_types_ui( $defined_types ) {
         global $sidebar_metabox_state;
+
         ?>
         <div class="ppc-sidebar-panel-metabox meta-box-sortables ppc-post-types">
             <?php $meta_box_state = (isset($sidebar_metabox_state['unique_capabilities_for_post_types'])) ? $sidebar_metabox_state['unique_capabilities_for_post_types'] : 'closed';  ?>
@@ -129,7 +130,7 @@ class Capsman_PP_UI {
 				echo "<table style='width:100%'><tr>";
 
 				// bbPress' dynamic role def requires additional code to enforce stored caps
-				$unfiltered = apply_filters('presspermit_unfiltered_post_types', ['forum','topic','reply','wp_block', 'customize_changeset']);
+				$unfiltered = apply_filters('presspermit_unfiltered_post_types', ['forum','topic','reply', 'customize_changeset']);
 				$unfiltered = (defined('PP_CAPABILITIES_NO_LEGACY_FILTERS')) ? $unfiltered : apply_filters('pp_unfiltered_post_types', $unfiltered);  // maintain legacy filter to support custom code
 
 				$hidden = apply_filters('presspermit_hidden_post_types', []);
