@@ -459,6 +459,51 @@
     font-weight: 600;
 }
 
+.ppc-advanced-rules-wrap {
+    padding: 8px 0;
+}
+
+.ppc-advanced-rules-help {
+    margin: 0 0 12px;
+}
+
+.ppc-advanced-rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.ppc-advanced-rule-row {
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) minmax(130px, 160px) minmax(140px, 180px) auto;
+    gap: 12px;
+    align-items: end;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.ppc-advanced-rule-selector,
+.ppc-advanced-rule-color {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ppc-advanced-rule-selector input {
+    width: 100%;
+}
+
+.ppc-advanced-variation {
+    width: 100%;
+}
+
+.ppc-advanced-rule-actions {
+    padding-bottom: 6px;
+}
+
 
 
 /* Tabs Styling */
@@ -539,6 +584,15 @@
 
     .custom-scheme-preview-area > div:first-child > div {
         width: 100%;
+    }
+
+    .ppc-advanced-rule-row {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .ppc-advanced-rule-actions {
+        padding-bottom: 0;
     }
 }
 
