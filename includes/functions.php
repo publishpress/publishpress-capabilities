@@ -232,9 +232,22 @@ function pp_capabilities_is_classic_editor_available()
  *
  * @return array||object $wp_admin_bar nodes.
  */
-function ppc_features_get_admin_bar_nodes($wp_admin_bar){
+function ppc_features_get_admin_bar_nodes($wp_admin_bar = null){
 
-    $adminBarNode = is_object($wp_admin_bar) ? $wp_admin_bar->get_nodes() : '';
+    if (!is_object($wp_admin_bar)) {
+        global $wp_admin_bar;
+    }
+
+    if (!is_object($wp_admin_bar) || !method_exists($wp_admin_bar, 'get_nodes')) {
+        return;
+    }
+
+    $adminBarNode = $wp_admin_bar->get_nodes();
+
+    if (empty($adminBarNode)) {
+        return;
+    }
+
     $ppcAdminBar = [];
 
     if (is_array($adminBarNode) || is_object($adminBarNode)) {
@@ -248,7 +261,8 @@ function ppc_features_get_admin_bar_nodes($wp_admin_bar){
 
     $GLOBALS['ppcAdminBar'] = $ppcAdminBar;
 }
-add_action('admin_bar_menu', 'ppc_features_get_admin_bar_nodes', 999);
+add_action('admin_bar_menu', 'ppc_features_get_admin_bar_nodes', 9999);
+add_action('wp_before_admin_bar_render', 'ppc_features_get_admin_bar_nodes', 9999);
 
 /**
  * Implement admin features restriction.
