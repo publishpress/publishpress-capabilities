@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.40.0] - 03 March, 2026
+[2.40.0] - 04 March, 2026
 
 - Update : Added Admin Styles Advanced Tab for custom color selection for other other element on admin pages, #1586
 - Update : Add Wildard option to Admin Features Block by URL, #1342
