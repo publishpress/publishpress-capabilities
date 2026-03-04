@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-10 14:41+0000\n"
-"PO-Revision-Date: 2026-03-03 13:26+0000\n"
+"POT-Creation-Date: 2026-03-04 15:47+0000\n"
+"PO-Revision-Date: 2026-03-04 16:22+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: fi\n"
@@ -22,8 +22,8 @@ msgid ""
 "\"Posts\" capabilities selected here also define type-specific role "
 "assignment for Permission Groups%s."
 msgstr ""
-"\"Julkaisut\" -kyvyt, jotka on valittu tähän, määrittelevät myös "
-"tyyppikohtaisen roolin määrityksen Käyttöoikeusryhmille%s."
+"\"Julkaisut\" -kyvyt, jotka on valittu täältä, määrittelevät myös "
+"tyyppikohtaisen roolijakelun Luvan Ryhmille%s."
 
 #: includes/pp-ui.php:71
 #, php-format
@@ -31,23 +31,23 @@ msgid ""
 "\"Posts\" capabilities selected here also define type-specific role "
 "assignment for Permit Groups%s."
 msgstr ""
-"\"Julkaisut\" -kyvyt, jotka on valittu tähän, määrittelevät myös "
-"tyyppikohtaisen roolin määrityksen Lupa-ryhmille%s."
+"\"Julkaisut\" -kyvyt, jotka on valittu täältä, määrittelevät myös "
+"tyyppikohtaisen roolijakelun Lupa Ryhmille%s."
 
 #: includes/roles/class/class-pp-roles-actions.php:565
 #, php-format
 msgid "%1$d users moved to default role %2$s."
-msgstr "%1$d käyttäjää siirretty oletusrooliin %2$s."
+msgstr "%1$d käyttäjää siirrettiin oletusrooliin %2$s."
 
 #: includes/features/frontend-features/frontend-features.php:250
 #, php-format
 msgid "%1$s = Apply custom styling"
-msgstr "%1$s = Käytä mukautettua tyylittelyä"
+msgstr "%1$s = Käytä mukautettua tyylitystä"
 
 #: includes/admin.php:1678
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
-msgstr "%1$s = Kyky evätty, vaikka se on myönnetty toiselta roolilta %2$s"
+msgstr "%1$s = Kyky evätty, vaikka se olisi myönnetty toiselle roolille %2$s"
 
 #: includes/admin.php:1676
 #, php-format
@@ -57,7 +57,7 @@ msgstr "%1$s = Kyky myönnetty %2$s"
 #: includes/admin.php:1677
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
-msgstr "%1$s = Kykyä ei myönnetty %2$s"
+msgstr "%1$s = Kyky ei myönnetty %2$s"
 
 #: includes/features/admin-features.php:346
 #: includes/features/editor-features.php:240
@@ -74,27 +74,27 @@ msgstr "%1$s = Ei muutoksia"
 #: includes/features/profile-features.php:252
 #, php-format
 msgid "%1$s = This feature is denied"
-msgstr "%1$s = Tämä toiminto on evätty"
+msgstr "%1$s = Tämä ominaisuus on evätty"
 
 #: includes/features/admin-features.php:356
 #, php-format
 msgid "%1$s Hide Submenus"
-msgstr "%1$s Piilota alavalikot"
+msgstr "%1$s Piilota alivalikot"
 
 #: includes/admin.php:1908
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
-msgstr "%1$skäyte%2$s %3$s"
+msgstr "%1$sosta%2$s %3$s"
 
 #: includes/admin.php:1906
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
-msgstr "%1$sota%2$s %3$s"
+msgstr "%1$sgaa%2$s %3$s"
 
 #: includes/test-user-ui.php:269
 #, php-format
 msgid "%1$sReturn to Administrator view%2$s"
-msgstr "%1$sPalaa järjestelmänvalvojan näkymään%2$s"
+msgstr "%1$sPaluu ylläpitäjän näkymään%2$s"
 
 #: capsman-enhanced.php:80
 #, php-format
@@ -102,8 +102,8 @@ msgid ""
 "%1s Error: %2s  PublishPress Capabilities cannot function because another "
 "copy of the plugin is active."
 msgstr ""
-"%1s Virhe: %2s  PublishPress -kyvyt eivät voi toimia, koska toinen versio "
-"liitännäisestä on aktiivinen."
+"%1s Virhe: %2s PublishPress -kyvyt eivät voi toimia, koska toinen kopio "
+"lisäosasta on aktiivinen."
 
 #: includes/backup.php:191
 #, php-format
@@ -128,12 +128,12 @@ msgstr "%s Kyvyt"
 #: includes/admin.php:1908
 #, php-format
 msgid "%s info/purchase"
-msgstr "%s info/ostaa"
+msgstr "%s tiedot/osto"
 
 #: includes/redirects/redirects.php:94
 #, php-format
 msgid "%s Redirects"
-msgstr "%s Ohjaukset"
+msgstr "%s Uudelleenohjaukset"
 
 #: includes/backup-handler.php:119
 #, php-format
@@ -163,7 +163,7 @@ msgstr "%s tuotu onnistuneesti ladatuista tiedoista."
 #: includes/admin.php:1584 includes/admin.php:1585
 #, php-format
 msgid "%s: assigned by Permission Group"
-msgstr "%s: määritetty Oikeusryhmän toimesta"
+msgstr "%s: määrätty Oikeusryhmän mukaan"
 
 #: includes/admin.php:270, fuzzy
 msgid "&nbsp;"
@@ -182,27 +182,25 @@ msgid ""
 "A backup created on this screen replaces any previous manual backups, but "
 "is never automatically replaced."
 msgstr ""
-"Tällä näytöllä luotu varmuuskopio korvää kaikki aikaisemmat manuaalisesti "
-"luodut varmuuskopiot, mutta sitä ei koskaan korvata automaattisesti."
+"Tällä näytöllä luotu varmuuskopio korvasi kaikki aikaisemmat manuaaliset "
+"varmuuskopiot, mutta sitä ei koskaan korvata automaattisesti."
 
 #: includes/manager.php:1516
 msgid "About"
-msgstr "Tietoja"
+msgstr "Tietoa"
 
 #: includes/manager.php:1516
 msgid "About PublishPress Capabilities"
-msgstr "Tietoja PublishPress Oikeuksista"
+msgstr "Tietoa PublishPress Oikeuksista"
 
 #: includes/pp-ui.php:64
 #, php-format
 msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
-msgstr ""
-"[DRY RUN] Would translate: \"activate %1$sAdvanced settings%2$s, see Role "
-"Usage\""
+msgstr "ota käyttöön %1$sLisäasetukset%2$s, katso Roolin käyttö"
 
 #: includes/admin.php:1780
 msgid "Add a New Capability"
-msgstr "Lisää uusi Oikeus"
+msgstr "Lisää uusi kyky"
 
 #: includes/features/restrict-editor-features.php:383
 msgid "Add block"
@@ -210,7 +208,7 @@ msgstr "Lisää lohko"
 
 #: includes/features/frontend-features/frontend-features-ui.php:75
 msgid "Add Body Class"
-msgstr "Lisää body-luokka"
+msgstr "Lisää runko-luokka"
 
 #: includes/features/frontend-features/frontend-features-ui.php:74
 msgid "Add Custom CSS"
@@ -221,7 +219,7 @@ msgid ""
 "Add more than one custom admin styles. This feature is available in "
 "PublishPress Capabilities Pro."
 msgstr ""
-"Lisää enemmän kuin yksi mukautettu ylläpitäjän tyyli. Tämä ominaisuus on "
+"Lisää enemmän kuin yksi mukautettu admin-tyyli. Tämä ominaisuus on "
 "saatavilla PublishPress Oikeudet Pro:ssa."
 
 #: includes/features/restrict-editor-features.php:47
@@ -237,11 +235,11 @@ msgstr "Lisää uusi lohko"
 
 #: includes/settings-ui.php:207
 msgid "Add option to search and user testing in the Admin Bar."
-msgstr "Lisää vaihtoehto hakuun ja käyttäjätestaukseen Ylläpitäjän työkalupalkissa."
+msgstr "Lisää vaihtoehto hakemiseen ja käyttäjätestaukseen Hallintopalkissa."
 
 #: includes/manager.php:253
 msgid "Add or clear custom item entry before saving changes."
-msgstr "Lisää tai tyhjennä mukautettu kohteen syöttö ennen muutosten tallentamista."
+msgstr "Lisää tai tyhjennä mukautettu kohteen syöttö ennen kuin tallennat muutokset."
 
 #: includes/manager.php:251
 msgid "Add or remove capability from the role normally"
@@ -253,7 +251,7 @@ msgstr "Lisää tai poista tämä kyky WordPress-roolista"
 
 #: includes/features/frontend-features/frontend-features-ui.php:133
 msgid "Add post metabox:"
-msgstr "Lisää viestin metabox:"
+msgstr "Lisää viestin metaruutu:"
 
 #: includes/admin.php:1790
 msgid "Add to role"
@@ -278,11 +276,11 @@ msgstr "Ylläpitäjän pääsy"
 
 #: includes/settings-ui.php:186
 msgid "Admin Bar modification"
-msgstr "Ylläpitäjän työkalupalkin muokkaus"
+msgstr "Ylläpitäjän palkin muokkaus"
 
 #: includes/settings-ui.php:202
 msgid "Admin Bar search"
-msgstr "Ylläpitäjän työkalupalkin haku"
+msgstr "Ylläpitäjän palkin haku"
 
 #: includes/features/admin-styles/admin-styles-ui.php:169
 msgid "Admin Color Scheme"
@@ -290,7 +288,7 @@ msgstr "Ylläpitäjän värimaailma"
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
-msgstr "Ylläpitäjän ominaisuuksien rajoitukset"
+msgstr "Ylläpitäjän ominaisuusrajoitukset"
 
 #: includes/functions-admin.php:216 includes/functions-admin.php:389
 #: includes/functions-admin.php:476
@@ -304,7 +302,7 @@ msgid ""
 "toolbar."
 msgstr ""
 "Ylläpitäjän ominaisuudet mahdollistavat elementtien poistamisen "
-"ylläpitoalueelta ja työkalupalkista."
+"ylläpitotilasta ja työkalupalkista."
 
 #: includes/features/admin-features.php:354
 msgid "Admin Features Settings"
@@ -321,10 +319,10 @@ msgid ""
 "capability is missing. Also, these \"List\" capabilities can grant access, "
 "but not deny access."
 msgstr ""
-"Ylläpitäjän luettelointipääsy on normaalisti tarjottu \"Muokkaa\" -kykyjen "
-"avulla. Nämä \"Luettelo\" -kyvyt pätevät vain, jos vastaava \"Muokkaa\" "
-"-kyky puuttuu. Lisäksi nämä \"Luettelo\" -kyvyt voivat myöntää pääsyn, "
-"mutta eivät voi estää pääsyä."
+"Ylläpitäjän luettelointipääsy tarjotaan normaalisti \"Muokkaa\" -kykyjen "
+"kautta. Nämä \"Luettelo\" -kyvyt koskevat vain, jos vastaava \"Muokkaa\" "
+"-kyky puuttuu. Myös nämä \"Luettelo\" -kyvyt voivat myöntää pääsyn, mutta "
+"eivät estää pääsyä."
 
 #: includes-core/admin-menus-promo.php:29
 msgid "Admin Menu Restrictions"
@@ -341,30 +339,30 @@ msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
 msgstr ""
-"Ylläpitäjän valikot antavat sinun muokata ylläpitäjän valikkolinkkejä ja "
-"hallita, kenellä on pääsy."
+"Admin-valikot mahdollistavat hallintovalikkolinkkien muokkaamisen ja pääsyn "
+"hallinnan."
 
 #: includes/admin-notices/admin-notices.php:269
 msgid "Admin notice status updated successfully."
-msgstr "Ylläpitäjän ilmoitusstatus päivitettiin onnistuneesti."
+msgstr "Admin-ilmoituksen tila päivitettiin onnistuneesti."
 
 #: includes/functions-admin.php:424 includes/settings-ui.php:37
 #: includes/admin-notices/admin-notices.php:179
 #: includes/admin-notices/admin-notices.php:217
 #: includes/admin-notices/admin-notices.php:220
 msgid "Admin Notices"
-msgstr "Ylläpitäjän ilmoitukset"
+msgstr "Admin-ilmoitukset"
 
 #: includes/functions-admin.php:221 includes/functions-admin.php:394
 #: includes/functions-admin.php:483
 #: includes/features/admin-styles/admin-styles-ui.php:95
 msgid "Admin Styles"
-msgstr "Ylläpitäjän tyylit"
+msgstr "Admin-tyylit"
 
 #: includes/functions-admin.php:395
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
-"Ylläpitäjän tyylit antavat sinun räätälöidä ylläpitoaluetta omalla "
+"Admin-tyylit mahdollistavat hallinta-alueen mukauttamisen omalla "
 "brändilläsi."
 
 #: includes/features/admin-styles/admin-styles-ui.php:618
@@ -372,12 +370,12 @@ msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
 msgstr ""
-"Ylläpitäjän tyylit antavat sinun räätälöidä WordPressin ylläpitoaluetta "
+"Admin-tyylit mahdollistavat WordPressin hallinta-alueen mukauttamisen "
 "omalla brändilläsi."
 
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
-msgstr "Edistynyt"
+msgstr "Edistyksellinen"
 
 #: includes/roles/class/class-pp-roles-list-table.php:86
 #, php-format
@@ -414,22 +412,22 @@ msgid ""
 "Allow post type permissions to be controlled separately from other areas of "
 "WordPress. %1$sFind out more.%2$s"
 msgstr ""
-"Salli viestityypin oikeuksien hallinta erikseen muista WordPressin "
-"alueista. %1$sLisätietoja.%2$s"
+"Salli postityypin oikeuksien hallinta erikseen muista WordPress-alueista. "
+"%1$sLisätietoja.%2$s"
 
 #: includes/features/profile-features.php:239
 msgid "Allow PublishPress to find profile items for this role."
-msgstr "Salli PublishPressin löytää profiiliesineitä tälle roolille."
+msgstr "Salli PublishPressin löytää profiiliesiintymiä tälle roolille."
 
 #: includes/pp-ui.php:230
 msgid ""
 "Allow taxonomy permissions to be controlled separately from other areas of "
 "WordPress."
-msgstr "Salli taksonomiaoikeuksien hallinta erikseen muista WordPressin alueista."
+msgstr "Salli taksonomiaoikeuksien hallinta erikseen muista WordPress-alueista."
 
 #: includes/settings-ui.php:170
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
-msgstr "Näytä aina Klassinen Editor -välilehti \"Editorin ominaisuudet\" -näytössä."
+msgstr "Näytä aina Klassisen editorin välilehti \"Editorin ominaisuudet\" -näytössä."
 
 #: includes/settings-ui.php:277
 msgid ""
@@ -438,8 +436,8 @@ msgid ""
 "admin area."
 msgstr ""
 "Yritä aina automaattisesti löytää profiilielementtejä. Tämä saattaa "
-"aiheuttaa tilapäisiä ongelmia käyttäjäroolien päivittämisessä, joilla ei "
-"ole pääsyä WordPressin ylläpitoalueelle."
+"aiheuttaa tilapäisiä ongelmia, kun päivitetään käyttäjärooleja, joilla ei "
+"ole pääsyä WordPressin hallinta-alueelle."
 
 #: includes/admin-load.php:647 includes/admin-notices/admin-notices.php:232
 #: includes/features/restrict-profile-features.php:29
@@ -454,7 +452,7 @@ msgstr "Tapahtui virhe!"
 
 #: includes/admin.php:290
 msgid "Approve Revision"
-msgstr "Hyväksy muutos"
+msgstr "Hyväksy tarkistus"
 
 #: includes/manager.php:252
 msgid "Are you sure you want to delete this item ?"
@@ -469,30 +467,28 @@ msgstr "Oletko varma, että haluat poistaa tämän roolin?"
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
-msgstr ""
-"Määritä mukautetut WP-roolit lisäyksenä tietylle postityypille "
-"<em>(Pro)</em>"
+msgstr "Määritä mukautetut WP-roolit lisänä tietylle viestityypille <em>(Pro)</em>"
 
 #: includes/admin.php:1855
 msgid "Assign standard WP roles supplementally for a specific post type"
-msgstr "Määritä standardit WP-roolit lisäyksenä tietylle postityypille"
+msgstr "Määritä standardit WP-roolit lisänä tietylle viestityypille"
 
 #: includes/backup.php:131
 #, php-format
 msgid "Auto-backup of all roles (%s)"
-msgstr "Kaikkien roolien automaattinen varmuuskopio (%s)"
+msgstr "Automaattinen varmuuskopio kaikista rooleista (%s)"
 
 #: includes/admin.php:1851
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
 msgstr ""
-"Määritä automaattisesti tyyppikohtaiset kyvyt mukautetuille "
-"postityypeillesi ja taksonomioillesi"
+"Määritä automaattisesti tyyppikohtaiset käyttöoikeudet mukautetuille "
+"viestityypeillesi ja taksonomioillesi"
 
 #: includes/settings-ui.php:272
 msgid "Automatically refresh profile elements"
-msgstr "Päivitä profiilielemetit automaattisesti"
+msgstr "Päivitä automaattisesti profiilielimet"
 
 #: includes/backup.php:95
 msgid "Available Backups:"
@@ -504,11 +500,11 @@ msgstr "Varmuuskopio"
 
 #: includes/backup.php:62
 msgid "Backup Roles and Capabilities"
-msgstr "Varmuuskopioi roolit ja kyvyt"
+msgstr "Varmuuskopioi roolit ja käyttöoikeudet"
 
 #: includes/backup.php:41
 msgid "Backup Tool for PublishPress Capabilities"
-msgstr "Varmuuskopiointityökalu PublishPress-kyvykkyyksille"
+msgstr "Varmuuskopiointityökalu PublishPress-käyttöoikeuksille"
 
 #: includes/manager.php:1186
 msgid "Bad form Received"
@@ -532,11 +528,11 @@ msgstr "Estä"
 
 #: includes-core/CoreAdmin.php:128
 msgid "Block by URL"
-msgstr "Estä URL-osoitteen perusteella"
+msgstr "Estä URL-osoitteen mukaan"
 
 #: includes/roles/class/class-pp-roles-admin.php:204
 msgid "Block Dashboard Access"
-msgstr "Estä pääsy hallintapaneeliin"
+msgstr "Estä ohjauspaneelin pääsy"
 
 #: includes/roles/class/class-pp-roles-admin.php:194
 msgid "Block Login"
@@ -549,11 +545,11 @@ msgstr "Estä paneeli"
 
 #: includes/roles/class/class-pp-roles-admin.php:205
 msgid "Block users in this role from accessing admin area."
-msgstr "Estä käyttäjät tässä roolissa pääsemästä hallinta-alueelle."
+msgstr "Estä tämän roolin käyttäjät pääsemästä hallinta-alueelle."
 
 #: includes/roles/class/class-pp-roles-admin.php:195
 msgid "Block users in this role from logging into the site."
-msgstr "Estä käyttäjiä tässä roolissa kirjautumasta sivustolle."
+msgstr "Estä tämän roolin käyttäjiä kirjautumasta sivustolle."
 
 #: includes/features/restrict-editor-features.php:403
 msgid "Body"
@@ -572,39 +568,39 @@ msgid ""
 msgstr ""
 "Oletuksena WooCommerce estää useimpia käyttäjiä pääsemästä WordPressin "
 "hallinta-alueelle. Kun tämä asetus on käytössä, se poistaa nämä rajoitukset "
-"tälle roolille. %1s Napsauta tästä saadaksesi lisätietoja. %2s"
+"tälle roolille. %1s Klikkaa tästä saadaksesi lisätietoja. %2s"
 
 #: includes/admin.php:303
 msgid "Can delete posts which are currently published with private visibility."
-msgstr "Voi poistaa julkaistuja viestejä, joilla on yksityinen näkyvyys."
+msgstr "Voit poistaa julkaistuja viestejä, joilla on yksityinen näkyvyys."
 
 #: includes/admin.php:302
 msgid "Can delete posts which are currently published."
-msgstr "Voi poistaa julkaistuja viestejä."
+msgstr "Voit poistaa julkaistuja viestejä."
 
 #: includes/admin.php:301
 msgid "Can delete posts which were created by other users."
-msgstr "Voi poistaa toisten käyttäjien luomia viestejä."
+msgstr "Voit poistaa muiden käyttäjien luomia viestejä."
 
 #: includes/admin.php:298
 msgid "Can edit posts which are currently published with private visibility."
-msgstr "Voi muokata julkaistuja viestejä, joilla on yksityinen näkyvyys."
+msgstr "Voit muokata julkaistuja viestejä, joilla on yksityinen näkyvyys."
 
 #: includes/admin.php:297
 msgid "Can edit posts which are currently published."
-msgstr "Voi muokata julkaistuja viestejä."
+msgstr "Voit muokata julkaistuja viestejä."
 
 #: includes/admin.php:296
 msgid "Can edit posts which were created by other users."
-msgstr "Voi muokata toisten käyttäjien luomia viestejä."
+msgstr "Voit muokata muiden käyttäjien luomia viestejä."
 
 #: includes/admin.php:299
 msgid "Can make a post publicly visible."
-msgstr "Voi tehdä viestin julkisesti näkyväksi."
+msgstr "Voit tehdä viestin julkisesti näkyväksi."
 
 #: includes/admin.php:294
 msgid "Can read posts which are currently published with private visibility."
-msgstr "Voi lukea julkaistuja viestejä, joilla on yksityinen näkyvyys."
+msgstr "Voit lukea julkaistuja viestejä, joilla on yksityinen näkyvyys."
 
 #: includes/features/frontend-features/frontend-features-ui.php:148
 msgid "Cancel Edit"
@@ -614,7 +610,7 @@ msgstr "Peruuta muokkaus"
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
-"Ei voi poistaa oletusroolia. Sinun <a href=\"%s\">pitää muuttaa se "
+"Et voi poistaa oletusroolia. Sinun <a href=\"%s\">täytyy muuttaa se "
 "ensin</a>."
 
 #: includes/manager.php:1518
@@ -630,11 +626,11 @@ msgstr "Oikeudet"
 
 #: includes/admin.php:1675
 msgid "Capabilities allows you change the permissions for any user role."
-msgstr "Oikeudet antavat sinun muuttaa käyttöoikeuksia kaikille käyttäjärooleille."
+msgstr "Oikeudet antavat sinun muuttaa lupia mille tahansa käyttäjäroolille."
 
 #: includes/functions-admin.php:380
 msgid "Capabilities allows you to change the permissions for any user role."
-msgstr "Oikeudet antavat sinun muuttaa käyttöoikeuksia kaikille käyttäjärooleille."
+msgstr "Oikeudet antavat sinun muuttaa lupia mille tahansa käyttäjäroolille."
 
 #: includes/pp-ui.php:79
 #, php-format
@@ -643,9 +639,9 @@ msgid ""
 "%sPermissions > Post Statuses%s for applicable names). %sSupplemental "
 "status-specific roles%s are usually more convenient, though."
 msgstr ""
-"Oikeuksia mukautetuille statuksille voidaan lisätä manuaalisesti täällä. "
-"(Katso %sOikeudet > Viestin Statukset%s soveltuvia nimiä varten). "
-"%sLisästatustyypin roolit%s ovat yleensä kätevämpiä."
+"Mukautettujen tilojen oikeuksia voidaan lisätä manuaalisesti tänne. (Katso "
+"%sOikeudet > Viestin tilat%s soveltuvia nimiä varten). "
+"%sLisästatuskohtaiset roolit%s ovat yleensä kätevämpiä kuitenkin."
 
 #: includes/pp-ui.php:81
 msgid ""
@@ -653,9 +649,9 @@ msgid ""
 "the PP Custom Post Statuses extension to assign status-specific "
 "supplemental roles."
 msgstr ""
-"Oikeuksia mukautetuille statuksille voidaan lisätä manuaalisesti täällä. "
-"Tai aktivoi PP Mukautetut Viestistatus laajennus määrittääksesi statukseen "
-"liittyviä lisärooleja."
+"Mukautettujen tilojen oikeuksia voidaan lisätä manuaalisesti tänne. Tai "
+"aktivoi PP Mukautetut viestin tilat -laajennus, jotta voit määrittää "
+"statuskohtaisia lisärooleja."
 
 #: includes/pp-ui.php:84
 msgid ""
@@ -664,24 +660,24 @@ msgid ""
 "is usually more convenient to use Permit Groups to assign a supplemental "
 "status-specific role."
 msgstr ""
-"Mukautettujen statusten kykyjä voidaan lisätä manuaalisesti rooliin täällä "
-"(katso Ehdot > Tila > Kykyjen kartoitus soveltuville nimille). Kuitenkin on "
-"yleensä kätevämpää käyttää Lupa-ryhmiä lisästatuskohtaisen roolin "
-"määrittämiseen."
+"Mukautettujen tilojen ominaisuuksia voidaan lisätä manuaalisesti rooliin "
+"täällä (katso Ehdot > Tila > Ominaisuuskartoitus soveltuville nimille). On "
+"kuitenkin yleensä kätevämpää käyttää Lupa-ryhmiä liittääkseen "
+"lisätilakohtaisen roolin."
 
 #: includes/admin.php:1744
 msgid "Capabilities is Safe to Use"
-msgstr "Kykyjä on turvallista käyttää"
+msgstr "Ominaisuudet ovat turvallisia käyttää"
 
 #: includes/settings.php:13
 msgid "Capabilities Settings"
-msgstr "Kykyasetukset"
+msgstr "Ominaisuuksien asetukset"
 
 #: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
 #: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
 #: includes/admin.php:1520 includes/admin.php:1658
 msgid "Capability Name"
-msgstr "Kyvyn nimi"
+msgstr "Ominaisuuden nimi"
 
 #: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
 #: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
@@ -695,7 +691,7 @@ msgstr "Tarkistuslista"
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:77
 msgid "Choose Frontend Features that will apply to this post."
-msgstr "Valitse frontend-ominaisuudet, joita sovelletaan tähän julkaisuun."
+msgstr "Valitse etupään ominaisuudet, jotka koskevat tätä viestiä."
 
 #: includes/features/editor-features.php:130
 msgid "Classic"
@@ -724,7 +720,7 @@ msgstr "Väriasetukset"
 
 #: includes/manager.php:1520
 msgid "Contact"
-msgstr "Ota yhteyttä"
+msgstr "Yhteystiedot"
 
 #: includes/manager.php:1520
 msgid "Contact the PublishPress team"
@@ -733,11 +729,11 @@ msgstr "Ota yhteyttä PublishPress-tiimiin"
 #: includes/roles/class/class-pp-roles-admin.php:261
 #. "Editor" means post editor like Gutenberg
 msgid "Control Allowed Editors"
-msgstr "Säädä sallittuja editoreita"
+msgstr "Valvo sallittuja editoreita"
 
 #: includes/features/admin-styles/admin-styles-ui.php:559
 msgid "Control how admin styles are applied to users."
-msgstr "Säädä, miten admin-tyylejä sovelletaan käyttäjiin."
+msgstr "Valvo, miten järjestelmänvalvojan tyylejä sovelletaan käyttäjiin."
 
 #: includes/features/admin-styles/admin-styles-ui.php:557
 msgid "Control Settings"
@@ -749,11 +745,11 @@ msgstr "Kopioi"
 
 #: includes/admin.php:1988
 msgid "Copy / update this role definition to all sites now"
-msgstr "Kopioi / päivitä tämä roolimääritelmä kaikille sivustoille nyt"
+msgstr "Kopioi / päivitä tämä roolimääritys kaikille sivustoille nyt"
 
 #: includes/admin.php:1991
 msgid "Copy option settings to all sites now"
-msgstr "Kopioi asetukset kaikille sivustoille nyt"
+msgstr "Kopioi asetukset kaikkiin sivustoihin nyt"
 
 #: includes/roles/class/class-pp-roles-admin.php:541
 msgid "Copy Role"
@@ -769,11 +765,11 @@ msgstr "Luo uusi rooli"
 
 #: includes/admin.php:282
 msgid "Create Revision"
-msgstr "Luo versio"
+msgstr "Luo revisio"
 
 #: includes/admin.php:1985
 msgid "Create this role definition in new (future) sites"
-msgstr "Luo tämä roolimäärittely uusiin (tuleviin) sivustoihin"
+msgstr "Luo tämä roolimääritys uusiin (tuleviin) sivustoihin"
 
 #: includes/roles/class/class-pp-roles-list-table.php:398
 msgid "Custom"
@@ -812,32 +808,32 @@ msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
 msgstr ""
-"Mukautetut moderointistatukset pääsyvalvottuja, monivaiheista julkaisuja "
-"varten <em>(Pro)</em>"
+"Mukautetut moderointistatukset käyttöoikeuden hallitsemille, "
+"monivaiheisille julkaisuvirroille <em>(Pro)</em>"
 
 #: includes/admin.php:1871
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
 msgstr ""
-"Mukautetut julkaisut näkyvyysstatukset, täysin toteutettu wp-adminissa "
+"Mukautetut julkaisu näkyvyysstatukset, täysin toteutettu wp-adminissa "
 "<em>(Pro)</em>"
 
 #: includes/admin.php:1867
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
-msgstr "Mukauta muokkausoikeuksia kategoria- tai julkaisutason mukaan <em>(Pro)</em>"
+msgstr "Mukauta muokkauslupia kategorian tai viestin mukaan <em>(Pro)</em>"
 
 #: includes/admin.php:1863
 msgid "Customize reading permissions per-category or per-post"
-msgstr "Mukauta lukuoikeuksia kategoria- tai julkaisutason mukaan"
+msgstr "Mukauta lukulupia kategorian tai viestin mukaan"
 
 #: includes/admin.php:1883
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
 msgstr ""
-"Mukauta julkaistun sisällön moderointimuokkausta Revisionary tai Post "
-"Forking avulla <em>(Pro)</em>"
+"Mukauta julkaistun sisällön säädeltyä muokkausta Revisionarylla tai Post "
+"Forkingilla <em>(Pro)</em>"
 
 #: includes/admin-load.php:824 includes/dashboard.php:23
 msgid "Dashboard"
@@ -866,17 +862,17 @@ msgstr ""
 
 #: includes/admin.php:273
 msgid "Deletion"
-msgstr "Poisto"
+msgstr "Poistaminen"
 
 #: includes/functions.php:723
 msgid "Detailed documentation is also available on the plugin website."
 msgstr ""
-"Yksityiskohtainen dokumentaatio on myös saatavilla liitteen "
+"Yksityiskohtaiset asiakirjat ovat myös saatavilla liitännäisen "
 "verkkosivustolla."
 
 #: includes/pp-ui.php:301
 msgid "Detailed Taxonomy Capabilities"
-msgstr "Yksityiskohtaiset taksonomiatiedot"
+msgstr "Yksityiskohtaiset taksonomian kyvyt"
 
 #: includes/roles/class/class-pp-roles-admin.php:249
 #. "Editor" means post editor like Gutenberg
@@ -886,11 +882,11 @@ msgstr "Poista koodieditori käytöstä"
 #: includes/roles/class/class-pp-roles-admin.php:250
 #. "Editor" means post editor like Gutenberg
 msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
-msgstr "Poista \"Koodieditori\" -vaihtoehto käytöstä Gutenberg-lohkoeditorissa."
+msgstr "Poista \"Koodieditorin\" vaihtoehto käytöstä Gutenberg-lohkoeditorista."
 
 #: includes/roles/class/class-pp-roles-admin.php:275
 msgid "Disable WooCommerce admin restrictions"
-msgstr "Poista WooCommerce-administratiiviset rajoitukset"
+msgstr "Poista WooCommerce-hallinnan rajoitukset käytöstä"
 
 #: includes/admin-notices/admin-notices.php:72
 msgid "Display this notice"
@@ -898,35 +894,35 @@ msgstr "Näytä tämä ilmoitus"
 
 #: includes/admin-notices/admin-notices.php:76
 msgid "Displayed notices will no longer be removed from admin pages."
-msgstr "Näytetyt ilmoitukset eivät enää poistu ylläpitopäivityksistä."
+msgstr "Näytettyjä ilmoituksia ei enää poisteta hallintapaneelin sivuilta."
 
 #: includes/features/restrict-editor-features.php:390
 msgid "Document Bar Title"
-msgstr "Dokumentin palkin otsikko"
+msgstr "Asiakirjan palkin otsikko"
 
 #: includes/features/restrict-editor-features.php:389
 msgid "Document Overview"
-msgstr "Dokumentin yleiskatsaus"
+msgstr "Asiakirjan yleiskatsaus"
 
 #: includes/features/restrict-editor-features.php:420
 msgid "Document Panel"
-msgstr "Dokumenttipaneeli"
+msgstr "Asiakirjan paneeli"
 
 #: includes/manager.php:1518
 msgid "Documentation"
 msgstr "Dokumentaatio"
 
 #: includes/admin-load.php:370
-msgid "Drag multiple roles selection to change order."
-msgstr "Vedä useita rooleja valitaksesi järjestyksen."
+msgid "Drag multiple roles selection to change roles order."
+msgstr "Vedä useita rooleja valinnasta muuttaaksesi roolien järjestystä."
 
 #: includes/roles/class/class-pp-roles-admin.php:217
 msgid ""
 "Each user role has a level from 0 to 10. The Subscriber role defaults to "
 "the lowest level (0). The Administrator role defaults to level 10."
 msgstr ""
-"Jokaisella käyttäjäroolilla on taso 0–10. Tilauksen rooli on oletuksena "
-"alimmalla tasolla (0). Hallitsijan rooli on oletuksena tasolla 10."
+"Jokaisella käyttäjäroolilla on taso 0:sta 10:een. Tilauksen rooli on "
+"oletuksena alimmalla tasolla (0). Ylläpitäjärooli on oletuksena tasolla 10."
 
 #: includes/features/admin-features.php:276
 #: includes/features/editor-features-classic.php:123
@@ -952,11 +948,11 @@ msgstr[1] "Muokattava %s"
 
 #: includes/admin.php:272 includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
-msgstr "Muokkaus"
+msgstr "Muokkaaminen"
 
 #: includes/features/frontend-features/frontend-features-ui.php:45
 msgid "Editing:"
-msgstr "Muokkaus:"
+msgstr "Muokkaaminen:"
 
 #: includes/features/editor-features.php:69
 msgid "Editor Feature Restrictions"
@@ -971,8 +967,8 @@ msgstr "Muokkaajan ominaisuudet"
 #: includes/functions-admin.php:385 includes/features/editor-features.php:238
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr ""
-"Muokkaajan ominaisuudet antavat sinun poistaa elementtejä julkaisun "
-"muokkausnäytöstä."
+"Muokkaajan ominaisuudet mahdollistavat elementtien poistamisen julkaisun "
+"muokkausnäytöltä."
 
 #: includes-core/editor-features-promo.php:46
 msgid "Editorial Comments"
@@ -981,35 +977,35 @@ msgstr "Toimitukselliset kommentit"
 #: includes/settings-ui.php:352
 #, php-format
 msgid "Enable %1s access to the Admin Notices area."
-msgstr "Ota käyttöön %1s pääsy ylläpitohälytysalueelle."
+msgstr "Ota käyttöön %1s -käyttäjän pääsy Admin-ilmoitusten alueelle."
 
 #: includes/settings-ui.php:165
 msgid "Enable Classic Editor tab"
-msgstr "Ota käyttöön Klassisen Muokkaajan välilehti"
+msgstr "Ota käyttöön Classic Editor -välilehti"
 
 #: includes/features/frontend-features/frontend-features.php:151
 #, php-format
 msgid "Enable Frontend Features for %1$s Role"
-msgstr "Ota käyttöön Etusivun ominaisuudet roolille %1$s"
+msgstr "Ota käyttöön Frontend-ominaisuudet %1$s -roolille"
 
 #: includes/features/frontend-features/frontend-features-ui.php:101
 msgid ""
 "Enter classes that should be added to the body HTML. Separate multiple "
 "values with a space (custom-item-one custom-item-two)."
 msgstr ""
-"Syötä luokat, jotka tulisi lisätä body HTML:ään. Erota useat arvot "
+"Syötä luokat, jotka tulisi lisätä body HTML:ään. Erottele useat arvot "
 "välilyönnillä (custom-item-one custom-item-two)."
 
 #: includes/features/frontend-features/frontend-features-ui.php:98
 msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
-msgstr "Syötä luokat lisättäväksi body HTML:ään. Älä sisällytä . ennen HTML:ää."
+msgstr "Syötä luokat, jotka lisätään body HTML:ään. Älä sisällytä . ennen HTML:ää."
 
 #: includes/features/frontend-features/frontend-features-ui.php:92
 msgid ""
 "Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
 "color: red; } #custom-header { background: red; } "
 msgstr ""
-"Syötä mukautettua CSS:ää, joka lisätään etusivun sivuille. Esimerkkejä: "
+"Syötä mukautettu CSS, joka lisätään frontend-sivuille. Esimerkkejä: "
 ".custom-style-1 { color: red; } #custom-header { background: red; } "
 
 #: includes/features/frontend-features/frontend-features-ui.php:81
@@ -1017,35 +1013,37 @@ msgid ""
 "Enter IDs or classes to hide. Separate multiple values with a comma "
 "(.custom-item-one, .custom-item-two, #new-item-id)."
 msgstr ""
-"Syötä tunnukset tai luokat, jotka haluat piilottaa. Erota useat arvot "
+"Syötä ID:t tai luokat, jotka haluat piilottaa. Erottele useat arvot "
 "pilkulla (.custom-item-one, .custom-item-two, #new-item-id)."
 
 #: includes/redirects/redirects.php:242
 msgid "Enter the relative path only without domain for login redirect."
-msgstr "Syötä vain suhteellinen polku ilman verkkotunnusta kirjautumisohjaukseen."
+msgstr ""
+"Syötä vain suhteellinen polku ilman verkkotunnusta kirjautumisen "
+"uudelleenohjausta varten."
 
 #: includes/redirects/redirects.php:275
 msgid "Enter the relative path only without domain for logout redirect."
 msgstr ""
-"Syötä vain suhteellinen polku ilman verkkotunnusta "
-"uloskirjautumisohjaukseen."
+"Syötä vain suhteellinen polku ilman verkkotunnusta uloskirjautumisen "
+"uudelleenohjausta varten."
 
 #: includes/redirects/redirects.php:55
 msgid "Enter the URL users in this role should be redirected to after login."
 msgstr ""
-"Syötä URL-osoite, johon käyttäjät tässä roolissa ohjataan kirjautumisen "
+"Syötä URL-osoite, johon tämän roolin käyttäjät ohjataan kirjautumisen "
 "jälkeen."
 
 #: includes/redirects/redirects.php:64
 msgid "Enter the URL users in this role should be redirected to after logout."
 msgstr ""
-"Syötä URL-osoite, johon käyttäjät tässä roolissa ohjataan uloskirjautumisen "
+"Syötä URL-osoite, johon tämän roolin käyttäjät ohjataan uloskirjautumisen "
 "jälkeen."
 
 #: includes/redirects/redirects.php:73
 msgid "Enter the URL users in this role should be redirected to after registration."
 msgstr ""
-"Syötä URL-osoite, johon käyttäjät tässä roolissa ohjataan rekisteröitymisen "
+"Syötä URL-osoite, johon tämän roolin käyttäjät ohjataan rekisteröitymisen "
 "jälkeen."
 
 #: includes/redirects/redirects.php:82
@@ -1053,8 +1051,8 @@ msgid ""
 "Enter the URL users in this role should be redirected to after their first "
 "login."
 msgstr ""
-"Syötä URL-osoite, johon tämän roolin käyttäjät ohjataan heidän ensimmäisen "
-"kirjautumisensa jälkeen."
+"Syötä URL-osoite, johon tämän roolin käyttäjät ohjataan ensimmäisen "
+"kirjautumisen jälkeen."
 
 #: includes/backup-handler.php:178
 msgid "Error importing settings! Please check that you uploaded a valid json file."
@@ -1068,7 +1066,7 @@ msgstr "Virhe asetusten tuonnissa! Yritä uudelleen."
 
 #: includes/settings-ui.php:291
 msgid "Error notices"
-msgstr "Virheilmoitukset"
+msgstr "Virhesanomat"
 
 #: includes/handler.php:51
 msgid "Error: Failed creating the new role."
@@ -1084,15 +1082,15 @@ msgstr "Poista rooli käyttäjätestauksesta"
 
 #: includes/settings-ui.php:255
 msgid "Exclude users in selected roles from User Testing."
-msgstr "Poista valituissa rooleissa olevat käyttäjät käyttäjätestauksesta."
+msgstr "Poista valitsemien roolien käyttäjät käyttäjätestauksesta."
 
 #: includes/manager.php:247
 msgid "Explicitly negate these capabilities by storing as disabled"
-msgstr "Kumoa nämä kyvyt nimenomaisesti tallentamalla ne poistettuina"
+msgstr "Kieltäydy näistä kyvyistä tallentamalla ne pois käytöstä"
 
 #: includes/manager.php:246
 msgid "Explicity negate this capability by storing as disabled"
-msgstr "Kumoa tämä kyky nimenomaisesti tallentamalla se poistettuna"
+msgstr "Kieltäydy tästä kyvystä tallentamalla se pois käytöstä"
 
 #: includes/backup.php:325
 msgid "Export"
@@ -1112,7 +1110,7 @@ msgid ""
 "to easily import the configuration into another site."
 msgstr ""
 "Vie tämän sivuston liitännäisen asetukset .json-tiedostona. Tämä "
-"mahdollistaa konfiguraation helpon tuonnin toiseen sivustoon."
+"mahdollistaa konfiguraation helpon tuonnin toiselle sivustolle."
 
 #: includes/features/restrict-editor-features.php:150
 msgid "Featured Image"
@@ -1145,15 +1143,15 @@ msgstr "Suodata taksonomian mukaan"
 
 #: includes/features/profile-features.php:240
 msgid "Find profile items for this role"
-msgstr "Löydä profiiliobjekteja tälle roolille"
+msgstr "Löydä profiiliesineet tälle roolille"
 
 #: includes/redirects/redirects.php:47 includes/redirects/redirects.php:81
 msgid "First Login Redirect"
-msgstr "Ensimmäinen kirjautumisen uudelleenohjaus"
+msgstr "Ensimmäinen kirjautumisohjaus"
 
 #: includes/features/admin-styles/admin-styles-ui.php:578
 msgid "Force role settings (override user selection)"
-msgstr "Pakota rooliasetukset (ylitä käyttäjän valinta)"
+msgstr "Pakota rooliasetukset (ohita käyttäjän valinta)"
 
 #: includes/settings-ui.php:218
 msgid "Front End footer notice"
@@ -1162,8 +1160,8 @@ msgstr "Etusivun alatunnisteilmoitus"
 #: includes/features/frontend-features/frontend-features-action.php:92
 msgid "Frontend element item updated. Save changes to enable for role."
 msgstr ""
-"Etusivun elementti päivitetty. Tallenna muutokset ottaaksesi ne käyttöön "
-"roolille."
+"Etusivun elementtielementti päivitetty. Tallenna muutokset, jotta se "
+"voidaan ottaa käyttöön roolille."
 
 #: includes/functions-admin.php:227 includes/functions-admin.php:409
 #: includes/functions-admin.php:513
@@ -1178,12 +1176,12 @@ msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
 msgstr ""
-"Etusivun ominaisuudet antavat sinun lisätä tai poistaa elementtejä "
+"Etusivun ominaisuudet sallivat sinun lisätä tai poistaa elementtejä "
 "sivustosi etusivulta."
 
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
-msgstr "Yleiset"
+msgstr "Yleinen"
 
 #: includes/admin.php:1761
 msgid "Go to the Backup feature"
@@ -1194,12 +1192,12 @@ msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
 msgstr ""
-"Anna katsoja-, osallistuja- tai moderaattorioikeudet tiettyihin "
+"Myönnä katsojan, osallistujan tai moderaattorin käyttöoikeus tiettyihin "
 "bbPress-foorumeihin <em>(Pro)</em>"
 
 #: includes/admin.php:1891
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
-msgstr "Anna lisäsisältöoikeudet BuddyPress-ryhmälle <em>(Pro)</em>"
+msgstr "Myönnä lisäsisällön käyttöoikeudet BuddyPress-ryhmälle <em>(Pro)</em>"
 
 #: includes/features/editor-features.php:127, fuzzy
 msgid "Gutenberg"
@@ -1212,15 +1210,15 @@ msgstr "Gutenberg-editori"
 #: includes/features/editor-features-gutenberg.php:1
 #, php-format
 msgid "Gutenberg Editor %s Restrictions"
-msgstr "Gutenberg-editorin %s rajoitukset"
+msgstr "Gutenberg-editori %s Rajoitukset"
 
 #: includes/admin.php:300
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
 msgstr ""
-"On peruspoistamiskyky (mutta saattaa tarvita muita kykyjä viestin tilan ja "
-"omistajuuden perusteella)."
+"On peruspoistokyky (mutta saattaa tarvita muita kykyjä viestin tilan ja "
+"omistuksen mukaan)."
 
 #: includes/admin.php:295
 msgid ""
@@ -1228,7 +1226,7 @@ msgid ""
 "status and ownership)."
 msgstr ""
 "On peruseditointikyky (mutta saattaa tarvita muita kykyjä viestin tilan ja "
-"omistajuuden perusteella)."
+"omistuksen mukaan)."
 
 #: includes/roles/class/class-pp-roles-list-table.php:88
 #, php-format
@@ -1247,11 +1245,11 @@ msgstr "Piilotetut ilmoitukset"
 
 #: includes/features/admin-styles/admin-styles-ui.php:568
 msgid "Hide Admin Color Scheme settings in user profile"
-msgstr "Piilota järjestelmänvalvojan väriteeman asetukset käyttäjäprofiilissa"
+msgstr "Piilota ylläpitäjän värimaailman asetukset käyttäjäprofiilissa"
 
 #: includes/features/restrict-admin-features.php:37
 msgid "Hide Admin Toolbar"
-msgstr "Piilota järjestelmänvalvojan työkalupalkki"
+msgstr "Piilota ylläpitäjän työkalupalkki"
 
 #: includes-core/CoreAdmin.php:127
 msgid "Hide CSS Elements"
@@ -1263,7 +1261,7 @@ msgstr "Piilota hallintapaneelin widgetit"
 
 #: includes/features/restrict-admin-features.php:36
 msgid "Hide Default Items"
-msgstr "Piilota oletuskohtia"
+msgstr "Piilota oletustiedot"
 
 #: includes/features/frontend-features/frontend-features-ui.php:73
 msgid "Hide IDs or Classes"
@@ -1275,19 +1273,19 @@ msgstr "Piilota tämä ilmoitus"
 
 #: includes/features/frontend-features/frontend-features-data.php:70
 msgid "Hide Twenty Twenty-Three Credit Footer"
-msgstr "Piilota Twenty Twenty-Three -luottojalkapohja"
+msgstr "Piilota Twenty Twenty-Three -alareuna"
 
 #: includes/features/admin-features.php:350
 msgid "How to use Admin Features"
-msgstr "Kuinka käyttää järjestelmänvalvojan ominaisuuksia"
+msgstr "Kuinka käyttää ylläpitäjäominaisuuksia"
 
 #: includes/features/admin-styles/admin-styles-ui.php:628
 msgid "How to use Admin Styles"
-msgstr "Kuinka käyttää järjestelmänvalvojan tyylejä"
+msgstr "Kuinka käyttää ylläpitäjätyylejä"
 
 #: includes/admin.php:1706
 msgid "How to use Capabilities"
-msgstr "Kuinka käyttää käyttöoikeuksia"
+msgstr "Kuinka käyttää kykyjä"
 
 #: includes/features/editor-features.php:244
 msgid "How to use Editor Features"
@@ -1295,11 +1293,11 @@ msgstr "Kuinka käyttää editorin ominaisuuksia"
 
 #: includes/features/frontend-features/frontend-features.php:253
 msgid "How to use Frontend Features"
-msgstr "Kuinka käyttää käyttöliittymän ominaisuuksia"
+msgstr "Kuinka käyttää frontend-ominaisuuksia"
 
 #: includes/features/nav-menus.php:307
 msgid "How to use Navigation Menus"
-msgstr "Kuinka käyttää navigaatiovalikoita"
+msgstr "Kuinka käyttää navigointivalikkoja"
 
 #: includes/features/profile-features.php:255
 msgid "How to use Profile Features"
@@ -1326,13 +1324,13 @@ msgid ""
 "If you have installed any plugin that adds new roles or capabilities, these "
 "will be lost."
 msgstr ""
-"Jos olet asentanut minkäänlaista laajennusta, joka lisää uusia rooleja tai "
-"käyttöoikeuksia, nämä menetetään."
+"Jos olet asentanut minkä tahansa liitännäisen, joka lisää uusia rooleja tai "
+"kykyjä, nämä menetetään."
 
 #: includes/manager.php:1505
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr "Jos pidät %s, jätäthän meille %s arvostelu. Kiitos!"
+msgstr "Jos pidät %s:stä, jätä meille %s-arvostelu. Kiitos!"
 
 #: includes/functions.php:712
 msgid "If you need help or have a new feature request, let us know."
@@ -1347,8 +1345,8 @@ msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
 msgstr ""
-"Tuo laajennuksen asetukset .json-tiedostosta. Tämä tiedosto voidaan saada "
-"viemällä asetukset toiselta sivustolta yllä olevan lomakkeen avulla."
+"Tuodaan liitännäisen asetukset .json-tiedostosta. Tämä tiedosto voidaan "
+"saada viemällä asetukset toiselta sivustolta yllä olevalla lomakkeella."
 
 #: includes/admin.php:1985
 msgid "Include in new sites."
@@ -1356,24 +1354,24 @@ msgstr "Sisällytä uusiin sivustoihin."
 
 #: includes/handler.php:119
 msgid "Incorrect capability name."
-msgstr "Virheellinen käyttöoikeuden nimi."
+msgstr "Virheellinen kyky-nimi."
 
 #: includes/settings-ui.php:293
 msgid "Info notices"
-msgstr "Tiedot ilmoitukset"
+msgstr "Tietoilmoitukset"
 
 #: includes/backup.php:164
 msgid "Initial Backup"
-msgstr "Alustava varmuuskopio"
+msgstr "Alkuperäinen varmuuskopio"
 
 #: includes/backup.php:164
 #, php-format
 msgid "Initial Backup - %s"
-msgstr "Alustava varmuuskopio - %s"
+msgstr "Alkuperäinen varmuuskopio - %s"
 
 #: includes/backup.php:139
 msgid "Initial backup of all roles"
-msgstr "Alustava varmuuskopio kaikista rooleista"
+msgstr "Alkuperäinen varmuuskopio kaikista rooleista"
 
 #: includes/admin-notices/admin-notices.php:243
 #: includes/features/frontend-features/frontend-features-action.php:56
@@ -1383,7 +1381,7 @@ msgstr "Virheellinen toiminto. Lataa tämä sivu uudelleen ja yritä uudelleen."
 
 #: includes/admin.php:638 includes/admin.php:1395
 msgid "Invalid Capabilities"
-msgstr "Virheelliset käyttöoikeudet"
+msgstr "Virheelliset kyvyt"
 
 #: includes/admin-notices/admin-notices.php:245
 msgid "Invalid form."
@@ -1395,16 +1393,16 @@ msgstr "Virheellinen lomake. Lataa tämä sivu uudelleen ja yritä uudelleen."
 
 #: includes/admin-load.php:622
 msgid "Invalid nonce token!"
-msgstr "Virheellinen nonce-tunnus!"
+msgstr "Virheellinen nonce-token!"
 
 #: includes/features/frontend-features/frontend-features-action.php:121
 msgid "Invalid request!."
-msgstr "Virheellinen pyyntö!."
+msgstr "Virheellinen pyyntö!"
 
 #: includes/roles/class/class-pp-roles-actions.php:211
 #, php-format
 msgid "Invalid role name entry: %s"
-msgstr "Virheellinen roolin nimi: %s"
+msgstr "Virheellinen roolinimi: %s"
 
 #: includes/features/restrict-profile-features.php:128
 msgid "Invalid role provided."
@@ -1449,7 +1447,7 @@ msgstr "Lataus sivutyypeille on pakollinen."
 
 #: includes/features/frontend-features/frontend-features-ui.php:109
 msgid "Load on page types:"
-msgstr "Lataa sivutyypeille:"
+msgstr "Lataus sivutyypeille:"
 
 #: includes/admin-load.php:760 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:39
@@ -1467,11 +1465,11 @@ msgstr "Kirjautumisoikeus evätty."
 
 #: includes/redirects/redirects.php:35 includes/redirects/redirects.php:54
 msgid "Login Redirect"
-msgstr "Kirjautumisen uudelleenohjaus"
+msgstr "Kirjautumisohjaus"
 
 #: includes/redirects/redirects.php:39 includes/redirects/redirects.php:63
 msgid "Logout Redirect"
-msgstr "Uudelleenohjaus uloskirjautumiseen"
+msgstr "Kirjautumisesta poistamisen ohjaus"
 
 #: includes/backup.php:74
 msgid "Manual Backup"
@@ -1484,7 +1482,7 @@ msgstr "Manuaalinen varmuuskopio %s (%s)"
 
 #: includes/features/restrict-editor-features.php:62
 msgid "Media Buttons (all)"
-msgstr "Media-napit (kaikki)"
+msgstr "Mediapainikkeet (kaikki)"
 
 #: includes/admin.php:1899
 msgid "Member support forum"
@@ -1492,14 +1490,14 @@ msgstr "Jäsenen tukifoorumi"
 
 #: includes-core/editor-features-promo.php:24
 msgid "Metaboxes"
-msgstr "Metaboxit"
+msgstr "Metalaatikot"
 
 #: includes/roles/class/class-pp-roles-list-table.php:87
 #, php-format
 msgid "Mine %s"
 msgid_plural "Mine %s"
-msgstr[0] "Omani %s"
-msgstr[1] "Omani %s"
+msgstr[0] "Omat %s"
+msgstr[1] "Omat %s"
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:378
@@ -1511,11 +1509,11 @@ msgstr "Puuttuvat parametrit, päivitä sivu ja yritä uudelleen."
 
 #: includes/features/restrict-admin-features.php:91
 msgid "Mobile Menu Toggle"
-msgstr "Mobiilivalikon vaihto"
+msgstr "Mobiilimenuvaihtoehto"
 
 #: includes/features/restrict-editor-features.php:384
 msgid "Modes"
-msgstr "Tilat"
+msgstr "Muut"
 
 #: includes/admin-notices/admin-notices.php:75
 msgid "Move to Hidden Notices"
@@ -1523,15 +1521,15 @@ msgstr "Siirrä piilotettuihin ilmoituksiin"
 
 #: includes/settings-ui.php:56
 msgid "Multiples roles on \"Add New User\" screen"
-msgstr "Useita rooleja \"Lisää uusi käyttäjä\" -näytössä"
+msgstr "Useita rooleja \"Lisää uusi käyttäjä\" -näytöllä"
 
 #: includes/settings-ui.php:72
 msgid "Multiples roles on \"User Edit\" screen"
-msgstr "Useita rooleja \"Käyttäjän muokkaus\" -näytössä"
+msgstr "Useita rooleja \"Käyttäjän muokkaus\" -näytöllä"
 
 #: includes/admin.php:598 includes/admin.php:1069 includes/admin.php:1809
 msgid "Multisite"
-msgstr "Monisivusto"
+msgstr "Monisivustot"
 
 #: includes/functions-admin.php:241
 msgid "Nav Menu"
@@ -1547,7 +1545,7 @@ msgstr "Navigointivalikot (Perinteinen)"
 
 #: includes/features/nav-menus.php:61
 msgid "Navigation Menu Restrictions"
-msgstr "Navigointivalikon rajoitukset"
+msgstr "Navigointivalikkorajoitukset"
 
 #: includes/functions-admin.php:414 includes/functions-admin.php:520
 #: includes/roles/class/class-pp-roles-admin.php:527
@@ -1556,17 +1554,15 @@ msgstr "Navigointivalikot"
 
 #: includes/functions-admin.php:415 includes/features/nav-menus.php:301
 msgid "Navigation Menus allows you to block access to frontend menu links."
-msgstr ""
-"Navigointivalikot mahdollistavat pääsyn estämisen etusivun "
-"valikkolinkkeihin."
+msgstr "Navigointivalikot mahdollistavat pääsyn estämisen etusivun valikkolinkeille."
 
 #: includes/functions.php:707
 msgid "Need PublishPress Capabilities Support?"
-msgstr "Tarvitsetko PublishPress-toimintojen tukea?"
+msgstr "Tarvitsetko PublishPress-kyvykkyyksien tukea?"
 
 #: includes/backup-handler.php:274
 msgid "Needed function to create default roles not found!"
-msgstr "Tarvittavaa toimintoa oletusroolien luomiseksi ei löytynyt!"
+msgstr "Tarvittavaa oletusroolien luontitoimintoa ei löydy!"
 
 #: includes/admin.php:84
 msgid "Negate All"
@@ -1587,16 +1583,16 @@ msgstr "Uusi varmuuskopio tallennettu."
 
 #: includes/admin.php:1793
 msgid "New capabilities are controlled on the Additonal tab."
-msgstr "Uudet toiminnot hallitaan Lisäasetukset-välilehdellä."
+msgstr "Uudet kyvykkyydet hallitaan Lisäasetukset-välilehdellä."
 
 #: includes/manager.php:1145
 msgid "New capability added to role."
-msgstr "Uusi toiminto lisätty rooliin."
+msgstr "Uusi kyvykkyys lisätty rooliin."
 
 #: includes/features/frontend-features/frontend-features-action.php:94
 msgid "New frontend element added. Save changes to enable for role."
 msgstr ""
-"Uusi etusivuelementti lisätty. Tallenna muutokset ottaaksesi sen käyttöön "
+"Uusi etupään elementti lisätty. Tallenna muutokset ottaaksesi sen käyttöön "
 "roolille."
 
 #: includes/handler.php:45
@@ -1614,7 +1610,7 @@ msgid ""
 "No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
 "refresh this page afterwards to load the new metaboxes."
 msgstr ""
-"Ei metaruutuja löytynyt %1s:lle. %2s Klikkaa täällä %3s vieraillaksesi "
+"Ei metaruutuja löytynyt %1s. %2s Klikkaa täällä %3s vieraillaksesi "
 "%4s-näytöllä ja päivitä tämä sivu sen jälkeen ladataksesi uudet metaruudut."
 
 #: includes/admin-load.php:612
@@ -1632,7 +1628,7 @@ msgstr "Ei tuloksia löytynyt. Yritä uudelleen eri sanalla."
 
 #: includes/features/admin-styles/admin-styles.php:522
 msgid "No role specified."
-msgstr "Roolia ei ole määritetty."
+msgstr "Ei roolia määritelty."
 
 #: includes/roles/class/class-pp-roles-list-table.php:89
 #, php-format
@@ -1651,11 +1647,11 @@ msgstr "Ilmoitukset"
 
 #: includes/settings-ui.php:385
 msgid "Notifications to display in the Admin Notices area."
-msgstr "Ilmoitukset, jotka näytetään hallintohälytysalueella."
+msgstr "Ilmoitukset, jotka näytetään ylläpidon ilmoitusalueella."
 
 #: includes/settings-ui.php:363
 msgid "Notifications to remove from WordPress admin pages"
-msgstr "Ilmoitukset, jotka poistetaan WordPressin hallintapaneelista"
+msgstr "Ilmoitukset poistettavaksi WordPressin ylläpitossasivuilta"
 
 #: includes/backup.php:92
 msgid ""
@@ -1663,7 +1659,7 @@ msgid ""
 "capabilities."
 msgstr ""
 "Tällä näytöllä voit palauttaa aikaisemman version rooleistasi ja "
-"oikeuksistasi."
+"käyttöoikeuksistasi."
 
 #: includes/features/restrict-editor-features.php:400
 msgid "Options"
@@ -1671,7 +1667,7 @@ msgstr "Asetukset"
 
 #: includes/features/restrict-editor-features.php:148
 msgid "Other Boxes"
-msgstr "Muut ruudut"
+msgstr "Muut laatikot"
 
 #: includes/features/restrict-editor-features.php:388
 msgid "Outline"
@@ -1683,11 +1679,11 @@ msgstr "Sivun attribuutit: Järjestys"
 
 #: includes/features/restrict-editor-features.php:126
 msgid "Page Boxes"
-msgstr "Sivun ruudut"
+msgstr "Sivun laatikot"
 
 #: includes/functions.php:940
 msgid "Page Lists"
-msgstr "Sivun luettelot"
+msgstr "Sivuluettelot"
 
 #: includes/admin-load.php:373
 msgid "Page title"
@@ -1703,11 +1699,11 @@ msgstr "Kappale"
 
 #: includes/features/restrict-editor-features.php:428
 msgid "Permalink"
-msgstr "Pysyvä linkki"
+msgstr "Permanente linkki"
 
 #: includes-core/editor-features-promo.php:108
 msgid "Permalink: Descriptive Caption"
-msgstr "Pysyvä linkki: Kuvaileva otsikko"
+msgstr "Permanente linkki: Kuvastava otsikko"
 
 #: includes/admin-load.php:654
 msgid "Permission denied"
@@ -1722,12 +1718,12 @@ msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
 msgstr ""
-"Ole hyvä ja tee 'Manuaalinen varmuuskopio' varmuuskopio-välilehdellä, jotta "
-"voit palauttaa varmuuskopion, jos jokin menee pieleen."
+"Ole hyvä ja tee 'Manuaalinen varmuuskopio' varmuuskopio-välilehdessä "
+"ottaaksesi varmuuskopion palautuksen käyttöön, jos jotain menee pieleen."
 
 #: includes/backup-handler.php:140
 msgid "Please upload a file to import"
-msgstr "Ole hyvä ja lataa tiedosto tuodaksesi"
+msgstr "Ole hyvä ja lataa tiedosto tuodaksesi sen"
 
 #: includes/backup-handler.php:145
 msgid "Please upload a valid .json file"
@@ -1741,19 +1737,19 @@ msgstr "Laajennuksen ominaisuudet &ndash; %s"
 #: includes/admin.php:681
 #, php-format
 msgid "Post %s Capabilities"
-msgstr "Julkaisun %s ominaisuudet"
+msgstr "Postauksen %s ominaisuudet"
 
 #: includes/features/restrict-editor-features.php:476
 msgid "Post Attributes"
-msgstr "Julkaisun attribuutit"
+msgstr "Postauksen attribuutit"
 
 #: includes/features/frontend-features/frontend-features-ui.php:248
 msgid "Post Type Metabox"
-msgstr "Julkaisutyypin metaruutu"
+msgstr "Postauksen tyypin metalaatikko"
 
 #: includes/manager.php:248
 msgid "Post type registration does not define this capability distinctly"
-msgstr "Julkaisutyypin rekisteröinti ei määrittele tätä ominaisuutta erikseen"
+msgstr "Postauksen tyypin rekisteröinti ei määrittele tätä ominaisuutta erikseen"
 
 #: includes/features/profile-features.php:46
 msgid "Profile Feature Restrictions"
@@ -1767,15 +1763,15 @@ msgstr "Profiilin ominaisuudet"
 
 #: includes/features/restrict-profile-features.php:123
 msgid "Profile features access disabled."
-msgstr "Profiilin ominaisuuksien pääsy on poistettu käytöstä."
+msgstr "Profiilin ominaisuuksien käyttö estetty."
 
 #: includes/features/restrict-profile-features.php:136
 msgid "Profile features access enabled for this role."
-msgstr "Profiilin ominaisuuksien pääsy on otettu käyttöön tälle roolille."
+msgstr "Profiilin ominaisuuksien käyttö sallittu tälle roolille."
 
 #: includes/functions-admin.php:400 includes/features/profile-features.php:249
 msgid "Profile Features allows you to remove elements from the Profile screen."
-msgstr "Profiilin ominaisuudet antavat sinun poistaa elementtejä Profiili-näytöstä."
+msgstr "Profiilin ominaisuudet antavat sinun poistaa elementtejä Profiili-näytöltä."
 
 #: includes/features/restrict-editor-features.php:398
 msgid "Publish / Update"
@@ -1783,12 +1779,12 @@ msgstr "Julkaise / Päivitä"
 
 #: includes/features/restrict-editor-features.php:85
 msgid "Publish Actions"
-msgstr "Julkaise toiminnot"
+msgstr "Julkaisutoimet"
 
 #: includes/features/restrict-editor-features.php:77
 #: includes/features/restrict-editor-features.php:78, fuzzy
 msgid "Publish Box"
-msgstr "Julkaise laatikko"
+msgstr "Julkaisulaatikko"
 
 #. Author of the plugin
 msgid "PublishPress"
@@ -1796,14 +1792,14 @@ msgstr "PublishPress"
 
 #. Name of the plugin
 msgid "PublishPress Capabilities"
-msgstr "PublishPress Oikeudet"
+msgstr "PublishPress Ominaisuudet"
 
 #: includes/backup.php:91
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
 "and whenever you save changes."
 msgstr ""
-"PublishPress Oikeudet luo automaattisesti varmuuskopion asennuksen "
+"PublishPress Ominaisuudet luo automaattisesti varmuuskopion asennuksen "
 "yhteydessä ja aina, kun tallennat muutoksia."
 
 #: includes/backup.php:67
@@ -1812,9 +1808,9 @@ msgid ""
 "and whenever you save changes. The initial backup and last %d auto-backups "
 "are kept."
 msgstr ""
-"PublishPress Oikeudet luo automaattisesti varmuuskopion asennuksen "
+"PublishPress Ominaisuudet luo automaattisesti varmuuskopion asennuksen "
 "yhteydessä ja aina, kun tallennat muutoksia. Alkuperäinen varmuuskopio ja "
-"viimeiset %d automaattivarmuuskopiot säilytetään."
+"viimeiset %d automaattista varmuuskopiota säilytetään."
 
 #. Description of the plugin
 msgid ""
@@ -1822,12 +1818,13 @@ msgid ""
 "can manage all your WordPress user roles, from Administrators to "
 "Subscribers."
 msgstr ""
-"PublishPress Oikeudet on pääsynhallintalisäosa WordPressille. Voit hallita "
-"kaikkia WordPress-käyttäjäroolejasi, ylläpitäjistä tilaajiin."
+"PublishPress Ominaisuudet on pääsynhallintalaajennus WordPressille. Voit "
+"hallita kaikkia WordPress-käyttäjäroolejasi, Administrattoreista Tilauksen "
+"saajiin."
 
 #: includes/admin-load.php:768
 msgid "PublishPress Capabilities Menu Restriction"
-msgstr "PublishPress Oikeudet Valikkorajoitus"
+msgstr "PublishPress Ominaisuudet Valikkorajoitus"
 
 #: includes/admin.php:1849
 msgid "PublishPress Permissions"
@@ -1847,16 +1844,16 @@ msgid ""
 "Registration, Login or Logout."
 msgstr ""
 "Uudelleenohjausominaisuudet mahdollistavat käyttäjien uudelleenohjaamisen "
-"roolin mukaan rekisteröinnin, kirjautumisen tai uloskirjautumisen jälkeen."
+"roolissa rekisteröinnin, kirjautumisen tai uloskirjautumisen jälkeen."
 
 #: includes/redirects/redirects.php:226
 msgid "Redirect users to a specified URL."
-msgstr "Uudelleenohjaa käyttäjät määriteltyyn URL-osoitteeseen."
+msgstr "Uudelleenohjaa käyttäjät määritettyyn URL-osoitteeseen."
 
 #: includes/redirects/redirects.php:214
 msgid "Redirect users to the URL they were viewing before login."
 msgstr ""
-"Uudelleenohjaa käyttäjät URL-osoitteeseen, jota he katselivat ennen "
+"Uudelleenohjaa käyttäjät URL-osoitteeseen, jota he tarkastelivat ennen "
 "kirjautumista."
 
 #: includes/functions-admin.php:237 includes/functions-admin.php:404
@@ -1869,12 +1866,12 @@ msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
 msgstr ""
-"Uudelleenohjaukset mahdollistavat käyttäjien uudelleenohjaamisen roolin "
-"mukaan rekisteröinnin, kirjautumisen tai uloskirjautumisen jälkeen."
+"Uudelleenohjaukset mahdollistavat käyttäjien uudelleenohjaamisen roolissa "
+"rekisteröinnin, kirjautumisen tai uloskirjautumisen jälkeen."
 
 #: includes/features/profile-features.php:244
 msgid "Refresh Profile Features"
-msgstr "Päivitä profiiliominaisuudet"
+msgstr "Päivitä profiilin ominaisuudet"
 
 #: includes/redirects/redirects.php:43 includes/redirects/redirects.php:72
 msgid "Registration Redirect"
@@ -1882,7 +1879,7 @@ msgstr "Rekisteröinnin uudelleenohjaus"
 
 #: includes/admin.php:1879
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
-msgstr "Säädä oikeuksia Edit Flow -viestin tiloille <em>(Pro)</em>"
+msgstr "Säädä oikeuksia Edit Flow -viestien tiloille <em>(Pro)</em>"
 
 #: includes/features/admin-styles/admin-styles-ui.php:479
 msgid "Remove"
@@ -1893,12 +1890,12 @@ msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
 msgstr ""
-"Poista ylläpitäjän ilmoitukset WordPressin ylläpito-näytöltä ja järjestä ne "
+"Poista ylläpitoilmoitukset WordPressin ylläpito-ikkunasta ja järjestä ne "
 "yhteen alueeseen."
 
 #: includes/features/restrict-admin-features.php:199
 msgid "Remove Admin Toolbar"
-msgstr "Poista ylläpitäjän työkalupalkki"
+msgstr "Poista ylläpitotyökalu"
 
 #: includes/features/admin-styles/admin-styles-ui.php:541
 msgid "Replace \"Howdy\""
@@ -1906,23 +1903,23 @@ msgstr "Korvaa \"Howdy\""
 
 #: includes/features/admin-styles/admin-styles-ui.php:544
 msgid "Replace \"Howdy\" in the admin bar."
-msgstr "Korvaa \"Howdy\" ylläpitäjän palkissa."
+msgstr "Korvaa \"Howdy\" ylläpitopalkissa."
 
 #: includes/features/admin-styles/admin-styles-ui.php:625
 msgid "Replace \"Howdy\" text"
-msgstr "Korvaa \"Howdy\" teksti"
+msgstr "Korvaa \"Howdy\" -teksti"
 
 #: includes/features/admin-styles/admin-styles-ui.php:527
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
 msgstr ""
-"Korvaa oletusviesti \"Kiitos WordPressin käytöstä\" ylläpitäjän "
-"alatunnisteessa."
+"Korvaa oletusviesti \"Kiitos WordPressin käytöstä\" ylläpitopalkin "
+"alareunassa."
 
 #: includes/features/admin-styles/admin-styles-ui.php:623
 msgid "Replace the WordPress logo and favicon"
-msgstr "Korvaa WordPressin logo ja favicon"
+msgstr "Korvaa WordPress-logo ja favicon"
 
 #: includes/functions.php:714
 msgid "Request Support"
@@ -1934,11 +1931,11 @@ msgstr "Nollaa roolit"
 
 #: includes/backup.php:291
 msgid "Reset Roles and Capabilities to WordPress defaults"
-msgstr "Nollaa roolit ja käyttöoikeudet WordPressin oletusasetuksiin"
+msgstr "Nollaa roolit ja käyttöoikeudet WordPressin oletusarvoihin"
 
 #: includes/backup.php:293
 msgid "Reset to WordPress defaults"
-msgstr "Nollaa WordPressin oletusasetuksiin"
+msgstr "Nollaa WordPressin oletusarvoihin"
 
 #: includes/backup.php:283
 msgid "Reset WordPress Defaults"
@@ -1949,8 +1946,8 @@ msgid ""
 "Reseting default Roles and Capabilities will set them to the WordPress "
 "install defaults."
 msgstr ""
-"Oletusroolien ja -käyttöoikeuksien nollaaminen asettaa ne WordPressin "
-"asennuksen oletusasetuksiin."
+"Oletusroolien ja käyttöoikeuksien nollaaminen palauttaa ne WordPressin "
+"asennuksen oletusarvoihin."
 
 #: includes/backup.php:50
 msgid "Restore"
@@ -1959,11 +1956,11 @@ msgstr "Palauta"
 #: includes/backup-handler.php:92 includes/backup-handler.php:121
 #: includes/backup-handler.php:130
 msgid "Restore failed. No backup found."
-msgstr "Palautus epäonnistui. Varmuuskopiota ei löytynyt."
+msgstr "Palautus epäonnistui. Varastoja ei löytynyt."
 
 #: includes/backup.php:88
 msgid "Restore Previous Roles and Capabilities"
-msgstr "Palauta aiemmat roolit ja käyttöoikeudet"
+msgstr "Palauta edelliset roolit ja käyttöoikeudet"
 
 #: includes/backup.php:148
 msgid "Restore Selected Roles"
@@ -1991,9 +1988,9 @@ msgid ""
 "for Post Author assignment and limits the application of user editing "
 "capabilities."
 msgstr ""
-"Roolin taso on pääasiassa vanhentunut. Se määrittää kuitenkin edelleen "
-"kelpoisuuden Post Author -määritykselle ja rajoittaa käyttäjän "
-"muokkauskykyjen soveltamista."
+"Roolin taso on pääasiassa poistettu käytöstä. Se määrittää kuitenkin "
+"edelleen kelpoisuuden Postitusautomaation asignointiin ja rajoittaa "
+"käyttäjän muokkauskykyjen soveltamista."
 
 #: includes/manager.php:513 includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:170
@@ -2020,8 +2017,8 @@ msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
 msgstr ""
-"Roolit antavat sinun luoda, muokata ja poistaa kaikki käyttäjäroolit "
-"sivustollasi."
+"Roolit mahdollistavat kaikkien käyttäjäroolien luomisen, muokkaamisen ja "
+"poistamisen sivustollasi."
 
 #: includes/backup.php:308
 msgid "Roles and Capabilities"
@@ -2059,12 +2056,12 @@ msgstr "Tallenna muokkaus"
 #: includes/features/admin-styles/admin-styles-ui.php:605
 #, php-format
 msgid "Save for %s"
-msgstr "Tallenna %s:lle"
+msgstr "Tallenna %s varten"
 
 #: includes/features/editor-features.php:115
 #: includes/features/editor-features.php:220
 msgid "Save for all Post Types"
-msgstr "Tallenna kaikille postityypeille"
+msgstr "Tallenna kaikille Postityypeille"
 
 #: includes/features/admin-styles/admin-styles-ui.php:135
 #: includes/features/admin-styles/admin-styles-ui.php:601
@@ -2085,20 +2082,20 @@ msgstr "Etsi rooleja"
 
 #: includes/test-user-ui.php:52
 msgid "Search user..."
-msgstr "Etsi käyttäjä..."
+msgstr "Etsi käyttäjää..."
 
 #: includes/admin-load.php:652
 msgid "Security check failed"
-msgstr "Turvatarkastus epäonnistui"
+msgstr "Turvatarkistus epäonnistui"
 
 #: includes/features/admin-styles/admin-styles.php:454
 msgid "Security check failed."
-msgstr "Turvatarkastus epäonnistui."
+msgstr "Turvatarkistus epäonnistui."
 
 #: includes/pp-ui.php:62
 #, php-format
 msgid "see %1$sRole Usage%2$s: \"Pattern Roles\""
-msgstr "katso %1$sRoolin käyttö%2$s: \"Kaavamaiset roolit\""
+msgstr "katso %1$sRooleja käytössä%2$s: \"Mallin roolit\""
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:90
 #, php-format
@@ -2113,7 +2110,7 @@ msgstr "Valitse %s"
 #: includes/roles/class/class-pp-roles-admin.php:361
 #. "Editor" means post editor like Gutenberg
 msgid "Select allowed editor"
-msgstr "Valitse sallittu muokkaaja"
+msgstr "Valitse sallittu editori"
 
 #: includes/features/admin-styles/admin-styles-ui.php:474
 msgid "Select Image"
@@ -2138,14 +2135,14 @@ msgstr "Valitse roolit..."
 #: includes/roles/class/class-pp-roles-admin.php:262
 #. "Editor" means post editor like Gutenberg
 msgid "Select the allowed editor options for users in this role."
-msgstr "Valitse sallitut muokkausvaihtoehdot käyttäjille tässä roolissa."
+msgstr "Valitse sallitut editorivaihtoehdot käyttäjille tässä roolissa."
 
 #: includes/settings-ui.php:398
 msgid ""
 "Select the notification types that should be displayed in the Admin Notices "
 "area after been removed from the WordPress admin screens."
 msgstr ""
-"Valitse ilmoitustyypit, jotka tulisi näyttää Admin Notices -alueella sen "
+"Valitse ilmoitustyypit, jotka tulisi näyttää hallintohälytyksissä sen "
 "jälkeen, kun ne on poistettu WordPressin hallintanäkymistä."
 
 #: includes/settings-ui.php:376
@@ -2154,8 +2151,8 @@ msgid ""
 "Select the notification types that should be hidden when a user in the %1s "
 "role is viewing WordPress admin screens."
 msgstr ""
-"Valitse ilmoitustyypit, jotka tulisi piilottaa, kun %1s-roolissa oleva "
-"käyttäjä tarkastelee WordPressin hallintanäkymiä."
+"Valitse ilmoitustyypit, jotka tulisi piilottaa, kun %1s-roolin käyttäjä "
+"tarkastelee WordPressin hallintanäkymiä."
 
 #: includes/features/frontend-features/frontend-features-action.php:136
 msgid "Selected item deleted successfully"
@@ -2167,19 +2164,19 @@ msgstr "Valitut sivut"
 
 #: includes/features/frontend-features/frontend-features-ui.php:99
 msgid "Separate multiple values with a space (custom-style-one custom-style-two)."
-msgstr "Erottele useat arvot välilyönnillä (custom-style-one custom-style-two)."
+msgstr "Erota useat arvot välilyönnillä (custom-style-one custom-style-two)."
 
 #: includes/settings-ui.php:88
 msgid "Set login redirect cookie"
-msgstr "Aseta kirjautumisen uudelleenohjaus eväste"
+msgstr "Aseta kirjautumisohjaus eväste"
 
 #: includes/features/admin-styles/admin-styles-ui.php:172
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
 msgstr ""
-"Asettaa ylläpitäjän värimaailman kaikille käyttäjille. Napsauta "
-"värimaailmaa esikatsoaksesi sen heti."
+"Asettaa ylläpitäjän väriteeman kaikille käyttäjille. Napsauta teemaa "
+"nähdäksesi sen esikatselun heti."
 
 #: includes/features/admin-styles/admin-styles-ui.php:157
 msgid "Setting"
@@ -2207,12 +2204,12 @@ msgid ""
 "Show all post types on the \"Editor Features\" screen, even ones normally "
 "hidden in the WordPress admin area."
 msgstr ""
-"Näytä kaikki viestityypit \"Muokkausominaisuudet\" -näytöllä, myös ne, "
-"jotka normaalisti piilotetaan WordPressin ylläpitoalueella."
+"Näytä kaikki viestityypit \"Muokkausominaisuudet\" -näytössä, myös ne, "
+"jotka normaalisti ovat piilossa WordPressin ylläpitokäyttöliittymässä."
 
 #: includes/backup.php:157
 msgid "Show changes from current roles only"
-msgstr "Näytä vain muutokset nykyisistä rooleista"
+msgstr "Näytä vain nykyisten roolien muutokset"
 
 #: includes/features/editor-features.php:135
 msgid "show Classic Editor controls"
@@ -2228,11 +2225,11 @@ msgstr "Näytä yksityiset taksonomiat"
 
 #: includes/admin-notices/admin-notices.php:73
 msgid "Silence this notice"
-msgstr "Vaimenta tämä ilmoitus"
+msgstr "Vaienna tämä ilmoitus"
 
 #: includes/admin-notices/admin-notices.php:208
 msgid "Silenced Notices"
-msgstr "Vaimentuneet ilmoitukset"
+msgstr "Vaiennetut ilmoitukset"
 
 #: includes/features/frontend-features/frontend-features-data.php:38
 msgid "Site Dark Mode"
@@ -2240,7 +2237,7 @@ msgstr "Sivuston tumma tila"
 
 #: includes/features/frontend-features/frontend-features-data.php:54
 msgid "Site Light Mode"
-msgstr "Sivuston vaalean tila"
+msgstr "Sivuston vaalea tila"
 
 #: includes/features/restrict-editor-features.php:59, fuzzy
 msgid "Slug"
@@ -2252,15 +2249,15 @@ msgstr "Slug on jo olemassa"
 
 #: includes/functions.php:939
 msgid "Social Links"
-msgstr "Sosiaaliset linkit"
+msgstr "Sosiaalisten linkkien"
 
 #: includes/roles/class/class-pp-roles-actions.php:250
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
 msgstr ""
-"Jotain meni pieleen, järjestelmä ei pystynyt luomaan roolia, virkistä sivu "
-"ja yritä uudelleen."
+"Jotain meni vikaan, järjestelmä ei pystynyt luomaan roolia, päivitä sivu ja "
+"yritä uudelleen."
 
 #: includes/features/restrict-editor-features.php:422
 msgid "Status & visibility"
@@ -2290,7 +2287,8 @@ msgstr "Synkronoi rooli kaikille sivustoille."
 #, php-format
 msgid "System %s"
 msgid_plural "System %s"
-msgstr[0] "Järjestelmä %s|Järjestelmä %s"
+msgstr[0] "Järjestelmä %s"
+msgstr[1] "Järjestelmä %s"
 
 #: includes/admin.php:274
 msgid "Taxonomies"
@@ -2311,7 +2309,7 @@ msgstr "TaxoPress - Asetukset"
 #: includes/admin.php:677
 #, php-format
 msgid "Term %s Capabilities"
-msgstr "Termi %s Oikeudet"
+msgstr "Termi %s Ominaisuudet"
 
 #: includes/test-user-ui.php:210
 msgid "Test this user"
@@ -2326,13 +2324,13 @@ msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
 msgstr ""
-"Testaa sivustoasi kirjautumalla heti toisena käyttäjänä. Saatavilla olevat "
+"Testaa sivustoasi kirjautumalla heti toisen käyttäjänä. Saatavilla olevat "
 "tilit sisältävät kaikki, joita nykyinen käyttäjä voi muokata."
 
 #: includes/test-user-ui.php:316
 #, php-format
 msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
-msgstr "Testaus käyttäjänä: %1$s. %2$sPalaa ylläpitäjän näkymään%3$s"
+msgstr "Testaaminen käyttäjänä: %1$s. %2$sPalaa ylläpitäjänäkymään%3$s"
 
 #: includes/test-user-ui.php:255
 msgid "Testing: "
@@ -2357,7 +2355,7 @@ msgstr ""
 #: includes/features/profile-features.php:241
 #, php-format
 msgid "The %s role is not enabled for editing. The Find button is disabled."
-msgstr "Roolia %s ei ole aktivoitu muokattavaksi. Etsi-painike on pois käytöstä."
+msgstr "%s-rouli ei ole käytettävissä muokkaukseen. Etsi-painike on pois käytöstä."
 
 #: includes/settings-ui.php:302
 msgid ""
@@ -2366,16 +2364,16 @@ msgid ""
 "not remove any messages that appear when you perform an action."
 msgstr ""
 "Ominaisuus yrittää siivota WordPressin hallinta-aluetta järjestämällä "
-"ylimääräiset viestit ja mainokset Hallinta-ilmoitukset-alueeseen. Tämä ei "
-"poista mitään viestejä, jotka näkyvät toiminnon suorittamisen yhteydessä."
+"ylimääräiset viestit ja mainokset Hallinta-ilmoitusalueelle. Tämä ei poista "
+"mitään viestejä, jotka ilmestyvät, kun suoritat toiminnon."
 
 #: includes/admin.php:1400
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
 msgstr ""
-"Seuraavilla merkinnöillä ei ole vaikutusta. Ole hyvä ja määritä halutut "
-"käyttöoikeudet Muokkaus / Poisto / Yksityiset -välilehdillä."
+"Seuraavilla merkinnöillä ei ole vaikutusta. Määritä halutut oikeudet "
+"Muokkaus / Poisto / Yksityiset -välilehdillä."
 
 #: includes/roles/class/class-pp-roles-actions.php:340
 #, php-format
@@ -2385,7 +2383,7 @@ msgstr "Uusi rooli %s luotiin onnistuneesti."
 #: includes/roles/class/class-pp-roles-actions.php:223
 #, php-format
 msgid "The role \"%s\" already exists. Please choose a different name."
-msgstr "Rooli \"%s\" on jo olemassa. Ole hyvä ja valitse eri nimi."
+msgstr "Rooli \"%s\" on jo olemassa. Valitse toinen nimi."
 
 #: includes/roles/class/class-pp-roles-actions.php:570
 #, php-format
@@ -2400,7 +2398,7 @@ msgstr "Rooli %1$s piilotettiin onnistuneesti."
 #: includes/roles/class/class-pp-roles-actions.php:712
 #, php-format
 msgid "The role %1$s was successfully unhidden."
-msgstr "Rooli %1$s tuotiin onnistuneesti takaisin näkyviin."
+msgstr "Rooli %1$s tuotiin onnistuneesti näkyviin."
 
 #: includes/roles/class/class-pp-roles-actions.php:598
 msgid "The role could not be deleted."
@@ -2418,7 +2416,7 @@ msgstr "Valittua roolia ei voi muokata."
 #: includes/admin.php:813 includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
-msgstr "Tämän postityypin slug on %s"
+msgstr "Tämän viestityypin slug on %s"
 
 #: includes/admin.php:811 includes/pp-ui.php:263 includes/pp-ui.php:342
 #, php-format
@@ -2428,7 +2426,7 @@ msgstr "Tämän taksonomian slug on %s"
 #: includes/admin.php:1322
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
-msgstr "Käyttäjätestaus-ominaisuus vaatii myös %1$s edit_users %2$s -käyttöoikeuden."
+msgstr "Käyttäjätestausominaisuus vaatii myös %1$s edit_users %2$s -oikeuden."
 
 #: includes/admin-notices/admin-notices.php:218
 msgid "There are currently no admin notices."
@@ -2439,21 +2437,21 @@ msgid ""
 "There are no frontend menu links. To control access to navigation menus, "
 "please add menu links."
 msgstr ""
-"Etusivun valikkolinkkejä ei ole. Ohjataksesi pääsyä navigointivalikkoihin, "
-"lisää valikkolinkkejä."
+"Etuosassa ei ole valikkolinkkejä. Hallitaksesi pääsyä "
+"navigointivalikkoihin, lisää valikkolinkkejä."
 
 #: includes/features/profile-features.php:142
 msgid ""
 "There are no users in this role. Please select a role that has users and is "
 "able to access the \"Profile\" screen."
 msgstr ""
-"Tässä roolissa ei ole käyttäjiä. Ole hyvä ja valitse rooli, jossa on "
-"käyttäjiä ja joka voi käyttää \"Profiili\" -näyttöä."
+"Tässä roolissa ei ole käyttäjiä. Valitse rooli, jossa on käyttäjiä ja joka "
+"voi käyttää \"Profiili\" -näyttöä."
 
 #: includes/roles/class/class-pp-roles-admin.php:652
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
-msgstr "Nämä voidaan muokata %1s Käyttöoikeudet-näytöllä %2s"
+msgstr "Nämä voidaan muokata %1s Oikeudet-näytöllä %2s"
 
 #: includes/settings-ui.php:61
 msgid "This allows you to assign a new user to multiples roles."
@@ -2469,12 +2467,12 @@ msgstr ""
 #: includes/admin.php:1443 includes/admin.php:1587
 #, php-format
 msgid "This capability is %s"
-msgstr "Tämä käyttöoikeus on %s"
+msgstr "Tämä oikeus on %s"
 
 #: includes/admin.php:922
 #, php-format
 msgid "This capability is controlled by %s"
-msgstr "Tätä toimintoa ohjaa %s"
+msgstr "Tätä toimintoa hallitsee %s"
 
 #: includes/admin.php:925
 #, php-format
@@ -2482,26 +2480,26 @@ msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
 "to be controlled independently."
 msgstr ""
-"Tätä toimintoa ohjaa %s Käytä sivupaneelin asetuksia tämän hallitsemiseksi "
-"itsenäisesti."
+"Tätä toimintoa hallitsee %s Käytä sivupalkin asetuksia, jotta tätä voidaan "
+"hallita itsenäisesti."
 
 #: includes/manager.php:238
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr ""
-"Tämä toiminto on nimenomaisesti kumottu. Napsauta lisätäksesi/poistaaksesi "
+"Tämä toiminto on nimenomaisesti kumottu. Klikkaa lisätäksesi/poistaaksesi "
 "normaalisti."
 
 #: includes/admin.php:944 includes/admin.php:948
 msgid "This capability is not available for this post type."
-msgstr "Tämä toiminto ei ole saatavilla tälle viestityypille."
+msgstr "Tätä toimintoa ei ole saatavilla tälle julkaisutyyppille."
 
 #: includes/features/frontend-features/frontend-features-ui.php:42
 msgid ""
 "This feature allows you to modify the site frontend by hiding IDs or "
 "classes, adding CSS styles, or adding body classes."
 msgstr ""
-"Tämä ominaisuus mahdollistaa sivuston etuosan muokkaamisen piilottamalla "
-"ID:itä tai luokkia, lisäämällä CSS-tyylejä tai lisäämällä kehon luokkia."
+"Tämä ominaisuus mahdollistaa sivuston etusivun muokkaamisen piilottamalla "
+"ID:t tai luokat, lisäämällä CSS-tyylejä tai lisäämällä body-luokkia."
 
 #: includes/features/frontend-features/frontend-features-ui.php:125
 msgid "This feature will be added to all pages."
@@ -2510,7 +2508,7 @@ msgstr "Tämä ominaisuus lisätään kaikille sivuille."
 #: includes/features/profile-features.php:242
 #, php-format
 msgid "This feature will test the \"Profile\" screen as a user in the %s role."
-msgstr "Tämä ominaisuus testaa \"Profiili\" -näyttöä käyttäjänä roolissa %s."
+msgstr "Tämä ominaisuus testaa \"Profiili\" -näyttöä %s-roolissa olevan käyttäjänä."
 
 #: includes/admin-load.php:769
 msgid "This menu is restricted for the following roles"
@@ -2521,7 +2519,7 @@ msgid ""
 "This notice will be moved to the \"Silenced Notices\" tab and you will not "
 "receive a notification if it appears again."
 msgstr ""
-"Tämä ilmoitus siirretään \"Vaiennetut ilmoitukset\" -välilehteen, etkä saa "
+"Tämä ilmoitus siirretään \"Vaiennetut ilmoitukset\" -välilehteen, ja et saa "
 "ilmoitusta, jos se ilmestyy uudelleen."
 
 #: capsman-enhanced.php:109
@@ -2530,15 +2528,15 @@ msgstr "Tämä liitännäinen voidaan poistaa."
 
 #: includes/features/restrict-profile-features.php:45
 msgid "This role is not enabled for profile feature editing."
-msgstr "Tätä roolia ei ole aktivoitu profiilin ominaisuuden muokkaamiseen."
+msgstr "Tätä roolia ei ole otettu käyttöön profiiliominaisuuden muokkaamiseen."
 
 #: includes-core/frontend-features-promo.php:44
 msgid ""
 "This will add a metabox on the post editing screen. You can use this "
 "feature to add body classes only for that post."
 msgstr ""
-"Tämä lisää metalaatikon viestin muokkausnäyttöön. Voit käyttää tätä "
-"ominaisuutta lisätäksesi kehon luokkia vain kyseiselle viestille."
+"Tämä lisää metalaatikon julkaisun muokkausnäyttöön. Voit käyttää tätä "
+"ominaisuutta lisätäksesi body-luokkia vain tälle julkaisulle."
 
 #: includes/pp-ui.php:192
 msgid ""
@@ -2546,9 +2544,9 @@ msgid ""
 "enable a checkbox column here for role assignments. Normally, post creation "
 "is controlled by the \"Edit\" capability."
 msgstr ""
-"Tämä aiheuttaa sen, että viestien luomiseen tarvitaan uusi toiminto, ja "
-"mahdollistaa valintaruudun sarakkeen täällä roolien määrittämistä varten. "
-"Yleensä viestien luontia ohjataan \"Muokkaa\" -toiminnolla."
+"Tämä vaatii uuden toiminnon julkaisujen luomiseen ja mahdollistaa "
+"valintaruudun sarakkeen täällä roolituksille. Normaalisti julkaisun "
+"luomista hallitsee \"Muokkaa\" -toiminto."
 
 #: includes/features/frontend-features/frontend-features-ui.php:59
 msgid "This will only show here in the WordPress admin area."
@@ -2559,16 +2557,16 @@ msgid ""
 "This will show all post types on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
 msgstr ""
-"Tämä näyttää kaikki viestityypit \"Toiminnot\" -näytöllä, jopa ne, jotka "
-"ovat normaalisti piilotettuina WordPressin hallinta-alueella."
+"Tämä näyttää kaikki julkaisutyypit \"Toiminnot\" -näytössä, jopa ne, jotka "
+"normaalisti ovat piilossa WordPressin hallinta-alueella."
 
 #: includes/settings-ui.php:130
 msgid ""
 "This will show all taxonomies on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
 msgstr ""
-"Tämä näyttää kaikki taksonomiat \"Toiminnot\" -näytöllä, jopa ne, jotka "
-"ovat normaalisti piilotettuina WordPressin hallinta-alueella."
+"Tämä näyttää kaikki taksonomiat \"Toiminnot\" -näytössä, jopa ne, jotka "
+"normaalisti ovat piilossa WordPressin hallinta-alueella."
 
 #: includes/features/frontend-features/frontend-features-ui.php:53
 msgid "Title:"
@@ -2579,15 +2577,15 @@ msgstr "Otsikko:"
 #: includes/features/profile-features.php:106
 #: includes/features/profile-features.php:125
 msgid "Toggle all"
-msgstr "Kytke kaikki"
+msgstr "Vaihda kaikki"
 
 #: includes/features/restrict-editor-features.php:382
 msgid "Top Bar - Left"
-msgstr "Yläosa - Vasemmalle"
+msgstr "Ylälaita - Vasemmalla"
 
 #: includes/features/restrict-editor-features.php:393
 msgid "Top Bar - Right"
-msgstr "Yläosa - Oikealle"
+msgstr "Ylälaita - Oikealla"
 
 #: includes/features/restrict-editor-features.php:40
 msgid "Top Tabs"
@@ -2595,7 +2593,7 @@ msgstr "Ylätunnisteet"
 
 #: includes/handler.php:124
 msgid "Type / Taxonomy settings saved."
-msgstr "Tyyppi / Taksonomiaasetukset tallennettu."
+msgstr "Tyyppi / Taksonomia asetukset tallennettu."
 
 #: includes/features/restrict-editor-features.php:485
 msgid "Typography"
@@ -2618,11 +2616,11 @@ msgstr "Näytä"
 
 #: includes/pp-ui.php:108
 msgid "Unique Post Type Capabilities"
-msgstr "Ainutlaatuiset viestityypin kyvyt"
+msgstr "Uniikit postityyppien mahdollisuudet"
 
 #: includes/pp-ui.php:221
 msgid "Unique Taxonomy Capabilities"
-msgstr "Ainutlaatuiset taksonomian kyvyt"
+msgstr "Uniikit taksonomian mahdollisuudet"
 
 #: includes/pp-ui.php:200 includes/pp-ui.php:286 includes/pp-ui.php:365
 msgid "Update"
@@ -2641,24 +2639,24 @@ msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
 msgstr ""
-"Lataa mukautettu favicon hallinta-alueelle. Suositus: 16px x 16px tai 32px "
-"x 32px SVG- tai PNG-muodossa."
+"Lataa mukautettu favicon ylläpitoalueelle. Suositus: 16px x 16px tai 32px x "
+"32px SVG- tai PNG-muodossa."
 
 #: includes/features/admin-styles/admin-styles-ui.php:457
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
 msgstr ""
-"Lataa mukautettu logo, joka korvataan WordPress-ikonin hallintapalkissa. "
+"Lataa mukautettu logo vaihtaaksesi WordPress-ikonin ylläpitopalkissa. "
 "Suositus: 20px x 20px SVG- tai PNG-muodossa."
 
 #: includes/features/admin-features.php:251
 msgid "URL targeted"
-msgstr "URL-osoite kohdistettu"
+msgstr "URL kohdistettu"
 
 #: includes/features/admin-features.php:253
 msgid "URL wildcard"
-msgstr "URL-osoite jokeri"
+msgstr "URL jokeri"
 
 #: includes/admin.php:1676 includes/admin.php:1677 includes/admin.php:1678
 #: includes/features/admin-features.php:346
@@ -2679,21 +2677,21 @@ msgid ""
 "useful when login redirect is not working correctly due to wp_get_referer() "
 "limitation."
 msgstr ""
-"Käytä evästeitä määrittämään sivut, joita käyttäjät olivat katsomassa ennen "
-"kirjautumista. Tämä on hyödyllinen, kun kirjautumisohjaus ei toimi oikein "
-"wp_get_referer() -rajoituksen vuoksi."
+"Käytä evästeitä määrittämään sivut, joita käyttäjät tarkastelivat ennen "
+"kirjautumista. Tämä on hyödyllistä, kun kirjautumisen uudelleenohjaus ei "
+"toimi oikein wp_get_referer() -rajoituksen vuoksi."
 
 #: includes/pp-ui.php:191
 msgid "Use the \"Create\" capability for selected post types"
-msgstr "Käytä \"Luo\" -kykyä valituille viestityypeille"
+msgstr "Käytä \"Luo\" -oikeutta valituille postityypeille"
 
 #: includes/admin.php:942
 msgid "Use the sidebar settings to allow this to be controlled independently."
-msgstr "Käytä sivupalkin asetuksia tämän hallitsemiseksi itsenäisesti."
+msgstr "Käytä sivupalkin asetuksia tämän itsenäiseen hallintaan sallimiseksi."
 
 #: includes/features/restrict-admin-features.php:97
 msgid "User actions"
-msgstr "Käyttäjän toimet"
+msgstr "Käyttäjätoiminnot"
 
 #: includes/features/restrict-admin-features.php:100
 msgid "User Display Name"
@@ -2746,7 +2744,7 @@ msgstr ""
 
 #: includes/features/restrict-admin-features.php:165
 msgid "Welcome panel"
-msgstr "Tervetulopaneeli"
+msgstr "Tervetuloa-paneeli"
 
 #: includes/features/admin-styles/admin-styles-ui.php:580
 msgid ""
@@ -2754,31 +2752,32 @@ msgid ""
 "selection even if the color scheme UI is visible to them."
 msgstr ""
 "Kun tämä on käytössä, rooliasetukset soveltuvat aina, ohittaen käyttäjän "
-"tekemät valinnat, vaikka värimaailman käyttöliittymä olisi heille näkyvissä."
+"valinnan, vaikka väriteeman käyttöliittymä olisi heille näkyvissä."
 
 #: includes/features/admin-styles/admin-styles-ui.php:570
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
 msgstr ""
-"Kun tämä on käytössä, käyttäjät eivät voi nähdä tai muuttaa värimaailman "
-"asetuksia profiilissaan. Rooliperustaisia asetuksia sovelletaan."
+"Kun tämä on käytössä, käyttäjät eivät voi nähdä tai muuttaa "
+"väriteemasetuksia profiilissaan. Roolikohtaisia asetuksia sovelletaan."
 
 #: includes/settings-ui.php:191
 msgid "When testing, display a caption and return link in the Admin Bar."
-msgstr "Testauksen aikana näytä kuvateksti ja paluulinkki Hallintopalkissa."
+msgstr "Testattaessa, näytä otsikko ja paluulinkki hallintapalkissa."
 
 #: includes/settings-ui.php:223
 msgid "When testing, display a return link in the front end footer."
-msgstr "Testauksen aikana näytä paluulinkki etusivun alatunnisteessa."
+msgstr "Testattaessa, näytä paluulinkki etusivun alatunnisteessa."
 
 #: includes/admin.php:1758
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
 msgstr ""
-"Kun käytät PublishPress-kykyjä tallentaaksesi muutoksia, se luo myös "
-"varmuuskopion, jota voit käyttää aiemman kokoonpanon palauttamiseen."
+"Kun käytät PublishPress Capabilities -lisäosaa tallentaaksesi muutoksia, se "
+"luo myös varmuuskopion, jota voit käyttää aiemman kokoonpanon "
+"palauttamiseen."
 
 #: includes/features/frontend-features/frontend-features-ui.php:116
 msgid "Whole Site"
@@ -2794,7 +2793,7 @@ msgstr "WooCommerce"
 
 #: includes/features/restrict-editor-features.php:72
 msgid "Word count"
-msgstr "Sanojen määrä"
+msgstr "Sanan määrä"
 
 #: includes/roles/class/class-pp-roles-list-table.php:396, fuzzy
 msgid "WordPress Core"
@@ -2817,12 +2816,12 @@ msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
 msgstr ""
-"WordPress tallentaa roolien käyttöoikeudet tietokantaasi, missä ne pysyvät "
-"vaikka laajennus olisi deaktivoitu."
+"WordPress tallentaa roolin kyvyt tietokantaasi, missä ne pysyvät, vaikka "
+"liitännäinen on poistettu käytöstä."
 
 #: includes/admin.php:1895
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
-msgstr "WPML-integraatio oikeuksien peilaamiseen käännöksiin <em>(Pro)</em>"
+msgstr "WPML-integraatio peilaa oikeuksia käännöksiin <em>(Pro)</em>"
 
 #: includes/features/restrict-admin-features.php:101, fuzzy
 msgid "Yoast SEO"
@@ -2833,17 +2832,17 @@ msgid ""
 "You are about to reset Roles and Capabilities to WordPress defaults.\n"
 " 'Cancel' to stop, 'OK' to reset."
 msgstr ""
-"Olet nollaamassa roolit ja käyttöoikeudet WordPressin oletusarvoihin. "
-"'Peruuta' keskeyttää, 'OK' nollaa."
+"Olet vähentämässä rooleja ja kykyjä WordPressin oletusasetuksiin.\n"
+" 'Peruuta' lopettaaksesi, 'OK' nollataksesi."
 
 #: includes/features/frontend-features/frontend-features-ui.php:100
 msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
-msgstr "Voit lisätä CSS-luokkasi napsauttamalla \"Lisää Mukautettu CSS\"."
+msgstr "Voit lisätä CSS:n luokillesi napsauttamalla \"Lisää mukautettu CSS\"."
 
 #: includes/admin.php:1686
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
-msgstr "Voit myös määrittää tämän roolin %sKäyttöoikeusryhmä%s."
+msgstr "Voit myös konfiguroida tämän roolin %sOikeusryhmä%s:ksi."
 
 #: includes-core/admin-features-promo.php:74
 msgid ""
@@ -2851,7 +2850,7 @@ msgid ""
 "or ID. This feature is available in PublishPress Capabilities Pro."
 msgstr ""
 "Voit estää sivuja URL-osoitteen perusteella tai piilottaa "
-"hallintoelementtejä syöttämällä CSS-luokan tai ID:n. Tämä ominaisuus on "
+"hallintaelementtejä syöttämällä CSS-luokan tai ID:n. Tämä ominaisuus on "
 "saatavilla PublishPress Capabilities Pro:ssa."
 
 #: includes-core/editor-features-promo.php:74
@@ -2860,7 +2859,7 @@ msgid ""
 "their CSS class or ID. This feature is available in PublishPress "
 "Capabilities Pro."
 msgstr ""
-"Voit piilottaa laajennuksen metalaatikot. Voit myös piilottaa tiettyjä "
+"Voit piilottaa liitännäisen metaruutuja. Voit myös piilottaa tiettyjä "
 "kohteita syöttämällä niiden CSS-luokan tai ID:n. Tämä ominaisuus on "
 "saatavilla PublishPress Capabilities Pro:ssa."
 
@@ -2871,50 +2870,50 @@ msgid ""
 "available in PublishPress Capabilities Pro."
 msgstr ""
 "Voit rajoittaa pääsyä hallintovalikon näyttöihin. Voit myös muokata, "
-"vaihtaa, lisätä tai poistaa linkkejä WordPressin hallintovalikosta. Tämä "
+"muuttaa, lisätä tai poistaa linkkejä WordPressin hallintovalikosta. Tämä "
 "ominaisuus on saatavilla PublishPress Capabilities Pro:ssa."
 
 #: includes-core/CoreAdmin.php:163
 msgid "You can select page types where this element will be added."
-msgstr "Voit valita sivutyyppiä, johon tämä elementti lisätään."
+msgstr "Voit valita sivutyypit, joihin tämä elementti lisätään."
 
 #: includes-core/frontend-features-promo.php:25
 msgid ""
 "You can use Frontend Features to target specific posts and pages. This "
 "feature is available in PublishPress Capabilities Pro."
 msgstr ""
-"Voit käyttää Etusivun Ominaisuuksia kohdistamaan erityisiin viesteihin ja "
-"sivuihin. Tämä ominaisuus on saatavilla PublishPress Capabilities Pro:ssa."
+"Voit käyttää Frontend-ominaisuuksia kohdentamaan tiettyjä julkaisuja ja "
+"sivuja. Tämä ominaisuus on saatavilla PublishPress Capabilities Pro:ssa."
 
 #: includes/handler.php:250
 msgid "You cannot remove Manage Capabilities from Administrators"
-msgstr "Et voi poistaa Hallitse Käyttöoikeuksia järjestelmänvalvojilta."
+msgstr "Et voi poistaa Kykyjen hallintaa pääkäyttäjiltä"
 
 #: includes/functions.php:642
 msgid "You do not have permission to access this page."
-msgstr "Sinulla ei ole oikeuksia päästä tälle sivulle."
+msgstr "Sinulla ei ole lupaa käyttää tätä sivua."
 
 #: includes/manager.php:640 includes/manager.php:662 includes/manager.php:772
 #: includes/manager.php:823 includes/manager.php:987
 msgid "You do not have permission to manage admin features."
-msgstr "Sinulla ei ole oikeuksia hallita hallintotoimintoja."
+msgstr "Sinulla ei ole lupaa hallita hallintotoimintoja."
 
 #: includes/admin-notices/admin-notices.php:241
 msgid "You do not have permission to manage admin notices."
-msgstr "Sinulla ei ole oikeuksia hallita hallintaviestejä."
+msgstr "Sinulla ei ole lupaa hallita hallintailmoituksia."
 
 #: includes/manager.php:741 includes/features/admin-styles/admin-styles.php:459
 msgid "You do not have permission to manage admin styles."
-msgstr "Sinulla ei ole oikeuksia hallita hallintatyylejä."
+msgstr "Sinulla ei ole lupaa hallita hallintatyylejä."
 
 #: includes/manager.php:1079 includes/manager.php:1113
 #: includes/manager.php:1131
 msgid "You do not have permission to manage capabilities."
-msgstr "Sinulla ei ole oikeuksia hallita käyttöoikeuksia."
+msgstr "Sinulla ei ole lupaa hallita kykyjä."
 
 #: includes/manager.php:567 includes/manager.php:589
 msgid "You do not have permission to manage editor features."
-msgstr "Sinulla ei ole oikeuksia hallita editorin toimintoja."
+msgstr "Sinulla ei ole lupaa hallita editorin toimintoja."
 
 #: includes/manager.php:693 includes/manager.php:715
 #: includes/features/frontend-features/frontend-features-action.php:54
@@ -2924,11 +2923,11 @@ msgstr "Sinulla ei ole oikeuksia hallita etupään ominaisuuksia."
 
 #: includes/manager.php:794
 msgid "You do not have permission to manage navigation menus."
-msgstr "Sinulla ei ole oikeuksia hallita navigointivalikkoja."
+msgstr "Sinulla ei ole oikeuksia hallita navigointivalikoita."
 
 #: includes/manager.php:845
 msgid "You do not have permission to manage profile features."
-msgstr "Sinulla ei ole oikeuksia hallita profiiliominaisuuksia."
+msgstr "Sinulla ei ole oikeuksia hallita profiilin ominaisuuksia."
 
 #: includes/manager.php:905
 msgid "You do not have permission to manage redirect."
@@ -2956,7 +2955,7 @@ msgstr "Sinulla ei ole riittäviä oikeuksia suorittaa tätä toimintoa."
 
 #: includes/admin.php:1651
 msgid "You have no additional capabilities."
-msgstr "Sinulla ei ole lisäominaisuuksia."
+msgstr "Sinulla ei ole lisämahdollisuuksia."
 
 #: includes/redirects/redirects.php:243
 msgid "You must enter the Login Redirect URL."
