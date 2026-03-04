@@ -18,7 +18,10 @@
   "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
-    "php": ">=7.2.5",
+    "php": ">=7.2.5"
+  },
+  "require-dev": {
+    "overtrue/phplint": "^9.6",
     "publishpress/translations": "dev-development"
   },
   "scripts": {
@@ -61,8 +64,5 @@
     "plugin-name": "publishpress-capabilities",
     "plugin-slug": "capsman-enhanced",
     "plugin-folder": "capability-manager-enhanced"
-  },
-  "require-dev": {
-    "overtrue/phplint": "^9.6"
   }
 }
