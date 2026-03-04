@@ -367,7 +367,7 @@ class PP_Capabilities_Admin_UI {
                     'pp-capabilities-roles-profile-js',
                     'ppCapabilitiesProfileData',
                     [
-                        'role_description'  => esc_html__('Drag multiple roles selection to change order.', 'capability-manager-enhanced'),
+                        'role_description'  => esc_html__('Drag multiple roles selection to change roles order.', 'capability-manager-enhanced'),
                         'selected_roles'    => $roles,
                         'multi_roles'       => $multi_role ? 1 : 0,
                         'profile_page_title' => esc_html__('Page title', 'capability-manager-enhanced'),

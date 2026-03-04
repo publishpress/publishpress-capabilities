@@ -1,7 +1,7 @@
 jQuery(function ($) {
 
     /**
-     * "Advanced Custom Fields: Extended" plugin changes 
+     * "Advanced Custom Fields: Extended" plugin changes
      * profile UI completely removing the #profile-page selector.
      */
     var acf_modified_ui        = false;
@@ -12,7 +12,7 @@ jQuery(function ($) {
     } else {
       profile_wrapper_div    = '.wrap';
     }
-    
+
     if ($('div[class*="acf-column"]').length > 0) {
       acf_modified_ui        = true;
       fields_parent_selector = 'form div[class*="acf-column-"]';
@@ -25,7 +25,7 @@ jQuery(function ($) {
       $(this).addClass(new_header_class);
     }
   });
-  
+
   //we need to add class to table tr without class
   $(profile_wrapper_div + ' form tr').each(function () {
     if (!$(this).attr("class")) {
@@ -90,10 +90,39 @@ jQuery(function ($) {
         'element_type': 'header'
       };
     }
-    
+
     //loop through all profile form parents
     $(profile_wrapper_div + ' ' + fields_parent_selector).children().each(function () {
       parent_this = $(this);
+
+      var processTableRows = function(table_container) {
+        table_container.find('tr').each(function () {
+          child_this = $(this);
+          single_element = cleanTextWhiteSpace(child_this.attr("class"), '.');
+          if (single_element) {
+            single_element      = profile_wrapper_div + ' .' + single_element;
+            element_th_title    = child_this.find('th').first().text();
+            element_label_title = child_this.find('label').first().text();
+            if (element_th_title) {
+              element_label = element_th_title;
+            } else if (element_label_title) {
+              element_label = element_label_title;
+            } else {
+              element_label = single_element;
+            }
+            element_label = element_label.trim();
+            if (element_label !== '' && typeof element_label !== 'undefined') {
+              page_elements[cleanUpStrings(single_element)] =
+              {
+                'label': element_label,
+                'elements': single_element,
+                'element_type': 'field'
+              };
+            }
+          }
+        });
+      };
+
       //Make direct entry for page headers
       if (parent_this.is("h1,h2,h3,h4,h5,h6")) {
         //we already added class to all headers for efficiency
@@ -107,38 +136,25 @@ jQuery(function ($) {
           'element_type': 'header'
         };
       } else if (parent_this.is("table")) {
-        //loop all table tr to get fields
-        parent_this.find('tr').each(function () {
-          child_this = $(this);
-          single_element = cleanTextWhiteSpace(child_this.attr("class"), '.');
-          if (single_element) {
-            single_element      = profile_wrapper_div + ' .' + single_element;
-            element_th_title    = $(single_element).find('th').text();
-            element_label_title = $(single_element).find('label').text();
-            if (element_th_title) {
-              element_label = element_th_title;
-            } else if (element_label_title) {
-              element_label = element_label_title;
-            } else {
-              element_label = single_element;
-            }
-            element_label = element_label.trim();
-            if (element_label !== '' && typeof element_label !== 'undefined') {
-              //add table tr element
-              page_elements[cleanUpStrings(single_element)] =
-              {
-                'label': element_label,
-                'elements': single_element,
-                'element_type': 'field'
-              };
-            }
-          }
-        });
-      } else if (parent_this.is("div")) {
+        processTableRows(parent_this);
+      } else if (parent_this.is("div, fieldset, section")) {
         //process parent div
-        single_element = profile_wrapper_div + ' .'  + cleanTextWhiteSpace(parent_this.attr("class"), '.');
-        element_label  = parent_this.find(':header').html();
-        if (element_label !== '' && typeof element_label !== 'undefined') {
+        var parent_class = cleanTextWhiteSpace(parent_this.attr("class"), '.');
+        var parent_id = cleanTextWhiteSpace(parent_this.attr("id"));
+        if (parent_class) {
+          single_element = profile_wrapper_div + ' .'  + parent_class;
+        } else if (parent_id) {
+          single_element = profile_wrapper_div + ' #' + parent_id;
+        } else {
+          single_element = '';
+        }
+
+        element_label  = parent_this.find(':header').first().html();
+        if (!element_label) {
+          element_label = parent_this.find('legend').first().text();
+        }
+
+        if (single_element && element_label !== '' && typeof element_label !== 'undefined') {
           //add whole div element
           page_elements[cleanUpStrings(single_element)] =
           {
@@ -147,25 +163,31 @@ jQuery(function ($) {
             'element_type': 'section'
           };
         }
+
+        // capture nested table rows (e.g. Two-Factor fieldset rows)
+        parent_this.find('table').each(function () {
+          processTableRows($(this));
+        });
+
         /**
          * We have two problems
-         * 1. Rank math is adding new tr via javascript 
-         * (/plugins/seo-by-rank-math/includes/admin/class-admin.php) 
-         * before twitter div and  i can't think of a better solution 
+         * 1. Rank math is adding new tr via javascript
+         * (/plugins/seo-by-rank-math/includes/admin/class-admin.php)
+         * before twitter div and  i can't think of a better solution
          * to handle this yet.
-         * 
+         *
          * 2. The new tr been added via javascript doesn't
          * have class leading to an extra problem as we can't
-         * delay our class generation till they load their 
-         * inline script since the code need to run as early 
-         * as possible so user doesn't see hidden items for 
+         * delay our class generation till they load their
+         * inline script since the code need to run as early
+         * as possible so user doesn't see hidden items for
          * seconds.
-         * 
+         *
          * For now, i'll implement a not so neat solution
          * while we try to improve on user feedback/think
          * of a better solution
          */
-        if (single_element.indexOf('rank-math-metabox-wrap') >= 0) {
+        if (single_element && single_element.indexOf('rank-math-metabox-wrap') >= 0) {
           single_element = profile_wrapper_div + ' tr.user-url-wrap + tr';
           element_label = ppCapabilitiesProfileData.rankmath_title;//we can't find the title as it's loading after this function
           page_elements[cleanUpStrings(single_element)] =
@@ -206,11 +228,11 @@ jQuery(function ($) {
     });
 
   }
-  
+
   /**
    * Get url parameter value
-   * @param {*} sParam 
-   * @returns 
+   * @param {*} sParam
+   * @returns
    */
   function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
@@ -225,15 +247,15 @@ jQuery(function ($) {
    }
    return false;
   }
-  
+
   /**
    * Clean up text whitespace
-   * @param {*} string 
-   * @param {*} replacement 
-   * @returns 
+   * @param {*} string
+   * @param {*} replacement
+   * @returns
    */
   function cleanTextWhiteSpace(string, replacement = '') {
-    
+
     //return original string if empty
     if (!string || string.length === 0) {
       return string;
@@ -247,14 +269,14 @@ jQuery(function ($) {
 
     return string;
   }
-  
+
   /**
    * Clean strings
-   * @param {*} string 
-   * @returns 
+   * @param {*} string
+   * @returns
    */
   function cleanUpStrings(string) {
-    
+
     string = cleanTextWhiteSpace(string);
     string = string.replace(/\W/g, '');
     return string;
@@ -262,15 +284,15 @@ jQuery(function ($) {
 
   /**
    * PHP equivalet of ucword
-   * @param {*} str 
-   * @returns 
+   * @param {*} str
+   * @returns
    */
   function ucWords(str) {
     return str.split(' ').map(function(word) {
       return word.charAt(0).toUpperCase() + word.slice(1);
     }).join(' ');
   }
-  
+
   /**
    * The below codes only apply to multi role edit and
    * when role field is available
@@ -301,7 +323,7 @@ jQuery(function ($) {
         }
       });
     });
-  
+
     /**
      * loop role options and change selected role position
      */
@@ -313,17 +335,17 @@ jQuery(function ($) {
 
     //add hidden option as first option to enable sorting selection
     $("#pp_roles").prepend('<option style="display:none;"></option>');
-  
+
     //init chosen.js
     $newField.chosen({
       'width': '25em'
     });
-  
+
     /**
      * Make role sortable
      */
     $(".user-role-wrap .chosen-choices, #createuser .chosen-choices").sortable();
-  
+
     /**
      * Force role option re-order before profile form submission
      */
@@ -341,16 +363,16 @@ jQuery(function ($) {
     $(document).on('mousedown', '.user-role-wrap .chosen-choices .search-choice, #createuser .chosen-choices .search-choice', function () {
       $(this).closest('.chosen-container').addClass('chosen-choice-click');
     });
-  
+
     /**
      * Remove chosen container class on click inside input
      */
-  
+
     $(document).on('mousedown', '.user-role-wrap .chosen-choices, #createuser .chosen-choices', function (e) {
       if (!e.target.parentElement.classList.contains('search-choice')) {
         $(this).closest('.chosen-container').removeClass('chosen-choice-click');
       }
     });
   }
-    
+
 });

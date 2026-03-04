@@ -39,7 +39,8 @@ function ppc_get_custom_colors() {
         'highlight' => '',
         'notification' => '',
         'background' => '',
-        'element_colors' => []
+        'element_colors' => [],
+        'advanced_rules' => []
     ];
 
     $element_colors = [];
@@ -58,11 +59,67 @@ function ppc_get_custom_colors() {
             $colors['notification'] = $style['custom_scheme_notification'] ?? '';
             $colors['background'] = $style['custom_scheme_background'] ?? '';
             $element_colors = $style['element_colors'] ?? [];
+            $colors['advanced_rules'] = isset($style['advanced_rules']) && is_array($style['advanced_rules']) ? $style['advanced_rules'] : [];
         }
     }
 
     $colors['element_colors'] = $element_colors;
     return $colors;
+}
+
+function ppc_sanitize_advanced_selector($selector) {
+    $selector = trim(wp_strip_all_tags((string) $selector));
+
+    if (empty($selector)) {
+        return '';
+    }
+
+    if (strpos($selector, '{') !== false || strpos($selector, '}') !== false || strpos($selector, ';') !== false) {
+        return '';
+    }
+
+    $selector = preg_replace('/\s+/', ' ', $selector);
+    $selector = preg_replace('/[^A-Za-z0-9\-_\.\#\s>\+\~\:\[\]\=\"\'\(\),\*]/', '', $selector);
+    $selector = trim($selector);
+
+    if (strlen($selector) > 180) {
+        $selector = substr($selector, 0, 180);
+    }
+
+    return $selector;
+}
+
+function ppc_generate_advanced_rules_css($advanced_rules) {
+    if (empty($advanced_rules) || !is_array($advanced_rules)) {
+        return '';
+    }
+
+    $css = "\n/* Advanced selector rules */\n";
+
+    foreach ($advanced_rules as $rule) {
+        if (!is_array($rule)) {
+            continue;
+        }
+
+        $selector = isset($rule['selector']) ? ppc_sanitize_advanced_selector($rule['selector']) : '';
+        $variation = isset($rule['variation']) ? sanitize_key($rule['variation']) : 'background';
+        $color = isset($rule['color']) ? sanitize_hex_color($rule['color']) : '';
+
+        if (empty($selector) || empty($color)) {
+            continue;
+        }
+
+        $css_property = 'background-color';
+        if ($variation === 'text') {
+            $css_property = 'color';
+        } elseif ($variation === 'border') {
+            $css_property = 'border-color';
+        }
+
+        $css .= "{$selector} { {$css_property}: {$color} !important; }\n";
+    }
+
+    return $css;
 }
 
 // Function to generate CSS for element-specific colors
@@ -362,6 +419,7 @@ function ppc_generate_custom_scheme_css($colors) {
 
     // Generate element colors CSS
     $element_colors_css = ppc_generate_element_colors_css($colors['element_colors']);
+    $advanced_rules_css = ppc_generate_advanced_rules_css(isset($colors['advanced_rules']) ? $colors['advanced_rules'] : []);
 
     // Build CSS conditionally based on available colors
     $css = "/*! This file is auto-generated */\n/* PublishPress Custom Color Scheme */\n";
@@ -1122,6 +1180,7 @@ CSS;
 
     // Add element-specific colors CSS
     $css .= "\n" . $element_colors_css;
+    $css .= "\n" . $advanced_rules_css;
 
     return $css;
 }

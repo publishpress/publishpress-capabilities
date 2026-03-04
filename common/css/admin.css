@@ -1193,9 +1193,9 @@ ul.pp-capabilities-description {
     padding-bottom: 0;
 }
 
-.frontend-features-form.simple-form .field-row input,
+.frontend-features-form.simple-form .field-row input:not([type="checkbox"]),
 .frontend-features-form.simple-form .field-row textarea,
-.ppc-custom-features-table .field-row input,
+.ppc-custom-features-table .field-row input:not([type="checkbox"]),
 .ppc-custom-features-table .field-row textarea {
     width: 100%;
 }

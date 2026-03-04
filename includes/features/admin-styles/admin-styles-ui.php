@@ -320,47 +320,96 @@ if ($admin_styles_saved !== false) {
                                                                                     <div id="custom-style-tab-<?php echo esc_attr($tab_key); ?>"
                                                                                          class="editor-tab-pane custom-style-tab-content <?php echo esc_attr($is_active); ?>">
 
-                                                                                        <table class="color-rows">
-                                                                                    <tbody>
-                                                                                    <?php
-                                                                                    $global_field_index = 0;
-                                                                                    foreach ($tab_data['colors'] as $color_key => $color_config): ?>
-                                                                                        <?php if ($tab_index === 0 && $global_field_index === 0) : ?>
-                                                                                        <tr class="color-row" id="custom-style-name-row">
-                                                                                            <td class="color-label">
-                                                                                                <label for="custom_style_name" class="color-label-text">
-                                                                                                    <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
-                                                                                                </label>
-                                                                                            </td>
-                                                                                            <td class="color-input-cell">
-                                                                                                <input type="text"
-                                                                                                    name="custom_style_name"
-                                                                                                    id="custom_style_name" value=""
-                                                                                                    class="regular-text"
-                                                                                                    placeholder="<?php esc_attr_e('e.g., Company Branding, Dark Mode', 'capsman-enhanced'); ?>">
-                                                                                            </td>
-                                                                                        </tr>
+                                                                                        <?php if ($tab_key === 'advanced') : ?>
+                                                                                            <div class="ppc-advanced-rules-wrap">
+                                                                                                <p class="cme-subtext ppc-advanced-rules-help">
+                                                                                                    <?php esc_html_e('Add CSS selectors (class or ID), choose a style variation, and set a brand color.', 'capsman-enhanced'); ?>
+                                                                                                </p>
+
+                                                                                                <div id="ppc-advanced-rules-list" class="ppc-advanced-rules-list"></div>
+
+                                                                                                <button type="button" class="button button-secondary" id="ppc-add-advanced-rule">
+                                                                                                    <?php esc_html_e('Add New Element', 'capsman-enhanced'); ?>
+                                                                                                </button>
+
+                                                                                                <script type="text/html" id="tmpl-ppc-advanced-rule-row">
+                                                                                                    <div class="ppc-advanced-rule-row">
+                                                                                                        <div class="ppc-advanced-rule-selector">
+                                                                                                            <label class="color-label-text"><?php esc_html_e('Selector', 'capsman-enhanced'); ?></label>
+                                                                                                            <input type="text"
+                                                                                                                class="regular-text ppc-advanced-selector"
+                                                                                                                name="custom_style_advanced_rules[{{index}}][selector]"
+                                                                                                                placeholder="<?php esc_attr_e('e.g. .publishpress-wrap h1, #my-plugin-header', 'capsman-enhanced'); ?>">
+                                                                                                        </div>
+                                                                                                        <div class="ppc-advanced-rule-color">
+                                                                                                            <label class="color-label-text"><?php esc_html_e('Variation', 'capsman-enhanced'); ?></label>
+                                                                                                            <select class="ppc-advanced-variation"
+                                                                                                                name="custom_style_advanced_rules[{{index}}][variation]">
+                                                                                                                <option value="background"><?php esc_html_e('Background', 'capsman-enhanced'); ?></option>
+                                                                                                                <option value="text"><?php esc_html_e('Text', 'capsman-enhanced'); ?></option>
+                                                                                                                <option value="border"><?php esc_html_e('Border', 'capsman-enhanced'); ?></option>
+                                                                                                            </select>
+                                                                                                        </div>
+                                                                                                        <div class="ppc-advanced-rule-color">
+                                                                                                            <label class="color-label-text"><?php esc_html_e('Brand Color', 'capsman-enhanced'); ?></label>
+                                                                                                            <input type="text"
+                                                                                                                class="pp-capabilities-color-picker ppc-advanced-color"
+                                                                                                                data-category="advanced"
+                                                                                                                data-color-key="advanced_rule_color"
+                                                                                                                name="custom_style_advanced_rules[{{index}}][color]"
+                                                                                                                value="">
+                                                                                                        </div>
+                                                                                                        <div class="ppc-advanced-rule-actions">
+                                                                                                            <button type="button" class="button-link ppc-remove-advanced-rule">
+                                                                                                                <?php esc_html_e('Remove', 'capsman-enhanced'); ?>
+                                                                                                            </button>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </script>
+                                                                                            </div>
+                                                                                        <?php else : ?>
+                                                                                            <table class="color-rows">
+                                                                                        <tbody>
+                                                                                        <?php
+                                                                                        $global_field_index = 0;
+                                                                                        foreach ($tab_data['colors'] as $color_key => $color_config): ?>
+                                                                                            <?php if ($tab_index === 0 && $global_field_index === 0) : ?>
+                                                                                            <tr class="color-row" id="custom-style-name-row">
+                                                                                                <td class="color-label">
+                                                                                                    <label for="custom_style_name" class="color-label-text">
+                                                                                                        <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
+                                                                                                    </label>
+                                                                                                </td>
+                                                                                                <td class="color-input-cell">
+                                                                                                    <input type="text"
+                                                                                                        name="custom_style_name"
+                                                                                                        id="custom_style_name" value=""
+                                                                                                        class="regular-text"
+                                                                                                        placeholder="<?php esc_attr_e('e.g., Company Branding, Dark Mode', 'capsman-enhanced'); ?>">
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                            <?php endif; ?>
+                                                                                            <tr class="color-row">
+                                                                                                <td class="color-label">
+                                                                                                    <label for="custom_style_<?php echo esc_attr($color_key); ?>" class="color-label-text">
+                                                                                                        <?php echo esc_html($color_config['label']); ?>
+                                                                                                    </label>
+                                                                                                </td>
+                                                                                                <td class="color-input-cell">
+                                                                                                    <input type="text"
+                                                                                                        name="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                        id="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                        value=""
+                                                                                                        class="pp-capabilities-color-picker custom-style-color color-input"
+                                                                                                        data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
+                                                                                                        data-tab="<?php echo esc_attr($tab_key); ?>"
+                                                                                                        data-color-key="<?php echo esc_attr($color_key); ?>">
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        <?php $global_field_index++; endforeach; ?>
+                                                                                        </tbody>
+                                                                                    </table>
                                                                                         <?php endif; ?>
-                                                                                        <tr class="color-row">
-                                                                                            <td class="color-label">
-                                                                                                <label for="custom_style_<?php echo esc_attr($color_key); ?>" class="color-label-text">
-                                                                                                    <?php echo esc_html($color_config['label']); ?>
-                                                                                                </label>
-                                                                                            </td>
-                                                                                            <td class="color-input-cell">
-                                                                                                <input type="text"
-                                                                                                    name="custom_style_<?php echo esc_attr($color_key); ?>"
-                                                                                                    id="custom_style_<?php echo esc_attr($color_key); ?>"
-                                                                                                    value=""
-                                                                                                    class="pp-capabilities-color-picker custom-style-color color-input"
-                                                                                                    data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
-                                                                                                    data-tab="<?php echo esc_attr($tab_key); ?>"
-                                                                                                    data-color-key="<?php echo esc_attr($color_key); ?>">
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    <?php $global_field_index++; endforeach; ?>
-</tbody>
-                                                                                </table>
                                                                             </div>
                                                                             <?php
                                                                             $tab_index++;

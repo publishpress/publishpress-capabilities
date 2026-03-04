@@ -606,6 +606,7 @@ class PP_Capabilities_Admin_Styles
                 'custom_scheme_notification' => sanitize_hex_color($_POST['custom_style_custom_scheme_notification'] ?? ''),
                 'custom_scheme_background' => sanitize_hex_color($_POST['custom_style_custom_scheme_background'] ?? ''),
                 'element_colors' => [],
+                'advanced_rules' => [],
                 'custom_scheme_version' => time(),
                 'created' => current_time('mysql')
             ];
@@ -626,6 +627,10 @@ class PP_Capabilities_Admin_Styles
                     $custom_style['element_colors'][$tab_key][$color_key] = $color_value;
                 }
             }
+
+            $custom_style['advanced_rules'] = $this->sanitize_advanced_rules(
+                isset($_POST['custom_style_advanced_rules']) ? (array) $_POST['custom_style_advanced_rules'] : []
+            );
 
             // Save custom style and move to top
             if (isset($custom_styles[$style_slug])) {
@@ -1326,6 +1331,80 @@ class PP_Capabilities_Admin_Styles
     }
 
     /**
+     * Sanitize advanced selector rules
+     */
+    private function sanitize_advanced_rules($rules)
+    {
+        if (!is_array($rules)) {
+            return [];
+        }
+
+        $sanitized = [];
+
+        foreach ($rules as $rule) {
+            if (!is_array($rule)) {
+                continue;
+            }
+
+            $selector = isset($rule['selector']) ? $this->sanitize_advanced_selector($rule['selector']) : '';
+            $variation = isset($rule['variation']) ? $this->sanitize_advanced_variation($rule['variation']) : 'background';
+            $color = isset($rule['color']) ? sanitize_hex_color($rule['color']) : '';
+
+            if (empty($selector) || empty($color)) {
+                continue;
+            }
+
+            $sanitized[] = [
+                'selector' => $selector,
+                'variation' => $variation,
+                'color' => $color,
+            ];
+        }
+
+        return $sanitized;
+    }
+
+    /**
+     * Sanitize CSS selector for advanced rules
+     */
+    private function sanitize_advanced_selector($selector)
+    {
+        $selector = trim(wp_strip_all_tags((string) $selector));
+
+        if (empty($selector)) {
+            return '';
+        }
+
+        if (strpos($selector, '{') !== false || strpos($selector, '}') !== false || strpos($selector, ';') !== false) {
+            return '';
+        }
+
+        $selector = preg_replace('/\s+/', ' ', $selector);
+        $selector = preg_replace('/[^A-Za-z0-9\-_\.\#\s>\+\~\:\[\]\=\"\'\(\),\*]/', '', $selector);
+        $selector = trim($selector);
+
+        if (strlen($selector) > 180) {
+            $selector = substr($selector, 0, 180);
+        }
+
+        return $selector;
+    }
+
+    /**
+     * Sanitize advanced style variation
+     */
+    private function sanitize_advanced_variation($variation)
+    {
+        $variation = sanitize_key((string) $variation);
+
+        if (!in_array($variation, ['background', 'text', 'border'], true)) {
+            return 'background';
+        }
+
+        return $variation;
+    }
+
+    /**
      * Get element color tabs configuration
      * Returns structure for UI tabs in custom style form
      */
@@ -1583,6 +1662,11 @@ class PP_Capabilities_Admin_Styles
                         'description' => ''
                     ]
                 ]
+            ],
+            'advanced' => [
+                'label' => __('Advanced', 'capsman-enhanced'),
+                'description' => __('Custom selector color rules', 'capsman-enhanced'),
+                'colors' => []
             ]
         ];
     }

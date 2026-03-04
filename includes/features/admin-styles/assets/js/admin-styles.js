@@ -59,6 +59,7 @@
     currentScheme: null,
     $colorpicker: null,
     $stylesheet: null,
+    advancedRuleIndex: 0,
 
     /**
      * Initialize Admin Styles functionality
@@ -76,6 +77,7 @@
       this.initColorPickerCloseBehavior();
       this.fixIrisPaletteLinks();
       this.registerEventsActions();
+      this.resetAdvancedRules([]);
 
       // If user custom style is selected on page load, show the form
       if (this.currentScheme && this.currentScheme.startsWith('ppc-custom-style-')) {
@@ -114,6 +116,8 @@
       $('#custom_style_name').val(styleName);
       $('#custom_style_slug').val(styleSlug);
       $('input[name="custom_style_action"]').val('');
+
+      this.resetAdvancedRules((customStyle && customStyle.advanced_rules) ? customStyle.advanced_rules : []);
 
       $('.custom-style-color').each(function () {
         var $input = $(this);
@@ -178,7 +182,8 @@
         highlight: (customStyle && customStyle.custom_scheme_highlight) ? customStyle.custom_scheme_highlight : '',
         notification: (customStyle && customStyle.custom_scheme_notification) ? customStyle.custom_scheme_notification : '',
         background: (customStyle && customStyle.custom_scheme_background) ? customStyle.custom_scheme_background : '',
-        element_colors: (customStyle && customStyle.element_colors) ? customStyle.element_colors : {}
+        element_colors: (customStyle && customStyle.element_colors) ? customStyle.element_colors : {},
+        advanced_rules: (customStyle && customStyle.advanced_rules) ? customStyle.advanced_rules : []
       };
       this.applyCustomStylePreview(previewColors);
     },
@@ -284,6 +289,30 @@
         PP_Admin_Styles.handleCustomFormColorChange($(this));
       });
 
+      $(document).on('click', '#ppc-add-advanced-rule', function (e) {
+        e.preventDefault();
+        PP_Admin_Styles.addAdvancedRuleRow();
+      });
+
+      $(document).on('click', '.ppc-remove-advanced-rule', function (e) {
+        e.preventDefault();
+        $(this).closest('.ppc-advanced-rule-row').remove();
+        PP_Admin_Styles.reindexAdvancedRules();
+        PP_Admin_Styles.applyCustomStylePreview(PP_Admin_Styles.getCustomFormPreviewColors());
+      });
+
+      $(document).on('input change', '.ppc-advanced-selector', function () {
+        PP_Admin_Styles.applyCustomStylePreview(PP_Admin_Styles.getCustomFormPreviewColors());
+      });
+
+      $(document).on('input change', '.ppc-advanced-color', function () {
+        PP_Admin_Styles.applyCustomStylePreview(PP_Admin_Styles.getCustomFormPreviewColors());
+      });
+
+      $(document).on('change', '.ppc-advanced-variation', function () {
+        PP_Admin_Styles.applyCustomStylePreview(PP_Admin_Styles.getCustomFormPreviewColors());
+      });
+
       // Custom style save button
       $(document).on('click', 'input[name="save_custom_style"]', function (e) {
         PP_Admin_Styles.handleSaveCustomStyle(e);
@@ -327,28 +356,37 @@
      */
     initColorPickers: function () {
       if (typeof $.fn.wpColorPicker !== 'undefined') {
-        $('.pp-capabilities-color-picker').wpColorPicker({
-          change: function (event, ui) {
-            var $input = $(this);
-            if ($input.data('preview')) {
-              // Immediate preview update
-              var color = ui.color.toString();
-              $input.val(color);
+        $('.pp-capabilities-color-picker').each(function () {
+          var $input = $(this);
+          if ($input.data('ppcColorInited')) {
+            return;
+          }
 
-              // Apply admin-area inline preview only when appropriate
-              if (PP_Admin_Styles.currentScheme && PP_Admin_Styles.currentScheme.indexOf('ppc-custom-style-') === 0) {
-                var colors = PP_Admin_Styles.getCustomFormPreviewColors();
-                PP_Admin_Styles.applyCustomStylePreview(colors);
+          $input.wpColorPicker({
+            change: function (event, ui) {
+              var $input = $(this);
+              if ($input.data('preview')) {
+                // Immediate preview update
+                var color = ui.color.toString();
+                $input.val(color);
+
+                // Apply admin-area inline preview only when appropriate
+                if (PP_Admin_Styles.currentScheme && PP_Admin_Styles.currentScheme.indexOf('ppc-custom-style-') === 0) {
+                  var colors = PP_Admin_Styles.getCustomFormPreviewColors();
+                  PP_Admin_Styles.applyCustomStylePreview(colors);
+                }
+              }
+            },
+            clear: function () {
+              var $input = $(this);
+              if ($input.data('preview')) {
+                // Clear the preview styles
+                $('#ppc-admin-area-preview').remove();
               }
             }
-          },
-          clear: function () {
-            var $input = $(this);
-            if ($input.data('preview')) {
-              // Clear the preview styles
-              $('#ppc-admin-area-preview').remove();
-            }
-          }
+          });
+
+          $input.data('ppcColorInited', true);
         });
       }
     },
@@ -364,7 +402,8 @@
         highlight: '',
         notification: '',
         background: '',
-        element_colors: {}
+        element_colors: {},
+        advanced_rules: []
       };
 
       for (var i = 0; i < keys.length; i++) {
@@ -394,7 +433,107 @@
         });
       });
 
+      result.advanced_rules = this.getAdvancedRulesFromForm();
+
       return result;
+    },
+
+    resetAdvancedRules: function (rules) {
+      this.advancedRuleIndex = 0;
+      var $list = $('#ppc-advanced-rules-list');
+      if (!$list.length) {
+        return;
+      }
+
+      $list.empty();
+
+      if ($.isArray(rules) && rules.length) {
+        for (var i = 0; i < rules.length; i++) {
+          this.addAdvancedRuleRow(rules[i]);
+        }
+      }
+    },
+
+    addAdvancedRuleRow: function (rule) {
+      var template = $('#tmpl-ppc-advanced-rule-row').html();
+      if (!template) {
+        return;
+      }
+
+      var html = template.replace(/\{\{index\}\}/g, this.advancedRuleIndex);
+      this.advancedRuleIndex++;
+
+      var $row = $(html);
+
+      if (rule && rule.selector) {
+        $row.find('.ppc-advanced-selector').val(rule.selector);
+      }
+      if (rule && rule.variation) {
+        $row.find('.ppc-advanced-variation').val(rule.variation);
+      }
+      if (rule && rule.color) {
+        $row.find('.ppc-advanced-color').val(rule.color);
+      }
+
+      $('#ppc-advanced-rules-list').append($row);
+
+      var $colorInput = $row.find('.ppc-advanced-color');
+      if ($colorInput.length && typeof $.fn.wpColorPicker !== 'undefined' && !$colorInput.data('ppcColorInited')) {
+        $colorInput.wpColorPicker({
+          change: function (event, ui) {
+            var $input = $(this);
+            if (ui && ui.color && typeof ui.color.toString === 'function') {
+              $input.val(ui.color.toString());
+            }
+
+            setTimeout(function () {
+              $input.trigger('change');
+              PP_Admin_Styles.applyCustomStylePreview(PP_Admin_Styles.getCustomFormPreviewColors());
+            }, 0);
+          },
+          clear: function () {
+            var $input = $(this);
+            $input.val('');
+
+            setTimeout(function () {
+              $input.trigger('change');
+              PP_Admin_Styles.applyCustomStylePreview(PP_Admin_Styles.getCustomFormPreviewColors());
+            }, 0);
+          }
+        });
+        $colorInput.data('ppcColorInited', true);
+      }
+    },
+
+    reindexAdvancedRules: function () {
+      var index = 0;
+      $('.ppc-advanced-rule-row').each(function () {
+        $(this).find('.ppc-advanced-selector').attr('name', 'custom_style_advanced_rules[' + index + '][selector]');
+        $(this).find('.ppc-advanced-variation').attr('name', 'custom_style_advanced_rules[' + index + '][variation]');
+        $(this).find('.ppc-advanced-color').attr('name', 'custom_style_advanced_rules[' + index + '][color]');
+        index++;
+      });
+      this.advancedRuleIndex = index;
+    },
+
+    getAdvancedRulesFromForm: function () {
+      var rules = [];
+
+      $('.ppc-advanced-rule-row').each(function () {
+        var selector = $.trim($(this).find('.ppc-advanced-selector').val() || '');
+        var variation = $.trim($(this).find('.ppc-advanced-variation').val() || 'background');
+        var color = $.trim($(this).find('.ppc-advanced-color').val() || '');
+
+        if (selector && color) {
+          rules.push({
+            selector: selector,
+            variation: variation,
+            color: color
+          });
+        }
+      });
+
+      return rules;
     },
 
     /**
@@ -416,13 +555,15 @@
 
       // Initialize color pickers for newly visible color fields
       var $newContent = $('#' + tabTarget);
-      $newContent.find('.pp-capabilities-color-picker:not(.wp-picker-container)').each(function () {
-        if (typeof $.fn.wpColorPicker !== 'undefined' && !$(this).hasClass('wp-picker-container')) {
-          $(this).wpColorPicker({
+      $newContent.find('.pp-capabilities-color-picker').each(function () {
+        var $input = $(this);
+        if (typeof $.fn.wpColorPicker !== 'undefined' && !$input.data('ppcColorInited')) {
+          $input.wpColorPicker({
             change: function (event, ui) {
               PP_Admin_Styles.handleCustomFormColorChange($(this));
             }
           });
+          $input.data('ppcColorInited', true);
         }
       });
     },
@@ -584,6 +725,8 @@
         }
       });
 
+      this.resetAdvancedRules([]);
+
       // Reset to General tab
       this.resetCustomStyleTabToGeneral();
 
@@ -601,7 +744,8 @@
           highlight: templateColors.custom_scheme_highlight || '',
           notification: templateColors.custom_scheme_notification || '',
           background: templateColors.custom_scheme_background || '',
-          element_colors: templateColors.element_colors || {}
+          element_colors: templateColors.element_colors || {},
+          advanced_rules: []
         };
         PP_Admin_Styles.applyCustomStylePreview(defaultPreviewColors);
       }
@@ -1200,60 +1344,15 @@
      * Fix iris palette links to prevent page jumps
      */
     fixIrisPaletteLinks: function () {
-      var self = this;
+      // Remove href for existing palettes and future dynamic palettes,
+      // but let WordPress handle click behavior natively.
+      $('.iris-palette').removeAttr('href');
 
-      // Remove href="#" and handle clicks properly
-      $('.iris-palette').each(function () {
-        var $palette = $(this);
-
-        // Remove href to prevent page jumps
-        $palette.removeAttr('href');
-
-        // Store the color
-        var bgColor = $palette.css('background-color');
-        $palette.data('color', bgColor);
-
-        // Handle clicks
-        $palette.on('click', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          var color = $(this).data('color');
-          if (color) {
-            // Find the color picker input
-            var $picker = $(this).closest('.wp-picker-container');
-            var $input = $picker.find('.pp-capabilities-color-picker');
-
-            if ($input.length) {
-              // Convert RGB to hex if needed
-              if (color.indexOf('rgb') === 0) {
-                color = self.rgbToHex(color);
-              }
-
-              // Update the input
-              $input.val(color).trigger('change');
-
-              // Update the button color
-              $picker.find('.wp-color-result').css('background-color', color);
-
-            }
-          }
-
-          return false;
+      $(document)
+        .off('mouseenter.ppcIrisPalette', '.iris-palette')
+        .on('mouseenter.ppcIrisPalette', '.iris-palette', function () {
+          $(this).removeAttr('href');
         });
-
-        // Handle double-click to just close the picker
-        $palette.on('dblclick', function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          var $picker = $(this).closest('.wp-picker-container');
-          $picker.find('.wp-picker-holder').hide();
-          $picker.find('.wp-color-result').attr('aria-expanded', 'false');
-
-          return false;
-        });
-      });
     },
 
 
@@ -1496,6 +1595,10 @@
         css += '\n' + elementCss;
       }
 
+      if (colors.advanced_rules) {
+        css += '\n' + this.generateAdvancedRulesCss(colors.advanced_rules);
+      }
+
       return css;
 
     },
@@ -1672,6 +1775,64 @@
       }
 
       return css;
+    },
+
+    generateAdvancedRulesCss: function (advancedRules) {
+      if (!$.isArray(advancedRules) || !advancedRules.length) {
+        return '';
+      }
+
+      var css = '/* Advanced selector rules */\n';
+
+      for (var i = 0; i < advancedRules.length; i++) {
+        var rule = advancedRules[i];
+        if (!rule || !rule.selector || !rule.color) {
+          continue;
+        }
+
+        var selector = this.sanitizeSelectorForPreview(rule.selector);
+        if (!selector) {
+          continue;
+        }
+
+        var cssProperty = this.mapAdvancedVariationToCssProperty(rule.variation);
+        if (!cssProperty) {
+          continue;
+        }
+
+        css += selector + ' { ' + cssProperty + ': ' + rule.color + ' !important; }\n';
+      }
+
+      return css;
+    },
+
+    sanitizeSelectorForPreview: function (selector) {
+      if (!selector || typeof selector !== 'string') {
+        return '';
+      }
+
+      var sanitized = selector.trim();
+      sanitized = sanitized.replace(/[{};]/g, '');
+      sanitized = sanitized.replace(/\s+/g, ' ');
+      sanitized = sanitized.replace(/[^A-Za-z0-9\-_\.\#\s>\+\~:\[\]="'(),\*]/g, '');
+
+      if (!sanitized) {
+        return '';
+      }
+
+      return sanitized.substring(0, 180);
+    },
+
+    mapAdvancedVariationToCssProperty: function (variation) {
+      if (variation === 'text') {
+        return 'color';
+      }
+
+      if (variation === 'border') {
+        return 'border-color';
+      }
+
+      return 'background-color';
     },
 
     /**

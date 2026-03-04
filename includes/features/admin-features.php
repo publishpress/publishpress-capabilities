@@ -245,6 +245,14 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                                                                 }
                                                                                                                 ?>
                                                                                                                 <?php echo esc_html($section_array['element_label']); ?>
+                                                                                                                <?php if ($section_slug === 'blockedbyurl' && !empty($section_array['wildcard'])) : ?>
+                                                                                                                    <span class="ppc-wildcard-badge"><?php esc_html_e('Wildcard enabled', 'capability-manager-enhanced'); ?></span>
+                                                                                                                <?php elseif ($section_slug === 'hidecsselement' && isset($section_array['target_urls']) && trim((string) $section_array['target_urls']) !== '') : ?>
+                                                                                                                    <span class="ppc-url-target-badge"><?php esc_html_e('URL targeted', 'capability-manager-enhanced'); ?></span>
+                                                                                                                    <?php if (!empty($section_array['url_wildcard'])) : ?>
+                                                                                                                        <span class="ppc-wildcard-badge"><?php esc_html_e('URL wildcard', 'capability-manager-enhanced'); ?></span>
+                                                                                                                    <?php endif; ?>
+                                                                                                                <?php endif; ?>
                                                                                                                 </strong>
                                                                                                             </span>
                                                                                                         </label>
@@ -261,6 +269,9 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                                                             data-section="<?php echo esc_attr($section_slug); ?>"
                                                                                                             data-label="<?php echo esc_attr($section_array['label']); ?>"
                                                                                                             data-element="<?php echo esc_attr($section_array['element_items']); ?>"
+                                                                                                            data-wildcard="<?php echo !empty($section_array['wildcard']) ? '1' : '0'; ?>"
+                                                                                                            data-target-urls="<?php echo isset($section_array['target_urls']) ? esc_attr($section_array['target_urls']) : ''; ?>"
+                                                                                                            data-url-wildcard="<?php echo !empty($section_array['url_wildcard']) ? '1' : '0'; ?>"
                                                                                                             data-id="<?php echo esc_attr($section_array['button_data_id']); ?>">
                                                                                                             <?php esc_html_e('Edit', 'capability-manager-enhanced'); ?>
                                                                                                         </div>
@@ -340,9 +351,9 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
                 ?>
                 <?php
-                $banner_title  = __('Admin Features Settings', 'capabilities-pro');
+                $banner_title  = __('Admin Features Settings', 'capability-manager-enhanced');
                 $banner_messages = ['<p>'];
-                $banner_messages[] = sprintf(esc_html__('%1$s Hide Submenus', 'capabilities-pro'), '<input type="checkbox" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '>') . ' <br />';
+                $banner_messages[] = sprintf(esc_html__('%1$s Hide Submenus', 'capability-manager-enhanced'), '<input type="checkbox" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '>') . ' <br />';
                 $banner_messages[] = '</p>';
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
                 ?>
