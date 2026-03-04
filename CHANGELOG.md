@@ -1,6 +1,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.40.0] - 04 March, 2026
+
+- Update : Added Admin Styles Advanced Tab for custom color selection for other other element on admin pages, #1586
+- Update : Add Wildard option to Admin Features Block by URL, #1342
+- Update : Allow Admin Features Hide CSS Elements to targeted to a URL with wildcard option, #1518
+- Fixed : Cannot hide “Two-Factor Options” from Profile Features, #1592
+- Fixed : Reusable blocks missing in capability sidebar, #1599
+- Fixed : Admin Features not catching everything added to the toolbar, #1335
+- Update : Connect the plugin to Weblate, #1577
+- Update : Translation Updates Capabilities 2.32.0-BR-ES-FR-IT, #1591
+
 [2.32.0] - 18 Feburuary, 2026
 
 - Update : Allow admin to add more custom admin styles, #1523

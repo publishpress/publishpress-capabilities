@@ -1,28 +1,21 @@
 # Copyright (C) 2024 PublishPress
 # This file is distributed under the GPLv3.
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Capabilities\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: PublishPress Capabilities 2.12.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Russian\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-02-03 16:00-0500\n"
-"PO-Revision-Date: 2026-02-27 15:09+0000\n"
+"POT-Creation-Date: 2026-03-04 15:47+0000\n"
+"PO-Revision-Date: 2026-03-04 16:12+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: ru-RU\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_c;__ngettext;_n;_x;esc_html__;esc_html_e\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPath-1: includes\n"
-"X-Poedit-SearchPath-2: includes-core\n"
-"X-Loco-Version: 2.6.6; wp-6.3.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: includes/pp-ui.php:69
 #, php-format
@@ -30,8 +23,8 @@ msgid ""
 "\"Posts\" capabilities selected here also define type-specific role "
 "assignment for Permission Groups%s."
 msgstr ""
-"[DRY RUN] Would translate: \"\"Posts\" capabilities selected here also "
-"define typ…\""
+"\"Посты\" возможности, выбранные здесь, также определяют назначение ролей, "
+"специфичных для типа, для Групп Разрешений%s."
 
 #: includes/pp-ui.php:71
 #, php-format
@@ -39,67 +32,70 @@ msgid ""
 "\"Posts\" capabilities selected here also define type-specific role "
 "assignment for Permit Groups%s."
 msgstr ""
-"[DRY RUN] Would translate: \"\"Posts\" capabilities selected here also "
-"define typ…\""
+"\"Посты\" возможности, выбранные здесь, также определяют назначение ролей, "
+"специфичных для типа, для Групп Разрешений%s."
 
 #: includes/roles/class/class-pp-roles-actions.php:565
 #, php-format
 msgid "%1$d users moved to default role %2$s."
-msgstr "[DRY RUN] Would translate: \"%1$d users moved to default role %2$s.\""
+msgstr "%1$d пользователей перемещено в роль по умолчанию %2$s."
 
 #: includes/features/frontend-features/frontend-features.php:250
 #, php-format
 msgid "%1$s = Apply custom styling"
-msgstr "[DRY RUN] Would translate: \"%1$s = Apply custom styling\""
+msgstr "%1$s = Применить пользовательский стиль"
 
 #: includes/admin.php:1678
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
-msgstr ""
-"[DRY RUN] Would translate: \"%1$s = Capability denied, even if granted by "
-"anoth…\""
+msgstr "%1$s = Возможность отклонена, даже если предоставлена другой ролью %2$s"
 
 #: includes/admin.php:1676
 #, php-format
 msgid "%1$s = Capability granted %2$s"
-msgstr "[DRY RUN] Would translate: \"%1$s = Capability granted %2$s\""
+msgstr "%1$s = Возможность предоставлена %2$s"
 
 #: includes/admin.php:1677
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
-msgstr "[DRY RUN] Would translate: \"%1$s = Capability not granted %2$s\""
+msgstr "%1$s = Возможность не предоставлена %2$s"
 
-#: includes/features/admin-features.php:335
+#: includes/features/admin-features.php:346
 #: includes/features/editor-features.php:240
 #: includes/features/nav-menus.php:303
-#: includes/features/profile-features.php:268
+#: includes/features/profile-features.php:251
 #: includes/features/frontend-features/frontend-features.php:249
 #, php-format
 msgid "%1$s = No change"
-msgstr "[DRY RUN] Would translate: \"%1$s = No change\""
+msgstr "%1$s = Без изменений"
 
-#: includes/features/admin-features.php:336
+#: includes/features/admin-features.php:347
 #: includes/features/editor-features.php:241
 #: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:269
+#: includes/features/profile-features.php:252
 #, php-format
 msgid "%1$s = This feature is denied"
-msgstr "[DRY RUN] Would translate: \"%1$s = This feature is denied\""
+msgstr "%1$s = Эта функция отклонена"
+
+#: includes/features/admin-features.php:356
+#, php-format
+msgid "%1$s Hide Submenus"
+msgstr "%1$s Скрыть подменю"
 
 #: includes/admin.php:1908
-#, php-format
+#, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
-msgstr "[DRY RUN] Would translate: \"%1$sbuy%2$s %3$s\""
+msgstr "%1$sbuy%2$s %3$s"
 
 #: includes/admin.php:1906
-#, php-format
+#, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
-msgstr "[DRY RUN] Would translate: \"%1$sgrab%2$s %3$s\""
+msgstr "%1$sgrab%2$s %3$s"
 
 #: includes/test-user-ui.php:269
 #, php-format
 msgid "%1$sReturn to Administrator view%2$s"
-msgstr "[DRY RUN] Would translate: \"%1$sReturn to Administrator view%2$s\""
+msgstr "%1$sВернуться к просмотру администратора%2$s"
 
 #: capsman-enhanced.php:80
 #, php-format
@@ -107,43 +103,43 @@ msgid ""
 "%1s Error: %2s  PublishPress Capabilities cannot function because another "
 "copy of the plugin is active."
 msgstr ""
-"[DRY RUN] Would translate: \"%1s Error: %2s  PublishPress Capabilities "
-"cannot f…\""
+"%1s Ошибка: %2s Возможности PublishPress не могут работать, потому что "
+"другая копия плагина активна."
 
 #: includes/backup.php:191
 #, php-format
 msgid "%s (%s roles)"
-msgstr "[DRY RUN] Would translate: \"%s (%s roles)\""
+msgstr "%s (%s роли)"
 
 #: includes/admin.php:1906
 #, php-format
 msgid "%s (free install)"
-msgstr "[DRY RUN] Would translate: \"%s (free install)\""
+msgstr "%s (бесплатная установка)"
 
 #: includes/backup.php:227
 #, php-format
 msgid "%s (level %s)"
-msgstr "[DRY RUN] Would translate: \"%s (level %s)\""
+msgstr "%s (уровень %s)"
 
 #: includes/admin.php:680
 #, php-format
 msgid "%s Capabilities"
-msgstr "[DRY RUN] Would translate: \"%s Capabilities\""
+msgstr "%s Возможности"
 
 #: includes/admin.php:1908
 #, php-format
 msgid "%s info/purchase"
-msgstr "[DRY RUN] Would translate: \"%s info/purchase\""
+msgstr "%s информация/покупка"
 
 #: includes/redirects/redirects.php:94
 #, php-format
 msgid "%s Redirects"
-msgstr "[DRY RUN] Would translate: \"%s Redirects\""
+msgstr "%s Перенаправления"
 
 #: includes/backup-handler.php:119
 #, php-format
 msgid "%s restored from last backup."
-msgstr "[DRY RUN] Would translate: \"%s restored from last backup.\""
+msgstr "%s восстановлено из последней резервной копии."
 
 #: includes/roles/class/class-pp-roles-admin.php:506
 #, php-format
@@ -151,179 +147,175 @@ msgid ""
 "%s role copied. Please click the \"Create Role\" button to create this new "
 "role."
 msgstr ""
-"[DRY RUN] Would translate: \"%s role copied. Please click the \"Create "
-"Role\" but…\""
+"%s роль скопирована. Пожалуйста, нажмите кнопку \"Создать роль\", чтобы "
+"создать эту новую роль."
 
 #: includes/roles/class/class-pp-roles-actions.php:448
 #, php-format
 msgid "%s role updated successfully."
-msgstr "[DRY RUN] Would translate: \"%s role updated successfully.\""
+msgstr "%s роль успешно обновлена."
 
 #: includes/backup-handler.php:199
 #, php-format
 msgid "%s successfully imported from uploaded data."
-msgstr "[DRY RUN] Would translate: \"%s successfully imported from uploaded data.\""
+msgstr "%s успешно импортировано из загруженных данных."
 
 #: includes/admin.php:889 includes/admin.php:1138 includes/admin.php:1316
 #: includes/admin.php:1584 includes/admin.php:1585
 #, php-format
 msgid "%s: assigned by Permission Group"
-msgstr "[DRY RUN] Would translate: \"%s: assigned by Permission Group\""
+msgstr "%s: назначено группой разрешений"
 
-#: includes/admin.php:270
+#: includes/admin.php:270, fuzzy
 msgid "&nbsp;"
-msgstr "[DRY RUN] Would translate: \"&nbsp;\""
+msgstr "&nbsp;"
 
 #: includes/roles/class/class-pp-roles-list-table.php:238
 msgid "(non-editable role)"
-msgstr "[DRY RUN] Would translate: \"(non-editable role)\""
+msgstr "(роль не подлежит редактированию)"
 
 #: includes/backup.php:198
 msgid "(this role will be removed if you restore backup)"
-msgstr ""
-"[DRY RUN] Would translate: \"(this role will be removed if you restore "
-"backup)\""
+msgstr "(эта роль будет удалена, если вы восстановите резервную копию)"
 
 #: includes/backup.php:69
 msgid ""
 "A backup created on this screen replaces any previous manual backups, but "
 "is never automatically replaced."
 msgstr ""
-"[DRY RUN] Would translate: \"A backup created on this screen replaces any "
-"previ…\""
+"Резервная копия, созданная на этом экране, заменяет любые предыдущие ручные "
+"резервные копии, но никогда не заменяется автоматически."
 
 #: includes/manager.php:1516
 msgid "About"
-msgstr "[DRY RUN] Would translate: \"About\""
+msgstr "О программе"
 
 #: includes/manager.php:1516
 msgid "About PublishPress Capabilities"
-msgstr "[DRY RUN] Would translate: \"About PublishPress Capabilities\""
+msgstr "О PublishPress Capabilities"
 
 #: includes/pp-ui.php:64
 #, php-format
 msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
-msgstr ""
-"[DRY RUN] Would translate: \"activate %1$sAdvanced settings%2$s, see Role "
-"Usage\""
+msgstr "активировать %1$sРасширенные настройки%2$s, см. Использование роли"
 
 #: includes/admin.php:1780
 msgid "Add a New Capability"
-msgstr "[DRY RUN] Would translate: \"Add a New Capability\""
+msgstr "Добавить новую возможность"
 
 #: includes/features/restrict-editor-features.php:383
 msgid "Add block"
-msgstr "[DRY RUN] Would translate: \"Add block\""
+msgstr "Добавить блок"
 
 #: includes/features/frontend-features/frontend-features-ui.php:75
 msgid "Add Body Class"
-msgstr "[DRY RUN] Would translate: \"Add Body Class\""
+msgstr "Добавить класс тела"
 
 #: includes/features/frontend-features/frontend-features-ui.php:74
 msgid "Add Custom CSS"
-msgstr "[DRY RUN] Would translate: \"Add Custom CSS\""
+msgstr "Добавить пользовательский CSS"
 
 #: includes/features/admin-styles/admin-styles-ui.php:302
 msgid ""
 "Add more than one custom admin styles. This feature is available in "
 "PublishPress Capabilities Pro."
 msgstr ""
-"[DRY RUN] Would translate: \"Add more than one custom admin styles. This "
-"featur…\""
+"Добавьте более одного пользовательского стиля администратора. Эта функция "
+"доступна в PublishPress Capabilities Pro."
 
 #: includes/features/restrict-editor-features.php:47
 #: includes/roles/roles.php:10
 #: includes/features/frontend-features/frontend-features-ui.php:152
 #: includes/features/frontend-features/frontend-features-ui.php:155
 msgid "Add New"
-msgstr "[DRY RUN] Would translate: \"Add New\""
+msgstr "Добавить новый"
 
 #: includes/features/restrict-editor-features.php:415
 msgid "Add new block"
-msgstr "[DRY RUN] Would translate: \"Add new block\""
+msgstr "Добавить новый блок"
 
 #: includes/settings-ui.php:207
 msgid "Add option to search and user testing in the Admin Bar."
 msgstr ""
-"[DRY RUN] Would translate: \"Add option to search and user testing in the "
-"Admin…\""
+"Добавить опцию поиска и тестирования пользователей в Административной "
+"панели."
 
 #: includes/manager.php:253
 msgid "Add or clear custom item entry before saving changes."
 msgstr ""
-"[DRY RUN] Would translate: \"Add or clear custom item entry before saving "
-"chang…\""
+"Добавить или очистить пользовательский ввод элемента перед сохранением "
+"изменений."
 
 #: includes/manager.php:251
 msgid "Add or remove capability from the role normally"
-msgstr ""
-"[DRY RUN] Would translate: \"Add or remove capability from the role "
-"normally\""
+msgstr "Добавить или удалить возможности из роли обычно"
 
 #: includes/manager.php:250
 msgid "Add or remove this capability from the WordPress role"
-msgstr ""
-"[DRY RUN] Would translate: \"Add or remove this capability from the "
-"WordPress r…\""
+msgstr "Добавить или удалить эту возможность из роли WordPress"
 
 #: includes/features/frontend-features/frontend-features-ui.php:133
 msgid "Add post metabox:"
-msgstr "[DRY RUN] Would translate: \"Add post metabox:\""
+msgstr "Добавить метабокс поста:"
 
 #: includes/admin.php:1790
 msgid "Add to role"
-msgstr "Добавить роль"
+msgstr "Добавить в роль"
 
 #: includes/admin.php:643
 msgid "Additional"
-msgstr "[DRY RUN] Would translate: \"Additional\""
+msgstr "Дополнительно"
 
 #: includes/admin.php:1508
 msgid "Additional Capabilities"
-msgstr "[DRY RUN] Would translate: \"Additional Capabilities\""
+msgstr "Дополнительные возможности"
 
 #: includes/admin.php:602 includes/admin.php:1073
 msgid "Admin"
-msgstr "[DRY RUN] Would translate: \"Admin\""
+msgstr "Администратор"
 
 #: includes/manager.php:517
 #: includes/roles/class/class-pp-roles-list-table.php:174
 msgid "Admin Access"
-msgstr "[DRY RUN] Would translate: \"Admin Access\""
+msgstr "Доступ администратора"
 
 #: includes/settings-ui.php:186
 msgid "Admin Bar modification"
-msgstr "[DRY RUN] Would translate: \"Admin Bar modification\""
+msgstr "Изменение панели администратора"
 
 #: includes/settings-ui.php:202
 msgid "Admin Bar search"
-msgstr "[DRY RUN] Would translate: \"Admin Bar search\""
+msgstr "Поиск в панели администратора"
 
 #: includes/features/admin-styles/admin-styles-ui.php:169
 msgid "Admin Color Scheme"
-msgstr "[DRY RUN] Would translate: \"Admin Color Scheme\""
+msgstr "Цветовая схема администратора"
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
-msgstr "[DRY RUN] Would translate: \"Admin Feature Restrictions\""
+msgstr "Ограничения функций администратора"
 
 #: includes/functions-admin.php:216 includes/functions-admin.php:389
 #: includes/functions-admin.php:476
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
-msgstr "[DRY RUN] Would translate: \"Admin Features\""
+msgstr "Функции администратора"
 
-#: includes/functions-admin.php:390 includes/features/admin-features.php:333
+#: includes/functions-admin.php:390 includes/features/admin-features.php:344
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
 msgstr ""
-"[DRY RUN] Would translate: \"Admin Features allows you to remove elements "
-"from …\""
+"Функции администратора позволяют удалять элементы из области "
+"администрирования и панели инструментов."
 
-#: includes/features/admin-styles/admin-styles-ui.php:481
+#: includes/features/admin-features.php:354
+msgid "Admin Features Settings"
+msgstr "Настройки функций администратора"
+
+#: includes/features/admin-styles/admin-styles-ui.php:524
 msgid "Admin Footer Text"
-msgstr "[DRY RUN] Would translate: \"Admin Footer Text\""
+msgstr "Текст нижнего колонтитула администратора"
 
 #: includes/admin.php:1012
 msgid ""
@@ -332,112 +324,120 @@ msgid ""
 "capability is missing. Also, these \"List\" capabilities can grant access, "
 "but not deny access."
 msgstr ""
-"[DRY RUN] Would translate: \"Admin listing access is normally provided by "
-"the \"…\""
+"Доступ к списку администраторов обычно предоставляется возможностями "
+"\"Редактировать\". Эти возможности \"Список\" применимы только если "
+"соответствующая возможность \"Редактировать\" отсутствует. Также, эти "
+"возможности \"Список\" могут предоставить доступ, но не могут его запретить."
 
 #: includes-core/admin-menus-promo.php:29
 msgid "Admin Menu Restrictions"
-msgstr "[DRY RUN] Would translate: \"Admin Menu Restrictions\""
+msgstr "Ограничения меню администратора"
 
 #: includes/functions-admin.php:491 includes-core/CoreAdmin.php:84
 #: includes-core/CoreAdmin.php:147
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
-msgstr "[DRY RUN] Would translate: \"Admin Menus\""
+msgstr "Меню администратора"
 
 #: includes-core/CoreAdmin.php:148
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
 msgstr ""
-"[DRY RUN] Would translate: \"Admin Menus allows you to edit the admin menu "
-"link…\""
+"Меню администраторов позволяет редактировать ссылки в меню администраторов "
+"и контролировать, кто имеет доступ."
 
 #: includes/admin-notices/admin-notices.php:269
 msgid "Admin notice status updated successfully."
-msgstr "[DRY RUN] Would translate: \"Admin notice status updated successfully.\""
+msgstr "Статус уведомления администратора успешно обновлён."
 
 #: includes/functions-admin.php:424 includes/settings-ui.php:37
 #: includes/admin-notices/admin-notices.php:179
 #: includes/admin-notices/admin-notices.php:217
 #: includes/admin-notices/admin-notices.php:220
 msgid "Admin Notices"
-msgstr "[DRY RUN] Would translate: \"Admin Notices\""
+msgstr "Уведомления администратора"
 
 #: includes/functions-admin.php:221 includes/functions-admin.php:394
 #: includes/functions-admin.php:483
 #: includes/features/admin-styles/admin-styles-ui.php:95
 msgid "Admin Styles"
-msgstr "[DRY RUN] Would translate: \"Admin Styles\""
+msgstr "Стили администратора"
 
 #: includes/functions-admin.php:395
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
-"[DRY RUN] Would translate: \"Admin Styles allows you to customize the admin "
-"are…\""
+"Стили администратора позволяют настраивать область администратора с вашим "
+"собственным брендингом."
 
-#: includes/features/admin-styles/admin-styles-ui.php:575
+#: includes/features/admin-styles/admin-styles-ui.php:618
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
 msgstr ""
-"[DRY RUN] Would translate: \"Admin Styles allows you to customize the "
-"WordPress…\""
+"Стили администратора позволяют настраивать область администратора WordPress "
+"с вашим собственным брендингом."
 
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
-msgstr "[DRY RUN] Would translate: \"Advanced\""
+msgstr "Расширенный"
 
 #: includes/roles/class/class-pp-roles-list-table.php:86
 #, php-format
 msgid "All %s"
 msgid_plural "All %s"
-msgstr[0] "[DRY RUN] Would translate: \"All %s\""
+msgstr[0] "Все %s"
+msgstr[1] "Все %s"
+msgstr[2] "Все %s"
 
 #: includes/features/frontend-features/frontend-features-action.php:58
 #: includes/features/frontend-features/frontend-features-ui.php:151
 msgid "All fields are required."
-msgstr "[DRY RUN] Would translate: \"All fields are required.\""
+msgstr "Все поля обязательны для заполнения."
 
 #: includes/roles/class/class-pp-roles-admin.php:547
 msgid "All Roles"
-msgstr "[DRY RUN] Would translate: \"All Roles\""
+msgstr "Все роли"
 
 #: includes/backup.php:111
 msgid "all roles"
-msgstr "[DRY RUN] Would translate: \"all roles\""
+msgstr "все роли"
 
-#: includes/pp-ui.php:310
+#: includes/pp-ui.php:311
 msgid ""
 "Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
 "\"Manage\" capability."
 msgstr ""
-"[DRY RUN] Would translate: \"Allow \"Edit\", \"Delete\" and \"Assign\" "
-"capabilities s…\""
+"Разрешить возможности \"Редактировать\", \"Удалить\" и \"Назначить\" "
+"отдельно от возможности \"Управлять\"."
 
-#: includes/pp-ui.php:119
+#: includes/pp-ui.php:120
 #. %1$s and %2$s are link tags for 'Find out more.'
 #, php-format
 msgid ""
 "Allow post type permissions to be controlled separately from other areas of "
 "WordPress. %1$sFind out more.%2$s"
 msgstr ""
-"[DRY RUN] Would translate: \"Allow post type permissions to be controlled "
-"separ…\""
+"Разрешить управление правами на тип записи отдельно от других областей "
+"WordPress. %1$sУзнайте больше.%2$s"
 
-#: includes/pp-ui.php:229
+#: includes/features/profile-features.php:239
+msgid "Allow PublishPress to find profile items for this role."
+msgstr "Разрешить PublishPress находить элементы профиля для этой роли."
+
+#: includes/pp-ui.php:230
 msgid ""
 "Allow taxonomy permissions to be controlled separately from other areas of "
 "WordPress."
 msgstr ""
-"[DRY RUN] Would translate: \"Allow taxonomy permissions to be controlled "
-"separa…\""
+"Разрешить управление правами таксономии отдельно от других областей "
+"WordPress."
 
 #: includes/settings-ui.php:170
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
 msgstr ""
-"[DRY RUN] Would translate: \"Always show the Classic Editor tab in \"Editor "
-"Feat…\""
+"Всегда показывать вкладку Классического редактора на экране \"Функции "
+"редактора\"."
 
 #: includes/settings-ui.php:277
 msgid ""
@@ -445,136 +445,131 @@ msgid ""
 "issues when updating user roles that do not have access to the WordPress "
 "admin area."
 msgstr ""
-"[DRY RUN] Would translate: \"Always try to automatically find profile "
-"elements.…\""
+"Всегда пытаться автоматически находить элементы профиля. Это может вызвать "
+"временные проблемы при обновлении ролей пользователей, которые не имеют "
+"доступа к области администратора WordPress."
 
-#: includes/admin-load.php:663 includes/admin-notices/admin-notices.php:232
+#: includes/admin-load.php:647 includes/admin-notices/admin-notices.php:232
 #: includes/features/restrict-profile-features.php:29
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 msgid "An error occured!"
-msgstr "[DRY RUN] Would translate: \"An error occured!\""
+msgstr "Произошла ошибка!"
 
-#: includes/features/restrict-profile-features.php:109
+#: includes/features/restrict-profile-features.php:110
 msgid "An error occurred!"
-msgstr "[DRY RUN] Would translate: \"An error occurred!\""
+msgstr "Произошла ошибка!"
 
 #: includes/admin.php:290
 msgid "Approve Revision"
-msgstr "[DRY RUN] Would translate: \"Approve Revision\""
+msgstr "Одобрить ревизию"
 
 #: includes/manager.php:252
 msgid "Are you sure you want to delete this item ?"
-msgstr "[DRY RUN] Would translate: \"Are you sure you want to delete this item ?\""
+msgstr "Вы уверены, что хотите удалить этот элемент?"
 
 #: includes/roles/roles-functions.php:33
 #: includes/roles/class/class-pp-roles-admin.php:427
 msgid "Are you sure you want to delete this role?"
-msgstr "[DRY RUN] Would translate: \"Are you sure you want to delete this role?\""
+msgstr "Вы уверены, что хотите удалить эту роль?"
 
 #: includes/admin.php:1859
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Assign custom WP roles supplementally for a "
-"specif…\""
+"Дополнительно назначьте пользовательские роли WP для конкретного типа поста "
+"<em>(Pro)</em>"
 
 #: includes/admin.php:1855
 msgid "Assign standard WP roles supplementally for a specific post type"
-msgstr ""
-"[DRY RUN] Would translate: \"Assign standard WP roles supplementally for a "
-"spec…\""
+msgstr "Дополнительно назначьте стандартные роли WP для конкретного типа поста"
 
 #: includes/backup.php:131
 #, php-format
 msgid "Auto-backup of all roles (%s)"
-msgstr "[DRY RUN] Would translate: \"Auto-backup of all roles (%s)\""
+msgstr "Авто-резервное копирование всех ролей (%s)"
 
 #: includes/admin.php:1851
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
 msgstr ""
-"[DRY RUN] Would translate: \"Automatically define type-specific "
-"capabilities fo…\""
+"Автоматически определяйте возможности, специфичные для типа, для ваших "
+"пользовательских типов постов и таксономий"
 
 #: includes/settings-ui.php:272
 msgid "Automatically refresh profile elements"
-msgstr "[DRY RUN] Would translate: \"Automatically refresh profile elements\""
+msgstr "Автоматически обновлять элементы профиля"
 
 #: includes/backup.php:95
 msgid "Available Backups:"
-msgstr "[DRY RUN] Would translate: \"Available Backups:\""
+msgstr "Доступные резервные копии:"
 
 #: includes/backup.php:51 includes/functions-admin.php:527
 msgid "Backup"
-msgstr "Резервная копия"
+msgstr "Резервное копирование"
 
 #: includes/backup.php:62
 msgid "Backup Roles and Capabilities"
-msgstr "Резерв. копия ролей и возможностей"
+msgstr "Резервное копирование ролей и возможностей"
 
 #: includes/backup.php:41
 msgid "Backup Tool for PublishPress Capabilities"
-msgstr "[DRY RUN] Would translate: \"Backup Tool for PublishPress Capabilities\""
+msgstr "Инструмент резервного копирования для возможностей PublishPress"
 
 #: includes/manager.php:1186
 msgid "Bad form Received"
-msgstr "Se ha recibido un formulario incorrecto."
+msgstr "Получена неверная форма"
 
 #: includes/handler.php:127
 msgid "Bad form received."
-msgstr "Плохая форма отправки."
+msgstr "Получена неверная форма."
 
 #: includes/backup.php:334
 msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
 msgstr ""
-"[DRY RUN] Would translate: \"Before importing, we recommend using the "
-"\"Backup\" …\""
+"Перед импортом мы рекомендуем использовать вкладку \"Резервное "
+"копирование\", чтобы создать резервную копию ваших текущих настроек."
 
 #: includes/admin.php:209
 msgid "Block"
-msgstr "[DRY RUN] Would translate: \"Block\""
+msgstr "Блокировать"
 
 #: includes-core/CoreAdmin.php:128
 msgid "Block by URL"
-msgstr "[DRY RUN] Would translate: \"Block by URL\""
+msgstr "Блокировать по URL"
 
 #: includes/roles/class/class-pp-roles-admin.php:204
 msgid "Block Dashboard Access"
-msgstr "[DRY RUN] Would translate: \"Block Dashboard Access\""
+msgstr "Блокировать доступ к панели управления"
 
 #: includes/roles/class/class-pp-roles-admin.php:194
 msgid "Block Login"
-msgstr "[DRY RUN] Would translate: \"Block Login\""
+msgstr "Блокировать вход"
 
 #: includes/features/restrict-editor-features.php:482
 #: includes/features/restrict-editor-features.php:483
 msgid "Block Panel"
-msgstr "[DRY RUN] Would translate: \"Block Panel\""
+msgstr "Блокировать панель"
 
 #: includes/roles/class/class-pp-roles-admin.php:205
 msgid "Block users in this role from accessing admin area."
-msgstr ""
-"[DRY RUN] Would translate: \"Block users in this role from accessing admin "
-"area…\""
+msgstr "Заблокировать пользователям с этой ролью доступ в административную область."
 
 #: includes/roles/class/class-pp-roles-admin.php:195
 msgid "Block users in this role from logging into the site."
-msgstr ""
-"[DRY RUN] Would translate: \"Block users in this role from logging into the "
-"sit…\""
+msgstr "Блокировать пользователей с этой ролью от входа на сайт."
 
 #: includes/features/restrict-editor-features.php:403
 msgid "Body"
-msgstr "[DRY RUN] Would translate: \"Body\""
+msgstr "Содержимое"
 
 #: includes/features/frontend-features/frontend-features-ui.php:226
 msgid "Body Class"
-msgstr "[DRY RUN] Would translate: \"Body Class\""
+msgstr "Класс содержимого"
 
 #: includes/roles/class/class-pp-roles-admin.php:276
 #, php-format
@@ -583,87 +578,78 @@ msgid ""
 "admin area. When enabled, this setting will remove those restrictions for "
 "this role. %1s Click here for more details. %2s"
 msgstr ""
-"[DRY RUN] Would translate: \"By default, WooCommerce prevents most users "
-"from a…\""
+"По умолчанию WooCommerce предотвращает доступ большинства пользователей к "
+"админ-панели WordPress. Когда эта настройка включена, она снимет эти "
+"ограничения для этой роли. %1s Нажмите здесь для получения дополнительной "
+"информации. %2s"
 
 #: includes/admin.php:303
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
-"[DRY RUN] Would translate: \"Can delete posts which are currently published "
-"wit…\""
+"Может удалять записи, которые в настоящее время опубликованы с приватной "
+"видимостью."
 
 #: includes/admin.php:302
 msgid "Can delete posts which are currently published."
-msgstr ""
-"[DRY RUN] Would translate: \"Can delete posts which are currently "
-"published.\""
+msgstr "Может удалять записи, которые в настоящее время опубликованы."
 
 #: includes/admin.php:301
 msgid "Can delete posts which were created by other users."
-msgstr ""
-"[DRY RUN] Would translate: \"Can delete posts which were created by other "
-"users…\""
+msgstr "Может удалять записи, которые были созданы другими пользователями."
 
 #: includes/admin.php:298
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
-"[DRY RUN] Would translate: \"Can edit posts which are currently published "
-"with …\""
+"Может редактировать записи, которые в настоящее время опубликованы с "
+"приватной видимостью."
 
 #: includes/admin.php:297
 msgid "Can edit posts which are currently published."
-msgstr "[DRY RUN] Would translate: \"Can edit posts which are currently published.\""
+msgstr "Может редактировать записи, которые в настоящее время опубликованы."
 
 #: includes/admin.php:296
 msgid "Can edit posts which were created by other users."
-msgstr ""
-"[DRY RUN] Would translate: \"Can edit posts which were created by other "
-"users.\""
+msgstr "Может редактировать записи, которые были созданы другими пользователями."
 
 #: includes/admin.php:299
 msgid "Can make a post publicly visible."
-msgstr "[DRY RUN] Would translate: \"Can make a post publicly visible.\""
+msgstr "Может сделать запись публично видимой."
 
 #: includes/admin.php:294
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
-"[DRY RUN] Would translate: \"Can read posts which are currently published "
-"with …\""
+"Может читать записи, которые в настоящее время опубликованы с приватной "
+"видимостью."
 
 #: includes/features/frontend-features/frontend-features-ui.php:148
 msgid "Cancel Edit"
-msgstr "[DRY RUN] Would translate: \"Cancel Edit\""
+msgstr "Отменить редактирование"
 
 #: includes/roles/class/class-pp-roles-actions.php:522
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
-"Не удалена стандартная роль. Вы <a href=\"%s\">должны сначала изменить "
-"это</a>."
+"Невозможно удалить роль по умолчанию. Вам <a href=\"%s\">необходимо сначала "
+"изменить её</a>."
 
 #: includes/manager.php:1518
-#, fuzzy
 msgid "Capabilites Documentation"
-msgstr "Нет действий"
+msgstr "Документация по возможностям"
 
-#: includes/admin-load.php:509 includes/admin-load.php:841
+#: includes/admin-load.php:493 includes/admin-load.php:825
 #: includes/functions-admin.php:379 includes/functions-admin.php:462
 #: includes/manager.php:387 includes/settings-ui.php:34
 #: includes/roles/class/class-pp-roles-admin.php:637
 msgid "Capabilities"
-msgstr "возможности"
+msgstr "Возможности"
 
 #: includes/admin.php:1675
 msgid "Capabilities allows you change the permissions for any user role."
-msgstr ""
-"[DRY RUN] Would translate: \"Capabilities allows you change the permissions "
-"for…\""
+msgstr "Возможности позволяют вам изменять права для любой пользовательской роли."
 
 #: includes/functions-admin.php:380
 msgid "Capabilities allows you to change the permissions for any user role."
-msgstr ""
-"[DRY RUN] Would translate: \"Capabilities allows you to change the "
-"permissions …\""
+msgstr "Возможности позволяют вам изменять права для любой пользовательской роли."
 
 #: includes/pp-ui.php:79
 #, php-format
@@ -672,8 +658,10 @@ msgid ""
 "%sPermissions > Post Statuses%s for applicable names). %sSupplemental "
 "status-specific roles%s are usually more convenient, though."
 msgstr ""
-"[DRY RUN] Would translate: \"Capabilities for custom statuses can be "
-"manually a…\""
+"Возможности для пользовательских статусов могут быть добавлены вручную "
+"здесь. (Смотрите %sПрава доступа > Статусы записей%s для применимых "
+"названий). %sДополнительные роли, специфичные для статусов%s, как правило, "
+"более удобны."
 
 #: includes/pp-ui.php:81
 msgid ""
@@ -681,8 +669,9 @@ msgid ""
 "the PP Custom Post Statuses extension to assign status-specific "
 "supplemental roles."
 msgstr ""
-"[DRY RUN] Would translate: \"Capabilities for custom statuses can be "
-"manually a…\""
+"Возможности для пользовательских статусов могут быть добавлены вручную "
+"здесь. Или активируйте расширение PP Custom Post Statuses, чтобы назначить "
+"дополнительные роли, специфичные для статусов."
 
 #: includes/pp-ui.php:84
 msgid ""
@@ -691,534 +680,512 @@ msgid ""
 "is usually more convenient to use Permit Groups to assign a supplemental "
 "status-specific role."
 msgstr ""
-"[DRY RUN] Would translate: \"Capabilities for custom statuses can be "
-"manually a…\""
+"Возможности для пользовательских статусов можно вручную добавить к роли "
+"здесь (см. Условия > Статус > Соответствие возможностей для применимых "
+"имен). Тем не менее, обычно удобнее использовать группы разрешений для "
+"назначения дополнительной роли, специфичной для статуса."
 
 #: includes/admin.php:1744
 msgid "Capabilities is Safe to Use"
-msgstr "[DRY RUN] Would translate: \"Capabilities is Safe to Use\""
+msgstr "Возможности безопасны для использования"
 
 #: includes/settings.php:13
 msgid "Capabilities Settings"
-msgstr "[DRY RUN] Would translate: \"Capabilities Settings\""
+msgstr "Настройки возможностей"
 
 #: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
 #: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
 #: includes/admin.php:1520 includes/admin.php:1658
 msgid "Capability Name"
-msgstr "[DRY RUN] Would translate: \"Capability Name\""
+msgstr "Название возможности"
 
 #: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
 #: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
 #: includes/admin.php:1520 includes/admin.php:1658
 msgid "check / uncheck all"
-msgstr "[DRY RUN] Would translate: \"check / uncheck all\""
+msgstr "выбрать / снять выбор со всех"
 
 #: includes-core/editor-features-promo.php:36
 msgid "Checklist"
-msgstr "[DRY RUN] Would translate: \"Checklist\""
+msgstr "Контрольный список"
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:77
 msgid "Choose Frontend Features that will apply to this post."
-msgstr ""
-"[DRY RUN] Would translate: \"Choose Frontend Features that will apply to "
-"this p…\""
+msgstr "Выберите функции интерфейса, которые будут применяться к этому посту."
 
 #: includes/features/editor-features.php:130
 msgid "Classic"
-msgstr "[DRY RUN] Would translate: \"Classic\""
+msgstr "Классический"
 
 #: includes/roles/class/class-pp-roles-admin.php:160
 msgid "Classic editor"
-msgstr "[DRY RUN] Would translate: \"Classic editor\""
+msgstr "Классический редактор"
 
 #: includes/features/editor-features-classic.php:1
 #, php-format
 msgid "Classic Editor %s Restrictions"
-msgstr "[DRY RUN] Would translate: \"Classic Editor %s Restrictions\""
+msgstr "Ограничения Классического Редактора %s"
 
 #: includes/settings-ui.php:376 includes/settings-ui.php:398
 msgid "Click here for more on notice types."
-msgstr "[DRY RUN] Would translate: \"Click here for more on notice types.\""
+msgstr "Нажмите здесь для получения дополнительной информации о типах уведомлений."
 
 #: includes/features/profile-features.php:140
-msgid "Click Refresh profile items to manage elements for this role."
-msgstr ""
-"[DRY RUN] Would translate: \"Click Refresh profile items to manage elements "
-"for…\""
+msgid "Click the \"Find profile items for this role\" button."
+msgstr "Нажмите кнопку \"Найти элементы профиля для этой роли\"."
 
 #: includes/features/restrict-editor-features.php:486
 msgid "Color settings"
-msgstr "[DRY RUN] Would translate: \"Color settings\""
+msgstr "Настройки цвета"
 
 #: includes/manager.php:1520
 msgid "Contact"
-msgstr "[DRY RUN] Would translate: \"Contact\""
+msgstr "Контакт"
 
 #: includes/manager.php:1520
 msgid "Contact the PublishPress team"
-msgstr "[DRY RUN] Would translate: \"Contact the PublishPress team\""
+msgstr "Связаться с командой PublishPress"
 
 #: includes/roles/class/class-pp-roles-admin.php:261
 #. "Editor" means post editor like Gutenberg
 msgid "Control Allowed Editors"
-msgstr "[DRY RUN] Would translate: \"Control Allowed Editors\""
+msgstr "Управление разрешенными редакторами"
 
-#: includes/features/admin-styles/admin-styles-ui.php:516
+#: includes/features/admin-styles/admin-styles-ui.php:559
 msgid "Control how admin styles are applied to users."
-msgstr "[DRY RUN] Would translate: \"Control how admin styles are applied to users.\""
+msgstr "Контролируйте, как стили администратора применяются к пользователям."
 
-#: includes/features/admin-styles/admin-styles-ui.php:514
+#: includes/features/admin-styles/admin-styles-ui.php:557
 msgid "Control Settings"
-msgstr "[DRY RUN] Would translate: \"Control Settings\""
+msgstr "Настройки управления"
 
 #: includes/roles/class/class-pp-roles-list-table.php:233
 msgid "Copy"
-msgstr "Копия"
+msgstr "Копировать"
 
 #: includes/admin.php:1988
 msgid "Copy / update this role definition to all sites now"
-msgstr ""
-"[DRY RUN] Would translate: \"Copy / update this role definition to all "
-"sites no…\""
+msgstr "Скопировать / обновить это определение роли на всех сайтах сейчас"
 
 #: includes/admin.php:1991
 msgid "Copy option settings to all sites now"
-msgstr "[DRY RUN] Would translate: \"Copy option settings to all sites now\""
+msgstr "Скопировать настройки опции на все сайты сейчас"
 
 #: includes/roles/class/class-pp-roles-admin.php:541
 msgid "Copy Role"
-msgstr "[DRY RUN] Would translate: \"Copy Role\""
+msgstr "Скопировать роль"
 
 #: includes/features/restrict-editor-features.php:164
 msgid "Coupon Description"
-msgstr "[DRY RUN] Would translate: \"Coupon Description\""
+msgstr "Описание купона"
 
 #: includes/roles/class/class-pp-roles-admin.php:543
 msgid "Create New Role"
-msgstr "[DRY RUN] Would translate: \"Create New Role\""
+msgstr "Создать новую роль"
 
 #: includes/admin.php:282
 msgid "Create Revision"
-msgstr "[DRY RUN] Would translate: \"Create Revision\""
+msgstr "Создать ревизию"
 
 #: includes/admin.php:1985
 msgid "Create this role definition in new (future) sites"
-msgstr ""
-"[DRY RUN] Would translate: \"Create this role definition in new (future) "
-"sites\""
+msgstr "Создать это определение роли на новых (будущих) сайтах"
 
 #: includes/roles/class/class-pp-roles-list-table.php:398
 msgid "Custom"
-msgstr "[DRY RUN] Would translate: \"Custom\""
+msgstr "Пользовательский"
 
-#: includes/features/admin-styles/admin-styles-ui.php:579
+#: includes/features/admin-styles/admin-styles-ui.php:622
 msgid "Custom admin color schemes"
-msgstr "[DRY RUN] Would translate: \"Custom admin color schemes\""
+msgstr "Пользовательские цветовые схемы администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:411
+#: includes/features/admin-styles/admin-styles-ui.php:454
 msgid "Custom Admin Logo"
-msgstr "[DRY RUN] Would translate: \"Custom Admin Logo\""
+msgstr "Пользовательский логотип администратора"
 
 #: includes/features/frontend-features/frontend-features-ui.php:231
 msgid "Custom CSS"
-msgstr "[DRY RUN] Would translate: \"Custom CSS\""
+msgstr "Пользовательский CSS"
 
-#: includes/features/admin-styles/admin-styles-ui.php:446
+#: includes/features/admin-styles/admin-styles-ui.php:489
 msgid "Custom Favicon"
-msgstr "[DRY RUN] Would translate: \"Custom Favicon\""
+msgstr "Пользовательский фавикон"
 
-#: includes/features/admin-styles/admin-styles-ui.php:581
+#: includes/features/admin-styles/admin-styles-ui.php:624
 msgid "Custom footer text"
-msgstr "[DRY RUN] Would translate: \"Custom footer text\""
+msgstr "Пользовательский текст подвала"
 
 #: includes-core/editor-features-promo.php:98
 msgid "Custom item one"
-msgstr "[DRY RUN] Would translate: \"Custom item one\""
+msgstr "Пользовательский элемент один"
 
 #: includes-core/editor-features-promo.php:89
 msgid "Custom Items"
-msgstr "[DRY RUN] Would translate: \"Custom Items\""
+msgstr "Пользовательские элементы"
 
 #: includes/admin.php:1875
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Custom Moderation statuses for "
-"access-controlled, …\""
+"Пользовательские статусы модерации для рабочих процессов публикации с "
+"контролем доступа и многошаговой модерацией <em>(Pro)</em>"
 
 #: includes/admin.php:1871
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Custom Post Visibility statuses, fully "
-"implemented…\""
+"Пользовательские статусы видимости постов, полностью реализованные в "
+"wp-admin <em>(Pro)</em>"
 
 #: includes/admin.php:1867
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Customize editing permissions per-category or "
-"per-…\""
+"Настроить разрешения на редактирование по категориям или по постам "
+"<em>(Pro)</em>"
 
 #: includes/admin.php:1863
 msgid "Customize reading permissions per-category or per-post"
-msgstr ""
-"[DRY RUN] Would translate: \"Customize reading permissions per-category or "
-"per-…\""
+msgstr "Настроить разрешения на чтение по категориям или по постам"
 
 #: includes/admin.php:1883
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Customize the moderated editing of published "
-"conte…\""
+"Настроить модерацию редактирования опубликованного контента с помощью "
+"Revisionary или Post Forking <em>(Pro)</em>"
 
-#: includes/admin-load.php:840 includes/dashboard.php:23
+#: includes/admin-load.php:824 includes/dashboard.php:23
 msgid "Dashboard"
-msgstr "[DRY RUN] Would translate: \"Dashboard\""
+msgstr "Панель управления"
 
 #: includes/manager.php:516
 #: includes/roles/class/class-pp-roles-list-table.php:173
 msgid "Default Role"
-msgstr "[DRY RUN] Would translate: \"Default Role\""
+msgstr "Роль по умолчанию"
 
 #: includes/roles/class/class-pp-roles-admin.php:239
-#, fuzzy
 msgid "Delete role"
-msgstr "Удаление роли"
+msgstr "Удалить роль"
 
 #: includes/roles/class/class-pp-roles-actions.php:541
 msgid "Deleting a system role is not allowed."
-msgstr "[DRY RUN] Would translate: \"Deleting a system role is not allowed.\""
+msgstr "Удаление системной роли не допускается."
 
 #: includes/roles/class/class-pp-roles-admin.php:240
 msgid ""
 "Deleting this role will completely remove it from database and is "
 "irrecoverable."
 msgstr ""
-"[DRY RUN] Would translate: \"Deleting this role will completely remove it "
-"from …\""
+"Удаление этой роли полностью удалит ее из базы данных и является "
+"необратимым."
 
 #: includes/admin.php:273
 msgid "Deletion"
-msgstr "[DRY RUN] Would translate: \"Deletion\""
+msgstr "Удаление"
 
-#: includes/functions.php:709
+#: includes/functions.php:723
 msgid "Detailed documentation is also available on the plugin website."
-msgstr ""
-"[DRY RUN] Would translate: \"Detailed documentation is also available on "
-"the pl…\""
+msgstr "Подробная документация также доступна на сайте плагина."
 
-#: includes/pp-ui.php:300
+#: includes/pp-ui.php:301
 msgid "Detailed Taxonomy Capabilities"
-msgstr "[DRY RUN] Would translate: \"Detailed Taxonomy Capabilities\""
+msgstr "Подробные возможности таксономии"
 
 #: includes/roles/class/class-pp-roles-admin.php:249
 #. "Editor" means post editor like Gutenberg
 msgid "Disable Code Editor"
-msgstr "[DRY RUN] Would translate: \"Disable Code Editor\""
+msgstr "Отключить редактор кода"
 
 #: includes/roles/class/class-pp-roles-admin.php:250
 #. "Editor" means post editor like Gutenberg
 msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
-msgstr ""
-"[DRY RUN] Would translate: \"Disable the \"Code editor\" option for the "
-"Gutenberg…\""
+msgstr "Отключить опцию \"Редактор кода\" для редактора блоков Gutenberg."
 
 #: includes/roles/class/class-pp-roles-admin.php:275
 msgid "Disable WooCommerce admin restrictions"
-msgstr "[DRY RUN] Would translate: \"Disable WooCommerce admin restrictions\""
+msgstr "Отключить ограничения администратора WooCommerce"
 
 #: includes/admin-notices/admin-notices.php:72
 msgid "Display this notice"
-msgstr "[DRY RUN] Would translate: \"Display this notice\""
+msgstr "Показать это уведомление"
 
 #: includes/admin-notices/admin-notices.php:76
 msgid "Displayed notices will no longer be removed from admin pages."
-msgstr ""
-"[DRY RUN] Would translate: \"Displayed notices will no longer be removed "
-"from a…\""
+msgstr "Показанные уведомления больше не будут удаляться со страниц администратора."
 
 #: includes/features/restrict-editor-features.php:390
 msgid "Document Bar Title"
-msgstr "[DRY RUN] Would translate: \"Document Bar Title\""
+msgstr "Название панели документа"
 
 #: includes/features/restrict-editor-features.php:389
 msgid "Document Overview"
-msgstr "[DRY RUN] Would translate: \"Document Overview\""
+msgstr "Обзор документа"
 
 #: includes/features/restrict-editor-features.php:420
 msgid "Document Panel"
-msgstr "[DRY RUN] Would translate: \"Document Panel\""
+msgstr "Панель документа"
 
 #: includes/manager.php:1518
-#, fuzzy
 msgid "Documentation"
-msgstr "Нет действий"
+msgstr "Документация"
 
 #: includes/admin-load.php:370
-msgid "Drag multiple roles selection to change order."
-msgstr "[DRY RUN] Would translate: \"Drag multiple roles selection to change order.\""
+msgid "Drag multiple roles selection to change roles order."
+msgstr "Перетащите выбор нескольких ролей, чтобы изменить порядок ролей."
 
 #: includes/roles/class/class-pp-roles-admin.php:217
 msgid ""
 "Each user role has a level from 0 to 10. The Subscriber role defaults to "
 "the lowest level (0). The Administrator role defaults to level 10."
 msgstr ""
-"[DRY RUN] Would translate: \"Each user role has a level from 0 to 10. The "
-"Subsc…\""
+"У каждой роли пользователя есть уровень от 0 до 10. Роль Подписчика по "
+"умолчанию имеет самый низкий уровень (0). Роль Администратора по умолчанию "
+"имеет уровень 10."
 
-#: includes/features/admin-features.php:265
+#: includes/features/admin-features.php:276
 #: includes/features/editor-features-classic.php:123
 #: includes/features/editor-features-gutenberg.php:120
 msgid "Edit"
-msgstr "[DRY RUN] Would translate: \"Edit\""
+msgstr "Редактировать"
 
 #: includes/roles/class/class-pp-roles-admin.php:539
 #, php-format
 msgid "Edit Role: %s"
-msgstr "[DRY RUN] Would translate: \"Edit Role: %s\""
+msgstr "Редактировать роль: %s"
 
 #: includes/admin-notices/admin-notices.php:218
 msgid "Edit the settings."
-msgstr "[DRY RUN] Would translate: \"Edit the settings.\""
+msgstr "Изменить настройки."
 
 #: includes/roles/class/class-pp-roles-list-table.php:90
 #, php-format
 msgid "Editable %s"
 msgid_plural "Editable %s"
-msgstr[0] "[DRY RUN] Would translate: \"Editable %s\""
+msgstr[0] "Редактируемый %s"
+msgstr[1] "Редактируемые %s"
+msgstr[2] "Редактируемых %s"
 
 #: includes/admin.php:272 includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
-msgstr "[DRY RUN] Would translate: \"Editing\""
+msgstr "Редактирование"
 
 #: includes/features/frontend-features/frontend-features-ui.php:45
 msgid "Editing:"
-msgstr "[DRY RUN] Would translate: \"Editing:\""
+msgstr "Редактирование:"
 
 #: includes/features/editor-features.php:69
 msgid "Editor Feature Restrictions"
-msgstr "[DRY RUN] Would translate: \"Editor Feature Restrictions\""
+msgstr "Ограничения функций редактора"
 
 #: includes/functions-admin.php:205 includes/functions-admin.php:384
 #: includes/functions-admin.php:469 includes/settings-ui.php:35
 #: includes/roles/class/class-pp-roles-admin.php:523
 msgid "Editor Features"
-msgstr "[DRY RUN] Would translate: \"Editor Features\""
+msgstr "Функции редактора"
 
 #: includes/functions-admin.php:385 includes/features/editor-features.php:238
 msgid "Editor Features allows you to remove elements from the post editing screen."
-msgstr ""
-"[DRY RUN] Would translate: \"Editor Features allows you to remove elements "
-"from…\""
+msgstr "Функции редактора позволяют удалять элементы с экрана редактирования постов."
 
 #: includes-core/editor-features-promo.php:46
 msgid "Editorial Comments"
-msgstr "[DRY RUN] Would translate: \"Editorial Comments\""
+msgstr "Редакционные комментарии"
 
 #: includes/settings-ui.php:352
 #, php-format
 msgid "Enable %1s access to the Admin Notices area."
-msgstr "[DRY RUN] Would translate: \"Enable %1s access to the Admin Notices area.\""
+msgstr "Разрешить доступ %1s к области администраторских уведомлений."
 
 #: includes/settings-ui.php:165
 msgid "Enable Classic Editor tab"
-msgstr "[DRY RUN] Would translate: \"Enable Classic Editor tab\""
+msgstr "Включить вкладку классического редактора"
 
 #: includes/features/frontend-features/frontend-features.php:151
 #, php-format
 msgid "Enable Frontend Features for %1$s Role"
-msgstr "[DRY RUN] Would translate: \"Enable Frontend Features for %1$s Role\""
+msgstr "Включить функции фронтенда для роли %1$s"
 
 #: includes/features/frontend-features/frontend-features-ui.php:101
 msgid ""
 "Enter classes that should be added to the body HTML. Separate multiple "
 "values with a space (custom-item-one custom-item-two)."
 msgstr ""
-"[DRY RUN] Would translate: \"Enter classes that should be added to the body "
-"HTM…\""
+"Введите классы, которые должны быть добавлены в HTML тела. Разделите "
+"несколько значений пробелом (custom-item-one custom-item-two)."
 
 #: includes/features/frontend-features/frontend-features-ui.php:98
 msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
-msgstr ""
-"[DRY RUN] Would translate: \"Enter classes to add the body HTML. Do not "
-"include…\""
+msgstr "Введите классы для добавления в HTML тела. Не включайте . перед HTML."
 
 #: includes/features/frontend-features/frontend-features-ui.php:92
 msgid ""
 "Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
 "color: red; } #custom-header { background: red; } "
 msgstr ""
-"[DRY RUN] Would translate: \"Enter custom CSS to be added to frontend "
-"pages. Ex…\""
+"Введите пользовательский CSS, который будет добавлен на страницы фронтенда. "
+"Примеры: .custom-style-1 { color: red; } #custom-header { background: red; "
+"} "
 
 #: includes/features/frontend-features/frontend-features-ui.php:81
 msgid ""
 "Enter IDs or classes to hide. Separate multiple values with a comma "
 "(.custom-item-one, .custom-item-two, #new-item-id)."
 msgstr ""
-"[DRY RUN] Would translate: \"Enter IDs or classes to hide. Separate "
-"multiple va…\""
+"Введите идентификаторы или классы для скрытия. Разделите несколько значений "
+"запятой (.custom-item-one, .custom-item-two, #new-item-id)."
 
 #: includes/redirects/redirects.php:242
 msgid "Enter the relative path only without domain for login redirect."
-msgstr ""
-"[DRY RUN] Would translate: \"Enter the relative path only without domain "
-"for lo…\""
+msgstr "Введите относительный путь только без домена для редиректа при входе."
 
 #: includes/redirects/redirects.php:275
 msgid "Enter the relative path only without domain for logout redirect."
-msgstr ""
-"[DRY RUN] Would translate: \"Enter the relative path only without domain "
-"for lo…\""
+msgstr "Введите относительный путь только без домена для редиректа при выходе."
 
 #: includes/redirects/redirects.php:55
 msgid "Enter the URL users in this role should be redirected to after login."
 msgstr ""
-"[DRY RUN] Would translate: \"Enter the URL users in this role should be "
-"redirec…\""
+"Введите URL, на который пользователи этой роли должны быть перенаправлены "
+"после входа."
 
 #: includes/redirects/redirects.php:64
 msgid "Enter the URL users in this role should be redirected to after logout."
 msgstr ""
-"[DRY RUN] Would translate: \"Enter the URL users in this role should be "
-"redirec…\""
+"Введите URL, на который пользователи этой роли должны быть перенаправлены "
+"после выхода."
 
 #: includes/redirects/redirects.php:73
 msgid "Enter the URL users in this role should be redirected to after registration."
 msgstr ""
-"[DRY RUN] Would translate: \"Enter the URL users in this role should be "
-"redirec…\""
+"Введите URL, на который пользователи этой роли должны быть перенаправлены "
+"после регистрации."
 
 #: includes/redirects/redirects.php:82
 msgid ""
 "Enter the URL users in this role should be redirected to after their first "
 "login."
 msgstr ""
-"[DRY RUN] Would translate: \"Enter the URL users in this role should be "
-"redirec…\""
+"Введите URL, на который пользователи этой роли должны быть перенаправлены "
+"после первого входа."
 
 #: includes/backup-handler.php:178
 msgid "Error importing settings! Please check that you uploaded a valid json file."
 msgstr ""
-"[DRY RUN] Would translate: \"Error importing settings! Please check that "
-"you up…\""
+"Ошибка импорта настроек! Пожалуйста, убедитесь, что вы загрузили "
+"действительный файл json."
 
 #: includes/backup-handler.php:165
 msgid "Error importing settings! Please try again."
-msgstr "[DRY RUN] Would translate: \"Error importing settings! Please try again.\""
+msgstr "Ошибка импорта настроек! Пожалуйста, попробуйте снова."
 
 #: includes/settings-ui.php:291
 msgid "Error notices"
-msgstr "[DRY RUN] Would translate: \"Error notices\""
+msgstr "Ошибки"
 
 #: includes/handler.php:51
 msgid "Error: Failed creating the new role."
-msgstr "Ошибка: Новая роль не создана."
+msgstr "Ошибка: Не удалось создать новую роль."
 
-#: includes/admin-load.php:642
+#: includes/admin-load.php:626
 msgid "Error: wrong data"
-msgstr "[DRY RUN] Would translate: \"Error: wrong data\""
+msgstr "Ошибка: неверные данные"
 
 #: includes/settings-ui.php:234
 msgid "Exclude role from User Testing"
-msgstr "[DRY RUN] Would translate: \"Exclude role from User Testing\""
+msgstr "Исключить роль из тестирования пользователей"
 
 #: includes/settings-ui.php:255
 msgid "Exclude users in selected roles from User Testing."
-msgstr ""
-"[DRY RUN] Would translate: \"Exclude users in selected roles from User "
-"Testing.\""
+msgstr "Исключить пользователей в выбранных ролях из тестирования пользователей."
 
 #: includes/manager.php:247
 msgid "Explicitly negate these capabilities by storing as disabled"
-msgstr ""
-"[DRY RUN] Would translate: \"Explicitly negate these capabilities by "
-"storing as…\""
+msgstr "Явно отмените эти возможности, храня их как отключенные"
 
 #: includes/manager.php:246
 msgid "Explicity negate this capability by storing as disabled"
-msgstr ""
-"[DRY RUN] Would translate: \"Explicity negate this capability by storing as "
-"dis…\""
+msgstr "Явно отмените эту возможность, храня её как отключённую"
 
 #: includes/backup.php:325
 msgid "Export"
-msgstr "[DRY RUN] Would translate: \"Export\""
+msgstr "Экспорт"
 
 #: includes/backup.php:53
 msgid "Export / Import"
-msgstr "[DRY RUN] Would translate: \"Export / Import\""
+msgstr "Экспорт / Импорт"
 
 #: includes/backup.php:301
 msgid "Export Settings"
-msgstr "[DRY RUN] Would translate: \"Export Settings\""
+msgstr "Экспорт настроек"
 
 #: includes/backup.php:303
 msgid ""
 "Export the plugin settings for this site as a .json file. This allows you "
 "to easily import the configuration into another site."
 msgstr ""
-"[DRY RUN] Would translate: \"Export the plugin settings for this site as a "
-".jso…\""
+"Экспортируйте настройки плагина для этого сайта в файл .json. Это позволит "
+"вам легко импортировать конфигурацию на другой сайт."
 
 #: includes/features/restrict-editor-features.php:150
 msgid "Featured Image"
-msgstr "[DRY RUN] Would translate: \"Featured Image\""
+msgstr "Изображение для анонса"
 
 #: includes/features/restrict-editor-features.php:461
 msgid "Featured image"
-msgstr "[DRY RUN] Would translate: \"Featured image\""
+msgstr "Изображение для анонса"
 
-#: includes/features/admin-styles/admin-styles-ui.php:577
+#: includes/features/admin-styles/admin-styles-ui.php:620
 msgid "Features include:"
-msgstr "[DRY RUN] Would translate: \"Features include:\""
+msgstr "Возможности включают:"
 
 #: includes/features/frontend-features/frontend-features-ui.php:66
 msgid "Features:"
-msgstr "[DRY RUN] Would translate: \"Features:\""
+msgstr "Возможности:"
 
 #: includes/admin.php:1089 includes/admin.php:1208 includes/admin.php:1267
 #: includes/admin.php:1511
 msgid "Filter by capability"
-msgstr "[DRY RUN] Would translate: \"Filter by capability\""
+msgstr "Фильтровать по возможности"
 
 #: includes/admin.php:690
 msgid "Filter by post type"
-msgstr "[DRY RUN] Would translate: \"Filter by post type\""
+msgstr "Фильтровать по типу записи"
 
 #: includes/admin.php:690
 msgid "Filter by taxonomy"
-msgstr "[DRY RUN] Would translate: \"Filter by taxonomy\""
+msgstr "Фильтр по таксономии"
+
+#: includes/features/profile-features.php:240
+msgid "Find profile items for this role"
+msgstr "Найти элементы профиля для этой роли"
 
 #: includes/redirects/redirects.php:47 includes/redirects/redirects.php:81
 msgid "First Login Redirect"
-msgstr "[DRY RUN] Would translate: \"First Login Redirect\""
+msgstr "Перенаправление при первом входе"
 
-#: includes/features/admin-styles/admin-styles-ui.php:535
+#: includes/features/admin-styles/admin-styles-ui.php:578
 msgid "Force role settings (override user selection)"
-msgstr "[DRY RUN] Would translate: \"Force role settings (override user selection)\""
+msgstr "Принудительные настройки роли (перезапись выбора пользователя)"
 
 #: includes/settings-ui.php:218
 msgid "Front End footer notice"
-msgstr "[DRY RUN] Would translate: \"Front End footer notice\""
+msgstr "Уведомление в нижнем колонтитуле фронтенда"
 
 #: includes/features/frontend-features/frontend-features-action.php:92
 msgid "Frontend element item updated. Save changes to enable for role."
 msgstr ""
-"[DRY RUN] Would translate: \"Frontend element item updated. Save changes to "
-"ena…\""
+"Элемент фронтенда обновлен. Сохраните изменения, чтобы активировать для "
+"роли."
 
 #: includes/functions-admin.php:227 includes/functions-admin.php:409
 #: includes/functions-admin.php:513
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
 msgid "Frontend Features"
-msgstr "[DRY RUN] Would translate: \"Frontend Features\""
+msgstr "Функции фронтенда"
 
 #: includes/functions-admin.php:410
 #: includes/features/frontend-features/frontend-features.php:247
@@ -1226,265 +1193,259 @@ msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
 msgstr ""
-"[DRY RUN] Would translate: \"Frontend Features allows you to add or remove "
-"elem…\""
+"Функции фронтенда позволяют добавлять или удалять элементы с фронтенда "
+"вашего сайта."
 
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
-msgstr "[DRY RUN] Would translate: \"General\""
+msgstr "Общие"
 
 #: includes/admin.php:1761
 msgid "Go to the Backup feature"
-msgstr "[DRY RUN] Would translate: \"Go to the Backup feature\""
+msgstr "Перейти к функции резервного копирования"
 
 #: includes/admin.php:1887
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Grant Spectator, Participant or Moderator "
-"access t…\""
+"Предоставить доступ Наблюдателю, Участнику или Модератору к конкретным "
+"форумам bbPress <em>(Pro)</em>"
 
 #: includes/admin.php:1891
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
-"[DRY RUN] Would translate: \"Grant supplemental content permissions to a "
-"BuddyP…\""
+"Предоставить разрешения на дополнительный контент группе BuddyPress "
+"<em>(Pro)</em>"
 
 #: includes/features/editor-features.php:127
 msgid "Gutenberg"
-msgstr "[DRY RUN] Would translate: \"Gutenberg\""
+msgstr "Гутенберг"
 
 #: includes/roles/class/class-pp-roles-admin.php:158
 msgid "Gutenberg editor"
-msgstr "[DRY RUN] Would translate: \"Gutenberg editor\""
+msgstr "Редактор Гутенберг"
 
 #: includes/features/editor-features-gutenberg.php:1
 #, php-format
 msgid "Gutenberg Editor %s Restrictions"
-msgstr "[DRY RUN] Would translate: \"Gutenberg Editor %s Restrictions\""
+msgstr "Ограничения редактора Гутенберг %s"
 
 #: includes/admin.php:300
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
 msgstr ""
-"[DRY RUN] Would translate: \"Has basic deletion capability (but may need "
-"other …\""
+"Имеет основные возможности удаления (но могут потребоваться другие "
+"возможности в зависимости от статуса поста и права собственности)."
 
 #: includes/admin.php:295
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
 msgstr ""
-"[DRY RUN] Would translate: \"Has basic editing capability (but may need "
-"other c…\""
+"Имеет основные возможности редактирования (но могут потребоваться другие "
+"возможности в зависимости от статуса поста и права собственности)."
 
 #: includes/roles/class/class-pp-roles-list-table.php:88
 #, php-format
 msgid "Has Users %s"
 msgid_plural "Has Users %s"
-msgstr[0] "[DRY RUN] Would translate: \"Has Users %s\""
+msgstr[0] "Имеет пользователей %s"
+msgstr[1] "Имеет пользователей %s"
+msgstr[2] "Имеет пользователей %s"
 
 #: includes/features/frontend-features/frontend-features-ui.php:221
 msgid "Hidden IDs or Classes"
-msgstr "[DRY RUN] Would translate: \"Hidden IDs or Classes\""
+msgstr "Скрытые ID или классы"
 
 #: includes/admin-notices/admin-notices.php:204
 msgid "Hidden Notices"
-msgstr "[DRY RUN] Would translate: \"Hidden Notices\""
+msgstr "Скрытые уведомления"
 
-#: includes/features/admin-styles/admin-styles-ui.php:525
+#: includes/features/admin-styles/admin-styles-ui.php:568
 msgid "Hide Admin Color Scheme settings in user profile"
-msgstr ""
-"[DRY RUN] Would translate: \"Hide Admin Color Scheme settings in user "
-"profile\""
+msgstr "Скрыть настройки цветовой схемы администратора в профиле пользователя"
 
 #: includes/features/restrict-admin-features.php:37
 msgid "Hide Admin Toolbar"
-msgstr "[DRY RUN] Would translate: \"Hide Admin Toolbar\""
+msgstr "Скрыть панель инструментов администратора"
 
 #: includes-core/CoreAdmin.php:127
 msgid "Hide CSS Elements"
-msgstr "[DRY RUN] Would translate: \"Hide CSS Elements\""
+msgstr "Скрыть элементы CSS"
 
 #: includes/features/restrict-admin-features.php:38
 msgid "Hide Dashboard Widgets"
-msgstr "[DRY RUN] Would translate: \"Hide Dashboard Widgets\""
+msgstr "Скрыть виджеты панели управления"
 
 #: includes/features/restrict-admin-features.php:36
 msgid "Hide Default Items"
-msgstr "[DRY RUN] Would translate: \"Hide Default Items\""
+msgstr "Скрыть элементы по умолчанию"
 
 #: includes/features/frontend-features/frontend-features-ui.php:73
 msgid "Hide IDs or Classes"
-msgstr "[DRY RUN] Would translate: \"Hide IDs or Classes\""
+msgstr "Скрыть идентификаторы или классы"
 
 #: includes/admin-notices/admin-notices.php:74
 msgid "Hide this notice"
-msgstr "[DRY RUN] Would translate: \"Hide this notice\""
+msgstr "Скрыть это уведомление"
 
 #: includes/features/frontend-features/frontend-features-data.php:70
 msgid "Hide Twenty Twenty-Three Credit Footer"
-msgstr "[DRY RUN] Would translate: \"Hide Twenty Twenty-Three Credit Footer\""
+msgstr "Скрыть нижний колонтитул Twenty Twenty-Three"
 
-#: includes/features/admin-features.php:339
+#: includes/features/admin-features.php:350
 msgid "How to use Admin Features"
-msgstr "[DRY RUN] Would translate: \"How to use Admin Features\""
+msgstr "Как использовать функции администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:585
+#: includes/features/admin-styles/admin-styles-ui.php:628
 msgid "How to use Admin Styles"
-msgstr "[DRY RUN] Would translate: \"How to use Admin Styles\""
+msgstr "Как использовать стили администратора"
 
 #: includes/admin.php:1706
 msgid "How to use Capabilities"
-msgstr "[DRY RUN] Would translate: \"How to use Capabilities\""
+msgstr "Как использовать возможности"
 
 #: includes/features/editor-features.php:244
 msgid "How to use Editor Features"
-msgstr "[DRY RUN] Would translate: \"How to use Editor Features\""
+msgstr "Как использовать функции редактора"
 
 #: includes/features/frontend-features/frontend-features.php:253
 msgid "How to use Frontend Features"
-msgstr "[DRY RUN] Would translate: \"How to use Frontend Features\""
+msgstr "Как использовать функции фронтенда"
 
 #: includes/features/nav-menus.php:307
 msgid "How to use Navigation Menus"
-msgstr "[DRY RUN] Would translate: \"How to use Navigation Menus\""
+msgstr "Как использовать навигационные меню"
 
-#: includes/features/profile-features.php:272
+#: includes/features/profile-features.php:255
 msgid "How to use Profile Features"
-msgstr "[DRY RUN] Would translate: \"How to use Profile Features\""
+msgstr "Как использовать функции профиля"
 
 #: includes/redirects/redirects.php:336
 msgid "How to use Redirect Features"
-msgstr "[DRY RUN] Would translate: \"How to use Redirect Features\""
+msgstr "Как использовать функции перенаправления"
 
-#: includes/features/restrict-editor-features.php:67
+#: includes/features/restrict-editor-features.php:67, fuzzy
 msgid "HTML Editor Button"
-msgstr "[DRY RUN] Would translate: \"HTML Editor Button\""
+msgstr "Кнопка HTML-редактора"
 
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
-msgstr "[DRY RUN] Would translate: \"https://publishpress.com/\""
+msgstr "https://publishpress.com/"
 
 #. URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
-msgstr "[DRY RUN] Would translate: \"https://publishpress.com/capability-manager/\""
+msgstr "https://publishpress.com/capability-manager/"
 
 #: includes/backup.php:287
 msgid ""
 "If you have installed any plugin that adds new roles or capabilities, these "
 "will be lost."
 msgstr ""
-"Если вы установили другой плагин, который добавляет новые роли или "
-"возможности, это должно исчезнуть. "
+"Если вы установили какой-либо плагин, который добавляет новые роли или "
+"возможности, они будут потеряны."
 
 #: includes/manager.php:1505
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr ""
-"[DRY RUN] Would translate: \"If you like %s, please leave us a %s rating. "
-"Thank…\""
+msgstr "Если вам нравится %s, пожалуйста, оставьте нам оценку %s. Спасибо!"
 
-#: includes/functions.php:698
+#: includes/functions.php:712
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
-"[DRY RUN] Would translate: \"If you need help or have a new feature "
-"request, le…\""
+"Если вам нужна помощь или у вас есть запрос на новую функцию, дайте нам "
+"знать."
 
 #: includes/backup.php:331
 msgid "Import Settings"
-msgstr "[DRY RUN] Would translate: \"Import Settings\""
+msgstr "Импорт настроек"
 
 #: includes/backup.php:333
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
 msgstr ""
-"[DRY RUN] Would translate: \"Import the plugin settings from a .json file. "
-"This…\""
-
-#: includes/features/profile-features.php:259
-msgid "Important:"
-msgstr "[DRY RUN] Would translate: \"Important:\""
+"Импортируйте настройки плагина из файла .json. Этот файл можно получить, "
+"экспортировав настройки на другом сайте, используя форму выше."
 
 #: includes/admin.php:1985
 msgid "Include in new sites."
-msgstr "[DRY RUN] Would translate: \"Include in new sites.\""
+msgstr "Включить в новые сайты."
 
 #: includes/handler.php:119
 msgid "Incorrect capability name."
-msgstr "Некорректное имя возможности."
+msgstr "Неверное имя возможности."
 
 #: includes/settings-ui.php:293
 msgid "Info notices"
-msgstr "[DRY RUN] Would translate: \"Info notices\""
+msgstr "Информационные уведомления"
 
 #: includes/backup.php:164
-#, fuzzy
 msgid "Initial Backup"
-msgstr "Резервная копия"
+msgstr "Первичный резервный копия"
 
 #: includes/backup.php:164
 #, php-format
 msgid "Initial Backup - %s"
-msgstr "[DRY RUN] Would translate: \"Initial Backup - %s\""
+msgstr "Первичный резервный копия - %s"
 
 #: includes/backup.php:139
 msgid "Initial backup of all roles"
-msgstr "[DRY RUN] Would translate: \"Initial backup of all roles\""
+msgstr "Первичный резервный копия всех ролей"
 
 #: includes/admin-notices/admin-notices.php:243
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
 msgid "Invalid action. Reload this page and try again."
-msgstr ""
-"[DRY RUN] Would translate: \"Invalid action. Reload this page and try "
-"again.\""
+msgstr "Недействительное действие. Перезагрузите эту страницу и попробуйте снова."
 
 #: includes/admin.php:638 includes/admin.php:1395
 msgid "Invalid Capabilities"
-msgstr "[DRY RUN] Would translate: \"Invalid Capabilities\""
+msgstr "Недействительные возможности"
 
 #: includes/admin-notices/admin-notices.php:245
 msgid "Invalid form."
-msgstr "[DRY RUN] Would translate: \"Invalid form.\""
+msgstr "Недействительная форма."
 
 #: includes/manager.php:927
 msgid "Invalid form. Reload this page and try again."
-msgstr "[DRY RUN] Would translate: \"Invalid form. Reload this page and try again.\""
+msgstr "Недействительная форма. Перезагрузите эту страницу и попробуйте снова."
 
-#: includes/admin-load.php:638
+#: includes/admin-load.php:622
 msgid "Invalid nonce token!"
-msgstr "[DRY RUN] Would translate: \"Invalid nonce token!\""
+msgstr "Недействительный токен nonce!"
 
 #: includes/features/frontend-features/frontend-features-action.php:121
 msgid "Invalid request!."
-msgstr "[DRY RUN] Would translate: \"Invalid request!.\""
+msgstr "Недействительный запрос!."
 
 #: includes/roles/class/class-pp-roles-actions.php:211
 #, php-format
 msgid "Invalid role name entry: %s"
-msgstr "[DRY RUN] Would translate: \"Invalid role name entry: %s\""
+msgstr "Недействительный ввод имени роли: %s"
+
+#: includes/features/restrict-profile-features.php:128
+msgid "Invalid role provided."
+msgstr "Предоставлена недействительная роль."
 
 #: includes/backup.php:288
 msgid "It is recommended to use this only as a last resource!"
-msgstr "Это рекомендуется дя использования только как последный ресурс!"
+msgstr "Рекомендуется использовать это только в качестве последнего средства!"
 
 #: includes/backup.php:84
-#, fuzzy
 msgid "Last Backup"
-msgstr "Резервная копия"
+msgstr "Последняя резервная копия"
 
 #: includes/backup.php:84
 #, php-format
 msgid "Last Manual Backup - %s"
-msgstr "[DRY RUN] Would translate: \"Last Manual Backup - %s\""
+msgstr "Последнее ручное резервное копирование - %s"
 
 #: includes/admin.php:218
 msgid "Legacy"
-msgstr "[DRY RUN] Would translate: \"Legacy\""
+msgstr "Устаревший"
 
 #: includes/admin.php:1942
 msgid "Level:"
@@ -1492,73 +1453,74 @@ msgstr "Уровень:"
 
 #: includes/admin.php:278
 msgid "Listing"
-msgstr "[DRY RUN] Would translate: \"Listing\""
+msgstr "Список"
 
 #: includes/roles/class/class-pp-roles-admin.php:683
 msgid "Load Less"
-msgstr "[DRY RUN] Would translate: \"Load Less\""
+msgstr "Загрузить меньше"
 
 #: includes/roles/class/class-pp-roles-admin.php:680
 msgid "Load More"
-msgstr "[DRY RUN] Would translate: \"Load More\""
+msgstr "Загрузить больше"
 
 #: includes/features/frontend-features/frontend-features-action.php:60
 msgid "Load on page types is required."
-msgstr "[DRY RUN] Would translate: \"Load on page types is required.\""
+msgstr "Загрузка по типам страниц обязательна."
 
 #: includes/features/frontend-features/frontend-features-ui.php:109
 msgid "Load on page types:"
-msgstr "[DRY RUN] Would translate: \"Load on page types:\""
+msgstr "Загрузка по типам страниц:"
 
-#: includes/admin-load.php:776 includes/features/nav-menus.php:26
+#: includes/admin-load.php:760 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:39
 msgid "Logged In Users"
-msgstr "[DRY RUN] Would translate: \"Logged In Users\""
+msgstr "Вошедшие пользователи"
 
-#: includes/admin-load.php:777 includes/features/nav-menus.php:26
+#: includes/admin-load.php:761 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:40
 msgid "Logged Out Users"
-msgstr "[DRY RUN] Would translate: \"Logged Out Users\""
+msgstr "Вышедшие пользователи"
 
-#: includes/functions.php:551
+#: includes/functions.php:565
 msgid "Login permission denied."
-msgstr "[DRY RUN] Would translate: \"Login permission denied.\""
+msgstr "Доступ к логину запрещён."
 
 #: includes/redirects/redirects.php:35 includes/redirects/redirects.php:54
 msgid "Login Redirect"
-msgstr "[DRY RUN] Would translate: \"Login Redirect\""
+msgstr "Перенаправление на логин"
 
 #: includes/redirects/redirects.php:39 includes/redirects/redirects.php:63
 msgid "Logout Redirect"
-msgstr "[DRY RUN] Would translate: \"Logout Redirect\""
+msgstr "Перенаправление на выход"
 
 #: includes/backup.php:74
-#, fuzzy
 msgid "Manual Backup"
-msgstr "Резервная копия"
+msgstr "Ручное резервное копирование"
 
 #: includes/backup.php:116
 #, php-format
 msgid "Manual backup of %s (%s)"
-msgstr "[DRY RUN] Would translate: \"Manual backup of %s (%s)\""
+msgstr "Ручное резервное копирование %s (%s)"
 
 #: includes/features/restrict-editor-features.php:62
 msgid "Media Buttons (all)"
-msgstr "[DRY RUN] Would translate: \"Media Buttons (all)\""
+msgstr "Кнопки медиа (все)"
 
 #: includes/admin.php:1899
 msgid "Member support forum"
-msgstr "Форум поддержки"
+msgstr "Форум поддержки участников"
 
 #: includes-core/editor-features-promo.php:24
 msgid "Metaboxes"
-msgstr "[DRY RUN] Would translate: \"Metaboxes\""
+msgstr "Метабоксы"
 
 #: includes/roles/class/class-pp-roles-list-table.php:87
 #, php-format
 msgid "Mine %s"
 msgid_plural "Mine %s"
-msgstr[0] "[DRY RUN] Would translate: \"Mine %s\""
+msgstr[0] "Мои %s"
+msgstr[1] "Мои %s"
+msgstr[2] "Мои %s"
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:378
@@ -1566,109 +1528,103 @@ msgstr[0] "[DRY RUN] Would translate: \"Mine %s\""
 #: includes/roles/class/class-pp-roles-actions.php:641
 #: includes/roles/class/class-pp-roles-actions.php:702
 msgid "Missing parameters, refresh the page and try again."
-msgstr ""
-"[DRY RUN] Would translate: \"Missing parameters, refresh the page and try "
-"again…\""
+msgstr "Недостаточно параметров, обновите страницу и попробуйте снова."
 
 #: includes/features/restrict-admin-features.php:91
 msgid "Mobile Menu Toggle"
-msgstr "[DRY RUN] Would translate: \"Mobile Menu Toggle\""
+msgstr "Переключение мобильного меню"
 
 #: includes/features/restrict-editor-features.php:384
 msgid "Modes"
-msgstr "[DRY RUN] Would translate: \"Modes\""
+msgstr "Режимы"
 
 #: includes/admin-notices/admin-notices.php:75
 msgid "Move to Hidden Notices"
-msgstr "[DRY RUN] Would translate: \"Move to Hidden Notices\""
+msgstr "Переместить в скрытые уведомления"
 
 #: includes/settings-ui.php:56
 msgid "Multiples roles on \"Add New User\" screen"
-msgstr "[DRY RUN] Would translate: \"Multiples roles on \"Add New User\" screen\""
+msgstr "Несколько ролей на экране \"Добавить нового пользователя\""
 
 #: includes/settings-ui.php:72
 msgid "Multiples roles on \"User Edit\" screen"
-msgstr "[DRY RUN] Would translate: \"Multiples roles on \"User Edit\" screen\""
+msgstr "Несколько ролей на экране \"Редактирование пользователя\""
 
 #: includes/admin.php:598 includes/admin.php:1069 includes/admin.php:1809
 msgid "Multisite"
-msgstr "[DRY RUN] Would translate: \"Multisite\""
+msgstr "Мультисайт"
 
 #: includes/functions-admin.php:241
 msgid "Nav Menu"
-msgstr "[DRY RUN] Would translate: \"Nav Menu\""
+msgstr "Навигационное меню"
 
 #: includes/admin.php:207 includes/admin.php:802
 msgid "Nav Menus (Block)"
-msgstr "[DRY RUN] Would translate: \"Nav Menus (Block)\""
+msgstr "Навигационные меню (блок)"
 
 #: includes/admin.php:216 includes/admin.php:804
 msgid "Nav Menus (Legacy)"
-msgstr "[DRY RUN] Would translate: \"Nav Menus (Legacy)\""
+msgstr "Навигационные меню (наследие)"
 
 #: includes/features/nav-menus.php:61
 msgid "Navigation Menu Restrictions"
-msgstr "[DRY RUN] Would translate: \"Navigation Menu Restrictions\""
+msgstr "Ограничения навигационного меню"
 
 #: includes/functions-admin.php:414 includes/functions-admin.php:520
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
-msgstr "[DRY RUN] Would translate: \"Navigation Menus\""
+msgstr "Навигационные меню"
 
 #: includes/functions-admin.php:415 includes/features/nav-menus.php:301
 msgid "Navigation Menus allows you to block access to frontend menu links."
-msgstr ""
-"[DRY RUN] Would translate: \"Navigation Menus allows you to block access to "
-"fro…\""
+msgstr "Навигационные меню позволяют блокировать доступ к ссылкам на меню фронтенда."
 
-#: includes/functions.php:693
+#: includes/functions.php:707
 msgid "Need PublishPress Capabilities Support?"
-msgstr "[DRY RUN] Would translate: \"Need PublishPress Capabilities Support?\""
+msgstr "Нужна поддержка возможностей PublishPress?"
 
 #: includes/backup-handler.php:274
 msgid "Needed function to create default roles not found!"
-msgstr "Необходимая функция по созданию ролей не найдена!"
+msgstr "Необходимая функция для создания стандартных ролей не найдена!"
 
 #: includes/admin.php:84
 msgid "Negate All"
-msgstr "[DRY RUN] Would translate: \"Negate All\""
+msgstr "Отменить все"
 
 #: includes/admin.php:88
 msgid "Negate None"
-msgstr "[DRY RUN] Would translate: \"Negate None\""
+msgstr "Не отменять ничего"
 
 #: includes/features/restrict-admin-features.php:98
 #: includes/features/restrict-admin-features.php:99
 msgid "New"
-msgstr "[DRY RUN] Would translate: \"New\""
+msgstr "Новый"
 
 #: includes/backup-handler.php:73
 msgid "New backup saved."
-msgstr "Новый бэкап сохранен."
+msgstr "Новая резервная копия сохранена."
 
 #: includes/admin.php:1793
 msgid "New capabilities are controlled on the Additonal tab."
-msgstr ""
-"[DRY RUN] Would translate: \"New capabilities are controlled on the "
-"Additonal t…\""
+msgstr "Новые возможности контролируются на вкладке Дополнительно."
 
 #: includes/manager.php:1145
 msgid "New capability added to role."
-msgstr "Новая воможность добавлена к роли."
+msgstr "Новая возможность добавлена к роли."
 
 #: includes/features/frontend-features/frontend-features-action.php:94
 msgid "New frontend element added. Save changes to enable for role."
 msgstr ""
-"[DRY RUN] Would translate: \"New frontend element added. Save changes to "
-"enable…\""
+"Добавлен новый элемент интерфейса. Сохраните изменения, чтобы активировать "
+"для роли."
 
 #: includes/handler.php:45
 msgid "New role created."
-msgstr "Новая роль создана."
+msgstr "Создана новая роль."
 
 #: includes/backup.php:267
 msgid "No changes"
-msgstr "[DRY RUN] Would translate: \"No changes\""
+msgstr "Нет изменений"
 
 #: includes/features/editor-features-classic.php:162
 #: includes/features/editor-features-gutenberg.php:158
@@ -1677,202 +1633,199 @@ msgid ""
 "No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
 "refresh this page afterwards to load the new metaboxes."
 msgstr ""
-"[DRY RUN] Would translate: \"No metaboxes found for %1s. %2s Click here %3s "
-"to …\""
+"Для %1s не найдено метабоксов. %2s Нажмите здесь %3s, чтобы перейти на "
+"экран %4s и обновить эту страницу, чтобы загрузить новые метабоксы."
 
-#: includes/admin-load.php:628
+#: includes/admin-load.php:612
 msgid "No permission!"
-msgstr "[DRY RUN] Would translate: \"No permission!\""
+msgstr "Нет разрешения!"
 
 #: includes/test-user-ui.php:70
 msgid "No results found."
-msgstr "[DRY RUN] Would translate: \"No results found.\""
+msgstr "Результатов не найдено."
 
 #: includes/admin.php:1092 includes/admin.php:1211 includes/admin.php:1270
 #: includes/admin.php:1514
 msgid "No results found. Please try again with a different word."
-msgstr ""
-"[DRY RUN] Would translate: \"No results found. Please try again with a "
-"differen…\""
+msgstr "Результатов не найдено. Пожалуйста, попробуйте снова с другим словом."
 
-#: includes/features/admin-styles/admin-styles.php:509
+#: includes/features/admin-styles/admin-styles.php:522
 msgid "No role specified."
-msgstr "[DRY RUN] Would translate: \"No role specified.\""
+msgstr "Роль не указана."
 
 #: includes/roles/class/class-pp-roles-list-table.php:89
 #, php-format
 msgid "No Users %s"
 msgid_plural "No Users %s"
-msgstr[0] "[DRY RUN] Would translate: \"No Users %s\""
+msgstr[0] "Нет пользователей %s"
+msgstr[1] "Нет пользователей %s"
+msgstr[2] "Нет пользователей %s"
 
 #: includes/settings-ui.php:343
 msgid "Notification center access"
-msgstr "[DRY RUN] Would translate: \"Notification center access\""
+msgstr "Доступ к центру уведомлений"
 
 #: includes-core/editor-features-promo.php:56
 msgid "Notifications"
-msgstr "[DRY RUN] Would translate: \"Notifications\""
+msgstr "Уведомления"
 
 #: includes/settings-ui.php:385
 msgid "Notifications to display in the Admin Notices area."
-msgstr ""
-"[DRY RUN] Would translate: \"Notifications to display in the Admin Notices "
-"area…\""
+msgstr "Уведомления для отображения в области уведомлений администратора."
 
 #: includes/settings-ui.php:363
 msgid "Notifications to remove from WordPress admin pages"
-msgstr ""
-"[DRY RUN] Would translate: \"Notifications to remove from WordPress admin "
-"pages\""
+msgstr "Уведомления для удаления со страниц администратора WordPress"
 
 #: includes/backup.php:92
 msgid ""
 "On this screen, you can restore an earlier version of your roles and "
 "capabilities."
 msgstr ""
-"[DRY RUN] Would translate: \"On this screen, you can restore an earlier "
-"version…\""
+"На этом экране вы можете восстановить более раннюю версию ваших ролей и "
+"возможностей."
 
 #: includes/features/restrict-editor-features.php:400
 msgid "Options"
-msgstr "[DRY RUN] Would translate: \"Options\""
+msgstr "Параметры"
 
 #: includes/features/restrict-editor-features.php:148
 msgid "Other Boxes"
-msgstr "[DRY RUN] Would translate: \"Other Boxes\""
+msgstr "Другие боксы"
 
 #: includes/features/restrict-editor-features.php:388
 msgid "Outline"
-msgstr "[DRY RUN] Would translate: \"Outline\""
+msgstr "Контур"
 
 #: includes-core/editor-features-promo.php:118
 msgid "Page Attributes: Order"
-msgstr "[DRY RUN] Would translate: \"Page Attributes: Order\""
+msgstr "Атрибуты страницы: Порядок"
 
 #: includes/features/restrict-editor-features.php:126
 msgid "Page Boxes"
-msgstr "[DRY RUN] Would translate: \"Page Boxes\""
+msgstr "Боксы страницы"
 
-#: includes/functions.php:926
+#: includes/functions.php:940
 msgid "Page Lists"
-msgstr "[DRY RUN] Would translate: \"Page Lists\""
+msgstr "Списки страниц"
 
 #: includes/admin-load.php:373
 msgid "Page title"
-msgstr "[DRY RUN] Would translate: \"Page title\""
+msgstr "Название страницы"
 
 #: includes/features/frontend-features/frontend-features-ui.php:240
 msgid "Pages"
-msgstr "[DRY RUN] Would translate: \"Pages\""
+msgstr "Страницы"
 
 #: includes/features/restrict-editor-features.php:484
 msgid "Paragraph"
-msgstr "[DRY RUN] Would translate: \"Paragraph\""
+msgstr "Абзац"
 
 #: includes/features/restrict-editor-features.php:428
 msgid "Permalink"
-msgstr "[DRY RUN] Would translate: \"Permalink\""
+msgstr "Постоянная ссылка"
 
 #: includes-core/editor-features-promo.php:108
 msgid "Permalink: Descriptive Caption"
-msgstr "[DRY RUN] Would translate: \"Permalink: Descriptive Caption\""
+msgstr "Постоянная ссылка: Описательная подпись"
 
-#: includes/admin-load.php:670
+#: includes/admin-load.php:654
 msgid "Permission denied"
-msgstr "[DRY RUN] Would translate: \"Permission denied\""
+msgstr "Доступ запрещен"
 
 #: includes/test-user-ui.php:79
 msgid "Permission denied."
-msgstr "[DRY RUN] Would translate: \"Permission denied.\""
+msgstr "Доступ запрещен."
 
 #: includes/backup.php:332
 msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
 msgstr ""
-"[DRY RUN] Would translate: \"Please make a 'Manual Backup' in the backup "
-"tab to…\""
+"Пожалуйста, создайте «Ручную резервную копию» на вкладке резервного "
+"копирования, чтобы включить восстановление резервной копии на случай, если "
+"что-то пойдет не так."
 
 #: includes/backup-handler.php:140
 msgid "Please upload a file to import"
-msgstr "[DRY RUN] Would translate: \"Please upload a file to import\""
+msgstr "Пожалуйста, загрузите файл для импорта"
 
 #: includes/backup-handler.php:145
 msgid "Please upload a valid .json file"
-msgstr "[DRY RUN] Would translate: \"Please upload a valid .json file\""
+msgstr "Пожалуйста, загрузите действительный файл .json"
 
 #: includes/admin.php:1264
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
-msgstr "[DRY RUN] Would translate: \"Plugin Capabilities &ndash; %s\""
+msgstr "Возможности плагина &ndash; %s"
 
 #: includes/admin.php:681
 #, php-format
 msgid "Post %s Capabilities"
-msgstr "%s возможности"
+msgstr "Возможности поста %s"
 
 #: includes/features/restrict-editor-features.php:476
 msgid "Post Attributes"
-msgstr "[DRY RUN] Would translate: \"Post Attributes\""
+msgstr "Атрибуты поста"
 
 #: includes/features/frontend-features/frontend-features-ui.php:248
 msgid "Post Type Metabox"
-msgstr "[DRY RUN] Would translate: \"Post Type Metabox\""
+msgstr "Метабокс типа поста"
 
 #: includes/manager.php:248
 msgid "Post type registration does not define this capability distinctly"
-msgstr ""
-"[DRY RUN] Would translate: \"Post type registration does not define this "
-"capabi…\""
+msgstr "Регистрация типа поста не определяет эту возможность явно"
 
 #: includes/features/profile-features.php:46
 msgid "Profile Feature Restrictions"
-msgstr "[DRY RUN] Would translate: \"Profile Feature Restrictions\""
+msgstr "Ограничения функций профиля"
 
 #: includes/functions-admin.php:231 includes/functions-admin.php:399
 #: includes/functions-admin.php:499 includes/settings-ui.php:36
 #: includes/roles/class/class-pp-roles-admin.php:525
 msgid "Profile Features"
-msgstr "[DRY RUN] Would translate: \"Profile Features\""
+msgstr "Функции профиля"
 
-#: includes/functions-admin.php:400 includes/features/profile-features.php:266
+#: includes/features/restrict-profile-features.php:123
+msgid "Profile features access disabled."
+msgstr "Доступ к функциям профиля отключен."
+
+#: includes/features/restrict-profile-features.php:136
+msgid "Profile features access enabled for this role."
+msgstr "Доступ к функциям профиля включен для этой роли."
+
+#: includes/functions-admin.php:400 includes/features/profile-features.php:249
 msgid "Profile Features allows you to remove elements from the Profile screen."
-msgstr ""
-"[DRY RUN] Would translate: \"Profile Features allows you to remove elements "
-"fro…\""
-
-#: includes/features/restrict-profile-features.php:127
-msgid "Profile features settings saved successfully."
-msgstr "[DRY RUN] Would translate: \"Profile features settings saved successfully.\""
+msgstr "Функции профиля позволяют удалять элементы с экрана профиля."
 
 #: includes/features/restrict-editor-features.php:398
 msgid "Publish / Update"
-msgstr "[DRY RUN] Would translate: \"Publish / Update\""
+msgstr "Опубликовать / Обновить"
 
 #: includes/features/restrict-editor-features.php:85
 msgid "Publish Actions"
-msgstr "[DRY RUN] Would translate: \"Publish Actions\""
+msgstr "Действия публикации"
 
 #: includes/features/restrict-editor-features.php:77
-#: includes/features/restrict-editor-features.php:78
+#: includes/features/restrict-editor-features.php:78, fuzzy
 msgid "Publish Box"
-msgstr "[DRY RUN] Would translate: \"Publish Box\""
+msgstr "Коробка публикации"
 
 #. Author of the plugin
 msgid "PublishPress"
-msgstr "[DRY RUN] Would translate: \"PublishPress\""
+msgstr "PublishPress"
 
 #. Name of the plugin
 msgid "PublishPress Capabilities"
-msgstr "[DRY RUN] Would translate: \"PublishPress Capabilities\""
+msgstr "Возможности PublishPress"
 
 #: includes/backup.php:91
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
 "and whenever you save changes."
 msgstr ""
-"[DRY RUN] Would translate: \"PublishPress Capabilities automatically "
-"creates a …\""
+"Возможности PublishPress автоматически создают резервную копию при "
+"установке и каждый раз, когда вы сохраняете изменения."
 
 #: includes/backup.php:67
 msgid ""
@@ -1880,8 +1833,9 @@ msgid ""
 "and whenever you save changes. The initial backup and last %d auto-backups "
 "are kept."
 msgstr ""
-"[DRY RUN] Would translate: \"PublishPress Capabilities automatically "
-"creates a …\""
+"Возможности PublishPress автоматически создают резервную копию при "
+"установке и каждый раз, когда вы сохраняете изменения. Начальная резервная "
+"копия и последние %d автоматические резервные копии сохраняются."
 
 #. Description of the plugin
 msgid ""
@@ -1889,175 +1843,167 @@ msgid ""
 "can manage all your WordPress user roles, from Administrators to "
 "Subscribers."
 msgstr ""
-"[DRY RUN] Would translate: \"PublishPress Capabilities is the access "
-"control pl…\""
+"Возможности PublishPress — это плагин контроля доступа для WordPress. Вы "
+"можете управлять всеми ролями пользователей WordPress, от Администраторов "
+"до Подписчиков."
 
-#: includes/admin-load.php:784
+#: includes/admin-load.php:768
 msgid "PublishPress Capabilities Menu Restriction"
-msgstr "[DRY RUN] Would translate: \"PublishPress Capabilities Menu Restriction\""
+msgstr "Ограничение меню PublishPress Capabilities"
 
 #: includes/admin.php:1849
 msgid "PublishPress Permissions"
-msgstr "[DRY RUN] Would translate: \"PublishPress Permissions\""
+msgstr "Разрешения PublishPress"
 
-#: includes/admin-load.php:374
+#: includes/admin-load.php:374, fuzzy
 msgid "Rank Math SEO"
-msgstr "[DRY RUN] Would translate: \"Rank Math SEO\""
+msgstr "Rank Math SEO"
 
 #: includes/roles/class/class-pp-roles-admin.php:414
 msgid "Read more on Role Level."
-msgstr "[DRY RUN] Would translate: \"Read more on Role Level.\""
+msgstr "Читать далее на уровне роли."
 
 #: includes/redirects/redirects.php:333
 msgid ""
 "Redirect Features allows you to redirect users in a role after "
 "Registration, Login or Logout."
 msgstr ""
-"[DRY RUN] Would translate: \"Redirect Features allows you to redirect users "
-"in …\""
+"Функции перенаправления позволяют перенаправлять пользователей в роли после "
+"регистрации, входа или выхода."
 
 #: includes/redirects/redirects.php:226
 msgid "Redirect users to a specified URL."
-msgstr "[DRY RUN] Would translate: \"Redirect users to a specified URL.\""
+msgstr "Перенаправить пользователей на указанный URL."
 
 #: includes/redirects/redirects.php:214
 msgid "Redirect users to the URL they were viewing before login."
-msgstr ""
-"[DRY RUN] Would translate: \"Redirect users to the URL they were viewing "
-"before…\""
+msgstr "Перенаправить пользователей на URL, который они просматривали перед входом."
 
 #: includes/functions-admin.php:237 includes/functions-admin.php:404
 #: includes/functions-admin.php:506
 msgid "Redirects"
-msgstr "[DRY RUN] Would translate: \"Redirects\""
+msgstr "Перенаправления"
 
 #: includes/functions-admin.php:405
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
 msgstr ""
-"[DRY RUN] Would translate: \"Redirects allows you to redirect users in a "
-"role a…\""
+"Перенаправления позволяют перенаправлять пользователей в роли после "
+"регистрации, входа или выхода."
 
-#: includes/features/profile-features.php:254
-#: includes/features/profile-features.php:256
-msgid "Refresh available profile items for this role"
-msgstr "[DRY RUN] Would translate: \"Refresh available profile items for this role\""
-
-#: includes/features/profile-features.php:261
+#: includes/features/profile-features.php:244
 msgid "Refresh Profile Features"
-msgstr "[DRY RUN] Would translate: \"Refresh Profile Features\""
+msgstr "Обновить функции профиля"
 
 #: includes/redirects/redirects.php:43 includes/redirects/redirects.php:72
 msgid "Registration Redirect"
-msgstr "[DRY RUN] Would translate: \"Registration Redirect\""
+msgstr "Перенаправление при регистрации"
 
 #: includes/admin.php:1879
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
-msgstr ""
-"[DRY RUN] Would translate: \"Regulate permissions for Edit Flow post "
-"statuses <…\""
+msgstr "Регулировать разрешения для статусов публикаций Edit Flow <em>(Pro)</em>"
 
-#: includes/features/admin-styles/admin-styles-ui.php:436
+#: includes/features/admin-styles/admin-styles-ui.php:479
 msgid "Remove"
-msgstr "[DRY RUN] Would translate: \"Remove\""
+msgstr "Удалить"
 
 #: includes/functions-admin.php:425
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
 msgstr ""
-"[DRY RUN] Would translate: \"Remove Admin Notices from WordPress admin "
-"screen a…\""
+"Удалите уведомления администраторов с экрана администратора WordPress и "
+"организуйте их в одной области."
 
-#: includes/features/restrict-admin-features.php:195
+#: includes/features/restrict-admin-features.php:199
 msgid "Remove Admin Toolbar"
-msgstr "[DRY RUN] Would translate: \"Remove Admin Toolbar\""
+msgstr "Удалить панель администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:498
+#: includes/features/admin-styles/admin-styles-ui.php:541
 msgid "Replace \"Howdy\""
-msgstr "[DRY RUN] Would translate: \"Replace \"Howdy\"\""
+msgstr "Заменить \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:501
+#: includes/features/admin-styles/admin-styles-ui.php:544
 msgid "Replace \"Howdy\" in the admin bar."
-msgstr "[DRY RUN] Would translate: \"Replace \"Howdy\" in the admin bar.\""
+msgstr "Заменить \"Howdy\" в панели администратора."
 
-#: includes/features/admin-styles/admin-styles-ui.php:582
+#: includes/features/admin-styles/admin-styles-ui.php:625
 msgid "Replace \"Howdy\" text"
-msgstr "[DRY RUN] Would translate: \"Replace \"Howdy\" text\""
+msgstr "Заменить текст \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:484
+#: includes/features/admin-styles/admin-styles-ui.php:527
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
 msgstr ""
-"[DRY RUN] Would translate: \"Replace the default \"Thanks for creating with "
-"Word…\""
+"Заменить стандартное сообщение \"Спасибо за создание с WordPress\" в нижнем "
+"колонтитуле администратора."
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/features/admin-styles/admin-styles-ui.php:623
 msgid "Replace the WordPress logo and favicon"
-msgstr "[DRY RUN] Would translate: \"Replace the WordPress logo and favicon\""
+msgstr "Заменить логотип WordPress и фавикон"
 
-#: includes/functions.php:700
+#: includes/functions.php:714
 msgid "Request Support"
-msgstr "[DRY RUN] Would translate: \"Request Support\""
+msgstr "Запросить поддержку"
 
 #: includes/backup.php:52
 msgid "Reset Roles"
-msgstr "[DRY RUN] Would translate: \"Reset Roles\""
+msgstr "Сбросить роли"
 
 #: includes/backup.php:291
 msgid "Reset Roles and Capabilities to WordPress defaults"
-msgstr "Сбросить роли и воможности"
+msgstr "Сбросить роли и возможности к стандартным настройкам WordPress"
 
 #: includes/backup.php:293
 msgid "Reset to WordPress defaults"
-msgstr "Сбросить настройки WordPress"
+msgstr "Сбросить к стандартным настройкам WordPress"
 
 #: includes/backup.php:283
 msgid "Reset WordPress Defaults"
-msgstr "Сбростить настройки WordPress по умолчанию"
+msgstr "Сбросить стандартные настройки WordPress"
 
 #: includes/backup.php:285
 msgid ""
 "Reseting default Roles and Capabilities will set them to the WordPress "
 "install defaults."
 msgstr ""
-"Сброс стандартных ролей и возможностей должен сбросить настройки по "
-"умолчанию при установвке в WordPress."
+"Сброс стандартных ролей и возможностей приведёт их к настройкам по "
+"умолчанию для установки WordPress."
 
 #: includes/backup.php:50
 msgid "Restore"
-msgstr "восстановление"
+msgstr "Восстановить"
 
 #: includes/backup-handler.php:92 includes/backup-handler.php:121
 #: includes/backup-handler.php:130
 msgid "Restore failed. No backup found."
-msgstr "Восстановление остановлено. Не найдено бэкапов.  "
+msgstr "Восстановление не удалось. Резервная копия не найдена."
 
 #: includes/backup.php:88
 msgid "Restore Previous Roles and Capabilities"
-msgstr "[DRY RUN] Would translate: \"Restore Previous Roles and Capabilities\""
+msgstr "Восстановить предыдущие роли и возможности"
 
 #: includes/backup.php:148
 msgid "Restore Selected Roles"
-msgstr "[DRY RUN] Would translate: \"Restore Selected Roles\""
+msgstr "Восстановить выбранные роли"
 
 #: includes/features/restrict-admin-features.php:96
 msgid "Right bar"
-msgstr "[DRY RUN] Would translate: \"Right bar\""
+msgstr "Правая панель"
 
 #: includes/features/frontend-features/frontend-features.php:58
 msgid "Role"
-msgstr "[DRY RUN] Would translate: \"Role\""
+msgstr "Роль"
 
 #: includes/admin.php:95
 msgid "Role Capabilities"
-msgstr "возможности"
+msgstr "Возможности Роли"
 
 #: includes/roles/class/class-pp-roles-admin.php:216
 msgid "Role Level"
-msgstr "[DRY RUN] Would translate: \"Role Level\""
+msgstr "Уровень Роли"
 
 #: includes/admin.php:1940
 msgid ""
@@ -2065,24 +2011,25 @@ msgid ""
 "for Post Author assignment and limits the application of user editing "
 "capabilities."
 msgstr ""
-"[DRY RUN] Would translate: \"Role level is mostly deprecated. However, it "
-"still…\""
+"Уровень Роли в основном устарел. Тем не менее, он по-прежнему определяет "
+"право на назначение Автора Поста и ограничивает применение возможностей "
+"редактирования пользователя."
 
 #: includes/manager.php:513 includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:170
 msgid "Role Name"
-msgstr "[DRY RUN] Would translate: \"Role Name\""
+msgstr "Название Роли"
 
 #: includes/roles/class/class-pp-roles-admin.php:182
 msgid "Role Slug"
-msgstr "[DRY RUN] Would translate: \"Role Slug\""
+msgstr "Слаг Роли"
 
 #: includes/manager.php:515
 #: includes/roles/class/class-pp-roles-list-table.php:172
 msgid "Role Type"
-msgstr "[DRY RUN] Would translate: \"Role Type\""
+msgstr "Тип Роли"
 
-#: includes/admin-load.php:842 includes/functions-admin.php:374
+#: includes/admin-load.php:826 includes/functions-admin.php:374
 #: includes/functions-admin.php:455 includes/settings-ui.php:33
 #: includes/roles/roles.php:8
 msgid "Roles"
@@ -2093,30 +2040,26 @@ msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
 msgstr ""
-"[DRY RUN] Would translate: \"Roles allows you to create, edit, and delete "
-"all t…\""
+"Роли позволяют вам создавать, редактировать и удалять все пользовательские "
+"роли на вашем сайте."
 
 #: includes/backup.php:308
 msgid "Roles and Capabilities"
-msgstr "[DRY RUN] Would translate: \"Roles and Capabilities\""
+msgstr "Роли и Возможности"
 
 #: includes/backup-handler.php:293
 msgid "Roles and Capabilities reset to WordPress defaults"
-msgstr "Роли и возможности сброшены к стандартным для WordPress "
+msgstr "Роли и Возможности сброшены до значений по умолчанию WordPress"
 
 #: includes/backup-handler.php:90
-#, fuzzy
 msgid "Roles and Capabilities restored from initial backup."
-msgstr "Роли и возможности восстановлены с последнего бэкапа."
+msgstr "Роли и Возможности восстановлены из начальной резервной копии."
 
 #: includes/backup-handler.php:128
-#, fuzzy
 msgid "Roles and Capabilities restored from selected auto-backup."
-msgstr "Роли и возможности восстановлены с последнего бэкапа."
-
-#: includes/features/profile-features.php:235
-msgid "Roles that can be edited:"
-msgstr "[DRY RUN] Would translate: \"Roles that can be edited:\""
+msgstr ""
+"Роли и Возможности восстановлены из выбранной автоматической резервной "
+"копии."
 
 #: includes/features/editor-features.php:119
 #: includes/features/editor-features.php:121
@@ -2124,110 +2067,109 @@ msgstr "[DRY RUN] Would translate: \"Roles that can be edited:\""
 #: includes/features/editor-features.php:226
 #, php-format
 msgid "Save %s Restrictions"
-msgstr "[DRY RUN] Would translate: \"Save %s Restrictions\""
+msgstr "Сохранить ограничения %s"
 
 #: includes/roles/class/class-pp-roles-admin.php:512
 msgid "Save Changes"
-msgstr "Сохранить настройки"
+msgstr "Сохранить Изменения"
 
 #: includes/features/frontend-features/frontend-features-ui.php:153
 msgid "Save Edit"
-msgstr "[DRY RUN] Would translate: \"Save Edit\""
+msgstr "Сохранить Редактирование"
 
 #: includes/features/admin-styles/admin-styles-ui.php:139
-#: includes/features/admin-styles/admin-styles-ui.php:562
+#: includes/features/admin-styles/admin-styles-ui.php:605
 #, php-format
 msgid "Save for %s"
-msgstr "[DRY RUN] Would translate: \"Save for %s\""
+msgstr "Сохранить для %s"
 
 #: includes/features/editor-features.php:115
 #: includes/features/editor-features.php:220
 msgid "Save for all Post Types"
-msgstr "[DRY RUN] Would translate: \"Save for all Post Types\""
+msgstr "Сохранить для всех Типов Постов"
 
 #: includes/features/admin-styles/admin-styles-ui.php:135
-#: includes/features/admin-styles/admin-styles-ui.php:558
+#: includes/features/admin-styles/admin-styles-ui.php:601
 msgid "Save for all Roles"
-msgstr "[DRY RUN] Would translate: \"Save for all Roles\""
-
-#: includes/features/profile-features.php:247
-msgid "Save Settings"
-msgstr "[DRY RUN] Would translate: \"Save Settings\""
+msgstr "Сохранить для всех Ролей"
 
 #: includes/test-user-ui.php:53
 msgid "Search"
-msgstr "[DRY RUN] Would translate: \"Search\""
+msgstr "Поиск"
 
 #: includes/admin.php:136
 msgid "Search capabilities..."
-msgstr ""
+msgstr "Поиск возможностей..."
 
 #: includes/roles/class/class-pp-roles-list-table.php:690
 msgid "Search Roles"
-msgstr ""
+msgstr "Поиск ролей"
 
 #: includes/test-user-ui.php:52
 msgid "Search user..."
-msgstr ""
+msgstr "Поиск пользователя..."
 
-#: includes/admin-load.php:668
+#: includes/admin-load.php:652
 msgid "Security check failed"
-msgstr ""
+msgstr "Проверка безопасности не удалась"
 
-#: includes/features/admin-styles/admin-styles.php:441
+#: includes/features/admin-styles/admin-styles.php:454
 msgid "Security check failed."
-msgstr ""
+msgstr "Проверка безопасности не удалась."
 
 #: includes/pp-ui.php:62
 #, php-format
 msgid "see %1$sRole Usage%2$s: \"Pattern Roles\""
-msgstr ""
+msgstr "см. %1$sИспользование ролей%2$s: \"Шаблон ролей\""
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:90
 #, php-format
 msgid "Select %1$s..."
-msgstr ""
+msgstr "Выберите %1$s..."
 
 #: includes/roles/class/class-pp-roles-admin.php:391
 #, php-format
 msgid "Select %s"
-msgstr ""
+msgstr "Выберите %s"
 
 #: includes/roles/class/class-pp-roles-admin.php:361
 #. "Editor" means post editor like Gutenberg
 msgid "Select allowed editor"
-msgstr ""
+msgstr "Выберите разрешенный редактор"
 
-#: includes/features/admin-styles/admin-styles-ui.php:431
+#: includes/features/admin-styles/admin-styles-ui.php:474
 msgid "Select Image"
-msgstr ""
+msgstr "Выберите изображение"
 
 #: includes-core/CoreAdmin.php:158
 msgid "Select pages..."
-msgstr ""
+msgstr "Выберите страницы..."
 
 #: includes-core/frontend-features-promo.php:39
 msgid "Select post types..."
-msgstr ""
+msgstr "Выберите типы постов..."
 
 #: includes/settings-ui.php:306
 msgid "Select Role"
-msgstr ""
+msgstr "Выберите роль"
 
-#: includes/settings-ui.php:241 includes/features/profile-features.php:350
+#: includes/settings-ui.php:241
 msgid "Select roles..."
-msgstr ""
+msgstr "Выберите роли..."
 
 #: includes/roles/class/class-pp-roles-admin.php:262
 #. "Editor" means post editor like Gutenberg
 msgid "Select the allowed editor options for users in this role."
-msgstr ""
+msgstr "Выберите разрешенные параметры редактора для пользователей этой роли."
 
 #: includes/settings-ui.php:398
 msgid ""
 "Select the notification types that should be displayed in the Admin Notices "
 "area after been removed from the WordPress admin screens."
 msgstr ""
+"Выберите типы уведомлений, которые должны отображаться в области "
+"уведомлений администратора после их удаления с экранов администрирования "
+"WordPress."
 
 #: includes/settings-ui.php:376
 #, php-format
@@ -2235,201 +2177,212 @@ msgid ""
 "Select the notification types that should be hidden when a user in the %1s "
 "role is viewing WordPress admin screens."
 msgstr ""
+"Выберите типы уведомлений, которые должны быть скрыты, когда пользователь в "
+"роли %1s просматривает экраны администрирования WordPress."
 
 #: includes/features/frontend-features/frontend-features-action.php:136
 msgid "Selected item deleted successfully"
-msgstr ""
+msgstr "Выбранный элемент успешно удален"
 
 #: includes/features/frontend-features/frontend-features-ui.php:117
 msgid "Selected Pages"
-msgstr ""
+msgstr "Выбранные страницы"
 
 #: includes/features/frontend-features/frontend-features-ui.php:99
 msgid "Separate multiple values with a space (custom-style-one custom-style-two)."
-msgstr ""
+msgstr "Разделяйте несколько значений пробелом (custom-style-one custom-style-two)."
 
 #: includes/settings-ui.php:88
 msgid "Set login redirect cookie"
-msgstr ""
+msgstr "Установите куки для перенаправления при входе"
 
 #: includes/features/admin-styles/admin-styles-ui.php:172
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
 msgstr ""
+"Устанавливает цветовую схему администратора для всех пользователей. Нажмите "
+"на схему, чтобы мгновенно просмотреть её."
 
 #: includes/features/admin-styles/admin-styles-ui.php:157
 msgid "Setting"
-msgstr ""
+msgstr "Настройка"
 
-#: includes/admin-load.php:843
-#, fuzzy
+#: includes/admin-load.php:827
 msgid "Settings"
-msgstr "Настройки сохранены."
+msgstr "Настройки"
 
 #: includes/features/restrict-editor-features.php:421
 msgid "Settings Panel"
-msgstr ""
+msgstr "Панель настроек"
 
-#: includes/admin-load.php:680
+#: includes/admin-load.php:664
 msgid "Settings updated successfully."
-msgstr ""
+msgstr "Настройки успешно обновлены."
 
 #: includes/manager.php:624 includes/manager.php:678 includes/manager.php:726
 #: includes/manager.php:807 includes/manager.php:889 includes/manager.php:970
 msgid "Settings updated."
-msgstr ""
+msgstr "Настройки обновлены."
 
 #: includes/settings-ui.php:154
 msgid ""
 "Show all post types on the \"Editor Features\" screen, even ones normally "
 "hidden in the WordPress admin area."
 msgstr ""
+"Показать все типы записей на экране \"Особенности редактора\", даже те, "
+"которые обычно скрыты в области администратора WordPress."
 
 #: includes/backup.php:157
 msgid "Show changes from current roles only"
-msgstr ""
+msgstr "Показать изменения только для текущих ролей"
 
 #: includes/features/editor-features.php:135
 msgid "show Classic Editor controls"
-msgstr ""
+msgstr "показать элементы управления классическим редактором"
 
 #: includes/settings-ui.php:109 includes/settings-ui.php:149
 msgid "Show private post types"
-msgstr ""
+msgstr "Показать приватные типы записей"
 
 #: includes/settings-ui.php:125
 msgid "Show private taxonomies"
-msgstr ""
+msgstr "Показать приватные таксономии"
 
 #: includes/admin-notices/admin-notices.php:73
 msgid "Silence this notice"
-msgstr ""
+msgstr "Скрыть это уведомление"
 
 #: includes/admin-notices/admin-notices.php:208
 msgid "Silenced Notices"
-msgstr ""
+msgstr "Скрытые уведомления"
 
 #: includes/features/frontend-features/frontend-features-data.php:38
 msgid "Site Dark Mode"
-msgstr ""
+msgstr "Темный режим сайта"
 
 #: includes/features/frontend-features/frontend-features-data.php:54
 msgid "Site Light Mode"
-msgstr ""
+msgstr "Светлый режим сайта"
 
 #: includes/features/restrict-editor-features.php:59
 msgid "Slug"
-msgstr ""
+msgstr "Слаг"
 
 #: includes/roles/class/class-pp-roles-admin.php:335
 msgid "Slug already exists"
-msgstr ""
+msgstr "Слаг уже существует"
 
-#: includes/functions.php:925
+#: includes/functions.php:939
 msgid "Social Links"
-msgstr ""
+msgstr "Социальные ссылки"
 
 #: includes/roles/class/class-pp-roles-actions.php:250
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
 msgstr ""
+"Что-то пошло не так, система не смогла создать роль, обновите страницу и "
+"попробуйте снова."
 
 #: includes/features/restrict-editor-features.php:422
 msgid "Status & visibility"
-msgstr ""
+msgstr "Статус & видимость"
 
 #: includes/admin.php:286
 msgid "Submit Revision"
-msgstr ""
+msgstr "Отправить правку"
 
 #: includes/settings-ui.php:290
 msgid "Success notices"
-msgstr ""
+msgstr "Уведомления об успехе"
 
 #: includes/features/restrict-editor-features.php:395
 msgid "Switch to Draft"
-msgstr ""
+msgstr "Переключиться на черновик"
 
 #: includes/admin.php:1991
 msgid "Sync options to all sites."
-msgstr ""
+msgstr "Синхронизировать параметры на всех сайтах."
 
 #: includes/admin.php:1988
 msgid "Sync role to all sites."
-msgstr ""
+msgstr "Синхронизировать роль на всех сайтах."
 
 #: includes/roles/class/class-pp-roles-list-table.php:92
 #, php-format
 msgid "System %s"
 msgid_plural "System %s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Система %s|Система %s"
 
 #: includes/admin.php:274
 msgid "Taxonomies"
-msgstr ""
+msgstr "Таксономии"
 
 #: includes/admin.php:684
 msgid "Taxonomy"
-msgstr ""
+msgstr "Таксономия"
 
 #: includes/features/restrict-editor-features.php:91
 msgid "Taxonomy Boxes"
-msgstr ""
+msgstr "Ящики таксономии"
 
 #: includes-core/editor-features-promo.php:66
 msgid "TaxoPress - Settings"
-msgstr ""
+msgstr "TaxoPress - Настройки"
 
 #: includes/admin.php:677
 #, php-format
 msgid "Term %s Capabilities"
-msgstr ""
+msgstr "Возможности термина %s"
 
 #: includes/test-user-ui.php:210
 msgid "Test this user"
-msgstr ""
+msgstr "Проверить этого пользователя"
 
 #: includes/test-user-ui.php:180 includes/test-user-ui.php:204
 msgid "Test user"
-msgstr ""
+msgstr "Тестовый пользователь"
 
 #: includes/functions-admin.php:420
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
 msgstr ""
+"Проверьте свой сайт, мгновенно войдя как другой пользователь. Доступные "
+"аккаунты включают любые, которые текущий пользователь может редактировать."
 
 #: includes/test-user-ui.php:316
 #, php-format
 msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
 msgstr ""
+"Тестирование как пользователь: %1$s. %2$sВернуться к просмотру "
+"администратора%3$s"
 
 #: includes/test-user-ui.php:255
 msgid "Testing: "
-msgstr ""
+msgstr "Тестирование: "
 
 #: includes/features/restrict-editor-features.php:487
 msgid "Text settings"
-msgstr ""
+msgstr "Настройки текста"
 
 #: includes/features/restrict-admin-features.php:115
 msgid "Thank you for creating with WordPress"
-msgstr ""
+msgstr "Спасибо за создание с WordPress"
 
 #: includes/roles/class/class-pp-roles-admin.php:183
 msgid ""
 "The \"slug\" is the URL-friendly version of the role. It is usually all "
 "lowercase and contains only letters, numbers and underscores."
 msgstr ""
+"«Слаг» - это URL-дружественная версия роли. Обычно он полностью в нижнем "
+"регистре и содержит только буквы, цифры и подчеркивания."
 
-#: includes/features/profile-features.php:250
+#: includes/features/profile-features.php:241
 #, php-format
-msgid "The %s role is not enabled for editing. The Refresh button is disabled."
-msgstr ""
+msgid "The %s role is not enabled for editing. The Find button is disabled."
+msgstr "Роль %s не включена для редактирования. Кнопка «Найти» отключена."
 
 #: includes/settings-ui.php:302
 msgid ""
@@ -2437,105 +2390,116 @@ msgid ""
 "extra messages and advertisements into the Admin Notices area. This will "
 "not remove any messages that appear when you perform an action."
 msgstr ""
+"Эта функция пытается очистить область администратора WordPress, организуя "
+"дополнительные сообщения и объявления в области уведомлений администратора. "
+"Это не удалит никаких сообщений, которые появляются при выполнении действия."
 
 #: includes/admin.php:1400
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
 msgstr ""
+"Следующие записи не имеют эффекта. Пожалуйста, назначьте желаемые "
+"возможности на вкладках Редактирование / Удаление / Приватные."
 
 #: includes/roles/class/class-pp-roles-actions.php:340
 #, php-format
 msgid "The new role %s was created successfully."
-msgstr ""
+msgstr "Новая роль %s была успешно создана."
 
 #: includes/roles/class/class-pp-roles-actions.php:223
 #, php-format
 msgid "The role \"%s\" already exists. Please choose a different name."
-msgstr ""
+msgstr "Роль \"%s\" уже существует. Пожалуйста, выберите другое имя."
 
 #: includes/roles/class/class-pp-roles-actions.php:570
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
-msgstr ""
+msgstr "Роль %1$s была успешно удалена. %2$s"
 
 #: includes/roles/class/class-pp-roles-actions.php:652
 #, php-format
 msgid "The role %1$s was successfully hidden."
-msgstr ""
+msgstr "Роль %1$s была успешно скрыта."
 
 #: includes/roles/class/class-pp-roles-actions.php:712
 #, php-format
 msgid "The role %1$s was successfully unhidden."
-msgstr ""
+msgstr "Роль %1$s была успешно раскрыта."
 
 #: includes/roles/class/class-pp-roles-actions.php:598
 msgid "The role could not be deleted."
-msgstr ""
+msgstr "Роль не может быть удалена."
 
 #: includes/roles/class/class-pp-roles-actions.php:576
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
-msgstr ""
+msgstr "Выбранные роли %1$s были успешно удалены. %2$s"
 
 #: includes/handler.php:61 includes/handler.php:89 includes/manager.php:1157
 msgid "The selected role is not editable."
-msgstr ""
+msgstr "Выбранную роль нельзя редактировать."
 
-#: includes/admin.php:813 includes/pp-ui.php:162
+#: includes/admin.php:813 includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
-msgstr ""
+msgstr "Slug для этого типа поста - %s"
 
-#: includes/admin.php:811 includes/pp-ui.php:262 includes/pp-ui.php:341
+#: includes/admin.php:811 includes/pp-ui.php:263 includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
-msgstr ""
+msgstr "Slug для этой таксономии - %s"
 
 #: includes/admin.php:1322
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
+"Функция пользовательского тестирования также требует возможности %1$s "
+"edit_users %2$s."
 
 #: includes/admin-notices/admin-notices.php:218
 msgid "There are currently no admin notices."
-msgstr ""
+msgstr "В данный момент нет уведомлений администратора."
 
 #: includes/features/nav-menus.php:275
 msgid ""
 "There are no frontend menu links. To control access to navigation menus, "
 "please add menu links."
 msgstr ""
+"Нет ссылок на меню на фронтенде. Чтобы контролировать доступ к "
+"навигационным меню, пожалуйста, добавьте ссылки в меню."
 
 #: includes/features/profile-features.php:142
 msgid ""
 "There are no users in this role. Please select a role that has users and is "
 "able to access the \"Profile\" screen."
 msgstr ""
+"В этой роли нет пользователей. Пожалуйста, выберите роль, в которой есть "
+"пользователи и которая может получить доступ к экрану \"Профиль\"."
 
 #: includes/roles/class/class-pp-roles-admin.php:652
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
-msgstr ""
+msgstr "Эти настройки можно редактировать на экране %1s Возможности %2s"
 
 #: includes/settings-ui.php:61
 msgid "This allows you to assign a new user to multiples roles."
-msgstr ""
+msgstr "Это позволяет вам назначить нового пользователя на несколько ролей."
 
 #: includes/settings-ui.php:77
 msgid "This allows you to assign an existing user to multiple roles."
-msgstr ""
+msgstr "Это позволяет вам назначить существующего пользователя на несколько ролей."
 
 #: includes/admin.php:892 includes/admin.php:1140 includes/admin.php:1318
 #: includes/admin.php:1443 includes/admin.php:1587
 #, php-format
 msgid "This capability is %s"
-msgstr ""
+msgstr "Эта возможность - %s"
 
 #: includes/admin.php:922
 #, php-format
 msgid "This capability is controlled by %s"
-msgstr ""
+msgstr "Эта возможность контролируется %s"
 
 #: includes/admin.php:925
 #, php-format
@@ -2543,163 +2507,196 @@ msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
 "to be controlled independently."
 msgstr ""
+"Эта возможность контролируется %s. Используйте настройки боковой панели, "
+"чтобы разрешить ее независимое управление."
 
 #: includes/manager.php:238
 msgid "This capability is explicitly negated. Click to add/remove normally."
-msgstr ""
+msgstr "Эта возможность явно отменена. Нажмите, чтобы добавить/удалить обычно."
 
 #: includes/admin.php:944 includes/admin.php:948
 msgid "This capability is not available for this post type."
-msgstr ""
+msgstr "Эта возможность недоступна для данного типа записи."
 
 #: includes/features/frontend-features/frontend-features-ui.php:42
 msgid ""
 "This feature allows you to modify the site frontend by hiding IDs or "
 "classes, adding CSS styles, or adding body classes."
 msgstr ""
+"Эта функция позволяет вам изменять внешний вид сайта, скрывая "
+"идентификаторы или классы, добавляя CSS-стили или добавляя классы для тела."
 
 #: includes/features/frontend-features/frontend-features-ui.php:125
 msgid "This feature will be added to all pages."
-msgstr ""
+msgstr "Эта функция будет добавлена на все страницы."
 
-#: includes/admin-load.php:785
+#: includes/features/profile-features.php:242
+#, php-format
+msgid "This feature will test the \"Profile\" screen as a user in the %s role."
+msgstr "Эта функция протестирует экран \"Профиль\" как пользователь в роли %s."
+
+#: includes/admin-load.php:769
 msgid "This menu is restricted for the following roles"
-msgstr ""
+msgstr "Это меню ограничено для следующих ролей"
 
 #: includes/admin-notices/admin-notices.php:77
 msgid ""
 "This notice will be moved to the \"Silenced Notices\" tab and you will not "
 "receive a notification if it appears again."
 msgstr ""
+"Это уведомление будет перемещено на вкладку \"Приглушенные уведомления\", и "
+"вы не получите уведомление, если оно появится снова."
 
 #: capsman-enhanced.php:109
 msgid "This plugin can be deleted."
-msgstr ""
+msgstr "Этот плагин можно удалить."
 
 #: includes/features/restrict-profile-features.php:45
 msgid "This role is not enabled for profile feature editing."
-msgstr ""
+msgstr "Эта роль не включена для редактирования функции профиля."
 
 #: includes-core/frontend-features-promo.php:44
 msgid ""
 "This will add a metabox on the post editing screen. You can use this "
 "feature to add body classes only for that post."
 msgstr ""
+"Это добавит метабокс на экран редактирования записи. Вы можете использовать "
+"эту функцию, чтобы добавлять классы для тела только для этой записи."
 
-#: includes/pp-ui.php:191
+#: includes/pp-ui.php:192
 msgid ""
 "This will cause a new capability to be required for creating posts, and "
 "enable a checkbox column here for role assignments. Normally, post creation "
 "is controlled by the \"Edit\" capability."
 msgstr ""
+"Это потребует новой возможности для создания записей и включит колонку с "
+"флажками здесь для назначения ролей. Обычно создание записей контролируется "
+"возможностью \"Редактировать\"."
 
 #: includes/features/frontend-features/frontend-features-ui.php:59
 msgid "This will only show here in the WordPress admin area."
-msgstr ""
+msgstr "Это будет отображаться только здесь, в админ-панели WordPress."
 
 #: includes/settings-ui.php:114
 msgid ""
 "This will show all post types on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
 msgstr ""
+"Это покажет все типы записей на экране \"Возможности\", даже те, которые "
+"обычно скрыты в админ-панели WordPress."
 
 #: includes/settings-ui.php:130
 msgid ""
 "This will show all taxonomies on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
 msgstr ""
+"Это покажет все таксономии на экране \"Возможности\", даже те, которые "
+"обычно скрыты в админ-панели WordPress."
 
 #: includes/features/frontend-features/frontend-features-ui.php:53
 msgid "Title:"
-msgstr ""
+msgstr "Название:"
 
 #: includes/features/admin-features.php:174 includes/features/nav-menus.php:127
 #: includes/features/nav-menus.php:147
 #: includes/features/profile-features.php:106
 #: includes/features/profile-features.php:125
 msgid "Toggle all"
-msgstr ""
+msgstr "Переключить все"
 
 #: includes/features/restrict-editor-features.php:382
 msgid "Top Bar - Left"
-msgstr ""
+msgstr "Верхняя панель - Слева"
 
 #: includes/features/restrict-editor-features.php:393
 msgid "Top Bar - Right"
-msgstr ""
+msgstr "Верхняя панель - Справа"
 
 #: includes/features/restrict-editor-features.php:40
 msgid "Top Tabs"
-msgstr ""
+msgstr "Верхние вкладки"
 
 #: includes/handler.php:124
 msgid "Type / Taxonomy settings saved."
-msgstr "Настройки сохранены."
+msgstr "Настройки типа / таксономии сохранены."
 
 #: includes/features/restrict-editor-features.php:485
 msgid "Typography"
-msgstr ""
+msgstr "Типографика"
 
 #: includes/test-user.php:62
 msgid "Unable to retrieve user data."
-msgstr ""
+msgstr "Не удалось получить данные пользователя."
 
 #: includes/roles/class/class-pp-roles-list-table.php:91
 #, php-format
 msgid "Uneditable %s"
 msgid_plural "Uneditable %s"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Невозможно редактировать %s"
+msgstr[1] "Невозможно редактировать %s"
+msgstr[2] "Невозможно редактировать %s"
 
 #: includes/roles/class/class-pp-roles-list-table.php:256
 msgid "Unhide"
-msgstr ""
+msgstr "Показать"
 
-#: includes/pp-ui.php:107
+#: includes/pp-ui.php:108
 msgid "Unique Post Type Capabilities"
-msgstr ""
+msgstr "Уникальные возможности типа поста"
 
-#: includes/pp-ui.php:220
+#: includes/pp-ui.php:221
 msgid "Unique Taxonomy Capabilities"
-msgstr ""
+msgstr "Уникальные возможности таксономии"
 
-#: includes/pp-ui.php:199 includes/pp-ui.php:285 includes/pp-ui.php:364
+#: includes/pp-ui.php:200 includes/pp-ui.php:286 includes/pp-ui.php:365
 msgid "Update"
-msgstr ""
+msgstr "Обновить"
 
-#: includes/admin-load.php:828 includes-core/admin-features-promo.php:79
+#: includes/admin-load.php:812 includes-core/admin-features-promo.php:79
 #: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:48
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
 #: includes/features/admin-styles/admin-styles-ui.php:307
 msgid "Upgrade to Pro"
-msgstr ""
+msgstr "Обновить до Pro"
 
-#: includes/features/admin-styles/admin-styles-ui.php:449
+#: includes/features/admin-styles/admin-styles-ui.php:492
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
 msgstr ""
+"Загрузите пользовательский фавикон для административной панели. "
+"Рекомендуется: 16x16 пикселей или 32x32 пикселей в формате SVG или PNG."
 
-#: includes/features/admin-styles/admin-styles-ui.php:414
+#: includes/features/admin-styles/admin-styles-ui.php:457
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
 msgstr ""
+"Загрузите пользовательский логотип, чтобы заменить иконку WordPress в "
+"административной панели. Рекомендуется: 20x20 пикселей в формате SVG или "
+"PNG."
+
+#: includes/features/admin-features.php:251
+msgid "URL targeted"
+msgstr "Целевой URL"
+
+#: includes/features/admin-features.php:253
+msgid "URL wildcard"
+msgstr "Шаблон URL"
 
 #: includes/admin.php:1676 includes/admin.php:1677 includes/admin.php:1678
-#: includes/features/admin-features.php:335
-#: includes/features/admin-features.php:336
+#: includes/features/admin-features.php:346
+#: includes/features/admin-features.php:347
 #: includes/features/editor-features.php:240
 #: includes/features/editor-features.php:241
 #: includes/features/nav-menus.php:303 includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:268
-#: includes/features/profile-features.php:269
+#: includes/features/profile-features.php:251
+#: includes/features/profile-features.php:252
 #: includes/features/frontend-features/frontend-features.php:249
 #: includes/features/frontend-features/frontend-features.php:250
 msgid "usage key"
-msgstr ""
+msgstr "ключ использования"
 
 #: includes/settings-ui.php:93
 msgid ""
@@ -2707,55 +2704,61 @@ msgid ""
 "useful when login redirect is not working correctly due to wp_get_referer() "
 "limitation."
 msgstr ""
+"Используйте куки для определения страниц, которые пользователи "
+"просматривали перед входом. Это полезно, когда переадресация при входе не "
+"работает должным образом из-за ограничения wp_get_referer()."
 
-#: includes/pp-ui.php:190
+#: includes/pp-ui.php:191
 msgid "Use the \"Create\" capability for selected post types"
-msgstr ""
+msgstr "Используйте возможность \"Создать\" для выбранных типов постов"
 
 #: includes/admin.php:942
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
+"Используйте настройки боковой панели, чтобы это можно было контролировать "
+"независимо."
 
 #: includes/features/restrict-admin-features.php:97
 msgid "User actions"
-msgstr ""
+msgstr "Действия пользователя"
 
 #: includes/features/restrict-admin-features.php:100
 msgid "User Display Name"
-msgstr ""
+msgstr "Отображаемое имя пользователя"
 
 #: includes/functions-admin.php:419 includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
-msgstr ""
+msgstr "Тестирование пользователей"
 
 #: includes/features/admin-styles/admin-styles-ui.php:160
 msgid "Value"
-msgstr ""
+msgstr "Значение"
 
-#: includes/admin.php:1720 includes/features/admin-features.php:338
+#: includes/admin.php:1720 includes/features/admin-features.php:349
 #: includes/features/editor-features.php:243
 #: includes/features/nav-menus.php:306
-#: includes/features/profile-features.php:271
+#: includes/features/profile-features.php:254
 #: includes/redirects/redirects.php:335
-#: includes/features/admin-styles/admin-styles-ui.php:584
+#: includes/features/admin-styles/admin-styles-ui.php:627
 #: includes/features/frontend-features/frontend-features.php:252
 msgid "View Documentation"
-msgstr ""
+msgstr "Просмотреть документацию"
 
-#: includes/functions.php:711
+#: includes/functions.php:725
 msgid "View Knowledge Base"
-msgstr ""
+msgstr "Просмотреть базу знаний"
 
 #: includes/admin.php:271
 msgid "Visibility"
-msgstr ""
+msgstr "Видимость"
 
 #: includes/settings-ui.php:292
 msgid "Warning notices"
-msgstr ""
+msgstr "Предупреждения"
 
 #: includes/backup.php:285 includes/backup.php:332
+#: includes/features/profile-features.php:241
 msgid "Warning:"
 msgstr "Предупреждение:"
 
@@ -2765,106 +2768,122 @@ msgid ""
 "Warning: This role cannot access the dashboard without the read capability. "
 "%1$sClick here to fix this now%2$s."
 msgstr ""
+"Предупреждение: Эта роль не может получить доступ к панели управления без "
+"возможности чтения. %1$sНажмите здесь, чтобы исправить это сейчас%2$s."
 
 #: includes/features/restrict-admin-features.php:165
 msgid "Welcome panel"
-msgstr ""
+msgstr "Панель приветствия"
 
-#: includes/features/admin-styles/admin-styles-ui.php:537
+#: includes/features/admin-styles/admin-styles-ui.php:580
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
 msgstr ""
+"Когда это включено, настройки роли всегда применяются, переопределяя любые "
+"выборы пользователя, даже если цветовая схема UI видима для них."
 
-#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles-ui.php:570
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
 msgstr ""
+"Когда это включено, пользователи не могут видеть или изменять настройки "
+"цветовой схемы в своем профиле. Настройки на основе ролей будут применены."
 
 #: includes/settings-ui.php:191
 msgid "When testing, display a caption and return link in the Admin Bar."
 msgstr ""
+"При тестировании отображайте заголовок и ссылку возврата в Административной "
+"панели."
 
 #: includes/settings-ui.php:223
 msgid "When testing, display a return link in the front end footer."
-msgstr ""
-
-#: includes/features/profile-features.php:259
-#, php-format
-msgid "When you refresh, we test as a user in %s role and save profile elements."
-msgstr ""
+msgstr "При тестировании отображайте ссылку возврата в нижнем колонтитуле фронтенда."
 
 #: includes/admin.php:1758
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
 msgstr ""
+"Каждый раз, когда вы используете PublishPress Capabilities для сохранения "
+"изменений, также создается резервная копия, которую вы можете использовать "
+"для восстановления предыдущей конфигурации."
 
 #: includes/features/frontend-features/frontend-features-ui.php:116
 msgid "Whole Site"
-msgstr ""
+msgstr "Весь сайт"
 
-#: includes/roles/class/class-pp-roles-admin.php:117
+#: includes/features/admin-features.php:249
+msgid "Wildcard enabled"
+msgstr "Используются подстановочные знаки"
+
+#: includes/roles/class/class-pp-roles-admin.php:117, fuzzy
 msgid "WooCommerce"
-msgstr ""
+msgstr "WooCommerce"
 
 #: includes/features/restrict-editor-features.php:72
 msgid "Word count"
-msgstr ""
+msgstr "Количество слов"
 
 #: includes/roles/class/class-pp-roles-list-table.php:396
 msgid "WordPress Core"
-msgstr ""
+msgstr "Ядро WordPress"
 
 #: includes/admin.php:1205
 msgid "WordPress Core Capabilities"
-msgstr ""
+msgstr "Возможности ядра WordPress"
 
 #: includes/features/restrict-admin-features.php:93
 msgid "WordPress External Links"
-msgstr ""
+msgstr "Внешние ссылки WordPress"
 
 #: includes/features/restrict-admin-features.php:92
 msgid "WordPress Logo"
-msgstr ""
+msgstr "Логотип WordPress"
 
 #: includes/admin.php:1757
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
 msgstr ""
+"WordPress хранит возможности ролей в вашей базе данных, где они остаются "
+"даже если плагин деактивирован."
 
 #: includes/admin.php:1895
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
-msgstr ""
+msgstr "Интеграция WPML для зеркалирования разрешений к переводам <em>(Pro)</em>"
 
-#: includes/features/restrict-admin-features.php:101
+#: includes/features/restrict-admin-features.php:101, fuzzy
 msgid "Yoast SEO"
-msgstr ""
+msgstr "Yoast SEO"
 
 #: includes/backup.php:293
 msgid ""
 "You are about to reset Roles and Capabilities to WordPress defaults.\n"
 " 'Cancel' to stop, 'OK' to reset."
 msgstr ""
-"Вы об сбросе ролей и возможностей %s.\n"
-"  'Отменить' для остановки, 'ОК' для сброса."
+"Вы собираетесь сбросить Роли и Возможности к значениям по умолчанию "
+"WordPress. 'Отмена' для остановки, 'ОК' для сброса."
 
 #: includes/features/frontend-features/frontend-features-ui.php:100
 msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
 msgstr ""
+"Вы можете добавить CSS для ваших классов, нажав \"Добавить пользовательский "
+"CSS\"."
 
 #: includes/admin.php:1686
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
-msgstr ""
+msgstr "Вы также можете настроить эту роль как группу %sРазрешений%s."
 
 #: includes-core/admin-features-promo.php:74
 msgid ""
 "You can block pages by URL or hide Admin elements by entering a CSS class "
 "or ID. This feature is available in PublishPress Capabilities Pro."
 msgstr ""
+"Вы можете блокировать страницы по URL или скрывать элементы админа, введя "
+"CSS класс или ID. Эта функция доступна в PublishPress Capabilities Pro."
 
 #: includes-core/editor-features-promo.php:74
 msgid ""
@@ -2872,6 +2891,9 @@ msgid ""
 "their CSS class or ID. This feature is available in PublishPress "
 "Capabilities Pro."
 msgstr ""
+"Вы можете скрывать метабоксы плагина. Вы также можете скрывать конкретные "
+"элементы, введя их CSS класс или ID. Эта функция доступна в PublishPress "
+"Capabilities Pro."
 
 #: includes-core/admin-menus-promo.php:58
 msgid ""
@@ -2879,92 +2901,97 @@ msgid ""
 "add, or remove links from the WordPress admin menu. This feature is "
 "available in PublishPress Capabilities Pro."
 msgstr ""
+"Вы можете ограничить доступ к экранам меню админа. Вы также можете "
+"редактировать, изменять, добавлять или удалять ссылки из меню админа "
+"WordPress. Эта функция доступна в PublishPress Capabilities Pro."
 
 #: includes-core/CoreAdmin.php:163
 msgid "You can select page types where this element will be added."
-msgstr ""
+msgstr "Вы можете выбрать типы страниц, на которые будет добавлен этот элемент."
 
 #: includes-core/frontend-features-promo.php:25
 msgid ""
 "You can use Frontend Features to target specific posts and pages. This "
 "feature is available in PublishPress Capabilities Pro."
 msgstr ""
+"Вы можете использовать функции фронтенда для нацеливания на конкретные "
+"записи и страницы. Эта функция доступна в PublishPress Capabilities Pro."
 
 #: includes/handler.php:250
 msgid "You cannot remove Manage Capabilities from Administrators"
-msgstr "Вы не можете удалить Manage Capabilities через администраторов ."
+msgstr "Вы не можете удалить управление возможностями у администраторов"
 
-#: includes/functions.php:628
+#: includes/functions.php:642
 msgid "You do not have permission to access this page."
-msgstr ""
+msgstr "У вас нет разрешения для доступа к этой странице."
 
 #: includes/manager.php:640 includes/manager.php:662 includes/manager.php:772
 #: includes/manager.php:823 includes/manager.php:987
 msgid "You do not have permission to manage admin features."
-msgstr ""
+msgstr "У вас нет разрешения для управления функциями админа."
 
 #: includes/admin-notices/admin-notices.php:241
 msgid "You do not have permission to manage admin notices."
-msgstr ""
+msgstr "У вас нет разрешения для управления уведомлениями админа."
 
-#: includes/manager.php:741 includes/features/admin-styles/admin-styles.php:446
+#: includes/manager.php:741 includes/features/admin-styles/admin-styles.php:459
 msgid "You do not have permission to manage admin styles."
-msgstr ""
+msgstr "У вас нет разрешения для управления стилями админа."
 
 #: includes/manager.php:1079 includes/manager.php:1113
 #: includes/manager.php:1131
 msgid "You do not have permission to manage capabilities."
-msgstr ""
+msgstr "У вас нет разрешения для управления возможностями."
 
 #: includes/manager.php:567 includes/manager.php:589
 msgid "You do not have permission to manage editor features."
-msgstr ""
+msgstr "У вас нет разрешения для управления функциями редактора."
 
 #: includes/manager.php:693 includes/manager.php:715
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
 msgid "You do not have permission to manage frontend features."
-msgstr ""
+msgstr "У вас нет разрешения управлять возможностями интерфейса."
 
 #: includes/manager.php:794
 msgid "You do not have permission to manage navigation menus."
-msgstr ""
+msgstr "У вас нет разрешения управлять навигационными меню."
 
 #: includes/manager.php:845
 msgid "You do not have permission to manage profile features."
-msgstr ""
+msgstr "У вас нет разрешения управлять функциями профиля."
 
 #: includes/manager.php:905
 msgid "You do not have permission to manage redirect."
-msgstr ""
+msgstr "У вас нет разрешения управлять перенаправлением."
 
 #: includes/manager.php:544
 msgid "You do not have permission to manage roles."
-msgstr ""
+msgstr "У вас нет разрешения управлять ролями."
 
 #: includes/manager.php:1344
 msgid "You do not have permission to perform this action."
-msgstr ""
+msgstr "У вас нет разрешения выполнять это действие."
 
 #: includes/backup-handler.php:15
 msgid "You do not have permission to restore backup."
-msgstr ""
+msgstr "У вас нет разрешения восстанавливать резервную копию."
 
 #: includes/manager.php:1306
 msgid "You do not have permission to restore roles."
-msgstr ""
+msgstr "У вас нет разрешения восстанавливать роли."
 
 #: includes/roles/class/class-pp-roles-actions.php:148
 msgid "You do not have sufficient permissions to perform this action."
-msgstr ""
+msgstr "У вас недостаточно прав для выполнения этого действия."
 
 #: includes/admin.php:1651
 msgid "You have no additional capabilities."
-msgstr ""
+msgstr "У вас нет дополнительных возможностей."
 
 #: includes/redirects/redirects.php:243
 msgid "You must enter the Login Redirect URL."
-msgstr ""
+msgstr "Вы должны ввести URL-адрес перенаправления для входа."
 
 #: includes/roles/class/class-pp-roles-admin.php:362
 #. "Editor" means post editor like Gutenberg
@@ -2972,6 +2999,8 @@ msgid ""
 "You must select at least one editor for the role when managing allowed "
 "editor."
 msgstr ""
+"Вы должны выбрать как минимум одного редактора для роли при управлении "
+"разрешенными редакторами."
 
 #: includes-core/CoreAdmin.php:13
 #, php-format
@@ -2979,6 +3008,8 @@ msgid ""
 "You're using PublishPress Capabilities Free. The Pro version has more "
 "features and support. %sUpgrade to Pro%s"
 msgstr ""
+"Вы используете PublishPress Capabilities Free. Профессиональная версия "
+"имеет больше функций и поддержку. %sПерейти на Pro%s"
 
 #: includes/test-user.php:53
 #: includes/roles/class/class-pp-roles-actions.php:162
@@ -2986,12 +3017,8 @@ msgstr ""
 #: includes/roles/class/class-pp-roles-actions.php:374
 #: includes/roles/class/class-pp-roles-actions.php:490
 msgid "Your link has expired, refresh the page and try again."
-msgstr ""
+msgstr "Ваша ссылка истекла, обновите страницу и попробуйте снова."
 
 #: includes/roles/class/class-pp-roles-list-table.php:344
 msgid "Your Role"
-msgstr ""
-
-#: includes/features/profile-features.php:250
-msgid "⚠ Warning:"
-msgstr ""
+msgstr "Ваша роль"
