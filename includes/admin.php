@@ -1579,6 +1579,8 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							else
 								$class = ( $rcaps[$cap_name] ) ? 'cap-yes' : 'cap-neg';
 
+							$title_text = '';
+
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
 								$title_text = sprintf( esc_html__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . $cap_name . '</strong>' );
@@ -1615,7 +1617,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							echo esc_html(str_replace( '_', ' ', $cap ));
 							?>
 								<?php echo $tooltip_html; ?>
-							</span></label><?php if ($title_text) :?><span class="tool-tip-text" style="text-align: center;">
+							</span></label><?php if ( ! empty($title_text) ) :?><span class="tool-tip-text" style="text-align: center;">
 								<p><?php echo $title_text; ?></p>
 								<i></i>
 							</span><?php endif;?></span><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
