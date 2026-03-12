@@ -246,8 +246,10 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                 $banner_messages = ['<p>'];
                 $banner_messages[] = esc_html__('Frontend Features allows you to add or remove elements from the frontend of your site.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
-                $banner_messages[] = sprintf(esc_html__('%1$s = No change', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled>') . ' <br />';
-                $banner_messages[] = sprintf(esc_html__('%1$s = Apply custom styling', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled>'). ' <br />';
+                $banner_messages[] = '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled> = '
+                    . esc_html__('No change', 'capability-manager-enhanced') . ' <br />';
+                $banner_messages[] = '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled> = '
+                    . esc_html__('Apply custom styling', 'capability-manager-enhanced') . ' <br />';
                 $banner_messages[] = '<p>';
                 $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/frontend-features/"target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
                 $banner_title  = __('How to use Frontend Features', 'capability-manager-enhanced');
