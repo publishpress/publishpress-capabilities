@@ -343,8 +343,10 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                 $banner_messages = ['<p>'];
                 $banner_messages[] = esc_html__('Admin Features allows you to remove elements from the admin area and toolbar.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
-                $banner_messages[] = sprintf(esc_html__('%1$s = No change', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled>') . ' <br />';
-                $banner_messages[] = sprintf(esc_html__('%1$s = This feature is denied', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled>') . ' <br />';
+                $banner_messages[] = '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled> = '
+                    . esc_html__('No change', 'capability-manager-enhanced') . ' <br />';
+                $banner_messages[] = '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled> = '
+                    . esc_html__('This feature is denied', 'capability-manager-enhanced') . ' <br />';
                 $banner_messages[] = '</p>';
                 $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/admin-features-screen/"target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
                 $banner_title  = __('How to use Admin Features', 'capability-manager-enhanced');
@@ -353,7 +355,8 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                 <?php
                 $banner_title  = __('Admin Features Settings', 'capability-manager-enhanced');
                 $banner_messages = ['<p>'];
-                $banner_messages[] = sprintf(esc_html__('%1$s Hide Submenus', 'capability-manager-enhanced'), '<input type="checkbox" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '>') . ' <br />';
+                $banner_messages[] = '<input type="checkbox" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '> '
+                    . esc_html__('Hide Submenus', 'capability-manager-enhanced') . ' <br />';
                 $banner_messages[] = '</p>';
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);
                 ?>
