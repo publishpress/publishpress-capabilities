@@ -58,7 +58,7 @@ $user_id = get_current_user_id();
 $saved_style_name = get_transient('ppc_custom_style_saved_' . $user_id);
 if ($saved_style_name !== false) {
     echo '<div class="notice notice-success is-dismissible"><p>' .
-         sprintf(esc_html__('Custom style "%s" saved successfully.', 'capsman-enhanced'), esc_html($saved_style_name)) .
+         sprintf(esc_html__('Custom style "%s" saved successfully.', 'capability-manager-enhanced'), esc_html($saved_style_name)) .
          '</p></div>';
     delete_transient('ppc_custom_style_saved_' . $user_id);
 }
@@ -67,7 +67,7 @@ if ($saved_style_name !== false) {
 $deleted_style_name = get_transient('ppc_custom_style_deleted_' . $user_id);
 if ($deleted_style_name !== false) {
     echo '<div class="notice notice-success is-dismissible"><p>' .
-         sprintf(esc_html__('Custom style "%s" deleted successfully.', 'capsman-enhanced'), esc_html($deleted_style_name)) .
+         sprintf(esc_html__('Custom style "%s" deleted successfully.', 'capability-manager-enhanced'), esc_html($deleted_style_name)) .
          '</p></div>';
     delete_transient('ppc_custom_style_deleted_' . $user_id);
 }
@@ -76,7 +76,7 @@ if ($deleted_style_name !== false) {
 $error_type = get_transient('ppc_custom_style_error_' . $user_id);
 if ($error_type === 'empty_style_name') {
     echo '<div class="notice notice-error is-dismissible"><p>' .
-         esc_html__('Custom style name cannot be empty.', 'capsman-enhanced') .
+         esc_html__('Custom style name cannot be empty.', 'capability-manager-enhanced') .
          '</p></div>';
     delete_transient('ppc_custom_style_error_' . $user_id);
 }
@@ -85,7 +85,7 @@ if ($error_type === 'empty_style_name') {
 $admin_styles_saved = get_transient('ppc_admin_styles_saved_' . $user_id);
 if ($admin_styles_saved !== false) {
     echo '<div class="notice notice-success is-dismissible"><p>' .
-         esc_html__('Admin styles saved successfully.', 'capsman-enhanced') .
+         esc_html__('Admin styles saved successfully.', 'capability-manager-enhanced') .
          '</p></div>';
     delete_transient('ppc_admin_styles_saved_' . $user_id);
 }
@@ -173,11 +173,11 @@ if ($admin_styles_saved !== false) {
                                                                 </p>
                                                                 <div class="add-new-button-area">
                                                                     <label for="ppc-custom-style-template" class="custom-style-template-label">
-                                                                        <?php esc_html_e('Start from template', 'capsman-enhanced'); ?>
+                                                                        <?php esc_html_e('Start from template', 'capability-manager-enhanced'); ?>
                                                                     </label>
                                                                     <select id="ppc-custom-style-template" class="custom-style-template-select">
                                                                         <option value="blank">
-                                                                            <?php esc_html_e('Blank Template', 'capsman-enhanced'); ?>
+                                                                            <?php esc_html_e('Blank Template', 'capability-manager-enhanced'); ?>
                                                                         </option>
                                                                         <?php foreach ($admin_styles->get_style_templates() as $template_id => $template): ?>
                                                                             <option value="<?php echo esc_attr($template_id); ?>">
@@ -187,7 +187,7 @@ if ($admin_styles_saved !== false) {
                                                                     </select>
                                                                     <button type="button"
                                                                         class="button button-secondary custom-styles-button">
-                                                                        <?php esc_html_e('Add Custom Style', 'capsman-enhanced'); ?>
+                                                                        <?php esc_html_e('Add Custom Style', 'capability-manager-enhanced'); ?>
                                                                     </button>
                                                                 </div>
                                                             </td>
@@ -217,7 +217,7 @@ if ($admin_styles_saved !== false) {
                                                                                     <?php echo esc_html($name); ?>
                                                                                     <?php if (strpos($key, 'ppc-custom-style-') === 0): ?>
                                                                                         <span class="custom-style-edit-icon"
-                                                                                            title="<?php esc_attr_e('Edit custom style', 'capsman-enhanced'); ?>"
+                                                                                            title="<?php esc_attr_e('Edit custom style', 'capability-manager-enhanced'); ?>"
                                                                                             data-style="<?php echo esc_attr($key); ?>"
                                                                                             data-name="<?php echo esc_attr($name); ?>">
                                                                                             <span class="dashicons dashicons-edit"></span>
@@ -265,10 +265,10 @@ if ($admin_styles_saved !== false) {
                                                                     <div class="color-editor-card">
                                                                         <h4 class="editor-title form-promo-blur">
                                                                             <span class="dashicons dashicons-admin-customizer"></span>
-                                                                            <span class="custom-form-title"><?php esc_html_e('Edit Color Style', 'capsman-enhanced'); ?></span>
+                                                                            <span class="custom-form-title"><?php esc_html_e('Edit Color Style', 'capability-manager-enhanced'); ?></span>
                                                                         </h4>
                                                                         <p class="editor-description form-promo-blur">
-                                                                            <?php esc_html_e('Customize colors for different admin elements. Changes are previewed instantly.', 'capsman-enhanced'); ?>
+                                                                            <?php esc_html_e('Customize colors for different admin elements. Changes are previewed instantly.', 'capability-manager-enhanced'); ?>
                                                                         </p>
 
                                                                         <input type="hidden" name="custom_style_action" value="">
@@ -323,35 +323,35 @@ if ($admin_styles_saved !== false) {
                                                                                         <?php if ($tab_key === 'advanced') : ?>
                                                                                             <div class="ppc-advanced-rules-wrap">
                                                                                                 <p class="cme-subtext ppc-advanced-rules-help">
-                                                                                                    <?php esc_html_e('Add CSS selectors (class or ID), choose a style variation, and set a brand color.', 'capsman-enhanced'); ?>
+                                                                                                    <?php esc_html_e('Add CSS selectors (class or ID), choose a style variation, and set a brand color.', 'capability-manager-enhanced'); ?>
                                                                                                 </p>
 
                                                                                                 <div id="ppc-advanced-rules-list" class="ppc-advanced-rules-list"></div>
 
                                                                                                 <button type="button" class="button button-secondary" id="ppc-add-advanced-rule">
-                                                                                                    <?php esc_html_e('Add New Element', 'capsman-enhanced'); ?>
+                                                                                                    <?php esc_html_e('Add New Element', 'capability-manager-enhanced'); ?>
                                                                                                 </button>
 
                                                                                                 <script type="text/html" id="tmpl-ppc-advanced-rule-row">
                                                                                                     <div class="ppc-advanced-rule-row">
                                                                                                         <div class="ppc-advanced-rule-selector">
-                                                                                                            <label class="color-label-text"><?php esc_html_e('Selector', 'capsman-enhanced'); ?></label>
+                                                                                                            <label class="color-label-text"><?php esc_html_e('Selector', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
                                                                                                                 class="regular-text ppc-advanced-selector"
                                                                                                                 name="custom_style_advanced_rules[{{index}}][selector]"
-                                                                                                                placeholder="<?php esc_attr_e('e.g. .publishpress-wrap h1, #my-plugin-header', 'capsman-enhanced'); ?>">
+                                                                                                                placeholder="<?php esc_attr_e('e.g. .publishpress-wrap h1, #my-plugin-header', 'capability-manager-enhanced'); ?>">
                                                                                                         </div>
                                                                                                         <div class="ppc-advanced-rule-color">
-                                                                                                            <label class="color-label-text"><?php esc_html_e('Variation', 'capsman-enhanced'); ?></label>
+                                                                                                            <label class="color-label-text"><?php esc_html_e('Variation', 'capability-manager-enhanced'); ?></label>
                                                                                                             <select class="ppc-advanced-variation"
                                                                                                                 name="custom_style_advanced_rules[{{index}}][variation]">
-                                                                                                                <option value="background"><?php esc_html_e('Background', 'capsman-enhanced'); ?></option>
-                                                                                                                <option value="text"><?php esc_html_e('Text', 'capsman-enhanced'); ?></option>
-                                                                                                                <option value="border"><?php esc_html_e('Border', 'capsman-enhanced'); ?></option>
+                                                                                                                <option value="background"><?php esc_html_e('Background', 'capability-manager-enhanced'); ?></option>
+                                                                                                                <option value="text"><?php esc_html_e('Text', 'capability-manager-enhanced'); ?></option>
+                                                                                                                <option value="border"><?php esc_html_e('Border', 'capability-manager-enhanced'); ?></option>
                                                                                                             </select>
                                                                                                         </div>
                                                                                                         <div class="ppc-advanced-rule-color">
-                                                                                                            <label class="color-label-text"><?php esc_html_e('Brand Color', 'capsman-enhanced'); ?></label>
+                                                                                                            <label class="color-label-text"><?php esc_html_e('Brand Color', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
                                                                                                                 class="pp-capabilities-color-picker ppc-advanced-color"
                                                                                                                 data-category="advanced"
@@ -361,7 +361,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         </div>
                                                                                                         <div class="ppc-advanced-rule-actions">
                                                                                                             <button type="button" class="button-link ppc-remove-advanced-rule">
-                                                                                                                <?php esc_html_e('Remove', 'capsman-enhanced'); ?>
+                                                                                                                <?php esc_html_e('Remove', 'capability-manager-enhanced'); ?>
                                                                                                             </button>
                                                                                                         </div>
                                                                                                     </div>
@@ -377,7 +377,7 @@ if ($admin_styles_saved !== false) {
                                                                                             <tr class="color-row" id="custom-style-name-row">
                                                                                                 <td class="color-label">
                                                                                                     <label for="custom_style_name" class="color-label-text">
-                                                                                                        <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capsman-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
+                                                                                                        <span id="style-name-label"><?php esc_html_e('Custom Style Name', 'capability-manager-enhanced'); ?></span> <span class="required" id="style-name-required">*</span>
                                                                                                     </label>
                                                                                                 </td>
                                                                                                 <td class="color-input-cell">
@@ -385,7 +385,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         name="custom_style_name"
                                                                                                         id="custom_style_name" value=""
                                                                                                         class="regular-text"
-                                                                                                        placeholder="<?php esc_attr_e('e.g., Company Branding, Dark Mode', 'capsman-enhanced'); ?>">
+                                                                                                        placeholder="<?php esc_attr_e('e.g., Company Branding, Dark Mode', 'capability-manager-enhanced'); ?>">
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <?php endif; ?>
@@ -421,23 +421,23 @@ if ($admin_styles_saved !== false) {
                                                                         <div style="display: flex; gap: 10px;">
                                                                             <button type="button"
                                                                                 class="button cancel-custom-style">
-                                                                                <?php esc_html_e('Cancel', 'capsman-enhanced'); ?>
+                                                                                <?php esc_html_e('Cancel', 'capability-manager-enhanced'); ?>
                                                                             </button>
                                                                             <div class="custom-link-delete ppc-tool-tip click-tooltip" id="custom-style-delete-button" style="display: none; margin-left: auto;">
                                                                                 <button type="button"
                                                                                     class="button button-secondary ppc-button-delete"
                                                                                     style="border-color: #d63638 !important;color: #d63638 !important;">
-                                                                                    <?php esc_attr_e('Delete Custom Style', 'capsman-enhanced'); ?>
+                                                                                    <?php esc_attr_e('Delete Custom Style', 'capability-manager-enhanced'); ?>
                                                                                 </button>
 
                                                                                 <div class="tool-tip-text">
-                                                                                    <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capsman-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capsman-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capsman-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capsman-enhanced') .'</a>' ); ?></p>
+                                                                                    <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capability-manager-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capability-manager-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capability-manager-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capability-manager-enhanced') .'</a>' ); ?></p>
                                                                                         <i></i>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <input type="submit" name="save_custom_style"
-                                                                            value="<?php esc_attr_e('Save Custom Style', 'capsman-enhanced'); ?>"
+                                                                            value="<?php esc_attr_e('Save Custom Style', 'capability-manager-enhanced'); ?>"
                                                                             class="button-primary">
                                                                     </div>
 
@@ -507,12 +507,12 @@ if ($admin_styles_saved !== false) {
                                                                     <button type="button"
                                                                         class="button pp-capabilities-upload-button"
                                                                         data-target="admin_favicon">
-                                                                        <?php esc_html_e('Select Image', 'capsman-enhanced'); ?>
+                                                                        <?php esc_html_e('Select Image', 'capability-manager-enhanced'); ?>
                                                                     </button>
                                                                     <button type="button"
                                                                         class="button button-link pp-capabilities-remove-button"
                                                                         data-target="admin_favicon">
-                                                                        <?php esc_html_e('Remove', 'capsman-enhanced'); ?>
+                                                                        <?php esc_html_e('Remove', 'capability-manager-enhanced'); ?>
                                                                     </button>
                                                                 </div>
                                                             </td>
