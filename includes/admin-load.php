@@ -139,9 +139,9 @@ class PP_Capabilities_Admin_UI {
         $domain       = 'capability-manager-enhanced';
 		$mofile_custom = sprintf('%s-%s.mo', $domain, get_user_locale());
 		$locations = [
+			trailingslashit( WP_LANG_DIR . '/plugins/'),
 			trailingslashit( WP_LANG_DIR . '/' . $domain ),
 			trailingslashit( WP_LANG_DIR . '/loco/plugins/'),
-			trailingslashit( WP_LANG_DIR . '/plugins/'),
 			trailingslashit( WP_LANG_DIR ),
 			trailingslashit( plugin_dir_path(CME_FILE) . 'languages' ),
         ];
