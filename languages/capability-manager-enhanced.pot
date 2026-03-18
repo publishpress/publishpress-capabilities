@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-04 15:47+0000\n"
+"POT-Creation-Date: 2026-03-18 11:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
@@ -36,54 +36,27 @@ msgstr ""
 msgid "%1$d users moved to default role %2$s."
 msgstr ""
 
-#: includes/features/frontend-features/frontend-features.php:250
-#, php-format
-msgid "%1$s = Apply custom styling"
-msgstr ""
-
-#: includes/admin.php:1678
+#: includes/admin.php:1680
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr ""
 
-#: includes/admin.php:1676
+#: includes/admin.php:1678
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr ""
 
-#: includes/admin.php:1677
+#: includes/admin.php:1679
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr ""
 
-#: includes/features/admin-features.php:346
-#: includes/features/editor-features.php:240
-#: includes/features/nav-menus.php:303
-#: includes/features/profile-features.php:251
-#: includes/features/frontend-features/frontend-features.php:249
-#, php-format
-msgid "%1$s = No change"
-msgstr ""
-
-#: includes/features/admin-features.php:347
-#: includes/features/editor-features.php:241
-#: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:252
-#, php-format
-msgid "%1$s = This feature is denied"
-msgstr ""
-
-#: includes/features/admin-features.php:356
-#, php-format
-msgid "%1$s Hide Submenus"
-msgstr ""
-
-#: includes/admin.php:1908
+#: includes/admin.php:1910
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr ""
 
-#: includes/admin.php:1906
+#: includes/admin.php:1908
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr ""
@@ -93,7 +66,7 @@ msgstr ""
 msgid "%1$sReturn to Administrator view%2$s"
 msgstr ""
 
-#: capsman-enhanced.php:80
+#: capsman-enhanced.php:79
 #, php-format
 msgid ""
 "%1s Error: %2s  PublishPress Capabilities cannot function because another "
@@ -105,7 +78,7 @@ msgstr ""
 msgid "%s (%s roles)"
 msgstr ""
 
-#: includes/admin.php:1906
+#: includes/admin.php:1908
 #, php-format
 msgid "%s (free install)"
 msgstr ""
@@ -120,7 +93,7 @@ msgstr ""
 msgid "%s Capabilities"
 msgstr ""
 
-#: includes/admin.php:1908
+#: includes/admin.php:1910
 #, php-format
 msgid "%s info/purchase"
 msgstr ""
@@ -153,7 +126,7 @@ msgid "%s successfully imported from uploaded data."
 msgstr ""
 
 #: includes/admin.php:889 includes/admin.php:1138 includes/admin.php:1316
-#: includes/admin.php:1584 includes/admin.php:1585
+#: includes/admin.php:1586 includes/admin.php:1587
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr ""
@@ -162,7 +135,7 @@ msgstr ""
 msgid "&nbsp;"
 msgstr ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:238
+#: includes/roles/class/class-pp-roles-list-table.php:243
 msgid "(non-editable role)"
 msgstr ""
 
@@ -189,7 +162,7 @@ msgstr ""
 msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
 msgstr ""
 
-#: includes/admin.php:1780
+#: includes/admin.php:1782
 msgid "Add a New Capability"
 msgstr ""
 
@@ -201,8 +174,18 @@ msgstr ""
 msgid "Add Body Class"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles-ui.php:326
+msgid ""
+"Add CSS selectors (class or ID), choose a style variation, and set a brand "
+"color."
+msgstr ""
+
 #: includes/features/frontend-features/frontend-features-ui.php:74
 msgid "Add Custom CSS"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:190
+msgid "Add Custom Style"
 msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:302
@@ -220,6 +203,14 @@ msgstr ""
 
 #: includes/features/restrict-editor-features.php:415
 msgid "Add new block"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:773
+msgid "Add New Custom Style"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:332
+msgid "Add New Element"
 msgstr ""
 
 #: includes/settings-ui.php:207
@@ -242,7 +233,7 @@ msgstr ""
 msgid "Add post metabox:"
 msgstr ""
 
-#: includes/admin.php:1790
+#: includes/admin.php:1792
 msgid "Add to role"
 msgstr ""
 
@@ -259,8 +250,32 @@ msgid "Admin"
 msgstr ""
 
 #: includes/manager.php:517
-#: includes/roles/class/class-pp-roles-list-table.php:174
+#: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Admin Access"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1607
+msgid "Admin Bar"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1611
+msgid "Admin Bar Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1608
+msgid "Admin bar colors"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1623
+msgid "Admin Bar Hover Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1627
+msgid "Admin Bar Hover Text"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1619
+msgid "Admin Bar Icon"
 msgstr ""
 
 #: includes/settings-ui.php:186
@@ -269,6 +284,10 @@ msgstr ""
 
 #: includes/settings-ui.php:202
 msgid "Admin Bar search"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1615
+msgid "Admin Bar Text"
 msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:169
@@ -290,7 +309,7 @@ msgid ""
 "Admin Features allows you to remove elements from the admin area and toolbar."
 msgstr ""
 
-#: includes/features/admin-features.php:354
+#: includes/features/admin-features.php:356
 msgid "Admin Features Settings"
 msgstr ""
 
@@ -306,17 +325,25 @@ msgid ""
 "but not deny access."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1565
+msgid "Admin Menu"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1566
+msgid "Admin menu colors"
+msgstr ""
+
 #: includes-core/admin-menus-promo.php:29
 msgid "Admin Menu Restrictions"
 msgstr ""
 
-#: includes/functions-admin.php:491 includes-core/CoreAdmin.php:84
-#: includes-core/CoreAdmin.php:147
+#: includes/functions-admin.php:491 includes-core/CoreAdmin.php:90
+#: includes-core/CoreAdmin.php:153
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr ""
 
-#: includes-core/CoreAdmin.php:148
+#: includes-core/CoreAdmin.php:154
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -350,6 +377,11 @@ msgid ""
 "branding."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles-ui.php:88
+msgid "Admin styles saved successfully."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1667
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr ""
@@ -398,6 +430,14 @@ msgid ""
 "WordPress."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1499
+msgid "Alternate Row Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1503
+msgid "Alternate Row Text Color"
+msgstr ""
+
 #: includes/settings-ui.php:170
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
 msgstr ""
@@ -409,7 +449,11 @@ msgid ""
 "admin area."
 msgstr ""
 
-#: includes/admin-load.php:647 includes/admin-notices/admin-notices.php:232
+#: includes/features/admin-styles/admin-styles.php:919
+msgid "Amber Glow"
+msgstr ""
+
+#: includes/admin-load.php:648 includes/admin-notices/admin-notices.php:232
 #: includes/features/restrict-profile-features.php:29
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -420,8 +464,22 @@ msgstr ""
 msgid "An error occurred!"
 msgstr ""
 
+#: includes/features/frontend-features/frontend-features.php:252
+msgid "Apply custom styling"
+msgstr ""
+
 #: includes/admin.php:290
 msgid "Approve Revision"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:775
+#, php-format
+msgid "Are you sure you want to delete \"%s\" custom style?"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:434
+#, php-format
+msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr ""
 
 #: includes/manager.php:252
@@ -433,12 +491,12 @@ msgstr ""
 msgid "Are you sure you want to delete this role?"
 msgstr ""
 
-#: includes/admin.php:1859
+#: includes/admin.php:1861
 msgid ""
 "Assign custom WP roles supplementally for a specific post type <em>(Pro)</em>"
 msgstr ""
 
-#: includes/admin.php:1855
+#: includes/admin.php:1857
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr ""
 
@@ -447,7 +505,7 @@ msgstr ""
 msgid "Auto-backup of all roles (%s)"
 msgstr ""
 
-#: includes/admin.php:1851
+#: includes/admin.php:1853
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -459,6 +517,14 @@ msgstr ""
 
 #: includes/backup.php:95
 msgid "Available Backups:"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:348
+msgid "Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1435
+msgid "Background Color"
 msgstr ""
 
 #: includes/backup.php:51 includes/functions-admin.php:527
@@ -487,11 +553,15 @@ msgid ""
 "of your current settings."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles-ui.php:180
+msgid "Blank Template"
+msgstr ""
+
 #: includes/admin.php:209
 msgid "Block"
 msgstr ""
 
-#: includes-core/CoreAdmin.php:128
+#: includes-core/CoreAdmin.php:134
 msgid "Block by URL"
 msgstr ""
 
@@ -522,6 +592,22 @@ msgstr ""
 
 #: includes/features/frontend-features/frontend-features-ui.php:226
 msgid "Body Class"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:350
+msgid "Border"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:354
+msgid "Brand Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1536
+msgid "Button colors"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1535
+msgid "Buttons"
 msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:276
@@ -564,6 +650,11 @@ msgstr ""
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles-ui.php:424
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "Cancel"
+msgstr ""
+
 #: includes/features/frontend-features/frontend-features-ui.php:148
 msgid "Cancel Edit"
 msgstr ""
@@ -578,14 +669,14 @@ msgstr ""
 msgid "Capabilites Documentation"
 msgstr ""
 
-#: includes/admin-load.php:493 includes/admin-load.php:825
+#: includes/admin-load.php:494 includes/admin-load.php:826
 #: includes/functions-admin.php:379 includes/functions-admin.php:462
 #: includes/manager.php:387 includes/settings-ui.php:34
 #: includes/roles/class/class-pp-roles-admin.php:637
 msgid "Capabilities"
 msgstr ""
 
-#: includes/admin.php:1675
+#: includes/admin.php:1677
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 
@@ -616,7 +707,7 @@ msgid ""
 "status-specific role."
 msgstr ""
 
-#: includes/admin.php:1744
+#: includes/admin.php:1746
 msgid "Capabilities is Safe to Use"
 msgstr ""
 
@@ -626,13 +717,17 @@ msgstr ""
 
 #: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
 #: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
-#: includes/admin.php:1520 includes/admin.php:1658
+#: includes/admin.php:1520 includes/admin.php:1660
 msgid "Capability Name"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:785
+msgid "Change how this style is displayed"
 msgstr ""
 
 #: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
 #: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
-#: includes/admin.php:1520 includes/admin.php:1658
+#: includes/admin.php:1520 includes/admin.php:1660
 msgid "check / uncheck all"
 msgstr ""
 
@@ -640,8 +735,16 @@ msgstr ""
 msgid "Checklist"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:834
+msgid "Cherry"
+msgstr ""
+
 #: includes/features/frontend-features/frontend-features-metaboxes.php:77
 msgid "Choose Frontend Features that will apply to this post."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:936
+msgid "Citrus"
 msgstr ""
 
 #: includes/features/editor-features.php:130
@@ -663,6 +766,30 @@ msgstr ""
 
 #: includes/features/profile-features.php:140
 msgid "Click the \"Find profile items for this role\" button."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1089
+msgid "Cobalt"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1454
+msgid "Color for delete/trash actions"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1466
+msgid "Color for inactive items"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1462
+msgid "Color for spam actions"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1458
+msgid "Color for trash actions"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1450
+msgid "Color on hover"
 msgstr ""
 
 #: includes/features/restrict-editor-features.php:486
@@ -690,15 +817,15 @@ msgstr ""
 msgid "Control Settings"
 msgstr ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:233
+#: includes/roles/class/class-pp-roles-list-table.php:238
 msgid "Copy"
 msgstr ""
 
-#: includes/admin.php:1988
+#: includes/admin.php:1990
 msgid "Copy / update this role definition to all sites now"
 msgstr ""
 
-#: includes/admin.php:1991
+#: includes/admin.php:1993
 msgid "Copy option settings to all sites now"
 msgstr ""
 
@@ -718,11 +845,23 @@ msgstr ""
 msgid "Create Revision"
 msgstr ""
 
-#: includes/admin.php:1985
+#: includes/admin.php:1987
 msgid "Create this role definition in new (future) sites"
 msgstr ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:398
+#: includes/features/admin-styles/admin-styles.php:772
+msgid "Current logo preview"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1589
+msgid "Current Menu Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1593
+msgid "Current Menu Text"
+msgstr ""
+
+#: includes/roles/class/class-pp-roles-list-table.php:403
 msgid "Custom"
 msgstr ""
 
@@ -754,39 +893,102 @@ msgstr ""
 msgid "Custom Items"
 msgstr ""
 
-#: includes/admin.php:1875
+#: includes/admin.php:1877
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
 msgstr ""
 
-#: includes/admin.php:1871
+#: includes/admin.php:1873
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin <em>"
 "(Pro)</em>"
 msgstr ""
 
-#: includes/admin.php:1867
+#: includes/features/admin-styles/admin-styles.php:1668
+msgid "Custom selector color rules"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "Custom Style"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:70
+#, php-format
+msgid "Custom style \"%s\" deleted successfully."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:61
+#, php-format
+msgid "Custom style \"%s\" saved successfully."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:380
+#: includes/features/admin-styles/admin-styles.php:787
+msgid "Custom Style Name"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:79
+msgid "Custom style name cannot be empty."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:781
+msgid "Custom Style Name is required."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:271
+msgid ""
+"Customize colors for different admin elements. Changes are previewed "
+"instantly."
+msgstr ""
+
+#: includes/admin.php:1869
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 
-#: includes/admin.php:1863
+#: includes/admin.php:1865
 msgid "Customize reading permissions per-category or per-post"
 msgstr ""
 
-#: includes/admin.php:1883
+#: includes/admin.php:1885
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
 msgstr ""
 
-#: includes/admin-load.php:824 includes/dashboard.php:23
+#: includes/admin-load.php:825 includes/dashboard.php:23
 msgid "Dashboard"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1634
+msgid "Dashboard widget colors"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1633
+msgid "Dashboard Widgets"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1694
+#: includes/features/admin-styles/admin-styles.php:1763
+msgid "Default"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1445
+msgid "Default Link Color"
+msgstr ""
+
 #: includes/manager.php:516
-#: includes/roles/class/class-pp-roles-list-table.php:173
+#: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Default Role"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:430
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "Delete Custom Style"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1453
+msgid "Delete Link Color"
 msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:239
@@ -805,6 +1007,10 @@ msgstr ""
 
 #: includes/admin.php:273
 msgid "Deletion"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:902
+msgid "Desert Sand"
 msgstr ""
 
 #: includes/functions.php:723
@@ -827,6 +1033,10 @@ msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:275
 msgid "Disable WooCommerce admin restrictions"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:784
+msgid "Display Name"
 msgstr ""
 
 #: includes/admin-notices/admin-notices.php:72
@@ -853,8 +1063,16 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: includes/admin-load.php:370
+#: includes/admin-load.php:371
 msgid "Drag multiple roles selection to change roles order."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:342
+msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:388
+msgid "e.g., Company Branding, Dark Mode"
 msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:217
@@ -867,6 +1085,18 @@ msgstr ""
 #: includes/features/editor-features-classic.php:123
 #: includes/features/editor-features-gutenberg.php:120
 msgid "Edit"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:268
+msgid "Edit Color Style"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:774
+msgid "Edit Custom Style"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:220
+msgid "Edit custom style"
 msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:539
@@ -924,6 +1154,10 @@ msgstr ""
 #: includes/features/frontend-features/frontend-features.php:151
 #, php-format
 msgid "Enable Frontend Features for %1$s Role"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:786
+msgid "Enter a name for your custom style"
 msgstr ""
 
 #: includes/features/frontend-features/frontend-features-ui.php:101
@@ -993,7 +1227,7 @@ msgstr ""
 msgid "Error: Failed creating the new role."
 msgstr ""
 
-#: includes/admin-load.php:626
+#: includes/admin-load.php:627
 msgid "Error: wrong data"
 msgstr ""
 
@@ -1029,6 +1263,10 @@ msgstr ""
 msgid ""
 "Export the plugin settings for this site as a .json file. This allows you to "
 "easily import the configuration into another site."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1123
+msgid "Facebook Classic"
 msgstr ""
 
 #: includes/features/restrict-editor-features.php:150
@@ -1072,6 +1310,18 @@ msgstr ""
 msgid "Force role settings (override user selection)"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:800
+msgid "Forest"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1510
+msgid "Form input colors"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1509
+msgid "Forms"
+msgstr ""
+
 #: includes/settings-ui.php:218
 msgid "Front End footer notice"
 msgstr ""
@@ -1094,23 +1344,28 @@ msgid ""
 "your site."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1415
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr ""
 
-#: includes/admin.php:1761
+#: includes/admin.php:1763
 msgid "Go to the Backup feature"
 msgstr ""
 
-#: includes/admin.php:1887
+#: includes/admin.php:1889
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
 msgstr ""
 
-#: includes/admin.php:1891
+#: includes/admin.php:1893
 msgid ""
 "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:851
+msgid "Graphite"
 msgstr ""
 
 #: includes/features/editor-features.php:127
@@ -1161,7 +1416,7 @@ msgstr ""
 msgid "Hide Admin Toolbar"
 msgstr ""
 
-#: includes-core/CoreAdmin.php:127
+#: includes-core/CoreAdmin.php:133
 msgid "Hide CSS Elements"
 msgstr ""
 
@@ -1177,6 +1432,10 @@ msgstr ""
 msgid "Hide IDs or Classes"
 msgstr ""
 
+#: includes/features/admin-features.php:359
+msgid "Hide Submenus"
+msgstr ""
+
 #: includes/admin-notices/admin-notices.php:74
 msgid "Hide this notice"
 msgstr ""
@@ -1185,7 +1444,15 @@ msgstr ""
 msgid "Hide Twenty Twenty-Three Credit Footer"
 msgstr ""
 
-#: includes/features/admin-features.php:350
+#: includes/features/admin-styles/admin-styles.php:1427
+msgid "Highlight Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:778
+msgid "Hover State"
+msgstr ""
+
+#: includes/features/admin-features.php:352
 msgid "How to use Admin Features"
 msgstr ""
 
@@ -1193,23 +1460,23 @@ msgstr ""
 msgid "How to use Admin Styles"
 msgstr ""
 
-#: includes/admin.php:1706
+#: includes/admin.php:1708
 msgid "How to use Capabilities"
 msgstr ""
 
-#: includes/features/editor-features.php:244
+#: includes/features/editor-features.php:246
 msgid "How to use Editor Features"
 msgstr ""
 
-#: includes/features/frontend-features/frontend-features.php:253
+#: includes/features/frontend-features/frontend-features.php:255
 msgid "How to use Frontend Features"
 msgstr ""
 
-#: includes/features/nav-menus.php:307
+#: includes/features/nav-menus.php:309
 msgid "How to use Navigation Menus"
 msgstr ""
 
-#: includes/features/profile-features.php:255
+#: includes/features/profile-features.php:257
 msgid "How to use Profile Features"
 msgstr ""
 
@@ -1254,7 +1521,11 @@ msgid ""
 "exporting the settings on another site using the form above."
 msgstr ""
 
-#: includes/admin.php:1985
+#: includes/features/admin-styles/admin-styles.php:1465
+msgid "Inactive Link Color"
+msgstr ""
+
+#: includes/admin.php:1987
 msgid "Include in new sites."
 msgstr ""
 
@@ -1279,6 +1550,26 @@ msgstr ""
 msgid "Initial backup of all roles"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1055
+msgid "Ink"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1521
+msgid "Input Background Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1513
+msgid "Input Border Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1517
+msgid "Input Focus Border"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1525
+msgid "Input Text Color"
+msgstr ""
+
 #: includes/admin-notices/admin-notices.php:243
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
@@ -1297,7 +1588,7 @@ msgstr ""
 msgid "Invalid form. Reload this page and try again."
 msgstr ""
 
-#: includes/admin-load.php:622
+#: includes/admin-load.php:623
 msgid "Invalid nonce token!"
 msgstr ""
 
@@ -1318,6 +1609,10 @@ msgstr ""
 msgid "It is recommended to use this only as a last resource!"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1038
+msgid "Lagoon"
+msgstr ""
+
 #: includes/backup.php:84
 msgid "Last Backup"
 msgstr ""
@@ -1331,12 +1626,28 @@ msgstr ""
 msgid "Legacy"
 msgstr ""
 
-#: includes/admin.php:1942
+#: includes/admin.php:1944
 msgid "Level:"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1442
+msgid "Link element colors"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1449
+msgid "Link Hover Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1441
+msgid "Links"
 msgstr ""
 
 #: includes/admin.php:278
 msgid "Listing"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:780
+msgid "Live preview of your custom color scheme"
 msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:683
@@ -1355,12 +1666,12 @@ msgstr ""
 msgid "Load on page types:"
 msgstr ""
 
-#: includes/admin-load.php:760 includes/features/nav-menus.php:26
+#: includes/admin-load.php:761 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:39
 msgid "Logged In Users"
 msgstr ""
 
-#: includes/admin-load.php:761 includes/features/nav-menus.php:26
+#: includes/admin-load.php:762 includes/features/nav-menus.php:26
 #: includes/features/frontend-features/frontend-features.php:40
 msgid "Logged Out Users"
 msgstr ""
@@ -1377,6 +1688,18 @@ msgstr ""
 msgid "Logout Redirect"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1419
+msgid "Main Admin Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:782
+msgid "Main Admin Color is required."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1416
+msgid "Main Admin Color settings"
+msgstr ""
+
 #: includes/backup.php:74
 msgid "Manual Backup"
 msgstr ""
@@ -1390,12 +1713,36 @@ msgstr ""
 msgid "Media Buttons (all)"
 msgstr ""
 
-#: includes/admin.php:1899
+#: includes/admin.php:1901
 msgid "Member support forum"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1569
+msgid "Menu Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1581
+msgid "Menu Hover Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1585
+msgid "Menu Hover Text"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1577
+msgid "Menu Icon Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1573
+msgid "Menu Text Color"
 msgstr ""
 
 #: includes-core/editor-features-promo.php:24
 msgid "Metaboxes"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:868
+msgid "Midnight Teal"
 msgstr ""
 
 #: includes/roles/class/class-pp-roles-list-table.php:87
@@ -1404,6 +1751,10 @@ msgid "Mine %s"
 msgid_plural "Mine %s"
 msgstr[0] ""
 msgstr[1] ""
+
+#: includes/features/admin-styles/admin-styles.php:817
+msgid "Mint Breeze"
+msgstr ""
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:378
@@ -1415,6 +1766,10 @@ msgstr ""
 
 #: includes/features/restrict-admin-features.php:91
 msgid "Mobile Menu Toggle"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:987
+msgid "Modern Slate"
 msgstr ""
 
 #: includes/features/restrict-editor-features.php:384
@@ -1433,7 +1788,7 @@ msgstr ""
 msgid "Multiples roles on \"User Edit\" screen"
 msgstr ""
 
-#: includes/admin.php:598 includes/admin.php:1069 includes/admin.php:1809
+#: includes/admin.php:598 includes/admin.php:1069 includes/admin.php:1811
 msgid "Multisite"
 msgstr ""
 
@@ -1487,7 +1842,7 @@ msgstr ""
 msgid "New backup saved."
 msgstr ""
 
-#: includes/admin.php:1793
+#: includes/admin.php:1795
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr ""
 
@@ -1503,6 +1858,14 @@ msgstr ""
 msgid "New role created."
 msgstr ""
 
+#: includes/features/admin-features.php:347
+#: includes/features/editor-features.php:241
+#: includes/features/nav-menus.php:304
+#: includes/features/profile-features.php:252
+#: includes/features/frontend-features/frontend-features.php:250
+msgid "No change"
+msgstr ""
+
 #: includes/backup.php:267
 msgid "No changes"
 msgstr ""
@@ -1515,7 +1878,7 @@ msgid ""
 "refresh this page afterwards to load the new metaboxes."
 msgstr ""
 
-#: includes/admin-load.php:612
+#: includes/admin-load.php:613
 msgid "No permission!"
 msgstr ""
 
@@ -1539,8 +1902,20 @@ msgid_plural "No Users %s"
 msgstr[0] ""
 msgstr[1] ""
 
+#: includes/features/admin-styles/admin-styles.php:1021
+msgid "Nordic"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:779
+msgid "Notification"
+msgstr ""
+
 #: includes/settings-ui.php:343
 msgid "Notification center access"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1431
+msgid "Notification Color"
 msgstr ""
 
 #: includes-core/editor-features-promo.php:56
@@ -1555,6 +1930,10 @@ msgstr ""
 msgid "Notifications to remove from WordPress admin pages"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:953
+msgid "Ocean Deep"
+msgstr ""
+
 #: includes/backup.php:92
 msgid ""
 "On this screen, you can restore an earlier version of your roles and "
@@ -1563,6 +1942,10 @@ msgstr ""
 
 #: includes/features/restrict-editor-features.php:400
 msgid "Options"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1072
+msgid "Orchid"
 msgstr ""
 
 #: includes/features/restrict-editor-features.php:148
@@ -1577,6 +1960,10 @@ msgstr ""
 msgid "Page Attributes: Order"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1436
+msgid "Page background color"
+msgstr ""
+
 #: includes/features/restrict-editor-features.php:126
 msgid "Page Boxes"
 msgstr ""
@@ -1585,7 +1972,7 @@ msgstr ""
 msgid "Page Lists"
 msgstr ""
 
-#: includes/admin-load.php:373
+#: includes/admin-load.php:374
 msgid "Page title"
 msgstr ""
 
@@ -1605,12 +1992,16 @@ msgstr ""
 msgid "Permalink: Descriptive Caption"
 msgstr ""
 
-#: includes/admin-load.php:654
+#: includes/admin-load.php:655
 msgid "Permission denied"
 msgstr ""
 
 #: includes/test-user-ui.php:79
 msgid "Permission denied."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1529
+msgid "Placeholder Text Color"
 msgstr ""
 
 #: includes/backup.php:332
@@ -1647,6 +2038,30 @@ msgstr ""
 
 #: includes/manager.php:248
 msgid "Post type registration does not define this capability distinctly"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1420
+msgid "Primary brand color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:777
+msgid "Primary Button"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1539
+msgid "Primary Button Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1547
+msgid "Primary Button Hover"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1543
+msgid "Primary Button Text"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1424
+msgid "Primary text color"
 msgstr ""
 
 #: includes/features/profile-features.php:46
@@ -1711,15 +2126,19 @@ msgid ""
 "can manage all your WordPress user roles, from Administrators to Subscribers."
 msgstr ""
 
-#: includes/admin-load.php:768
+#: includes/admin-load.php:769
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr ""
 
-#: includes/admin.php:1849
+#: includes/features/admin-styles/admin-styles.php:783
+msgid "PublishPress Custom"
+msgstr ""
+
+#: includes/admin.php:1851
 msgid "PublishPress Permissions"
 msgstr ""
 
-#: includes/admin-load.php:374
+#: includes/admin-load.php:375
 msgid "Rank Math SEO"
 msgstr ""
 
@@ -1760,11 +2179,13 @@ msgstr ""
 msgid "Registration Redirect"
 msgstr ""
 
-#: includes/admin.php:1879
+#: includes/admin.php:1881
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles-ui.php:364
 #: includes/features/admin-styles/admin-styles-ui.php:479
+#: includes/features/admin-styles/admin-styles-ui.php:515
 msgid "Remove"
 msgstr ""
 
@@ -1859,7 +2280,7 @@ msgstr ""
 msgid "Role Level"
 msgstr ""
 
-#: includes/admin.php:1940
+#: includes/admin.php:1942
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1867,7 +2288,7 @@ msgid ""
 msgstr ""
 
 #: includes/manager.php:513 includes/roles/class/class-pp-roles-admin.php:172
-#: includes/roles/class/class-pp-roles-list-table.php:170
+#: includes/roles/class/class-pp-roles-list-table.php:175
 msgid "Role Name"
 msgstr ""
 
@@ -1876,11 +2297,11 @@ msgid "Role Slug"
 msgstr ""
 
 #: includes/manager.php:515
-#: includes/roles/class/class-pp-roles-list-table.php:172
+#: includes/roles/class/class-pp-roles-list-table.php:177
 msgid "Role Type"
 msgstr ""
 
-#: includes/admin-load.php:826 includes/functions-admin.php:374
+#: includes/admin-load.php:827 includes/functions-admin.php:374
 #: includes/functions-admin.php:455 includes/settings-ui.php:33
 #: includes/roles/roles.php:8
 msgid "Roles"
@@ -1907,6 +2328,18 @@ msgstr ""
 msgid "Roles and Capabilities restored from selected auto-backup."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1491
+msgid "Row Hover Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1004
+msgid "Royal Plum"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:970
+msgid "Sage"
+msgstr ""
+
 #: includes/features/editor-features.php:119
 #: includes/features/editor-features.php:121
 #: includes/features/editor-features.php:224
@@ -1915,8 +2348,13 @@ msgstr ""
 msgid "Save %s Restrictions"
 msgstr ""
 
+#: includes/redirects/redirects.php:112 includes/redirects/redirects.php:315
 #: includes/roles/class/class-pp-roles-admin.php:512
 msgid "Save Changes"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:440
+msgid "Save Custom Style"
 msgstr ""
 
 #: includes/features/frontend-features/frontend-features-ui.php:153
@@ -1925,6 +2363,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:139
 #: includes/features/admin-styles/admin-styles-ui.php:605
+#: includes/features/admin-styles/admin-styles.php:771
 #, php-format
 msgid "Save for %s"
 msgstr ""
@@ -1934,9 +2373,14 @@ msgstr ""
 msgid "Save for all Post Types"
 msgstr ""
 
+#: includes/redirects/redirects.php:117 includes/redirects/redirects.php:320
 #: includes/features/admin-styles/admin-styles-ui.php:135
 #: includes/features/admin-styles/admin-styles-ui.php:601
 msgid "Save for all Roles"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:769
+msgid "Saving..."
 msgstr ""
 
 #: includes/test-user-ui.php:53
@@ -1947,7 +2391,7 @@ msgstr ""
 msgid "Search capabilities..."
 msgstr ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:690
+#: includes/roles/class/class-pp-roles-list-table.php:695
 msgid "Search Roles"
 msgstr ""
 
@@ -1955,7 +2399,19 @@ msgstr ""
 msgid "Search user..."
 msgstr ""
 
-#: includes/admin-load.php:652
+#: includes/features/admin-styles/admin-styles.php:1551
+msgid "Secondary Button Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1559
+msgid "Secondary Button Hover"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1555
+msgid "Secondary Button Text"
+msgstr ""
+
+#: includes/admin-load.php:653
 msgid "Security check failed"
 msgstr ""
 
@@ -1984,10 +2440,12 @@ msgid "Select allowed editor"
 msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:474
+#: includes/features/admin-styles/admin-styles-ui.php:510
+#: includes/features/admin-styles/admin-styles.php:767
 msgid "Select Image"
 msgstr ""
 
-#: includes-core/CoreAdmin.php:158
+#: includes-core/CoreAdmin.php:164
 msgid "Select pages..."
 msgstr ""
 
@@ -2029,6 +2487,10 @@ msgstr ""
 msgid "Selected Pages"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles-ui.php:338
+msgid "Selector"
+msgstr ""
+
 #: includes/features/frontend-features/frontend-features-ui.php:99
 msgid ""
 "Separate multiple values with a space (custom-style-one custom-style-two)."
@@ -2048,7 +2510,7 @@ msgstr ""
 msgid "Setting"
 msgstr ""
 
-#: includes/admin-load.php:827
+#: includes/admin-load.php:828
 msgid "Settings"
 msgstr ""
 
@@ -2056,7 +2518,11 @@ msgstr ""
 msgid "Settings Panel"
 msgstr ""
 
-#: includes/admin-load.php:664
+#: includes/features/admin-styles/admin-styles.php:770
+msgid "Settings saved."
+msgstr ""
+
+#: includes/admin-load.php:665
 msgid "Settings updated successfully."
 msgstr ""
 
@@ -2121,8 +2587,32 @@ msgid ""
 "page and try again."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1461
+msgid "Spam Link Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1446
+msgid "Standard link color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:176
+msgid "Start from template"
+msgstr ""
+
 #: includes/features/restrict-editor-features.php:422
 msgid "Status & visibility"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1106
+msgid "Stone"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1597
+msgid "Submenu Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1601
+msgid "Submenu Text Color"
 msgstr ""
 
 #: includes/admin.php:286
@@ -2133,15 +2623,19 @@ msgstr ""
 msgid "Success notices"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:885
+msgid "Sunrise"
+msgstr ""
+
 #: includes/features/restrict-editor-features.php:395
 msgid "Switch to Draft"
 msgstr ""
 
-#: includes/admin.php:1991
+#: includes/admin.php:1993
 msgid "Sync options to all sites."
 msgstr ""
 
-#: includes/admin.php:1988
+#: includes/admin.php:1990
 msgid "Sync role to all sites."
 msgstr ""
 
@@ -2151,6 +2645,34 @@ msgid "System %s"
 msgid_plural "System %s"
 msgstr[0] ""
 msgstr[1] ""
+
+#: includes/features/admin-styles/admin-styles.php:1495
+msgid "Table Border Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1472
+msgid "Table element colors"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1475
+msgid "Table Header Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1479
+msgid "Table Header Text"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1483
+msgid "Table Row Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1487
+msgid "Table Row Text Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1471
+msgid "Tables"
+msgstr ""
 
 #: includes/admin.php:274
 msgid "Taxonomies"
@@ -2194,6 +2716,14 @@ msgstr ""
 
 #: includes/test-user-ui.php:255
 msgid "Testing: "
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles-ui.php:349
+msgid "Text"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1423
+msgid "Text Color"
 msgstr ""
 
 #: includes/features/restrict-editor-features.php:487
@@ -2312,7 +2842,7 @@ msgid "This allows you to assign an existing user to multiple roles."
 msgstr ""
 
 #: includes/admin.php:892 includes/admin.php:1140 includes/admin.php:1318
-#: includes/admin.php:1443 includes/admin.php:1587
+#: includes/admin.php:1443 includes/admin.php:1589
 #, php-format
 msgid "This capability is %s"
 msgstr ""
@@ -2337,10 +2867,21 @@ msgstr ""
 msgid "This capability is not available for this post type."
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:776
+msgid "this custom style"
+msgstr ""
+
 #: includes/features/frontend-features/frontend-features-ui.php:42
 msgid ""
 "This feature allows you to modify the site frontend by hiding IDs or classes,"
 " adding CSS styles, or adding body classes."
+msgstr ""
+
+#: includes/features/admin-features.php:349
+#: includes/features/editor-features.php:243
+#: includes/features/nav-menus.php:306
+#: includes/features/profile-features.php:254
+msgid "This feature is denied"
 msgstr ""
 
 #: includes/features/frontend-features/frontend-features-ui.php:125
@@ -2352,7 +2893,7 @@ msgstr ""
 msgid "This feature will test the \"Profile\" screen as a user in the %s role."
 msgstr ""
 
-#: includes/admin-load.php:769
+#: includes/admin-load.php:770
 msgid "This menu is restricted for the following roles"
 msgstr ""
 
@@ -2362,7 +2903,7 @@ msgid ""
 "receive a notification if it appears again."
 msgstr ""
 
-#: capsman-enhanced.php:109
+#: capsman-enhanced.php:108
 msgid "This plugin can be deleted."
 msgstr ""
 
@@ -2422,6 +2963,18 @@ msgstr ""
 msgid "Top Tabs"
 msgstr ""
 
+#: includes/features/admin-styles/admin-styles.php:1457
+msgid "Trash Link Color"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1140
+msgid "Twitter Classic"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1157
+msgid "Twitter Modern"
+msgstr ""
+
 #: includes/handler.php:124
 msgid "Type / Taxonomy settings saved."
 msgstr ""
@@ -2441,7 +2994,7 @@ msgid_plural "Uneditable %s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:256
+#: includes/roles/class/class-pp-roles-list-table.php:261
 msgid "Unhide"
 msgstr ""
 
@@ -2457,8 +3010,8 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: includes/admin-load.php:812 includes-core/admin-features-promo.php:79
-#: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:48
+#: includes/admin-load.php:813 includes-core/admin-features-promo.php:79
+#: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:54
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
 #: includes/features/admin-styles/admin-styles-ui.php:307
@@ -2485,16 +3038,16 @@ msgstr ""
 msgid "URL wildcard"
 msgstr ""
 
-#: includes/admin.php:1676 includes/admin.php:1677 includes/admin.php:1678
+#: includes/admin.php:1678 includes/admin.php:1679 includes/admin.php:1680
 #: includes/features/admin-features.php:346
-#: includes/features/admin-features.php:347
+#: includes/features/admin-features.php:348
 #: includes/features/editor-features.php:240
-#: includes/features/editor-features.php:241
-#: includes/features/nav-menus.php:303 includes/features/nav-menus.php:304
+#: includes/features/editor-features.php:242
+#: includes/features/nav-menus.php:303 includes/features/nav-menus.php:305
 #: includes/features/profile-features.php:251
-#: includes/features/profile-features.php:252
+#: includes/features/profile-features.php:253
 #: includes/features/frontend-features/frontend-features.php:249
-#: includes/features/frontend-features/frontend-features.php:250
+#: includes/features/frontend-features/frontend-features.php:251
 msgid "usage key"
 msgstr ""
 
@@ -2511,6 +3064,18 @@ msgstr ""
 
 #: includes/admin.php:942
 msgid "Use the sidebar settings to allow this to be controlled independently."
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:768
+msgid "Use this Image"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1432
+msgid "Used for alerts and notifications"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1428
+msgid "Used for hovers and highlights"
 msgstr ""
 
 #: includes/features/restrict-admin-features.php:97
@@ -2530,13 +3095,17 @@ msgstr ""
 msgid "Value"
 msgstr ""
 
-#: includes/admin.php:1720 includes/features/admin-features.php:349
-#: includes/features/editor-features.php:243
-#: includes/features/nav-menus.php:306
-#: includes/features/profile-features.php:254
+#: includes/features/admin-styles/admin-styles-ui.php:345
+msgid "Variation"
+msgstr ""
+
+#: includes/admin.php:1722 includes/features/admin-features.php:351
+#: includes/features/editor-features.php:245
+#: includes/features/nav-menus.php:308
+#: includes/features/profile-features.php:256
 #: includes/redirects/redirects.php:335
 #: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/frontend-features/frontend-features.php:252
+#: includes/features/frontend-features/frontend-features.php:254
 msgid "View Documentation"
 msgstr ""
 
@@ -2588,7 +3157,7 @@ msgstr ""
 msgid "When testing, display a return link in the front end footer."
 msgstr ""
 
-#: includes/admin.php:1758
+#: includes/admin.php:1760
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -2596,6 +3165,34 @@ msgstr ""
 
 #: includes/features/frontend-features/frontend-features-ui.php:116
 msgid "Whole Site"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1637
+msgid "Widget Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1653
+msgid "Widget Body Text"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1641
+msgid "Widget Border"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1645
+msgid "Widget Header Background"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1657
+msgid "Widget Link"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1661
+msgid "Widget Link Hover"
+msgstr ""
+
+#: includes/features/admin-styles/admin-styles.php:1649
+msgid "Widget Title Text"
 msgstr ""
 
 #: includes/features/admin-features.php:249
@@ -2610,7 +3207,7 @@ msgstr ""
 msgid "Word count"
 msgstr ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:396
+#: includes/roles/class/class-pp-roles-list-table.php:401
 msgid "WordPress Core"
 msgstr ""
 
@@ -2626,13 +3223,13 @@ msgstr ""
 msgid "WordPress Logo"
 msgstr ""
 
-#: includes/admin.php:1757
+#: includes/admin.php:1759
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
 msgstr ""
 
-#: includes/admin.php:1895
+#: includes/admin.php:1897
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr ""
 
@@ -2650,7 +3247,7 @@ msgstr ""
 msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
 msgstr ""
 
-#: includes/admin.php:1686
+#: includes/admin.php:1688
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr ""
@@ -2675,7 +3272,7 @@ msgid ""
 "available in PublishPress Capabilities Pro."
 msgstr ""
 
-#: includes-core/CoreAdmin.php:163
+#: includes-core/CoreAdmin.php:169
 msgid "You can select page types where this element will be added."
 msgstr ""
 
@@ -2753,7 +3350,7 @@ msgstr ""
 msgid "You do not have sufficient permissions to perform this action."
 msgstr ""
 
-#: includes/admin.php:1651
+#: includes/admin.php:1653
 msgid "You have no additional capabilities."
 msgstr ""
 
@@ -2768,7 +3365,7 @@ msgid ""
 "editor."
 msgstr ""
 
-#: includes-core/CoreAdmin.php:13
+#: includes-core/CoreAdmin.php:19
 #, php-format
 msgid ""
 "You're using PublishPress Capabilities Free. The Pro version has more "
@@ -2783,6 +3380,6 @@ msgstr ""
 msgid "Your link has expired, refresh the page and try again."
 msgstr ""
 
-#: includes/roles/class/class-pp-roles-list-table.php:344
+#: includes/roles/class/class-pp-roles-list-table.php:349
 msgid "Your Role"
 msgstr ""
