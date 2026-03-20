@@ -1,0 +1,2 @@
+<?php
+return ['domain'=>'capability-manager-enhanced','plural-forms'=>'nplurals=INTEGER; plural=EXPRESSION;','language'=>'','project-id-version'=>'PublishPress Capabilities 2.40.0','pot-creation-date'=>'2026-02-10 14:41+0000','po-revision-date'=>'YEAR-MO-DA HO:MI+ZONE','x-generator'=>'Loco https://localise.biz/','messages'=>[]];
