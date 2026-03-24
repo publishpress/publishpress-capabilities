@@ -1,6 +1,17 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.41.0] - 24 March, 2026
+
+- Fixed : Unable to access Roles & Capabilities Screens, #1608
+- Fixed : Undefined variable $title_text, #1614
+- Fixed : PHP Warning appears on 'Additional' tab in Capability, #1620
+- Fixed : 2.40 Uncaught ArgumentCountError: 3 arguments are required, #1619
+- Fixed : Translation placeholder error, #1613
+- Update : Move free version as dependency inside pro, #1615
+- Update : Add "Free" to name of the Free plugin in the "Plugins" area, #1622
+- Update : Translation update
+
 [2.40.0] - 04 March, 2026
 
 - Update : Added Admin Styles Advanced Tab for custom color selection for other other element on admin pages, #1586

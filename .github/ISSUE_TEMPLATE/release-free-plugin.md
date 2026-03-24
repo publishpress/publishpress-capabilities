@@ -31,8 +31,8 @@ To release the Free plugin please make sure to check all the checkboxes below.
 **Localization**
 - [ ] Run `composer translate` to regenerate AI-assisted translations.
 - [ ] Make sure to commit all i18n/translation updates together.
-- [ ] Open a GitHub issue titled `Translation Update for Release v<version>`, and assign it to @wocmultimedia (lead translator for ES, FR, IT).
-- [ ] Pause the release and wait for @wocmultimedia to review and confirm or close the translation issue.
+- [ ] Open a GitHub issue titled `Translation Update for Release v<version>`, and assign it to `@wocmultimedia` (lead translator for ES, FR, IT).
+- [ ] Pause the release and wait for `@wocmultimedia` to review and confirm or close the translation issue.
 - [ ] After approval, run `composer translate:download` to fetch updated translations from the
 translation management service.
 - [ ] Run `composer translate:compile` to generate all language files (MO, JSON, PHP)
