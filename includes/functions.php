@@ -8,14 +8,6 @@
  *
  */
 
-//frontend features restrict instance
-require_once(dirname(__FILE__) . '/features/frontend-features/frontend-features-restrict.php');
-\PublishPress\Capabilities\PP_Capabilities_Frontend_Features_Restrict::instance();
-
-// Admin styles feature
-require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/features/admin-styles/admin-styles.php');
-\PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance();
-
 /**
  * Sanitizes a string entry
  *
@@ -1636,4 +1628,12 @@ if (!function_exists('pp_capabilities_feature_enabled')) {
         return $feature_enabled;
     }
 }
+
+//frontend features restrict instance
+require_once(dirname(__FILE__) . '/features/frontend-features/frontend-features-restrict.php');
+\PublishPress\Capabilities\PP_Capabilities_Frontend_Features_Restrict::instance();
+
+// Admin styles feature
+require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/features/admin-styles/admin-styles.php');
+\PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance();
 
