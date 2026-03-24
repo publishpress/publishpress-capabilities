@@ -1,6 +1,10 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.42.0] - 24 March, 2026
+
+- Fixed : 2.41 breaks on front-end: “pp_capabilities_feature_enabled()” undefined, #1640
+
 [2.41.0] - 24 March, 2026
 
 - Fixed : Unable to access Roles & Capabilities Screens, #1608
