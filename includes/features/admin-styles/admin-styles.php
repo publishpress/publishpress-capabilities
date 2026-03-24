@@ -764,27 +764,27 @@ class PP_Capabilities_Admin_Styles
             'styleTemplates' => $this->get_style_templates(),
             'proInstalled' => defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? 1 : 0,
             'labels' => [
-                'selectImage' => __('Select Image', 'capsman-enhanced'),
-                'useImage' => __('Use this Image', 'capsman-enhanced'),
-                'saving' => __('Saving...', 'capsman-enhanced'),
-                'saved' => __('Settings saved.', 'capsman-enhanced'),
-                'saveForRole' => __('Save for %s', 'capsman-enhanced'),
-                'currentLogoPreview' => __('Current logo preview', 'capsman-enhanced'),
-                'addCustomStyle' => __('Add New Custom Style', 'capsman-enhanced'),
-                'editCustomStyle' => __('Edit Custom Style', 'capsman-enhanced'),
-                'confirmDeleteCustomStyle' => __('Are you sure you want to delete "%s" custom style?', 'capsman-enhanced'),
-                'thisCustomStyle' => __('this custom style', 'capsman-enhanced'),
-                'primaryButton' => __('Primary Button', 'capsman-enhanced'),
-                'hoverState' => __('Hover State', 'capsman-enhanced'),
-                'notification' => __('Notification', 'capsman-enhanced'),
-                'livePreview' => __('Live preview of your custom color scheme', 'capsman-enhanced'),
-                'styleNameRequired' => __('Custom Style Name is required.', 'capsman-enhanced'),
-                'mainAdminColorRequired' => __('Main Admin Color is required.', 'capsman-enhanced'),
-                'publishpressCustom' => __('PublishPress Custom', 'capsman-enhanced'),
-                'displayName' => __('Display Name', 'capsman-enhanced'),
-                'displayNameDescription' => __('Change how this style is displayed', 'capsman-enhanced'),
-                'styleNameDescription' => __('Enter a name for your custom style', 'capsman-enhanced'),
-                'styleName' => __('Custom Style Name', 'capsman-enhanced'),
+                'selectImage' => __('Select Image', 'capability-manager-enhanced'),
+                'useImage' => __('Use this Image', 'capability-manager-enhanced'),
+                'saving' => __('Saving...', 'capability-manager-enhanced'),
+                'saved' => __('Settings saved.', 'capability-manager-enhanced'),
+                'saveForRole' => __('Save for %s', 'capability-manager-enhanced'),
+                'currentLogoPreview' => __('Current logo preview', 'capability-manager-enhanced'),
+                'addCustomStyle' => __('Add New Custom Style', 'capability-manager-enhanced'),
+                'editCustomStyle' => __('Edit Custom Style', 'capability-manager-enhanced'),
+                'confirmDeleteCustomStyle' => __('Are you sure you want to delete "%s" custom style?', 'capability-manager-enhanced'),
+                'thisCustomStyle' => __('this custom style', 'capability-manager-enhanced'),
+                'primaryButton' => __('Primary Button', 'capability-manager-enhanced'),
+                'hoverState' => __('Hover State', 'capability-manager-enhanced'),
+                'notification' => __('Notification', 'capability-manager-enhanced'),
+                'livePreview' => __('Live preview of your custom color scheme', 'capability-manager-enhanced'),
+                'styleNameRequired' => __('Custom Style Name is required.', 'capability-manager-enhanced'),
+                'mainAdminColorRequired' => __('Main Admin Color is required.', 'capability-manager-enhanced'),
+                'publishpressCustom' => __('PublishPress Custom', 'capability-manager-enhanced'),
+                'displayName' => __('Display Name', 'capability-manager-enhanced'),
+                'displayNameDescription' => __('Change how this style is displayed', 'capability-manager-enhanced'),
+                'styleNameDescription' => __('Enter a name for your custom style', 'capability-manager-enhanced'),
+                'styleName' => __('Custom Style Name', 'capability-manager-enhanced'),
             ]
         ]);
     }
@@ -797,7 +797,7 @@ class PP_Capabilities_Admin_Styles
     {
         return [
             'forest' => [
-                'name' => __('Forest', 'capsman-enhanced'),
+                'name' => __('Forest', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#14532d',
                     'text' => '#ecfdf3',
@@ -814,7 +814,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'mint-breeze' => [
-                'name' => __('Mint Breeze', 'capsman-enhanced'),
+                'name' => __('Mint Breeze', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#0f766e',
                     'text' => '#ecfeff',
@@ -831,7 +831,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'cherry' => [
-                'name' => __('Cherry', 'capsman-enhanced'),
+                'name' => __('Cherry', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#7f1d1d',
                     'text' => '#fef2f2',
@@ -848,7 +848,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'graphite' => [
-                'name' => __('Graphite', 'capsman-enhanced'),
+                'name' => __('Graphite', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#111827',
                     'text' => '#f9fafb',
@@ -865,7 +865,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'midnight-teal' => [
-                'name' => __('Midnight Teal', 'capsman-enhanced'),
+                'name' => __('Midnight Teal', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#0b3b3c',
                     'text' => '#ecfeff',
@@ -882,7 +882,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'sunrise' => [
-                'name' => __('Sunrise', 'capsman-enhanced'),
+                'name' => __('Sunrise', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#7c2d12',
                     'text' => '#fff7ed',
@@ -899,7 +899,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'desert-sand' => [
-                'name' => __('Desert Sand', 'capsman-enhanced'),
+                'name' => __('Desert Sand', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#7a4a1a',
                     'text' => '#fff7ed',
@@ -916,7 +916,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'amber-glow' => [
-                'name' => __('Amber Glow', 'capsman-enhanced'),
+                'name' => __('Amber Glow', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#92400e',
                     'text' => '#fffbeb',
@@ -933,7 +933,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'citrus' => [
-                'name' => __('Citrus', 'capsman-enhanced'),
+                'name' => __('Citrus', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#365314',
                     'text' => '#f7fee7',
@@ -950,7 +950,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'ocean-deep' => [
-                'name' => __('Ocean Deep', 'capsman-enhanced'),
+                'name' => __('Ocean Deep', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#0f172a',
                     'text' => '#e2e8f0',
@@ -967,7 +967,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'sage' => [
-                'name' => __('Sage', 'capsman-enhanced'),
+                'name' => __('Sage', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#365314',
                     'text' => '#f7fee7',
@@ -984,7 +984,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'modern-slate' => [
-                'name' => __('Modern Slate', 'capsman-enhanced'),
+                'name' => __('Modern Slate', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#1f2937',
                     'text' => '#f9fafb',
@@ -1001,7 +1001,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'royal-plum' => [
-                'name' => __('Royal Plum', 'capsman-enhanced'),
+                'name' => __('Royal Plum', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#4c1d95',
                     'text' => '#f5f3ff',
@@ -1018,7 +1018,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'nordic' => [
-                'name' => __('Nordic', 'capsman-enhanced'),
+                'name' => __('Nordic', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#0f172a',
                     'text' => '#e2e8f0',
@@ -1035,7 +1035,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'lagoon' => [
-                'name' => __('Lagoon', 'capsman-enhanced'),
+                'name' => __('Lagoon', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#0f172a',
                     'text' => '#e0f2fe',
@@ -1052,7 +1052,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'ink' => [
-                'name' => __('Ink', 'capsman-enhanced'),
+                'name' => __('Ink', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#111827',
                     'text' => '#e5e7eb',
@@ -1069,7 +1069,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'orchid' => [
-                'name' => __('Orchid', 'capsman-enhanced'),
+                'name' => __('Orchid', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#5b21b6',
                     'text' => '#f5f3ff',
@@ -1086,7 +1086,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'cobalt' => [
-                'name' => __('Cobalt', 'capsman-enhanced'),
+                'name' => __('Cobalt', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#1e3a8a',
                     'text' => '#eff6ff',
@@ -1103,7 +1103,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'stone' => [
-                'name' => __('Stone', 'capsman-enhanced'),
+                'name' => __('Stone', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#3f3f46',
                     'text' => '#f5f5f4',
@@ -1120,7 +1120,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'facebook-classic' => [
-                'name' => __('Facebook Classic', 'capsman-enhanced'),
+                'name' => __('Facebook Classic', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#3b5998',
                     'text' => '#ffffff',
@@ -1137,7 +1137,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'twitter-classic' => [
-                'name' => __('Twitter Classic', 'capsman-enhanced'),
+                'name' => __('Twitter Classic', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#1da1f2',
                     'text' => '#ffffff',
@@ -1154,7 +1154,7 @@ class PP_Capabilities_Admin_Styles
                 ]
             ],
             'twitter-modern' => [
-                'name' => __('Twitter Modern', 'capsman-enhanced'),
+                'name' => __('Twitter Modern', 'capability-manager-enhanced'),
                 'palette' => [
                     'base' => '#000000',
                     'text' => '#ffffff',
@@ -1412,260 +1412,260 @@ class PP_Capabilities_Admin_Styles
     {
         return [
             'general' => [
-                'label' => __('General', 'capsman-enhanced'),
-                'description' => __('Main Admin Color settings', 'capsman-enhanced'),
+                'label' => __('General', 'capability-manager-enhanced'),
+                'description' => __('Main Admin Color settings', 'capability-manager-enhanced'),
                 'colors' => [
                     'custom_scheme_base' => [
-                        'label' => __('Main Admin Color', 'capsman-enhanced'),
-                        'description' => __('Primary brand color', 'capsman-enhanced')
+                        'label' => __('Main Admin Color', 'capability-manager-enhanced'),
+                        'description' => __('Primary brand color', 'capability-manager-enhanced')
                     ],
                     'custom_scheme_text' => [
-                        'label' => __('Text Color', 'capsman-enhanced'),
-                        'description' => __('Primary text color', 'capsman-enhanced')
+                        'label' => __('Text Color', 'capability-manager-enhanced'),
+                        'description' => __('Primary text color', 'capability-manager-enhanced')
                     ],
                     'custom_scheme_highlight' => [
-                        'label' => __('Highlight Color', 'capsman-enhanced'),
-                        'description' => __('Used for hovers and highlights', 'capsman-enhanced')
+                        'label' => __('Highlight Color', 'capability-manager-enhanced'),
+                        'description' => __('Used for hovers and highlights', 'capability-manager-enhanced')
                     ],
                     'custom_scheme_notification' => [
-                        'label' => __('Notification Color', 'capsman-enhanced'),
-                        'description' => __('Used for alerts and notifications', 'capsman-enhanced')
+                        'label' => __('Notification Color', 'capability-manager-enhanced'),
+                        'description' => __('Used for alerts and notifications', 'capability-manager-enhanced')
                     ],
                     'custom_scheme_background' => [
-                        'label' => __('Background Color', 'capsman-enhanced'),
-                        'description' => __('Page background color', 'capsman-enhanced')
+                        'label' => __('Background Color', 'capability-manager-enhanced'),
+                        'description' => __('Page background color', 'capability-manager-enhanced')
                     ]
                 ]
             ],
             'links' => [
-                'label' => __('Links', 'capsman-enhanced'),
-                'description' => __('Link element colors', 'capsman-enhanced'),
+                'label' => __('Links', 'capability-manager-enhanced'),
+                'description' => __('Link element colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'link_default' => [
-                        'label' => __('Default Link Color', 'capsman-enhanced'),
-                        'description' => __('Standard link color', 'capsman-enhanced')
+                        'label' => __('Default Link Color', 'capability-manager-enhanced'),
+                        'description' => __('Standard link color', 'capability-manager-enhanced')
                     ],
                     'link_hover' => [
-                        'label' => __('Link Hover Color', 'capsman-enhanced'),
-                        'description' => __('Color on hover', 'capsman-enhanced')
+                        'label' => __('Link Hover Color', 'capability-manager-enhanced'),
+                        'description' => __('Color on hover', 'capability-manager-enhanced')
                     ],
                     'link_delete' => [
-                        'label' => __('Delete Link Color', 'capsman-enhanced'),
-                        'description' => __('Color for delete/trash actions', 'capsman-enhanced')
+                        'label' => __('Delete Link Color', 'capability-manager-enhanced'),
+                        'description' => __('Color for delete/trash actions', 'capability-manager-enhanced')
                     ],
                     'link_trash' => [
-                        'label' => __('Trash Link Color', 'capsman-enhanced'),
-                        'description' => __('Color for trash actions', 'capsman-enhanced')
+                        'label' => __('Trash Link Color', 'capability-manager-enhanced'),
+                        'description' => __('Color for trash actions', 'capability-manager-enhanced')
                     ],
                     'link_spam' => [
-                        'label' => __('Spam Link Color', 'capsman-enhanced'),
-                        'description' => __('Color for spam actions', 'capsman-enhanced')
+                        'label' => __('Spam Link Color', 'capability-manager-enhanced'),
+                        'description' => __('Color for spam actions', 'capability-manager-enhanced')
                     ],
                     'link_inactive' => [
-                        'label' => __('Inactive Link Color', 'capsman-enhanced'),
-                        'description' => __('Color for inactive items', 'capsman-enhanced')
+                        'label' => __('Inactive Link Color', 'capability-manager-enhanced'),
+                        'description' => __('Color for inactive items', 'capability-manager-enhanced')
                     ]
                 ]
             ],
             'tables' => [
-                'label' => __('Tables', 'capsman-enhanced'),
-                'description' => __('Table element colors', 'capsman-enhanced'),
+                'label' => __('Tables', 'capability-manager-enhanced'),
+                'description' => __('Table element colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'table_header_bg' => [
-                        'label' => __('Table Header Background', 'capsman-enhanced'),
+                        'label' => __('Table Header Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_header_text' => [
-                        'label' => __('Table Header Text', 'capsman-enhanced'),
+                        'label' => __('Table Header Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_row_bg' => [
-                        'label' => __('Table Row Background', 'capsman-enhanced'),
+                        'label' => __('Table Row Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_row_color' => [
-                        'label' => __('Table Row Text Color', 'capsman-enhanced'),
+                        'label' => __('Table Row Text Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_row_hover_bg' => [
-                        'label' => __('Row Hover Background', 'capsman-enhanced'),
+                        'label' => __('Row Hover Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_border' => [
-                        'label' => __('Table Border Color', 'capsman-enhanced'),
+                        'label' => __('Table Border Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_alt_row_bg' => [
-                        'label' => __('Alternate Row Background', 'capsman-enhanced'),
+                        'label' => __('Alternate Row Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'table_alt_row_color' => [
-                        'label' => __('Alternate Row Text Color', 'capsman-enhanced'),
+                        'label' => __('Alternate Row Text Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ]
                 ]
             ],
             'forms' => [
-                'label' => __('Forms', 'capsman-enhanced'),
-                'description' => __('Form input colors', 'capsman-enhanced'),
+                'label' => __('Forms', 'capability-manager-enhanced'),
+                'description' => __('Form input colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'input_border' => [
-                        'label' => __('Input Border Color', 'capsman-enhanced'),
+                        'label' => __('Input Border Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'input_focus_border' => [
-                        'label' => __('Input Focus Border', 'capsman-enhanced'),
+                        'label' => __('Input Focus Border', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'input_background' => [
-                        'label' => __('Input Background Color', 'capsman-enhanced'),
+                        'label' => __('Input Background Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'input_text' => [
-                        'label' => __('Input Text Color', 'capsman-enhanced'),
+                        'label' => __('Input Text Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'input_placeholder' => [
-                        'label' => __('Placeholder Text Color', 'capsman-enhanced'),
+                        'label' => __('Placeholder Text Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ]
                 ]
             ],
             'buttons' => [
-                'label' => __('Buttons', 'capsman-enhanced'),
-                'description' => __('Button colors', 'capsman-enhanced'),
+                'label' => __('Buttons', 'capability-manager-enhanced'),
+                'description' => __('Button colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'button_primary_bg' => [
-                        'label' => __('Primary Button Background', 'capsman-enhanced'),
+                        'label' => __('Primary Button Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'button_primary_text' => [
-                        'label' => __('Primary Button Text', 'capsman-enhanced'),
+                        'label' => __('Primary Button Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'button_primary_hover_bg' => [
-                        'label' => __('Primary Button Hover', 'capsman-enhanced'),
+                        'label' => __('Primary Button Hover', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'button_secondary_bg' => [
-                        'label' => __('Secondary Button Background', 'capsman-enhanced'),
+                        'label' => __('Secondary Button Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'button_secondary_text' => [
-                        'label' => __('Secondary Button Text', 'capsman-enhanced'),
+                        'label' => __('Secondary Button Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'button_secondary_hover_bg' => [
-                        'label' => __('Secondary Button Hover', 'capsman-enhanced'),
+                        'label' => __('Secondary Button Hover', 'capability-manager-enhanced'),
                         'description' => ''
                     ]
                 ]
             ],
             'admin_menu' => [
-                'label' => __('Admin Menu', 'capsman-enhanced'),
-                'description' => __('Admin menu colors', 'capsman-enhanced'),
+                'label' => __('Admin Menu', 'capability-manager-enhanced'),
+                'description' => __('Admin menu colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'menu_bg' => [
-                        'label' => __('Menu Background', 'capsman-enhanced'),
+                        'label' => __('Menu Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_text' => [
-                        'label' => __('Menu Text Color', 'capsman-enhanced'),
+                        'label' => __('Menu Text Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_icon' => [
-                        'label' => __('Menu Icon Color', 'capsman-enhanced'),
+                        'label' => __('Menu Icon Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_hover_bg' => [
-                        'label' => __('Menu Hover Background', 'capsman-enhanced'),
+                        'label' => __('Menu Hover Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_hover_text' => [
-                        'label' => __('Menu Hover Text', 'capsman-enhanced'),
+                        'label' => __('Menu Hover Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_current_bg' => [
-                        'label' => __('Current Menu Background', 'capsman-enhanced'),
+                        'label' => __('Current Menu Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_current_text' => [
-                        'label' => __('Current Menu Text', 'capsman-enhanced'),
+                        'label' => __('Current Menu Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_submenu_bg' => [
-                        'label' => __('Submenu Background', 'capsman-enhanced'),
+                        'label' => __('Submenu Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'menu_submenu_text' => [
-                        'label' => __('Submenu Text Color', 'capsman-enhanced'),
+                        'label' => __('Submenu Text Color', 'capability-manager-enhanced'),
                         'description' => ''
                     ]
                 ]
             ],
             'admin_bar' => [
-                'label' => __('Admin Bar', 'capsman-enhanced'),
-                'description' => __('Admin bar colors', 'capsman-enhanced'),
+                'label' => __('Admin Bar', 'capability-manager-enhanced'),
+                'description' => __('Admin bar colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'adminbar_bg' => [
-                        'label' => __('Admin Bar Background', 'capsman-enhanced'),
+                        'label' => __('Admin Bar Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'adminbar_text' => [
-                        'label' => __('Admin Bar Text', 'capsman-enhanced'),
+                        'label' => __('Admin Bar Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'adminbar_icon' => [
-                        'label' => __('Admin Bar Icon', 'capsman-enhanced'),
+                        'label' => __('Admin Bar Icon', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'adminbar_hover_bg' => [
-                        'label' => __('Admin Bar Hover Background', 'capsman-enhanced'),
+                        'label' => __('Admin Bar Hover Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'adminbar_hover_text' => [
-                        'label' => __('Admin Bar Hover Text', 'capsman-enhanced'),
+                        'label' => __('Admin Bar Hover Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ]
                 ]
             ],
             'dashboard_widgets' => [
-                'label' => __('Dashboard Widgets', 'capsman-enhanced'),
-                'description' => __('Dashboard widget colors', 'capsman-enhanced'),
+                'label' => __('Dashboard Widgets', 'capability-manager-enhanced'),
+                'description' => __('Dashboard widget colors', 'capability-manager-enhanced'),
                 'colors' => [
                     'widget_bg' => [
-                        'label' => __('Widget Background', 'capsman-enhanced'),
+                        'label' => __('Widget Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'widget_border' => [
-                        'label' => __('Widget Border', 'capsman-enhanced'),
+                        'label' => __('Widget Border', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'widget_header_bg' => [
-                        'label' => __('Widget Header Background', 'capsman-enhanced'),
+                        'label' => __('Widget Header Background', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'widget_title_text' => [
-                        'label' => __('Widget Title Text', 'capsman-enhanced'),
+                        'label' => __('Widget Title Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'widget_body_text' => [
-                        'label' => __('Widget Body Text', 'capsman-enhanced'),
+                        'label' => __('Widget Body Text', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'widget_link' => [
-                        'label' => __('Widget Link', 'capsman-enhanced'),
+                        'label' => __('Widget Link', 'capability-manager-enhanced'),
                         'description' => ''
                     ],
                     'widget_link_hover' => [
-                        'label' => __('Widget Link Hover', 'capsman-enhanced'),
+                        'label' => __('Widget Link Hover', 'capability-manager-enhanced'),
                         'description' => ''
                     ]
                 ]
             ],
             'advanced' => [
-                'label' => __('Advanced', 'capsman-enhanced'),
-                'description' => __('Custom selector color rules', 'capsman-enhanced'),
+                'label' => __('Advanced', 'capability-manager-enhanced'),
+                'description' => __('Custom selector color rules', 'capability-manager-enhanced'),
                 'colors' => []
             ]
         ];
@@ -1691,7 +1691,7 @@ class PP_Capabilities_Admin_Styles
 
         // Always include the default scheme
         if (!isset($schemes['fresh'])) {
-            $schemes['fresh'] = __('Default', 'capsman-enhanced');
+            $schemes['fresh'] = __('Default', 'capability-manager-enhanced');
         }
 
         return $schemes;
@@ -1760,7 +1760,7 @@ class PP_Capabilities_Admin_Styles
                 ];
             } else {
                 // Default scheme
-                $data['name'] = __('Default', 'capsman-enhanced');
+                $data['name'] = __('Default', 'capability-manager-enhanced');
                 $data['colors'] = ['#1d2327', '#ffffff', '#0073aa', '#d63638', '#f0f0f1'];
             }
         }

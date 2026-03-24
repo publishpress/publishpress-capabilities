@@ -300,8 +300,10 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                 $banner_messages = ['<p>'];
                 $banner_messages[] = esc_html__('Navigation Menus allows you to block access to frontend menu links.', 'capability-manager-enhanced');
                 $banner_messages[] = '</p><p>';
-                $banner_messages[] = sprintf(esc_html__('%1$s = No change', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled>') . ' <br />';
-                $banner_messages[] = sprintf(esc_html__('%1$s = This feature is denied', 'capability-manager-enhanced'), '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled>') . ' <br />';
+                $banner_messages[] = '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled> = '
+                    . esc_html__('No change', 'capability-manager-enhanced') . ' <br />';
+                $banner_messages[] = '<input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled> = '
+                    . esc_html__('This feature is denied', 'capability-manager-enhanced') . ' <br />';
                 $banner_messages[] = '</p>';
                 $banner_messages[] = '<p><a class="button ppc-checkboxes-documentation-link" href="https://publishpress.com/knowledge-base/nav-menus/"target="blank">' . esc_html__('View Documentation', 'capability-manager-enhanced') . '</a></p>';
                 $banner_title  = __('How to use Navigation Menus', 'capability-manager-enhanced');

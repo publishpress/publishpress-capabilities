@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Capabilities
  * Plugin URI: https://publishpress.com/capability-manager/
  * Description: PublishPress Capabilities is the access control plugin for WordPress. You can manage all your WordPress user roles, from Administrators to Subscribers.
- * Version: 2.40.0
+ * Version: 2.41.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: capability-manager-enhanced
@@ -12,10 +12,9 @@
  * Requires PHP: 7.2.5
  * License: GPLv3
  *
+
  * Copyright (c) 2024 PublishPress
- *
- * ------------------------------------------------------------------------------
- * Based on Capability Manager
+	if ($pro_active) return;
  * Author: Jordi Canals
  * Copyright (c) 2009, 2010 Jordi Canals
  * ------------------------------------------------------------------------------
@@ -69,7 +68,7 @@ if (
 add_action('plugins_loaded', function () {
 
 	if (!defined('CAPSMAN_VERSION')) {
-		define('CAPSMAN_VERSION', '2.40.0');
+		define('CAPSMAN_VERSION', '2.41.0');
 		define('CAPSMAN_ENH_VERSION', CAPSMAN_VERSION);
 		define('PUBLISHPRESS_CAPS_VERSION', CAPSMAN_VERSION);
 	}
@@ -116,12 +115,17 @@ add_action('plugins_loaded', function () {
 		);
 	}
 
-	if (defined('CME_FILE') || $pro_active) {
+	// When loaded by Pro, we still need to load core functions but skip UI
+	if (defined('CME_FILE') && !$pro_active) {
 		return;
 	}
 
-	define('CME_FILE', __FILE__);
-	define('PUBLISHPRESS_CAPS_ABSPATH', __DIR__);
+	if (!defined('CME_FILE')) {
+		define('CME_FILE', __FILE__);
+	}
+	if (!defined('PUBLISHPRESS_CAPS_ABSPATH')) {
+		define('PUBLISHPRESS_CAPS_ABSPATH', __DIR__);
+	}
 
 	require_once(dirname(__FILE__) . '/includes/functions.php');
 
@@ -159,6 +163,12 @@ add_action('plugins_loaded', function () {
 	add_action( 'plugins_loaded', '_cme_act_pp_active', 1);
 
 	add_action('init', '_cme_cap_helper', 49);  // Press Permit Cap Helper, registered at 50, will leave caps which we've already defined
+
+		// Skip admin UI initialization when loaded by Pro
+		if ($pro_active) {
+			do_action('publishpress_capabilities_loaded');
+			return;
+		}
 	//add_action( 'wp_loaded', '_cme_cap_helper_late_init', 99 );	// now instead adding registered_post_type, registered_taxonomy action handlers for latecomers
 	// @todo: do this in PP Core also
 

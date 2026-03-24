@@ -4,6 +4,12 @@ namespace PublishPress\Capabilities;
 class CoreAdmin {
     function __construct() {
 
+        // This class is promo/upsell logic for Free only.
+        // When Pro is loaded, short-circuit to avoid Free banners and promo screens.
+        if (defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {
+            return;
+        }
+
         if (is_admin()) {
 
             require_once PUBLISHPRESS_CAPS_ABSPATH . '/lib/vendor/publishpress/wordpress-version-notices/includes.php';

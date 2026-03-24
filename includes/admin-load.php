@@ -131,6 +131,7 @@ class PP_Capabilities_Admin_UI {
         // Add plugin list action links
         add_filter('plugin_action_links', [$this, 'addPluginActionLinks'], 10, 2);
         add_filter('plugin_row_meta', [$this, 'addPluginRowMetaLinks'], 10, 2);
+        add_filter('all_plugins', [$this, 'filterPluginsListName']);
     }
 
 	function register_textdomain() {
@@ -138,9 +139,9 @@ class PP_Capabilities_Admin_UI {
         $domain       = 'capability-manager-enhanced';
 		$mofile_custom = sprintf('%s-%s.mo', $domain, get_user_locale());
 		$locations = [
+			trailingslashit( WP_LANG_DIR . '/plugins/'),
 			trailingslashit( WP_LANG_DIR . '/' . $domain ),
 			trailingslashit( WP_LANG_DIR . '/loco/plugins/'),
-			trailingslashit( WP_LANG_DIR . '/plugins/'),
 			trailingslashit( WP_LANG_DIR ),
 			trailingslashit( plugin_dir_path(CME_FILE) . 'languages' ),
         ];
@@ -828,5 +829,29 @@ class PP_Capabilities_Admin_UI {
         }
 
         return $links;
+    }
+
+    /**
+     * Show "Free" suffix for this plugin only on WordPress plugin list screens.
+     *
+     * @param array $all_plugins
+     *
+     * @return array
+     */
+    public function filterPluginsListName($all_plugins)
+    {
+        global $pagenow;
+
+        if (!is_admin() || 'plugins.php' !== $pagenow) {
+            return $all_plugins;
+        }
+
+        $plugin_file = plugin_basename(CME_FILE);
+
+        if (isset($all_plugins[$plugin_file]['Name'])) {
+            $all_plugins[$plugin_file]['Name'] = 'PublishPress Capabilities Free';
+        }
+
+        return $all_plugins;
     }
 }

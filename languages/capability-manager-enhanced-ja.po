@@ -1,19 +1,2806 @@
-# Copyright (C) 2024 PublishPress
+# Copyright (C) 2026 PublishPress
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: PublishPress Capabilities 2.12.2\n"
+"Project-Id-Version: PublishPress Capabilities 2.40.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-04 15:47+0000\n"
-"PO-Revision-Date: 2026-03-04 16:28+0000\n"
+"POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
+"PO-Revision-Date: 2026-03-24 15:04+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: ja\n"
+
+#: capsman-enhanced.php
+#: capsman-enhanced.php
+#. Plugin Name of the plugin
+msgid "PublishPress Capabilities"
+msgstr "PublishPress 機能"
+
+#: capsman-enhanced.php
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/capability-manager/"
+msgstr "https://publishpress.com/capability-manager/"
+
+#: capsman-enhanced.php
+#. Description of the plugin
+msgid ""
+"PublishPress Capabilities is the access control plugin for WordPress. You "
+"can manage all your WordPress user roles, from Administrators to "
+"Subscribers."
+msgstr ""
+"PublishPress 機能は、WordPress 用のアクセス制御プラグインです。管理者から購読者まで、すべての WordPress "
+"ユーザーロールを管理できます。"
+
+#: capsman-enhanced.php
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: capsman-enhanced.php
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: capsman-enhanced.php:79
+#, php-format
+msgid ""
+"%1s Error: %2s  PublishPress Capabilities cannot function because another "
+"copy of the plugin is active."
+msgstr "%1s エラー: %2s  PublishPressの機能は、別のコピーのプラグインがアクティブであるため機能しません。"
+
+#: capsman-enhanced.php:108
+msgid "This plugin can be deleted."
+msgstr "このプラグインは削除できます。"
+
+#: includes-core/admin-features-promo.php:74
+msgid ""
+"You can block pages by URL or hide Admin elements by entering a CSS class "
+"or ID. This feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"URLでページをブロックしたり、CSSクラスまたはIDを入力して管理要素を非表示にすることができます。この機能はPublishPress "
+"Capabilities Proで利用可能です。"
+
+#: includes-core/admin-features-promo.php:79
+#: includes-core/admin-menus-promo.php:62
+#: includes-core/CoreAdmin.php:54
+#: includes-core/editor-features-promo.php:79
+#: includes-core/frontend-features-promo.php:32
+#: includes/admin-load.php:813
+#: includes/features/admin-styles/admin-styles-ui.php:307
+msgid "Upgrade to Pro"
+msgstr "プロ版にアップグレード"
+
+#: includes-core/admin-menus-promo.php:29
+msgid "Admin Menu Restrictions"
+msgstr "管理者メニュー制限"
+
+#: includes-core/admin-menus-promo.php:58
+msgid ""
+"You can restrict access to admin menu screens. You can also edit, change, "
+"add, or remove links from the WordPress admin menu. This feature is "
+"available in PublishPress Capabilities Pro."
+msgstr ""
+"管理メニュー画面へのアクセスを制限することができます。また、WordPress管理メニューからリンクを編集、変更、追加、または削除することもできます。こ"
+"の機能はPublishPress Capabilities Proで利用可能です。"
+
+#: includes-core/CoreAdmin.php:19
+#, php-format
+msgid ""
+"You're using PublishPress Capabilities Free. The Pro version has more "
+"features and support. %sUpgrade to Pro%s"
+msgstr ""
+"あなたはPublishPress Capabilities Freeを使用しています。Proバージョンには、より多くの機能とサポートがあります。 "
+"%sProにアップグレード%s"
+
+#: includes-core/CoreAdmin.php:90
+#: includes-core/CoreAdmin.php:153
+#: includes/functions-admin.php:491
+#: includes/roles/class/class-pp-roles-admin.php:526
+msgid "Admin Menus"
+msgstr "管理者メニュー"
+
+#: includes-core/CoreAdmin.php:133
+msgid "Hide CSS Elements"
+msgstr "CSS要素を非表示にする"
+
+#: includes-core/CoreAdmin.php:134
+msgid "Block by URL"
+msgstr "URLでブロック"
+
+#: includes-core/CoreAdmin.php:154
+msgid ""
+"Admin Menus allows you to edit the admin menu links and control who has "
+"access."
+msgstr "管理メニューでは、管理メニューリンクを編集し、アクセス権を制御できます。"
+
+#: includes-core/CoreAdmin.php:164
+msgid "Select pages..."
+msgstr "ページを選択..."
+
+#: includes-core/CoreAdmin.php:169
+msgid "You can select page types where this element will be added."
+msgstr "この要素が追加されるページタイプを選択できます。"
+
+#: includes-core/editor-features-promo.php:24
+msgid "Metaboxes"
+msgstr "メタボックス"
+
+#: includes-core/editor-features-promo.php:36
+msgid "Checklist"
+msgstr "チェックリスト"
+
+#: includes-core/editor-features-promo.php:46
+msgid "Editorial Comments"
+msgstr "編集コメント"
+
+#: includes-core/editor-features-promo.php:56
+msgid "Notifications"
+msgstr "通知"
+
+#: includes-core/editor-features-promo.php:66
+msgid "TaxoPress - Settings"
+msgstr "TaxoPress - 設定"
+
+#: includes-core/editor-features-promo.php:74
+msgid ""
+"You can hide plugin metaboxes. You can also hide specific items by entering "
+"their CSS class or ID. This feature is available in PublishPress "
+"Capabilities Pro."
+msgstr ""
+"プラグインのメタボックスを非表示にすることができます。また、特定のアイテムをCSSクラスまたはIDを入力して非表示にすることもできます。この機能はPub"
+"lishPress Capabilities Proで利用可能です。"
+
+#: includes-core/editor-features-promo.php:89
+msgid "Custom Items"
+msgstr "カスタムアイテム"
+
+#: includes-core/editor-features-promo.php:98
+msgid "Custom item one"
+msgstr "カスタムアイテム1"
+
+#: includes-core/editor-features-promo.php:108
+msgid "Permalink: Descriptive Caption"
+msgstr "パーマリンク：説明キャプション"
+
+#: includes-core/editor-features-promo.php:118
+msgid "Page Attributes: Order"
+msgstr "ページ属性：順序"
+
+#: includes-core/frontend-features-promo.php:25
+msgid ""
+"You can use Frontend Features to target specific posts and pages. This "
+"feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"フロントエンド機能を使用して特定の投稿やページをターゲットにすることができます。この機能はPublishPress Capabilities "
+"Proで利用可能です。"
+
+#: includes-core/frontend-features-promo.php:39
+msgid "Select post types..."
+msgstr "投稿タイプを選択..."
+
+#: includes-core/frontend-features-promo.php:44
+msgid ""
+"This will add a metabox on the post editing screen. You can use this "
+"feature to add body classes only for that post."
+msgstr "これにより、投稿編集画面にメタボックスが追加されます。この機能を使用して、その投稿のみにボディクラスを追加できます。"
+
+#: includes/admin-load.php:371
+msgid "Drag multiple roles selection to change roles order."
+msgstr "複数のロール選択をドラッグして、ロールの順序を変更します。"
+
+#: includes/admin-load.php:374
+msgid "Page title"
+msgstr "ページタイトル"
+
+#: includes/admin-load.php:375
+msgid "Rank Math SEO"
+msgstr "Rank Math SEO"
+
+#: includes/admin-load.php:494
+#: includes/admin-load.php:826
+#: includes/functions-admin.php:379
+#: includes/functions-admin.php:462
+#: includes/manager.php:387
+#: includes/roles/class/class-pp-roles-admin.php:637
+#: includes/settings-ui.php:34
+msgid "Capabilities"
+msgstr "能力"
+
+#: includes/admin-load.php:613
+msgid "No permission!"
+msgstr "権限がありません！"
+
+#: includes/admin-load.php:623
+msgid "Invalid nonce token!"
+msgstr "無効なnonceトークン！"
+
+#: includes/admin-load.php:627
+msgid "Error: wrong data"
+msgstr "エラー：不正なデータ"
+
+#: includes/admin-load.php:648
+#: includes/admin-notices/admin-notices.php:232
+#: includes/features/frontend-features/frontend-features-action.php:41
+#: includes/features/frontend-features/frontend-features-action.php:110
+#: includes/features/restrict-profile-features.php:29
+msgid "An error occured!"
+msgstr "エラーが発生しました！"
+
+#: includes/admin-load.php:653
+msgid "Security check failed"
+msgstr "セキュリティチェックに失敗しました"
+
+#: includes/admin-load.php:655
+msgid "Permission denied"
+msgstr "権限が拒否されました"
+
+#: includes/admin-load.php:665
+msgid "Settings updated successfully."
+msgstr "設定が正常に更新されました。"
+
+#: includes/admin-load.php:761
+#: includes/features/frontend-features/frontend-features.php:39
+#: includes/features/nav-menus.php:26
+msgid "Logged In Users"
+msgstr "ログインユーザー"
+
+#: includes/admin-load.php:762
+#: includes/features/frontend-features/frontend-features.php:40
+#: includes/features/nav-menus.php:26
+msgid "Logged Out Users"
+msgstr "ログアウトユーザー"
+
+#: includes/admin-load.php:769
+msgid "PublishPress Capabilities Menu Restriction"
+msgstr "PublishPress 機能メニュー制限"
+
+#: includes/admin-load.php:770
+msgid "This menu is restricted for the following roles"
+msgstr "このメニューは以下の役割に制限されています"
+
+#: includes/admin-load.php:825
+#: includes/dashboard.php:23
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+#: includes/admin-load.php:827
+#: includes/functions-admin.php:374
+#: includes/functions-admin.php:455
+#: includes/roles/roles.php:8
+#: includes/settings-ui.php:33
+msgid "Roles"
+msgstr "役割"
+
+#: includes/admin-load.php:828
+msgid "Settings"
+msgstr "設定"
+
+#: includes/admin-notices/admin-notices.php:72
+msgid "Display this notice"
+msgstr "この通知を表示"
+
+#: includes/admin-notices/admin-notices.php:73
+msgid "Silence this notice"
+msgstr "この通知を無視する"
+
+#: includes/admin-notices/admin-notices.php:74
+msgid "Hide this notice"
+msgstr "この通知を非表示にする"
+
+#: includes/admin-notices/admin-notices.php:75
+msgid "Move to Hidden Notices"
+msgstr "非表示のお知らせに移動"
+
+#: includes/admin-notices/admin-notices.php:76
+msgid "Displayed notices will no longer be removed from admin pages."
+msgstr "表示された通知は、管理ページから削除されなくなります。"
+
+#: includes/admin-notices/admin-notices.php:77
+msgid ""
+"This notice will be moved to the \"Silenced Notices\" tab and you will not "
+"receive a notification if it appears again."
+msgstr "この通知は「サイレント通知」タブに移動され、再度表示されても通知は受け取られません。"
+
+#: includes/admin-notices/admin-notices.php:179
+#: includes/admin-notices/admin-notices.php:217
+#: includes/admin-notices/admin-notices.php:220
+#: includes/functions-admin.php:424
+#: includes/settings-ui.php:37
+msgid "Admin Notices"
+msgstr "管理通知"
+
+#: includes/admin-notices/admin-notices.php:204
+msgid "Hidden Notices"
+msgstr "非表示の通知"
+
+#: includes/admin-notices/admin-notices.php:208
+msgid "Silenced Notices"
+msgstr "無視された通知"
+
+#: includes/admin-notices/admin-notices.php:218
+msgid "There are currently no admin notices."
+msgstr "現在、管理通知はありません。"
+
+#: includes/admin-notices/admin-notices.php:218
+msgid "Edit the settings."
+msgstr "設定を編集します。"
+
+#: includes/admin-notices/admin-notices.php:241
+msgid "You do not have permission to manage admin notices."
+msgstr "管理通知を管理する権限がありません。"
+
+#: includes/admin-notices/admin-notices.php:243
+#: includes/features/frontend-features/frontend-features-action.php:56
+#: includes/features/frontend-features/frontend-features-action.php:119
+msgid "Invalid action. Reload this page and try again."
+msgstr "無効なアクションです。このページを再読み込みして再試行してください。"
+
+#: includes/admin-notices/admin-notices.php:245
+msgid "Invalid form."
+msgstr "無効なフォームです。"
+
+#: includes/admin-notices/admin-notices.php:269
+msgid "Admin notice status updated successfully."
+msgstr "管理通知のステータスが正常に更新されました。"
+
+#: includes/admin.php:49
+#, php-format
+msgid ""
+"Warning: This role cannot access the dashboard without the read capability. "
+"%1$sClick here to fix this now%2$s."
+msgstr "警告：このロールは、読み取り機能なしではダッシュボードにアクセスできません。%1$s今すぐこれを修正するにはクリックしてください%2$s。"
+
+#: includes/admin.php:84
+msgid "Negate All"
+msgstr "すべてを否定"
+
+#: includes/admin.php:88
+msgid "Negate None"
+msgstr "何も否定しない"
+
+#: includes/admin.php:95
+msgid "Role Capabilities"
+msgstr "役割の機能"
+
+#: includes/admin.php:136
+msgid "Search capabilities..."
+msgstr "機能を検索..."
+
+#: includes/admin.php:207
+#: includes/admin.php:802
+msgid "Nav Menus (Block)"
+msgstr "ナビメニュー（ブロック）"
+
+#: includes/admin.php:209
+msgid "Block"
+msgstr "ブロック"
+
+#: includes/admin.php:216
+#: includes/admin.php:804
+msgid "Nav Menus (Legacy)"
+msgstr "ナビメニュー（レガシー）"
+
+#: includes/admin.php:218
+msgid "Legacy"
+msgstr "レガシー"
+
+#: includes/admin.php:270
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: includes/admin.php:271
+msgid "Visibility"
+msgstr "可視性"
+
+#: includes/admin.php:272
+#: includes/roles/class/class-pp-roles-admin.php:111
+msgid "Editing"
+msgstr "編集中"
+
+#: includes/admin.php:273
+msgid "Deletion"
+msgstr "削除"
+
+#: includes/admin.php:274
+msgid "Taxonomies"
+msgstr "タクソノミー"
+
+#: includes/admin.php:278
+msgid "Listing"
+msgstr "リスト"
+
+#: includes/admin.php:282
+msgid "Create Revision"
+msgstr "リビジョンを作成"
+
+#: includes/admin.php:286
+msgid "Submit Revision"
+msgstr "修正を送信"
+
+#: includes/admin.php:290
+msgid "Approve Revision"
+msgstr "修正を承認する"
+
+#: includes/admin.php:294
+msgid "Can read posts which are currently published with private visibility."
+msgstr "現在、プライベートの可視性で公開されている投稿を読むことができます。"
+
+#: includes/admin.php:295
+msgid ""
+"Has basic editing capability (but may need other capabilities based on post "
+"status and ownership)."
+msgstr "基本的な編集機能があります（ただし、投稿のステータスや所有権に基づいて他の機能が必要な場合があります）。"
+
+#: includes/admin.php:296
+msgid "Can edit posts which were created by other users."
+msgstr "他のユーザーが作成した投稿を編集できます。"
+
+#: includes/admin.php:297
+msgid "Can edit posts which are currently published."
+msgstr "現在公開されている投稿を編集できます。"
+
+#: includes/admin.php:298
+msgid "Can edit posts which are currently published with private visibility."
+msgstr "現在、プライベートの可視性で公開されている投稿を編集できます。"
+
+#: includes/admin.php:299
+msgid "Can make a post publicly visible."
+msgstr "投稿を公開可視性にすることができます。"
+
+#: includes/admin.php:300
+msgid ""
+"Has basic deletion capability (but may need other capabilities based on "
+"post status and ownership)."
+msgstr "基本的な削除機能があります（ただし、投稿のステータスや所有権に基づいて他の機能が必要な場合があります）。"
+
+#: includes/admin.php:301
+msgid "Can delete posts which were created by other users."
+msgstr "他のユーザーが作成した投稿を削除できます。"
+
+#: includes/admin.php:302
+msgid "Can delete posts which are currently published."
+msgstr "現在公開されている投稿を削除できます。"
+
+#: includes/admin.php:303
+msgid "Can delete posts which are currently published with private visibility."
+msgstr "現在、プライベートの可視性で公開されている投稿を削除できます。"
+
+#: includes/admin.php:598
+#: includes/admin.php:1069
+#: includes/admin.php:1811
+msgid "Multisite"
+msgstr "マルチサイト"
+
+#: includes/admin.php:602
+#: includes/admin.php:1073
+msgid "Admin"
+msgstr "管理者"
+
+#: includes/admin.php:638
+#: includes/admin.php:1395
+msgid "Invalid Capabilities"
+msgstr "無効な能力"
+
+#: includes/admin.php:643
+msgid "Additional"
+msgstr "追加"
+
+#: includes/admin.php:677
+#, php-format
+msgid "Term %s Capabilities"
+msgstr "用語 %s の機能"
+
+#: includes/admin.php:680
+#, php-format
+msgid "%s Capabilities"
+msgstr "%s 機能"
+
+#: includes/admin.php:681
+#, php-format
+msgid "Post %s Capabilities"
+msgstr "投稿 %s の機能"
+
+#: includes/admin.php:684
+msgid "Taxonomy"
+msgstr "タクソノミー"
+
+#: includes/admin.php:690
+msgid "Filter by taxonomy"
+msgstr "分類でフィルタ"
+
+#: includes/admin.php:690
+msgid "Filter by post type"
+msgstr "投稿タイプによるフィルタリング"
+
+#: includes/admin.php:811
+#: includes/pp-ui.php:263
+#: includes/pp-ui.php:342
+#, php-format
+msgid "The slug for this taxonomy is %s"
+msgstr "この分類法のスラッグは %s です"
+
+#: includes/admin.php:813
+#: includes/pp-ui.php:163
+#, php-format
+msgid "The slug for this post type is %s"
+msgstr "この投稿タイプのスラッグは %s です"
+
+#: includes/admin.php:889
+#: includes/admin.php:1138
+#: includes/admin.php:1316
+#: includes/admin.php:1586
+#: includes/admin.php:1587
+#, php-format
+msgid "%s: assigned by Permission Group"
+msgstr "%s: 権限グループによって割り当てられました"
+
+#: includes/admin.php:892
+#: includes/admin.php:1140
+#: includes/admin.php:1318
+#: includes/admin.php:1443
+#: includes/admin.php:1589
+#, php-format
+msgid "This capability is %s"
+msgstr "この権限は %s です"
+
+#: includes/admin.php:922
+#, php-format
+msgid "This capability is controlled by %s"
+msgstr "この機能は%sによって制御されています"
+
+#: includes/admin.php:925
+#, php-format
+msgid ""
+"This capability is controlled by %s Use the sidebar settings to allow this "
+"to be controlled independently."
+msgstr "この機能は%sによって制御されています サイドバーの設定を使用して、これを独立して制御できるようにしてください。"
+
+#: includes/admin.php:942
+msgid "Use the sidebar settings to allow this to be controlled independently."
+msgstr "サイドバー設定を使用して、これを独立して制御できるようにします。"
+
+#: includes/admin.php:944
+#: includes/admin.php:948
+msgid "This capability is not available for this post type."
+msgstr "この投稿タイプではこの機能は利用できません。"
+
+#: includes/admin.php:1012
+msgid ""
+"Admin listing access is normally provided by the \"Edit\" capabilities. "
+"These \"List\" capabilities only apply if the corresponding \"Edit\" "
+"capability is missing. Also, these \"List\" capabilities can grant access, "
+"but not deny access."
+msgstr ""
+"管理者リストアクセスは通常「編集」機能によって提供されます。これらの「リスト」機能は、対応する「編集」機能がない場合にのみ適用されます。また、これらの「"
+"リスト」機能はアクセスを許可できますが、アクセスを拒否することはできません。"
+
+#: includes/admin.php:1089
+#: includes/admin.php:1208
+#: includes/admin.php:1267
+#: includes/admin.php:1511
+msgid "Filter by capability"
+msgstr "機能によるフィルタリング"
+
+#: includes/admin.php:1092
+#: includes/admin.php:1211
+#: includes/admin.php:1270
+#: includes/admin.php:1514
+msgid "No results found. Please try again with a different word."
+msgstr "結果が見つかりませんでした。別の単語で再試行してください。"
+
+#: includes/admin.php:1103
+#: includes/admin.php:1185
+#: includes/admin.php:1222
+#: includes/admin.php:1231
+#: includes/admin.php:1281
+#: includes/admin.php:1377
+#: includes/admin.php:1520
+#: includes/admin.php:1660
+msgid "check / uncheck all"
+msgstr "すべてをチェック / チェック解除"
+
+#: includes/admin.php:1103
+#: includes/admin.php:1185
+#: includes/admin.php:1222
+#: includes/admin.php:1231
+#: includes/admin.php:1281
+#: includes/admin.php:1377
+#: includes/admin.php:1520
+#: includes/admin.php:1660
+msgid "Capability Name"
+msgstr "機能名"
+
+#: includes/admin.php:1205
+msgid "WordPress Core Capabilities"
+msgstr "WordPressコア機能"
+
+#: includes/admin.php:1264
+#, php-format
+msgid "Plugin Capabilities &ndash; %s"
+msgstr "プラグインの機能 &ndash; %s"
+
+#: includes/admin.php:1322
+#, php-format
+msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
+msgstr "ユーザーテスト機能には、 %1$s edit_users %2$s 権限も必要です。"
+
+#: includes/admin.php:1400
+msgid ""
+"The following entries have no effect. Please assign desired capabilities on "
+"the Editing / Deletion / Private tabs."
+msgstr "以下のエントリには効果がありません。編集/削除/プライベートタブで希望の権限を割り当ててください。"
+
+#: includes/admin.php:1508
+msgid "Additional Capabilities"
+msgstr "追加機能"
+
+#: includes/admin.php:1653
+msgid "You have no additional capabilities."
+msgstr "追加の機能はありません。"
+
+#: includes/admin.php:1677
+msgid "Capabilities allows you change the permissions for any user role."
+msgstr "能力は、任意のユーザー役割の権限を変更することを許可します。"
+
+#: includes/admin.php:1678
+#, php-format
+msgid "%1$s = Capability granted %2$s"
+msgstr "%1$s = 機能が付与されました %2$s"
+
+#: includes/admin.php:1678
+#: includes/admin.php:1679
+#: includes/admin.php:1680
+#: includes/features/admin-features.php:346
+#: includes/features/admin-features.php:348
+#: includes/features/editor-features.php:240
+#: includes/features/editor-features.php:242
+#: includes/features/frontend-features/frontend-features.php:249
+#: includes/features/frontend-features/frontend-features.php:251
+#: includes/features/nav-menus.php:303
+#: includes/features/nav-menus.php:305
+#: includes/features/profile-features.php:251
+#: includes/features/profile-features.php:253
+msgid "usage key"
+msgstr "使用キー"
+
+#: includes/admin.php:1679
+#, php-format
+msgid "%1$s = Capability not granted %2$s"
+msgstr "%1$s = 機能が付与されていません %2$s"
+
+#: includes/admin.php:1680
+#, php-format
+msgid "%1$s = Capability denied, even if granted by another role %2$s"
+msgstr "%1$s = 他の役割 %2$s によって付与されても、機能が拒否されました"
+
+#: includes/admin.php:1688
+#, php-format
+msgid "You can also configure this role as a %sPermission Group%s."
+msgstr "この役割を%s権限グループ%sとして構成することもできます。"
+
+#: includes/admin.php:1708
+msgid "How to use Capabilities"
+msgstr "機能の使い方"
+
+#: includes/admin.php:1722
+#: includes/features/admin-features.php:351
+#: includes/features/admin-styles/admin-styles-ui.php:627
+#: includes/features/editor-features.php:245
+#: includes/features/frontend-features/frontend-features.php:254
+#: includes/features/nav-menus.php:308
+#: includes/features/profile-features.php:256
+#: includes/redirects/redirects.php:335
+msgid "View Documentation"
+msgstr "ドキュメントを見る"
+
+#: includes/admin.php:1746
+msgid "Capabilities is Safe to Use"
+msgstr "機能は安全に使用できます"
+
+#: includes/admin.php:1759
+msgid ""
+"WordPress stores role capabilities in your database, where they remain even "
+"if the plugin is deactivated."
+msgstr "WordPressは、役割の能力をデータベースに保存し、プラグインが無効化されても残ります。"
+
+#: includes/admin.php:1760
+msgid ""
+"Whenever you use PublishPress Capabilities to save changes, it also creates "
+"a backup which you can use to restore a previous configuration."
+msgstr "PublishPress Capabilitiesを使用して変更を保存するたびに、以前の設定を復元するために使用できるバックアップも作成されます。"
+
+#: includes/admin.php:1763
+msgid "Go to the Backup feature"
+msgstr "バックアップ機能に移動"
+
+#: includes/admin.php:1782
+msgid "Add a New Capability"
+msgstr "新しい機能を追加"
+
+#: includes/admin.php:1792
+msgid "Add to role"
+msgstr "役割に追加"
+
+#: includes/admin.php:1795
+msgid "New capabilities are controlled on the Additonal tab."
+msgstr "新しい機能は追加タブで管理されます。"
+
+#: includes/admin.php:1851
+msgid "PublishPress Permissions"
+msgstr "PublishPress パーミッション"
+
+#: includes/admin.php:1853
+msgid ""
+"Automatically define type-specific capabilities for your custom post types "
+"and taxonomies"
+msgstr "カスタム投稿タイプとタクソノミーのために、タイプ固有の機能を自動的に定義します"
+
+#: includes/admin.php:1857
+msgid "Assign standard WP roles supplementally for a specific post type"
+msgstr "特定の投稿タイプのために標準WPロールを補足的に割り当てる"
+
+#: includes/admin.php:1861
+msgid ""
+"Assign custom WP roles supplementally for a specific post type "
+"<em>(Pro)</em>"
+msgstr "特定の投稿タイプのためにカスタムWPロールを補足的に割り当てる <em>(Pro)</em>"
+
+#: includes/admin.php:1865
+msgid "Customize reading permissions per-category or per-post"
+msgstr "カテゴリまたは投稿ごとの閲覧権限をカスタマイズ"
+
+#: includes/admin.php:1869
+msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
+msgstr "カテゴリまたは投稿ごとの編集権限をカスタマイズ <em>(Pro)</em>"
+
+#: includes/admin.php:1873
+msgid ""
+"Custom Post Visibility statuses, fully implemented throughout wp-admin "
+"<em>(Pro)</em>"
+msgstr "完全にwp-admin全体に実装されたカスタム投稿可視性ステータス <em>(Pro)</em>"
+
+#: includes/admin.php:1877
+msgid ""
+"Custom Moderation statuses for access-controlled, multi-step publishing "
+"workflow <em>(Pro)</em>"
+msgstr "アクセス制御された多段階公開ワークフローのためのカスタムモデレーションステータス <em>(Pro)</em>"
+
+#: includes/admin.php:1881
+msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
+msgstr "編集フローの投稿ステータスの権限を規制する <em>(Pro)</em>"
+
+#: includes/admin.php:1885
+msgid ""
+"Customize the moderated editing of published content with Revisionary or "
+"Post Forking <em>(Pro)</em>"
+msgstr "リビジョナリーまたは投稿フォークを使用して公開コンテンツのモデレートされた編集をカスタマイズ <em>(Pro)</em>"
+
+#: includes/admin.php:1889
+msgid ""
+"Grant Spectator, Participant or Moderator access to specific bbPress forums "
+"<em>(Pro)</em>"
+msgstr "特定のbbPressフォーラムに観覧者、参加者、またはモデレーターのアクセスを付与する<em>(Pro)</em>"
+
+#: includes/admin.php:1893
+msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
+msgstr "BuddyPressグループに補足コンテンツの権限を付与する<em>(Pro)</em>"
+
+#: includes/admin.php:1897
+msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
+msgstr "WPML統合による翻訳への権限のミラーリング<em>(Pro)</em>"
+
+#: includes/admin.php:1901
+msgid "Member support forum"
+msgstr "メンバーサポートフォーラム"
+
+#: includes/admin.php:1908
+#, php-format
+msgid "%1$sgrab%2$s %3$s"
+msgstr "%1$s取得%2$s %3$s"
+
+#: includes/admin.php:1908
+#, php-format
+msgid "%s (free install)"
+msgstr "%s (無料インストール)"
+
+#: includes/admin.php:1910
+#, php-format
+msgid "%1$sbuy%2$s %3$s"
+msgstr "%1$s購入%2$s %3$s"
+
+#: includes/admin.php:1910
+#, php-format
+msgid "%s info/purchase"
+msgstr "%s 情報/購入"
+
+#: includes/admin.php:1942
+msgid ""
+"Role level is mostly deprecated. However, it still determines eligibility "
+"for Post Author assignment and limits the application of user editing "
+"capabilities."
+msgstr "役割レベルは主に非推奨ですが、投稿作成者の割り当ての資格を決定し、ユーザー編集機能の適用を制限します。"
+
+#: includes/admin.php:1944
+msgid "Level:"
+msgstr "レベル:"
+
+#: includes/admin.php:1987
+msgid "Create this role definition in new (future) sites"
+msgstr "新しい（将来の）サイトにこの役割定義を作成する"
+
+#: includes/admin.php:1987
+msgid "Include in new sites."
+msgstr "新しいサイトに含める。"
+
+#: includes/admin.php:1990
+msgid "Copy / update this role definition to all sites now"
+msgstr "この役割定義をすべてのサイトにコピー / 更新します"
+
+#: includes/admin.php:1990
+msgid "Sync role to all sites."
+msgstr "すべてのサイトに役割を同期します。"
+
+#: includes/admin.php:1993
+msgid "Copy option settings to all sites now"
+msgstr "すべてのサイトにオプション設定をコピーする"
+
+#: includes/admin.php:1993
+msgid "Sync options to all sites."
+msgstr "すべてのサイトにオプションを同期します。"
+
+#: includes/backup-handler.php:15
+msgid "You do not have permission to restore backup."
+msgstr "バックアップを復元する権限がありません。"
+
+#: includes/backup-handler.php:73
+msgid "New backup saved."
+msgstr "新しいバックアップが保存されました。"
+
+#: includes/backup-handler.php:90
+msgid "Roles and Capabilities restored from initial backup."
+msgstr "役割と機能が初期バックアップから復元されました。"
+
+#: includes/backup-handler.php:92
+#: includes/backup-handler.php:121
+#: includes/backup-handler.php:130
+msgid "Restore failed. No backup found."
+msgstr "復元に失敗しました。バックアップが見つかりません。"
+
+#: includes/backup-handler.php:119
+#, php-format
+msgid "%s restored from last backup."
+msgstr "%sは最後のバックアップから復元されました。"
+
+#: includes/backup-handler.php:128
+msgid "Roles and Capabilities restored from selected auto-backup."
+msgstr "役割と機能が選択した自動バックアップから復元されました。"
+
+#: includes/backup-handler.php:140
+msgid "Please upload a file to import"
+msgstr "インポートするファイルをアップロードしてください"
+
+#: includes/backup-handler.php:145
+msgid "Please upload a valid .json file"
+msgstr "有効な.jsonファイルをアップロードしてください"
+
+#: includes/backup-handler.php:165
+msgid "Error importing settings! Please try again."
+msgstr "設定のインポート中にエラーが発生しました！ もう一度お試しください。"
+
+#: includes/backup-handler.php:178
+msgid "Error importing settings! Please check that you uploaded a valid json file."
+msgstr "設定のインポート中にエラーが発生しました！ 有効なjsonファイルをアップロードしたか確認してください。"
+
+#: includes/backup-handler.php:199
+#, php-format
+msgid "%s successfully imported from uploaded data."
+msgstr "%sがアップロードされたデータから正常にインポートされました。"
+
+#: includes/backup-handler.php:274
+msgid "Needed function to create default roles not found!"
+msgstr "デフォルトの役割を作成するための必要な機能が見つかりません！"
+
+#: includes/backup-handler.php:293
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "役割と機能がWordPressのデフォルトにリセットされました"
+
+#: includes/backup.php:41
+msgid "Backup Tool for PublishPress Capabilities"
+msgstr "PublishPress機能のバックアップツール"
+
+#: includes/backup.php:50
+msgid "Restore"
+msgstr "復元"
+
+#: includes/backup.php:51
+#: includes/functions-admin.php:527
+msgid "Backup"
+msgstr "バックアップ"
+
+#: includes/backup.php:52
+msgid "Reset Roles"
+msgstr "ロールをリセット"
+
+#: includes/backup.php:53
+msgid "Export / Import"
+msgstr "エクスポート / インポート"
+
+#: includes/backup.php:62
+msgid "Backup Roles and Capabilities"
+msgstr "ロールと機能のバックアップ"
+
+#: includes/backup.php:67
+#, php-format
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes. The initial backup and last %d auto-backups "
+"are kept."
+msgstr ""
+"PublishPress 機能は、インストール時および変更を保存するたびに自動的にバックアップを作成します。初回のバックアップと最後の %d "
+"自動バックアップが保持されます。"
+
+#: includes/backup.php:69
+msgid ""
+"A backup created on this screen replaces any previous manual backups, but "
+"is never automatically replaced."
+msgstr "この画面で作成されたバックアップは以前の手動バックアップを置き換えますが、自動的に置き換えられることはありません。"
+
+#: includes/backup.php:74
+msgid "Manual Backup"
+msgstr "手動バックアップ"
+
+#: includes/backup.php:84
+#, php-format
+msgid "Last Manual Backup - %s"
+msgstr "最終手動バックアップ - %s"
+
+#: includes/backup.php:84
+msgid "Last Backup"
+msgstr "最終バックアップ"
+
+#: includes/backup.php:88
+msgid "Restore Previous Roles and Capabilities"
+msgstr "以前のロールと権限を復元"
+
+#: includes/backup.php:91
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes."
+msgstr "PublishPress 機能は、インストール時および変更を保存するたびに自動的にバックアップを作成します。"
+
+#: includes/backup.php:92
+msgid ""
+"On this screen, you can restore an earlier version of your roles and "
+"capabilities."
+msgstr "この画面では、以前の役割と機能のバージョンを復元できます。"
+
+#: includes/backup.php:95
+msgid "Available Backups:"
+msgstr "利用可能なバックアップ："
+
+#: includes/backup.php:111
+msgid "all roles"
+msgstr "すべてのロール"
+
+#: includes/backup.php:116
+#, php-format
+msgid "Manual backup of %s (%s)"
+msgstr "手動バックアップ %s (%s)"
+
+#: includes/backup.php:131
+#, php-format
+msgid "Auto-backup of all roles (%s)"
+msgstr "すべてのロールの自動バックアップ (%s)"
+
+#: includes/backup.php:139
+msgid "Initial backup of all roles"
+msgstr "すべてのロールの初期バックアップ"
+
+#: includes/backup.php:148
+msgid "Restore Selected Roles"
+msgstr "選択したロールを復元"
+
+#: includes/backup.php:157
+msgid "Show changes from current roles only"
+msgstr "現在のロールからの変更のみ表示"
+
+#: includes/backup.php:164
+#, php-format
+msgid "Initial Backup - %s"
+msgstr "初期バックアップ - %s"
+
+#: includes/backup.php:164
+msgid "Initial Backup"
+msgstr "初期バックアップ"
+
+#: includes/backup.php:191
+#, php-format
+msgid "%s (%s roles)"
+msgstr "%s (%s の役割)"
+
+#: includes/backup.php:198
+msgid "(this role will be removed if you restore backup)"
+msgstr "(バックアップを復元するとこの役割は削除されます)"
+
+#: includes/backup.php:227
+#, php-format
+msgid "%s (level %s)"
+msgstr "%s (レベル %s)"
+
+#: includes/backup.php:267
+msgid "No changes"
+msgstr "変更はありません"
+
+#: includes/backup.php:283
+msgid "Reset WordPress Defaults"
+msgstr "WordPressのデフォルトをリセット"
+
+#: includes/backup.php:285
+#: includes/backup.php:332
+#: includes/features/profile-features.php:241
+msgid "Warning:"
+msgstr "警告："
+
+#: includes/backup.php:285
+msgid ""
+"Reseting default Roles and Capabilities will set them to the WordPress "
+"install defaults."
+msgstr "デフォルトのロールと権限をリセットすると、WordPressのインストールデフォルトに設定されます。"
+
+#: includes/backup.php:287
+msgid ""
+"If you have installed any plugin that adds new roles or capabilities, these "
+"will be lost."
+msgstr "新しい役割または機能を追加するプラグインをインストールした場合、これらは失われます。"
+
+#: includes/backup.php:288
+msgid "It is recommended to use this only as a last resource!"
+msgstr "これは最後の手段としてのみ使用することをお勧めします！"
+
+#: includes/backup.php:291
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "ロールと権限をWordPressのデフォルトにリセット"
+
+#: includes/backup.php:293
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"役割と能力をWordPressのデフォルトにリセットしようとしています。 \n"
+"'キャンセル'で停止、'OK'でリセットします。"
+
+#: includes/backup.php:293
+msgid "Reset to WordPress defaults"
+msgstr "WordPressのデフォルトにリセット"
+
+#: includes/backup.php:301
+msgid "Export Settings"
+msgstr "設定のエクスポート"
+
+#: includes/backup.php:303
+msgid ""
+"Export the plugin settings for this site as a .json file. This allows you "
+"to easily import the configuration into another site."
+msgstr "このサイトのプラグイン設定を.jsonファイルとしてエクスポートします。これにより、別のサイトに設定を簡単にインポートできます。"
+
+#: includes/backup.php:308
+msgid "Roles and Capabilities"
+msgstr "役割と機能"
+
+#: includes/backup.php:325
+msgid "Export"
+msgstr "エクスポート"
+
+#: includes/backup.php:331
+msgid "Import Settings"
+msgstr "設定のインポート"
+
+#: includes/backup.php:332
+msgid ""
+"Please make a 'Manual Backup' in the backup tab to enable backup restore in "
+"case anything goes wrong."
+msgstr "何か問題が発生した場合に備えて、バックアップタブで「手動バックアップ」を作成してバックアップの復元を有効にしてください。"
+
+#: includes/backup.php:333
+msgid ""
+"Import the plugin settings from a .json file. This file can be obtained by "
+"exporting the settings on another site using the form above."
+msgstr "プラグイン設定を.jsonファイルからインポートします。このファイルは、上記のフォームを使用して他のサイトで設定をエクスポートすることで取得できます。"
+
+#: includes/backup.php:334
+msgid ""
+"Before importing, we recommend using the \"Backup\" tab to create a backup "
+"of your current settings."
+msgstr "インポートする前に、\"バックアップ\"タブを使用して現在の設定のバックアップを作成することをお勧めします。"
+
+#: includes/features/admin-features.php:46
+msgid "Admin Feature Restrictions"
+msgstr "管理者機能制限"
+
+#: includes/features/admin-features.php:174
+#: includes/features/nav-menus.php:127
+#: includes/features/nav-menus.php:147
+#: includes/features/profile-features.php:106
+#: includes/features/profile-features.php:125
+msgid "Toggle all"
+msgstr "すべて切り替え"
+
+#: includes/features/admin-features.php:249
+msgid "Wildcard enabled"
+msgstr "ワイルドカード有効"
+
+#: includes/features/admin-features.php:251
+msgid "URL targeted"
+msgstr "ターゲットURL"
+
+#: includes/features/admin-features.php:253
+msgid "URL wildcard"
+msgstr "URLワイルドカード"
+
+#: includes/features/admin-features.php:276
+#: includes/features/editor-features-classic.php:123
+#: includes/features/editor-features-gutenberg.php:120
+msgid "Edit"
+msgstr "編集"
+
+#: includes/features/admin-features.php:344
+#: includes/functions-admin.php:390
+msgid ""
+"Admin Features allows you to remove elements from the admin area and "
+"toolbar."
+msgstr "管理者機能を使用すると、管理エリアやツールバーから要素を削除できます。"
+
+#: includes/features/admin-features.php:347
+#: includes/features/editor-features.php:241
+#: includes/features/frontend-features/frontend-features.php:250
+#: includes/features/nav-menus.php:304
+#: includes/features/profile-features.php:252
+msgid "No change"
+msgstr "変更なし"
+
+#: includes/features/admin-features.php:349
+#: includes/features/editor-features.php:243
+#: includes/features/nav-menus.php:306
+#: includes/features/profile-features.php:254
+msgid "This feature is denied"
+msgstr "この機能は拒否されています"
+
+#: includes/features/admin-features.php:352
+msgid "How to use Admin Features"
+msgstr "管理者機能の使い方"
+
+#: includes/features/admin-features.php:356
+msgid "Admin Features Settings"
+msgstr "管理者機能設定"
+
+#: includes/features/admin-features.php:359
+msgid "Hide Submenus"
+msgstr "サブメニューを隠す"
+
+#: includes/features/admin-styles/admin-styles-ui.php:61
+#, php-format
+msgid "Custom style \"%s\" saved successfully."
+msgstr "カスタムスタイル \"%s\" が正常に保存されました。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:70
+#, php-format
+msgid "Custom style \"%s\" deleted successfully."
+msgstr "カスタムスタイル \"%s\" が正常に削除されました。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:79
+msgid "Custom style name cannot be empty."
+msgstr "カスタムスタイル名は空白にできません。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:88
+msgid "Admin styles saved successfully."
+msgstr "管理者スタイルが正常に保存されました。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:95
+#: includes/functions-admin.php:221
+#: includes/functions-admin.php:394
+#: includes/functions-admin.php:483
+msgid "Admin Styles"
+msgstr "管理スタイル"
+
+#: includes/features/admin-styles/admin-styles-ui.php:135
+#: includes/features/admin-styles/admin-styles-ui.php:601
+#: includes/redirects/redirects.php:117
+#: includes/redirects/redirects.php:320
+msgid "Save for all Roles"
+msgstr "すべての役割のために保存"
+
+#: includes/features/admin-styles/admin-styles-ui.php:139
+#: includes/features/admin-styles/admin-styles-ui.php:605
+#: includes/features/admin-styles/admin-styles.php:771
+#, php-format
+msgid "Save for %s"
+msgstr "%sのために保存"
+
+#: includes/features/admin-styles/admin-styles-ui.php:157
+msgid "Setting"
+msgstr "設定"
+
+#: includes/features/admin-styles/admin-styles-ui.php:160
+msgid "Value"
+msgstr "値"
+
+#: includes/features/admin-styles/admin-styles-ui.php:169
+msgid "Admin Color Scheme"
+msgstr "管理者カラースキーム"
+
+#: includes/features/admin-styles/admin-styles-ui.php:172
+msgid ""
+"Sets the admin color scheme for all users. Click a scheme to preview it "
+"instantly."
+msgstr "すべてのユーザーの管理者カラースキームを設定します。スキームをクリックすると、すぐにプレビューできます。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:176
+msgid "Start from template"
+msgstr "テンプレートから開始"
+
+#: includes/features/admin-styles/admin-styles-ui.php:180
+msgid "Blank Template"
+msgstr "空白のテンプレート"
+
+#: includes/features/admin-styles/admin-styles-ui.php:190
+msgid "Add Custom Style"
+msgstr "カスタムスタイルを追加"
+
+#: includes/features/admin-styles/admin-styles-ui.php:220
+msgid "Edit custom style"
+msgstr "カスタムスタイルを編集"
+
+#: includes/features/admin-styles/admin-styles-ui.php:268
+msgid "Edit Color Style"
+msgstr "カラー スタイルを編集"
+
+#: includes/features/admin-styles/admin-styles-ui.php:271
+msgid ""
+"Customize colors for different admin elements. Changes are previewed "
+"instantly."
+msgstr "異なる管理要素の色をカスタマイズします。変更は即座にプレビューされます。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:302
+msgid ""
+"Add more than one custom admin styles. This feature is available in "
+"PublishPress Capabilities Pro."
+msgstr "1つ以上のカスタム管理スタイルを追加します。この機能はPublishPress Capabilities Proで利用可能です。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:326
+msgid ""
+"Add CSS selectors (class or ID), choose a style variation, and set a brand "
+"color."
+msgstr "CSS セレクター (クラスまたは ID) を追加し、スタイルのバリエーションを選択し、ブランドカラーを設定します。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:332
+msgid "Add New Element"
+msgstr "新しい要素を追加"
+
+#: includes/features/admin-styles/admin-styles-ui.php:338
+msgid "Selector"
+msgstr "セレクター"
+
+#: includes/features/admin-styles/admin-styles-ui.php:342
+msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
+msgstr "例: .publishpress-wrap h1, #my-plugin-header"
+
+#: includes/features/admin-styles/admin-styles-ui.php:345
+msgid "Variation"
+msgstr "バリエーション"
+
+#: includes/features/admin-styles/admin-styles-ui.php:348
+msgid "Background"
+msgstr "背景"
+
+#: includes/features/admin-styles/admin-styles-ui.php:349
+msgid "Text"
+msgstr "テキスト"
+
+#: includes/features/admin-styles/admin-styles-ui.php:350
+msgid "Border"
+msgstr "ボーダー"
+
+#: includes/features/admin-styles/admin-styles-ui.php:354
+msgid "Brand Color"
+msgstr "ブランドカラー"
+
+#: includes/features/admin-styles/admin-styles-ui.php:364
+#: includes/features/admin-styles/admin-styles-ui.php:479
+#: includes/features/admin-styles/admin-styles-ui.php:515
+msgid "Remove"
+msgstr "削除"
+
+#: includes/features/admin-styles/admin-styles-ui.php:380
+#: includes/features/admin-styles/admin-styles.php:787
+msgid "Custom Style Name"
+msgstr "カスタムスタイル名"
+
+#: includes/features/admin-styles/admin-styles-ui.php:388
+msgid "e.g., Company Branding, Dark Mode"
+msgstr "例: 会社のブランディング、ダークモード"
+
+#: includes/features/admin-styles/admin-styles-ui.php:424
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: includes/features/admin-styles/admin-styles-ui.php:430
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "Delete Custom Style"
+msgstr "カスタムスタイルを削除"
+
+#: includes/features/admin-styles/admin-styles-ui.php:434
+#, php-format
+msgid "Are you sure you want to delete this %1s? %2s %3s"
+msgstr "この %1s を削除してもよろしいですか? %2s %3s"
+
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "Custom Style"
+msgstr "カスタムスタイル"
+
+#: includes/features/admin-styles/admin-styles-ui.php:440
+msgid "Save Custom Style"
+msgstr "カスタムスタイルを保存"
+
+#: includes/features/admin-styles/admin-styles-ui.php:454
+msgid "Custom Admin Logo"
+msgstr "カスタム管理者ロゴ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:457
+msgid ""
+"Upload a custom logo to replace the WordPress icon in the admin bar. "
+"Recommended: 20px by 20px in SVG or PNG format."
+msgstr ""
+"管理バーの WordPress アイコンを置き換えるカスタムロゴをアップロードしてください。推奨サイズ: 20px x 20px の SVG または "
+"PNG 形式。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:474
+#: includes/features/admin-styles/admin-styles-ui.php:510
+#: includes/features/admin-styles/admin-styles.php:767
+msgid "Select Image"
+msgstr "画像を選択"
+
+#: includes/features/admin-styles/admin-styles-ui.php:489
+msgid "Custom Favicon"
+msgstr "カスタムファビコン"
+
+#: includes/features/admin-styles/admin-styles-ui.php:492
+msgid ""
+"Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
+"32px by 32px in SVG or PNG format."
+msgstr ""
+"管理エリア用にカスタムファビコンをアップロードしてください。推奨サイズ: 16px x 16px または 32px x 32px の SVG または "
+"PNG 形式。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:524
+msgid "Admin Footer Text"
+msgstr "管理者フッターのテキスト"
+
+#: includes/features/admin-styles/admin-styles-ui.php:527
+msgid ""
+"Replace the default \"Thanks for creating with WordPress\" message in the "
+"admin footer."
+msgstr "管理フッターのデフォルトの「WordPressでの作成に感謝します」というメッセージを置き換えます。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:541
+msgid "Replace \"Howdy\""
+msgstr "「Howdy」を置き換える"
+
+#: includes/features/admin-styles/admin-styles-ui.php:544
+msgid "Replace \"Howdy\" in the admin bar."
+msgstr "管理バーの「Howdy」を置き換える。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:557
+msgid "Control Settings"
+msgstr "制御設定"
+
+#: includes/features/admin-styles/admin-styles-ui.php:559
+msgid "Control how admin styles are applied to users."
+msgstr "管理者スタイルがユーザーに適用される方法を制御します。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:568
+msgid "Hide Admin Color Scheme settings in user profile"
+msgstr "ユーザープロフィールで管理者カラースキーム設定を非表示にする"
+
+#: includes/features/admin-styles/admin-styles-ui.php:570
+msgid ""
+"When enabled, users cannot see or change color scheme settings in their "
+"profile. Role-based settings will be applied."
+msgstr "有効にすると、ユーザーは自分のプロフィールで色のスキーム設定を表示したり変更したりできません。ロールベースの設定が適用されます。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:578
+msgid "Force role settings (override user selection)"
+msgstr "役割設定を強制する（ユーザーの選択を上書き）"
+
+#: includes/features/admin-styles/admin-styles-ui.php:580
+msgid ""
+"When enabled, role settings will always apply, overriding any user "
+"selection even if the color scheme UI is visible to them."
+msgstr "有効にすると、ロール設定が常に適用され、色のスキームUIが見えていてもユーザーの選択を上書きします。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:618
+msgid ""
+"Admin Styles allows you to customize the WordPress admin area with your own "
+"branding."
+msgstr "管理スタイルでは、独自のブランディングでWordPressの管理エリアをカスタマイズできます。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:620
+msgid "Features include:"
+msgstr "機能には以下が含まれます："
+
+#: includes/features/admin-styles/admin-styles-ui.php:622
+msgid "Custom admin color schemes"
+msgstr "カスタム管理者カラースキーム"
+
+#: includes/features/admin-styles/admin-styles-ui.php:623
+msgid "Replace the WordPress logo and favicon"
+msgstr "WordPressロゴとファビコンを置き換える"
+
+#: includes/features/admin-styles/admin-styles-ui.php:624
+msgid "Custom footer text"
+msgstr "カスタムフッターテキスト"
+
+#: includes/features/admin-styles/admin-styles-ui.php:625
+msgid "Replace \"Howdy\" text"
+msgstr "「Howdy」テキストを置き換える"
+
+#: includes/features/admin-styles/admin-styles-ui.php:628
+msgid "How to use Admin Styles"
+msgstr "管理者スタイルの使い方"
+
+#: includes/features/admin-styles/admin-styles.php:454
+msgid "Security check failed."
+msgstr "セキュリティチェックに失敗しました。"
+
+#: includes/features/admin-styles/admin-styles.php:459
+#: includes/manager.php:741
+msgid "You do not have permission to manage admin styles."
+msgstr "管理スタイルを管理する権限がありません。"
+
+#: includes/features/admin-styles/admin-styles.php:522
+msgid "No role specified."
+msgstr "指定された役割がありません。"
+
+#: includes/features/admin-styles/admin-styles.php:768
+msgid "Use this Image"
+msgstr "この画像を使用"
+
+#: includes/features/admin-styles/admin-styles.php:769
+msgid "Saving..."
+msgstr "保存中..."
+
+#: includes/features/admin-styles/admin-styles.php:770
+msgid "Settings saved."
+msgstr "設定が保存されました。"
+
+#: includes/features/admin-styles/admin-styles.php:772
+msgid "Current logo preview"
+msgstr "現在のロゴプレビュー"
+
+#: includes/features/admin-styles/admin-styles.php:773
+msgid "Add New Custom Style"
+msgstr "新しいカスタムスタイルを追加"
+
+#: includes/features/admin-styles/admin-styles.php:774
+msgid "Edit Custom Style"
+msgstr "カスタムスタイルを編集"
+
+#: includes/features/admin-styles/admin-styles.php:775
+#, php-format
+msgid "Are you sure you want to delete \"%s\" custom style?"
+msgstr "\"%s\" カスタムスタイルを削除してもよろしいですか?"
+
+#: includes/features/admin-styles/admin-styles.php:776
+msgid "this custom style"
+msgstr "このカスタムスタイル"
+
+#: includes/features/admin-styles/admin-styles.php:777
+msgid "Primary Button"
+msgstr "プライマリボタン"
+
+#: includes/features/admin-styles/admin-styles.php:778
+msgid "Hover State"
+msgstr "ホバー状態"
+
+#: includes/features/admin-styles/admin-styles.php:779
+msgid "Notification"
+msgstr "通知"
+
+#: includes/features/admin-styles/admin-styles.php:780
+msgid "Live preview of your custom color scheme"
+msgstr "カスタムカラースキームのライブプレビュー"
+
+#: includes/features/admin-styles/admin-styles.php:781
+msgid "Custom Style Name is required."
+msgstr "カスタムスタイル名は必須です。"
+
+#: includes/features/admin-styles/admin-styles.php:782
+msgid "Main Admin Color is required."
+msgstr "メイン管理者カラーは必須です。"
+
+#: includes/features/admin-styles/admin-styles.php:783
+msgid "PublishPress Custom"
+msgstr "PublishPress カスタム"
+
+#: includes/features/admin-styles/admin-styles.php:784
+msgid "Display Name"
+msgstr "表示名"
+
+#: includes/features/admin-styles/admin-styles.php:785
+msgid "Change how this style is displayed"
+msgstr "このスタイルの表示方法を変更"
+
+#: includes/features/admin-styles/admin-styles.php:786
+msgid "Enter a name for your custom style"
+msgstr "カスタムスタイルの名前を入力してください"
+
+#: includes/features/admin-styles/admin-styles.php:800
+msgid "Forest"
+msgstr "フォレスト"
+
+#: includes/features/admin-styles/admin-styles.php:817
+msgid "Mint Breeze"
+msgstr "ミントブリーズ"
+
+#: includes/features/admin-styles/admin-styles.php:834
+msgid "Cherry"
+msgstr "チェリー"
+
+#: includes/features/admin-styles/admin-styles.php:851
+msgid "Graphite"
+msgstr "グラファイト"
+
+#: includes/features/admin-styles/admin-styles.php:868
+msgid "Midnight Teal"
+msgstr "ミッドナイトティール"
+
+#: includes/features/admin-styles/admin-styles.php:885
+msgid "Sunrise"
+msgstr "サンライズ"
+
+#: includes/features/admin-styles/admin-styles.php:902
+msgid "Desert Sand"
+msgstr "デザートサンド"
+
+#: includes/features/admin-styles/admin-styles.php:919
+msgid "Amber Glow"
+msgstr "アンバーグロー"
+
+#: includes/features/admin-styles/admin-styles.php:936
+msgid "Citrus"
+msgstr "シトラス"
+
+#: includes/features/admin-styles/admin-styles.php:953
+msgid "Ocean Deep"
+msgstr "オーシャンディープ"
+
+#: includes/features/admin-styles/admin-styles.php:970
+msgid "Sage"
+msgstr "セージ"
+
+#: includes/features/admin-styles/admin-styles.php:987
+msgid "Modern Slate"
+msgstr "モダンスレート"
+
+#: includes/features/admin-styles/admin-styles.php:1004
+msgid "Royal Plum"
+msgstr "ロイヤルプラム"
+
+#: includes/features/admin-styles/admin-styles.php:1021
+msgid "Nordic"
+msgstr "ノルディック"
+
+#: includes/features/admin-styles/admin-styles.php:1038
+msgid "Lagoon"
+msgstr "ラグーン"
+
+#: includes/features/admin-styles/admin-styles.php:1055
+msgid "Ink"
+msgstr "インク"
+
+#: includes/features/admin-styles/admin-styles.php:1072
+msgid "Orchid"
+msgstr "オーキッド"
+
+#: includes/features/admin-styles/admin-styles.php:1089
+msgid "Cobalt"
+msgstr "コバルト"
+
+#: includes/features/admin-styles/admin-styles.php:1106
+msgid "Stone"
+msgstr "ストーン"
+
+#: includes/features/admin-styles/admin-styles.php:1123
+msgid "Facebook Classic"
+msgstr "Facebook クラシック"
+
+#: includes/features/admin-styles/admin-styles.php:1140
+msgid "Twitter Classic"
+msgstr "Twitter クラシック"
+
+#: includes/features/admin-styles/admin-styles.php:1157
+msgid "Twitter Modern"
+msgstr "Twitter モダン"
+
+#: includes/features/admin-styles/admin-styles.php:1415
+#: includes/roles/class/class-pp-roles-admin.php:106
+msgid "General"
+msgstr "一般"
+
+#: includes/features/admin-styles/admin-styles.php:1416
+msgid "Main Admin Color settings"
+msgstr "メイン管理者の色設定"
+
+#: includes/features/admin-styles/admin-styles.php:1419
+msgid "Main Admin Color"
+msgstr "メイン管理者の色"
+
+#: includes/features/admin-styles/admin-styles.php:1420
+msgid "Primary brand color"
+msgstr "プライマリーブランドカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1423
+msgid "Text Color"
+msgstr "テキストカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1424
+msgid "Primary text color"
+msgstr "プライマリーテキストカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1427
+msgid "Highlight Color"
+msgstr "ハイライトカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1428
+msgid "Used for hovers and highlights"
+msgstr "ホバーやハイライトに使用"
+
+#: includes/features/admin-styles/admin-styles.php:1431
+msgid "Notification Color"
+msgstr "通知カラー"
+
+#: includes/features/admin-styles/admin-styles.php:1432
+msgid "Used for alerts and notifications"
+msgstr "アラートや通知に使用"
+
+#: includes/features/admin-styles/admin-styles.php:1435
+msgid "Background Color"
+msgstr "背景色"
+
+#: includes/features/admin-styles/admin-styles.php:1436
+msgid "Page background color"
+msgstr "ページの背景色"
+
+#: includes/features/admin-styles/admin-styles.php:1441
+msgid "Links"
+msgstr "リンク"
+
+#: includes/features/admin-styles/admin-styles.php:1442
+msgid "Link element colors"
+msgstr "リンク要素の色"
+
+#: includes/features/admin-styles/admin-styles.php:1445
+msgid "Default Link Color"
+msgstr "デフォルトリンクカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1446
+msgid "Standard link color"
+msgstr "標準リンクカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1449
+msgid "Link Hover Color"
+msgstr "リンクホバーカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1450
+msgid "Color on hover"
+msgstr "ホバー時の色"
+
+#: includes/features/admin-styles/admin-styles.php:1453
+msgid "Delete Link Color"
+msgstr "リンク削除カラー"
+
+#: includes/features/admin-styles/admin-styles.php:1454
+msgid "Color for delete/trash actions"
+msgstr "削除/ゴミ箱アクション用の色"
+
+#: includes/features/admin-styles/admin-styles.php:1457
+msgid "Trash Link Color"
+msgstr "ゴミ箱リンクカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1458
+msgid "Color for trash actions"
+msgstr "ゴミ箱アクション用の色"
+
+#: includes/features/admin-styles/admin-styles.php:1461
+msgid "Spam Link Color"
+msgstr "スパムリンクカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1462
+msgid "Color for spam actions"
+msgstr "スパムアクション用の色"
+
+#: includes/features/admin-styles/admin-styles.php:1465
+msgid "Inactive Link Color"
+msgstr "非アクティブリンクカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1466
+msgid "Color for inactive items"
+msgstr "非アクティブアイテム用の色"
+
+#: includes/features/admin-styles/admin-styles.php:1471
+msgid "Tables"
+msgstr "テーブル"
+
+#: includes/features/admin-styles/admin-styles.php:1472
+msgid "Table element colors"
+msgstr "テーブル要素の色"
+
+#: includes/features/admin-styles/admin-styles.php:1475
+msgid "Table Header Background"
+msgstr "テーブルヘッダーの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1479
+msgid "Table Header Text"
+msgstr "テーブルヘッダーのテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1483
+msgid "Table Row Background"
+msgstr "テーブル行の背景"
+
+#: includes/features/admin-styles/admin-styles.php:1487
+msgid "Table Row Text Color"
+msgstr "テーブル行のテキストカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1491
+msgid "Row Hover Background"
+msgstr "行ホバー背景"
+
+#: includes/features/admin-styles/admin-styles.php:1495
+msgid "Table Border Color"
+msgstr "テーブル境界線の色"
+
+#: includes/features/admin-styles/admin-styles.php:1499
+msgid "Alternate Row Background"
+msgstr "交互行背景"
+
+#: includes/features/admin-styles/admin-styles.php:1503
+msgid "Alternate Row Text Color"
+msgstr "交互行テキストの色"
+
+#: includes/features/admin-styles/admin-styles.php:1509
+msgid "Forms"
+msgstr "フォーム"
+
+#: includes/features/admin-styles/admin-styles.php:1510
+msgid "Form input colors"
+msgstr "フォーム入力の色"
+
+#: includes/features/admin-styles/admin-styles.php:1513
+msgid "Input Border Color"
+msgstr "入力境界線の色"
+
+#: includes/features/admin-styles/admin-styles.php:1517
+msgid "Input Focus Border"
+msgstr "入力フォーカス境界線"
+
+#: includes/features/admin-styles/admin-styles.php:1521
+msgid "Input Background Color"
+msgstr "入力背景色"
+
+#: includes/features/admin-styles/admin-styles.php:1525
+msgid "Input Text Color"
+msgstr "入力テキストの色"
+
+#: includes/features/admin-styles/admin-styles.php:1529
+msgid "Placeholder Text Color"
+msgstr "プレースホルダーテキストの色"
+
+#: includes/features/admin-styles/admin-styles.php:1535
+msgid "Buttons"
+msgstr "ボタン"
+
+#: includes/features/admin-styles/admin-styles.php:1536
+msgid "Button colors"
+msgstr "ボタンの色"
+
+#: includes/features/admin-styles/admin-styles.php:1539
+msgid "Primary Button Background"
+msgstr "プライマリーボタン背景"
+
+#: includes/features/admin-styles/admin-styles.php:1543
+msgid "Primary Button Text"
+msgstr "プライマリーボタンテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1547
+msgid "Primary Button Hover"
+msgstr "プライマリーボタンホバー"
+
+#: includes/features/admin-styles/admin-styles.php:1551
+msgid "Secondary Button Background"
+msgstr "セカンダリーボタン背景"
+
+#: includes/features/admin-styles/admin-styles.php:1555
+msgid "Secondary Button Text"
+msgstr "セカンダリーボタンテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1559
+msgid "Secondary Button Hover"
+msgstr "セカンダリーボタンホバー"
+
+#: includes/features/admin-styles/admin-styles.php:1565
+msgid "Admin Menu"
+msgstr "管理メニュー"
+
+#: includes/features/admin-styles/admin-styles.php:1566
+msgid "Admin menu colors"
+msgstr "管理メニューの色"
+
+#: includes/features/admin-styles/admin-styles.php:1569
+msgid "Menu Background"
+msgstr "メニューの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1573
+msgid "Menu Text Color"
+msgstr "メニューのテキストカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1577
+msgid "Menu Icon Color"
+msgstr "メニューアイコンの色"
+
+#: includes/features/admin-styles/admin-styles.php:1581
+msgid "Menu Hover Background"
+msgstr "メニューのホバー背景"
+
+#: includes/features/admin-styles/admin-styles.php:1585
+msgid "Menu Hover Text"
+msgstr "メニューのホバーテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1589
+msgid "Current Menu Background"
+msgstr "現在のメニューの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1593
+msgid "Current Menu Text"
+msgstr "現在のメニューのテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1597
+msgid "Submenu Background"
+msgstr "サブメニューの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1601
+msgid "Submenu Text Color"
+msgstr "サブメニューのテキストカラー"
+
+#: includes/features/admin-styles/admin-styles.php:1607
+msgid "Admin Bar"
+msgstr "管理バー"
+
+#: includes/features/admin-styles/admin-styles.php:1608
+msgid "Admin bar colors"
+msgstr "管理バーの色"
+
+#: includes/features/admin-styles/admin-styles.php:1611
+msgid "Admin Bar Background"
+msgstr "管理バーの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1615
+msgid "Admin Bar Text"
+msgstr "管理バーのテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1619
+msgid "Admin Bar Icon"
+msgstr "管理バーのアイコン"
+
+#: includes/features/admin-styles/admin-styles.php:1623
+msgid "Admin Bar Hover Background"
+msgstr "管理バーのホバー背景"
+
+#: includes/features/admin-styles/admin-styles.php:1627
+msgid "Admin Bar Hover Text"
+msgstr "管理バーのホバーテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1633
+msgid "Dashboard Widgets"
+msgstr "ダッシュボードウィジェット"
+
+#: includes/features/admin-styles/admin-styles.php:1634
+msgid "Dashboard widget colors"
+msgstr "ダッシュボードウィジェットの色"
+
+#: includes/features/admin-styles/admin-styles.php:1637
+msgid "Widget Background"
+msgstr "ウィジェットの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1641
+msgid "Widget Border"
+msgstr "ウィジェットの境界線"
+
+#: includes/features/admin-styles/admin-styles.php:1645
+msgid "Widget Header Background"
+msgstr "ウィジェットヘッダーの背景"
+
+#: includes/features/admin-styles/admin-styles.php:1649
+msgid "Widget Title Text"
+msgstr "ウィジェットタイトルテキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1653
+msgid "Widget Body Text"
+msgstr "ウィジェット本文テキスト"
+
+#: includes/features/admin-styles/admin-styles.php:1657
+msgid "Widget Link"
+msgstr "ウィジェットリンク"
+
+#: includes/features/admin-styles/admin-styles.php:1661
+msgid "Widget Link Hover"
+msgstr "ウィジェットリンクホバー"
+
+#: includes/features/admin-styles/admin-styles.php:1667
+#: includes/roles/class/class-pp-roles-admin.php:123
+msgid "Advanced"
+msgstr "高度な"
+
+#: includes/features/admin-styles/admin-styles.php:1668
+msgid "Custom selector color rules"
+msgstr "カスタムセレクターの色ルール"
+
+#: includes/features/admin-styles/admin-styles.php:1694
+#: includes/features/admin-styles/admin-styles.php:1763
+msgid "Default"
+msgstr "デフォルト"
+
+#: includes/features/editor-features-classic.php:1
+#, php-format
+msgid "Classic Editor %s Restrictions"
+msgstr "クラシックエディタ %s 制限"
+
+#: includes/features/editor-features-classic.php:162
+#: includes/features/editor-features-gutenberg.php:158
+#, php-format
+msgid ""
+"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
+"refresh this page afterwards to load the new metaboxes."
+msgstr ""
+"%1s に対するメタボックスが見つかりませんでした。%2s ここをクリック %3s して %4s "
+"スクリーンを訪れ、その後このページを更新して新しいメタボックスを読み込んでください。"
+
+#: includes/features/editor-features-gutenberg.php:1
+#, php-format
+msgid "Gutenberg Editor %s Restrictions"
+msgstr "グーテンベルクエディタ %s の制限"
+
+#: includes/features/editor-features.php:69
+msgid "Editor Feature Restrictions"
+msgstr "エディタ機能の制限"
+
+#: includes/features/editor-features.php:115
+#: includes/features/editor-features.php:220
+msgid "Save for all Post Types"
+msgstr "すべての投稿タイプのために保存"
+
+#: includes/features/editor-features.php:119
+#: includes/features/editor-features.php:121
+#: includes/features/editor-features.php:224
+#: includes/features/editor-features.php:226
+#, php-format
+msgid "Save %s Restrictions"
+msgstr "%sの制限を保存"
+
+#: includes/features/editor-features.php:127
+msgid "Gutenberg"
+msgstr "グーテンベルク"
+
+#: includes/features/editor-features.php:130
+msgid "Classic"
+msgstr "クラシック"
+
+#: includes/features/editor-features.php:135
+msgid "show Classic Editor controls"
+msgstr "クラシックエディタコントロールを表示"
+
+#: includes/features/editor-features.php:238
+#: includes/functions-admin.php:385
+msgid "Editor Features allows you to remove elements from the post editing screen."
+msgstr "エディタ機能では、投稿編集画面から要素を削除できます。"
+
+#: includes/features/editor-features.php:246
+msgid "How to use Editor Features"
+msgstr "エディタ機能の使い方"
+
+#: includes/features/frontend-features/frontend-features-action.php:54
+#: includes/features/frontend-features/frontend-features-action.php:117
+#: includes/manager.php:693
+#: includes/manager.php:715
+msgid "You do not have permission to manage frontend features."
+msgstr "フロントエンド機能を管理する権限がありません。"
+
+#: includes/features/frontend-features/frontend-features-action.php:58
+#: includes/features/frontend-features/frontend-features-ui.php:151
+msgid "All fields are required."
+msgstr "すべてのフィールドは必須です。"
+
+#: includes/features/frontend-features/frontend-features-action.php:60
+msgid "Load on page types is required."
+msgstr "ページタイプでの読み込みが必要です。"
+
+#: includes/features/frontend-features/frontend-features-action.php:92
+msgid "Frontend element item updated. Save changes to enable for role."
+msgstr "フロントエンド要素項目が更新されました。役割のために有効にするには変更を保存してください。"
+
+#: includes/features/frontend-features/frontend-features-action.php:94
+msgid "New frontend element added. Save changes to enable for role."
+msgstr "新しいフロントエンド要素が追加されました。変更を保存して役割を有効にします。"
+
+#: includes/features/frontend-features/frontend-features-action.php:121
+msgid "Invalid request!."
+msgstr "無効なリクエスト！"
+
+#: includes/features/frontend-features/frontend-features-action.php:136
+msgid "Selected item deleted successfully"
+msgstr "選択したアイテムが正常に削除されました"
+
+#: includes/features/frontend-features/frontend-features-data.php:38
+msgid "Site Dark Mode"
+msgstr "サイトのダークモード"
+
+#: includes/features/frontend-features/frontend-features-data.php:54
+msgid "Site Light Mode"
+msgstr "サイトのライトモード"
+
+#: includes/features/frontend-features/frontend-features-data.php:70
+msgid "Hide Twenty Twenty-Three Credit Footer"
+msgstr "Twenty Twenty-Threeクレジットフッターを非表示にする"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:55
+#: includes/features/frontend-features/frontend-features.php:70
+#: includes/functions-admin.php:227
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:513
+msgid "Frontend Features"
+msgstr "フロントエンド機能"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:77
+msgid "Choose Frontend Features that will apply to this post."
+msgstr "この投稿に適用されるフロントエンド機能を選択してください。"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:90
+#, php-format
+msgid "Select %1$s..."
+msgstr "%1$sを選択..."
+
+#: includes/features/frontend-features/frontend-features-ui.php:42
+msgid ""
+"This feature allows you to modify the site frontend by hiding IDs or "
+"classes, adding CSS styles, or adding body classes."
+msgstr "この機能では、IDやクラスを隠したり、CSSスタイルを追加したり、ボディクラスを追加したりしてサイトのフロントエンドを変更できます。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:45
+msgid "Editing:"
+msgstr "編集："
+
+#: includes/features/frontend-features/frontend-features-ui.php:53
+msgid "Title:"
+msgstr "タイトル:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:59
+msgid "This will only show here in the WordPress admin area."
+msgstr "これはWordPress管理エリアでのみ表示されます。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:66
+msgid "Features:"
+msgstr "機能："
+
+#: includes/features/frontend-features/frontend-features-ui.php:73
+msgid "Hide IDs or Classes"
+msgstr "IDまたはクラスを非表示にする"
+
+#: includes/features/frontend-features/frontend-features-ui.php:74
+msgid "Add Custom CSS"
+msgstr "カスタムCSSを追加"
+
+#: includes/features/frontend-features/frontend-features-ui.php:75
+msgid "Add Body Class"
+msgstr "ボディクラスを追加"
+
+#: includes/features/frontend-features/frontend-features-ui.php:81
+msgid ""
+"Enter IDs or classes to hide. Separate multiple values with a comma "
+"(.custom-item-one, .custom-item-two, #new-item-id)."
+msgstr ""
+"隠すIDまたはクラスを入力してください。複数の値はカンマで区切ります（.custom-item-one, .custom-item-two, "
+"#new-item-id）。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:92
+msgid ""
+"Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
+"color: red; } #custom-header { background: red; } "
+msgstr ""
+"フロントエンドページに追加するカスタムCSSを入力してください。例：.custom-style-1 { color: red; } "
+"#custom-header { background: red; }"
+
+#: includes/features/frontend-features/frontend-features-ui.php:98
+msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
+msgstr "ボディHTMLに追加するクラスを入力してください。HTMLの前に.を含めないでください。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:99
+msgid "Separate multiple values with a space (custom-style-one custom-style-two)."
+msgstr "複数の値をスペースで区切ってください (custom-style-one custom-style-two)。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:100
+msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
+msgstr "クラスのCSSを追加するには「カスタムCSSを追加」をクリックしてください。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:101
+msgid ""
+"Enter classes that should be added to the body HTML. Separate multiple "
+"values with a space (custom-item-one custom-item-two)."
+msgstr "ボディHTMLに追加するクラスを入力してください。複数の値はスペースで区切ります（custom-item-one custom-item-two）。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:109
+msgid "Load on page types:"
+msgstr "ページタイプでの読み込み:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:116
+msgid "Whole Site"
+msgstr "サイト全体"
+
+#: includes/features/frontend-features/frontend-features-ui.php:117
+msgid "Selected Pages"
+msgstr "選択したページ"
+
+#: includes/features/frontend-features/frontend-features-ui.php:125
+msgid "This feature will be added to all pages."
+msgstr "この機能はすべてのページに追加されます。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:133
+msgid "Add post metabox:"
+msgstr "投稿メタボックスを追加:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:148
+msgid "Cancel Edit"
+msgstr "編集をキャンセル"
+
+#: includes/features/frontend-features/frontend-features-ui.php:152
+#: includes/features/frontend-features/frontend-features-ui.php:155
+#: includes/features/restrict-editor-features.php:47
+#: includes/roles/roles.php:10
+msgid "Add New"
+msgstr "新規追加"
+
+#: includes/features/frontend-features/frontend-features-ui.php:153
+msgid "Save Edit"
+msgstr "編集を保存"
+
+#: includes/features/frontend-features/frontend-features-ui.php:221
+msgid "Hidden IDs or Classes"
+msgstr "非表示のIDまたはクラス"
+
+#: includes/features/frontend-features/frontend-features-ui.php:226
+msgid "Body Class"
+msgstr "本文クラス"
+
+#: includes/features/frontend-features/frontend-features-ui.php:231
+msgid "Custom CSS"
+msgstr "カスタムCSS"
+
+#: includes/features/frontend-features/frontend-features-ui.php:240
+msgid "Pages"
+msgstr "ページ"
+
+#: includes/features/frontend-features/frontend-features-ui.php:248
+msgid "Post Type Metabox"
+msgstr "投稿タイプメタボックス"
+
+#: includes/features/frontend-features/frontend-features.php:58
+msgid "Role"
+msgstr "ロール"
+
+#: includes/features/frontend-features/frontend-features.php:151
+#, php-format
+msgid "Enable Frontend Features for %1$s Role"
+msgstr "%1$s ロールのフロントエンド機能を有効にする"
+
+#: includes/features/frontend-features/frontend-features.php:247
+#: includes/functions-admin.php:410
+msgid ""
+"Frontend Features allows you to add or remove elements from the frontend of "
+"your site."
+msgstr "フロントエンド機能を使用すると、サイトのフロントエンドから要素を追加または削除できます。"
+
+#: includes/features/frontend-features/frontend-features.php:252
+msgid "Apply custom styling"
+msgstr "カスタムスタイルを適用"
+
+#: includes/features/frontend-features/frontend-features.php:255
+msgid "How to use Frontend Features"
+msgstr "フロントエンド機能の使い方"
+
+#: includes/features/nav-menus.php:61
+msgid "Navigation Menu Restrictions"
+msgstr "ナビゲーションメニューの制限"
+
+#: includes/features/nav-menus.php:275
+msgid ""
+"There are no frontend menu links. To control access to navigation menus, "
+"please add menu links."
+msgstr "フロントエンドメニューリンクはありません。ナビゲーションメニューへのアクセスを制御するには、メニューリンクを追加してください。"
+
+#: includes/features/nav-menus.php:301
+#: includes/functions-admin.php:415
+msgid "Navigation Menus allows you to block access to frontend menu links."
+msgstr "ナビゲーションメニューは、フロントエンドのメニュリンクへのアクセスをブロックすることができます。"
+
+#: includes/features/nav-menus.php:309
+msgid "How to use Navigation Menus"
+msgstr "ナビゲーションメニューの使い方"
+
+#: includes/features/profile-features.php:46
+msgid "Profile Feature Restrictions"
+msgstr "プロフィール機能の制限"
+
+#: includes/features/profile-features.php:140
+msgid "Click the \"Find profile items for this role\" button."
+msgstr "「この役割のプロファイル項目を見つける」ボタンをクリックしてください。"
+
+#: includes/features/profile-features.php:142
+msgid ""
+"There are no users in this role. Please select a role that has users and is "
+"able to access the \"Profile\" screen."
+msgstr "この役割にはユーザーがいません。ユーザーがいて「プロフィール」画面にアクセスできる役割を選択してください。"
+
+#: includes/features/profile-features.php:239
+msgid "Allow PublishPress to find profile items for this role."
+msgstr "このロールのプロファイルアイテムをPublishPressが見つけることを許可します。"
+
+#: includes/features/profile-features.php:240
+msgid "Find profile items for this role"
+msgstr "この役割のプロフィール項目を見つける"
+
+#: includes/features/profile-features.php:241
+#, php-format
+msgid "The %s role is not enabled for editing. The Find button is disabled."
+msgstr "%sの役割は編集のために有効になっていません。検索ボタンは無効になっています。"
+
+#: includes/features/profile-features.php:242
+#, php-format
+msgid "This feature will test the \"Profile\" screen as a user in the %s role."
+msgstr "この機能は、%sの役割を持つユーザーとして「プロフィール」画面をテストします。"
+
+#: includes/features/profile-features.php:244
+msgid "Refresh Profile Features"
+msgstr "プロフィール機能の更新"
+
+#: includes/features/profile-features.php:249
+#: includes/functions-admin.php:400
+msgid "Profile Features allows you to remove elements from the Profile screen."
+msgstr "プロフィール機能では、プロフィール画面から要素を削除することができます。"
+
+#: includes/features/profile-features.php:257
+msgid "How to use Profile Features"
+msgstr "プロフィール機能の使い方"
+
+#: includes/features/restrict-admin-features.php:36
+msgid "Hide Default Items"
+msgstr "デフォルト項目を非表示にする"
+
+#: includes/features/restrict-admin-features.php:37
+msgid "Hide Admin Toolbar"
+msgstr "管理者ツールバーを非表示にする"
+
+#: includes/features/restrict-admin-features.php:38
+msgid "Hide Dashboard Widgets"
+msgstr "ダッシュボードウィジェットを非表示にする"
+
+#: includes/features/restrict-admin-features.php:91
+msgid "Mobile Menu Toggle"
+msgstr "モバイルメニューの切り替え"
+
+#: includes/features/restrict-admin-features.php:92
+msgid "WordPress Logo"
+msgstr "WordPressロゴ"
+
+#: includes/features/restrict-admin-features.php:93
+msgid "WordPress External Links"
+msgstr "WordPress外部リンク"
+
+#: includes/features/restrict-admin-features.php:96
+msgid "Right bar"
+msgstr "右バー"
+
+#: includes/features/restrict-admin-features.php:97
+msgid "User actions"
+msgstr "ユーザーアクション"
+
+#: includes/features/restrict-admin-features.php:98
+#: includes/features/restrict-admin-features.php:99
+msgid "New"
+msgstr "新規"
+
+#: includes/features/restrict-admin-features.php:100
+msgid "User Display Name"
+msgstr "ユーザー表示名"
+
+#: includes/features/restrict-admin-features.php:101
+msgid "Yoast SEO"
+msgstr "Yoast SEO"
+
+#: includes/features/restrict-admin-features.php:115
+msgid "Thank you for creating with WordPress"
+msgstr "WordPressでの作成に感謝します"
+
+#: includes/features/restrict-admin-features.php:165
+msgid "Welcome panel"
+msgstr "ウェルカムパネル"
+
+#: includes/features/restrict-admin-features.php:199
+msgid "Remove Admin Toolbar"
+msgstr "管理者ツールバーを削除"
+
+#: includes/features/restrict-editor-features.php:40
+msgid "Top Tabs"
+msgstr "トップタブ"
+
+#: includes/features/restrict-editor-features.php:59
+msgid "Slug"
+msgstr "スラッグ"
+
+#: includes/features/restrict-editor-features.php:62
+msgid "Media Buttons (all)"
+msgstr "メディアボタン（すべて）"
+
+#: includes/features/restrict-editor-features.php:67
+msgid "HTML Editor Button"
+msgstr "HTMLエディタボタン"
+
+#: includes/features/restrict-editor-features.php:72
+msgid "Word count"
+msgstr "単語数"
+
+#: includes/features/restrict-editor-features.php:77
+#: includes/features/restrict-editor-features.php:78
+msgid "Publish Box"
+msgstr "公開ボックス"
+
+#: includes/features/restrict-editor-features.php:85
+msgid "Publish Actions"
+msgstr "公開アクション"
+
+#: includes/features/restrict-editor-features.php:91
+msgid "Taxonomy Boxes"
+msgstr "タクソノミーボックス"
+
+#: includes/features/restrict-editor-features.php:126
+msgid "Page Boxes"
+msgstr "ページボックス"
+
+#: includes/features/restrict-editor-features.php:148
+msgid "Other Boxes"
+msgstr "その他のボックス"
+
+#: includes/features/restrict-editor-features.php:150
+msgid "Featured Image"
+msgstr "アイキャッチ画像"
+
+#: includes/features/restrict-editor-features.php:164
+msgid "Coupon Description"
+msgstr "クーポン説明"
+
+#: includes/features/restrict-editor-features.php:382
+msgid "Top Bar - Left"
+msgstr "トップバー - 左"
+
+#: includes/features/restrict-editor-features.php:383
+msgid "Add block"
+msgstr "ブロックを追加"
+
+#: includes/features/restrict-editor-features.php:384
+msgid "Modes"
+msgstr "モード"
+
+#: includes/features/restrict-editor-features.php:388
+msgid "Outline"
+msgstr "アウトライン"
+
+#: includes/features/restrict-editor-features.php:389
+msgid "Document Overview"
+msgstr "ドキュメント概要"
+
+#: includes/features/restrict-editor-features.php:390
+msgid "Document Bar Title"
+msgstr "ドキュメントバータイトル"
+
+#: includes/features/restrict-editor-features.php:393
+msgid "Top Bar - Right"
+msgstr "トップバー - 右"
+
+#: includes/features/restrict-editor-features.php:395
+msgid "Switch to Draft"
+msgstr "ドラフトに切り替え"
+
+#: includes/features/restrict-editor-features.php:398
+msgid "Publish / Update"
+msgstr "公開 / 更新"
+
+#: includes/features/restrict-editor-features.php:400
+msgid "Options"
+msgstr "オプション"
+
+#: includes/features/restrict-editor-features.php:403
+msgid "Body"
+msgstr "本文"
+
+#: includes/features/restrict-editor-features.php:415
+msgid "Add new block"
+msgstr "新しいブロックを追加"
+
+#: includes/features/restrict-editor-features.php:420
+msgid "Document Panel"
+msgstr "ドキュメントパネル"
+
+#: includes/features/restrict-editor-features.php:421
+msgid "Settings Panel"
+msgstr "設定パネル"
+
+#: includes/features/restrict-editor-features.php:422
+msgid "Status & visibility"
+msgstr "ステータスと可視性"
+
+#: includes/features/restrict-editor-features.php:428
+msgid "Permalink"
+msgstr "パーマリンク"
+
+#: includes/features/restrict-editor-features.php:461
+msgid "Featured image"
+msgstr "アイキャッチ画像"
+
+#: includes/features/restrict-editor-features.php:476
+msgid "Post Attributes"
+msgstr "投稿属性"
+
+#: includes/features/restrict-editor-features.php:482
+#: includes/features/restrict-editor-features.php:483
+msgid "Block Panel"
+msgstr "パネルをブロック"
+
+#: includes/features/restrict-editor-features.php:484
+msgid "Paragraph"
+msgstr "段落"
+
+#: includes/features/restrict-editor-features.php:485
+msgid "Typography"
+msgstr "タイポグラフィ"
+
+#: includes/features/restrict-editor-features.php:486
+msgid "Color settings"
+msgstr "カラー設定"
+
+#: includes/features/restrict-editor-features.php:487
+msgid "Text settings"
+msgstr "テキスト設定"
+
+#: includes/features/restrict-profile-features.php:45
+msgid "This role is not enabled for profile feature editing."
+msgstr "この役割はプロフィール機能の編集には有効ではありません。"
+
+#: includes/features/restrict-profile-features.php:110
+msgid "An error occurred!"
+msgstr "エラーが発生しました！"
+
+#: includes/features/restrict-profile-features.php:123
+msgid "Profile features access disabled."
+msgstr "プロフィール機能へのアクセスが無効になっています。"
+
+#: includes/features/restrict-profile-features.php:128
+msgid "Invalid role provided."
+msgstr "無効なロールが提供されました。"
+
+#: includes/features/restrict-profile-features.php:136
+msgid "Profile features access enabled for this role."
+msgstr "この役割にはプロフィール機能へのアクセスが有効になっています。"
+
+#: includes/functions-admin.php:205
+#: includes/functions-admin.php:384
+#: includes/functions-admin.php:469
+#: includes/roles/class/class-pp-roles-admin.php:523
+#: includes/settings-ui.php:35
+msgid "Editor Features"
+msgstr "エディタ機能"
+
+#: includes/functions-admin.php:216
+#: includes/functions-admin.php:389
+#: includes/functions-admin.php:476
+#: includes/roles/class/class-pp-roles-admin.php:524
+msgid "Admin Features"
+msgstr "管理者機能"
+
+#: includes/functions-admin.php:231
+#: includes/functions-admin.php:399
+#: includes/functions-admin.php:499
+#: includes/roles/class/class-pp-roles-admin.php:525
+#: includes/settings-ui.php:36
+msgid "Profile Features"
+msgstr "プロフィール機能"
+
+#: includes/functions-admin.php:237
+#: includes/functions-admin.php:404
+#: includes/functions-admin.php:506
+msgid "Redirects"
+msgstr "リダイレクト"
+
+#: includes/functions-admin.php:241
+msgid "Nav Menu"
+msgstr "ナビメニュー"
+
+#: includes/functions-admin.php:375
+msgid ""
+"Roles allows you to create, edit, and delete all the user roles on your "
+"site."
+msgstr "役割では、サイト上のすべてのユーザー役割を作成、編集、および削除できます。"
+
+#: includes/functions-admin.php:380
+msgid "Capabilities allows you to change the permissions for any user role."
+msgstr "能力は、任意のユーザー役割の権限を変更することを許可します。"
+
+#: includes/functions-admin.php:395
+msgid "Admin Styles allows you to customize the admin area with your own branding."
+msgstr "管理スタイルでは、独自のブランディングで管理エリアをカスタマイズできます。"
+
+#: includes/functions-admin.php:405
+msgid ""
+"Redirects allows you to redirect users in a role after Registration, Login "
+"or Logout."
+msgstr "リダイレクト機能を使用すると、登録後、ログイン後、またはログアウト後にユーザーを役割に基づいてリダイレクトできます。"
+
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:520
+#: includes/roles/class/class-pp-roles-admin.php:527
+msgid "Navigation Menus"
+msgstr "ナビゲーションメニュー"
+
+#: includes/functions-admin.php:419
+#: includes/settings-ui.php:39
+#: includes/test-user-ui.php:38
+msgid "User Testing"
+msgstr "ユーザーテスト"
+
+#: includes/functions-admin.php:420
+msgid ""
+"Test your site by instantly logging in as another user. Available accounts "
+"include any which the current user can edit."
+msgstr "別のユーザーとして即座にログインしてサイトをテストします。利用可能なアカウントには、現在のユーザーが編集できるものが含まれます。"
+
+#: includes/functions-admin.php:425
+msgid ""
+"Remove Admin Notices from WordPress admin screen and organize them in to a "
+"single area."
+msgstr "WordPress管理画面から管理者通知を削除し、それらを1つのエリアに整理します。"
+
+#: includes/functions.php:565
+msgid "Login permission denied."
+msgstr "ログイン権限が拒否されました。"
+
+#: includes/functions.php:642
+msgid "You do not have permission to access this page."
+msgstr "このページにアクセスする権限がありません。"
+
+#: includes/functions.php:707
+msgid "Need PublishPress Capabilities Support?"
+msgstr "PublishPressの機能サポートが必要ですか？"
+
+#: includes/functions.php:712
+msgid "If you need help or have a new feature request, let us know."
+msgstr "助けが必要な場合や新しい機能リクエストがある場合は、お知らせください。"
+
+#: includes/functions.php:714
+msgid "Request Support"
+msgstr "サポートをリクエスト"
+
+#: includes/functions.php:723
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "詳細なドキュメントはプラグインのウェブサイトでも利用可能です。"
+
+#: includes/functions.php:725
+msgid "View Knowledge Base"
+msgstr "ナレッジベースを見る"
+
+#: includes/functions.php:939
+msgid "Social Links"
+msgstr "ソーシャルリンク"
+
+#: includes/functions.php:940
+msgid "Page Lists"
+msgstr "ページリスト"
+
+#: includes/handler.php:45
+msgid "New role created."
+msgstr "新しい役割が作成されました。"
+
+#: includes/handler.php:51
+msgid "Error: Failed creating the new role."
+msgstr "エラー：新しい役割の作成に失敗しました。"
+
+#: includes/handler.php:61
+#: includes/handler.php:89
+#: includes/manager.php:1157
+msgid "The selected role is not editable."
+msgstr "選択した役割は編集できません。"
+
+#: includes/handler.php:119
+msgid "Incorrect capability name."
+msgstr "無効な能力名。"
+
+#: includes/handler.php:124
+msgid "Type / Taxonomy settings saved."
+msgstr "タイプ / タクソノミー設定が保存されました。"
+
+#: includes/handler.php:127
+msgid "Bad form received."
+msgstr "不正なフォームを受け取りました。"
+
+#: includes/handler.php:250
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "管理者から管理能力を削除することはできません。"
+
+#: includes/manager.php:238
+msgid "This capability is explicitly negated. Click to add/remove normally."
+msgstr "この機能は明示的に否定されています。クリックして通常通り追加/削除してください。"
+
+#: includes/manager.php:246
+msgid "Explicity negate this capability by storing as disabled"
+msgstr "この機能を無効として保存することで明示的に否定します"
+
+#: includes/manager.php:247
+msgid "Explicitly negate these capabilities by storing as disabled"
+msgstr "これらの機能を無効として保存することで明示的に否定します"
+
+#: includes/manager.php:248
+msgid "Post type registration does not define this capability distinctly"
+msgstr "投稿タイプの登録は、この機能を明示的に定義していません"
+
+#: includes/manager.php:250
+msgid "Add or remove this capability from the WordPress role"
+msgstr "この機能をWordPressの役割から追加または削除します"
+
+#: includes/manager.php:251
+msgid "Add or remove capability from the role normally"
+msgstr "通常の役割から機能を追加または削除します"
+
+#: includes/manager.php:252
+msgid "Are you sure you want to delete this item ?"
+msgstr "このアイテムを削除してもよろしいですか？"
+
+#: includes/manager.php:253
+msgid "Add or clear custom item entry before saving changes."
+msgstr "変更を保存する前にカスタムアイテムエントリを追加またはクリアします。"
+
+#: includes/manager.php:513
+#: includes/roles/class/class-pp-roles-admin.php:172
+#: includes/roles/class/class-pp-roles-list-table.php:175
+msgid "Role Name"
+msgstr "役割名"
+
+#: includes/manager.php:515
+#: includes/roles/class/class-pp-roles-list-table.php:177
+msgid "Role Type"
+msgstr "役割タイプ"
+
+#: includes/manager.php:516
+#: includes/roles/class/class-pp-roles-list-table.php:178
+msgid "Default Role"
+msgstr "デフォルトロール"
+
+#: includes/manager.php:517
+#: includes/roles/class/class-pp-roles-list-table.php:179
+msgid "Admin Access"
+msgstr "管理者アクセス"
+
+#: includes/manager.php:544
+msgid "You do not have permission to manage roles."
+msgstr "役割を管理する権限がありません。"
+
+#: includes/manager.php:567
+#: includes/manager.php:589
+msgid "You do not have permission to manage editor features."
+msgstr "エディタ機能を管理する権限がありません。"
+
+#: includes/manager.php:624
+#: includes/manager.php:678
+#: includes/manager.php:726
+#: includes/manager.php:807
+#: includes/manager.php:889
+#: includes/manager.php:970
+msgid "Settings updated."
+msgstr "設定が更新されました。"
+
+#: includes/manager.php:640
+#: includes/manager.php:662
+#: includes/manager.php:772
+#: includes/manager.php:823
+#: includes/manager.php:987
+msgid "You do not have permission to manage admin features."
+msgstr "管理機能を管理する権限がありません。"
+
+#: includes/manager.php:794
+msgid "You do not have permission to manage navigation menus."
+msgstr "ナビゲーションメニューを管理する権限がありません。"
+
+#: includes/manager.php:845
+msgid "You do not have permission to manage profile features."
+msgstr "プロフィール機能を管理する権限がありません。"
+
+#: includes/manager.php:905
+msgid "You do not have permission to manage redirect."
+msgstr "リダイレクトを管理する権限がありません。"
+
+#: includes/manager.php:927
+msgid "Invalid form. Reload this page and try again."
+msgstr "無効なフォームです。このページを再読み込みして再試行してください。"
+
+#: includes/manager.php:1079
+#: includes/manager.php:1113
+#: includes/manager.php:1131
+msgid "You do not have permission to manage capabilities."
+msgstr "能力を管理する権限がありません。"
+
+#: includes/manager.php:1145
+msgid "New capability added to role."
+msgstr "役割に新しい機能が追加されました。"
+
+#: includes/manager.php:1186
+msgid "Bad form Received"
+msgstr "不正なフォームを受け取りました"
+
+#: includes/manager.php:1306
+msgid "You do not have permission to restore roles."
+msgstr "役割を復元する権限がありません。"
+
+#: includes/manager.php:1344
+msgid "You do not have permission to perform this action."
+msgstr "このアクションを実行する権限がありません。"
+
+#: includes/manager.php:1505
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "もし%sが気に入ったら、%s評価を残してください。ありがとうございます！"
+
+#: includes/manager.php:1516
+msgid "About PublishPress Capabilities"
+msgstr "PublishPress Capabilitiesについて"
+
+#: includes/manager.php:1516
+msgid "About"
+msgstr "情報"
+
+#: includes/manager.php:1518
+msgid "Capabilites Documentation"
+msgstr "能力ドキュメント"
+
+#: includes/manager.php:1518
+msgid "Documentation"
+msgstr "ドキュメント"
+
+#: includes/manager.php:1520
+msgid "Contact the PublishPress team"
+msgstr "PublishPressチームに連絡する"
+
+#: includes/manager.php:1520
+msgid "Contact"
+msgstr "連絡先"
+
+#: includes/pp-ui.php:62
+#, php-format
+msgid "see %1$sRole Usage%2$s: \"Pattern Roles\""
+msgstr "%1$sロールの使用%2$sを参照: \"パターンロール\""
+
+#: includes/pp-ui.php:64
+#, php-format
+msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
+msgstr "%1$s高度な設定%2$sを有効にし、役割の使用状況を確認します"
 
 #: includes/pp-ui.php:69
 #, php-format
@@ -28,573 +2815,6 @@ msgid ""
 "\"Posts\" capabilities selected here also define type-specific role "
 "assignment for Permit Groups%s."
 msgstr "\"投稿\"の機能はここで選択されたものは、パーミットグループ%sのタイプ特有の役割割り当ても定義します。"
-
-#: includes/roles/class/class-pp-roles-actions.php:565
-#, php-format
-msgid "%1$d users moved to default role %2$s."
-msgstr "%1$d 人のユーザーがデフォルトの役割 %2$s に移動しました。"
-
-#: includes/features/frontend-features/frontend-features.php:250
-#, php-format
-msgid "%1$s = Apply custom styling"
-msgstr "%1$s = カスタムスタイルを適用"
-
-#: includes/admin.php:1678
-#, php-format
-msgid "%1$s = Capability denied, even if granted by another role %2$s"
-msgstr "%1$s = 他の役割 %2$s によって付与されても、機能が拒否されました"
-
-#: includes/admin.php:1676
-#, php-format
-msgid "%1$s = Capability granted %2$s"
-msgstr "%1$s = 機能が付与されました %2$s"
-
-#: includes/admin.php:1677
-#, php-format
-msgid "%1$s = Capability not granted %2$s"
-msgstr "%1$s = 機能が付与されていません %2$s"
-
-#: includes/features/admin-features.php:346
-#: includes/features/editor-features.php:240
-#: includes/features/nav-menus.php:303
-#: includes/features/profile-features.php:251
-#: includes/features/frontend-features/frontend-features.php:249
-#, php-format
-msgid "%1$s = No change"
-msgstr "%1$s = 変更なし"
-
-#: includes/features/admin-features.php:347
-#: includes/features/editor-features.php:241
-#: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:252
-#, php-format
-msgid "%1$s = This feature is denied"
-msgstr "%1$s = この機能は拒否されています"
-
-#: includes/features/admin-features.php:356
-#, php-format
-msgid "%1$s Hide Submenus"
-msgstr "%1$s サブメニューを非表示"
-
-#: includes/admin.php:1908
-#, php-format
-msgid "%1$sbuy%2$s %3$s"
-msgstr "%1$s購入%2$s %3$s"
-
-#: includes/admin.php:1906
-#, php-format
-msgid "%1$sgrab%2$s %3$s"
-msgstr "%1$s取得%2$s %3$s"
-
-#: includes/test-user-ui.php:269
-#, php-format
-msgid "%1$sReturn to Administrator view%2$s"
-msgstr "%1$s管理者ビューに戻る%2$s"
-
-#: capsman-enhanced.php:80
-#, php-format
-msgid ""
-"%1s Error: %2s  PublishPress Capabilities cannot function because another "
-"copy of the plugin is active."
-msgstr "%1s エラー: %2s  PublishPressの機能は、別のコピーのプラグインがアクティブであるため機能しません。"
-
-#: includes/backup.php:191
-#, php-format
-msgid "%s (%s roles)"
-msgstr "%s (%s の役割)"
-
-#: includes/admin.php:1906
-#, php-format
-msgid "%s (free install)"
-msgstr "%s (無料インストール)"
-
-#: includes/backup.php:227
-#, php-format
-msgid "%s (level %s)"
-msgstr "%s (レベル %s)"
-
-#: includes/admin.php:680
-#, php-format
-msgid "%s Capabilities"
-msgstr "%s 機能"
-
-#: includes/admin.php:1908
-#, php-format
-msgid "%s info/purchase"
-msgstr "%s 情報/購入"
-
-#: includes/redirects/redirects.php:94
-#, php-format
-msgid "%s Redirects"
-msgstr "%s リダイレクト"
-
-#: includes/backup-handler.php:119
-#, php-format
-msgid "%s restored from last backup."
-msgstr "%sは最後のバックアップから復元されました。"
-
-#: includes/roles/class/class-pp-roles-admin.php:506
-#, php-format
-msgid ""
-"%s role copied. Please click the \"Create Role\" button to create this new "
-"role."
-msgstr "%sの役割がコピーされました。新しい役割を作成するには「役割を作成」ボタンをクリックしてください。"
-
-#: includes/roles/class/class-pp-roles-actions.php:448
-#, php-format
-msgid "%s role updated successfully."
-msgstr "%sの役割が正常に更新されました。"
-
-#: includes/backup-handler.php:199
-#, php-format
-msgid "%s successfully imported from uploaded data."
-msgstr "%sがアップロードされたデータから正常にインポートされました。"
-
-#: includes/admin.php:889 includes/admin.php:1138 includes/admin.php:1316
-#: includes/admin.php:1584 includes/admin.php:1585
-#, php-format
-msgid "%s: assigned by Permission Group"
-msgstr "%s: 権限グループによって割り当てられました"
-
-#: includes/admin.php:270, fuzzy
-msgid "&nbsp;"
-msgstr "&nbsp;"
-
-#: includes/roles/class/class-pp-roles-list-table.php:238
-msgid "(non-editable role)"
-msgstr "(編集不可の役割)"
-
-#: includes/backup.php:198
-msgid "(this role will be removed if you restore backup)"
-msgstr "(バックアップを復元するとこの役割は削除されます)"
-
-#: includes/backup.php:69
-msgid ""
-"A backup created on this screen replaces any previous manual backups, but "
-"is never automatically replaced."
-msgstr "この画面で作成されたバックアップは以前の手動バックアップを置き換えますが、自動的に置き換えられることはありません。"
-
-#: includes/manager.php:1516
-msgid "About"
-msgstr "情報"
-
-#: includes/manager.php:1516
-msgid "About PublishPress Capabilities"
-msgstr "PublishPress Capabilitiesについて"
-
-#: includes/pp-ui.php:64
-#, php-format
-msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
-msgstr "%1$s高度な設定%2$sを有効にし、役割の使用状況を確認します"
-
-#: includes/admin.php:1780
-msgid "Add a New Capability"
-msgstr "新しい機能を追加"
-
-#: includes/features/restrict-editor-features.php:383
-msgid "Add block"
-msgstr "ブロックを追加"
-
-#: includes/features/frontend-features/frontend-features-ui.php:75
-msgid "Add Body Class"
-msgstr "ボディクラスを追加"
-
-#: includes/features/frontend-features/frontend-features-ui.php:74
-msgid "Add Custom CSS"
-msgstr "カスタムCSSを追加"
-
-#: includes/features/admin-styles/admin-styles-ui.php:302
-msgid ""
-"Add more than one custom admin styles. This feature is available in "
-"PublishPress Capabilities Pro."
-msgstr "1つ以上のカスタム管理スタイルを追加します。この機能はPublishPress Capabilities Proで利用可能です。"
-
-#: includes/features/restrict-editor-features.php:47
-#: includes/roles/roles.php:10
-#: includes/features/frontend-features/frontend-features-ui.php:152
-#: includes/features/frontend-features/frontend-features-ui.php:155
-msgid "Add New"
-msgstr "新規追加"
-
-#: includes/features/restrict-editor-features.php:415
-msgid "Add new block"
-msgstr "新しいブロックを追加"
-
-#: includes/settings-ui.php:207
-msgid "Add option to search and user testing in the Admin Bar."
-msgstr "管理バーに検索およびユーザーテストのオプションを追加します。"
-
-#: includes/manager.php:253
-msgid "Add or clear custom item entry before saving changes."
-msgstr "変更を保存する前にカスタムアイテムエントリを追加またはクリアします。"
-
-#: includes/manager.php:251
-msgid "Add or remove capability from the role normally"
-msgstr "通常の役割から機能を追加または削除します"
-
-#: includes/manager.php:250
-msgid "Add or remove this capability from the WordPress role"
-msgstr "この機能をWordPressの役割から追加または削除します"
-
-#: includes/features/frontend-features/frontend-features-ui.php:133
-msgid "Add post metabox:"
-msgstr "投稿メタボックスを追加:"
-
-#: includes/admin.php:1790
-msgid "Add to role"
-msgstr "役割に追加"
-
-#: includes/admin.php:643
-msgid "Additional"
-msgstr "追加"
-
-#: includes/admin.php:1508
-msgid "Additional Capabilities"
-msgstr "追加機能"
-
-#: includes/admin.php:602 includes/admin.php:1073
-msgid "Admin"
-msgstr "管理者"
-
-#: includes/manager.php:517
-#: includes/roles/class/class-pp-roles-list-table.php:174
-msgid "Admin Access"
-msgstr "管理者アクセス"
-
-#: includes/settings-ui.php:186
-msgid "Admin Bar modification"
-msgstr "管理者バーの変更"
-
-#: includes/settings-ui.php:202
-msgid "Admin Bar search"
-msgstr "管理者バー検索"
-
-#: includes/features/admin-styles/admin-styles-ui.php:169
-msgid "Admin Color Scheme"
-msgstr "管理者カラースキーム"
-
-#: includes/features/admin-features.php:46
-msgid "Admin Feature Restrictions"
-msgstr "管理者機能制限"
-
-#: includes/functions-admin.php:216 includes/functions-admin.php:389
-#: includes/functions-admin.php:476
-#: includes/roles/class/class-pp-roles-admin.php:524
-msgid "Admin Features"
-msgstr "管理者機能"
-
-#: includes/functions-admin.php:390 includes/features/admin-features.php:344
-msgid ""
-"Admin Features allows you to remove elements from the admin area and "
-"toolbar."
-msgstr "管理者機能を使用すると、管理エリアやツールバーから要素を削除できます。"
-
-#: includes/features/admin-features.php:354
-msgid "Admin Features Settings"
-msgstr "管理者機能設定"
-
-#: includes/features/admin-styles/admin-styles-ui.php:524
-msgid "Admin Footer Text"
-msgstr "管理者フッターのテキスト"
-
-#: includes/admin.php:1012
-msgid ""
-"Admin listing access is normally provided by the \"Edit\" capabilities. "
-"These \"List\" capabilities only apply if the corresponding \"Edit\" "
-"capability is missing. Also, these \"List\" capabilities can grant access, "
-"but not deny access."
-msgstr ""
-"管理者リストアクセスは通常「編集」機能によって提供されます。これらの「リスト」機能は、対応する「編集」機能がない場合にのみ適用されます。また、これらの「"
-"リスト」機能はアクセスを許可できますが、アクセスを拒否することはできません。"
-
-#: includes-core/admin-menus-promo.php:29
-msgid "Admin Menu Restrictions"
-msgstr "管理者メニュー制限"
-
-#: includes/functions-admin.php:491 includes-core/CoreAdmin.php:84
-#: includes-core/CoreAdmin.php:147
-#: includes/roles/class/class-pp-roles-admin.php:526
-msgid "Admin Menus"
-msgstr "管理者メニュー"
-
-#: includes-core/CoreAdmin.php:148
-msgid ""
-"Admin Menus allows you to edit the admin menu links and control who has "
-"access."
-msgstr "管理メニューでは、管理メニューリンクを編集し、アクセス権を制御できます。"
-
-#: includes/admin-notices/admin-notices.php:269
-msgid "Admin notice status updated successfully."
-msgstr "管理通知のステータスが正常に更新されました。"
-
-#: includes/functions-admin.php:424 includes/settings-ui.php:37
-#: includes/admin-notices/admin-notices.php:179
-#: includes/admin-notices/admin-notices.php:217
-#: includes/admin-notices/admin-notices.php:220
-msgid "Admin Notices"
-msgstr "管理通知"
-
-#: includes/functions-admin.php:221 includes/functions-admin.php:394
-#: includes/functions-admin.php:483
-#: includes/features/admin-styles/admin-styles-ui.php:95
-msgid "Admin Styles"
-msgstr "管理スタイル"
-
-#: includes/functions-admin.php:395
-msgid "Admin Styles allows you to customize the admin area with your own branding."
-msgstr "管理スタイルでは、独自のブランディングで管理エリアをカスタマイズできます。"
-
-#: includes/features/admin-styles/admin-styles-ui.php:618
-msgid ""
-"Admin Styles allows you to customize the WordPress admin area with your own "
-"branding."
-msgstr "管理スタイルでは、独自のブランディングでWordPressの管理エリアをカスタマイズできます。"
-
-#: includes/roles/class/class-pp-roles-admin.php:123
-msgid "Advanced"
-msgstr "高度な"
-
-#: includes/roles/class/class-pp-roles-list-table.php:86
-#, php-format
-msgid "All %s"
-msgid_plural "All %s"
-msgstr[0] "すべて %s"
-
-#: includes/features/frontend-features/frontend-features-action.php:58
-#: includes/features/frontend-features/frontend-features-ui.php:151
-msgid "All fields are required."
-msgstr "すべてのフィールドは必須です。"
-
-#: includes/roles/class/class-pp-roles-admin.php:547
-msgid "All Roles"
-msgstr "すべてのロール"
-
-#: includes/backup.php:111
-msgid "all roles"
-msgstr "すべてのロール"
-
-#: includes/pp-ui.php:311
-msgid ""
-"Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
-"\"Manage\" capability."
-msgstr "「管理」機能から独立して「編集」、「削除」、および「割り当て」機能を許可します。"
-
-#: includes/pp-ui.php:120
-#. %1$s and %2$s are link tags for 'Find out more.'
-#, php-format
-msgid ""
-"Allow post type permissions to be controlled separately from other areas of "
-"WordPress. %1$sFind out more.%2$s"
-msgstr "投稿タイプの権限をWordPressの他のエリアから独立して制御できるようにします。 %1$s詳細を確認する。%2$s"
-
-#: includes/features/profile-features.php:239
-msgid "Allow PublishPress to find profile items for this role."
-msgstr "このロールのプロファイルアイテムをPublishPressが見つけることを許可します。"
-
-#: includes/pp-ui.php:230
-msgid ""
-"Allow taxonomy permissions to be controlled separately from other areas of "
-"WordPress."
-msgstr "タクソノミーの権限をWordPressの他のエリアから独立して制御できるようにします。"
-
-#: includes/settings-ui.php:170
-msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
-msgstr "「エディタ機能」画面に常にクラシックエディタタブを表示します。"
-
-#: includes/settings-ui.php:277
-msgid ""
-"Always try to automatically find profile elements. This may cause temporary "
-"issues when updating user roles that do not have access to the WordPress "
-"admin area."
-msgstr ""
-"常にプロファイル要素を自動的に見つけようとします。これにより、WordPressの管理エリアにアクセスできないユーザーロールを更新する際に一時的な問題が"
-"発生する可能性があります。"
-
-#: includes/admin-load.php:647 includes/admin-notices/admin-notices.php:232
-#: includes/features/restrict-profile-features.php:29
-#: includes/features/frontend-features/frontend-features-action.php:41
-#: includes/features/frontend-features/frontend-features-action.php:110
-msgid "An error occured!"
-msgstr "エラーが発生しました！"
-
-#: includes/features/restrict-profile-features.php:110
-msgid "An error occurred!"
-msgstr "エラーが発生しました！"
-
-#: includes/admin.php:290
-msgid "Approve Revision"
-msgstr "修正を承認する"
-
-#: includes/manager.php:252
-msgid "Are you sure you want to delete this item ?"
-msgstr "このアイテムを削除してもよろしいですか？"
-
-#: includes/roles/roles-functions.php:33
-#: includes/roles/class/class-pp-roles-admin.php:427
-msgid "Are you sure you want to delete this role?"
-msgstr "このロールを削除してもよろしいですか？"
-
-#: includes/admin.php:1859
-msgid ""
-"Assign custom WP roles supplementally for a specific post type "
-"<em>(Pro)</em>"
-msgstr "特定の投稿タイプのためにカスタムWPロールを補足的に割り当てる <em>(Pro)</em>"
-
-#: includes/admin.php:1855
-msgid "Assign standard WP roles supplementally for a specific post type"
-msgstr "特定の投稿タイプのために標準WPロールを補足的に割り当てる"
-
-#: includes/backup.php:131
-#, php-format
-msgid "Auto-backup of all roles (%s)"
-msgstr "すべてのロールの自動バックアップ (%s)"
-
-#: includes/admin.php:1851
-msgid ""
-"Automatically define type-specific capabilities for your custom post types "
-"and taxonomies"
-msgstr "カスタム投稿タイプとタクソノミーのために、タイプ固有の機能を自動的に定義します"
-
-#: includes/settings-ui.php:272
-msgid "Automatically refresh profile elements"
-msgstr "プロファイル要素を自動的に更新"
-
-#: includes/backup.php:95
-msgid "Available Backups:"
-msgstr "利用可能なバックアップ："
-
-#: includes/backup.php:51 includes/functions-admin.php:527
-msgid "Backup"
-msgstr "バックアップ"
-
-#: includes/backup.php:62
-msgid "Backup Roles and Capabilities"
-msgstr "ロールと機能のバックアップ"
-
-#: includes/backup.php:41
-msgid "Backup Tool for PublishPress Capabilities"
-msgstr "PublishPress機能のバックアップツール"
-
-#: includes/manager.php:1186
-msgid "Bad form Received"
-msgstr "不正なフォームを受け取りました"
-
-#: includes/handler.php:127
-msgid "Bad form received."
-msgstr "不正なフォームを受け取りました。"
-
-#: includes/backup.php:334
-msgid ""
-"Before importing, we recommend using the \"Backup\" tab to create a backup "
-"of your current settings."
-msgstr "インポートする前に、\"バックアップ\"タブを使用して現在の設定のバックアップを作成することをお勧めします。"
-
-#: includes/admin.php:209
-msgid "Block"
-msgstr "ブロック"
-
-#: includes-core/CoreAdmin.php:128
-msgid "Block by URL"
-msgstr "URLでブロック"
-
-#: includes/roles/class/class-pp-roles-admin.php:204
-msgid "Block Dashboard Access"
-msgstr "ダッシュボードアクセスをブロック"
-
-#: includes/roles/class/class-pp-roles-admin.php:194
-msgid "Block Login"
-msgstr "ログインをブロック"
-
-#: includes/features/restrict-editor-features.php:482
-#: includes/features/restrict-editor-features.php:483
-msgid "Block Panel"
-msgstr "パネルをブロック"
-
-#: includes/roles/class/class-pp-roles-admin.php:205
-msgid "Block users in this role from accessing admin area."
-msgstr "このロールのユーザーが管理エリアにアクセスするのをブロックします。"
-
-#: includes/roles/class/class-pp-roles-admin.php:195
-msgid "Block users in this role from logging into the site."
-msgstr "この役割のユーザーがサイトにログインするのをブロックします。"
-
-#: includes/features/restrict-editor-features.php:403
-msgid "Body"
-msgstr "本文"
-
-#: includes/features/frontend-features/frontend-features-ui.php:226
-msgid "Body Class"
-msgstr "本文クラス"
-
-#: includes/roles/class/class-pp-roles-admin.php:276
-#, php-format
-msgid ""
-"By default, WooCommerce prevents most users from accessing the WordPress "
-"admin area. When enabled, this setting will remove those restrictions for "
-"this role. %1s Click here for more details. %2s"
-msgstr ""
-"デフォルトでは、WooCommerceはほとんどのユーザーがWordPress管理エリアにアクセスするのを防ぎます。この設定を有効にすると、この役割に対"
-"する制限が解除されます。 %1s 詳細はこちらをクリックしてください。 %2s"
-
-#: includes/admin.php:303
-msgid "Can delete posts which are currently published with private visibility."
-msgstr "現在、プライベートの可視性で公開されている投稿を削除できます。"
-
-#: includes/admin.php:302
-msgid "Can delete posts which are currently published."
-msgstr "現在公開されている投稿を削除できます。"
-
-#: includes/admin.php:301
-msgid "Can delete posts which were created by other users."
-msgstr "他のユーザーが作成した投稿を削除できます。"
-
-#: includes/admin.php:298
-msgid "Can edit posts which are currently published with private visibility."
-msgstr "現在、プライベートの可視性で公開されている投稿を編集できます。"
-
-#: includes/admin.php:297
-msgid "Can edit posts which are currently published."
-msgstr "現在公開されている投稿を編集できます。"
-
-#: includes/admin.php:296
-msgid "Can edit posts which were created by other users."
-msgstr "他のユーザーが作成した投稿を編集できます。"
-
-#: includes/admin.php:299
-msgid "Can make a post publicly visible."
-msgstr "投稿を公開可視性にすることができます。"
-
-#: includes/admin.php:294
-msgid "Can read posts which are currently published with private visibility."
-msgstr "現在、プライベートの可視性で公開されている投稿を読むことができます。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:148
-msgid "Cancel Edit"
-msgstr "編集をキャンセル"
-
-#: includes/roles/class/class-pp-roles-actions.php:522
-#, php-format
-msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
-msgstr "デフォルトの役割を削除できません。最初に <a href=\"%s\">変更する必要があります</a>。"
-
-#: includes/manager.php:1518
-msgid "Capabilites Documentation"
-msgstr "能力ドキュメント"
-
-#: includes/admin-load.php:493 includes/admin-load.php:825
-#: includes/functions-admin.php:379 includes/functions-admin.php:462
-#: includes/manager.php:387 includes/settings-ui.php:34
-#: includes/roles/class/class-pp-roles-admin.php:637
-msgid "Capabilities"
-msgstr "能力"
-
-#: includes/admin.php:1675
-msgid "Capabilities allows you change the permissions for any user role."
-msgstr "能力は、任意のユーザー役割の権限を変更することを許可します。"
-
-#: includes/functions-admin.php:380
-msgid "Capabilities allows you to change the permissions for any user role."
-msgstr "能力は、任意のユーザー役割の権限を変更することを許可します。"
 
 #: includes/pp-ui.php:79
 #, php-format
@@ -623,349 +2843,76 @@ msgstr ""
 "カスタムステータスの機能は、ここで役割に手動で追加できます（該当する名前については条件 > ステータス > "
 "機能マッピングを参照してください）。ただし、通常は補足的なステータス固有の役割を割り当てるために許可グループを使用する方が便利です。"
 
-#: includes/admin.php:1744
-msgid "Capabilities is Safe to Use"
-msgstr "機能は安全に使用できます"
+#: includes/pp-ui.php:108
+msgid "Unique Post Type Capabilities"
+msgstr "ユニーク投稿タイプの機能"
 
-#: includes/settings.php:13
-msgid "Capabilities Settings"
-msgstr "機能設定"
-
-#: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
-#: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
-#: includes/admin.php:1520 includes/admin.php:1658
-msgid "Capability Name"
-msgstr "機能名"
-
-#: includes/admin.php:1103 includes/admin.php:1185 includes/admin.php:1222
-#: includes/admin.php:1231 includes/admin.php:1281 includes/admin.php:1377
-#: includes/admin.php:1520 includes/admin.php:1658
-msgid "check / uncheck all"
-msgstr "すべてをチェック / チェック解除"
-
-#: includes-core/editor-features-promo.php:36
-msgid "Checklist"
-msgstr "チェックリスト"
-
-#: includes/features/frontend-features/frontend-features-metaboxes.php:77
-msgid "Choose Frontend Features that will apply to this post."
-msgstr "この投稿に適用されるフロントエンド機能を選択してください。"
-
-#: includes/features/editor-features.php:130
-msgid "Classic"
-msgstr "クラシック"
-
-#: includes/roles/class/class-pp-roles-admin.php:160
-msgid "Classic editor"
-msgstr "クラシックエディタ"
-
-#: includes/features/editor-features-classic.php:1
+#: includes/pp-ui.php:120
+#. translators: %1$s and %2$s are link tags for 'Find out more.'
 #, php-format
-msgid "Classic Editor %s Restrictions"
-msgstr "クラシックエディタ %s 制限"
-
-#: includes/settings-ui.php:376 includes/settings-ui.php:398
-msgid "Click here for more on notice types."
-msgstr "通知タイプの詳細については、ここをクリックしてください。"
-
-#: includes/features/profile-features.php:140
-msgid "Click the \"Find profile items for this role\" button."
-msgstr "「この役割のプロファイル項目を見つける」ボタンをクリックしてください。"
-
-#: includes/features/restrict-editor-features.php:486
-msgid "Color settings"
-msgstr "カラー設定"
-
-#: includes/manager.php:1520
-msgid "Contact"
-msgstr "連絡先"
-
-#: includes/manager.php:1520
-msgid "Contact the PublishPress team"
-msgstr "PublishPressチームに連絡する"
-
-#: includes/roles/class/class-pp-roles-admin.php:261
-#. "Editor" means post editor like Gutenberg
-msgid "Control Allowed Editors"
-msgstr "許可されたエディタを制御する"
-
-#: includes/features/admin-styles/admin-styles-ui.php:559
-msgid "Control how admin styles are applied to users."
-msgstr "管理者スタイルがユーザーに適用される方法を制御します。"
-
-#: includes/features/admin-styles/admin-styles-ui.php:557
-msgid "Control Settings"
-msgstr "制御設定"
-
-#: includes/roles/class/class-pp-roles-list-table.php:233
-msgid "Copy"
-msgstr "コピー"
-
-#: includes/admin.php:1988
-msgid "Copy / update this role definition to all sites now"
-msgstr "この役割定義をすべてのサイトにコピー / 更新します"
-
-#: includes/admin.php:1991
-msgid "Copy option settings to all sites now"
-msgstr "すべてのサイトにオプション設定をコピーする"
-
-#: includes/roles/class/class-pp-roles-admin.php:541
-msgid "Copy Role"
-msgstr "役割をコピー"
-
-#: includes/features/restrict-editor-features.php:164
-msgid "Coupon Description"
-msgstr "クーポン説明"
-
-#: includes/roles/class/class-pp-roles-admin.php:543
-msgid "Create New Role"
-msgstr "新しい役割を作成"
-
-#: includes/admin.php:282
-msgid "Create Revision"
-msgstr "リビジョンを作成"
-
-#: includes/admin.php:1985
-msgid "Create this role definition in new (future) sites"
-msgstr "新しい（将来の）サイトにこの役割定義を作成する"
-
-#: includes/roles/class/class-pp-roles-list-table.php:398
-msgid "Custom"
-msgstr "カスタム"
-
-#: includes/features/admin-styles/admin-styles-ui.php:622
-msgid "Custom admin color schemes"
-msgstr "カスタム管理者カラースキーム"
-
-#: includes/features/admin-styles/admin-styles-ui.php:454
-msgid "Custom Admin Logo"
-msgstr "カスタム管理者ロゴ"
-
-#: includes/features/frontend-features/frontend-features-ui.php:231
-msgid "Custom CSS"
-msgstr "カスタムCSS"
-
-#: includes/features/admin-styles/admin-styles-ui.php:489
-msgid "Custom Favicon"
-msgstr "カスタムファビコン"
-
-#: includes/features/admin-styles/admin-styles-ui.php:624
-msgid "Custom footer text"
-msgstr "カスタムフッターテキスト"
-
-#: includes-core/editor-features-promo.php:98
-msgid "Custom item one"
-msgstr "カスタムアイテム1"
-
-#: includes-core/editor-features-promo.php:89
-msgid "Custom Items"
-msgstr "カスタムアイテム"
-
-#: includes/admin.php:1875
 msgid ""
-"Custom Moderation statuses for access-controlled, multi-step publishing "
-"workflow <em>(Pro)</em>"
-msgstr "アクセス制御された多段階公開ワークフローのためのカスタムモデレーションステータス <em>(Pro)</em>"
+"Allow post type permissions to be controlled separately from other areas of "
+"WordPress. %1$sFind out more.%2$s"
+msgstr "投稿タイプの権限をWordPressの他のエリアから独立して制御できるようにします。 %1$s詳細を確認する。%2$s"
 
-#: includes/admin.php:1871
+#: includes/pp-ui.php:191
+msgid "Use the \"Create\" capability for selected post types"
+msgstr "選択した投稿タイプのために「作成」機能を使用する"
+
+#: includes/pp-ui.php:192
 msgid ""
-"Custom Post Visibility statuses, fully implemented throughout wp-admin "
-"<em>(Pro)</em>"
-msgstr "完全にwp-admin全体に実装されたカスタム投稿可視性ステータス <em>(Pro)</em>"
+"This will cause a new capability to be required for creating posts, and "
+"enable a checkbox column here for role assignments. Normally, post creation "
+"is controlled by the \"Edit\" capability."
+msgstr ""
+"これにより、投稿を作成するために新しい機能が必要となり、役割の割り当てのためにここにチェックボックス列が有効になります。通常、投稿の作成は「編集」機能に"
+"よって制御されています。"
 
-#: includes/admin.php:1867
-msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
-msgstr "カテゴリまたは投稿ごとの編集権限をカスタマイズ <em>(Pro)</em>"
+#: includes/pp-ui.php:200
+#: includes/pp-ui.php:286
+#: includes/pp-ui.php:365
+msgid "Update"
+msgstr "更新"
 
-#: includes/admin.php:1863
-msgid "Customize reading permissions per-category or per-post"
-msgstr "カテゴリまたは投稿ごとの閲覧権限をカスタマイズ"
+#: includes/pp-ui.php:221
+msgid "Unique Taxonomy Capabilities"
+msgstr "ユニークタクソノミーの機能"
 
-#: includes/admin.php:1883
+#: includes/pp-ui.php:230
 msgid ""
-"Customize the moderated editing of published content with Revisionary or "
-"Post Forking <em>(Pro)</em>"
-msgstr "リビジョナリーまたは投稿フォークを使用して公開コンテンツのモデレートされた編集をカスタマイズ <em>(Pro)</em>"
-
-#: includes/admin-load.php:824 includes/dashboard.php:23
-msgid "Dashboard"
-msgstr "ダッシュボード"
-
-#: includes/manager.php:516
-#: includes/roles/class/class-pp-roles-list-table.php:173
-msgid "Default Role"
-msgstr "デフォルトロール"
-
-#: includes/roles/class/class-pp-roles-admin.php:239
-msgid "Delete role"
-msgstr "ロールを削除"
-
-#: includes/roles/class/class-pp-roles-actions.php:541
-msgid "Deleting a system role is not allowed."
-msgstr "システムロールの削除は許可されていません。"
-
-#: includes/roles/class/class-pp-roles-admin.php:240
-msgid ""
-"Deleting this role will completely remove it from database and is "
-"irrecoverable."
-msgstr "このロールを削除すると、データベースから完全に削除され、復元できなくなります。"
-
-#: includes/admin.php:273
-msgid "Deletion"
-msgstr "削除"
-
-#: includes/functions.php:723
-msgid "Detailed documentation is also available on the plugin website."
-msgstr "詳細なドキュメントはプラグインのウェブサイトでも利用可能です。"
+"Allow taxonomy permissions to be controlled separately from other areas of "
+"WordPress."
+msgstr "タクソノミーの権限をWordPressの他のエリアから独立して制御できるようにします。"
 
 #: includes/pp-ui.php:301
 msgid "Detailed Taxonomy Capabilities"
 msgstr "詳細なタクソノミー機能"
 
-#: includes/roles/class/class-pp-roles-admin.php:249
-#. "Editor" means post editor like Gutenberg
-msgid "Disable Code Editor"
-msgstr "コードエディタを無効にする"
-
-#: includes/roles/class/class-pp-roles-admin.php:250
-#. "Editor" means post editor like Gutenberg
-msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
-msgstr "グーテンベルクブロックエディタの「コードエディタ」オプションを無効にします。"
-
-#: includes/roles/class/class-pp-roles-admin.php:275
-msgid "Disable WooCommerce admin restrictions"
-msgstr "WooCommerce管理制限を無効にする"
-
-#: includes/admin-notices/admin-notices.php:72
-msgid "Display this notice"
-msgstr "この通知を表示"
-
-#: includes/admin-notices/admin-notices.php:76
-msgid "Displayed notices will no longer be removed from admin pages."
-msgstr "表示された通知は、管理ページから削除されなくなります。"
-
-#: includes/features/restrict-editor-features.php:390
-msgid "Document Bar Title"
-msgstr "ドキュメントバータイトル"
-
-#: includes/features/restrict-editor-features.php:389
-msgid "Document Overview"
-msgstr "ドキュメント概要"
-
-#: includes/features/restrict-editor-features.php:420
-msgid "Document Panel"
-msgstr "ドキュメントパネル"
-
-#: includes/manager.php:1518
-msgid "Documentation"
-msgstr "ドキュメント"
-
-#: includes/admin-load.php:370
-msgid "Drag multiple roles selection to change roles order."
-msgstr "複数のロール選択をドラッグして、ロールの順序を変更します。"
-
-#: includes/roles/class/class-pp-roles-admin.php:217
+#: includes/pp-ui.php:311
 msgid ""
-"Each user role has a level from 0 to 10. The Subscriber role defaults to "
-"the lowest level (0). The Administrator role defaults to level 10."
-msgstr ""
-"各ユーザーロールには、0から10までのレベルがあります。サブスクライバーロールは最低レベル（0）にデフォルト設定されています。管理者ロールはレベル10"
-"にデフォルト設定されています。"
+"Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
+"\"Manage\" capability."
+msgstr "「管理」機能から独立して「編集」、「削除」、および「割り当て」機能を許可します。"
 
-#: includes/features/admin-features.php:276
-#: includes/features/editor-features-classic.php:123
-#: includes/features/editor-features-gutenberg.php:120
-msgid "Edit"
-msgstr "編集"
+#: includes/redirects/redirects.php:35
+#: includes/redirects/redirects.php:54
+msgid "Login Redirect"
+msgstr "ログインリダイレクト"
 
-#: includes/roles/class/class-pp-roles-admin.php:539
-#, php-format
-msgid "Edit Role: %s"
-msgstr "ロールを編集: %s"
+#: includes/redirects/redirects.php:39
+#: includes/redirects/redirects.php:63
+msgid "Logout Redirect"
+msgstr "ログアウトリダイレクト"
 
-#: includes/admin-notices/admin-notices.php:218
-msgid "Edit the settings."
-msgstr "設定を編集します。"
+#: includes/redirects/redirects.php:43
+#: includes/redirects/redirects.php:72
+msgid "Registration Redirect"
+msgstr "登録リダイレクト"
 
-#: includes/roles/class/class-pp-roles-list-table.php:90
-#, php-format
-msgid "Editable %s"
-msgid_plural "Editable %s"
-msgstr[0] "編集可能 %s"
-
-#: includes/admin.php:272 includes/roles/class/class-pp-roles-admin.php:111
-msgid "Editing"
-msgstr "編集中"
-
-#: includes/features/frontend-features/frontend-features-ui.php:45
-msgid "Editing:"
-msgstr "編集："
-
-#: includes/features/editor-features.php:69
-msgid "Editor Feature Restrictions"
-msgstr "エディタ機能の制限"
-
-#: includes/functions-admin.php:205 includes/functions-admin.php:384
-#: includes/functions-admin.php:469 includes/settings-ui.php:35
-#: includes/roles/class/class-pp-roles-admin.php:523
-msgid "Editor Features"
-msgstr "エディタ機能"
-
-#: includes/functions-admin.php:385 includes/features/editor-features.php:238
-msgid "Editor Features allows you to remove elements from the post editing screen."
-msgstr "エディタ機能では、投稿編集画面から要素を削除できます。"
-
-#: includes-core/editor-features-promo.php:46
-msgid "Editorial Comments"
-msgstr "編集コメント"
-
-#: includes/settings-ui.php:352
-#, php-format
-msgid "Enable %1s access to the Admin Notices area."
-msgstr "%1s の管理通知エリアへのアクセスを有効にします。"
-
-#: includes/settings-ui.php:165
-msgid "Enable Classic Editor tab"
-msgstr "クラシックエディタタブを有効にする"
-
-#: includes/features/frontend-features/frontend-features.php:151
-#, php-format
-msgid "Enable Frontend Features for %1$s Role"
-msgstr "%1$s ロールのフロントエンド機能を有効にする"
-
-#: includes/features/frontend-features/frontend-features-ui.php:101
-msgid ""
-"Enter classes that should be added to the body HTML. Separate multiple "
-"values with a space (custom-item-one custom-item-two)."
-msgstr "ボディHTMLに追加するクラスを入力してください。複数の値はスペースで区切ります（custom-item-one custom-item-two）。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:98
-msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
-msgstr "ボディHTMLに追加するクラスを入力してください。HTMLの前に.を含めないでください。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:92
-msgid ""
-"Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
-"color: red; } #custom-header { background: red; } "
-msgstr ""
-"フロントエンドページに追加するカスタムCSSを入力してください。例：.custom-style-1 { color: red; } "
-"#custom-header { background: red; }"
-
-#: includes/features/frontend-features/frontend-features-ui.php:81
-msgid ""
-"Enter IDs or classes to hide. Separate multiple values with a comma "
-"(.custom-item-one, .custom-item-two, #new-item-id)."
-msgstr ""
-"隠すIDまたはクラスを入力してください。複数の値はカンマで区切ります（.custom-item-one, .custom-item-two, "
-"#new-item-id）。"
-
-#: includes/redirects/redirects.php:242
-msgid "Enter the relative path only without domain for login redirect."
-msgstr "ログインリダイレクトのために、ドメインなしの相対パスのみを入力してください。"
-
-#: includes/redirects/redirects.php:275
-msgid "Enter the relative path only without domain for logout redirect."
-msgstr "ログアウトリダイレクトのために、ドメインなしの相対パスのみを入力してください。"
+#: includes/redirects/redirects.php:47
+#: includes/redirects/redirects.php:81
+msgid "First Login Redirect"
+msgstr "初回ログインリダイレクト"
 
 #: includes/redirects/redirects.php:55
 msgid "Enter the URL users in this role should be redirected to after login."
@@ -985,430 +2932,58 @@ msgid ""
 "login."
 msgstr "この役割のユーザーが初回ログイン後にリダイレクトされるURLを入力してください。"
 
-#: includes/backup-handler.php:178
-msgid "Error importing settings! Please check that you uploaded a valid json file."
-msgstr "設定のインポート中にエラーが発生しました！ 有効なjsonファイルをアップロードしたか確認してください。"
-
-#: includes/backup-handler.php:165
-msgid "Error importing settings! Please try again."
-msgstr "設定のインポート中にエラーが発生しました！ もう一度お試しください。"
-
-#: includes/settings-ui.php:291
-msgid "Error notices"
-msgstr "エラー通知"
-
-#: includes/handler.php:51
-msgid "Error: Failed creating the new role."
-msgstr "エラー：新しい役割の作成に失敗しました。"
-
-#: includes/admin-load.php:626
-msgid "Error: wrong data"
-msgstr "エラー：不正なデータ"
-
-#: includes/settings-ui.php:234
-msgid "Exclude role from User Testing"
-msgstr "ユーザーテストから役割を除外する"
-
-#: includes/settings-ui.php:255
-msgid "Exclude users in selected roles from User Testing."
-msgstr "選択した役割のユーザーをユーザーテストから除外します。"
-
-#: includes/manager.php:247
-msgid "Explicitly negate these capabilities by storing as disabled"
-msgstr "これらの機能を無効として保存することで明示的に否定します"
-
-#: includes/manager.php:246
-msgid "Explicity negate this capability by storing as disabled"
-msgstr "この機能を無効として保存することで明示的に否定します"
-
-#: includes/backup.php:325
-msgid "Export"
-msgstr "エクスポート"
-
-#: includes/backup.php:53
-msgid "Export / Import"
-msgstr "エクスポート / インポート"
-
-#: includes/backup.php:301
-msgid "Export Settings"
-msgstr "設定のエクスポート"
-
-#: includes/backup.php:303
-msgid ""
-"Export the plugin settings for this site as a .json file. This allows you "
-"to easily import the configuration into another site."
-msgstr "このサイトのプラグイン設定を.jsonファイルとしてエクスポートします。これにより、別のサイトに設定を簡単にインポートできます。"
-
-#: includes/features/restrict-editor-features.php:150
-msgid "Featured Image"
-msgstr "アイキャッチ画像"
-
-#: includes/features/restrict-editor-features.php:461
-msgid "Featured image"
-msgstr "アイキャッチ画像"
-
-#: includes/features/admin-styles/admin-styles-ui.php:620
-msgid "Features include:"
-msgstr "機能には以下が含まれます："
-
-#: includes/features/frontend-features/frontend-features-ui.php:66
-msgid "Features:"
-msgstr "機能："
-
-#: includes/admin.php:1089 includes/admin.php:1208 includes/admin.php:1267
-#: includes/admin.php:1511
-msgid "Filter by capability"
-msgstr "機能によるフィルタリング"
-
-#: includes/admin.php:690
-msgid "Filter by post type"
-msgstr "投稿タイプによるフィルタリング"
-
-#: includes/admin.php:690
-msgid "Filter by taxonomy"
-msgstr "分類でフィルタ"
-
-#: includes/features/profile-features.php:240
-msgid "Find profile items for this role"
-msgstr "この役割のプロフィール項目を見つける"
-
-#: includes/redirects/redirects.php:47 includes/redirects/redirects.php:81
-msgid "First Login Redirect"
-msgstr "初回ログインリダイレクト"
-
-#: includes/features/admin-styles/admin-styles-ui.php:578
-msgid "Force role settings (override user selection)"
-msgstr "役割設定を強制する（ユーザーの選択を上書き）"
-
-#: includes/settings-ui.php:218
-msgid "Front End footer notice"
-msgstr "フロントエンドのフッター通知"
-
-#: includes/features/frontend-features/frontend-features-action.php:92
-msgid "Frontend element item updated. Save changes to enable for role."
-msgstr "フロントエンド要素項目が更新されました。役割のために有効にするには変更を保存してください。"
-
-#: includes/functions-admin.php:227 includes/functions-admin.php:409
-#: includes/functions-admin.php:513
-#: includes/features/frontend-features/frontend-features-metaboxes.php:55
-#: includes/features/frontend-features/frontend-features.php:70
-msgid "Frontend Features"
-msgstr "フロントエンド機能"
-
-#: includes/functions-admin.php:410
-#: includes/features/frontend-features/frontend-features.php:247
-msgid ""
-"Frontend Features allows you to add or remove elements from the frontend of "
-"your site."
-msgstr "フロントエンド機能を使用すると、サイトのフロントエンドから要素を追加または削除できます。"
-
-#: includes/roles/class/class-pp-roles-admin.php:106
-msgid "General"
-msgstr "一般"
-
-#: includes/admin.php:1761
-msgid "Go to the Backup feature"
-msgstr "バックアップ機能に移動"
-
-#: includes/admin.php:1887
-msgid ""
-"Grant Spectator, Participant or Moderator access to specific bbPress forums "
-"<em>(Pro)</em>"
-msgstr "特定のbbPressフォーラムに観覧者、参加者、またはモデレーターのアクセスを付与する<em>(Pro)</em>"
-
-#: includes/admin.php:1891
-msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
-msgstr "BuddyPressグループに補足コンテンツの権限を付与する<em>(Pro)</em>"
-
-#: includes/features/editor-features.php:127
-msgid "Gutenberg"
-msgstr "グーテンベルク"
-
-#: includes/roles/class/class-pp-roles-admin.php:158
-msgid "Gutenberg editor"
-msgstr "グーテンベルクエディタ"
-
-#: includes/features/editor-features-gutenberg.php:1
+#: includes/redirects/redirects.php:94
 #, php-format
-msgid "Gutenberg Editor %s Restrictions"
-msgstr "グーテンベルクエディタ %s の制限"
+msgid "%s Redirects"
+msgstr "%s リダイレクト"
 
-#: includes/admin.php:300
+#: includes/redirects/redirects.php:112
+#: includes/redirects/redirects.php:315
+#: includes/roles/class/class-pp-roles-admin.php:512
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: includes/redirects/redirects.php:214
+msgid "Redirect users to the URL they were viewing before login."
+msgstr "ログイン前に表示していた URL にユーザーをリダイレクトします。"
+
+#: includes/redirects/redirects.php:226
+msgid "Redirect users to a specified URL."
+msgstr "指定された URL にユーザーをリダイレクトします。"
+
+#: includes/redirects/redirects.php:242
+msgid "Enter the relative path only without domain for login redirect."
+msgstr "ログインリダイレクトのために、ドメインなしの相対パスのみを入力してください。"
+
+#: includes/redirects/redirects.php:243
+msgid "You must enter the Login Redirect URL."
+msgstr "ログインリダイレクトURLを入力する必要があります。"
+
+#: includes/redirects/redirects.php:275
+msgid "Enter the relative path only without domain for logout redirect."
+msgstr "ログアウトリダイレクトのために、ドメインなしの相対パスのみを入力してください。"
+
+#: includes/redirects/redirects.php:333
 msgid ""
-"Has basic deletion capability (but may need other capabilities based on "
-"post status and ownership)."
-msgstr "基本的な削除機能があります（ただし、投稿のステータスや所有権に基づいて他の機能が必要な場合があります）。"
-
-#: includes/admin.php:295
-msgid ""
-"Has basic editing capability (but may need other capabilities based on post "
-"status and ownership)."
-msgstr "基本的な編集機能があります（ただし、投稿のステータスや所有権に基づいて他の機能が必要な場合があります）。"
-
-#: includes/roles/class/class-pp-roles-list-table.php:88
-#, php-format
-msgid "Has Users %s"
-msgid_plural "Has Users %s"
-msgstr[0] "ユーザーがあります %s"
-
-#: includes/features/frontend-features/frontend-features-ui.php:221
-msgid "Hidden IDs or Classes"
-msgstr "非表示のIDまたはクラス"
-
-#: includes/admin-notices/admin-notices.php:204
-msgid "Hidden Notices"
-msgstr "非表示の通知"
-
-#: includes/features/admin-styles/admin-styles-ui.php:568
-msgid "Hide Admin Color Scheme settings in user profile"
-msgstr "ユーザープロフィールで管理者カラースキーム設定を非表示にする"
-
-#: includes/features/restrict-admin-features.php:37
-msgid "Hide Admin Toolbar"
-msgstr "管理者ツールバーを非表示にする"
-
-#: includes-core/CoreAdmin.php:127
-msgid "Hide CSS Elements"
-msgstr "CSS要素を非表示にする"
-
-#: includes/features/restrict-admin-features.php:38
-msgid "Hide Dashboard Widgets"
-msgstr "ダッシュボードウィジェットを非表示にする"
-
-#: includes/features/restrict-admin-features.php:36
-msgid "Hide Default Items"
-msgstr "デフォルト項目を非表示にする"
-
-#: includes/features/frontend-features/frontend-features-ui.php:73
-msgid "Hide IDs or Classes"
-msgstr "IDまたはクラスを非表示にする"
-
-#: includes/admin-notices/admin-notices.php:74
-msgid "Hide this notice"
-msgstr "この通知を非表示にする"
-
-#: includes/features/frontend-features/frontend-features-data.php:70
-msgid "Hide Twenty Twenty-Three Credit Footer"
-msgstr "Twenty Twenty-Threeクレジットフッターを非表示にする"
-
-#: includes/features/admin-features.php:350
-msgid "How to use Admin Features"
-msgstr "管理者機能の使い方"
-
-#: includes/features/admin-styles/admin-styles-ui.php:628
-msgid "How to use Admin Styles"
-msgstr "管理者スタイルの使い方"
-
-#: includes/admin.php:1706
-msgid "How to use Capabilities"
-msgstr "機能の使い方"
-
-#: includes/features/editor-features.php:244
-msgid "How to use Editor Features"
-msgstr "エディタ機能の使い方"
-
-#: includes/features/frontend-features/frontend-features.php:253
-msgid "How to use Frontend Features"
-msgstr "フロントエンド機能の使い方"
-
-#: includes/features/nav-menus.php:307
-msgid "How to use Navigation Menus"
-msgstr "ナビゲーションメニューの使い方"
-
-#: includes/features/profile-features.php:255
-msgid "How to use Profile Features"
-msgstr "プロフィール機能の使い方"
+"Redirect Features allows you to redirect users in a role after "
+"Registration, Login or Logout."
+msgstr "リダイレクト機能を使用すると、登録後、ログイン後、またはログアウト後にユーザーを役割に基づいてリダイレクトできます。"
 
 #: includes/redirects/redirects.php:336
 msgid "How to use Redirect Features"
 msgstr "リダイレクト機能の使い方"
 
-#: includes/features/restrict-editor-features.php:67, fuzzy
-msgid "HTML Editor Button"
-msgstr "HTMLエディタボタン"
+#: includes/roles/class/class-pp-roles-actions.php:148
+msgid "You do not have sufficient permissions to perform this action."
+msgstr "このアクションを実行するのに十分な権限がありません。"
 
-#. Author URI of the plugin
-msgid "https://publishpress.com/"
-msgstr "https://publishpress.com/"
-
-#. URI of the plugin
-msgid "https://publishpress.com/capability-manager/"
-msgstr "https://publishpress.com/capability-manager/"
-
-#: includes/backup.php:287
-msgid ""
-"If you have installed any plugin that adds new roles or capabilities, these "
-"will be lost."
-msgstr "新しい役割または機能を追加するプラグインをインストールした場合、これらは失われます。"
-
-#: includes/manager.php:1505
-#, php-format
-msgid "If you like %s, please leave us a %s rating. Thank you!"
-msgstr "もし%sが気に入ったら、%s評価を残してください。ありがとうございます！"
-
-#: includes/functions.php:712
-msgid "If you need help or have a new feature request, let us know."
-msgstr "助けが必要な場合や新しい機能リクエストがある場合は、お知らせください。"
-
-#: includes/backup.php:331
-msgid "Import Settings"
-msgstr "設定のインポート"
-
-#: includes/backup.php:333
-msgid ""
-"Import the plugin settings from a .json file. This file can be obtained by "
-"exporting the settings on another site using the form above."
-msgstr "プラグイン設定を.jsonファイルからインポートします。このファイルは、上記のフォームを使用して他のサイトで設定をエクスポートすることで取得できます。"
-
-#: includes/admin.php:1985
-msgid "Include in new sites."
-msgstr "新しいサイトに含める。"
-
-#: includes/handler.php:119
-msgid "Incorrect capability name."
-msgstr "無効な能力名。"
-
-#: includes/settings-ui.php:293
-msgid "Info notices"
-msgstr "情報通知"
-
-#: includes/backup.php:164
-msgid "Initial Backup"
-msgstr "初期バックアップ"
-
-#: includes/backup.php:164
-#, php-format
-msgid "Initial Backup - %s"
-msgstr "初期バックアップ - %s"
-
-#: includes/backup.php:139
-msgid "Initial backup of all roles"
-msgstr "すべてのロールの初期バックアップ"
-
-#: includes/admin-notices/admin-notices.php:243
-#: includes/features/frontend-features/frontend-features-action.php:56
-#: includes/features/frontend-features/frontend-features-action.php:119
-msgid "Invalid action. Reload this page and try again."
-msgstr "無効なアクションです。このページを再読み込みして再試行してください。"
-
-#: includes/admin.php:638 includes/admin.php:1395
-msgid "Invalid Capabilities"
-msgstr "無効な能力"
-
-#: includes/admin-notices/admin-notices.php:245
-msgid "Invalid form."
-msgstr "無効なフォームです。"
-
-#: includes/manager.php:927
-msgid "Invalid form. Reload this page and try again."
-msgstr "無効なフォームです。このページを再読み込みして再試行してください。"
-
-#: includes/admin-load.php:622
-msgid "Invalid nonce token!"
-msgstr "無効なnonceトークン！"
-
-#: includes/features/frontend-features/frontend-features-action.php:121
-msgid "Invalid request!."
-msgstr "無効なリクエスト！"
-
-#: includes/roles/class/class-pp-roles-actions.php:211
-#, php-format
-msgid "Invalid role name entry: %s"
-msgstr "無効なロール名の入力：%s"
-
-#: includes/features/restrict-profile-features.php:128
-msgid "Invalid role provided."
-msgstr "無効なロールが提供されました。"
-
-#: includes/backup.php:288
-msgid "It is recommended to use this only as a last resource!"
-msgstr "これは最後の手段としてのみ使用することをお勧めします！"
-
-#: includes/backup.php:84
-msgid "Last Backup"
-msgstr "最終バックアップ"
-
-#: includes/backup.php:84
-#, php-format
-msgid "Last Manual Backup - %s"
-msgstr "最終手動バックアップ - %s"
-
-#: includes/admin.php:218
-msgid "Legacy"
-msgstr "レガシー"
-
-#: includes/admin.php:1942
-msgid "Level:"
-msgstr "レベル:"
-
-#: includes/admin.php:278
-msgid "Listing"
-msgstr "リスト"
-
-#: includes/roles/class/class-pp-roles-admin.php:683
-msgid "Load Less"
-msgstr "もっと読み込む"
-
-#: includes/roles/class/class-pp-roles-admin.php:680
-msgid "Load More"
-msgstr "さらに読み込む"
-
-#: includes/features/frontend-features/frontend-features-action.php:60
-msgid "Load on page types is required."
-msgstr "ページタイプでの読み込みが必要です。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:109
-msgid "Load on page types:"
-msgstr "ページタイプでの読み込み:"
-
-#: includes/admin-load.php:760 includes/features/nav-menus.php:26
-#: includes/features/frontend-features/frontend-features.php:39
-msgid "Logged In Users"
-msgstr "ログインユーザー"
-
-#: includes/admin-load.php:761 includes/features/nav-menus.php:26
-#: includes/features/frontend-features/frontend-features.php:40
-msgid "Logged Out Users"
-msgstr "ログアウトユーザー"
-
-#: includes/functions.php:565
-msgid "Login permission denied."
-msgstr "ログイン権限が拒否されました。"
-
-#: includes/redirects/redirects.php:35 includes/redirects/redirects.php:54
-msgid "Login Redirect"
-msgstr "ログインリダイレクト"
-
-#: includes/redirects/redirects.php:39 includes/redirects/redirects.php:63
-msgid "Logout Redirect"
-msgstr "ログアウトリダイレクト"
-
-#: includes/backup.php:74
-msgid "Manual Backup"
-msgstr "手動バックアップ"
-
-#: includes/backup.php:116
-#, php-format
-msgid "Manual backup of %s (%s)"
-msgstr "手動バックアップ %s (%s)"
-
-#: includes/features/restrict-editor-features.php:62
-msgid "Media Buttons (all)"
-msgstr "メディアボタン（すべて）"
-
-#: includes/admin.php:1899
-msgid "Member support forum"
-msgstr "メンバーサポートフォーラム"
-
-#: includes-core/editor-features-promo.php:24
-msgid "Metaboxes"
-msgstr "メタボックス"
-
-#: includes/roles/class/class-pp-roles-list-table.php:87
-#, php-format
-msgid "Mine %s"
-msgid_plural "Mine %s"
-msgstr[0] "マイン %s"
+#: includes/roles/class/class-pp-roles-actions.php:162
+#: includes/roles/class/class-pp-roles-actions.php:180
+#: includes/roles/class/class-pp-roles-actions.php:374
+#: includes/roles/class/class-pp-roles-actions.php:490
+#: includes/test-user.php:53
+msgid "Your link has expired, refresh the page and try again."
+msgstr "リンクの有効期限が切れました。ページを更新して再試行してください。"
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:378
@@ -1418,713 +2993,15 @@ msgstr[0] "マイン %s"
 msgid "Missing parameters, refresh the page and try again."
 msgstr "パラメータが不足しています。ページを更新して再試行してください。"
 
-#: includes/features/restrict-admin-features.php:91
-msgid "Mobile Menu Toggle"
-msgstr "モバイルメニューの切り替え"
-
-#: includes/features/restrict-editor-features.php:384
-msgid "Modes"
-msgstr "モード"
-
-#: includes/admin-notices/admin-notices.php:75
-msgid "Move to Hidden Notices"
-msgstr "非表示のお知らせに移動"
-
-#: includes/settings-ui.php:56
-msgid "Multiples roles on \"Add New User\" screen"
-msgstr "「新しいユーザーを追加」画面の複数の役割"
-
-#: includes/settings-ui.php:72
-msgid "Multiples roles on \"User Edit\" screen"
-msgstr "「ユーザー編集」画面の複数の役割"
-
-#: includes/admin.php:598 includes/admin.php:1069 includes/admin.php:1809
-msgid "Multisite"
-msgstr "マルチサイト"
-
-#: includes/functions-admin.php:241
-msgid "Nav Menu"
-msgstr "ナビメニュー"
-
-#: includes/admin.php:207 includes/admin.php:802
-msgid "Nav Menus (Block)"
-msgstr "ナビメニュー（ブロック）"
-
-#: includes/admin.php:216 includes/admin.php:804
-msgid "Nav Menus (Legacy)"
-msgstr "ナビメニュー（レガシー）"
-
-#: includes/features/nav-menus.php:61
-msgid "Navigation Menu Restrictions"
-msgstr "ナビゲーションメニューの制限"
-
-#: includes/functions-admin.php:414 includes/functions-admin.php:520
-#: includes/roles/class/class-pp-roles-admin.php:527
-msgid "Navigation Menus"
-msgstr "ナビゲーションメニュー"
-
-#: includes/functions-admin.php:415 includes/features/nav-menus.php:301
-msgid "Navigation Menus allows you to block access to frontend menu links."
-msgstr "ナビゲーションメニューは、フロントエンドのメニュリンクへのアクセスをブロックすることができます。"
-
-#: includes/functions.php:707
-msgid "Need PublishPress Capabilities Support?"
-msgstr "PublishPressの機能サポートが必要ですか？"
-
-#: includes/backup-handler.php:274
-msgid "Needed function to create default roles not found!"
-msgstr "デフォルトの役割を作成するための必要な機能が見つかりません！"
-
-#: includes/admin.php:84
-msgid "Negate All"
-msgstr "すべてを否定"
-
-#: includes/admin.php:88
-msgid "Negate None"
-msgstr "何も否定しない"
-
-#: includes/features/restrict-admin-features.php:98
-#: includes/features/restrict-admin-features.php:99
-msgid "New"
-msgstr "新規"
-
-#: includes/backup-handler.php:73
-msgid "New backup saved."
-msgstr "新しいバックアップが保存されました。"
-
-#: includes/admin.php:1793
-msgid "New capabilities are controlled on the Additonal tab."
-msgstr "新しい機能は追加タブで管理されます。"
-
-#: includes/manager.php:1145
-msgid "New capability added to role."
-msgstr "役割に新しい機能が追加されました。"
-
-#: includes/features/frontend-features/frontend-features-action.php:94
-msgid "New frontend element added. Save changes to enable for role."
-msgstr "新しいフロントエンド要素が追加されました。変更を保存して役割を有効にします。"
-
-#: includes/handler.php:45
-msgid "New role created."
-msgstr "新しい役割が作成されました。"
-
-#: includes/backup.php:267
-msgid "No changes"
-msgstr "変更はありません"
-
-#: includes/features/editor-features-classic.php:162
-#: includes/features/editor-features-gutenberg.php:158
+#: includes/roles/class/class-pp-roles-actions.php:211
 #, php-format
-msgid ""
-"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
-"refresh this page afterwards to load the new metaboxes."
-msgstr ""
-"%1s に対するメタボックスが見つかりませんでした。%2s ここをクリック %3s して %4s "
-"スクリーンを訪れ、その後このページを更新して新しいメタボックスを読み込んでください。"
+msgid "Invalid role name entry: %s"
+msgstr "無効なロール名の入力：%s"
 
-#: includes/admin-load.php:612
-msgid "No permission!"
-msgstr "権限がありません！"
-
-#: includes/test-user-ui.php:70
-msgid "No results found."
-msgstr "結果が見つかりませんでした。"
-
-#: includes/admin.php:1092 includes/admin.php:1211 includes/admin.php:1270
-#: includes/admin.php:1514
-msgid "No results found. Please try again with a different word."
-msgstr "結果が見つかりませんでした。別の単語で再試行してください。"
-
-#: includes/features/admin-styles/admin-styles.php:522
-msgid "No role specified."
-msgstr "指定された役割がありません。"
-
-#: includes/roles/class/class-pp-roles-list-table.php:89
+#: includes/roles/class/class-pp-roles-actions.php:223
 #, php-format
-msgid "No Users %s"
-msgid_plural "No Users %s"
-msgstr[0] "ユーザーがいません %s"
-
-#: includes/settings-ui.php:343
-msgid "Notification center access"
-msgstr "通知センターへのアクセス"
-
-#: includes-core/editor-features-promo.php:56
-msgid "Notifications"
-msgstr "通知"
-
-#: includes/settings-ui.php:385
-msgid "Notifications to display in the Admin Notices area."
-msgstr "管理者通知エリアに表示する通知。"
-
-#: includes/settings-ui.php:363
-msgid "Notifications to remove from WordPress admin pages"
-msgstr "WordPress管理ページから削除する通知"
-
-#: includes/backup.php:92
-msgid ""
-"On this screen, you can restore an earlier version of your roles and "
-"capabilities."
-msgstr "この画面では、以前の役割と機能のバージョンを復元できます。"
-
-#: includes/features/restrict-editor-features.php:400
-msgid "Options"
-msgstr "オプション"
-
-#: includes/features/restrict-editor-features.php:148
-msgid "Other Boxes"
-msgstr "その他のボックス"
-
-#: includes/features/restrict-editor-features.php:388
-msgid "Outline"
-msgstr "アウトライン"
-
-#: includes-core/editor-features-promo.php:118
-msgid "Page Attributes: Order"
-msgstr "ページ属性：順序"
-
-#: includes/features/restrict-editor-features.php:126
-msgid "Page Boxes"
-msgstr "ページボックス"
-
-#: includes/functions.php:940
-msgid "Page Lists"
-msgstr "ページリスト"
-
-#: includes/admin-load.php:373
-msgid "Page title"
-msgstr "ページタイトル"
-
-#: includes/features/frontend-features/frontend-features-ui.php:240
-msgid "Pages"
-msgstr "ページ"
-
-#: includes/features/restrict-editor-features.php:484
-msgid "Paragraph"
-msgstr "段落"
-
-#: includes/features/restrict-editor-features.php:428
-msgid "Permalink"
-msgstr "パーマリンク"
-
-#: includes-core/editor-features-promo.php:108
-msgid "Permalink: Descriptive Caption"
-msgstr "パーマリンク：説明キャプション"
-
-#: includes/admin-load.php:654
-msgid "Permission denied"
-msgstr "権限が拒否されました"
-
-#: includes/test-user-ui.php:79
-msgid "Permission denied."
-msgstr "権限が拒否されました。"
-
-#: includes/backup.php:332
-msgid ""
-"Please make a 'Manual Backup' in the backup tab to enable backup restore in "
-"case anything goes wrong."
-msgstr "何か問題が発生した場合に備えて、バックアップタブで「手動バックアップ」を作成してバックアップの復元を有効にしてください。"
-
-#: includes/backup-handler.php:140
-msgid "Please upload a file to import"
-msgstr "インポートするファイルをアップロードしてください"
-
-#: includes/backup-handler.php:145
-msgid "Please upload a valid .json file"
-msgstr "有効な.jsonファイルをアップロードしてください"
-
-#: includes/admin.php:1264
-#, php-format
-msgid "Plugin Capabilities &ndash; %s"
-msgstr "プラグインの機能 &ndash; %s"
-
-#: includes/admin.php:681
-#, php-format
-msgid "Post %s Capabilities"
-msgstr "投稿 %s の機能"
-
-#: includes/features/restrict-editor-features.php:476
-msgid "Post Attributes"
-msgstr "投稿属性"
-
-#: includes/features/frontend-features/frontend-features-ui.php:248
-msgid "Post Type Metabox"
-msgstr "投稿タイプメタボックス"
-
-#: includes/manager.php:248
-msgid "Post type registration does not define this capability distinctly"
-msgstr "投稿タイプの登録は、この機能を明示的に定義していません"
-
-#: includes/features/profile-features.php:46
-msgid "Profile Feature Restrictions"
-msgstr "プロフィール機能の制限"
-
-#: includes/functions-admin.php:231 includes/functions-admin.php:399
-#: includes/functions-admin.php:499 includes/settings-ui.php:36
-#: includes/roles/class/class-pp-roles-admin.php:525
-msgid "Profile Features"
-msgstr "プロフィール機能"
-
-#: includes/features/restrict-profile-features.php:123
-msgid "Profile features access disabled."
-msgstr "プロフィール機能へのアクセスが無効になっています。"
-
-#: includes/features/restrict-profile-features.php:136
-msgid "Profile features access enabled for this role."
-msgstr "この役割にはプロフィール機能へのアクセスが有効になっています。"
-
-#: includes/functions-admin.php:400 includes/features/profile-features.php:249
-msgid "Profile Features allows you to remove elements from the Profile screen."
-msgstr "プロフィール機能では、プロフィール画面から要素を削除することができます。"
-
-#: includes/features/restrict-editor-features.php:398
-msgid "Publish / Update"
-msgstr "公開 / 更新"
-
-#: includes/features/restrict-editor-features.php:85
-msgid "Publish Actions"
-msgstr "公開アクション"
-
-#: includes/features/restrict-editor-features.php:77
-#: includes/features/restrict-editor-features.php:78, fuzzy
-msgid "Publish Box"
-msgstr "公開ボックス"
-
-#. Author of the plugin
-msgid "PublishPress"
-msgstr "PublishPress"
-
-#. Name of the plugin
-msgid "PublishPress Capabilities"
-msgstr "PublishPress 機能"
-
-#: includes/backup.php:91
-msgid ""
-"PublishPress Capabilities automatically creates a backup on installation "
-"and whenever you save changes."
-msgstr "PublishPress 機能は、インストール時および変更を保存するたびに自動的にバックアップを作成します。"
-
-#: includes/backup.php:67
-msgid ""
-"PublishPress Capabilities automatically creates a backup on installation "
-"and whenever you save changes. The initial backup and last %d auto-backups "
-"are kept."
-msgstr ""
-"PublishPress 機能は、インストール時および変更を保存するたびに自動的にバックアップを作成します。初回のバックアップと最後の %d "
-"自動バックアップが保持されます。"
-
-#. Description of the plugin
-msgid ""
-"PublishPress Capabilities is the access control plugin for WordPress. You "
-"can manage all your WordPress user roles, from Administrators to "
-"Subscribers."
-msgstr ""
-"PublishPress 機能は、WordPress 用のアクセス制御プラグインです。管理者から購読者まで、すべての WordPress "
-"ユーザーロールを管理できます。"
-
-#: includes/admin-load.php:768
-msgid "PublishPress Capabilities Menu Restriction"
-msgstr "PublishPress 機能メニュー制限"
-
-#: includes/admin.php:1849
-msgid "PublishPress Permissions"
-msgstr "PublishPress パーミッション"
-
-#: includes/admin-load.php:374, fuzzy
-msgid "Rank Math SEO"
-msgstr "Rank Math SEO"
-
-#: includes/roles/class/class-pp-roles-admin.php:414
-msgid "Read more on Role Level."
-msgstr "役割レベルについての詳細"
-
-#: includes/redirects/redirects.php:333
-msgid ""
-"Redirect Features allows you to redirect users in a role after "
-"Registration, Login or Logout."
-msgstr "リダイレクト機能を使用すると、登録後、ログイン後、またはログアウト後にユーザーを役割に基づいてリダイレクトできます。"
-
-#: includes/redirects/redirects.php:226
-msgid "Redirect users to a specified URL."
-msgstr "指定された URL にユーザーをリダイレクトします。"
-
-#: includes/redirects/redirects.php:214
-msgid "Redirect users to the URL they were viewing before login."
-msgstr "ログイン前に表示していた URL にユーザーをリダイレクトします。"
-
-#: includes/functions-admin.php:237 includes/functions-admin.php:404
-#: includes/functions-admin.php:506
-msgid "Redirects"
-msgstr "リダイレクト"
-
-#: includes/functions-admin.php:405
-msgid ""
-"Redirects allows you to redirect users in a role after Registration, Login "
-"or Logout."
-msgstr "リダイレクト機能を使用すると、登録後、ログイン後、またはログアウト後にユーザーを役割に基づいてリダイレクトできます。"
-
-#: includes/features/profile-features.php:244
-msgid "Refresh Profile Features"
-msgstr "プロフィール機能の更新"
-
-#: includes/redirects/redirects.php:43 includes/redirects/redirects.php:72
-msgid "Registration Redirect"
-msgstr "登録リダイレクト"
-
-#: includes/admin.php:1879
-msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
-msgstr "編集フローの投稿ステータスの権限を規制する <em>(Pro)</em>"
-
-#: includes/features/admin-styles/admin-styles-ui.php:479
-msgid "Remove"
-msgstr "削除"
-
-#: includes/functions-admin.php:425
-msgid ""
-"Remove Admin Notices from WordPress admin screen and organize them in to a "
-"single area."
-msgstr "WordPress管理画面から管理者通知を削除し、それらを1つのエリアに整理します。"
-
-#: includes/features/restrict-admin-features.php:199
-msgid "Remove Admin Toolbar"
-msgstr "管理者ツールバーを削除"
-
-#: includes/features/admin-styles/admin-styles-ui.php:541
-msgid "Replace \"Howdy\""
-msgstr "「Howdy」を置き換える"
-
-#: includes/features/admin-styles/admin-styles-ui.php:544
-msgid "Replace \"Howdy\" in the admin bar."
-msgstr "管理バーの「Howdy」を置き換える。"
-
-#: includes/features/admin-styles/admin-styles-ui.php:625
-msgid "Replace \"Howdy\" text"
-msgstr "「Howdy」テキストを置き換える"
-
-#: includes/features/admin-styles/admin-styles-ui.php:527
-msgid ""
-"Replace the default \"Thanks for creating with WordPress\" message in the "
-"admin footer."
-msgstr "管理フッターのデフォルトの「WordPressでの作成に感謝します」というメッセージを置き換えます。"
-
-#: includes/features/admin-styles/admin-styles-ui.php:623
-msgid "Replace the WordPress logo and favicon"
-msgstr "WordPressロゴとファビコンを置き換える"
-
-#: includes/functions.php:714
-msgid "Request Support"
-msgstr "サポートをリクエスト"
-
-#: includes/backup.php:52
-msgid "Reset Roles"
-msgstr "ロールをリセット"
-
-#: includes/backup.php:291
-msgid "Reset Roles and Capabilities to WordPress defaults"
-msgstr "ロールと権限をWordPressのデフォルトにリセット"
-
-#: includes/backup.php:293
-msgid "Reset to WordPress defaults"
-msgstr "WordPressのデフォルトにリセット"
-
-#: includes/backup.php:283
-msgid "Reset WordPress Defaults"
-msgstr "WordPressのデフォルトをリセット"
-
-#: includes/backup.php:285
-msgid ""
-"Reseting default Roles and Capabilities will set them to the WordPress "
-"install defaults."
-msgstr "デフォルトのロールと権限をリセットすると、WordPressのインストールデフォルトに設定されます。"
-
-#: includes/backup.php:50
-msgid "Restore"
-msgstr "復元"
-
-#: includes/backup-handler.php:92 includes/backup-handler.php:121
-#: includes/backup-handler.php:130
-msgid "Restore failed. No backup found."
-msgstr "復元に失敗しました。バックアップが見つかりません。"
-
-#: includes/backup.php:88
-msgid "Restore Previous Roles and Capabilities"
-msgstr "以前のロールと権限を復元"
-
-#: includes/backup.php:148
-msgid "Restore Selected Roles"
-msgstr "選択したロールを復元"
-
-#: includes/features/restrict-admin-features.php:96
-msgid "Right bar"
-msgstr "右バー"
-
-#: includes/features/frontend-features/frontend-features.php:58
-msgid "Role"
-msgstr "ロール"
-
-#: includes/admin.php:95
-msgid "Role Capabilities"
-msgstr "役割の機能"
-
-#: includes/roles/class/class-pp-roles-admin.php:216
-msgid "Role Level"
-msgstr "役割レベル"
-
-#: includes/admin.php:1940
-msgid ""
-"Role level is mostly deprecated. However, it still determines eligibility "
-"for Post Author assignment and limits the application of user editing "
-"capabilities."
-msgstr "役割レベルは主に非推奨ですが、投稿作成者の割り当ての資格を決定し、ユーザー編集機能の適用を制限します。"
-
-#: includes/manager.php:513 includes/roles/class/class-pp-roles-admin.php:172
-#: includes/roles/class/class-pp-roles-list-table.php:170
-msgid "Role Name"
-msgstr "役割名"
-
-#: includes/roles/class/class-pp-roles-admin.php:182
-msgid "Role Slug"
-msgstr "役割スラッグ"
-
-#: includes/manager.php:515
-#: includes/roles/class/class-pp-roles-list-table.php:172
-msgid "Role Type"
-msgstr "役割タイプ"
-
-#: includes/admin-load.php:826 includes/functions-admin.php:374
-#: includes/functions-admin.php:455 includes/settings-ui.php:33
-#: includes/roles/roles.php:8
-msgid "Roles"
-msgstr "役割"
-
-#: includes/functions-admin.php:375
-msgid ""
-"Roles allows you to create, edit, and delete all the user roles on your "
-"site."
-msgstr "役割では、サイト上のすべてのユーザー役割を作成、編集、および削除できます。"
-
-#: includes/backup.php:308
-msgid "Roles and Capabilities"
-msgstr "役割と機能"
-
-#: includes/backup-handler.php:293
-msgid "Roles and Capabilities reset to WordPress defaults"
-msgstr "役割と機能がWordPressのデフォルトにリセットされました"
-
-#: includes/backup-handler.php:90
-msgid "Roles and Capabilities restored from initial backup."
-msgstr "役割と機能が初期バックアップから復元されました。"
-
-#: includes/backup-handler.php:128
-msgid "Roles and Capabilities restored from selected auto-backup."
-msgstr "役割と機能が選択した自動バックアップから復元されました。"
-
-#: includes/features/editor-features.php:119
-#: includes/features/editor-features.php:121
-#: includes/features/editor-features.php:224
-#: includes/features/editor-features.php:226
-#, php-format
-msgid "Save %s Restrictions"
-msgstr "%sの制限を保存"
-
-#: includes/roles/class/class-pp-roles-admin.php:512
-msgid "Save Changes"
-msgstr "変更を保存"
-
-#: includes/features/frontend-features/frontend-features-ui.php:153
-msgid "Save Edit"
-msgstr "編集を保存"
-
-#: includes/features/admin-styles/admin-styles-ui.php:139
-#: includes/features/admin-styles/admin-styles-ui.php:605
-#, php-format
-msgid "Save for %s"
-msgstr "%sのために保存"
-
-#: includes/features/editor-features.php:115
-#: includes/features/editor-features.php:220
-msgid "Save for all Post Types"
-msgstr "すべての投稿タイプのために保存"
-
-#: includes/features/admin-styles/admin-styles-ui.php:135
-#: includes/features/admin-styles/admin-styles-ui.php:601
-msgid "Save for all Roles"
-msgstr "すべての役割のために保存"
-
-#: includes/test-user-ui.php:53
-msgid "Search"
-msgstr "検索"
-
-#: includes/admin.php:136
-msgid "Search capabilities..."
-msgstr "機能を検索..."
-
-#: includes/roles/class/class-pp-roles-list-table.php:690
-msgid "Search Roles"
-msgstr "役割を検索"
-
-#: includes/test-user-ui.php:52
-msgid "Search user..."
-msgstr "ユーザーを検索..."
-
-#: includes/admin-load.php:652
-msgid "Security check failed"
-msgstr "セキュリティチェックに失敗しました"
-
-#: includes/features/admin-styles/admin-styles.php:454
-msgid "Security check failed."
-msgstr "セキュリティチェックに失敗しました。"
-
-#: includes/pp-ui.php:62
-#, php-format
-msgid "see %1$sRole Usage%2$s: \"Pattern Roles\""
-msgstr "%1$sロールの使用%2$sを参照: \"パターンロール\""
-
-#: includes/features/frontend-features/frontend-features-metaboxes.php:90
-#, php-format
-msgid "Select %1$s..."
-msgstr "%1$sを選択..."
-
-#: includes/roles/class/class-pp-roles-admin.php:391
-#, php-format
-msgid "Select %s"
-msgstr "%sを選択"
-
-#: includes/roles/class/class-pp-roles-admin.php:361
-#. "Editor" means post editor like Gutenberg
-msgid "Select allowed editor"
-msgstr "許可されたエディタを選択"
-
-#: includes/features/admin-styles/admin-styles-ui.php:474
-msgid "Select Image"
-msgstr "画像を選択"
-
-#: includes-core/CoreAdmin.php:158
-msgid "Select pages..."
-msgstr "ページを選択..."
-
-#: includes-core/frontend-features-promo.php:39
-msgid "Select post types..."
-msgstr "投稿タイプを選択..."
-
-#: includes/settings-ui.php:306
-msgid "Select Role"
-msgstr "ロールを選択"
-
-#: includes/settings-ui.php:241
-msgid "Select roles..."
-msgstr "ロールを選択..."
-
-#: includes/roles/class/class-pp-roles-admin.php:262
-#. "Editor" means post editor like Gutenberg
-msgid "Select the allowed editor options for users in this role."
-msgstr "このロールのユーザーに対して許可されたエディタのオプションを選択してください。"
-
-#: includes/settings-ui.php:398
-msgid ""
-"Select the notification types that should be displayed in the Admin Notices "
-"area after been removed from the WordPress admin screens."
-msgstr "WordPress管理画面から削除された後にAdmin Noticesエリアに表示されるべき通知タイプを選択してください。"
-
-#: includes/settings-ui.php:376
-#, php-format
-msgid ""
-"Select the notification types that should be hidden when a user in the %1s "
-"role is viewing WordPress admin screens."
-msgstr "%1sロールのユーザーがWordPress管理画面を表示しているときに隠すべき通知タイプを選択してください。"
-
-#: includes/features/frontend-features/frontend-features-action.php:136
-msgid "Selected item deleted successfully"
-msgstr "選択したアイテムが正常に削除されました"
-
-#: includes/features/frontend-features/frontend-features-ui.php:117
-msgid "Selected Pages"
-msgstr "選択したページ"
-
-#: includes/features/frontend-features/frontend-features-ui.php:99
-msgid "Separate multiple values with a space (custom-style-one custom-style-two)."
-msgstr "複数の値をスペースで区切ってください (custom-style-one custom-style-two)。"
-
-#: includes/settings-ui.php:88
-msgid "Set login redirect cookie"
-msgstr "ログインリダイレクトクッキーを設定"
-
-#: includes/features/admin-styles/admin-styles-ui.php:172
-msgid ""
-"Sets the admin color scheme for all users. Click a scheme to preview it "
-"instantly."
-msgstr "すべてのユーザーの管理者カラースキームを設定します。スキームをクリックすると、すぐにプレビューできます。"
-
-#: includes/features/admin-styles/admin-styles-ui.php:157
-msgid "Setting"
-msgstr "設定"
-
-#: includes/admin-load.php:827
-msgid "Settings"
-msgstr "設定"
-
-#: includes/features/restrict-editor-features.php:421
-msgid "Settings Panel"
-msgstr "設定パネル"
-
-#: includes/admin-load.php:664
-msgid "Settings updated successfully."
-msgstr "設定が正常に更新されました。"
-
-#: includes/manager.php:624 includes/manager.php:678 includes/manager.php:726
-#: includes/manager.php:807 includes/manager.php:889 includes/manager.php:970
-msgid "Settings updated."
-msgstr "設定が更新されました。"
-
-#: includes/settings-ui.php:154
-msgid ""
-"Show all post types on the \"Editor Features\" screen, even ones normally "
-"hidden in the WordPress admin area."
-msgstr "WordPress管理エリアで通常は隠されているものを含め、「エディタ機能」画面にすべての投稿タイプを表示します。"
-
-#: includes/backup.php:157
-msgid "Show changes from current roles only"
-msgstr "現在のロールからの変更のみ表示"
-
-#: includes/features/editor-features.php:135
-msgid "show Classic Editor controls"
-msgstr "クラシックエディタコントロールを表示"
-
-#: includes/settings-ui.php:109 includes/settings-ui.php:149
-msgid "Show private post types"
-msgstr "プライベート投稿タイプを表示"
-
-#: includes/settings-ui.php:125
-msgid "Show private taxonomies"
-msgstr "プライベートタクソノミーを表示"
-
-#: includes/admin-notices/admin-notices.php:73
-msgid "Silence this notice"
-msgstr "この通知を無視する"
-
-#: includes/admin-notices/admin-notices.php:208
-msgid "Silenced Notices"
-msgstr "無視された通知"
-
-#: includes/features/frontend-features/frontend-features-data.php:38
-msgid "Site Dark Mode"
-msgstr "サイトのダークモード"
-
-#: includes/features/frontend-features/frontend-features-data.php:54
-msgid "Site Light Mode"
-msgstr "サイトのライトモード"
-
-#: includes/features/restrict-editor-features.php:59
-msgid "Slug"
-msgstr "スラッグ"
-
-#: includes/roles/class/class-pp-roles-admin.php:335
-msgid "Slug already exists"
-msgstr "スラッグはすでに存在します"
-
-#: includes/functions.php:939
-msgid "Social Links"
-msgstr "ソーシャルリンク"
+msgid "The role \"%s\" already exists. Please choose a different name."
+msgstr "役割 \"%s\" はすでに存在しています。別の名前を選んでください。"
 
 #: includes/roles/class/class-pp-roles-actions.php:250
 msgid ""
@@ -2132,128 +3009,43 @@ msgid ""
 "the page and try again."
 msgstr "何かがうまくいきませんでした。システムはロールを作成できませんでした。ページを更新して再度お試しください。"
 
-#: includes/features/restrict-editor-features.php:422
-msgid "Status & visibility"
-msgstr "ステータスと可視性"
-
-#: includes/admin.php:286
-msgid "Submit Revision"
-msgstr "修正を送信"
-
-#: includes/settings-ui.php:290
-msgid "Success notices"
-msgstr "成功通知"
-
-#: includes/features/restrict-editor-features.php:395
-msgid "Switch to Draft"
-msgstr "ドラフトに切り替え"
-
-#: includes/admin.php:1991
-msgid "Sync options to all sites."
-msgstr "すべてのサイトにオプションを同期します。"
-
-#: includes/admin.php:1988
-msgid "Sync role to all sites."
-msgstr "すべてのサイトに役割を同期します。"
-
-#: includes/roles/class/class-pp-roles-list-table.php:92
-#, php-format
-msgid "System %s"
-msgid_plural "System %s"
-msgstr[0] "システム %s|システム %s"
-
-#: includes/admin.php:274
-msgid "Taxonomies"
-msgstr "タクソノミー"
-
-#: includes/admin.php:684
-msgid "Taxonomy"
-msgstr "タクソノミー"
-
-#: includes/features/restrict-editor-features.php:91
-msgid "Taxonomy Boxes"
-msgstr "タクソノミーボックス"
-
-#: includes-core/editor-features-promo.php:66
-msgid "TaxoPress - Settings"
-msgstr "TaxoPress - 設定"
-
-#: includes/admin.php:677
-#, php-format
-msgid "Term %s Capabilities"
-msgstr "用語 %s の機能"
-
-#: includes/test-user-ui.php:210
-msgid "Test this user"
-msgstr "このユーザーをテストする"
-
-#: includes/test-user-ui.php:180 includes/test-user-ui.php:204
-msgid "Test user"
-msgstr "テストユーザー"
-
-#: includes/functions-admin.php:420
-msgid ""
-"Test your site by instantly logging in as another user. Available accounts "
-"include any which the current user can edit."
-msgstr "別のユーザーとして即座にログインしてサイトをテストします。利用可能なアカウントには、現在のユーザーが編集できるものが含まれます。"
-
-#: includes/test-user-ui.php:316
-#, php-format
-msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
-msgstr "ユーザーとしてテスト中: %1$s. %2$s管理者ビューに戻る%3$s"
-
-#: includes/test-user-ui.php:255
-msgid "Testing: "
-msgstr "テスト中: "
-
-#: includes/features/restrict-editor-features.php:487
-msgid "Text settings"
-msgstr "テキスト設定"
-
-#: includes/features/restrict-admin-features.php:115
-msgid "Thank you for creating with WordPress"
-msgstr "WordPressでの作成に感謝します"
-
-#: includes/roles/class/class-pp-roles-admin.php:183
-msgid ""
-"The \"slug\" is the URL-friendly version of the role. It is usually all "
-"lowercase and contains only letters, numbers and underscores."
-msgstr "「スラッグ」は役割のURLフレンドリーなバージョンです。通常はすべて小文字で、文字、数字、アンダースコアのみを含みます。"
-
-#: includes/features/profile-features.php:241
-#, php-format
-msgid "The %s role is not enabled for editing. The Find button is disabled."
-msgstr "%sの役割は編集のために有効になっていません。検索ボタンは無効になっています。"
-
-#: includes/settings-ui.php:302
-msgid ""
-"The feature attempts to clean up the WordPress admin area by organizing "
-"extra messages and advertisements into the Admin Notices area. This will "
-"not remove any messages that appear when you perform an action."
-msgstr ""
-"この機能は、WordPress管理エリアの余分なメッセージや広告を管理通知エリアに整理することで、クリーンアップを試みます。これは、アクションを実行した"
-"ときに表示されるメッセージを削除するものではありません。"
-
-#: includes/admin.php:1400
-msgid ""
-"The following entries have no effect. Please assign desired capabilities on "
-"the Editing / Deletion / Private tabs."
-msgstr "以下のエントリには効果がありません。編集/削除/プライベートタブで希望の権限を割り当ててください。"
-
 #: includes/roles/class/class-pp-roles-actions.php:340
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "新しい役割 %s が正常に作成されました。"
 
-#: includes/roles/class/class-pp-roles-actions.php:223
+#: includes/roles/class/class-pp-roles-actions.php:448
 #, php-format
-msgid "The role \"%s\" already exists. Please choose a different name."
-msgstr "役割 \"%s\" はすでに存在しています。別の名前を選んでください。"
+msgid "%s role updated successfully."
+msgstr "%sの役割が正常に更新されました。"
+
+#: includes/roles/class/class-pp-roles-actions.php:522
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "デフォルトの役割を削除できません。最初に <a href=\"%s\">変更する必要があります</a>。"
+
+#: includes/roles/class/class-pp-roles-actions.php:541
+msgid "Deleting a system role is not allowed."
+msgstr "システムロールの削除は許可されていません。"
+
+#: includes/roles/class/class-pp-roles-actions.php:565
+#, php-format
+msgid "%1$d users moved to default role %2$s."
+msgstr "%1$d 人のユーザーがデフォルトの役割 %2$s に移動しました。"
 
 #: includes/roles/class/class-pp-roles-actions.php:570
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "役割 %1$s は正常に削除されました。 %2$s"
+
+#: includes/roles/class/class-pp-roles-actions.php:576
+#, php-format
+msgid "The selected %1$s roles were successfully deleted. %2$s"
+msgstr "選択した %1$s の役割は正常に削除されました。 %2$s"
+
+#: includes/roles/class/class-pp-roles-actions.php:598
+msgid "The role could not be deleted."
+msgstr "役割を削除できませんでした。"
 
 #: includes/roles/class/class-pp-roles-actions.php:652
 #, php-format
@@ -2265,187 +3057,196 @@ msgstr "役割 %1$s は正常に非表示にされました。"
 msgid "The role %1$s was successfully unhidden."
 msgstr "役割 %1$s は正常に表示されました。"
 
-#: includes/roles/class/class-pp-roles-actions.php:598
-msgid "The role could not be deleted."
-msgstr "役割を削除できませんでした。"
+#: includes/roles/class/class-pp-roles-admin.php:117
+msgid "WooCommerce"
+msgstr "WooCommerce"
 
-#: includes/roles/class/class-pp-roles-actions.php:576
-#, php-format
-msgid "The selected %1$s roles were successfully deleted. %2$s"
-msgstr "選択した %1$s の役割は正常に削除されました。 %2$s"
+#: includes/roles/class/class-pp-roles-admin.php:158
+msgid "Gutenberg editor"
+msgstr "グーテンベルクエディタ"
 
-#: includes/handler.php:61 includes/handler.php:89 includes/manager.php:1157
-msgid "The selected role is not editable."
-msgstr "選択した役割は編集できません。"
+#: includes/roles/class/class-pp-roles-admin.php:160
+msgid "Classic editor"
+msgstr "クラシックエディタ"
 
-#: includes/admin.php:813 includes/pp-ui.php:163
-#, php-format
-msgid "The slug for this post type is %s"
-msgstr "この投稿タイプのスラッグは %s です"
+#: includes/roles/class/class-pp-roles-admin.php:182
+msgid "Role Slug"
+msgstr "役割スラッグ"
 
-#: includes/admin.php:811 includes/pp-ui.php:263 includes/pp-ui.php:342
-#, php-format
-msgid "The slug for this taxonomy is %s"
-msgstr "この分類法のスラッグは %s です"
-
-#: includes/admin.php:1322
-#, php-format
-msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
-msgstr "ユーザーテスト機能には、 %1$s edit_users %2$s 権限も必要です。"
-
-#: includes/admin-notices/admin-notices.php:218
-msgid "There are currently no admin notices."
-msgstr "現在、管理通知はありません。"
-
-#: includes/features/nav-menus.php:275
+#: includes/roles/class/class-pp-roles-admin.php:183
 msgid ""
-"There are no frontend menu links. To control access to navigation menus, "
-"please add menu links."
-msgstr "フロントエンドメニューリンクはありません。ナビゲーションメニューへのアクセスを制御するには、メニューリンクを追加してください。"
+"The \"slug\" is the URL-friendly version of the role. It is usually all "
+"lowercase and contains only letters, numbers and underscores."
+msgstr "「スラッグ」は役割のURLフレンドリーなバージョンです。通常はすべて小文字で、文字、数字、アンダースコアのみを含みます。"
 
-#: includes/features/profile-features.php:142
+#: includes/roles/class/class-pp-roles-admin.php:194
+msgid "Block Login"
+msgstr "ログインをブロック"
+
+#: includes/roles/class/class-pp-roles-admin.php:195
+msgid "Block users in this role from logging into the site."
+msgstr "この役割のユーザーがサイトにログインするのをブロックします。"
+
+#: includes/roles/class/class-pp-roles-admin.php:204
+msgid "Block Dashboard Access"
+msgstr "ダッシュボードアクセスをブロック"
+
+#: includes/roles/class/class-pp-roles-admin.php:205
+msgid "Block users in this role from accessing admin area."
+msgstr "このロールのユーザーが管理エリアにアクセスするのをブロックします。"
+
+#: includes/roles/class/class-pp-roles-admin.php:216
+msgid "Role Level"
+msgstr "役割レベル"
+
+#: includes/roles/class/class-pp-roles-admin.php:217
 msgid ""
-"There are no users in this role. Please select a role that has users and is "
-"able to access the \"Profile\" screen."
-msgstr "この役割にはユーザーがいません。ユーザーがいて「プロフィール」画面にアクセスできる役割を選択してください。"
+"Each user role has a level from 0 to 10. The Subscriber role defaults to "
+"the lowest level (0). The Administrator role defaults to level 10."
+msgstr ""
+"各ユーザーロールには、0から10までのレベルがあります。サブスクライバーロールは最低レベル（0）にデフォルト設定されています。管理者ロールはレベル10"
+"にデフォルト設定されています。"
+
+#: includes/roles/class/class-pp-roles-admin.php:239
+msgid "Delete role"
+msgstr "ロールを削除"
+
+#: includes/roles/class/class-pp-roles-admin.php:240
+msgid ""
+"Deleting this role will completely remove it from database and is "
+"irrecoverable."
+msgstr "このロールを削除すると、データベースから完全に削除され、復元できなくなります。"
+
+#: includes/roles/class/class-pp-roles-admin.php:249
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Disable Code Editor"
+msgstr "コードエディタを無効にする"
+
+#: includes/roles/class/class-pp-roles-admin.php:250
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
+msgstr "グーテンベルクブロックエディタの「コードエディタ」オプションを無効にします。"
+
+#: includes/roles/class/class-pp-roles-admin.php:261
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Control Allowed Editors"
+msgstr "許可されたエディタを制御する"
+
+#: includes/roles/class/class-pp-roles-admin.php:262
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Select the allowed editor options for users in this role."
+msgstr "このロールのユーザーに対して許可されたエディタのオプションを選択してください。"
+
+#: includes/roles/class/class-pp-roles-admin.php:275
+msgid "Disable WooCommerce admin restrictions"
+msgstr "WooCommerce管理制限を無効にする"
+
+#: includes/roles/class/class-pp-roles-admin.php:276
+#, php-format
+msgid ""
+"By default, WooCommerce prevents most users from accessing the WordPress "
+"admin area. When enabled, this setting will remove those restrictions for "
+"this role. %1s Click here for more details. %2s"
+msgstr ""
+"デフォルトでは、WooCommerceはほとんどのユーザーがWordPress管理エリアにアクセスするのを防ぎます。この設定を有効にすると、この役割に対"
+"する制限が解除されます。 %1s 詳細はこちらをクリックしてください。 %2s"
+
+#: includes/roles/class/class-pp-roles-admin.php:335
+msgid "Slug already exists"
+msgstr "スラッグはすでに存在します"
+
+#: includes/roles/class/class-pp-roles-admin.php:361
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Select allowed editor"
+msgstr "許可されたエディタを選択"
+
+#: includes/roles/class/class-pp-roles-admin.php:362
+#. Translators: "Editor" means post editor like Gutenberg
+msgid ""
+"You must select at least one editor for the role when managing allowed "
+"editor."
+msgstr "許可されたエディタを管理する際には、役割に対して少なくとも1つのエディタを選択する必要があります。"
+
+#: includes/roles/class/class-pp-roles-admin.php:391
+#, php-format
+msgid "Select %s"
+msgstr "%sを選択"
+
+#: includes/roles/class/class-pp-roles-admin.php:414
+msgid "Read more on Role Level."
+msgstr "役割レベルについての詳細"
+
+#: includes/roles/class/class-pp-roles-admin.php:427
+#: includes/roles/roles-functions.php:33
+msgid "Are you sure you want to delete this role?"
+msgstr "このロールを削除してもよろしいですか？"
+
+#: includes/roles/class/class-pp-roles-admin.php:506
+#, php-format
+msgid ""
+"%s role copied. Please click the \"Create Role\" button to create this new "
+"role."
+msgstr "%sの役割がコピーされました。新しい役割を作成するには「役割を作成」ボタンをクリックしてください。"
+
+#: includes/roles/class/class-pp-roles-admin.php:539
+#, php-format
+msgid "Edit Role: %s"
+msgstr "ロールを編集: %s"
+
+#: includes/roles/class/class-pp-roles-admin.php:541
+msgid "Copy Role"
+msgstr "役割をコピー"
+
+#: includes/roles/class/class-pp-roles-admin.php:543
+msgid "Create New Role"
+msgstr "新しい役割を作成"
+
+#: includes/roles/class/class-pp-roles-admin.php:547
+msgid "All Roles"
+msgstr "すべてのロール"
 
 #: includes/roles/class/class-pp-roles-admin.php:652
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
 msgstr "これらは %1s 権限画面 %2s で編集できます"
 
-#: includes/settings-ui.php:61
-msgid "This allows you to assign a new user to multiples roles."
-msgstr "これにより、新しいユーザーを複数の役割に割り当てることができます。"
+#: includes/roles/class/class-pp-roles-admin.php:680
+msgid "Load More"
+msgstr "さらに読み込む"
 
-#: includes/settings-ui.php:77
-msgid "This allows you to assign an existing user to multiple roles."
-msgstr "これにより、既存のユーザーを複数の役割に割り当てることができます。"
+#: includes/roles/class/class-pp-roles-admin.php:683
+msgid "Load Less"
+msgstr "もっと読み込む"
 
-#: includes/admin.php:892 includes/admin.php:1140 includes/admin.php:1318
-#: includes/admin.php:1443 includes/admin.php:1587
+#: includes/roles/class/class-pp-roles-list-table.php:86
 #, php-format
-msgid "This capability is %s"
-msgstr "この権限は %s です"
+msgid "All %s"
+msgid_plural "All %s"
+msgstr[0] "すべて %s"
 
-#: includes/admin.php:922
+#: includes/roles/class/class-pp-roles-list-table.php:87
 #, php-format
-msgid "This capability is controlled by %s"
-msgstr "この機能は%sによって制御されています"
+msgid "Mine %s"
+msgid_plural "Mine %s"
+msgstr[0] "マイン %s"
 
-#: includes/admin.php:925
+#: includes/roles/class/class-pp-roles-list-table.php:88
 #, php-format
-msgid ""
-"This capability is controlled by %s Use the sidebar settings to allow this "
-"to be controlled independently."
-msgstr "この機能は%sによって制御されています サイドバーの設定を使用して、これを独立して制御できるようにしてください。"
+msgid "Has Users %s"
+msgid_plural "Has Users %s"
+msgstr[0] "ユーザーがあります %s"
 
-#: includes/manager.php:238
-msgid "This capability is explicitly negated. Click to add/remove normally."
-msgstr "この機能は明示的に否定されています。クリックして通常通り追加/削除してください。"
-
-#: includes/admin.php:944 includes/admin.php:948
-msgid "This capability is not available for this post type."
-msgstr "この投稿タイプではこの機能は利用できません。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:42
-msgid ""
-"This feature allows you to modify the site frontend by hiding IDs or "
-"classes, adding CSS styles, or adding body classes."
-msgstr "この機能では、IDやクラスを隠したり、CSSスタイルを追加したり、ボディクラスを追加したりしてサイトのフロントエンドを変更できます。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:125
-msgid "This feature will be added to all pages."
-msgstr "この機能はすべてのページに追加されます。"
-
-#: includes/features/profile-features.php:242
+#: includes/roles/class/class-pp-roles-list-table.php:89
 #, php-format
-msgid "This feature will test the \"Profile\" screen as a user in the %s role."
-msgstr "この機能は、%sの役割を持つユーザーとして「プロフィール」画面をテストします。"
+msgid "No Users %s"
+msgid_plural "No Users %s"
+msgstr[0] "ユーザーがいません %s"
 
-#: includes/admin-load.php:769
-msgid "This menu is restricted for the following roles"
-msgstr "このメニューは以下の役割に制限されています"
-
-#: includes/admin-notices/admin-notices.php:77
-msgid ""
-"This notice will be moved to the \"Silenced Notices\" tab and you will not "
-"receive a notification if it appears again."
-msgstr "この通知は「サイレント通知」タブに移動され、再度表示されても通知は受け取られません。"
-
-#: capsman-enhanced.php:109
-msgid "This plugin can be deleted."
-msgstr "このプラグインは削除できます。"
-
-#: includes/features/restrict-profile-features.php:45
-msgid "This role is not enabled for profile feature editing."
-msgstr "この役割はプロフィール機能の編集には有効ではありません。"
-
-#: includes-core/frontend-features-promo.php:44
-msgid ""
-"This will add a metabox on the post editing screen. You can use this "
-"feature to add body classes only for that post."
-msgstr "これにより、投稿編集画面にメタボックスが追加されます。この機能を使用して、その投稿のみにボディクラスを追加できます。"
-
-#: includes/pp-ui.php:192
-msgid ""
-"This will cause a new capability to be required for creating posts, and "
-"enable a checkbox column here for role assignments. Normally, post creation "
-"is controlled by the \"Edit\" capability."
-msgstr ""
-"これにより、投稿を作成するために新しい機能が必要となり、役割の割り当てのためにここにチェックボックス列が有効になります。通常、投稿の作成は「編集」機能に"
-"よって制御されています。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:59
-msgid "This will only show here in the WordPress admin area."
-msgstr "これはWordPress管理エリアでのみ表示されます。"
-
-#: includes/settings-ui.php:114
-msgid ""
-"This will show all post types on the \"Capabilities\" screen, even ones "
-"normally hidden in the WordPress admin area."
-msgstr "これは「機能」画面にすべての投稿タイプを表示します。通常はWordPress管理エリアで隠れているものも含まれます。"
-
-#: includes/settings-ui.php:130
-msgid ""
-"This will show all taxonomies on the \"Capabilities\" screen, even ones "
-"normally hidden in the WordPress admin area."
-msgstr "これは「機能」画面にすべてのタクソノミーを表示します。通常はWordPress管理エリアで隠れているものも含まれます。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:53
-msgid "Title:"
-msgstr "タイトル:"
-
-#: includes/features/admin-features.php:174 includes/features/nav-menus.php:127
-#: includes/features/nav-menus.php:147
-#: includes/features/profile-features.php:106
-#: includes/features/profile-features.php:125
-msgid "Toggle all"
-msgstr "すべて切り替え"
-
-#: includes/features/restrict-editor-features.php:382
-msgid "Top Bar - Left"
-msgstr "トップバー - 左"
-
-#: includes/features/restrict-editor-features.php:393
-msgid "Top Bar - Right"
-msgstr "トップバー - 右"
-
-#: includes/features/restrict-editor-features.php:40
-msgid "Top Tabs"
-msgstr "トップタブ"
-
-#: includes/handler.php:124
-msgid "Type / Taxonomy settings saved."
-msgstr "タイプ / タクソノミー設定が保存されました。"
-
-#: includes/features/restrict-editor-features.php:485
-msgid "Typography"
-msgstr "タイポグラフィ"
-
-#: includes/test-user.php:62
-msgid "Unable to retrieve user data."
-msgstr "ユーザーデータを取得できません。"
+#: includes/roles/class/class-pp-roles-list-table.php:90
+#, php-format
+msgid "Editable %s"
+msgid_plural "Editable %s"
+msgstr[0] "編集可能 %s"
 
 #: includes/roles/class/class-pp-roles-list-table.php:91
 #, php-format
@@ -2453,66 +3254,59 @@ msgid "Uneditable %s"
 msgid_plural "Uneditable %s"
 msgstr[0] "編集不可 %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:256
+#: includes/roles/class/class-pp-roles-list-table.php:92
+#, php-format
+msgid "System %s"
+msgid_plural "System %s"
+msgstr[0] "システム %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:238
+msgid "Copy"
+msgstr "コピー"
+
+#: includes/roles/class/class-pp-roles-list-table.php:243
+msgid "(non-editable role)"
+msgstr "(編集不可の役割)"
+
+#: includes/roles/class/class-pp-roles-list-table.php:261
 msgid "Unhide"
 msgstr "非表示解除"
 
-#: includes/pp-ui.php:108
-msgid "Unique Post Type Capabilities"
-msgstr "ユニーク投稿タイプの機能"
+#: includes/roles/class/class-pp-roles-list-table.php:349
+msgid "Your Role"
+msgstr "あなたの役割"
 
-#: includes/pp-ui.php:221
-msgid "Unique Taxonomy Capabilities"
-msgstr "ユニークタクソノミーの機能"
+#: includes/roles/class/class-pp-roles-list-table.php:401
+msgid "WordPress Core"
+msgstr "WordPressコア"
 
-#: includes/pp-ui.php:200 includes/pp-ui.php:286 includes/pp-ui.php:365
-msgid "Update"
-msgstr "更新"
+#: includes/roles/class/class-pp-roles-list-table.php:403
+msgid "Custom"
+msgstr "カスタム"
 
-#: includes/admin-load.php:812 includes-core/admin-features-promo.php:79
-#: includes-core/admin-menus-promo.php:62 includes-core/CoreAdmin.php:48
-#: includes-core/editor-features-promo.php:79
-#: includes-core/frontend-features-promo.php:32
-#: includes/features/admin-styles/admin-styles-ui.php:307
-msgid "Upgrade to Pro"
-msgstr "プロ版にアップグレード"
+#: includes/roles/class/class-pp-roles-list-table.php:695
+msgid "Search Roles"
+msgstr "役割を検索"
 
-#: includes/features/admin-styles/admin-styles-ui.php:492
-msgid ""
-"Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
-"32px by 32px in SVG or PNG format."
-msgstr ""
-"管理エリア用にカスタムファビコンをアップロードしてください。推奨サイズ: 16px x 16px または 32px x 32px の SVG または "
-"PNG 形式。"
+#: includes/settings-ui.php:56
+msgid "Multiples roles on \"Add New User\" screen"
+msgstr "「新しいユーザーを追加」画面の複数の役割"
 
-#: includes/features/admin-styles/admin-styles-ui.php:457
-msgid ""
-"Upload a custom logo to replace the WordPress icon in the admin bar. "
-"Recommended: 20px by 20px in SVG or PNG format."
-msgstr ""
-"管理バーの WordPress アイコンを置き換えるカスタムロゴをアップロードしてください。推奨サイズ: 20px x 20px の SVG または "
-"PNG 形式。"
+#: includes/settings-ui.php:61
+msgid "This allows you to assign a new user to multiples roles."
+msgstr "これにより、新しいユーザーを複数の役割に割り当てることができます。"
 
-#: includes/features/admin-features.php:251
-msgid "URL targeted"
-msgstr "ターゲットURL"
+#: includes/settings-ui.php:72
+msgid "Multiples roles on \"User Edit\" screen"
+msgstr "「ユーザー編集」画面の複数の役割"
 
-#: includes/features/admin-features.php:253
-msgid "URL wildcard"
-msgstr "URLワイルドカード"
+#: includes/settings-ui.php:77
+msgid "This allows you to assign an existing user to multiple roles."
+msgstr "これにより、既存のユーザーを複数の役割に割り当てることができます。"
 
-#: includes/admin.php:1676 includes/admin.php:1677 includes/admin.php:1678
-#: includes/features/admin-features.php:346
-#: includes/features/admin-features.php:347
-#: includes/features/editor-features.php:240
-#: includes/features/editor-features.php:241
-#: includes/features/nav-menus.php:303 includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:251
-#: includes/features/profile-features.php:252
-#: includes/features/frontend-features/frontend-features.php:249
-#: includes/features/frontend-features/frontend-features.php:250
-msgid "usage key"
-msgstr "使用キー"
+#: includes/settings-ui.php:88
+msgid "Set login redirect cookie"
+msgstr "ログインリダイレクトクッキーを設定"
 
 #: includes/settings-ui.php:93
 msgid ""
@@ -2523,296 +3317,197 @@ msgstr ""
 "ログイン前にユーザーが閲覧していたページを特定するためにクッキーを使用します。これは、wp_get_referer() "
 "の制限によりログインリダイレクトが正しく動作しない場合に便利です。"
 
-#: includes/pp-ui.php:191
-msgid "Use the \"Create\" capability for selected post types"
-msgstr "選択した投稿タイプのために「作成」機能を使用する"
+#: includes/settings-ui.php:109
+#: includes/settings-ui.php:149
+msgid "Show private post types"
+msgstr "プライベート投稿タイプを表示"
 
-#: includes/admin.php:942
-msgid "Use the sidebar settings to allow this to be controlled independently."
-msgstr "サイドバー設定を使用して、これを独立して制御できるようにします。"
-
-#: includes/features/restrict-admin-features.php:97
-msgid "User actions"
-msgstr "ユーザーアクション"
-
-#: includes/features/restrict-admin-features.php:100
-msgid "User Display Name"
-msgstr "ユーザー表示名"
-
-#: includes/functions-admin.php:419 includes/settings-ui.php:39
-#: includes/test-user-ui.php:38
-msgid "User Testing"
-msgstr "ユーザーテスト"
-
-#: includes/features/admin-styles/admin-styles-ui.php:160
-msgid "Value"
-msgstr "値"
-
-#: includes/admin.php:1720 includes/features/admin-features.php:349
-#: includes/features/editor-features.php:243
-#: includes/features/nav-menus.php:306
-#: includes/features/profile-features.php:254
-#: includes/redirects/redirects.php:335
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/frontend-features/frontend-features.php:252
-msgid "View Documentation"
-msgstr "ドキュメントを見る"
-
-#: includes/functions.php:725
-msgid "View Knowledge Base"
-msgstr "ナレッジベースを見る"
-
-#: includes/admin.php:271
-msgid "Visibility"
-msgstr "可視性"
-
-#: includes/settings-ui.php:292
-msgid "Warning notices"
-msgstr "警告通知"
-
-#: includes/backup.php:285 includes/backup.php:332
-#: includes/features/profile-features.php:241
-msgid "Warning:"
-msgstr "警告："
-
-#: includes/admin.php:49
-#, php-format
+#: includes/settings-ui.php:114
 msgid ""
-"Warning: This role cannot access the dashboard without the read capability. "
-"%1$sClick here to fix this now%2$s."
-msgstr "警告：このロールは、読み取り機能なしではダッシュボードにアクセスできません。%1$s今すぐこれを修正するにはクリックしてください%2$s。"
+"This will show all post types on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr "これは「機能」画面にすべての投稿タイプを表示します。通常はWordPress管理エリアで隠れているものも含まれます。"
 
-#: includes/features/restrict-admin-features.php:165
-msgid "Welcome panel"
-msgstr "ウェルカムパネル"
+#: includes/settings-ui.php:125
+msgid "Show private taxonomies"
+msgstr "プライベートタクソノミーを表示"
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/settings-ui.php:130
 msgid ""
-"When enabled, role settings will always apply, overriding any user "
-"selection even if the color scheme UI is visible to them."
-msgstr "有効にすると、ロール設定が常に適用され、色のスキームUIが見えていてもユーザーの選択を上書きします。"
+"This will show all taxonomies on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr "これは「機能」画面にすべてのタクソノミーを表示します。通常はWordPress管理エリアで隠れているものも含まれます。"
 
-#: includes/features/admin-styles/admin-styles-ui.php:570
+#: includes/settings-ui.php:154
 msgid ""
-"When enabled, users cannot see or change color scheme settings in their "
-"profile. Role-based settings will be applied."
-msgstr "有効にすると、ユーザーは自分のプロフィールで色のスキーム設定を表示したり変更したりできません。ロールベースの設定が適用されます。"
+"Show all post types on the \"Editor Features\" screen, even ones normally "
+"hidden in the WordPress admin area."
+msgstr "WordPress管理エリアで通常は隠されているものを含め、「エディタ機能」画面にすべての投稿タイプを表示します。"
+
+#: includes/settings-ui.php:165
+msgid "Enable Classic Editor tab"
+msgstr "クラシックエディタタブを有効にする"
+
+#: includes/settings-ui.php:170
+msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
+msgstr "「エディタ機能」画面に常にクラシックエディタタブを表示します。"
+
+#: includes/settings-ui.php:186
+msgid "Admin Bar modification"
+msgstr "管理者バーの変更"
 
 #: includes/settings-ui.php:191
 msgid "When testing, display a caption and return link in the Admin Bar."
 msgstr "テスト中は、管理バーにキャプションと戻るリンクを表示します。"
 
+#: includes/settings-ui.php:202
+msgid "Admin Bar search"
+msgstr "管理者バー検索"
+
+#: includes/settings-ui.php:207
+msgid "Add option to search and user testing in the Admin Bar."
+msgstr "管理バーに検索およびユーザーテストのオプションを追加します。"
+
+#: includes/settings-ui.php:218
+msgid "Front End footer notice"
+msgstr "フロントエンドのフッター通知"
+
 #: includes/settings-ui.php:223
 msgid "When testing, display a return link in the front end footer."
 msgstr "テスト中は、フロントエンドのフッターに戻るリンクを表示します。"
 
-#: includes/admin.php:1758
+#: includes/settings-ui.php:234
+msgid "Exclude role from User Testing"
+msgstr "ユーザーテストから役割を除外する"
+
+#: includes/settings-ui.php:241
+msgid "Select roles..."
+msgstr "ロールを選択..."
+
+#: includes/settings-ui.php:255
+msgid "Exclude users in selected roles from User Testing."
+msgstr "選択した役割のユーザーをユーザーテストから除外します。"
+
+#: includes/settings-ui.php:272
+msgid "Automatically refresh profile elements"
+msgstr "プロファイル要素を自動的に更新"
+
+#: includes/settings-ui.php:277
 msgid ""
-"Whenever you use PublishPress Capabilities to save changes, it also creates "
-"a backup which you can use to restore a previous configuration."
-msgstr "PublishPress Capabilitiesを使用して変更を保存するたびに、以前の設定を復元するために使用できるバックアップも作成されます。"
-
-#: includes/features/frontend-features/frontend-features-ui.php:116
-msgid "Whole Site"
-msgstr "サイト全体"
-
-#: includes/features/admin-features.php:249
-msgid "Wildcard enabled"
-msgstr "ワイルドカード有効"
-
-#: includes/roles/class/class-pp-roles-admin.php:117, fuzzy
-msgid "WooCommerce"
-msgstr "WooCommerce"
-
-#: includes/features/restrict-editor-features.php:72
-msgid "Word count"
-msgstr "単語数"
-
-#: includes/roles/class/class-pp-roles-list-table.php:396
-msgid "WordPress Core"
-msgstr "WordPressコア"
-
-#: includes/admin.php:1205
-msgid "WordPress Core Capabilities"
-msgstr "WordPressコア機能"
-
-#: includes/features/restrict-admin-features.php:93
-msgid "WordPress External Links"
-msgstr "WordPress外部リンク"
-
-#: includes/features/restrict-admin-features.php:92
-msgid "WordPress Logo"
-msgstr "WordPressロゴ"
-
-#: includes/admin.php:1757
-msgid ""
-"WordPress stores role capabilities in your database, where they remain even "
-"if the plugin is deactivated."
-msgstr "WordPressは、役割の能力をデータベースに保存し、プラグインが無効化されても残ります。"
-
-#: includes/admin.php:1895
-msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
-msgstr "WPML統合による翻訳への権限のミラーリング<em>(Pro)</em>"
-
-#: includes/features/restrict-admin-features.php:101, fuzzy
-msgid "Yoast SEO"
-msgstr "Yoast SEO"
-
-#: includes/backup.php:293
-msgid ""
-"You are about to reset Roles and Capabilities to WordPress defaults.\n"
-" 'Cancel' to stop, 'OK' to reset."
+"Always try to automatically find profile elements. This may cause temporary "
+"issues when updating user roles that do not have access to the WordPress "
+"admin area."
 msgstr ""
-"役割と能力をWordPressのデフォルトにリセットしようとしています。 \n"
-"'キャンセル'で停止、'OK'でリセットします。"
+"常にプロファイル要素を自動的に見つけようとします。これにより、WordPressの管理エリアにアクセスできないユーザーロールを更新する際に一時的な問題が"
+"発生する可能性があります。"
 
-#: includes/features/frontend-features/frontend-features-ui.php:100
-msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
-msgstr "クラスのCSSを追加するには「カスタムCSSを追加」をクリックしてください。"
+#: includes/settings-ui.php:290
+msgid "Success notices"
+msgstr "成功通知"
 
-#: includes/admin.php:1686
+#: includes/settings-ui.php:291
+msgid "Error notices"
+msgstr "エラー通知"
+
+#: includes/settings-ui.php:292
+msgid "Warning notices"
+msgstr "警告通知"
+
+#: includes/settings-ui.php:293
+msgid "Info notices"
+msgstr "情報通知"
+
+#: includes/settings-ui.php:302
+msgid ""
+"The feature attempts to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into the Admin Notices area. This will "
+"not remove any messages that appear when you perform an action."
+msgstr ""
+"この機能は、WordPress管理エリアの余分なメッセージや広告を管理通知エリアに整理することで、クリーンアップを試みます。これは、アクションを実行した"
+"ときに表示されるメッセージを削除するものではありません。"
+
+#: includes/settings-ui.php:306
+msgid "Select Role"
+msgstr "ロールを選択"
+
+#: includes/settings-ui.php:343
+msgid "Notification center access"
+msgstr "通知センターへのアクセス"
+
+#: includes/settings-ui.php:352
 #, php-format
-msgid "You can also configure this role as a %sPermission Group%s."
-msgstr "この役割を%s権限グループ%sとして構成することもできます。"
+msgid "Enable %1s access to the Admin Notices area."
+msgstr "%1s の管理通知エリアへのアクセスを有効にします。"
 
-#: includes-core/admin-features-promo.php:74
-msgid ""
-"You can block pages by URL or hide Admin elements by entering a CSS class "
-"or ID. This feature is available in PublishPress Capabilities Pro."
-msgstr ""
-"URLでページをブロックしたり、CSSクラスまたはIDを入力して管理要素を非表示にすることができます。この機能はPublishPress "
-"Capabilities Proで利用可能です。"
+#: includes/settings-ui.php:363
+msgid "Notifications to remove from WordPress admin pages"
+msgstr "WordPress管理ページから削除する通知"
 
-#: includes-core/editor-features-promo.php:74
-msgid ""
-"You can hide plugin metaboxes. You can also hide specific items by entering "
-"their CSS class or ID. This feature is available in PublishPress "
-"Capabilities Pro."
-msgstr ""
-"プラグインのメタボックスを非表示にすることができます。また、特定のアイテムをCSSクラスまたはIDを入力して非表示にすることもできます。この機能はPub"
-"lishPress Capabilities Proで利用可能です。"
-
-#: includes-core/admin-menus-promo.php:58
-msgid ""
-"You can restrict access to admin menu screens. You can also edit, change, "
-"add, or remove links from the WordPress admin menu. This feature is "
-"available in PublishPress Capabilities Pro."
-msgstr ""
-"管理メニュー画面へのアクセスを制限することができます。また、WordPress管理メニューからリンクを編集、変更、追加、または削除することもできます。こ"
-"の機能はPublishPress Capabilities Proで利用可能です。"
-
-#: includes-core/CoreAdmin.php:163
-msgid "You can select page types where this element will be added."
-msgstr "この要素が追加されるページタイプを選択できます。"
-
-#: includes-core/frontend-features-promo.php:25
-msgid ""
-"You can use Frontend Features to target specific posts and pages. This "
-"feature is available in PublishPress Capabilities Pro."
-msgstr ""
-"フロントエンド機能を使用して特定の投稿やページをターゲットにすることができます。この機能はPublishPress Capabilities "
-"Proで利用可能です。"
-
-#: includes/handler.php:250
-msgid "You cannot remove Manage Capabilities from Administrators"
-msgstr "管理者から管理能力を削除することはできません。"
-
-#: includes/functions.php:642
-msgid "You do not have permission to access this page."
-msgstr "このページにアクセスする権限がありません。"
-
-#: includes/manager.php:640 includes/manager.php:662 includes/manager.php:772
-#: includes/manager.php:823 includes/manager.php:987
-msgid "You do not have permission to manage admin features."
-msgstr "管理機能を管理する権限がありません。"
-
-#: includes/admin-notices/admin-notices.php:241
-msgid "You do not have permission to manage admin notices."
-msgstr "管理通知を管理する権限がありません。"
-
-#: includes/manager.php:741 includes/features/admin-styles/admin-styles.php:459
-msgid "You do not have permission to manage admin styles."
-msgstr "管理スタイルを管理する権限がありません。"
-
-#: includes/manager.php:1079 includes/manager.php:1113
-#: includes/manager.php:1131
-msgid "You do not have permission to manage capabilities."
-msgstr "能力を管理する権限がありません。"
-
-#: includes/manager.php:567 includes/manager.php:589
-msgid "You do not have permission to manage editor features."
-msgstr "エディタ機能を管理する権限がありません。"
-
-#: includes/manager.php:693 includes/manager.php:715
-#: includes/features/frontend-features/frontend-features-action.php:54
-#: includes/features/frontend-features/frontend-features-action.php:117
-msgid "You do not have permission to manage frontend features."
-msgstr "フロントエンド機能を管理する権限がありません。"
-
-#: includes/manager.php:794
-msgid "You do not have permission to manage navigation menus."
-msgstr "ナビゲーションメニューを管理する権限がありません。"
-
-#: includes/manager.php:845
-msgid "You do not have permission to manage profile features."
-msgstr "プロフィール機能を管理する権限がありません。"
-
-#: includes/manager.php:905
-msgid "You do not have permission to manage redirect."
-msgstr "リダイレクトを管理する権限がありません。"
-
-#: includes/manager.php:544
-msgid "You do not have permission to manage roles."
-msgstr "役割を管理する権限がありません。"
-
-#: includes/manager.php:1344
-msgid "You do not have permission to perform this action."
-msgstr "このアクションを実行する権限がありません。"
-
-#: includes/backup-handler.php:15
-msgid "You do not have permission to restore backup."
-msgstr "バックアップを復元する権限がありません。"
-
-#: includes/manager.php:1306
-msgid "You do not have permission to restore roles."
-msgstr "役割を復元する権限がありません。"
-
-#: includes/roles/class/class-pp-roles-actions.php:148
-msgid "You do not have sufficient permissions to perform this action."
-msgstr "このアクションを実行するのに十分な権限がありません。"
-
-#: includes/admin.php:1651
-msgid "You have no additional capabilities."
-msgstr "追加の機能はありません。"
-
-#: includes/redirects/redirects.php:243
-msgid "You must enter the Login Redirect URL."
-msgstr "ログインリダイレクトURLを入力する必要があります。"
-
-#: includes/roles/class/class-pp-roles-admin.php:362
-#. "Editor" means post editor like Gutenberg
-msgid ""
-"You must select at least one editor for the role when managing allowed "
-"editor."
-msgstr "許可されたエディタを管理する際には、役割に対して少なくとも1つのエディタを選択する必要があります。"
-
-#: includes-core/CoreAdmin.php:13
+#: includes/settings-ui.php:376
 #, php-format
 msgid ""
-"You're using PublishPress Capabilities Free. The Pro version has more "
-"features and support. %sUpgrade to Pro%s"
-msgstr ""
-"あなたはPublishPress Capabilities Freeを使用しています。Proバージョンには、より多くの機能とサポートがあります。 "
-"%sProにアップグレード%s"
+"Select the notification types that should be hidden when a user in the %1s "
+"role is viewing WordPress admin screens."
+msgstr "%1sロールのユーザーがWordPress管理画面を表示しているときに隠すべき通知タイプを選択してください。"
 
-#: includes/test-user.php:53
-#: includes/roles/class/class-pp-roles-actions.php:162
-#: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:374
-#: includes/roles/class/class-pp-roles-actions.php:490
-msgid "Your link has expired, refresh the page and try again."
-msgstr "リンクの有効期限が切れました。ページを更新して再試行してください。"
+#: includes/settings-ui.php:376
+#: includes/settings-ui.php:398
+msgid "Click here for more on notice types."
+msgstr "通知タイプの詳細については、ここをクリックしてください。"
 
-#: includes/roles/class/class-pp-roles-list-table.php:344
-msgid "Your Role"
-msgstr "あなたの役割"
+#: includes/settings-ui.php:385
+msgid "Notifications to display in the Admin Notices area."
+msgstr "管理者通知エリアに表示する通知。"
+
+#: includes/settings-ui.php:398
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr "WordPress管理画面から削除された後にAdmin Noticesエリアに表示されるべき通知タイプを選択してください。"
+
+#: includes/settings.php:13
+msgid "Capabilities Settings"
+msgstr "機能設定"
+
+#: includes/test-user-ui.php:52
+msgid "Search user..."
+msgstr "ユーザーを検索..."
+
+#: includes/test-user-ui.php:53
+msgid "Search"
+msgstr "検索"
+
+#: includes/test-user-ui.php:70
+msgid "No results found."
+msgstr "結果が見つかりませんでした。"
+
+#: includes/test-user-ui.php:79
+msgid "Permission denied."
+msgstr "権限が拒否されました。"
+
+#: includes/test-user-ui.php:180
+#: includes/test-user-ui.php:204
+msgid "Test user"
+msgstr "テストユーザー"
+
+#: includes/test-user-ui.php:210
+msgid "Test this user"
+msgstr "このユーザーをテストする"
+
+#: includes/test-user-ui.php:255
+msgid "Testing: "
+msgstr "テスト中: "
+
+#: includes/test-user-ui.php:269
+#, php-format
+msgid "%1$sReturn to Administrator view%2$s"
+msgstr "%1$s管理者ビューに戻る%2$s"
+
+#: includes/test-user-ui.php:316
+#, php-format
+msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
+msgstr "ユーザーとしてテスト中: %1$s. %2$s管理者ビューに戻る%3$s"
+
+#: includes/test-user.php:62
+msgid "Unable to retrieve user data."
+msgstr "ユーザーデータを取得できません。"
