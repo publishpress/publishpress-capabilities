@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.41.0] - 23 March, 2026
+[2.41.0] - 24 March, 2026
 
 - Fixed : Unable to access Roles & Capabilities Screens, #1608
 - Fixed : Undefined variable $title_text, #1614
