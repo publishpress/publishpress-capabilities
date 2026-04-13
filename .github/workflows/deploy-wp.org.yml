@@ -49,10 +49,13 @@ jobs:
       - name: Composer validation
         uses: php-actions/composer@v6
         with:
+          php_version: "8.4"
           command: validate
 
       - name: Composer install
         uses: php-actions/composer@v6
+        with:
+          php_version: "8.4"
 
       - name: Show version of tools inside the dev-workspace
         run: |
