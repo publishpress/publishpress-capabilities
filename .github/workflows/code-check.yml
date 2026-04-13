@@ -55,5 +55,5 @@ jobs:
 
       - name: Run Lint check
         run: |
-          $GITHUB_WORKSPACE/vendor/publishpress/dev-workspace/scripts/run.sh composer check:lint
+          $GITHUB_WORKSPACE/vendor/publishpress/dev-workspace/scripts/run.sh composer lint:php
 
