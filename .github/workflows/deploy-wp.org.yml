@@ -47,12 +47,12 @@ jobs:
           chmod +x $GITHUB_WORKSPACE/vendor/publishpress/dev-workspace/scripts/*.sh
 
       - name: Composer validation
-        uses: docker://composer:2.9.5-alpine3.22-php8.4-dev
+        uses: docker://composer/composer:2.9
         with:
           args: validate
 
       - name: Composer install
-        uses: docker://composer:2.9.5-alpine3.22-php8.4-dev
+        uses: docker://composer/composer:2.9
         with:
           args: install
 
