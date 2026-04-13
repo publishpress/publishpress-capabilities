@@ -37,14 +37,12 @@ jobs:
           cp $GITHUB_WORKSPACE/.env.example $GITHUB_WORKSPACE/.env
 
       - name: Composer validation
-        uses: docker://composer/composer:2.9
+        uses: php-actions/composer@v6
         with:
-          args: validate
+          command: validate
 
       - name: Composer install
-        uses: docker://composer/composer:2.9
-        with:
-          args: install
+        uses: php-actions/composer@v6
 
       - name: Show version of tools inside the dev-workspace
         run: |
