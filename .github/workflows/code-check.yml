@@ -40,14 +40,14 @@ jobs:
         uses: php-actions/composer@v6
         with:
           php_version: "8.4"
-          php_extensions: zip
+          php_extensions: zip mysqli
           command: validate
 
       - name: Composer install
         uses: php-actions/composer@v6
         with:
           php_version: "8.4"
-          php_extensions: zip
+          php_extensions: zip mysqli
 
       - name: Show version of tools inside the dev-workspace
         run: |
