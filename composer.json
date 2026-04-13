@@ -29,20 +29,6 @@
   "require-dev": {
     "publishpress/dev-workspace": "^1.0"
   },
-  "scripts": {
-    "translate": [
-      "vendor/publishpress/dev-workspace/scripts/run.sh vendor/bin/publishpress-translate --languages=de_DE,fi,fil,id_ID,ja,ko_KR,nl_NL,ru_RU,yor,ca",
-      "@translate:audit"
-    ],
-    "translate:force": [
-      "vendor/publishpress/dev-workspace/scripts/run.sh vendor/bin/publishpress-translate --force --languages=de_DE,fi,fil,id_ID,ja,ko_KR,nl_NL,ru_RU,yor,ca",
-      "@translate:audit"
-    ],
-    "config:phpcs": "@php vendor/squizlabs/php_codesniffer/bin/phpcs --config-set installed_paths ../../phpcsstandards/phpcsutils,../../phpcsstandards/phpcsextra,../../automattic/vipwpcs,../../phpcompatibility/php-compatibility,../../sirbrillig/phpcs-variable-analysis,../../publishpress/publishpress-phpcs-standards/standards,../../wp-coding-standards/wpcs",
-    "check:lint": "@lint:php",
-    "gen:mo": "@translate:mo",
-    "gen:pot": "@translate:pot"
-  },
   "extra": {
     "plugin-name": "publishpress-capabilities",
     "plugin-slug": "capsman-enhanced",
