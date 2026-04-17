@@ -706,7 +706,8 @@ if (!function_exists('pp_capabilities_admin_pages')) {
             'pp-capabilities-frontend-features',
             'pp-capabilities-redirects',
             'pp-capabilities-profile-features',
-            'pp-capabilities-admin-styles'
+            'pp-capabilities-admin-styles',
+            'pp-capabilities-admin-notices'
         ];
 
         return apply_filters('pp_capabilities_admin_pages', $pp_capabilities_pages);
@@ -755,9 +756,10 @@ if (!function_exists('pp_capabilities_sidebox_banner')) {
     {
         //the banner style only got enqueue when banner display
         //funtion is used which will no longer be true after removing the banner.
+        $banner_file = defined('PUBLISHPRESS_CAPS_PRO_FILE') ? PUBLISHPRESS_CAPS_PRO_FILE : CME_FILE;
         wp_enqueue_style(
             'pp-wordpress-banners-style',
-            plugin_dir_url(CME_FILE) . 'lib/vendor/publishpress/wordpress-banners/assets/css/style.css',
+            plugin_dir_url($banner_file) . 'lib/vendor/publishpress/wordpress-banners/assets/css/style.css',
             false,
             PP_WP_BANNERS_VERSION
         );
@@ -798,9 +800,10 @@ if (!function_exists('pp_capabilities_pro_sidebox')) {
 
         //the banner style only got enqueue when banner display
         //funtion is used which will no longer be true after removing the banner.
+        $banner_file = defined('PUBLISHPRESS_CAPS_PRO_FILE') ? PUBLISHPRESS_CAPS_PRO_FILE : CME_FILE;
         wp_enqueue_style(
             'pp-wordpress-banners-style',
-            plugin_dir_url(CME_FILE) . 'lib/vendor/publishpress/wordpress-banners/assets/css/style.css',
+            plugin_dir_url($banner_file) . 'lib/vendor/publishpress/wordpress-banners/assets/css/style.css',
             false,
             PP_WP_BANNERS_VERSION
         );
@@ -1622,6 +1625,12 @@ if (!function_exists('pp_capabilities_feature_enabled')) {
             && isset($capsman_dashboard_features_status[$feature]['status'])
             && $capsman_dashboard_features_status[$feature]['status'] === 'off'
         ) {
+            $feature_enabled = false;
+        } elseif (
+            'admin-notices' === $feature
+            && (!isset($capsman_dashboard_features_status[$feature]) || !isset($capsman_dashboard_features_status[$feature]['status']))
+        ) {
+            // disable admin notice by default
             $feature_enabled = false;
         }
 
