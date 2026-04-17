@@ -37,6 +37,46 @@ class PP_Capabilities_Admin_Styles
         $this->defaults = [
             // WordPress Builtin Features
             'admin_color_scheme' => 'fresh',
+            'admin_font_family' => '',
+            'admin_font_size' => '',
+            'admin_font_size_unit' => 'px',
+            'admin_typography' => [
+                'headings' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+                'body_text' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+                'links' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+                'admin_menu' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+                'admin_bar' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+                'form_fields' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+                'buttons' => [
+                    'font_family' => '',
+                    'font_size' => '',
+                    'font_size_unit' => 'px',
+                ],
+            ],
             'admin_custom_footer_text' => '',
 
             // Custom CSS based features
@@ -160,6 +200,10 @@ class PP_Capabilities_Admin_Styles
         // Define which settings should be overridden by roles
         $override_settings = [
             'admin_color_scheme',
+            'admin_font_family',
+            'admin_font_size',
+            'admin_font_size_unit',
+            'admin_typography',
             'admin_custom_footer_text',
             'hide_color_scheme_ui',
             'force_role_settings',
@@ -256,6 +300,82 @@ class PP_Capabilities_Admin_Styles
                     }
                 }
             ';
+        }
+
+        if (!empty($settings['admin_font_family'])) {
+            $font_family = $settings['admin_font_family'];
+
+            $css .= '
+                body.wp-admin,
+                body.wp-admin #wpwrap,
+                body.wp-admin .wrap,
+                body.wp-admin input,
+                body.wp-admin select,
+                body.wp-admin textarea,
+                body.wp-admin button,
+                body.wp-admin .button,
+                body.wp-admin .button-primary,
+                body.wp-admin .button-secondary,
+                body.wp-admin .notice,
+                body.wp-admin .wp-list-table,
+                body.wp-admin .wp-list-table th,
+                body.wp-admin .wp-list-table td,
+                body.wp-admin #adminmenu a,
+                body.wp-admin #adminmenu .wp-submenu a,
+                body.wp-admin #wpadminbar .ab-item,
+                body.wp-admin #wpadminbar .ab-label {
+                    font-family: ' . $font_family . ' !important;
+                }
+            ';
+        }
+
+        if (!empty($settings['admin_font_size'])) {
+            $font_size = $settings['admin_font_size'] . $this->sanitize_font_size_unit($settings['admin_font_size_unit'] ?? 'px');
+
+            $css .= '
+                body.wp-admin,
+                body.wp-admin #wpwrap,
+                body.wp-admin .wrap,
+                body.wp-admin input,
+                body.wp-admin select,
+                body.wp-admin textarea,
+                body.wp-admin button,
+                body.wp-admin .button,
+                body.wp-admin .button-primary,
+                body.wp-admin .button-secondary,
+                body.wp-admin .notice,
+                body.wp-admin .wp-list-table,
+                body.wp-admin .wp-list-table th,
+                body.wp-admin .wp-list-table td,
+                body.wp-admin #adminmenu a,
+                body.wp-admin #adminmenu .wp-submenu a,
+                body.wp-admin #wpadminbar .ab-item,
+                body.wp-admin #wpadminbar .ab-label {
+                    font-size: ' . $font_size . ' !important;
+                }
+            ';
+        }
+
+        if (!empty($settings['admin_typography']) && is_array($settings['admin_typography'])) {
+            $typography_selectors = $this->get_typography_target_selectors();
+
+            foreach ($typography_selectors as $target_key => $selectors) {
+                if (empty($settings['admin_typography'][$target_key]) || !is_array($settings['admin_typography'][$target_key])) {
+                    continue;
+                }
+
+                $target_settings = $settings['admin_typography'][$target_key];
+                $selector_string = implode(",\n                ", $selectors);
+
+                if (!empty($target_settings['font_family'])) {
+                    $css .= "\n                " . $selector_string . " {\n                    font-family: " . $target_settings['font_family'] . " !important;\n                }\n            ";
+                }
+
+                if (!empty($target_settings['font_size'])) {
+                    $target_font_size = $target_settings['font_size'] . $this->sanitize_font_size_unit($target_settings['font_size_unit'] ?? 'px');
+                    $css .= "\n                " . $selector_string . " {\n                    font-size: " . $target_font_size . " !important;\n                }\n            ";
+                }
+            }
         }
 
         // Apply custom CSS
@@ -1259,6 +1379,22 @@ class PP_Capabilities_Admin_Styles
                     $sanitized[$key] = wp_kses_post($value);
                     break;
 
+                case 'admin_font_family':
+                    $sanitized[$key] = $this->sanitize_font_family($value);
+                    break;
+
+                case 'admin_font_size':
+                    $sanitized[$key] = $this->sanitize_font_size($value);
+                    break;
+
+                case 'admin_font_size_unit':
+                    $sanitized[$key] = $this->sanitize_font_size_unit($value);
+                    break;
+
+                case 'admin_typography':
+                    $sanitized[$key] = $this->sanitize_typography_settings($value);
+                    break;
+
                 case 'custom_scheme_base':
                 case 'custom_scheme_text':
                 case 'custom_scheme_highlight':
@@ -1292,6 +1428,149 @@ class PP_Capabilities_Admin_Styles
         }
 
         return $sanitized;
+    }
+
+    /**
+     * Sanitize font family stack.
+     */
+    private function sanitize_font_family($font_family)
+    {
+        $font_family = trim(wp_strip_all_tags((string) $font_family));
+
+        if ($font_family === '') {
+            return '';
+        }
+
+        if (strpos($font_family, '{') !== false || strpos($font_family, '}') !== false || strpos($font_family, ';') !== false) {
+            return '';
+        }
+
+        $font_family = preg_replace('/\s+/', ' ', $font_family);
+        $font_family = preg_replace('/[^A-Za-z0-9\-_\,\"\'\s]/', '', $font_family);
+        $font_family = trim($font_family);
+
+        if (strlen($font_family) > 150) {
+            $font_family = substr($font_family, 0, 150);
+        }
+
+        return $font_family;
+    }
+
+    /**
+     * Sanitize font size value.
+     */
+    private function sanitize_font_size($font_size)
+    {
+        if (!is_scalar($font_size)) {
+            return '';
+        }
+
+        $font_size = str_replace(',', '.', trim((string) $font_size));
+
+        if ($font_size === '' || !is_numeric($font_size)) {
+            return '';
+        }
+
+        $font_size = (float) $font_size;
+
+        if ($font_size <= 0) {
+            return '';
+        }
+
+        if ($font_size > 72) {
+            $font_size = 72;
+        }
+
+        $font_size = rtrim(rtrim(number_format($font_size, 2, '.', ''), '0'), '.');
+
+        return $font_size;
+    }
+
+    /**
+     * Sanitize font size unit.
+     */
+    private function sanitize_font_size_unit($unit)
+    {
+        $unit = sanitize_key((string) $unit);
+
+        if (!in_array($unit, ['px', 'rem', 'em'], true)) {
+            return 'px';
+        }
+
+        return $unit;
+    }
+
+    /**
+     * Sanitize typography target settings.
+     */
+    private function sanitize_typography_settings($typography)
+    {
+        $defaults = $this->defaults['admin_typography'];
+
+        if (!is_array($typography)) {
+            return $defaults;
+        }
+
+        $sanitized = [];
+
+        foreach ($defaults as $target => $target_defaults) {
+            $target_input = isset($typography[$target]) && is_array($typography[$target]) ? $typography[$target] : [];
+
+            $sanitized[$target] = [
+                'font_family' => $this->sanitize_font_family($target_input['font_family'] ?? ''),
+                'font_size' => $this->sanitize_font_size($target_input['font_size'] ?? ''),
+                'font_size_unit' => $this->sanitize_font_size_unit($target_input['font_size_unit'] ?? 'px'),
+            ];
+        }
+
+        return $sanitized;
+    }
+
+    /**
+     * Map typography targets to admin selectors.
+     */
+    private function get_typography_target_selectors()
+    {
+        return [
+            'body_text' => [
+                'body.wp-admin p',
+                'body.wp-admin li',
+                'body.wp-admin td',
+                'body.wp-admin th',
+                'body.wp-admin label',
+                'body.wp-admin .description',
+            ],
+            'links' => [
+                'body.wp-admin a',
+            ],
+            'headings' => [
+                'body.wp-admin h1',
+                'body.wp-admin h2',
+                'body.wp-admin h3',
+                'body.wp-admin h4',
+                'body.wp-admin h5',
+                'body.wp-admin h6',
+            ],
+            'admin_menu' => [
+                'body.wp-admin #adminmenu a',
+                'body.wp-admin #adminmenu .wp-submenu a',
+            ],
+            'admin_bar' => [
+                'body.wp-admin #wpadminbar .ab-item',
+                'body.wp-admin #wpadminbar .ab-label',
+            ],
+            'form_fields' => [
+                'body.wp-admin input',
+                'body.wp-admin select',
+                'body.wp-admin textarea',
+            ],
+            'buttons' => [
+                'body.wp-admin button',
+                'body.wp-admin .button',
+                'body.wp-admin .button-primary',
+                'body.wp-admin .button-secondary',
+            ],
+        ];
     }
 
     /**

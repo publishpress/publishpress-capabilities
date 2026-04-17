@@ -89,6 +89,7 @@ if ($admin_styles_saved !== false) {
          '</p></div>';
     delete_transient('ppc_admin_styles_saved_' . $user_id);
 }
+
 ?>
 <div class="wrap publishpress-caps-manage pressshack-admin-wrapper pp-capability-menus-wrapper admin-styles">
     <div id="icon-capsman-admin" class="icon32"></div>
@@ -520,6 +521,111 @@ if ($admin_styles_saved !== false) {
 
                                                         <tr class="ppc-menu-row parent-menu">
                                                             <td class="menu-column ppc-menu-item">
+                                                                <label for="admin_font_family">
+                                                                    <strong><?php esc_html_e('Admin Font Family', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                                <p class="cme-subtext">
+                                                                    <?php esc_html_e('Set a font stack for the admin area, for example "Segoe UI", sans-serif.', 'capability-manager-enhanced'); ?>
+                                                                </p>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <input type="text" name="settings[admin_font_family]"
+                                                                    id="admin_font_family"
+                                                                    value="<?php echo esc_attr($settings['admin_font_family']); ?>"
+                                                                    placeholder='"Segoe UI", sans-serif'
+                                                                    style="width: 99%" class="regular-text">
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="ppc-menu-row parent-menu">
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <label for="admin_font_size">
+                                                                    <strong><?php esc_html_e('Admin Font Size', 'capability-manager-enhanced'); ?></strong>
+                                                                </label>
+                                                                <p class="cme-subtext">
+                                                                    <?php esc_html_e('Set a base font size for the admin area. Leave empty to use the default WordPress size.', 'capability-manager-enhanced'); ?>
+                                                                </p>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <div style="display:flex; gap:10px; align-items:center; max-width:320px;">
+                                                                    <input type="number" name="settings[admin_font_size]"
+                                                                        id="admin_font_size"
+                                                                        value="<?php echo esc_attr($settings['admin_font_size']); ?>"
+                                                                        min="1" max="72" step="0.1"
+                                                                        class="small-text">
+
+                                                                    <select name="settings[admin_font_size_unit]" id="admin_font_size_unit">
+                                                                        <option value="px" <?php selected($settings['admin_font_size_unit'], 'px'); ?>>px</option>
+                                                                        <option value="rem" <?php selected($settings['admin_font_size_unit'], 'rem'); ?>>rem</option>
+                                                                        <option value="em" <?php selected($settings['admin_font_size_unit'], 'em'); ?>>em</option>
+                                                                    </select>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="ppc-menu-row parent-menu">
+                                                            <td class="menu-column ppc-menu-item">
+                                                                <strong><?php esc_html_e('Typography Overrides', 'capability-manager-enhanced'); ?></strong>
+                                                                <p class="cme-subtext">
+                                                                    <?php esc_html_e('Optional target-specific typography rules for common admin elements.', 'capability-manager-enhanced'); ?>
+                                                                </p>
+                                                            </td>
+                                                            <td class="value-column ppc-menu-checkbox">
+                                                                <?php
+                                                                $typography_targets = [
+                                                                    'body_text' => esc_html__('Body Text', 'capability-manager-enhanced'),
+                                                                    'links' => esc_html__('Links', 'capability-manager-enhanced'),
+                                                                    'headings' => esc_html__('Headings', 'capability-manager-enhanced'),
+                                                                    'admin_menu' => esc_html__('Admin Menu', 'capability-manager-enhanced'),
+                                                                    'admin_bar' => esc_html__('Admin Bar', 'capability-manager-enhanced'),
+                                                                    'form_fields' => esc_html__('Form Fields', 'capability-manager-enhanced'),
+                                                                    'buttons' => esc_html__('Buttons', 'capability-manager-enhanced'),
+                                                                ];
+                                                                ?>
+                                                                <table class="widefat striped" style="max-width: 640px;">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th><?php esc_html_e('Target', 'capability-manager-enhanced'); ?></th>
+                                                                            <th><?php esc_html_e('Font Family', 'capability-manager-enhanced'); ?></th>
+                                                                            <th><?php esc_html_e('Size', 'capability-manager-enhanced'); ?></th>
+                                                                            <th><?php esc_html_e('Unit', 'capability-manager-enhanced'); ?></th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <?php foreach ($typography_targets as $target_key => $target_label) : ?>
+                                                                            <tr>
+                                                                                <td><strong><?php echo esc_html($target_label); ?></strong></td>
+                                                                                <td>
+                                                                                    <input type="text"
+                                                                                        name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_family]"
+                                                                                        value="<?php echo esc_attr($settings['admin_typography'][$target_key]['font_family']); ?>"
+                                                                                        placeholder='"Segoe UI", sans-serif'
+                                                                                        class="regular-text"
+                                                                                        style="min-width: 180px;">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <input type="number"
+                                                                                        name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size]"
+                                                                                        value="<?php echo esc_attr($settings['admin_typography'][$target_key]['font_size']); ?>"
+                                                                                        min="1" max="72" step="0.1"
+                                                                                        class="small-text">
+                                                                                </td>
+                                                                                <td>
+                                                                                    <select name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size_unit]">
+                                                                                        <option value="px" <?php selected($settings['admin_typography'][$target_key]['font_size_unit'], 'px'); ?>>px</option>
+                                                                                        <option value="rem" <?php selected($settings['admin_typography'][$target_key]['font_size_unit'], 'rem'); ?>>rem</option>
+                                                                                        <option value="em" <?php selected($settings['admin_typography'][$target_key]['font_size_unit'], 'em'); ?>>em</option>
+                                                                                    </select>
+                                                                                </td>
+                                                                            </tr>
+                                                                        <?php endforeach; ?>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr class="ppc-menu-row parent-menu">
+                                                            <td class="menu-column ppc-menu-item">
                                                                 <label for="admin_custom_footer_text">
                                                                     <strong><?php esc_html_e('Admin Footer Text', 'capability-manager-enhanced'); ?></strong>
                                                                 </label>
@@ -596,7 +702,6 @@ if ($admin_styles_saved !== false) {
 
                             <div class="editor-features-footer-meta">
                                 <div style="display: flex;gap: 10px;float:right;margin-top: 20px;">
-
                                     <input type="submit" name="admin-styles-all-submit"
                                         value="<?php esc_attr_e('Save for all Roles', 'capability-manager-enhanced') ?>"
                                         class="button-secondary ppc-admin-styles-submit" style="float:right" />
