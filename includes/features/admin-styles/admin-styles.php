@@ -1703,7 +1703,20 @@ class PP_Capabilities_Admin_Styles
      */
     public function get_custom_styles()
     {
-        return get_option('pp_capabilities_custom_admin_styles', []);
+        $custom_styles = get_option('pp_capabilities_custom_admin_styles', []);
+
+        if (is_array($custom_styles)) {
+            return $custom_styles;
+        }
+
+        if (is_string($custom_styles) && function_exists('maybe_unserialize')) {
+            $custom_styles = maybe_unserialize($custom_styles);
+            if (is_array($custom_styles)) {
+                return $custom_styles;
+            }
+        }
+
+        return [];
     }
 
     /**
