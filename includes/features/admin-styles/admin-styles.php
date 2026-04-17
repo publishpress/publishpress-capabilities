@@ -368,12 +368,12 @@ class PP_Capabilities_Admin_Styles
                 $selector_string = implode(",\n                ", $selectors);
 
                 if (!empty($target_settings['font_family'])) {
-                    $css .= '\n                ' . $selector_string . ' {\n                    font-family: ' . $target_settings['font_family'] . ' !important;\n                }\n            ';
+                    $css .= "\n                " . $selector_string . " {\n                    font-family: " . $target_settings['font_family'] . " !important;\n                }\n            ";
                 }
 
                 if (!empty($target_settings['font_size'])) {
                     $target_font_size = $target_settings['font_size'] . $this->sanitize_font_size_unit($target_settings['font_size_unit'] ?? 'px');
-                    $css .= '\n                ' . $selector_string . ' {\n                    font-size: ' . $target_font_size . ' !important;\n                }\n            ';
+                    $css .= "\n                " . $selector_string . " {\n                    font-size: " . $target_font_size . " !important;\n                }\n            ";
                 }
             }
         }
