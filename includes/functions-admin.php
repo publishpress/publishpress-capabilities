@@ -235,6 +235,11 @@ if (!function_exists('pp_capabilities_backup_sections')) {
         $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles_roles";
         $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_custom_admin_styles";
 
+        //Admin Notices
+        $backup_sections[$cms_id . '_admin_notices_backup']['label'] = esc_html__('Admin Notices', 'capability-manager-enhanced');
+        $backup_sections[$cms_id . '_admin_notices_backup']['options'][] = "cme_admin_notice_options";
+        $backup_sections[$cms_id . '_admin_notices_backup']['options'][] = "cme_admin_notice_data";
+
         //Frontend Features
         $backup_sections[$cms_id . '_frontend_features_backup']['label'] = esc_html__('Frontend Features', 'capability-manager-enhanced');
         $backup_sections[$cms_id . '_frontend_features_backup']['options'][] = "capsman_disabled_frontend_features";
@@ -341,7 +346,6 @@ if (!function_exists('pp_capabilities_settings_options')) {
             'cme_test_user_excluded_roles',
             'cme_profile_features_auto_redirect',
             'cme_role_same_page_redirect_cookie',
-            'cme_admin_notice_options',
         ];
 
         return apply_filters('pp_capabilities_settings_options', $settings_options);
@@ -363,6 +367,7 @@ if (!function_exists('cme_publishpress_capabilities_capabilities')) {
                 'manage_capabilities_editor_features',
                 'manage_capabilities_admin_features',
                 'manage_capabilities_admin_styles',
+                'manage_capabilities_admin_notices',
                 'manage_capabilities_admin_menus',
                 'manage_capabilities_frontend_features',
                 'manage_capabilities_profile_features',
@@ -512,6 +517,13 @@ if (!function_exists('pp_capabilities_sub_menu_lists')) {
             'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_styles',
             'page' => 'pp-capabilities-admin-styles',
             'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminStyles'],
+            'dashboard_control' => true,
+        ];
+        $sub_menu_pages['admin-notices'] = [
+            'title' => __('Admin Notices', 'capability-manager-enhanced'),
+            'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_notices',
+            'page' => 'pp-capabilities-admin-notices',
+            'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminNotices'],
             'dashboard_control' => true,
         ];
         if ($cme_fakefunc) {

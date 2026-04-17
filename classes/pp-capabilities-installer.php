@@ -12,6 +12,7 @@ class PP_Capabilities_Installer
     public static function runInstallTasks($currentVersion)
     {
         self::addPluginCapabilities();
+        self::addAdminNoticesCapabilities();
 
         /**
          * @param string $currentVersion
@@ -38,6 +39,12 @@ class PP_Capabilities_Installer
 
         if (version_compare($currentVersions, '2.30.0', '<')) {
             self::addAdminStylesCapabilities();
+        }
+
+
+        if (version_compare($currentVersions, '2.43.0', '<')) {
+            self::addAdminNoticesCapabilities();
+            self::migrateAdminNoticesDashboardFeatureStatus();
         }
 
         /**
@@ -156,6 +163,45 @@ class PP_Capabilities_Installer
                 $role->add_cap('manage_capabilities_admin_styles');
             }
         }
+    }
+
+    private static function addAdminNoticesCapabilities()
+    {
+        $eligible_roles = ['administrator', 'editor'];
+
+        foreach ($eligible_roles as $eligible_role) {
+            $role = get_role($eligible_role);
+            if (is_object($role) && !$role->has_cap('manage_capabilities_admin_notices')) {
+                $role->add_cap('manage_capabilities_admin_notices');
+            }
+        }
+    }
+
+    private static function migrateAdminNoticesDashboardFeatureStatus()
+    {
+        $dashboard_features_status = get_option('capsman_dashboard_features_status', []);
+        if (!is_array($dashboard_features_status)) {
+            $dashboard_features_status = [];
+        }
+
+        if (isset($dashboard_features_status['admin-notices']['status'])) {
+            return;
+        }
+
+        $legacy_notice_settings = get_option('cme_admin_notice_options', []);
+        $legacy_has_values = false;
+
+        if (is_array($legacy_notice_settings) && !empty($legacy_notice_settings)) {
+            foreach ($legacy_notice_settings as $role_settings) {
+                if (is_array($role_settings) && !empty(array_filter($role_settings))) {
+                    $legacy_has_values = true;
+                    break;
+                }
+            }
+        }
+
+        $dashboard_features_status['admin-notices']['status'] = $legacy_has_values ? 'on' : 'off';
+        update_option('capsman_dashboard_features_status', $dashboard_features_status, false);
     }
 
 }

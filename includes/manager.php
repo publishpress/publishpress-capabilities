@@ -193,7 +193,7 @@ class CapabilityManager
 		if (empty($_REQUEST['page'])
 		|| !in_array(
 			$_REQUEST['page'],
-			['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles']
+				['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles', 'pp-capabilities-admin-notices']
 			)
 		) {
 			return;
@@ -759,6 +759,68 @@ class CapabilityManager
 		}
 
         include(dirname(CME_FILE) . '/includes/features/admin-styles/admin-styles-ui.php');
+    }
+
+	/**
+	 * Manages Admin Notices
+	 *
+	 * @return void
+	 */
+	public function ManageAdminNotices() {
+		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_admin_notices')) {
+            wp_die('<strong>' . esc_html__('You do not have permission to manage admin notices.', 'capability-manager-enhanced') . '</strong>');
+		}
+
+		$this->generateNames();
+		$roles = array_keys($this->roles);
+
+		if (!isset($this->current)) {
+			if ('POST' !== $_SERVER['REQUEST_METHOD'] && !empty($_REQUEST['role'])) {
+				$this->set_current_role(sanitize_key($_REQUEST['role']));
+			}
+		}
+
+		if (!isset($this->current) || !get_role($this->current)) {
+			$this->current = get_option('default_role');
+		}
+
+		if (!in_array($this->current, $roles)) {
+			$this->current = array_shift($roles);
+		}
+
+		$all_roles = wp_roles()->roles;
+
+		if ('POST' === $_SERVER['REQUEST_METHOD'] && (isset($_POST['ppc-admin-notices-submit']) || isset($_POST['ppc-admin-notices-all-submit']))) {
+			if (!wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce'] ?? ''), 'pp-capabilities-admin-notices')) {
+				wp_die('<strong>' . esc_html__('You do not have permission to manage admin notices.', 'capability-manager-enhanced') . '</strong>');
+			}
+
+			$notices_role = !empty($_POST['ppc-admin-notices-role']) ? sanitize_key($_POST['ppc-admin-notices-role']) : $this->current;
+
+			if (isset($all_roles[$notices_role])) {
+				$this->set_current_role($notices_role);
+			}
+
+			$submitted_options = isset($_POST['cme_admin_notice_options']) ? map_deep($_POST['cme_admin_notice_options'], 'sanitize_text_field') : [];
+			if (!is_array($submitted_options)) {
+				$submitted_options = [];
+			}
+
+			$all_notice_options = (array) get_option('cme_admin_notice_options', []);
+
+			if (isset($_POST['ppc-admin-notices-all-submit'])) {
+				foreach (array_keys($all_roles) as $role_key) {
+					$all_notice_options[$role_key] = $submitted_options;
+				}
+			} else {
+				$all_notice_options[$notices_role] = $submitted_options;
+			}
+
+			update_option('cme_admin_notice_options', $all_notice_options, false);
+			ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
+		}
+
+        include(dirname(CME_FILE) . '/includes/admin-notices/admin-notices-settings.php');
     }
 
 	/**
