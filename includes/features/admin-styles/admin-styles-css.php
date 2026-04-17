@@ -26,6 +26,114 @@ if (file_exists($wp_load_path)) {
     }
 }
 
+// Internal wrapper functions with exact WordPress core implementations as fallbacks for functions not available under SHORTINIT.
+
+/**
+ * Sanitizes a string key
+ */
+function ppc_admin_style_sanitize_key( $key ) {
+    if ( function_exists( 'sanitize_key' ) ) {
+        return sanitize_key( $key );
+    }
+    $sanitized_key = '';
+
+    if ( is_scalar( $key ) ) {
+        $sanitized_key = strtolower( $key );
+        $sanitized_key = preg_replace( '/[^a-z0-9_\-]/', '', $sanitized_key );
+    }
+
+    return $sanitized_key;
+}
+
+/**
+ * Sanitizes a hex color
+ */
+function ppc_admin_style_sanitize_hex_color( $color ) {
+    if ( function_exists( 'sanitize_hex_color' ) ) {
+        return sanitize_hex_color( $color );
+    }
+    if ( '' === $color ) {
+        return '';
+    }
+
+    // 3 or 6 hex digits, or the empty string.
+    if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
+        return $color;
+    }
+}
+
+/**
+ * Strips all HTML tags including 'script' and 'style'
+ */
+function ppc_admin_style_wp_strip_all_tags( $text, $remove_breaks = false ) {
+    if ( function_exists( 'wp_strip_all_tags' ) ) {
+        return wp_strip_all_tags( $text, $remove_breaks );
+    }
+    if ( is_null( $text ) ) {
+        return '';
+    }
+
+    if ( ! is_scalar( $text ) ) {
+        /*
+         * To maintain consistency with pre-PHP 8 error levels,
+         * wp_trigger_error() is used to trigger an E_USER_WARNING,
+         * rather than _doing_it_wrong(), which triggers an E_USER_NOTICE.
+         */
+        // Simplified - skip wp_trigger_error as it requires many dependencies
+        return '';
+    }
+
+    $text = preg_replace( '@<(script|style)[^>]*?>.*?</\1>@si', '', $text );
+    $text = strip_tags( $text );
+
+    if ( $remove_breaks ) {
+        $text = preg_replace( '/[\r\n\t ]+/', ' ', $text );
+    }
+
+    return trim( $text );
+}
+
+/**
+ * Retrieves an option value - simplified from WordPress core (wp-includes/option.php).
+ * Under SHORTINIT, caching and filters are unavailable, so we query directly.
+ */
+function ppc_admin_style_get_option( $option, $default_value = false ) {
+    if ( function_exists( 'get_option' ) ) {
+        return get_option( $option, $default_value );
+    }
+    global $wpdb;
+    if ( ! isset( $wpdb ) ) {
+        return $default_value;
+    }
+
+    if ( is_scalar( $option ) ) {
+        $option = trim( $option );
+    }
+
+    if ( empty( $option ) ) {
+        return false;
+    }
+
+    $row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM {$wpdb->options} WHERE option_name = %s LIMIT 1", $option ) );
+
+    if ( is_object( $row ) ) {
+        $value = $row->option_value;
+        if ( function_exists( 'maybe_unserialize' ) ) {
+            return maybe_unserialize( $value );
+        }
+        // Fallback basic unserialization
+        if ( isset( $value[0] ) && in_array( $value[0], array( 'a', 'O' ), true ) ) {
+            $unserialized = @unserialize( $value );
+            if ( $unserialized !== false ) {
+                return $unserialized;
+            }
+        }
+        return $value;
+    }
+
+    return $default_value;
+}
+
 // Set headers
 header('Content-Type: text/css');
 header('Cache-Control: public, max-age=86400'); // 24 hours
@@ -46,9 +154,9 @@ function ppc_get_custom_colors() {
     $element_colors = [];
 
     if (isset($_GET['ppc_custom_style'])) {
-        $custom_style_slug = sanitize_key($_GET['ppc_custom_style']);
+        $custom_style_slug = ppc_admin_style_sanitize_key($_GET['ppc_custom_style']);
 
-        $custom_styles = get_option('pp_capabilities_custom_admin_styles', []);
+        $custom_styles = ppc_admin_style_get_option('pp_capabilities_custom_admin_styles', []);
 
         if (isset($custom_styles[$custom_style_slug])) {
             $style = $custom_styles[$custom_style_slug];
@@ -68,7 +176,7 @@ function ppc_get_custom_colors() {
 }
 
 function ppc_sanitize_advanced_selector($selector) {
-    $selector = trim(wp_strip_all_tags((string) $selector));
+    $selector = trim(ppc_admin_style_wp_strip_all_tags((string) $selector));
 
     if (empty($selector)) {
         return '';
@@ -102,8 +210,8 @@ function ppc_generate_advanced_rules_css($advanced_rules) {
         }
 
         $selector = isset($rule['selector']) ? ppc_sanitize_advanced_selector($rule['selector']) : '';
-        $variation = isset($rule['variation']) ? sanitize_key($rule['variation']) : 'background';
-        $color = isset($rule['color']) ? sanitize_hex_color($rule['color']) : '';
+        $variation = isset($rule['variation']) ? ppc_admin_style_sanitize_key($rule['variation']) : 'background';
+        $color = isset($rule['color']) ? ppc_admin_style_sanitize_hex_color($rule['color']) : '';
 
         if (empty($selector) || empty($color)) {
             continue;
