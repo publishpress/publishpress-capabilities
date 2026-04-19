@@ -10,24 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-04 15:47+0000\n"
-"PO-Revision-Date: 2026-03-24 15:04+0000\n"
+"PO-Revision-Date: 2026-04-19 16:29+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Language: fi\n"
 
-#: capsman-enhanced.php
-#: capsman-enhanced.php
+#: capsman-enhanced.php:5
 #. Plugin Name of the plugin
 msgid "PublishPress Capabilities"
 msgstr "PublishPress Ominaisuudet"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:7, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:9
 #. Description of the plugin
 msgid ""
 "PublishPress Capabilities is the access control plugin for WordPress. You "
@@ -38,12 +37,12 @@ msgstr ""
 "hallita kaikkia WordPress-käyttäjäroolejasi, Administrattoreista Tilauksen "
 "saajiin."
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:13
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:15, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -75,8 +74,8 @@ msgstr ""
 #: includes-core/CoreAdmin.php:54
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:813
-#: includes/features/admin-styles/admin-styles-ui.php:307
+#: includes/admin-load.php:814
+#: includes/features/admin-styles/admin-styles-ui.php:324
 msgid "Upgrade to Pro"
 msgstr "Päivitä Pro-versioon"
 
@@ -105,7 +104,7 @@ msgstr ""
 
 #: includes-core/CoreAdmin.php:90
 #: includes-core/CoreAdmin.php:153
-#: includes/functions-admin.php:491
+#: includes/functions-admin.php:531
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "Ylläpitäjän valikot"
@@ -208,17 +207,17 @@ msgstr "Vedä useita rooleja valinnasta muuttaaksesi roolien järjestystä."
 msgid "Page title"
 msgstr "Sivun otsikko"
 
-#: includes/admin-load.php:375
+#: includes/admin-load.php:375, fuzzy
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:494
-#: includes/admin-load.php:826
-#: includes/functions-admin.php:379
-#: includes/functions-admin.php:462
+#: includes/admin-load.php:827
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:495
 #: includes/manager.php:387
 #: includes/roles/class/class-pp-roles-admin.php:637
-#: includes/settings-ui.php:34
+#: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Oikeudet"
 
@@ -234,7 +233,7 @@ msgstr "Virheellinen nonce-token!"
 msgid "Error: wrong data"
 msgstr "Virhe: väärät tiedot"
 
-#: includes/admin-load.php:648
+#: includes/admin-load.php:649
 #: includes/admin-notices/admin-notices.php:232
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -242,54 +241,182 @@ msgstr "Virhe: väärät tiedot"
 msgid "An error occured!"
 msgstr "Tapahtui virhe!"
 
-#: includes/admin-load.php:653
+#: includes/admin-load.php:654
 msgid "Security check failed"
 msgstr "Turvatarkistus epäonnistui"
 
-#: includes/admin-load.php:655
+#: includes/admin-load.php:656
 msgid "Permission denied"
 msgstr "Oikeus evätty"
 
-#: includes/admin-load.php:665
+#: includes/admin-load.php:666
 msgid "Settings updated successfully."
 msgstr "Asetukset päivitettiin onnistuneesti."
 
-#: includes/admin-load.php:761
+#: includes/admin-load.php:762
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Kirjautuneet käyttäjät"
 
-#: includes/admin-load.php:762
+#: includes/admin-load.php:763
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Kirjautumattomat käyttäjät"
 
-#: includes/admin-load.php:769
+#: includes/admin-load.php:770
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "PublishPress Ominaisuudet Valikkorajoitus"
 
-#: includes/admin-load.php:770
+#: includes/admin-load.php:771
 msgid "This menu is restricted for the following roles"
 msgstr "Tämä valikko on rajoitettu seuraaville rooleille"
 
-#: includes/admin-load.php:825
+#: includes/admin-load.php:826
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Ohjaamo"
 
-#: includes/admin-load.php:827
-#: includes/functions-admin.php:374
-#: includes/functions-admin.php:455
+#: includes/admin-load.php:828
+#: includes/functions-admin.php:404
+#: includes/functions-admin.php:488
 #: includes/roles/roles.php:8
-#: includes/settings-ui.php:33
+#: includes/settings-ui.php:34
 msgid "Roles"
 msgstr "Roolit"
 
-#: includes/admin-load.php:828
+#: includes/admin-load.php:829
 msgid "Settings"
 msgstr "Asetukset"
+
+#: includes/admin-notices/admin-notices-settings.php:7
+msgid "Success notices"
+msgstr "Onnistumisilmoitukset"
+
+#: includes/admin-notices/admin-notices-settings.php:8
+msgid "Error notices"
+msgstr "Virhesanomat"
+
+#: includes/admin-notices/admin-notices-settings.php:9
+msgid "Warning notices"
+msgstr "Varoitusilmoitukset"
+
+#: includes/admin-notices/admin-notices-settings.php:10
+msgid "Info notices"
+msgstr "Tietoilmoitukset"
+
+#: includes/admin-notices/admin-notices-settings.php:22
+msgid "Current Role"
+msgstr "Nykyinen rooli"
+
+#: includes/admin-notices/admin-notices-settings.php:33
+#: includes/admin-notices/admin-notices.php:179
+#: includes/admin-notices/admin-notices.php:217
+#: includes/admin-notices/admin-notices.php:220
+#: includes/functions-admin.php:239
+#: includes/functions-admin.php:454
+#: includes/functions-admin.php:523
+msgid "Admin Notices"
+msgstr "Admin-ilmoitukset"
+
+#: includes/admin-notices/admin-notices-settings.php:60
+#: includes/admin-notices/admin-notices-settings.php:151
+#: includes/features/admin-styles/admin-styles-ui.php:152
+#: includes/features/admin-styles/admin-styles-ui.php:758
+#: includes/redirects/redirects.php:117
+#: includes/redirects/redirects.php:320
+msgid "Save for all Roles"
+msgstr "Tallenna kaikille rooleille"
+
+#: includes/admin-notices/admin-notices-settings.php:64
+#: includes/admin-notices/admin-notices-settings.php:155
+#: includes/features/admin-styles/admin-styles-ui.php:156
+#: includes/features/admin-styles/admin-styles-ui.php:762
+#: includes/features/admin-styles/admin-styles.php:891
+#, php-format
+msgid "Save for %s"
+msgstr "Tallenna %s varten"
+
+#: includes/admin-notices/admin-notices-settings.php:77
+msgid "Notification center access"
+msgstr "Ilmoituskeskuksen pääsy"
+
+#: includes/admin-notices/admin-notices-settings.php:88
+#, php-format
+msgid "Enable %1$s access to the Admin Notices area."
+msgstr "Ota %1$s käyttöön pääsy Admin Notices -alueelle."
+
+#: includes/admin-notices/admin-notices-settings.php:95
+msgid "Notifications to remove from WordPress admin pages"
+msgstr "Ilmoitukset poistettavaksi WordPressin ylläpitossasivuilta"
+
+#: includes/admin-notices/admin-notices-settings.php:112
+#, php-format
+msgid ""
+"Select the notification types that should be hidden when a user in the %1$s "
+"role is viewing WordPress admin screens."
+msgstr ""
+"Valitse ilmoitustyypit, jotka tulisi piilottaa, kun käyttäjä, jolla on %1$s "
+"rooli, tarkastelee WordPressin hallintapaneelia."
+
+#: includes/admin-notices/admin-notices-settings.php:112
+#: includes/admin-notices/admin-notices-settings.php:135
+msgid "Click here for more on notice types."
+msgstr "Klikkaa tästä lisätietoja ilmoitustyypeistä."
+
+#: includes/admin-notices/admin-notices-settings.php:118
+msgid "Notifications to display in the Admin Notices area."
+msgstr "Ilmoitukset, jotka näytetään ylläpidon ilmoitusalueella."
+
+#: includes/admin-notices/admin-notices-settings.php:135
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr ""
+"Valitse ilmoitustyypit, jotka tulisi näyttää hallintohälytyksissä sen "
+"jälkeen, kun ne on poistettu WordPressin hallintanäkymistä."
+
+#: includes/admin-notices/admin-notices-settings.php:168
+msgid ""
+"Admin Notices allows you to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into one place."
+msgstr ""
+"Admin Notices mahdollistaa WordPressin hallinta-alueen siistimisen "
+"järjestämällä ylimääräiset viestit ja mainokset yhteen paikkaan."
+
+#: includes/admin-notices/admin-notices-settings.php:170
+#: includes/features/admin-styles/admin-styles-ui.php:777
+msgid "Features include:"
+msgstr "Ominaisuudet sisältävät:"
+
+#: includes/admin-notices/admin-notices-settings.php:172
+msgid "Move selected notice types out of admin pages"
+msgstr "Siirrä valitut ilmoitustyypit hallintapaneelin sivuilta"
+
+#: includes/admin-notices/admin-notices-settings.php:173
+msgid "Show selected notices in a dedicated Admin Notices panel"
+msgstr "Näytä valitut ilmoitukset omassa Admin Notices -paneelissa"
+
+#: includes/admin-notices/admin-notices-settings.php:174
+msgid "Configure notice visibility by user role"
+msgstr "Määritä ilmoituksen näkyvyys käyttäjän roolin mukaan"
+
+#: includes/admin-notices/admin-notices-settings.php:176
+#: includes/admin.php:2014
+#: includes/features/admin-features.php:351
+#: includes/features/admin-styles/admin-styles-ui.php:784
+#: includes/features/editor-features.php:245
+#: includes/features/frontend-features/frontend-features.php:254
+#: includes/features/nav-menus.php:308
+#: includes/features/profile-features.php:256
+#: includes/redirects/redirects.php:335
+msgid "View Documentation"
+msgstr "Näytä dokumentaatio"
+
+#: includes/admin-notices/admin-notices-settings.php:177
+msgid "How to use Admin Notices"
+msgstr "Kuinka käyttää Admin Noticesia"
 
 #: includes/admin-notices/admin-notices.php:72
 msgid "Display this notice"
@@ -319,14 +446,6 @@ msgstr ""
 "Tämä ilmoitus siirretään \"Vaiennetut ilmoitukset\" -välilehteen, ja et saa "
 "ilmoitusta, jos se ilmestyy uudelleen."
 
-#: includes/admin-notices/admin-notices.php:179
-#: includes/admin-notices/admin-notices.php:217
-#: includes/admin-notices/admin-notices.php:220
-#: includes/functions-admin.php:424
-#: includes/settings-ui.php:37
-msgid "Admin Notices"
-msgstr "Admin-ilmoitukset"
-
 #: includes/admin-notices/admin-notices.php:204
 msgid "Hidden Notices"
 msgstr "Piilotetut ilmoitukset"
@@ -344,6 +463,8 @@ msgid "Edit the settings."
 msgstr "Muokkaa asetuksia."
 
 #: includes/admin-notices/admin-notices.php:241
+#: includes/manager.php:771
+#: includes/manager.php:795
 msgid "You do not have permission to manage admin notices."
 msgstr "Sinulla ei ole lupaa hallita hallintailmoituksia."
 
@@ -387,7 +508,7 @@ msgid "Search capabilities..."
 msgstr "Etsi kykyjä..."
 
 #: includes/admin.php:207
-#: includes/admin.php:802
+#: includes/admin.php:846
 msgid "Nav Menus (Block)"
 msgstr "Navigointivalikot (Blokki)"
 
@@ -396,7 +517,7 @@ msgid "Block"
 msgstr "Estä"
 
 #: includes/admin.php:216
-#: includes/admin.php:804
+#: includes/admin.php:848
 msgid "Nav Menus (Legacy)"
 msgstr "Navigointivalikot (Perinteinen)"
 
@@ -404,7 +525,7 @@ msgstr "Navigointivalikot (Perinteinen)"
 msgid "Legacy"
 msgstr "Perintö"
 
-#: includes/admin.php:270
+#: includes/admin.php:270, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
@@ -490,89 +611,89 @@ msgid "Can delete posts which are currently published with private visibility."
 msgstr "Voit poistaa julkaistuja viestejä, joilla on yksityinen näkyvyys."
 
 #: includes/admin.php:598
-#: includes/admin.php:1069
-#: includes/admin.php:1811
+#: includes/admin.php:1113
+#: includes/admin.php:2103
 msgid "Multisite"
 msgstr "Monisivustot"
 
 #: includes/admin.php:602
-#: includes/admin.php:1073
+#: includes/admin.php:1117
 msgid "Admin"
 msgstr "Ylläpitäjä"
 
-#: includes/admin.php:638
-#: includes/admin.php:1395
+#: includes/admin.php:682
+#: includes/admin.php:1596
 msgid "Invalid Capabilities"
 msgstr "Virheelliset kyvyt"
 
-#: includes/admin.php:643
+#: includes/admin.php:687
 msgid "Additional"
 msgstr "Lisä"
 
-#: includes/admin.php:677
+#: includes/admin.php:721
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Termi %s Ominaisuudet"
 
-#: includes/admin.php:680
+#: includes/admin.php:724
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s Kyvyt"
 
-#: includes/admin.php:681
+#: includes/admin.php:725
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Postauksen %s ominaisuudet"
 
-#: includes/admin.php:684
+#: includes/admin.php:728
 msgid "Taxonomy"
 msgstr "Taksonomia"
 
-#: includes/admin.php:690
+#: includes/admin.php:734
 msgid "Filter by taxonomy"
 msgstr "Suodata taksonomian mukaan"
 
-#: includes/admin.php:690
+#: includes/admin.php:734
 msgid "Filter by post type"
 msgstr "Suodata viestityypin mukaan"
 
-#: includes/admin.php:811
+#: includes/admin.php:855
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Tämän taksonomian slug on %s"
 
-#: includes/admin.php:813
+#: includes/admin.php:857
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Tämän viestityypin slug on %s"
 
-#: includes/admin.php:889
-#: includes/admin.php:1138
-#: includes/admin.php:1316
-#: includes/admin.php:1586
-#: includes/admin.php:1587
+#: includes/admin.php:933
+#: includes/admin.php:1182
+#: includes/admin.php:1514
+#: includes/admin.php:1877
+#: includes/admin.php:1878
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: määrätty Oikeusryhmän mukaan"
 
-#: includes/admin.php:892
-#: includes/admin.php:1140
-#: includes/admin.php:1318
-#: includes/admin.php:1443
-#: includes/admin.php:1589
+#: includes/admin.php:936
+#: includes/admin.php:1184
+#: includes/admin.php:1516
+#: includes/admin.php:1644
+#: includes/admin.php:1880
 #, php-format
 msgid "This capability is %s"
 msgstr "Tämä oikeus on %s"
 
-#: includes/admin.php:922
+#: includes/admin.php:966
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Tätä toimintoa hallitsee %s"
 
-#: includes/admin.php:925
+#: includes/admin.php:969
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -581,16 +702,16 @@ msgstr ""
 "Tätä toimintoa hallitsee %s Käytä sivupalkin asetuksia, jotta tätä voidaan "
 "hallita itsenäisesti."
 
-#: includes/admin.php:942
+#: includes/admin.php:986
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "Käytä sivupalkin asetuksia tämän itsenäiseen hallintaan sallimiseksi."
 
-#: includes/admin.php:944
-#: includes/admin.php:948
+#: includes/admin.php:988
+#: includes/admin.php:992
 msgid "This capability is not available for this post type."
 msgstr "Tätä toimintoa ei ole saatavilla tälle julkaisutyyppille."
 
-#: includes/admin.php:1012
+#: includes/admin.php:1056
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -602,57 +723,65 @@ msgstr ""
 "-kyky puuttuu. Myös nämä \"Luettelo\" -kyvyt voivat myöntää pääsyn, mutta "
 "eivät estää pääsyä."
 
-#: includes/admin.php:1089
-#: includes/admin.php:1208
-#: includes/admin.php:1267
-#: includes/admin.php:1511
+#: includes/admin.php:1133
+#: includes/admin.php:1252
+#: includes/admin.php:1441
+#: includes/admin.php:1712
 msgid "Filter by capability"
 msgstr "Suodata kyvyn mukaan"
 
-#: includes/admin.php:1092
-#: includes/admin.php:1211
-#: includes/admin.php:1270
-#: includes/admin.php:1514
+#: includes/admin.php:1136
+#: includes/admin.php:1255
+#: includes/admin.php:1444
+#: includes/admin.php:1715
 msgid "No results found. Please try again with a different word."
 msgstr "Ei tuloksia löytynyt. Yritä uudelleen eri sanalla."
 
-#: includes/admin.php:1103
-#: includes/admin.php:1185
-#: includes/admin.php:1222
-#: includes/admin.php:1231
-#: includes/admin.php:1281
-#: includes/admin.php:1377
-#: includes/admin.php:1520
-#: includes/admin.php:1660
+#: includes/admin.php:1147
+#: includes/admin.php:1229
+#: includes/admin.php:1266
+#: includes/admin.php:1275
+#: includes/admin.php:1455
+#: includes/admin.php:1578
+#: includes/admin.php:1721
+#: includes/admin.php:1952
 msgid "check / uncheck all"
 msgstr "valitse / poista valinta kaikista"
 
-#: includes/admin.php:1103
-#: includes/admin.php:1185
-#: includes/admin.php:1222
-#: includes/admin.php:1231
-#: includes/admin.php:1281
-#: includes/admin.php:1377
-#: includes/admin.php:1520
-#: includes/admin.php:1660
+#: includes/admin.php:1147
+#: includes/admin.php:1229
+#: includes/admin.php:1266
+#: includes/admin.php:1275
+#: includes/admin.php:1455
+#: includes/admin.php:1578
+#: includes/admin.php:1721
+#: includes/admin.php:1952
 msgid "Capability Name"
 msgstr "Ominaisuuden nimi"
 
-#: includes/admin.php:1205
+#: includes/admin.php:1249
 msgid "WordPress Core Capabilities"
 msgstr "WordPress Core -kyvyt"
 
-#: includes/admin.php:1264
+#: includes/admin.php:1421
+#: includes/admin.php:1478
+#: includes/admin.php:1800
+#: includes/features/admin-styles/admin-styles.php:1694
+#: includes/roles/class/class-pp-roles-admin.php:106
+msgid "General"
+msgstr "Yleinen"
+
+#: includes/admin.php:1438
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Laajennuksen ominaisuudet &ndash; %s"
 
-#: includes/admin.php:1322
+#: includes/admin.php:1520
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "Käyttäjätestausominaisuus vaatii myös %1$s edit_users %2$s -oikeuden."
 
-#: includes/admin.php:1400
+#: includes/admin.php:1601
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -660,26 +789,26 @@ msgstr ""
 "Seuraavilla merkinnöillä ei ole vaikutusta. Määritä halutut oikeudet "
 "Muokkaus / Poisto / Yksityiset -välilehdillä."
 
-#: includes/admin.php:1508
+#: includes/admin.php:1709
 msgid "Additional Capabilities"
 msgstr "Lisäkyvyt"
 
-#: includes/admin.php:1653
+#: includes/admin.php:1945
 msgid "You have no additional capabilities."
 msgstr "Sinulla ei ole lisämahdollisuuksia."
 
-#: includes/admin.php:1677
+#: includes/admin.php:1969
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "Oikeudet antavat sinun muuttaa lupia mille tahansa käyttäjäroolille."
 
-#: includes/admin.php:1678
+#: includes/admin.php:1970
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Kyky myönnetty %2$s"
 
-#: includes/admin.php:1678
-#: includes/admin.php:1679
-#: includes/admin.php:1680
+#: includes/admin.php:1970
+#: includes/admin.php:1971
+#: includes/admin.php:1972
 #: includes/features/admin-features.php:346
 #: includes/features/admin-features.php:348
 #: includes/features/editor-features.php:240
@@ -693,41 +822,30 @@ msgstr "%1$s = Kyky myönnetty %2$s"
 msgid "usage key"
 msgstr "käyttöavain"
 
-#: includes/admin.php:1679
+#: includes/admin.php:1971
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Kyky ei myönnetty %2$s"
 
-#: includes/admin.php:1680
+#: includes/admin.php:1972
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Kyky evätty, vaikka se olisi myönnetty toiselle roolille %2$s"
 
-#: includes/admin.php:1688
+#: includes/admin.php:1980
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Voit myös konfiguroida tämän roolin %sOikeusryhmä%s:ksi."
 
-#: includes/admin.php:1708
+#: includes/admin.php:2000
 msgid "How to use Capabilities"
 msgstr "Kuinka käyttää kykyjä"
 
-#: includes/admin.php:1722
-#: includes/features/admin-features.php:351
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/editor-features.php:245
-#: includes/features/frontend-features/frontend-features.php:254
-#: includes/features/nav-menus.php:308
-#: includes/features/profile-features.php:256
-#: includes/redirects/redirects.php:335
-msgid "View Documentation"
-msgstr "Näytä dokumentaatio"
-
-#: includes/admin.php:1746
+#: includes/admin.php:2038
 msgid "Capabilities is Safe to Use"
 msgstr "Ominaisuudet ovat turvallisia käyttää"
 
-#: includes/admin.php:1759
+#: includes/admin.php:2051
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -735,7 +853,7 @@ msgstr ""
 "WordPress tallentaa roolin kyvyt tietokantaasi, missä ne pysyvät, vaikka "
 "liitännäinen on poistettu käytöstä."
 
-#: includes/admin.php:1760
+#: includes/admin.php:2052
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -744,27 +862,27 @@ msgstr ""
 "luo myös varmuuskopion, jota voit käyttää aiemman kokoonpanon "
 "palauttamiseen."
 
-#: includes/admin.php:1763
+#: includes/admin.php:2055
 msgid "Go to the Backup feature"
 msgstr "Siirry varmuuskopiointiominaisuuteen"
 
-#: includes/admin.php:1782
+#: includes/admin.php:2074
 msgid "Add a New Capability"
 msgstr "Lisää uusi kyky"
 
-#: includes/admin.php:1792
+#: includes/admin.php:2084
 msgid "Add to role"
 msgstr "Lisää rooliin"
 
-#: includes/admin.php:1795
+#: includes/admin.php:2087
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Uudet kyvykkyydet hallitaan Lisäasetukset-välilehdellä."
 
-#: includes/admin.php:1851
+#: includes/admin.php:2143
 msgid "PublishPress Permissions"
 msgstr "PublishPress Oikeudet"
 
-#: includes/admin.php:1853
+#: includes/admin.php:2145
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -772,25 +890,25 @@ msgstr ""
 "Määritä automaattisesti tyyppikohtaiset käyttöoikeudet mukautetuille "
 "viestityypeillesi ja taksonomioillesi"
 
-#: includes/admin.php:1857
+#: includes/admin.php:2149
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Määritä standardit WP-roolit lisänä tietylle viestityypille"
 
-#: includes/admin.php:1861
+#: includes/admin.php:2153
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr "Määritä mukautetut WP-roolit lisänä tietylle viestityypille <em>(Pro)</em>"
 
-#: includes/admin.php:1865
+#: includes/admin.php:2157
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Mukauta lukulupia kategorian tai viestin mukaan"
 
-#: includes/admin.php:1869
+#: includes/admin.php:2161
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "Mukauta muokkauslupia kategorian tai viestin mukaan <em>(Pro)</em>"
 
-#: includes/admin.php:1873
+#: includes/admin.php:2165
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -798,7 +916,7 @@ msgstr ""
 "Mukautetut julkaisu näkyvyysstatukset, täysin toteutettu wp-adminissa "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:1877
+#: includes/admin.php:2169
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -806,11 +924,11 @@ msgstr ""
 "Mukautetut moderointistatukset käyttöoikeuden hallitsemille, "
 "monivaiheisille julkaisuvirroille <em>(Pro)</em>"
 
-#: includes/admin.php:1881
+#: includes/admin.php:2173
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Säädä oikeuksia Edit Flow -viestien tiloille <em>(Pro)</em>"
 
-#: includes/admin.php:1885
+#: includes/admin.php:2177
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -818,7 +936,7 @@ msgstr ""
 "Mukauta julkaistun sisällön säädeltyä muokkausta Revisionarylla tai Post "
 "Forkingilla <em>(Pro)</em>"
 
-#: includes/admin.php:1889
+#: includes/admin.php:2181
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -826,39 +944,39 @@ msgstr ""
 "Myönnä katsojan, osallistujan tai moderaattorin käyttöoikeus tiettyihin "
 "bbPress-foorumeihin <em>(Pro)</em>"
 
-#: includes/admin.php:1893
+#: includes/admin.php:2185
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "Myönnä lisäsisällön käyttöoikeudet BuddyPress-ryhmälle <em>(Pro)</em>"
 
-#: includes/admin.php:1897
+#: includes/admin.php:2189
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "WPML-integraatio peilaa oikeuksia käännöksiin <em>(Pro)</em>"
 
-#: includes/admin.php:1901
+#: includes/admin.php:2193
 msgid "Member support forum"
 msgstr "Jäsenen tukifoorumi"
 
-#: includes/admin.php:1908
+#: includes/admin.php:2200
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgaa%2$s %3$s"
 
-#: includes/admin.php:1908
+#: includes/admin.php:2200
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (ilmainen asennus)"
 
-#: includes/admin.php:1910
+#: includes/admin.php:2202
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sosta%2$s %3$s"
 
-#: includes/admin.php:1910
+#: includes/admin.php:2202
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s tiedot/osto"
 
-#: includes/admin.php:1942
+#: includes/admin.php:2234
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -868,31 +986,31 @@ msgstr ""
 "edelleen kelpoisuuden Postitusautomaation asignointiin ja rajoittaa "
 "käyttäjän muokkauskykyjen soveltamista."
 
-#: includes/admin.php:1944
+#: includes/admin.php:2236
 msgid "Level:"
 msgstr "Taso:"
 
-#: includes/admin.php:1987
+#: includes/admin.php:2279
 msgid "Create this role definition in new (future) sites"
 msgstr "Luo tämä roolimääritys uusiin (tuleviin) sivustoihin"
 
-#: includes/admin.php:1987
+#: includes/admin.php:2279
 msgid "Include in new sites."
 msgstr "Sisällytä uusiin sivustoihin."
 
-#: includes/admin.php:1990
+#: includes/admin.php:2282
 msgid "Copy / update this role definition to all sites now"
 msgstr "Kopioi / päivitä tämä roolimääritys kaikille sivustoille nyt"
 
-#: includes/admin.php:1990
+#: includes/admin.php:2282
 msgid "Sync role to all sites."
 msgstr "Synkronoi rooli kaikille sivustoille."
 
-#: includes/admin.php:1993
+#: includes/admin.php:2285
 msgid "Copy option settings to all sites now"
 msgstr "Kopioi asetukset kaikkiin sivustoihin nyt"
 
-#: includes/admin.php:1993
+#: includes/admin.php:2285
 msgid "Sync options to all sites."
 msgstr "Synkronoi asetukset kaikille sivustoille."
 
@@ -963,7 +1081,7 @@ msgid "Restore"
 msgstr "Palauta"
 
 #: includes/backup.php:51
-#: includes/functions-admin.php:527
+#: includes/functions-admin.php:567
 msgid "Backup"
 msgstr "Varmuuskopio"
 
@@ -1213,7 +1331,7 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: includes/features/admin-features.php:344
-#: includes/functions-admin.php:390
+#: includes/functions-admin.php:420
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
@@ -1248,58 +1366,48 @@ msgstr "Ylläpitäjän ominaisuuksien asetukset"
 msgid "Hide Submenus"
 msgstr "Piilota alivalikot"
 
-#: includes/features/admin-styles/admin-styles-ui.php:61
+#: includes/features/admin-styles/admin-styles-ui.php:55
+msgid "Select a preset font family"
+msgstr "Valitse esiasetettu fonttiperhe"
+
+#: includes/features/admin-styles/admin-styles-ui.php:77
 #, php-format
 msgid "Custom style \"%s\" saved successfully."
 msgstr "Mukautettu tyyli \"%s\" tallennettu onnistuneesti."
 
-#: includes/features/admin-styles/admin-styles-ui.php:70
+#: includes/features/admin-styles/admin-styles-ui.php:86
 #, php-format
 msgid "Custom style \"%s\" deleted successfully."
 msgstr "Mukautettu tyyli \"%s\" poistettu onnistuneesti."
 
-#: includes/features/admin-styles/admin-styles-ui.php:79
+#: includes/features/admin-styles/admin-styles-ui.php:95
 msgid "Custom style name cannot be empty."
 msgstr "Mukautetun tyylin nimi ei voi olla tyhjää."
 
-#: includes/features/admin-styles/admin-styles-ui.php:88
+#: includes/features/admin-styles/admin-styles-ui.php:104
 msgid "Admin styles saved successfully."
 msgstr "Ylläpitäjän tyylit tallennettu onnistuneesti."
 
-#: includes/features/admin-styles/admin-styles-ui.php:95
-#: includes/functions-admin.php:221
-#: includes/functions-admin.php:394
-#: includes/functions-admin.php:483
+#: includes/features/admin-styles/admin-styles-ui.php:112
+#: includes/functions-admin.php:233
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:516
 msgid "Admin Styles"
 msgstr "Admin-tyylit"
 
-#: includes/features/admin-styles/admin-styles-ui.php:135
-#: includes/features/admin-styles/admin-styles-ui.php:601
-#: includes/redirects/redirects.php:117
-#: includes/redirects/redirects.php:320
-msgid "Save for all Roles"
-msgstr "Tallenna kaikille rooleille"
-
-#: includes/features/admin-styles/admin-styles-ui.php:139
-#: includes/features/admin-styles/admin-styles-ui.php:605
-#: includes/features/admin-styles/admin-styles.php:771
-#, php-format
-msgid "Save for %s"
-msgstr "Tallenna %s varten"
-
-#: includes/features/admin-styles/admin-styles-ui.php:157
+#: includes/features/admin-styles/admin-styles-ui.php:174
 msgid "Setting"
 msgstr "Asetus"
 
-#: includes/features/admin-styles/admin-styles-ui.php:160
+#: includes/features/admin-styles/admin-styles-ui.php:177
 msgid "Value"
 msgstr "Arvo"
 
-#: includes/features/admin-styles/admin-styles-ui.php:169
+#: includes/features/admin-styles/admin-styles-ui.php:186
 msgid "Admin Color Scheme"
 msgstr "Ylläpitäjän värimaailma"
 
-#: includes/features/admin-styles/admin-styles-ui.php:172
+#: includes/features/admin-styles/admin-styles-ui.php:189
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
@@ -1307,33 +1415,33 @@ msgstr ""
 "Asettaa ylläpitäjän väriteeman kaikille käyttäjille. Napsauta teemaa "
 "nähdäksesi sen esikatselun heti."
 
-#: includes/features/admin-styles/admin-styles-ui.php:176
+#: includes/features/admin-styles/admin-styles-ui.php:193
 msgid "Start from template"
 msgstr "Aloita mallista"
 
-#: includes/features/admin-styles/admin-styles-ui.php:180
+#: includes/features/admin-styles/admin-styles-ui.php:197
 msgid "Blank Template"
 msgstr "Tyhjät malli"
 
-#: includes/features/admin-styles/admin-styles-ui.php:190
+#: includes/features/admin-styles/admin-styles-ui.php:207
 msgid "Add Custom Style"
 msgstr "Lisää mukautettu tyyli"
 
-#: includes/features/admin-styles/admin-styles-ui.php:220
+#: includes/features/admin-styles/admin-styles-ui.php:237
 msgid "Edit custom style"
 msgstr "Muokkaa mukautettua tyyliä"
 
-#: includes/features/admin-styles/admin-styles-ui.php:268
+#: includes/features/admin-styles/admin-styles-ui.php:285
 msgid "Edit Color Style"
 msgstr "Muokkaa väri tyyliä"
 
-#: includes/features/admin-styles/admin-styles-ui.php:271
+#: includes/features/admin-styles/admin-styles-ui.php:288
 msgid ""
 "Customize colors for different admin elements. Changes are previewed "
 "instantly."
 msgstr "Mukauta värejä eri ylläpitoelementeille. Muutokset esikatsellaan heti."
 
-#: includes/features/admin-styles/admin-styles-ui.php:302
+#: includes/features/admin-styles/admin-styles-ui.php:319
 msgid ""
 "Add more than one custom admin styles. This feature is available in "
 "PublishPress Capabilities Pro."
@@ -1341,7 +1449,7 @@ msgstr ""
 "Lisää enemmän kuin yksi mukautettu admin-tyyli. Tämä ominaisuus on "
 "saatavilla PublishPress Oikeudet Pro:ssa."
 
-#: includes/features/admin-styles/admin-styles-ui.php:326
+#: includes/features/admin-styles/admin-styles-ui.php:343
 msgid ""
 "Add CSS selectors (class or ID), choose a style variation, and set a brand "
 "color."
@@ -1349,81 +1457,81 @@ msgstr ""
 "Lisää CSS-valitsimia (luokka tai ID), valitse tyylivaihtoehto ja määritä "
 "brändiväri."
 
-#: includes/features/admin-styles/admin-styles-ui.php:332
+#: includes/features/admin-styles/admin-styles-ui.php:349
 msgid "Add New Element"
 msgstr "Lisää uusi elementti"
 
-#: includes/features/admin-styles/admin-styles-ui.php:338
+#: includes/features/admin-styles/admin-styles-ui.php:355
 msgid "Selector"
 msgstr "Valitsin"
 
-#: includes/features/admin-styles/admin-styles-ui.php:342
+#: includes/features/admin-styles/admin-styles-ui.php:359
 msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
 msgstr "esim. .publishpress-wrap h1, #my-plugin-header"
 
-#: includes/features/admin-styles/admin-styles-ui.php:345
+#: includes/features/admin-styles/admin-styles-ui.php:362
 msgid "Variation"
 msgstr "Vaihtoehto"
 
-#: includes/features/admin-styles/admin-styles-ui.php:348
+#: includes/features/admin-styles/admin-styles-ui.php:365
 msgid "Background"
 msgstr "Tausta"
 
-#: includes/features/admin-styles/admin-styles-ui.php:349
+#: includes/features/admin-styles/admin-styles-ui.php:366
 msgid "Text"
 msgstr "Teksti"
 
-#: includes/features/admin-styles/admin-styles-ui.php:350
+#: includes/features/admin-styles/admin-styles-ui.php:367
 msgid "Border"
 msgstr "Raja"
 
-#: includes/features/admin-styles/admin-styles-ui.php:354
+#: includes/features/admin-styles/admin-styles-ui.php:371
 msgid "Brand Color"
 msgstr "Brändiväri"
 
-#: includes/features/admin-styles/admin-styles-ui.php:364
-#: includes/features/admin-styles/admin-styles-ui.php:479
-#: includes/features/admin-styles/admin-styles-ui.php:515
+#: includes/features/admin-styles/admin-styles-ui.php:381
+#: includes/features/admin-styles/admin-styles-ui.php:496
+#: includes/features/admin-styles/admin-styles-ui.php:532
 msgid "Remove"
 msgstr "Poista"
 
-#: includes/features/admin-styles/admin-styles-ui.php:380
-#: includes/features/admin-styles/admin-styles.php:787
+#: includes/features/admin-styles/admin-styles-ui.php:397
+#: includes/features/admin-styles/admin-styles.php:907
 msgid "Custom Style Name"
 msgstr "Mukautetun tyylin nimi"
 
-#: includes/features/admin-styles/admin-styles-ui.php:388
+#: includes/features/admin-styles/admin-styles-ui.php:405
 msgid "e.g., Company Branding, Dark Mode"
 msgstr "esim., Yrityksen brändäys, Tumma tila"
 
-#: includes/features/admin-styles/admin-styles-ui.php:424
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:441
+#: includes/features/admin-styles/admin-styles-ui.php:451
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: includes/features/admin-styles/admin-styles-ui.php:430
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:447
+#: includes/features/admin-styles/admin-styles-ui.php:451
 msgid "Delete Custom Style"
 msgstr "Poista mukautettu tyyli"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:451
 #, php-format
 msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr "Oletko varma, että haluat poistaa tämän %1s? %2s %3s"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:451
 msgid "Custom Style"
 msgstr "Mukautettu tyyli"
 
-#: includes/features/admin-styles/admin-styles-ui.php:440
+#: includes/features/admin-styles/admin-styles-ui.php:457
 msgid "Save Custom Style"
 msgstr "Tallenna mukautettu tyyli"
 
-#: includes/features/admin-styles/admin-styles-ui.php:454
+#: includes/features/admin-styles/admin-styles-ui.php:471
 msgid "Custom Admin Logo"
 msgstr "Mukautettu ylläpitäjän logo"
 
-#: includes/features/admin-styles/admin-styles-ui.php:457
+#: includes/features/admin-styles/admin-styles-ui.php:474
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
@@ -1431,17 +1539,17 @@ msgstr ""
 "Lataa mukautettu logo vaihtaaksesi WordPress-ikonin ylläpitopalkissa. "
 "Suositus: 20px x 20px SVG- tai PNG-muodossa."
 
-#: includes/features/admin-styles/admin-styles-ui.php:474
-#: includes/features/admin-styles/admin-styles-ui.php:510
-#: includes/features/admin-styles/admin-styles.php:767
+#: includes/features/admin-styles/admin-styles-ui.php:491
+#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles.php:887
 msgid "Select Image"
 msgstr "Valitse kuva"
 
-#: includes/features/admin-styles/admin-styles-ui.php:489
+#: includes/features/admin-styles/admin-styles-ui.php:506
 msgid "Custom Favicon"
 msgstr "Mukautettu favicon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:492
+#: includes/features/admin-styles/admin-styles-ui.php:509
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
@@ -1449,11 +1557,104 @@ msgstr ""
 "Lataa mukautettu favicon ylläpitoalueelle. Suositus: 16px x 16px tai 32px x "
 "32px SVG- tai PNG-muodossa."
 
-#: includes/features/admin-styles/admin-styles-ui.php:524
+#: includes/features/admin-styles/admin-styles-ui.php:541
+msgid "Admin Font Family"
+msgstr "Admin-fonttiperhe"
+
+#: includes/features/admin-styles/admin-styles-ui.php:544
+msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
+msgstr "Määritä fonttipino hallinta-alueelle, esimerkiksi \"Segoe UI\", sans-serif."
+
+#: includes/features/admin-styles/admin-styles-ui.php:551
+msgid "Preset Fonts"
+msgstr "Esiasetetut fontit"
+
+#: includes/features/admin-styles/admin-styles-ui.php:552
+msgid "Custom Value"
+msgstr "Mukautettu arvo"
+
+#: includes/features/admin-styles/admin-styles-ui.php:578
+msgid "Admin Font Size"
+msgstr "Admin-fonttikoko"
+
+#: includes/features/admin-styles/admin-styles-ui.php:581
+msgid ""
+"Set a base font size for the admin area. Leave empty to use the default "
+"WordPress size."
+msgstr ""
+"Määritä perusfonttikoko hallinta-alueelle. Jätä tyhjäksi käyttääksesi "
+"oletus WordPress-kokoa."
+
+#: includes/features/admin-styles/admin-styles-ui.php:603
+msgid "Typography Overrides"
+msgstr "Typografiaohitukset"
+
+#: includes/features/admin-styles/admin-styles-ui.php:605
+msgid "Optional target-specific typography rules for common admin elements."
+msgstr "Valinnaiset kohdekohtaiset typografiaohjeet yleisille hallintaelementeille."
+
+#: includes/features/admin-styles/admin-styles-ui.php:611
+msgid "Body Text"
+msgstr "Leipäteksti"
+
+#: includes/features/admin-styles/admin-styles-ui.php:612
+#: includes/features/admin-styles/admin-styles.php:1720
+msgid "Links"
+msgstr "Linkit"
+
+#: includes/features/admin-styles/admin-styles-ui.php:613
+msgid "Headings"
+msgstr "Otsikot"
+
+#: includes/features/admin-styles/admin-styles-ui.php:614
+#: includes/features/admin-styles/admin-styles.php:1844
+msgid "Admin Menu"
+msgstr "Ylläpitäjän valikko"
+
+#: includes/features/admin-styles/admin-styles-ui.php:615
+#: includes/features/admin-styles/admin-styles.php:1886
+msgid "Admin Bar"
+msgstr "Ylläpitopalkki"
+
+#: includes/features/admin-styles/admin-styles-ui.php:616
+msgid "Form Fields"
+msgstr "Lomakekentät"
+
+#: includes/features/admin-styles/admin-styles-ui.php:617
+#: includes/features/admin-styles/admin-styles.php:1814
+msgid "Buttons"
+msgstr "Painikkeet"
+
+#: includes/features/admin-styles/admin-styles-ui.php:623
+msgid "Target"
+msgstr "Kohde"
+
+#: includes/features/admin-styles/admin-styles-ui.php:624
+msgid "Font Family"
+msgstr "Fonttiperhe"
+
+#: includes/features/admin-styles/admin-styles-ui.php:625
+msgid "Size"
+msgstr "Koko"
+
+#: includes/features/admin-styles/admin-styles-ui.php:626
+msgid "Unit"
+msgstr "Yksikkö"
+
+#: includes/features/admin-styles/admin-styles-ui.php:637
+msgid "Preset"
+msgstr "Esiasetus"
+
+#: includes/features/admin-styles/admin-styles-ui.php:638
+#: includes/roles/class/class-pp-roles-list-table.php:403
+msgid "Custom"
+msgstr "Mukautettu"
+
+#: includes/features/admin-styles/admin-styles-ui.php:682
 msgid "Admin Footer Text"
 msgstr "Ylläpitäjän alatunnisteen teksti"
 
-#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles-ui.php:685
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
@@ -1461,27 +1662,27 @@ msgstr ""
 "Korvaa oletusviesti \"Kiitos WordPressin käytöstä\" ylläpitopalkin "
 "alareunassa."
 
-#: includes/features/admin-styles/admin-styles-ui.php:541
+#: includes/features/admin-styles/admin-styles-ui.php:699
 msgid "Replace \"Howdy\""
 msgstr "Korvaa \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:544
+#: includes/features/admin-styles/admin-styles-ui.php:702
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "Korvaa \"Howdy\" ylläpitopalkissa."
 
-#: includes/features/admin-styles/admin-styles-ui.php:557
+#: includes/features/admin-styles/admin-styles-ui.php:715
 msgid "Control Settings"
 msgstr "Hallinta-asetukset"
 
-#: includes/features/admin-styles/admin-styles-ui.php:559
+#: includes/features/admin-styles/admin-styles-ui.php:717
 msgid "Control how admin styles are applied to users."
 msgstr "Valvo, miten järjestelmänvalvojan tyylejä sovelletaan käyttäjiin."
 
-#: includes/features/admin-styles/admin-styles-ui.php:568
+#: includes/features/admin-styles/admin-styles-ui.php:726
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "Piilota ylläpitäjän värimaailman asetukset käyttäjäprofiilissa"
 
-#: includes/features/admin-styles/admin-styles-ui.php:570
+#: includes/features/admin-styles/admin-styles-ui.php:728
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
@@ -1489,11 +1690,11 @@ msgstr ""
 "Kun tämä on käytössä, käyttäjät eivät voi nähdä tai muuttaa "
 "väriteemasetuksia profiilissaan. Roolikohtaisia asetuksia sovelletaan."
 
-#: includes/features/admin-styles/admin-styles-ui.php:578
+#: includes/features/admin-styles/admin-styles-ui.php:736
 msgid "Force role settings (override user selection)"
 msgstr "Pakota rooliasetukset (ohita käyttäjän valinta)"
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/features/admin-styles/admin-styles-ui.php:738
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
@@ -1501,7 +1702,7 @@ msgstr ""
 "Kun tämä on käytössä, rooliasetukset soveltuvat aina, ohittaen käyttäjän "
 "valinnan, vaikka väriteeman käyttöliittymä olisi heille näkyvissä."
 
-#: includes/features/admin-styles/admin-styles-ui.php:618
+#: includes/features/admin-styles/admin-styles-ui.php:775
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
@@ -1509,528 +1710,503 @@ msgstr ""
 "Admin-tyylit mahdollistavat WordPressin hallinta-alueen mukauttamisen "
 "omalla brändilläsi."
 
-#: includes/features/admin-styles/admin-styles-ui.php:620
-msgid "Features include:"
-msgstr "Ominaisuudet sisältävät:"
-
-#: includes/features/admin-styles/admin-styles-ui.php:622
+#: includes/features/admin-styles/admin-styles-ui.php:779
 msgid "Custom admin color schemes"
 msgstr "Mukautetut ylläpitäjän väriteemat"
 
-#: includes/features/admin-styles/admin-styles-ui.php:623
+#: includes/features/admin-styles/admin-styles-ui.php:780
 msgid "Replace the WordPress logo and favicon"
 msgstr "Korvaa WordPress-logo ja favicon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:624
+#: includes/features/admin-styles/admin-styles-ui.php:781
 msgid "Custom footer text"
 msgstr "Mukautettu alatunnisteen teksti"
 
-#: includes/features/admin-styles/admin-styles-ui.php:625
+#: includes/features/admin-styles/admin-styles-ui.php:782
 msgid "Replace \"Howdy\" text"
 msgstr "Korvaa \"Howdy\" -teksti"
 
-#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:785
 msgid "How to use Admin Styles"
 msgstr "Kuinka käyttää ylläpitäjätyylejä"
 
-#: includes/features/admin-styles/admin-styles.php:454
+#: includes/features/admin-styles/admin-styles.php:574
 msgid "Security check failed."
 msgstr "Turvatarkistus epäonnistui."
 
-#: includes/features/admin-styles/admin-styles.php:459
+#: includes/features/admin-styles/admin-styles.php:579
 #: includes/manager.php:741
 msgid "You do not have permission to manage admin styles."
 msgstr "Sinulla ei ole lupaa hallita hallintatyylejä."
 
-#: includes/features/admin-styles/admin-styles.php:522
+#: includes/features/admin-styles/admin-styles.php:642
 msgid "No role specified."
 msgstr "Ei roolia määritelty."
 
-#: includes/features/admin-styles/admin-styles.php:768
+#: includes/features/admin-styles/admin-styles.php:888
 msgid "Use this Image"
 msgstr "Käytä tätä kuvaa"
 
-#: includes/features/admin-styles/admin-styles.php:769
+#: includes/features/admin-styles/admin-styles.php:889
 msgid "Saving..."
 msgstr "Tallennetaan..."
 
-#: includes/features/admin-styles/admin-styles.php:770
+#: includes/features/admin-styles/admin-styles.php:890
 msgid "Settings saved."
 msgstr "Asetukset tallennettu."
 
-#: includes/features/admin-styles/admin-styles.php:772
+#: includes/features/admin-styles/admin-styles.php:892
 msgid "Current logo preview"
 msgstr "Nykyinen logoesikatselu"
 
-#: includes/features/admin-styles/admin-styles.php:773
+#: includes/features/admin-styles/admin-styles.php:893
 msgid "Add New Custom Style"
 msgstr "Lisää uusi mukautettu tyyli"
 
-#: includes/features/admin-styles/admin-styles.php:774
+#: includes/features/admin-styles/admin-styles.php:894
 msgid "Edit Custom Style"
 msgstr "Muokkaa mukautettua tyyliä"
 
-#: includes/features/admin-styles/admin-styles.php:775
+#: includes/features/admin-styles/admin-styles.php:895
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Oletko varma, että haluat poistaa \"%s\" mukautetun tyylin?"
 
-#: includes/features/admin-styles/admin-styles.php:776
+#: includes/features/admin-styles/admin-styles.php:896
 msgid "this custom style"
 msgstr "tämä mukautettu tyyli"
 
-#: includes/features/admin-styles/admin-styles.php:777
+#: includes/features/admin-styles/admin-styles.php:897
 msgid "Primary Button"
 msgstr "Pääpainike"
 
-#: includes/features/admin-styles/admin-styles.php:778
+#: includes/features/admin-styles/admin-styles.php:898
 msgid "Hover State"
 msgstr "Leijunta-tila"
 
-#: includes/features/admin-styles/admin-styles.php:779
+#: includes/features/admin-styles/admin-styles.php:899
 msgid "Notification"
 msgstr "Ilmoitus"
 
-#: includes/features/admin-styles/admin-styles.php:780
+#: includes/features/admin-styles/admin-styles.php:900
 msgid "Live preview of your custom color scheme"
 msgstr "Oma värimaailman live-esikatselu"
 
-#: includes/features/admin-styles/admin-styles.php:781
+#: includes/features/admin-styles/admin-styles.php:901
 msgid "Custom Style Name is required."
 msgstr "Mukautetulle tyylin nimelle on annettava arvo."
 
-#: includes/features/admin-styles/admin-styles.php:782
+#: includes/features/admin-styles/admin-styles.php:902
 msgid "Main Admin Color is required."
 msgstr "Pääadminin väri on vaadittu."
 
-#: includes/features/admin-styles/admin-styles.php:783
+#: includes/features/admin-styles/admin-styles.php:903, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:784
+#: includes/features/admin-styles/admin-styles.php:904
 msgid "Display Name"
 msgstr "Näyttönimi"
 
-#: includes/features/admin-styles/admin-styles.php:785
+#: includes/features/admin-styles/admin-styles.php:905
 msgid "Change how this style is displayed"
 msgstr "Muuta, miten tätä tyyliä näytetään"
 
-#: includes/features/admin-styles/admin-styles.php:786
+#: includes/features/admin-styles/admin-styles.php:906
 msgid "Enter a name for your custom style"
 msgstr "Anna nimi mukautetulle tyylillesi"
 
-#: includes/features/admin-styles/admin-styles.php:800
+#: includes/features/admin-styles/admin-styles.php:920
 msgid "Forest"
 msgstr "Metsä"
 
-#: includes/features/admin-styles/admin-styles.php:817
+#: includes/features/admin-styles/admin-styles.php:937
 msgid "Mint Breeze"
 msgstr "Minttu Tuuli"
 
-#: includes/features/admin-styles/admin-styles.php:834
+#: includes/features/admin-styles/admin-styles.php:954
 msgid "Cherry"
 msgstr "Kirsikka"
 
-#: includes/features/admin-styles/admin-styles.php:851
+#: includes/features/admin-styles/admin-styles.php:971
 msgid "Graphite"
 msgstr "Grafiitti"
 
-#: includes/features/admin-styles/admin-styles.php:868
+#: includes/features/admin-styles/admin-styles.php:988
 msgid "Midnight Teal"
 msgstr "Keskitaivaan Teal"
 
-#: includes/features/admin-styles/admin-styles.php:885
+#: includes/features/admin-styles/admin-styles.php:1005
 msgid "Sunrise"
 msgstr "Auringonnousu"
 
-#: includes/features/admin-styles/admin-styles.php:902
+#: includes/features/admin-styles/admin-styles.php:1022
 msgid "Desert Sand"
 msgstr "Autiomaan Hiekka"
 
-#: includes/features/admin-styles/admin-styles.php:919
+#: includes/features/admin-styles/admin-styles.php:1039
 msgid "Amber Glow"
 msgstr "Amber Kimmellys"
 
-#: includes/features/admin-styles/admin-styles.php:936
+#: includes/features/admin-styles/admin-styles.php:1056
 msgid "Citrus"
 msgstr "Sitrus"
 
-#: includes/features/admin-styles/admin-styles.php:953
+#: includes/features/admin-styles/admin-styles.php:1073
 msgid "Ocean Deep"
 msgstr "Syvänmeren Sininen"
 
-#: includes/features/admin-styles/admin-styles.php:970
+#: includes/features/admin-styles/admin-styles.php:1090
 msgid "Sage"
 msgstr "Salvia"
 
-#: includes/features/admin-styles/admin-styles.php:987
+#: includes/features/admin-styles/admin-styles.php:1107
 msgid "Modern Slate"
 msgstr "Moderni Laatta"
 
-#: includes/features/admin-styles/admin-styles.php:1004
+#: includes/features/admin-styles/admin-styles.php:1124
 msgid "Royal Plum"
 msgstr "Kuninkaallinen Luumu"
 
-#: includes/features/admin-styles/admin-styles.php:1021
+#: includes/features/admin-styles/admin-styles.php:1141
 msgid "Nordic"
 msgstr "Pohjoinen"
 
-#: includes/features/admin-styles/admin-styles.php:1038
+#: includes/features/admin-styles/admin-styles.php:1158, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1055
+#: includes/features/admin-styles/admin-styles.php:1175
 msgid "Ink"
 msgstr "Muste"
 
-#: includes/features/admin-styles/admin-styles.php:1072
+#: includes/features/admin-styles/admin-styles.php:1192
 msgid "Orchid"
 msgstr "Orkidea"
 
-#: includes/features/admin-styles/admin-styles.php:1089
+#: includes/features/admin-styles/admin-styles.php:1209
 msgid "Cobalt"
 msgstr "Koboltti"
 
-#: includes/features/admin-styles/admin-styles.php:1106
+#: includes/features/admin-styles/admin-styles.php:1226
 msgid "Stone"
 msgstr "Kivi"
 
-#: includes/features/admin-styles/admin-styles.php:1123
+#: includes/features/admin-styles/admin-styles.php:1243, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1140
+#: includes/features/admin-styles/admin-styles.php:1260, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1157
+#: includes/features/admin-styles/admin-styles.php:1277, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:1415
-#: includes/roles/class/class-pp-roles-admin.php:106
-msgid "General"
-msgstr "Yleinen"
-
-#: includes/features/admin-styles/admin-styles.php:1416
+#: includes/features/admin-styles/admin-styles.php:1695
 msgid "Main Admin Color settings"
 msgstr "Pääjärjestelmän väriasetukset"
 
-#: includes/features/admin-styles/admin-styles.php:1419
+#: includes/features/admin-styles/admin-styles.php:1698
 msgid "Main Admin Color"
 msgstr "Pääjärjestelmän väri"
 
-#: includes/features/admin-styles/admin-styles.php:1420
+#: includes/features/admin-styles/admin-styles.php:1699
 msgid "Primary brand color"
 msgstr "Pääbrändin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1423
+#: includes/features/admin-styles/admin-styles.php:1702
 msgid "Text Color"
 msgstr "Tekstin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1424
+#: includes/features/admin-styles/admin-styles.php:1703
 msgid "Primary text color"
 msgstr "Pään tekstin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1427
+#: includes/features/admin-styles/admin-styles.php:1706
 msgid "Highlight Color"
 msgstr "Korostusväri"
 
-#: includes/features/admin-styles/admin-styles.php:1428
+#: includes/features/admin-styles/admin-styles.php:1707
 msgid "Used for hovers and highlights"
 msgstr "Käytetään liukusäätimissä ja korostuksissa"
 
-#: includes/features/admin-styles/admin-styles.php:1431
+#: includes/features/admin-styles/admin-styles.php:1710
 msgid "Notification Color"
 msgstr "Ilmoitusväri"
 
-#: includes/features/admin-styles/admin-styles.php:1432
+#: includes/features/admin-styles/admin-styles.php:1711
 msgid "Used for alerts and notifications"
 msgstr "Käytetään hälytyksissä ja ilmoituksissa"
 
-#: includes/features/admin-styles/admin-styles.php:1435
+#: includes/features/admin-styles/admin-styles.php:1714
 msgid "Background Color"
 msgstr "Taustaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1436
+#: includes/features/admin-styles/admin-styles.php:1715
 msgid "Page background color"
 msgstr "Sivun taustaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1441
-msgid "Links"
-msgstr "Linkit"
-
-#: includes/features/admin-styles/admin-styles.php:1442
+#: includes/features/admin-styles/admin-styles.php:1721
 msgid "Link element colors"
 msgstr "Linkkien elementtivärit"
 
-#: includes/features/admin-styles/admin-styles.php:1445
+#: includes/features/admin-styles/admin-styles.php:1724
 msgid "Default Link Color"
 msgstr "Oletuslinkin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1446
+#: includes/features/admin-styles/admin-styles.php:1725
 msgid "Standard link color"
 msgstr "Vakiolinkin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1449
+#: includes/features/admin-styles/admin-styles.php:1728
 msgid "Link Hover Color"
 msgstr "Linkin hover-väri"
 
-#: includes/features/admin-styles/admin-styles.php:1450
+#: includes/features/admin-styles/admin-styles.php:1729
 msgid "Color on hover"
 msgstr "Väri hiiren yli vietäessä"
 
-#: includes/features/admin-styles/admin-styles.php:1453
+#: includes/features/admin-styles/admin-styles.php:1732
 msgid "Delete Link Color"
 msgstr "Poista linkin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1454
+#: includes/features/admin-styles/admin-styles.php:1733
 msgid "Color for delete/trash actions"
 msgstr "Väri poisto/roskakori-toimille"
 
-#: includes/features/admin-styles/admin-styles.php:1457
+#: includes/features/admin-styles/admin-styles.php:1736
 msgid "Trash Link Color"
 msgstr "Roskakori-linkin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1458
+#: includes/features/admin-styles/admin-styles.php:1737
 msgid "Color for trash actions"
 msgstr "Väri roskakori-toimille"
 
-#: includes/features/admin-styles/admin-styles.php:1461
+#: includes/features/admin-styles/admin-styles.php:1740
 msgid "Spam Link Color"
 msgstr "Roskaposti-linkin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1462
+#: includes/features/admin-styles/admin-styles.php:1741
 msgid "Color for spam actions"
 msgstr "Väri roskapostitoimille"
 
-#: includes/features/admin-styles/admin-styles.php:1465
+#: includes/features/admin-styles/admin-styles.php:1744
 msgid "Inactive Link Color"
 msgstr "Passiivinen linkin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1466
+#: includes/features/admin-styles/admin-styles.php:1745
 msgid "Color for inactive items"
 msgstr "Väri passiivisille kohteille"
 
-#: includes/features/admin-styles/admin-styles.php:1471
+#: includes/features/admin-styles/admin-styles.php:1750
 msgid "Tables"
 msgstr "Taulukot"
 
-#: includes/features/admin-styles/admin-styles.php:1472
+#: includes/features/admin-styles/admin-styles.php:1751
 msgid "Table element colors"
 msgstr "Taulukon elementtivärit"
 
-#: includes/features/admin-styles/admin-styles.php:1475
+#: includes/features/admin-styles/admin-styles.php:1754
 msgid "Table Header Background"
 msgstr "Taulukon otsikon taustaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1479
+#: includes/features/admin-styles/admin-styles.php:1758
 msgid "Table Header Text"
 msgstr "Taulukon otsikon teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1483
+#: includes/features/admin-styles/admin-styles.php:1762
 msgid "Table Row Background"
 msgstr "Taulukon rivin taustaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1487
+#: includes/features/admin-styles/admin-styles.php:1766
 msgid "Table Row Text Color"
 msgstr "Taulukon rivin tekstiväri"
 
-#: includes/features/admin-styles/admin-styles.php:1491
+#: includes/features/admin-styles/admin-styles.php:1770
 msgid "Row Hover Background"
 msgstr "Rivin hiiren ylle siirtymisen tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1495
+#: includes/features/admin-styles/admin-styles.php:1774
 msgid "Table Border Color"
 msgstr "Taulukon reunaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1499
+#: includes/features/admin-styles/admin-styles.php:1778
 msgid "Alternate Row Background"
 msgstr "Vaihtoehtoisen rivin tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1503
+#: includes/features/admin-styles/admin-styles.php:1782
 msgid "Alternate Row Text Color"
 msgstr "Vaihtoehtoisen rivin tekstiväri"
 
-#: includes/features/admin-styles/admin-styles.php:1509
+#: includes/features/admin-styles/admin-styles.php:1788
 msgid "Forms"
 msgstr "Lomakkeet"
 
-#: includes/features/admin-styles/admin-styles.php:1510
+#: includes/features/admin-styles/admin-styles.php:1789
 msgid "Form input colors"
 msgstr "Lomakkeen syöttöväritykset"
 
-#: includes/features/admin-styles/admin-styles.php:1513
+#: includes/features/admin-styles/admin-styles.php:1792
 msgid "Input Border Color"
 msgstr "Syöttöalueen reunaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1517
+#: includes/features/admin-styles/admin-styles.php:1796
 msgid "Input Focus Border"
 msgstr "Syöttöalueen fokusoituneen reunan väri"
 
-#: includes/features/admin-styles/admin-styles.php:1521
+#: includes/features/admin-styles/admin-styles.php:1800
 msgid "Input Background Color"
 msgstr "Syöttöalueen taustaväri"
 
-#: includes/features/admin-styles/admin-styles.php:1525
+#: includes/features/admin-styles/admin-styles.php:1804
 msgid "Input Text Color"
 msgstr "Syöttöalueen tekstiväri"
 
-#: includes/features/admin-styles/admin-styles.php:1529
+#: includes/features/admin-styles/admin-styles.php:1808
 msgid "Placeholder Text Color"
 msgstr "Paikallisen tekstin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1535
-msgid "Buttons"
-msgstr "Painikkeet"
-
-#: includes/features/admin-styles/admin-styles.php:1536
+#: includes/features/admin-styles/admin-styles.php:1815
 msgid "Button colors"
 msgstr "Painikkeiden värit"
 
-#: includes/features/admin-styles/admin-styles.php:1539
+#: includes/features/admin-styles/admin-styles.php:1818
 msgid "Primary Button Background"
 msgstr "Pääpainikkeen tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1543
+#: includes/features/admin-styles/admin-styles.php:1822
 msgid "Primary Button Text"
 msgstr "Pääpainikkeen teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1547
+#: includes/features/admin-styles/admin-styles.php:1826
 msgid "Primary Button Hover"
 msgstr "Pääpainikkeen hiiren ylle siirtyminen"
 
-#: includes/features/admin-styles/admin-styles.php:1551
+#: includes/features/admin-styles/admin-styles.php:1830
 msgid "Secondary Button Background"
 msgstr "Toisen tason painikkeen tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1555
+#: includes/features/admin-styles/admin-styles.php:1834
 msgid "Secondary Button Text"
 msgstr "Toisen tason painikkeen teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1559
+#: includes/features/admin-styles/admin-styles.php:1838
 msgid "Secondary Button Hover"
 msgstr "Toisen tason painikkeen hiiren ylle siirtyminen"
 
-#: includes/features/admin-styles/admin-styles.php:1565
-msgid "Admin Menu"
-msgstr "Ylläpitäjän valikko"
-
-#: includes/features/admin-styles/admin-styles.php:1566
+#: includes/features/admin-styles/admin-styles.php:1845
 msgid "Admin menu colors"
 msgstr "Ylläpito-valikon värit"
 
-#: includes/features/admin-styles/admin-styles.php:1569
+#: includes/features/admin-styles/admin-styles.php:1848
 msgid "Menu Background"
 msgstr "Valikon tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1573
+#: includes/features/admin-styles/admin-styles.php:1852
 msgid "Menu Text Color"
 msgstr "Valikon tekstin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1577
+#: includes/features/admin-styles/admin-styles.php:1856
 msgid "Menu Icon Color"
 msgstr "Valikon kuvakkeen väri"
 
-#: includes/features/admin-styles/admin-styles.php:1581
+#: includes/features/admin-styles/admin-styles.php:1860
 msgid "Menu Hover Background"
 msgstr "Valikon hover-tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1585
+#: includes/features/admin-styles/admin-styles.php:1864
 msgid "Menu Hover Text"
 msgstr "Valikon hover-teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1589
+#: includes/features/admin-styles/admin-styles.php:1868
 msgid "Current Menu Background"
 msgstr "Nykyisen valikon tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1593
+#: includes/features/admin-styles/admin-styles.php:1872
 msgid "Current Menu Text"
 msgstr "Nykyisen valikon teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1597
+#: includes/features/admin-styles/admin-styles.php:1876
 msgid "Submenu Background"
 msgstr "Alivalikon tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1601
+#: includes/features/admin-styles/admin-styles.php:1880
 msgid "Submenu Text Color"
 msgstr "Alivalikon tekstin väri"
 
-#: includes/features/admin-styles/admin-styles.php:1607
-msgid "Admin Bar"
-msgstr "Ylläpitopalkki"
-
-#: includes/features/admin-styles/admin-styles.php:1608
+#: includes/features/admin-styles/admin-styles.php:1887
 msgid "Admin bar colors"
 msgstr "Ylläpitopalkin värit"
 
-#: includes/features/admin-styles/admin-styles.php:1611
+#: includes/features/admin-styles/admin-styles.php:1890
 msgid "Admin Bar Background"
 msgstr "Ylläpitopalkin tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1615
+#: includes/features/admin-styles/admin-styles.php:1894
 msgid "Admin Bar Text"
 msgstr "Ylläpitopalkin teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1619
+#: includes/features/admin-styles/admin-styles.php:1898
 msgid "Admin Bar Icon"
 msgstr "Ylläpitopalkin kuvake"
 
-#: includes/features/admin-styles/admin-styles.php:1623
+#: includes/features/admin-styles/admin-styles.php:1902
 msgid "Admin Bar Hover Background"
 msgstr "Ylläpitopalkin hover-tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1627
+#: includes/features/admin-styles/admin-styles.php:1906
 msgid "Admin Bar Hover Text"
 msgstr "Ylläpitopalkin hover-teksti"
 
-#: includes/features/admin-styles/admin-styles.php:1633
+#: includes/features/admin-styles/admin-styles.php:1912
 msgid "Dashboard Widgets"
 msgstr "Ohjausruudun widgetit"
 
-#: includes/features/admin-styles/admin-styles.php:1634
+#: includes/features/admin-styles/admin-styles.php:1913
 msgid "Dashboard widget colors"
 msgstr "Ohjausruudun widgetin värit"
 
-#: includes/features/admin-styles/admin-styles.php:1637
+#: includes/features/admin-styles/admin-styles.php:1916
 msgid "Widget Background"
 msgstr "Widgetin tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1641
+#: includes/features/admin-styles/admin-styles.php:1920
 msgid "Widget Border"
 msgstr "Widgetin reuna"
 
-#: includes/features/admin-styles/admin-styles.php:1645
+#: includes/features/admin-styles/admin-styles.php:1924
 msgid "Widget Header Background"
 msgstr "Widgetin otsikon tausta"
 
-#: includes/features/admin-styles/admin-styles.php:1649
+#: includes/features/admin-styles/admin-styles.php:1928
 msgid "Widget Title Text"
 msgstr "Widgetin otsikkoteksti"
 
-#: includes/features/admin-styles/admin-styles.php:1653
+#: includes/features/admin-styles/admin-styles.php:1932
 msgid "Widget Body Text"
 msgstr "Widgetin tekstisisältö"
 
-#: includes/features/admin-styles/admin-styles.php:1657
+#: includes/features/admin-styles/admin-styles.php:1936
 msgid "Widget Link"
 msgstr "Widgetin linkki"
 
-#: includes/features/admin-styles/admin-styles.php:1661
+#: includes/features/admin-styles/admin-styles.php:1940
 msgid "Widget Link Hover"
 msgstr "Widgetin linkin hover-tila"
 
-#: includes/features/admin-styles/admin-styles.php:1667
+#: includes/features/admin-styles/admin-styles.php:1946
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Edistyksellinen"
 
-#: includes/features/admin-styles/admin-styles.php:1668
+#: includes/features/admin-styles/admin-styles.php:1947
 msgid "Custom selector color rules"
 msgstr "Mukautetut valitsimen väri säännöt"
 
-#: includes/features/admin-styles/admin-styles.php:1694
-#: includes/features/admin-styles/admin-styles.php:1763
+#: includes/features/admin-styles/admin-styles.php:1973
+#: includes/features/admin-styles/admin-styles.php:2055
 msgid "Default"
 msgstr "Oletus"
 
@@ -2071,7 +2247,7 @@ msgstr "Tallenna kaikille Postityypeille"
 msgid "Save %s Restrictions"
 msgstr "Tallenna %s rajoitukset"
 
-#: includes/features/editor-features.php:127
+#: includes/features/editor-features.php:127, fuzzy
 msgid "Gutenberg"
 msgstr "Gutenberg"
 
@@ -2084,7 +2260,7 @@ msgid "show Classic Editor controls"
 msgstr "näytä Klassisen Muokkaajan ohjaimet"
 
 #: includes/features/editor-features.php:238
-#: includes/functions-admin.php:385
+#: includes/functions-admin.php:415
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr ""
 "Muokkaajan ominaisuudet mahdollistavat elementtien poistamisen julkaisun "
@@ -2144,9 +2320,9 @@ msgstr "Piilota Twenty Twenty-Three -alareuna"
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
-#: includes/functions-admin.php:227
-#: includes/functions-admin.php:409
-#: includes/functions-admin.php:513
+#: includes/functions-admin.php:244
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:553
 msgid "Frontend Features"
 msgstr "Etusivun ominaisuudet"
 
@@ -2296,7 +2472,7 @@ msgid "Enable Frontend Features for %1$s Role"
 msgstr "Ota käyttöön Frontend-ominaisuudet %1$s -roolille"
 
 #: includes/features/frontend-features/frontend-features.php:247
-#: includes/functions-admin.php:410
+#: includes/functions-admin.php:440
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
@@ -2325,7 +2501,7 @@ msgstr ""
 "navigointivalikkoihin, lisää valikkolinkkejä."
 
 #: includes/features/nav-menus.php:301
-#: includes/functions-admin.php:415
+#: includes/functions-admin.php:445
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr "Navigointivalikot mahdollistavat pääsyn estämisen etusivun valikkolinkeille."
 
@@ -2372,7 +2548,7 @@ msgid "Refresh Profile Features"
 msgstr "Päivitä profiilin ominaisuudet"
 
 #: includes/features/profile-features.php:249
-#: includes/functions-admin.php:400
+#: includes/functions-admin.php:430
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr "Profiilin ominaisuudet antavat sinun poistaa elementtejä Profiili-näytöltä."
 
@@ -2396,7 +2572,7 @@ msgstr "Piilota hallintapaneelin widgetit"
 msgid "Mobile Menu Toggle"
 msgstr "Mobiilimenuvaihtoehto"
 
-#: includes/features/restrict-admin-features.php:92
+#: includes/features/restrict-admin-features.php:92, fuzzy
 msgid "WordPress Logo"
 msgstr "WordPress Logo"
 
@@ -2421,19 +2597,27 @@ msgstr "Uusi"
 msgid "User Display Name"
 msgstr "Käyttäjän näyttönimi"
 
-#: includes/features/restrict-admin-features.php:101
+#: includes/features/restrict-admin-features.php:101, fuzzy
 msgid "Yoast SEO"
 msgstr "Yoast SEO"
 
-#: includes/features/restrict-admin-features.php:115
+#: includes/features/restrict-admin-features.php:102
+msgid "Edit Post"
+msgstr "Muokkaa viestiä"
+
+#: includes/features/restrict-admin-features.php:103
+msgid "Edit Site"
+msgstr "Muokkaa sivustoa"
+
+#: includes/features/restrict-admin-features.php:189
 msgid "Thank you for creating with WordPress"
 msgstr "Kiitos, että loit WordPressillä"
 
-#: includes/features/restrict-admin-features.php:165
+#: includes/features/restrict-admin-features.php:239
 msgid "Welcome panel"
 msgstr "Tervetuloa-paneeli"
 
-#: includes/features/restrict-admin-features.php:199
+#: includes/features/restrict-admin-features.php:273
 msgid "Remove Admin Toolbar"
 msgstr "Poista ylläpitotyökalu"
 
@@ -2441,7 +2625,7 @@ msgstr "Poista ylläpitotyökalu"
 msgid "Top Tabs"
 msgstr "Ylätunnisteet"
 
-#: includes/features/restrict-editor-features.php:59
+#: includes/features/restrict-editor-features.php:59, fuzzy
 msgid "Slug"
 msgstr "Slug"
 
@@ -2599,40 +2783,40 @@ msgstr "Virheellinen rooli annettu."
 msgid "Profile features access enabled for this role."
 msgstr "Profiilin ominaisuuksien käyttö sallittu tälle roolille."
 
-#: includes/functions-admin.php:205
-#: includes/functions-admin.php:384
-#: includes/functions-admin.php:469
+#: includes/functions-admin.php:217
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:502
 #: includes/roles/class/class-pp-roles-admin.php:523
-#: includes/settings-ui.php:35
+#: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Muokkaajan ominaisuudet"
 
-#: includes/functions-admin.php:216
-#: includes/functions-admin.php:389
-#: includes/functions-admin.php:476
+#: includes/functions-admin.php:228
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:509
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
 msgstr "Ylläpitäjän ominaisuudet"
 
-#: includes/functions-admin.php:231
-#: includes/functions-admin.php:399
-#: includes/functions-admin.php:499
+#: includes/functions-admin.php:248
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:539
 #: includes/roles/class/class-pp-roles-admin.php:525
-#: includes/settings-ui.php:36
+#: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Profiilin ominaisuudet"
 
-#: includes/functions-admin.php:237
-#: includes/functions-admin.php:404
-#: includes/functions-admin.php:506
+#: includes/functions-admin.php:254
+#: includes/functions-admin.php:434
+#: includes/functions-admin.php:546
 msgid "Redirects"
 msgstr "Uudelleenohjaukset"
 
-#: includes/functions-admin.php:241
+#: includes/functions-admin.php:258
 msgid "Nav Menu"
 msgstr "Navigointivalikko"
 
-#: includes/functions-admin.php:375
+#: includes/functions-admin.php:405
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
@@ -2640,17 +2824,17 @@ msgstr ""
 "Roolit mahdollistavat kaikkien käyttäjäroolien luomisen, muokkaamisen ja "
 "poistamisen sivustollasi."
 
-#: includes/functions-admin.php:380
+#: includes/functions-admin.php:410
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr "Oikeudet antavat sinun muuttaa lupia mille tahansa käyttäjäroolille."
 
-#: includes/functions-admin.php:395
+#: includes/functions-admin.php:425
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
 "Admin-tyylit mahdollistavat hallinta-alueen mukauttamisen omalla "
 "brändilläsi."
 
-#: includes/functions-admin.php:405
+#: includes/functions-admin.php:435
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
@@ -2658,19 +2842,19 @@ msgstr ""
 "Uudelleenohjaukset mahdollistavat käyttäjien uudelleenohjaamisen roolissa "
 "rekisteröinnin, kirjautumisen tai uloskirjautumisen jälkeen."
 
-#: includes/functions-admin.php:414
-#: includes/functions-admin.php:520
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:560
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "Navigointivalikot"
 
-#: includes/functions-admin.php:419
+#: includes/functions-admin.php:449
 #: includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "Käyttäjätestaus"
 
-#: includes/functions-admin.php:420
+#: includes/functions-admin.php:450
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
@@ -2678,7 +2862,7 @@ msgstr ""
 "Testaa sivustoasi kirjautumalla heti toisen käyttäjänä. Saatavilla olevat "
 "tilit sisältävät kaikki, joita nykyinen käyttäjä voi muokata."
 
-#: includes/functions-admin.php:425
+#: includes/functions-admin.php:455
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
@@ -2686,41 +2870,41 @@ msgstr ""
 "Poista ylläpitoilmoitukset WordPressin ylläpito-ikkunasta ja järjestä ne "
 "yhteen alueeseen."
 
-#: includes/functions.php:565
+#: includes/functions.php:650
 msgid "Login permission denied."
 msgstr "Kirjautumisoikeus evätty."
 
-#: includes/functions.php:642
+#: includes/functions.php:742
 msgid "You do not have permission to access this page."
 msgstr "Sinulla ei ole lupaa käyttää tätä sivua."
 
-#: includes/functions.php:707
+#: includes/functions.php:815
 msgid "Need PublishPress Capabilities Support?"
 msgstr "Tarvitsetko PublishPress-kyvykkyyksien tukea?"
 
-#: includes/functions.php:712
+#: includes/functions.php:820
 msgid "If you need help or have a new feature request, let us know."
 msgstr "Jos tarvitset apua tai sinulla on uusi ominaisuuspyyntö, kerro meille."
 
-#: includes/functions.php:714
+#: includes/functions.php:823
 msgid "Request Support"
 msgstr "Pyydä tukea"
 
-#: includes/functions.php:723
+#: includes/functions.php:832
 msgid "Detailed documentation is also available on the plugin website."
 msgstr ""
 "Yksityiskohtaiset asiakirjat ovat myös saatavilla liitännäisen "
 "verkkosivustolla."
 
-#: includes/functions.php:725
+#: includes/functions.php:834
 msgid "View Knowledge Base"
 msgstr "Näytä tietopankki"
 
-#: includes/functions.php:939
+#: includes/functions.php:1066
 msgid "Social Links"
 msgstr "Sosiaalisten linkkien"
 
-#: includes/functions.php:940
+#: includes/functions.php:1067
 msgid "Page Lists"
 msgstr "Sivuluettelot"
 
@@ -2734,7 +2918,7 @@ msgstr "Virhe: Uuden roolin luominen epäonnistui."
 
 #: includes/handler.php:61
 #: includes/handler.php:89
-#: includes/manager.php:1157
+#: includes/manager.php:1219
 msgid "The selected role is not editable."
 msgstr "Valittua roolia ei voi muokata."
 
@@ -2821,86 +3005,219 @@ msgstr "Sinulla ei ole lupaa hallita editorin toimintoja."
 #: includes/manager.php:624
 #: includes/manager.php:678
 #: includes/manager.php:726
-#: includes/manager.php:807
-#: includes/manager.php:889
-#: includes/manager.php:970
+#: includes/manager.php:820
+#: includes/manager.php:869
+#: includes/manager.php:951
+#: includes/manager.php:1032
 msgid "Settings updated."
 msgstr "Asetukset päivitetty."
 
 #: includes/manager.php:640
 #: includes/manager.php:662
-#: includes/manager.php:772
-#: includes/manager.php:823
-#: includes/manager.php:987
+#: includes/manager.php:834
+#: includes/manager.php:885
+#: includes/manager.php:1049
 msgid "You do not have permission to manage admin features."
 msgstr "Sinulla ei ole lupaa hallita hallintotoimintoja."
 
-#: includes/manager.php:794
+#: includes/manager.php:856
 msgid "You do not have permission to manage navigation menus."
 msgstr "Sinulla ei ole oikeuksia hallita navigointivalikoita."
 
-#: includes/manager.php:845
+#: includes/manager.php:907
 msgid "You do not have permission to manage profile features."
 msgstr "Sinulla ei ole oikeuksia hallita profiilin ominaisuuksia."
 
-#: includes/manager.php:905
+#: includes/manager.php:967
 msgid "You do not have permission to manage redirect."
 msgstr "Sinulla ei ole oikeuksia hallita uudelleenohjausta."
 
-#: includes/manager.php:927
+#: includes/manager.php:989
 msgid "Invalid form. Reload this page and try again."
 msgstr "Virheellinen lomake. Lataa tämä sivu uudelleen ja yritä uudelleen."
 
-#: includes/manager.php:1079
-#: includes/manager.php:1113
-#: includes/manager.php:1131
+#: includes/manager.php:1141
+#: includes/manager.php:1175
+#: includes/manager.php:1193
 msgid "You do not have permission to manage capabilities."
 msgstr "Sinulla ei ole lupaa hallita kykyjä."
 
-#: includes/manager.php:1145
+#: includes/manager.php:1207
 msgid "New capability added to role."
 msgstr "Uusi kyvykkyys lisätty rooliin."
 
-#: includes/manager.php:1186
+#: includes/manager.php:1248
 msgid "Bad form Received"
 msgstr "Virheellinen lomake vastaanotettu"
 
-#: includes/manager.php:1306
+#: includes/manager.php:1368
 msgid "You do not have permission to restore roles."
 msgstr "Sinulla ei ole oikeuksia palauttaa rooleja."
 
-#: includes/manager.php:1344
+#: includes/manager.php:1406
 msgid "You do not have permission to perform this action."
 msgstr "Sinulla ei ole oikeuksia suorittaa tätä toimintoa."
 
-#: includes/manager.php:1505
+#: includes/manager.php:1567
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Jos pidät %s:stä, jätä meille %s-arvostelu. Kiitos!"
 
-#: includes/manager.php:1516
+#: includes/manager.php:1578
 msgid "About PublishPress Capabilities"
 msgstr "Tietoa PublishPress Oikeuksista"
 
-#: includes/manager.php:1516
+#: includes/manager.php:1578
 msgid "About"
 msgstr "Tietoa"
 
-#: includes/manager.php:1518
+#: includes/manager.php:1580
 msgid "Capabilites Documentation"
 msgstr "Oikeudet Dokumentaatio"
 
-#: includes/manager.php:1518
+#: includes/manager.php:1580
 msgid "Documentation"
 msgstr "Dokumentaatio"
 
-#: includes/manager.php:1520
+#: includes/manager.php:1582
 msgid "Contact the PublishPress team"
 msgstr "Ota yhteyttä PublishPress-tiimiin"
 
-#: includes/manager.php:1520
+#: includes/manager.php:1582
 msgid "Contact"
 msgstr "Yhteystiedot"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:28
+msgid "Permissions & Access"
+msgstr "Oikeudet & Pääsy"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:29
+msgid "Administer advanced content permissions and visibility rules."
+msgstr "Hallinnoi kehittyneiden sisältöoikeuksien ja näkyvyys sääntöjen hallintaa."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:30
+msgid "Manage plugin permission settings."
+msgstr "Hallinnoi lisäosan oikeusasetuksia."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:31
+msgid "Bypass content restrictions for editorial workflows."
+msgstr "Ohita sisältörajoitukset toimituksellisissa työnkuluissa."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:32
+msgid "Set custom post statuses for content items."
+msgstr "Aseta mukautettuja viestin tiloja sisältöesineille."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:33
+msgid "Force Quick Edit access when restrictions would otherwise block it."
+msgstr "Pakota Pikamuokkaus pääsy, kun rajoitukset muuten estäisivät sen."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:35
+msgid "Roles & Groups"
+msgstr "Roolit & Ryhmät"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:36
+msgid "Assign or change role assignments for users."
+msgstr "Määritä tai muuta roolijakoja käyttäjille."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:37
+msgid "Create new permission groups."
+msgstr "Luo uusia oikeusryhmiä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:38
+msgid "Edit existing permission groups."
+msgstr "Muokkaa olemassa olevia oikeusryhmiä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:39
+msgid "Delete permission groups."
+msgstr "Poista oikeusryhmiä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:40
+msgid "Add or remove members from permission groups."
+msgstr "Lisää tai poista jäseniä oikeusryhmistä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:41
+msgid "Create network-wide permission groups in multisite."
+msgstr "Luo verkko- laajuisia oikeusryhmiä monisivustossa."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:42
+msgid "Manage members of network-wide permission groups."
+msgstr "Hallitse verkon laajuisia käyttöoikeusryhmiä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:44
+msgid "Exception Management"
+msgstr "Poikkeusten hallinta"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:45
+msgid "Set per-item association exceptions."
+msgstr "Määritä kohdekohtaiset yhdistämispoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:46
+msgid "Set per-item edit exceptions."
+msgstr "Määritä kohdekohtaiset muokkauspoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:47
+msgid "Set per-item read exceptions."
+msgstr "Määritä kohdekohtaiset lukupoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:48
+msgid "Set per-item revision exceptions."
+msgstr "Määritä kohdekohtaiset tarkistuspoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:49
+msgid "Set taxonomy term assignment exceptions."
+msgstr "Määritä taksonomian termien määrittämispoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:50
+msgid "Set taxonomy term association exceptions."
+msgstr "Määritä taksonomian termien yhdistämispoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:51
+msgid "Set taxonomy term management exceptions."
+msgstr "Määritä taksonomian termien hallintapoikkeukset."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:53
+msgid "Content Associations"
+msgstr "Sisällön yhdistämiset"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:54
+msgid "Associate users or groups with any page."
+msgstr "Yhdistä käyttäjiä tai ryhmiä mihin tahansa sivuun."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:55
+msgid "Define and apply custom post statuses."
+msgstr "Määritä ja käytä mukautettuja julkaisutiloja."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:56
+msgid "Define custom privacy policies for content."
+msgstr "Määritä mukautettuja tietosuojakäytäntöjä sisällölle."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:57
+msgid "Moderate any item regardless of authorship."
+msgstr "Moderoi mitä tahansa kohdetta riippumatta tekijästä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:59
+msgid "Media & Misc"
+msgstr "Media & Muut"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:60
+msgid "Edit attachments uploaded by the current user."
+msgstr "Muokkaa nykyisen käyttäjän lataamia liitteitä."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:61
+msgid "List unattached files uploaded by other users."
+msgstr "Listaa muut käyttäjät lataamat liittämättömät tiedostot."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:62
+msgid "List all media library files."
+msgstr "Listaa kaikki media-kirjaston tiedostot."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:63
+msgid "Exempt user from edit-circle restrictions."
+msgstr "Vapauta käyttäjä muokkauspiirin rajoituksista."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:64
+msgid "Exempt user from read-circle restrictions."
+msgstr "Vapauta käyttäjä lukupiirin rajoituksista."
 
 #: includes/pp-ui.php:62
 #, php-format
@@ -3437,13 +3754,9 @@ msgstr "Näytä"
 msgid "Your Role"
 msgstr "Roolisi"
 
-#: includes/roles/class/class-pp-roles-list-table.php:401
+#: includes/roles/class/class-pp-roles-list-table.php:401, fuzzy
 msgid "WordPress Core"
 msgstr "WordPress Core"
-
-#: includes/roles/class/class-pp-roles-list-table.php:403
-msgid "Custom"
-msgstr "Mukautettu"
 
 #: includes/roles/class/class-pp-roles-list-table.php:695
 msgid "Search Roles"
@@ -3572,75 +3885,6 @@ msgstr ""
 "aiheuttaa tilapäisiä ongelmia, kun päivitetään käyttäjärooleja, joilla ei "
 "ole pääsyä WordPressin hallinta-alueelle."
 
-#: includes/settings-ui.php:290
-msgid "Success notices"
-msgstr "Onnistumisilmoitukset"
-
-#: includes/settings-ui.php:291
-msgid "Error notices"
-msgstr "Virhesanomat"
-
-#: includes/settings-ui.php:292
-msgid "Warning notices"
-msgstr "Varoitusilmoitukset"
-
-#: includes/settings-ui.php:293
-msgid "Info notices"
-msgstr "Tietoilmoitukset"
-
-#: includes/settings-ui.php:302
-msgid ""
-"The feature attempts to clean up the WordPress admin area by organizing "
-"extra messages and advertisements into the Admin Notices area. This will "
-"not remove any messages that appear when you perform an action."
-msgstr ""
-"Ominaisuus yrittää siivota WordPressin hallinta-aluetta järjestämällä "
-"ylimääräiset viestit ja mainokset Hallinta-ilmoitusalueelle. Tämä ei poista "
-"mitään viestejä, jotka ilmestyvät, kun suoritat toiminnon."
-
-#: includes/settings-ui.php:306
-msgid "Select Role"
-msgstr "Valitse rooli"
-
-#: includes/settings-ui.php:343
-msgid "Notification center access"
-msgstr "Ilmoituskeskuksen pääsy"
-
-#: includes/settings-ui.php:352
-#, php-format
-msgid "Enable %1s access to the Admin Notices area."
-msgstr "Ota käyttöön %1s -käyttäjän pääsy Admin-ilmoitusten alueelle."
-
-#: includes/settings-ui.php:363
-msgid "Notifications to remove from WordPress admin pages"
-msgstr "Ilmoitukset poistettavaksi WordPressin ylläpitossasivuilta"
-
-#: includes/settings-ui.php:376
-#, php-format
-msgid ""
-"Select the notification types that should be hidden when a user in the %1s "
-"role is viewing WordPress admin screens."
-msgstr ""
-"Valitse ilmoitustyypit, jotka tulisi piilottaa, kun %1s-roolin käyttäjä "
-"tarkastelee WordPressin hallintanäkymiä."
-
-#: includes/settings-ui.php:376
-#: includes/settings-ui.php:398
-msgid "Click here for more on notice types."
-msgstr "Klikkaa tästä lisätietoja ilmoitustyypeistä."
-
-#: includes/settings-ui.php:385
-msgid "Notifications to display in the Admin Notices area."
-msgstr "Ilmoitukset, jotka näytetään ylläpidon ilmoitusalueella."
-
-#: includes/settings-ui.php:398
-msgid ""
-"Select the notification types that should be displayed in the Admin Notices "
-"area after been removed from the WordPress admin screens."
-msgstr ""
-"Valitse ilmoitustyypit, jotka tulisi näyttää hallintohälytyksissä sen "
-"jälkeen, kun ne on poistettu WordPressin hallintanäkymistä."
-
 #: includes/settings.php:13
 msgid "Capabilities Settings"
 msgstr "Ominaisuuksien asetukset"
@@ -3687,3 +3931,16 @@ msgstr "Testaaminen käyttäjänä: %1$s. %2$sPalaa ylläpitäjänäkymään%3$s
 #: includes/test-user.php:62
 msgid "Unable to retrieve user data."
 msgstr "Käyttäjätietoja ei voida noutaa."
+
+#: common/js/admin.dev.js:890
+msgid "Updating Settings..."
+msgstr "Päivitetään asetuksia..."
+
+#: common/js/admin.dev.js:926
+msgid "Updating access..."
+msgstr "Päivitetään pääsyä..."
+
+#: common/js/admin.dev.js:945
+#: common/js/admin.dev.js:950
+msgid "Error updating access."
+msgstr "Virhe päivittäessä pääsyä."
