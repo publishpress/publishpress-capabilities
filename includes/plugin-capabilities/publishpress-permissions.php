@@ -14,6 +14,16 @@ if (!defined('ABSPATH')) {
  * Register PublishPress Permissions capabilities
  */
 add_filter('cme_plugin_capabilities', function ($pluginCaps) {
+    // Respect external integrations only when they provide the grouped (latest) payload structure.
+    if (!empty($pluginCaps['PublishPress Permissions']) && is_array($pluginCaps['PublishPress Permissions'])) {
+        $external_payload = (array) $pluginCaps['PublishPress Permissions'];
+
+        $first_payload_entry = reset($external_payload);
+        if (is_array($first_payload_entry)) {
+            return $pluginCaps;
+        }
+    }
+
     $pluginCaps['PublishPress Permissions'] = [
         __('Permissions & Access', 'capability-manager-enhanced') => [
             'pp_administer_content' => __('Administer advanced content permissions and visibility rules.', 'capability-manager-enhanced'),

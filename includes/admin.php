@@ -1296,6 +1296,12 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						$plugin_title_raw = (string) $plugin_title;
 						$plugin_title = esc_html($plugin_title_raw);
 
+						// Compact for old permission description format
+						//TODO: Remove after permission update their code to new structure
+						if ('PublishPress Permissions' === $plugin_title_raw && function_exists('apply_filters')) {
+							$plugin_cap_descriptions = apply_filters('presspermit_cap_descriptions', $plugin_cap_descriptions);
+						}
+
 						$plugin_cap_payload = (array) $__plugin_caps;
 						$plugin_cap_groups = [];
 						$_plugin_caps = [];
