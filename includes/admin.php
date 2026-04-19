@@ -1460,6 +1460,8 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						</tr>
                         <?php
 						$last_cap_group = '';
+						$unique_cap_groups = array_unique(array_values($plugin_cap_group_for_cap));
+						$show_group_headings = count($unique_cap_groups) > 1;
 
 						foreach( $ordered_plugin_caps as $cap_name ) {
 							$cap_name = sanitize_text_field($cap_name);
@@ -1476,16 +1478,18 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 								: __('General', 'capability-manager-enhanced');
 
 							if ($cap_group !== $last_cap_group) {
-								if (!$centinel_ && $i > 0) {
-									for ($i; $i < $checks_per_row; $i++) {
-										echo '<td>&nbsp;</td>';
+								if ($show_group_headings) {
+									if (!$centinel_ && $i > 0) {
+										for ($i; $i < $checks_per_row; $i++) {
+											echo '<td>&nbsp;</td>';
+										}
+										echo '</tr>';
+										$i = 0;
+										$centinel_ = true;
 									}
-									echo '</tr>';
-									$i = 0;
-									$centinel_ = true;
-								}
 
-								echo '<tr class="cme-cap-group-subheading"><td colspan="' . (int) ($checks_per_row + 1) . '"><h4 class="cme-cap-group-title">' . esc_html($cap_group) . '</h4></td></tr>';
+									echo '<tr class="cme-cap-group-subheading"><td colspan="' . (int) ($checks_per_row + 1) . '"><h4 class="cme-cap-group-title">' . esc_html($cap_group) . '</h4></td></tr>';
+								}
 								$last_cap_group = $cap_group;
 							}
 
