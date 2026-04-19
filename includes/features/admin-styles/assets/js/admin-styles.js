@@ -74,6 +74,7 @@
       this.initCustomFormColorPickers();
       this.initCheckboxes();
       this.initHiddenInputs();
+      this.initFontFamilyPickers();
       this.initColorPickerCloseBehavior();
       this.fixIrisPaletteLinks();
       this.registerEventsActions();
@@ -284,6 +285,11 @@
       // Color scheme selection
       $(document).on('click', '.color-option', this.handleSchemeSelection);
 
+      // Font family picker
+      $(document).on('click', '.ppc-font-family-tab', this.handleFontFamilyTabClick);
+      $(document).on('change', '.ppc-font-family-select', this.handleFontFamilySelectChange);
+      $(document).on('input change', '.ppc-font-family-textarea', this.handleFontFamilyTextareaChange);
+
       // Custom scheme color change
       $(document).on('change', '.custom-style-color', function () {
         PP_Admin_Styles.handleCustomFormColorChange($(this));
@@ -349,6 +355,118 @@
           $overlay.addClass('is-active').attr('aria-hidden', 'false');
         }
       });
+    },
+
+    /**
+     * Initialize font family pickers with textarea as the source of truth.
+     */
+    initFontFamilyPickers: function () {
+      $('.ppc-font-family-picker').each(function () {
+        var $picker = $(this);
+        var $textarea = $picker.find('.ppc-font-family-textarea');
+        var $select = $picker.find('.ppc-font-family-select');
+
+        if (!$textarea.length || !$select.length) {
+          return;
+        }
+
+        var textareaValue = ($textarea.val() || '').trim();
+        var hasMatchingOption = false;
+
+        $select.find('option').each(function () {
+          if ($(this).val() === textareaValue) {
+            hasMatchingOption = true;
+            return false;
+          }
+
+          return true;
+        });
+
+        if (hasMatchingOption) {
+          $select.val(textareaValue);
+        } else {
+          $select.val('');
+        }
+
+        // Show custom tab by default for non-empty values that don't match preset options.
+        if (!hasMatchingOption && textareaValue !== '') {
+          $picker.find('.ppc-font-family-tab').removeClass('nav-tab-active');
+          $picker.find('.ppc-font-family-tab[data-panel="custom"]').addClass('nav-tab-active');
+          $picker.find('.ppc-font-family-panel').removeClass('is-active').hide();
+          $picker.find('.ppc-font-family-panel-custom').addClass('is-active').show();
+        }
+      });
+    },
+
+    handleFontFamilyTabClick: function (e) {
+      e.preventDefault();
+
+      var $tab = $(this);
+      var targetPanel = $tab.data('panel');
+      var $picker = $tab.closest('.ppc-font-family-picker');
+
+      if (!$picker.length || !targetPanel) {
+        return;
+      }
+
+      $picker.find('.ppc-font-family-tab').removeClass('nav-tab-active');
+      $tab.addClass('nav-tab-active');
+
+      $picker.find('.ppc-font-family-panel').removeClass('is-active').hide();
+      $picker.find('.ppc-font-family-panel-' + targetPanel).addClass('is-active').show();
+
+      if (targetPanel === 'select') {
+        var $select = $picker.find('.ppc-font-family-select');
+        var $textarea = $picker.find('.ppc-font-family-textarea');
+        var selectedValue = $select.val() || '';
+
+        // Only sync from preset tab when a preset option is selected.
+        if ($textarea.length && selectedValue !== '') {
+          $textarea.val(selectedValue).trigger('change');
+        }
+      }
+    },
+
+    handleFontFamilySelectChange: function () {
+      var $select = $(this);
+      var $picker = $select.closest('.ppc-font-family-picker');
+      var $textarea = $picker.find('.ppc-font-family-textarea');
+      var selectedValue = $select.val() || '';
+
+      if (!$textarea.length) {
+        return;
+      }
+
+      // Always persist textarea value; selecting a preset updates that value.
+      $textarea.val(selectedValue).trigger('change');
+    },
+
+    handleFontFamilyTextareaChange: function () {
+      var $textarea = $(this);
+      var $picker = $textarea.closest('.ppc-font-family-picker');
+      var $select = $picker.find('.ppc-font-family-select');
+
+      if (!$select.length) {
+        return;
+      }
+
+      var textareaValue = ($textarea.val() || '').trim();
+      var hasMatchingOption = false;
+
+      $select.find('option').each(function () {
+        if ($(this).val() === textareaValue) {
+          hasMatchingOption = true;
+          return false;
+        }
+
+        return true;
+      });
+
+      if (hasMatchingOption) {
+        $select.val(textareaValue);
+      } else {
+        $select.val('');
+      }
     },
 
     /**

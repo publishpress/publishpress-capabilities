@@ -51,6 +51,22 @@ if (empty($current_user_color)) {
 
 $role_caption = translate_user_role($roles[$default_role]);
 
+$font_family_choices = [
+    '' => esc_html__('Select a preset font family', 'capability-manager-enhanced'),
+    'Arial, sans-serif' => 'Arial',
+    'Verdana, sans-serif' => 'Verdana',
+    'Tahoma, sans-serif' => 'Tahoma',
+    '"Trebuchet MS", sans-serif' => 'Trebuchet MS',
+    '"Segoe UI", sans-serif' => 'Segoe UI',
+    '"Helvetica Neue", Helvetica, Arial, sans-serif' => 'Helvetica Neue',
+    '"Noto Sans", sans-serif' => 'Noto Sans',
+    'Georgia, serif' => 'Georgia',
+    '"Times New Roman", serif' => 'Times New Roman',
+    '"Courier New", monospace' => 'Courier New',
+    'Monaco, "Lucida Console", monospace' => 'Monaco',
+    'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' => 'System UI',
+];
+
 // Display custom style success/error messages from transients
 $user_id = get_current_user_id();
 
@@ -529,11 +545,30 @@ if ($admin_styles_saved !== false) {
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
-                                                                <input type="text" name="settings[admin_font_family]"
-                                                                    id="admin_font_family"
-                                                                    value="<?php echo esc_attr($settings['admin_font_family']); ?>"
-                                                                    placeholder='"Segoe UI", sans-serif'
-                                                                    style="width: 99%" class="regular-text">
+                                                                <?php $current_admin_font_family = (string) ($settings['admin_font_family'] ?? ''); ?>
+                                                                <div class="ppc-font-family-picker">
+                                                                    <nav class="nav-tab-wrapper ppc-font-family-tabs">
+                                                                        <a href="#" class="nav-tab ppc-font-family-tab nav-tab-active" data-panel="select"><?php esc_html_e('Preset Fonts', 'capability-manager-enhanced'); ?></a>
+                                                                        <a href="#" class="nav-tab ppc-font-family-tab" data-panel="custom"><?php esc_html_e('Custom Value', 'capability-manager-enhanced'); ?></a>
+                                                                    </nav>
+
+                                                                    <div class="ppc-font-family-panel ppc-font-family-panel-select is-active">
+                                                                        <select class="ppc-font-family-select regular-text" style="max-width: 400px;">
+                                                                            <?php foreach ($font_family_choices as $font_value => $font_label) : ?>
+                                                                                <option value="<?php echo esc_attr($font_value); ?>" <?php selected($current_admin_font_family, $font_value); ?>><?php echo esc_html($font_label); ?></option>
+                                                                            <?php endforeach; ?>
+                                                                        </select>
+                                                                    </div>
+
+                                                                    <div class="ppc-font-family-panel ppc-font-family-panel-custom" style="display: none;">
+                                                                        <textarea
+                                                                            name="settings[admin_font_family]"
+                                                                            id="admin_font_family"
+                                                                            rows="2"
+                                                                            placeholder='"Segoe UI", sans-serif'
+                                                                            class="regular-text ppc-font-family-textarea"><?php echo esc_textarea($current_admin_font_family); ?></textarea>
+                                                                    </div>
+                                                                </div>
                                                             </td>
                                                         </tr>
 
@@ -593,15 +628,32 @@ if ($admin_styles_saved !== false) {
                                                                     </thead>
                                                                     <tbody>
                                                                         <?php foreach ($typography_targets as $target_key => $target_label) : ?>
+                                                                            <?php $target_font_family = (string) ($settings['admin_typography'][$target_key]['font_family'] ?? ''); ?>
                                                                             <tr>
                                                                                 <td><strong><?php echo esc_html($target_label); ?></strong></td>
                                                                                 <td>
-                                                                                    <input type="text"
-                                                                                        name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_family]"
-                                                                                        value="<?php echo esc_attr($settings['admin_typography'][$target_key]['font_family']); ?>"
-                                                                                        placeholder='"Segoe UI", sans-serif'
-                                                                                        class="regular-text"
-                                                                                        style="min-width: 180px;">
+                                                                                    <div class="ppc-font-family-picker ppc-font-family-picker-compact">
+                                                                                        <nav class="nav-tab-wrapper ppc-font-family-tabs">
+                                                                                            <a href="#" class="nav-tab ppc-font-family-tab nav-tab-active" data-panel="select"><?php esc_html_e('Preset', 'capability-manager-enhanced'); ?></a>
+                                                                                            <a href="#" class="nav-tab ppc-font-family-tab" data-panel="custom"><?php esc_html_e('Custom', 'capability-manager-enhanced'); ?></a>
+                                                                                        </nav>
+
+                                                                                        <div class="ppc-font-family-panel ppc-font-family-panel-select is-active">
+                                                                                            <select class="ppc-font-family-select regular-text" style="width: 100%; max-width: 200px;">
+                                                                                                <?php foreach ($font_family_choices as $font_value => $font_label) : ?>
+                                                                                                    <option value="<?php echo esc_attr($font_value); ?>" <?php selected($target_font_family, $font_value); ?>><?php echo esc_html($font_label); ?></option>
+                                                                                                <?php endforeach; ?>
+                                                                                            </select>
+                                                                                        </div>
+
+                                                                                        <div class="ppc-font-family-panel ppc-font-family-panel-custom" style="display: none;">
+                                                                                            <textarea
+                                                                                                name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_family]"
+                                                                                                rows="2"
+                                                                                                placeholder='"Segoe UI", sans-serif'
+                                                                                                class="regular-text ppc-font-family-textarea"><?php echo esc_textarea($target_font_family); ?></textarea>
+                                                                                        </div>
+                                                                                    </div>
                                                                                 </td>
                                                                                 <td>
                                                                                     <input type="number"
