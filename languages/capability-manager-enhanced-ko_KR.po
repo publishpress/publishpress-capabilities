@@ -10,24 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-03-24 15:04+0000\n"
+"PO-Revision-Date: 2026-04-19 16:43+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: capsman-enhanced.php
-#: capsman-enhanced.php
+#: capsman-enhanced.php:5
 #. Plugin Name of the plugin
 msgid "PublishPress Capabilities"
 msgstr "퍼블리시프레스 기능"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:7, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:9
 #. Description of the plugin
 msgid ""
 "PublishPress Capabilities is the access control plugin for WordPress. You "
@@ -35,12 +34,12 @@ msgid ""
 "Subscribers."
 msgstr "퍼블리시프레스 기능은 워드프레스용 접근 제어 플러그인입니다. 관리자로부터 구독자까지 모든 워드프레스 사용자 역할을 관리할 수 있습니다."
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:13
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "퍼블리시프레스"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:15, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -69,8 +68,8 @@ msgstr ""
 #: includes-core/CoreAdmin.php:54
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:813
-#: includes/features/admin-styles/admin-styles-ui.php:307
+#: includes/admin-load.php:814
+#: includes/features/admin-styles/admin-styles-ui.php:324
 msgid "Upgrade to Pro"
 msgstr "프로로 업그레이드"
 
@@ -98,7 +97,7 @@ msgstr ""
 
 #: includes-core/CoreAdmin.php:90
 #: includes-core/CoreAdmin.php:153
-#: includes/functions-admin.php:491
+#: includes/functions-admin.php:531
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "관리자 메뉴"
@@ -201,12 +200,12 @@ msgid "Rank Math SEO"
 msgstr "랭크 매스 SEO"
 
 #: includes/admin-load.php:494
-#: includes/admin-load.php:826
-#: includes/functions-admin.php:379
-#: includes/functions-admin.php:462
+#: includes/admin-load.php:827
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:495
 #: includes/manager.php:387
 #: includes/roles/class/class-pp-roles-admin.php:637
-#: includes/settings-ui.php:34
+#: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "권한"
 
@@ -222,7 +221,7 @@ msgstr "잘못된 nonce 토큰입니다!"
 msgid "Error: wrong data"
 msgstr "오류: 잘못된 데이터"
 
-#: includes/admin-load.php:648
+#: includes/admin-load.php:649
 #: includes/admin-notices/admin-notices.php:232
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -230,54 +229,176 @@ msgstr "오류: 잘못된 데이터"
 msgid "An error occured!"
 msgstr "오류가 발생했습니다!"
 
-#: includes/admin-load.php:653
+#: includes/admin-load.php:654
 msgid "Security check failed"
 msgstr "보안 검사 실패"
 
-#: includes/admin-load.php:655
+#: includes/admin-load.php:656
 msgid "Permission denied"
 msgstr "권한 거부"
 
-#: includes/admin-load.php:665
+#: includes/admin-load.php:666
 msgid "Settings updated successfully."
 msgstr "설정이 성공적으로 업데이트되었습니다."
 
-#: includes/admin-load.php:761
+#: includes/admin-load.php:762
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "로그인한 사용자"
 
-#: includes/admin-load.php:762
+#: includes/admin-load.php:763
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "로그아웃한 사용자"
 
-#: includes/admin-load.php:769
+#: includes/admin-load.php:770
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "퍼블리시프레스 메뉴 제한"
 
-#: includes/admin-load.php:770
+#: includes/admin-load.php:771
 msgid "This menu is restricted for the following roles"
 msgstr "이 메뉴는 다음 역할에 대해 제한됩니다."
 
-#: includes/admin-load.php:825
+#: includes/admin-load.php:826
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: includes/admin-load.php:827
-#: includes/functions-admin.php:374
-#: includes/functions-admin.php:455
+#: includes/admin-load.php:828
+#: includes/functions-admin.php:404
+#: includes/functions-admin.php:488
 #: includes/roles/roles.php:8
-#: includes/settings-ui.php:33
+#: includes/settings-ui.php:34
 msgid "Roles"
 msgstr "역할"
 
-#: includes/admin-load.php:828
+#: includes/admin-load.php:829
 msgid "Settings"
 msgstr "설정들"
+
+#: includes/admin-notices/admin-notices-settings.php:7
+msgid "Success notices"
+msgstr "성공 알림"
+
+#: includes/admin-notices/admin-notices-settings.php:8
+msgid "Error notices"
+msgstr "오류 알림"
+
+#: includes/admin-notices/admin-notices-settings.php:9
+msgid "Warning notices"
+msgstr "경고 알림"
+
+#: includes/admin-notices/admin-notices-settings.php:10
+msgid "Info notices"
+msgstr "정보 알림"
+
+#: includes/admin-notices/admin-notices-settings.php:22
+msgid "Current Role"
+msgstr "현재 역할"
+
+#: includes/admin-notices/admin-notices-settings.php:33
+#: includes/admin-notices/admin-notices.php:179
+#: includes/admin-notices/admin-notices.php:217
+#: includes/admin-notices/admin-notices.php:220
+#: includes/functions-admin.php:239
+#: includes/functions-admin.php:454
+#: includes/functions-admin.php:523
+msgid "Admin Notices"
+msgstr "관리자 알림"
+
+#: includes/admin-notices/admin-notices-settings.php:60
+#: includes/admin-notices/admin-notices-settings.php:151
+#: includes/features/admin-styles/admin-styles-ui.php:152
+#: includes/features/admin-styles/admin-styles-ui.php:758
+#: includes/redirects/redirects.php:117
+#: includes/redirects/redirects.php:320
+msgid "Save for all Roles"
+msgstr "모든 역할에 대해 저장"
+
+#: includes/admin-notices/admin-notices-settings.php:64
+#: includes/admin-notices/admin-notices-settings.php:155
+#: includes/features/admin-styles/admin-styles-ui.php:156
+#: includes/features/admin-styles/admin-styles-ui.php:762
+#: includes/features/admin-styles/admin-styles.php:891
+#, php-format
+msgid "Save for %s"
+msgstr "%s에 대해 저장"
+
+#: includes/admin-notices/admin-notices-settings.php:77
+msgid "Notification center access"
+msgstr "알림 센터 접근"
+
+#: includes/admin-notices/admin-notices-settings.php:88
+#, php-format
+msgid "Enable %1$s access to the Admin Notices area."
+msgstr "%1$s의 Admin Notices 영역에 대한 액세스를 활성화합니다."
+
+#: includes/admin-notices/admin-notices-settings.php:95
+msgid "Notifications to remove from WordPress admin pages"
+msgstr "워드프레스 관리자 페이지에서 제거할 알림입니다."
+
+#: includes/admin-notices/admin-notices-settings.php:112
+#, php-format
+msgid ""
+"Select the notification types that should be hidden when a user in the %1$s "
+"role is viewing WordPress admin screens."
+msgstr "%1$s 역할을 가진 사용자가 WordPress 관리 화면을 볼 때 숨겨야 할 알림 유형을 선택합니다."
+
+#: includes/admin-notices/admin-notices-settings.php:112
+#: includes/admin-notices/admin-notices-settings.php:135
+msgid "Click here for more on notice types."
+msgstr "알림 유형에 대한 자세한 내용을 보려면 여기를 클릭하십시오."
+
+#: includes/admin-notices/admin-notices-settings.php:118
+msgid "Notifications to display in the Admin Notices area."
+msgstr "관리자 알림 영역에 표시할 알림입니다."
+
+#: includes/admin-notices/admin-notices-settings.php:135
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr "WordPress 관리 화면에서 제거된 후 Admin Notices 영역에 표시되어야 하는 알림 유형을 선택하십시오."
+
+#: includes/admin-notices/admin-notices-settings.php:168
+msgid ""
+"Admin Notices allows you to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into one place."
+msgstr "Admin Notices는 추가 메시지와 광고를 한 곳에 정리하여 WordPress 관리 영역을 정리할 수 있도록 합니다."
+
+#: includes/admin-notices/admin-notices-settings.php:170
+#: includes/features/admin-styles/admin-styles-ui.php:777
+msgid "Features include:"
+msgstr "포함된 기능:"
+
+#: includes/admin-notices/admin-notices-settings.php:172
+msgid "Move selected notice types out of admin pages"
+msgstr "선택한 알림 유형을 관리 페이지에서 이동합니다"
+
+#: includes/admin-notices/admin-notices-settings.php:173
+msgid "Show selected notices in a dedicated Admin Notices panel"
+msgstr "전용 Admin Notices 패널에 선택한 알림 표시"
+
+#: includes/admin-notices/admin-notices-settings.php:174
+msgid "Configure notice visibility by user role"
+msgstr "사용자 역할별로 알림 가시성 구성"
+
+#: includes/admin-notices/admin-notices-settings.php:176
+#: includes/admin.php:2014
+#: includes/features/admin-features.php:351
+#: includes/features/admin-styles/admin-styles-ui.php:784
+#: includes/features/editor-features.php:245
+#: includes/features/frontend-features/frontend-features.php:254
+#: includes/features/nav-menus.php:308
+#: includes/features/profile-features.php:256
+#: includes/redirects/redirects.php:335
+msgid "View Documentation"
+msgstr "문서 보기"
+
+#: includes/admin-notices/admin-notices-settings.php:177
+msgid "How to use Admin Notices"
+msgstr "Admin Notices 사용 방법"
 
 #: includes/admin-notices/admin-notices.php:72
 msgid "Display this notice"
@@ -305,14 +426,6 @@ msgid ""
 "receive a notification if it appears again."
 msgstr "이 알림은 \"침묵된 알림\" 탭으로 이동되며, 다시 나타나도 알림을 받지 않습니다."
 
-#: includes/admin-notices/admin-notices.php:179
-#: includes/admin-notices/admin-notices.php:217
-#: includes/admin-notices/admin-notices.php:220
-#: includes/functions-admin.php:424
-#: includes/settings-ui.php:37
-msgid "Admin Notices"
-msgstr "관리자 알림"
-
 #: includes/admin-notices/admin-notices.php:204
 msgid "Hidden Notices"
 msgstr "숨겨진 공지"
@@ -330,6 +443,8 @@ msgid "Edit the settings."
 msgstr "설정을 수정하세요."
 
 #: includes/admin-notices/admin-notices.php:241
+#: includes/manager.php:771
+#: includes/manager.php:795
 msgid "You do not have permission to manage admin notices."
 msgstr "관리 알림을 관리할 권한이 없습니다."
 
@@ -371,7 +486,7 @@ msgid "Search capabilities..."
 msgstr "기능 검색..."
 
 #: includes/admin.php:207
-#: includes/admin.php:802
+#: includes/admin.php:846
 msgid "Nav Menus (Block)"
 msgstr "내비게이션 메뉴 (블록)"
 
@@ -380,7 +495,7 @@ msgid "Block"
 msgstr "차단"
 
 #: includes/admin.php:216
-#: includes/admin.php:804
+#: includes/admin.php:848
 msgid "Nav Menus (Legacy)"
 msgstr "내비게이션 메뉴 (레거시)"
 
@@ -388,7 +503,7 @@ msgstr "내비게이션 메뉴 (레거시)"
 msgid "Legacy"
 msgstr "레거시"
 
-#: includes/admin.php:270
+#: includes/admin.php:270, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
@@ -470,105 +585,105 @@ msgid "Can delete posts which are currently published with private visibility."
 msgstr "현재 비공개 상태로 게시된 게시물을 삭제할 수 있습니다."
 
 #: includes/admin.php:598
-#: includes/admin.php:1069
-#: includes/admin.php:1811
+#: includes/admin.php:1113
+#: includes/admin.php:2103
 msgid "Multisite"
 msgstr "멀티사이트"
 
 #: includes/admin.php:602
-#: includes/admin.php:1073
+#: includes/admin.php:1117
 msgid "Admin"
 msgstr "관리자"
 
-#: includes/admin.php:638
-#: includes/admin.php:1395
+#: includes/admin.php:682
+#: includes/admin.php:1596
 msgid "Invalid Capabilities"
 msgstr "잘못된 기능들"
 
-#: includes/admin.php:643
+#: includes/admin.php:687
 msgid "Additional"
 msgstr "추가"
 
-#: includes/admin.php:677
+#: includes/admin.php:721
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "용어 %s 권한"
 
-#: includes/admin.php:680
+#: includes/admin.php:724
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s 기능"
 
-#: includes/admin.php:681
+#: includes/admin.php:725
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "게시물 %s 기능"
 
-#: includes/admin.php:684
+#: includes/admin.php:728
 msgid "Taxonomy"
 msgstr "분류학"
 
-#: includes/admin.php:690
+#: includes/admin.php:734
 msgid "Filter by taxonomy"
 msgstr "분류로 필터링"
 
-#: includes/admin.php:690
+#: includes/admin.php:734
 msgid "Filter by post type"
 msgstr "게시물 유형별 필터링"
 
-#: includes/admin.php:811
+#: includes/admin.php:855
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "이 분류의 슬러그는 %s입니다"
 
-#: includes/admin.php:813
+#: includes/admin.php:857
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "이 게시물 유형의 슬러그는 %s입니다"
 
-#: includes/admin.php:889
-#: includes/admin.php:1138
-#: includes/admin.php:1316
-#: includes/admin.php:1586
-#: includes/admin.php:1587
+#: includes/admin.php:933
+#: includes/admin.php:1182
+#: includes/admin.php:1514
+#: includes/admin.php:1877
+#: includes/admin.php:1878
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: 권한 그룹에 의해 할당됨"
 
-#: includes/admin.php:892
-#: includes/admin.php:1140
-#: includes/admin.php:1318
-#: includes/admin.php:1443
-#: includes/admin.php:1589
+#: includes/admin.php:936
+#: includes/admin.php:1184
+#: includes/admin.php:1516
+#: includes/admin.php:1644
+#: includes/admin.php:1880
 #, php-format
 msgid "This capability is %s"
 msgstr "이 권한은 %s입니다"
 
-#: includes/admin.php:922
+#: includes/admin.php:966
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "이 기능은 %s에 의해 제어됩니다."
 
-#: includes/admin.php:925
+#: includes/admin.php:969
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
 "to be controlled independently."
 msgstr "이 기능은 %s에 의해 제어됩니다. 사이드바 설정을 사용하여 독립적으로 제어할 수 있도록 하세요."
 
-#: includes/admin.php:942
+#: includes/admin.php:986
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "사이드바 설정을 사용하여 이를 독립적으로 제어할 수 있도록 하세요."
 
-#: includes/admin.php:944
-#: includes/admin.php:948
+#: includes/admin.php:988
+#: includes/admin.php:992
 msgid "This capability is not available for this post type."
 msgstr "이 기능은 이 게시물 유형에서 사용할 수 없습니다."
 
-#: includes/admin.php:1012
+#: includes/admin.php:1056
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -578,82 +693,90 @@ msgstr ""
 "관리자 목록 접근은 일반적으로 \"편집\" 기능에 의해 제공됩니다. 이러한 \"목록\" 기능은 해당 \"편집\" 기능이 누락된 경우에만 "
 "적용됩니다. 또한, 이러한 \"목록\" 기능은 접근을 부여할 수 있지만, 접근을 거부할 수는 없습니다."
 
-#: includes/admin.php:1089
-#: includes/admin.php:1208
-#: includes/admin.php:1267
-#: includes/admin.php:1511
+#: includes/admin.php:1133
+#: includes/admin.php:1252
+#: includes/admin.php:1441
+#: includes/admin.php:1712
 msgid "Filter by capability"
 msgstr "기능별 필터링"
 
-#: includes/admin.php:1092
-#: includes/admin.php:1211
-#: includes/admin.php:1270
-#: includes/admin.php:1514
+#: includes/admin.php:1136
+#: includes/admin.php:1255
+#: includes/admin.php:1444
+#: includes/admin.php:1715
 msgid "No results found. Please try again with a different word."
 msgstr "결과가 발견되지 않았습니다. 다른 단어로 다시 시도해 주세요."
 
-#: includes/admin.php:1103
-#: includes/admin.php:1185
-#: includes/admin.php:1222
-#: includes/admin.php:1231
-#: includes/admin.php:1281
-#: includes/admin.php:1377
-#: includes/admin.php:1520
-#: includes/admin.php:1660
+#: includes/admin.php:1147
+#: includes/admin.php:1229
+#: includes/admin.php:1266
+#: includes/admin.php:1275
+#: includes/admin.php:1455
+#: includes/admin.php:1578
+#: includes/admin.php:1721
+#: includes/admin.php:1952
 msgid "check / uncheck all"
 msgstr "모두 선택 / 선택 해제"
 
-#: includes/admin.php:1103
-#: includes/admin.php:1185
-#: includes/admin.php:1222
-#: includes/admin.php:1231
-#: includes/admin.php:1281
-#: includes/admin.php:1377
-#: includes/admin.php:1520
-#: includes/admin.php:1660
+#: includes/admin.php:1147
+#: includes/admin.php:1229
+#: includes/admin.php:1266
+#: includes/admin.php:1275
+#: includes/admin.php:1455
+#: includes/admin.php:1578
+#: includes/admin.php:1721
+#: includes/admin.php:1952
 msgid "Capability Name"
 msgstr "기능 이름"
 
-#: includes/admin.php:1205
+#: includes/admin.php:1249
 msgid "WordPress Core Capabilities"
 msgstr "워드프레스 코어 기능"
 
-#: includes/admin.php:1264
+#: includes/admin.php:1421
+#: includes/admin.php:1478
+#: includes/admin.php:1800
+#: includes/features/admin-styles/admin-styles.php:1694
+#: includes/roles/class/class-pp-roles-admin.php:106
+msgid "General"
+msgstr "일반"
+
+#: includes/admin.php:1438
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "플러그인 기능 &ndash; %s"
 
-#: includes/admin.php:1322
+#: includes/admin.php:1520
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "사용자 테스트 기능은 또한 %1$s edit_users %2$s 권한이 필요합니다."
 
-#: includes/admin.php:1400
+#: includes/admin.php:1601
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
 msgstr "다음 항목은 아무런 영향을 미치지 않습니다. 편집/삭제/비공개 탭에서 원하는 권한을 할당해 주십시오."
 
-#: includes/admin.php:1508
+#: includes/admin.php:1709
 msgid "Additional Capabilities"
 msgstr "추가 기능"
 
-#: includes/admin.php:1653
+#: includes/admin.php:1945
 msgid "You have no additional capabilities."
 msgstr "추가 기능이 없습니다."
 
-#: includes/admin.php:1677
+#: includes/admin.php:1969
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "권한을 사용하면 모든 사용자 역할의 권한을 변경할 수 있습니다."
 
-#: includes/admin.php:1678
+#: includes/admin.php:1970
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = 기능이 부여됨 %2$s"
 
-#: includes/admin.php:1678
-#: includes/admin.php:1679
-#: includes/admin.php:1680
+#: includes/admin.php:1970
+#: includes/admin.php:1971
+#: includes/admin.php:1972
 #: includes/features/admin-features.php:346
 #: includes/features/admin-features.php:348
 #: includes/features/editor-features.php:240
@@ -667,47 +790,36 @@ msgstr "%1$s = 기능이 부여됨 %2$s"
 msgid "usage key"
 msgstr "사용 키"
 
-#: includes/admin.php:1679
+#: includes/admin.php:1971
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = 기능이 부여되지 않음 %2$s"
 
-#: includes/admin.php:1680
+#: includes/admin.php:1972
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = 다른 역할 %2$s에 의해 부여되었더라도 기능이 거부됨"
 
-#: includes/admin.php:1688
+#: includes/admin.php:1980
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "이 역할을 %s권한 그룹%s으로 구성할 수도 있습니다."
 
-#: includes/admin.php:1708
+#: includes/admin.php:2000
 msgid "How to use Capabilities"
 msgstr "역량 사용 방법"
 
-#: includes/admin.php:1722
-#: includes/features/admin-features.php:351
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/editor-features.php:245
-#: includes/features/frontend-features/frontend-features.php:254
-#: includes/features/nav-menus.php:308
-#: includes/features/profile-features.php:256
-#: includes/redirects/redirects.php:335
-msgid "View Documentation"
-msgstr "문서 보기"
-
-#: includes/admin.php:1746
+#: includes/admin.php:2038
 msgid "Capabilities is Safe to Use"
 msgstr "기능은 안전하게 사용할 수 있습니다"
 
-#: includes/admin.php:1759
+#: includes/admin.php:2051
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
 msgstr "워드프레스는 역할 권한을 데이터베이스에 저장하며, 플러그인이 비활성화되더라도 남아 있습니다."
 
-#: includes/admin.php:1760
+#: includes/admin.php:2052
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -715,142 +827,142 @@ msgstr ""
 "PublishPress Capabilities를 사용하여 변경 사항을 저장할 때마다 이전 구성을 복원하는 데 사용할 수 있는 백업이 "
 "생성됩니다."
 
-#: includes/admin.php:1763
+#: includes/admin.php:2055
 msgid "Go to the Backup feature"
 msgstr "백업 기능으로 이동"
 
-#: includes/admin.php:1782
+#: includes/admin.php:2074
 msgid "Add a New Capability"
 msgstr "새 기능 추가"
 
-#: includes/admin.php:1792
+#: includes/admin.php:2084
 msgid "Add to role"
 msgstr "역할에 추가"
 
-#: includes/admin.php:1795
+#: includes/admin.php:2087
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "새로운 기능은 추가 탭에서 제어됩니다."
 
-#: includes/admin.php:1851
+#: includes/admin.php:2143
 msgid "PublishPress Permissions"
 msgstr "퍼블리시프레스 권한"
 
-#: includes/admin.php:1853
+#: includes/admin.php:2145
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
 msgstr "사용자 지정 게시물 유형 및 분류법에 대해 유형별 기능을 자동으로 정의합니다"
 
-#: includes/admin.php:1857
+#: includes/admin.php:2149
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "특정 게시물 유형에 대해 표준 WP 역할을 보조적으로 할당하세요"
 
-#: includes/admin.php:1861
+#: includes/admin.php:2153
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr "특정 게시물 유형에 대해 사용자 지정 WP 역할을 보조적으로 할당하세요 <em>(Pro)</em>"
 
-#: includes/admin.php:1865
+#: includes/admin.php:2157
 msgid "Customize reading permissions per-category or per-post"
 msgstr "카테고리별 또는 게시물별 읽기 권한 커스터마이즈"
 
-#: includes/admin.php:1869
+#: includes/admin.php:2161
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "카테고리별 또는 게시물별 편집 권한 커스터마이즈 <em>(Pro)</em>"
 
-#: includes/admin.php:1873
+#: includes/admin.php:2165
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
 msgstr "wp-admin 전반에 걸쳐 완전히 구현된 사용자 정의 게시물 가시성 상태 <em>(Pro)</em>"
 
-#: includes/admin.php:1877
+#: includes/admin.php:2169
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
 msgstr "접근 제어가 있는 다단계 게시 워크플로우를 위한 사용자 정의 중재 상태 <em>(Pro)</em>"
 
-#: includes/admin.php:1881
+#: includes/admin.php:2173
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "편집 흐름 게시 상태에 대한 권한 규제 <em>(프로)</em>"
 
-#: includes/admin.php:1885
+#: includes/admin.php:2177
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
 msgstr "Revisionary 또는 Post Forking을 통한 게시된 콘텐츠의 중재된 편집 커스터마이즈 <em>(Pro)</em>"
 
-#: includes/admin.php:1889
+#: includes/admin.php:2181
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
 msgstr "특정 bbPress 포럼에 관람자, 참가자 또는 중재자 접근 권한 부여 <em>(프로)</em>"
 
-#: includes/admin.php:1893
+#: includes/admin.php:2185
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "BuddyPress 그룹에 보조 콘텐츠 권한 부여 <em>(프로)</em>"
 
-#: includes/admin.php:1897
+#: includes/admin.php:2189
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "WPML 통합으로 번역에 대한 권한을 미러링합니다 <em>(전문)</em>"
 
-#: includes/admin.php:1901
+#: includes/admin.php:2193
 msgid "Member support forum"
 msgstr "회원 지원 포럼"
 
-#: includes/admin.php:1908
-#, php-format
+#: includes/admin.php:2200
+#, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:1908
+#: includes/admin.php:2200
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (무료 설치)"
 
-#: includes/admin.php:1910
-#, php-format
+#: includes/admin.php:2202
+#, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:1910
+#: includes/admin.php:2202
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s 정보/구매"
 
-#: includes/admin.php:1942
+#: includes/admin.php:2234
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
 "capabilities."
 msgstr "역할 수준은 대부분 사용되지 않습니다. 그러나 여전히 게시물 작성자 할당 자격을 결정하고 사용자 편집 기능의 적용을 제한합니다."
 
-#: includes/admin.php:1944
+#: includes/admin.php:2236
 msgid "Level:"
 msgstr "레벨:"
 
-#: includes/admin.php:1987
+#: includes/admin.php:2279
 msgid "Create this role definition in new (future) sites"
 msgstr "이 역할 정의를 새로운(미래의) 사이트에 생성"
 
-#: includes/admin.php:1987
+#: includes/admin.php:2279
 msgid "Include in new sites."
 msgstr "새 사이트에 포함하기."
 
-#: includes/admin.php:1990
+#: includes/admin.php:2282
 msgid "Copy / update this role definition to all sites now"
 msgstr "이 역할 정의를 모든 사이트에 지금 복사 / 업데이트합니다"
 
-#: includes/admin.php:1990
+#: includes/admin.php:2282
 msgid "Sync role to all sites."
 msgstr "모든 사이트에 역할 동기화."
 
-#: includes/admin.php:1993
+#: includes/admin.php:2285
 msgid "Copy option settings to all sites now"
 msgstr "모든 사이트에 옵션 설정 복사"
 
-#: includes/admin.php:1993
+#: includes/admin.php:2285
 msgid "Sync options to all sites."
 msgstr "모든 사이트에 옵션 동기화."
 
@@ -919,7 +1031,7 @@ msgid "Restore"
 msgstr "복원"
 
 #: includes/backup.php:51
-#: includes/functions-admin.php:527
+#: includes/functions-admin.php:567
 msgid "Backup"
 msgstr "백업"
 
@@ -1150,7 +1262,7 @@ msgid "Edit"
 msgstr "편집"
 
 #: includes/features/admin-features.php:344
-#: includes/functions-admin.php:390
+#: includes/functions-admin.php:420
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
@@ -1183,771 +1295,827 @@ msgstr "관리자 기능 설정"
 msgid "Hide Submenus"
 msgstr "하위 메뉴 숨기기"
 
-#: includes/features/admin-styles/admin-styles-ui.php:61
+#: includes/features/admin-styles/admin-styles-ui.php:55
+msgid "Select a preset font family"
+msgstr "미리 설정된 글꼴 가족 선택"
+
+#: includes/features/admin-styles/admin-styles-ui.php:77
 #, php-format
 msgid "Custom style \"%s\" saved successfully."
 msgstr "사용자 정의 스타일 \"%s\"가 성공적으로 저장되었습니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:70
+#: includes/features/admin-styles/admin-styles-ui.php:86
 #, php-format
 msgid "Custom style \"%s\" deleted successfully."
 msgstr "사용자 정의 스타일 \"%s\"가 성공적으로 삭제되었습니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:79
+#: includes/features/admin-styles/admin-styles-ui.php:95
 msgid "Custom style name cannot be empty."
 msgstr "사용자 정의 스타일 이름은 비어 있을 수 없습니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:88
+#: includes/features/admin-styles/admin-styles-ui.php:104
 msgid "Admin styles saved successfully."
 msgstr "관리자 스타일이 성공적으로 저장되었습니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:95
-#: includes/functions-admin.php:221
-#: includes/functions-admin.php:394
-#: includes/functions-admin.php:483
+#: includes/features/admin-styles/admin-styles-ui.php:112
+#: includes/functions-admin.php:233
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:516
 msgid "Admin Styles"
 msgstr "관리자 스타일"
 
-#: includes/features/admin-styles/admin-styles-ui.php:135
-#: includes/features/admin-styles/admin-styles-ui.php:601
-#: includes/redirects/redirects.php:117
-#: includes/redirects/redirects.php:320
-msgid "Save for all Roles"
-msgstr "모든 역할에 대해 저장"
-
-#: includes/features/admin-styles/admin-styles-ui.php:139
-#: includes/features/admin-styles/admin-styles-ui.php:605
-#: includes/features/admin-styles/admin-styles.php:771
-#, php-format
-msgid "Save for %s"
-msgstr "%s에 대해 저장"
-
-#: includes/features/admin-styles/admin-styles-ui.php:157
+#: includes/features/admin-styles/admin-styles-ui.php:174
 msgid "Setting"
 msgstr "설정"
 
-#: includes/features/admin-styles/admin-styles-ui.php:160
+#: includes/features/admin-styles/admin-styles-ui.php:177
 msgid "Value"
 msgstr "값"
 
-#: includes/features/admin-styles/admin-styles-ui.php:169
+#: includes/features/admin-styles/admin-styles-ui.php:186
 msgid "Admin Color Scheme"
 msgstr "관리자 색 구성표"
 
-#: includes/features/admin-styles/admin-styles-ui.php:172
+#: includes/features/admin-styles/admin-styles-ui.php:189
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
 msgstr "모든 사용자의 관리자 색 구성표를 설정합니다. 미리보려면 색 구성표를 클릭하세요."
 
-#: includes/features/admin-styles/admin-styles-ui.php:176
+#: includes/features/admin-styles/admin-styles-ui.php:193
 msgid "Start from template"
 msgstr "템플릿에서 시작"
 
-#: includes/features/admin-styles/admin-styles-ui.php:180
+#: includes/features/admin-styles/admin-styles-ui.php:197
 msgid "Blank Template"
 msgstr "빈 템플릿"
 
-#: includes/features/admin-styles/admin-styles-ui.php:190
+#: includes/features/admin-styles/admin-styles-ui.php:207
 msgid "Add Custom Style"
 msgstr "사용자 정의 스타일 추가"
 
-#: includes/features/admin-styles/admin-styles-ui.php:220
+#: includes/features/admin-styles/admin-styles-ui.php:237
 msgid "Edit custom style"
 msgstr "사용자 정의 스타일 편집"
 
-#: includes/features/admin-styles/admin-styles-ui.php:268
+#: includes/features/admin-styles/admin-styles-ui.php:285
 msgid "Edit Color Style"
 msgstr "색상 스타일 편집"
 
-#: includes/features/admin-styles/admin-styles-ui.php:271
+#: includes/features/admin-styles/admin-styles-ui.php:288
 msgid ""
 "Customize colors for different admin elements. Changes are previewed "
 "instantly."
 msgstr "다양한 관리자 요소에 대한 색상을 사용자 지정하세요. 변경 사항은 즉시 미리보기됩니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:302
+#: includes/features/admin-styles/admin-styles-ui.php:319
 msgid ""
 "Add more than one custom admin styles. This feature is available in "
 "PublishPress Capabilities Pro."
 msgstr "하나 이상의 사용자 정의 관리자 스타일을 추가하십시오. 이 기능은 PublishPress 기능 Pro에서 사용할 수 있습니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:326
+#: includes/features/admin-styles/admin-styles-ui.php:343
 msgid ""
 "Add CSS selectors (class or ID), choose a style variation, and set a brand "
 "color."
 msgstr "CSS 선택자(클래스 또는 ID)를 추가하고, 스타일 변형을 선택하고, 브랜드 색상을 설정하세요."
 
-#: includes/features/admin-styles/admin-styles-ui.php:332
+#: includes/features/admin-styles/admin-styles-ui.php:349
 msgid "Add New Element"
 msgstr "새 요소 추가"
 
-#: includes/features/admin-styles/admin-styles-ui.php:338
+#: includes/features/admin-styles/admin-styles-ui.php:355
 msgid "Selector"
 msgstr "선택자"
 
-#: includes/features/admin-styles/admin-styles-ui.php:342
+#: includes/features/admin-styles/admin-styles-ui.php:359
 msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
 msgstr "예: .publishpress-wrap h1, #my-plugin-header"
 
-#: includes/features/admin-styles/admin-styles-ui.php:345
+#: includes/features/admin-styles/admin-styles-ui.php:362
 msgid "Variation"
 msgstr "변형"
 
-#: includes/features/admin-styles/admin-styles-ui.php:348
+#: includes/features/admin-styles/admin-styles-ui.php:365
 msgid "Background"
 msgstr "배경"
 
-#: includes/features/admin-styles/admin-styles-ui.php:349
+#: includes/features/admin-styles/admin-styles-ui.php:366
 msgid "Text"
 msgstr "텍스트"
 
-#: includes/features/admin-styles/admin-styles-ui.php:350
+#: includes/features/admin-styles/admin-styles-ui.php:367
 msgid "Border"
 msgstr "테두리"
 
-#: includes/features/admin-styles/admin-styles-ui.php:354
+#: includes/features/admin-styles/admin-styles-ui.php:371
 msgid "Brand Color"
 msgstr "브랜드 색상"
 
-#: includes/features/admin-styles/admin-styles-ui.php:364
-#: includes/features/admin-styles/admin-styles-ui.php:479
-#: includes/features/admin-styles/admin-styles-ui.php:515
+#: includes/features/admin-styles/admin-styles-ui.php:381
+#: includes/features/admin-styles/admin-styles-ui.php:496
+#: includes/features/admin-styles/admin-styles-ui.php:532
 msgid "Remove"
 msgstr "제거"
 
-#: includes/features/admin-styles/admin-styles-ui.php:380
-#: includes/features/admin-styles/admin-styles.php:787
+#: includes/features/admin-styles/admin-styles-ui.php:397
+#: includes/features/admin-styles/admin-styles.php:907
 msgid "Custom Style Name"
 msgstr "사용자 정의 스타일 이름"
 
-#: includes/features/admin-styles/admin-styles-ui.php:388
+#: includes/features/admin-styles/admin-styles-ui.php:405
 msgid "e.g., Company Branding, Dark Mode"
 msgstr "예: 회사 브랜드, 다크 모드"
 
-#: includes/features/admin-styles/admin-styles-ui.php:424
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:441
+#: includes/features/admin-styles/admin-styles-ui.php:451
 msgid "Cancel"
 msgstr "취소"
 
-#: includes/features/admin-styles/admin-styles-ui.php:430
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:447
+#: includes/features/admin-styles/admin-styles-ui.php:451
 msgid "Delete Custom Style"
 msgstr "사용자 정의 스타일 삭제"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:451
 #, php-format
 msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr "이 %1s를 삭제하시겠습니까? %2s %3s"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:451
 msgid "Custom Style"
 msgstr "사용자 정의 스타일"
 
-#: includes/features/admin-styles/admin-styles-ui.php:440
+#: includes/features/admin-styles/admin-styles-ui.php:457
 msgid "Save Custom Style"
 msgstr "사용자 정의 스타일 저장"
 
-#: includes/features/admin-styles/admin-styles-ui.php:454
+#: includes/features/admin-styles/admin-styles-ui.php:471
 msgid "Custom Admin Logo"
 msgstr "사용자 정의 관리자 로고"
 
-#: includes/features/admin-styles/admin-styles-ui.php:457
+#: includes/features/admin-styles/admin-styles-ui.php:474
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
 msgstr "관리 바의 WordPress 아이콘을 대체할 맞춤 로고를 업로드하세요. 권장: 20px x 20px의 SVG 또는 PNG 형식."
 
-#: includes/features/admin-styles/admin-styles-ui.php:474
-#: includes/features/admin-styles/admin-styles-ui.php:510
-#: includes/features/admin-styles/admin-styles.php:767
+#: includes/features/admin-styles/admin-styles-ui.php:491
+#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles.php:887
 msgid "Select Image"
 msgstr "이미지 선택"
 
-#: includes/features/admin-styles/admin-styles-ui.php:489
+#: includes/features/admin-styles/admin-styles-ui.php:506
 msgid "Custom Favicon"
 msgstr "사용자 정의 파비콘"
 
-#: includes/features/admin-styles/admin-styles-ui.php:492
+#: includes/features/admin-styles/admin-styles-ui.php:509
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
 msgstr "관리 영역에 맞춤 아이콘을 업로드하세요. 권장: 16px x 16px 또는 32px x 32px의 SVG 또는 PNG 형식."
 
-#: includes/features/admin-styles/admin-styles-ui.php:524
+#: includes/features/admin-styles/admin-styles-ui.php:541
+msgid "Admin Font Family"
+msgstr "관리 글꼴 가족"
+
+#: includes/features/admin-styles/admin-styles-ui.php:544
+msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
+msgstr "관리 영역의 글꼴 스택을 설정합니다. 예: \"Segoe UI\", sans-serif."
+
+#: includes/features/admin-styles/admin-styles-ui.php:551
+msgid "Preset Fonts"
+msgstr "미리 설정된 글꼴"
+
+#: includes/features/admin-styles/admin-styles-ui.php:552
+msgid "Custom Value"
+msgstr "사용자 정의 값"
+
+#: includes/features/admin-styles/admin-styles-ui.php:578
+msgid "Admin Font Size"
+msgstr "관리 글꼴 크기"
+
+#: includes/features/admin-styles/admin-styles-ui.php:581
+msgid ""
+"Set a base font size for the admin area. Leave empty to use the default "
+"WordPress size."
+msgstr "관리 영역의 기본 글꼴 크기를 설정합니다. 기본 WordPress 크기를 사용하려면 비워 두십시오."
+
+#: includes/features/admin-styles/admin-styles-ui.php:603
+msgid "Typography Overrides"
+msgstr "타이포그래피 재정의"
+
+#: includes/features/admin-styles/admin-styles-ui.php:605
+msgid "Optional target-specific typography rules for common admin elements."
+msgstr "일반 관리 요소를 위한 선택적 대상별 타이포그래피 규칙입니다."
+
+#: includes/features/admin-styles/admin-styles-ui.php:611
+msgid "Body Text"
+msgstr "본문 텍스트"
+
+#: includes/features/admin-styles/admin-styles-ui.php:612
+#: includes/features/admin-styles/admin-styles.php:1720
+msgid "Links"
+msgstr "링크"
+
+#: includes/features/admin-styles/admin-styles-ui.php:613
+msgid "Headings"
+msgstr "제목"
+
+#: includes/features/admin-styles/admin-styles-ui.php:614
+#: includes/features/admin-styles/admin-styles.php:1844
+msgid "Admin Menu"
+msgstr "관리 메뉴"
+
+#: includes/features/admin-styles/admin-styles-ui.php:615
+#: includes/features/admin-styles/admin-styles.php:1886
+msgid "Admin Bar"
+msgstr "관리자 바"
+
+#: includes/features/admin-styles/admin-styles-ui.php:616
+msgid "Form Fields"
+msgstr "양식 필드"
+
+#: includes/features/admin-styles/admin-styles-ui.php:617
+#: includes/features/admin-styles/admin-styles.php:1814
+msgid "Buttons"
+msgstr "버튼"
+
+#: includes/features/admin-styles/admin-styles-ui.php:623
+msgid "Target"
+msgstr "대상"
+
+#: includes/features/admin-styles/admin-styles-ui.php:624
+msgid "Font Family"
+msgstr "글꼴 패밀리"
+
+#: includes/features/admin-styles/admin-styles-ui.php:625
+msgid "Size"
+msgstr "크기"
+
+#: includes/features/admin-styles/admin-styles-ui.php:626
+msgid "Unit"
+msgstr "단위"
+
+#: includes/features/admin-styles/admin-styles-ui.php:637
+msgid "Preset"
+msgstr "프리셋"
+
+#: includes/features/admin-styles/admin-styles-ui.php:638
+#: includes/roles/class/class-pp-roles-list-table.php:403
+msgid "Custom"
+msgstr "사용자 정의"
+
+#: includes/features/admin-styles/admin-styles-ui.php:682
 msgid "Admin Footer Text"
 msgstr "관리자 바닥글 텍스트"
 
-#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles-ui.php:685
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
 msgstr "관리자 바 바닥글의 기본 \"워드프레스로 생성해 주셔서 감사합니다\" 메시지를 교체합니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:541
+#: includes/features/admin-styles/admin-styles-ui.php:699
 msgid "Replace \"Howdy\""
 msgstr "\"안녕하세요\" 교체"
 
-#: includes/features/admin-styles/admin-styles-ui.php:544
+#: includes/features/admin-styles/admin-styles-ui.php:702
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "관리자 바에서 \"안녕하세요\"를 교체합니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:557
+#: includes/features/admin-styles/admin-styles-ui.php:715
 msgid "Control Settings"
 msgstr "제어 설정"
 
-#: includes/features/admin-styles/admin-styles-ui.php:559
+#: includes/features/admin-styles/admin-styles-ui.php:717
 msgid "Control how admin styles are applied to users."
 msgstr "관리자 스타일이 사용자에게 어떻게 적용되는지 제어합니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:568
+#: includes/features/admin-styles/admin-styles-ui.php:726
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "사용자 프로필에서 관리자 색 구성표 설정 숨기기"
 
-#: includes/features/admin-styles/admin-styles-ui.php:570
+#: includes/features/admin-styles/admin-styles-ui.php:728
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
 msgstr "활성화되면, 사용자는 자신의 프로필에서 색 구성표 설정을 볼 수 없거나 변경할 수 없습니다. 역할 기반 설정이 적용됩니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:578
+#: includes/features/admin-styles/admin-styles-ui.php:736
 msgid "Force role settings (override user selection)"
 msgstr "역할 설정 강제 적용 (사용자 선택 무시)"
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/features/admin-styles/admin-styles-ui.php:738
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
 msgstr "활성화되면, 역할 설정이 항상 적용되어 사용자 선택을 무시하며 색 구성표 UI가 그들에게 표시되더라도 적용됩니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:618
+#: includes/features/admin-styles/admin-styles-ui.php:775
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
 msgstr "관리자 스타일을 사용하면 고유한 브랜딩으로 워드프레스 관리자 영역을 사용자화할 수 있습니다."
 
-#: includes/features/admin-styles/admin-styles-ui.php:620
-msgid "Features include:"
-msgstr "포함된 기능:"
-
-#: includes/features/admin-styles/admin-styles-ui.php:622
+#: includes/features/admin-styles/admin-styles-ui.php:779
 msgid "Custom admin color schemes"
 msgstr "사용자 정의 관리자 색 구성표"
 
-#: includes/features/admin-styles/admin-styles-ui.php:623
+#: includes/features/admin-styles/admin-styles-ui.php:780
 msgid "Replace the WordPress logo and favicon"
 msgstr "워드프레스 로고 및 파비콘 교체"
 
-#: includes/features/admin-styles/admin-styles-ui.php:624
+#: includes/features/admin-styles/admin-styles-ui.php:781
 msgid "Custom footer text"
 msgstr "사용자 정의 바닥글 텍스트"
 
-#: includes/features/admin-styles/admin-styles-ui.php:625
+#: includes/features/admin-styles/admin-styles-ui.php:782
 msgid "Replace \"Howdy\" text"
 msgstr "\"안녕하세요\" 텍스트 교체"
 
-#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:785
 msgid "How to use Admin Styles"
 msgstr "관리자 스타일 사용 방법"
 
-#: includes/features/admin-styles/admin-styles.php:454
+#: includes/features/admin-styles/admin-styles.php:574
 msgid "Security check failed."
 msgstr "보안 검사에 실패했습니다."
 
-#: includes/features/admin-styles/admin-styles.php:459
+#: includes/features/admin-styles/admin-styles.php:579
 #: includes/manager.php:741
 msgid "You do not have permission to manage admin styles."
 msgstr "관리 스타일을 관리할 권한이 없습니다."
 
-#: includes/features/admin-styles/admin-styles.php:522
+#: includes/features/admin-styles/admin-styles.php:642
 msgid "No role specified."
 msgstr "지정된 역할이 없습니다."
 
-#: includes/features/admin-styles/admin-styles.php:768
+#: includes/features/admin-styles/admin-styles.php:888
 msgid "Use this Image"
 msgstr "이 이미지 사용"
 
-#: includes/features/admin-styles/admin-styles.php:769
+#: includes/features/admin-styles/admin-styles.php:889
 msgid "Saving..."
 msgstr "저장 중..."
 
-#: includes/features/admin-styles/admin-styles.php:770
+#: includes/features/admin-styles/admin-styles.php:890
 msgid "Settings saved."
 msgstr "설정이 저장되었습니다."
 
-#: includes/features/admin-styles/admin-styles.php:772
+#: includes/features/admin-styles/admin-styles.php:892
 msgid "Current logo preview"
 msgstr "현재 로고 미리보기"
 
-#: includes/features/admin-styles/admin-styles.php:773
+#: includes/features/admin-styles/admin-styles.php:893
 msgid "Add New Custom Style"
 msgstr "새 사용자 정의 스타일 추가"
 
-#: includes/features/admin-styles/admin-styles.php:774
+#: includes/features/admin-styles/admin-styles.php:894
 msgid "Edit Custom Style"
 msgstr "사용자 정의 스타일 편집"
 
-#: includes/features/admin-styles/admin-styles.php:775
+#: includes/features/admin-styles/admin-styles.php:895
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "\"%s\" 사용자 정의 스타일을 삭제하시겠습니까?"
 
-#: includes/features/admin-styles/admin-styles.php:776
+#: includes/features/admin-styles/admin-styles.php:896
 msgid "this custom style"
 msgstr "이 사용자 정의 스타일"
 
-#: includes/features/admin-styles/admin-styles.php:777
+#: includes/features/admin-styles/admin-styles.php:897
 msgid "Primary Button"
 msgstr "기본 버튼"
 
-#: includes/features/admin-styles/admin-styles.php:778
+#: includes/features/admin-styles/admin-styles.php:898
 msgid "Hover State"
 msgstr "호버 상태"
 
-#: includes/features/admin-styles/admin-styles.php:779
+#: includes/features/admin-styles/admin-styles.php:899
 msgid "Notification"
 msgstr "알림"
 
-#: includes/features/admin-styles/admin-styles.php:780
+#: includes/features/admin-styles/admin-styles.php:900
 msgid "Live preview of your custom color scheme"
 msgstr "사용자 지정 색 구성표의 실시간 미리보기"
 
-#: includes/features/admin-styles/admin-styles.php:781
+#: includes/features/admin-styles/admin-styles.php:901
 msgid "Custom Style Name is required."
 msgstr "사용자 지정 스타일 이름은 필수입니다."
 
-#: includes/features/admin-styles/admin-styles.php:782
+#: includes/features/admin-styles/admin-styles.php:902
 msgid "Main Admin Color is required."
 msgstr "주 관리 색상은 필수입니다."
 
-#: includes/features/admin-styles/admin-styles.php:783
+#: includes/features/admin-styles/admin-styles.php:903
 msgid "PublishPress Custom"
 msgstr "PublishPress 사용자 지정"
 
-#: includes/features/admin-styles/admin-styles.php:784
+#: includes/features/admin-styles/admin-styles.php:904
 msgid "Display Name"
 msgstr "표시 이름"
 
-#: includes/features/admin-styles/admin-styles.php:785
+#: includes/features/admin-styles/admin-styles.php:905
 msgid "Change how this style is displayed"
 msgstr "이 스타일의 표시 방식을 변경합니다"
 
-#: includes/features/admin-styles/admin-styles.php:786
+#: includes/features/admin-styles/admin-styles.php:906
 msgid "Enter a name for your custom style"
 msgstr "사용자 지정 스타일의 이름을 입력하십시오"
 
-#: includes/features/admin-styles/admin-styles.php:800
+#: includes/features/admin-styles/admin-styles.php:920
 msgid "Forest"
 msgstr "숲"
 
-#: includes/features/admin-styles/admin-styles.php:817
+#: includes/features/admin-styles/admin-styles.php:937
 msgid "Mint Breeze"
 msgstr "민트 브리즈"
 
-#: includes/features/admin-styles/admin-styles.php:834
+#: includes/features/admin-styles/admin-styles.php:954
 msgid "Cherry"
 msgstr "체리"
 
-#: includes/features/admin-styles/admin-styles.php:851
+#: includes/features/admin-styles/admin-styles.php:971
 msgid "Graphite"
 msgstr "흑연"
 
-#: includes/features/admin-styles/admin-styles.php:868
+#: includes/features/admin-styles/admin-styles.php:988
 msgid "Midnight Teal"
 msgstr "미드나잇 틸"
 
-#: includes/features/admin-styles/admin-styles.php:885
+#: includes/features/admin-styles/admin-styles.php:1005
 msgid "Sunrise"
 msgstr "해돋이"
 
-#: includes/features/admin-styles/admin-styles.php:902
+#: includes/features/admin-styles/admin-styles.php:1022
 msgid "Desert Sand"
 msgstr "사막 모래"
 
-#: includes/features/admin-styles/admin-styles.php:919
+#: includes/features/admin-styles/admin-styles.php:1039
 msgid "Amber Glow"
 msgstr "호박빛 glow"
 
-#: includes/features/admin-styles/admin-styles.php:936
+#: includes/features/admin-styles/admin-styles.php:1056
 msgid "Citrus"
 msgstr "시트러스"
 
-#: includes/features/admin-styles/admin-styles.php:953
+#: includes/features/admin-styles/admin-styles.php:1073
 msgid "Ocean Deep"
 msgstr "깊은 바다"
 
-#: includes/features/admin-styles/admin-styles.php:970
+#: includes/features/admin-styles/admin-styles.php:1090
 msgid "Sage"
 msgstr "세이지"
 
-#: includes/features/admin-styles/admin-styles.php:987
+#: includes/features/admin-styles/admin-styles.php:1107
 msgid "Modern Slate"
 msgstr "모던 슬레이트"
 
-#: includes/features/admin-styles/admin-styles.php:1004
+#: includes/features/admin-styles/admin-styles.php:1124
 msgid "Royal Plum"
 msgstr "로얄 플럼"
 
-#: includes/features/admin-styles/admin-styles.php:1021
+#: includes/features/admin-styles/admin-styles.php:1141
 msgid "Nordic"
 msgstr "노르딕"
 
-#: includes/features/admin-styles/admin-styles.php:1038
+#: includes/features/admin-styles/admin-styles.php:1158
 msgid "Lagoon"
 msgstr "라군"
 
-#: includes/features/admin-styles/admin-styles.php:1055
+#: includes/features/admin-styles/admin-styles.php:1175
 msgid "Ink"
 msgstr "잉크"
 
-#: includes/features/admin-styles/admin-styles.php:1072
+#: includes/features/admin-styles/admin-styles.php:1192
 msgid "Orchid"
 msgstr "오키드"
 
-#: includes/features/admin-styles/admin-styles.php:1089
+#: includes/features/admin-styles/admin-styles.php:1209
 msgid "Cobalt"
 msgstr "코발트"
 
-#: includes/features/admin-styles/admin-styles.php:1106
+#: includes/features/admin-styles/admin-styles.php:1226
 msgid "Stone"
 msgstr "스톤"
 
-#: includes/features/admin-styles/admin-styles.php:1123
+#: includes/features/admin-styles/admin-styles.php:1243
 msgid "Facebook Classic"
 msgstr "페이스북 클래식"
 
-#: includes/features/admin-styles/admin-styles.php:1140
+#: includes/features/admin-styles/admin-styles.php:1260
 msgid "Twitter Classic"
 msgstr "트위터 클래식"
 
-#: includes/features/admin-styles/admin-styles.php:1157
+#: includes/features/admin-styles/admin-styles.php:1277
 msgid "Twitter Modern"
 msgstr "트위터 모던"
 
-#: includes/features/admin-styles/admin-styles.php:1415
-#: includes/roles/class/class-pp-roles-admin.php:106
-msgid "General"
-msgstr "일반"
-
-#: includes/features/admin-styles/admin-styles.php:1416
+#: includes/features/admin-styles/admin-styles.php:1695
 msgid "Main Admin Color settings"
 msgstr "주 관리자 색상 설정"
 
-#: includes/features/admin-styles/admin-styles.php:1419
+#: includes/features/admin-styles/admin-styles.php:1698
 msgid "Main Admin Color"
 msgstr "주 관리자 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1420
+#: includes/features/admin-styles/admin-styles.php:1699
 msgid "Primary brand color"
 msgstr "기본 브랜드 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1423
+#: includes/features/admin-styles/admin-styles.php:1702
 msgid "Text Color"
 msgstr "텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1424
+#: includes/features/admin-styles/admin-styles.php:1703
 msgid "Primary text color"
 msgstr "기본 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1427
+#: includes/features/admin-styles/admin-styles.php:1706
 msgid "Highlight Color"
 msgstr "하이라이트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1428
+#: includes/features/admin-styles/admin-styles.php:1707
 msgid "Used for hovers and highlights"
 msgstr "호버 및 하이라이트에 사용됨"
 
-#: includes/features/admin-styles/admin-styles.php:1431
+#: includes/features/admin-styles/admin-styles.php:1710
 msgid "Notification Color"
 msgstr "알림 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1432
+#: includes/features/admin-styles/admin-styles.php:1711
 msgid "Used for alerts and notifications"
 msgstr "알림 및 경고에 사용됨"
 
-#: includes/features/admin-styles/admin-styles.php:1435
+#: includes/features/admin-styles/admin-styles.php:1714
 msgid "Background Color"
 msgstr "배경 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1436
+#: includes/features/admin-styles/admin-styles.php:1715
 msgid "Page background color"
 msgstr "페이지 배경 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1441
-msgid "Links"
-msgstr "링크"
-
-#: includes/features/admin-styles/admin-styles.php:1442
+#: includes/features/admin-styles/admin-styles.php:1721
 msgid "Link element colors"
 msgstr "링크 요소 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1445
+#: includes/features/admin-styles/admin-styles.php:1724
 msgid "Default Link Color"
 msgstr "기본 링크 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1446
+#: includes/features/admin-styles/admin-styles.php:1725
 msgid "Standard link color"
 msgstr "표준 링크 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1449
+#: includes/features/admin-styles/admin-styles.php:1728
 msgid "Link Hover Color"
 msgstr "링크 호버 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1450
+#: includes/features/admin-styles/admin-styles.php:1729
 msgid "Color on hover"
 msgstr "호버 시 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1453
+#: includes/features/admin-styles/admin-styles.php:1732
 msgid "Delete Link Color"
 msgstr "삭제 링크 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1454
+#: includes/features/admin-styles/admin-styles.php:1733
 msgid "Color for delete/trash actions"
 msgstr "삭제/휴지통 작업을 위한 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1457
+#: includes/features/admin-styles/admin-styles.php:1736
 msgid "Trash Link Color"
 msgstr "휴지통 링크 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1458
+#: includes/features/admin-styles/admin-styles.php:1737
 msgid "Color for trash actions"
 msgstr "휴지통 작업을 위한 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1461
+#: includes/features/admin-styles/admin-styles.php:1740
 msgid "Spam Link Color"
 msgstr "스팸 링크 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1462
+#: includes/features/admin-styles/admin-styles.php:1741
 msgid "Color for spam actions"
 msgstr "스팸 작업을 위한 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1465
+#: includes/features/admin-styles/admin-styles.php:1744
 msgid "Inactive Link Color"
 msgstr "비활성 링크 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1466
+#: includes/features/admin-styles/admin-styles.php:1745
 msgid "Color for inactive items"
 msgstr "비활성 항목을 위한 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1471
+#: includes/features/admin-styles/admin-styles.php:1750
 msgid "Tables"
 msgstr "테이블"
 
-#: includes/features/admin-styles/admin-styles.php:1472
+#: includes/features/admin-styles/admin-styles.php:1751
 msgid "Table element colors"
 msgstr "테이블 요소 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1475
+#: includes/features/admin-styles/admin-styles.php:1754
 msgid "Table Header Background"
 msgstr "테이블 헤더 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1479
+#: includes/features/admin-styles/admin-styles.php:1758
 msgid "Table Header Text"
 msgstr "테이블 헤더 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1483
+#: includes/features/admin-styles/admin-styles.php:1762
 msgid "Table Row Background"
 msgstr "테이블 행 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1487
+#: includes/features/admin-styles/admin-styles.php:1766
 msgid "Table Row Text Color"
 msgstr "테이블 행 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1491
+#: includes/features/admin-styles/admin-styles.php:1770
 msgid "Row Hover Background"
 msgstr "행 호버 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1495
+#: includes/features/admin-styles/admin-styles.php:1774
 msgid "Table Border Color"
 msgstr "테이블 테두리 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1499
+#: includes/features/admin-styles/admin-styles.php:1778
 msgid "Alternate Row Background"
 msgstr "다른 행 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1503
+#: includes/features/admin-styles/admin-styles.php:1782
 msgid "Alternate Row Text Color"
 msgstr "다른 행 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1509
+#: includes/features/admin-styles/admin-styles.php:1788
 msgid "Forms"
 msgstr "양식"
 
-#: includes/features/admin-styles/admin-styles.php:1510
+#: includes/features/admin-styles/admin-styles.php:1789
 msgid "Form input colors"
 msgstr "양식 입력 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1513
+#: includes/features/admin-styles/admin-styles.php:1792
 msgid "Input Border Color"
 msgstr "입력 테두리 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1517
+#: includes/features/admin-styles/admin-styles.php:1796
 msgid "Input Focus Border"
 msgstr "입력 포커스 테두리"
 
-#: includes/features/admin-styles/admin-styles.php:1521
+#: includes/features/admin-styles/admin-styles.php:1800
 msgid "Input Background Color"
 msgstr "입력 배경 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1525
+#: includes/features/admin-styles/admin-styles.php:1804
 msgid "Input Text Color"
 msgstr "입력 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1529
+#: includes/features/admin-styles/admin-styles.php:1808
 msgid "Placeholder Text Color"
 msgstr "플레이스홀더 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1535
-msgid "Buttons"
-msgstr "버튼"
-
-#: includes/features/admin-styles/admin-styles.php:1536
+#: includes/features/admin-styles/admin-styles.php:1815
 msgid "Button colors"
 msgstr "버튼 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1539
+#: includes/features/admin-styles/admin-styles.php:1818
 msgid "Primary Button Background"
 msgstr "주 버튼 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1543
+#: includes/features/admin-styles/admin-styles.php:1822
 msgid "Primary Button Text"
 msgstr "주 버튼 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1547
+#: includes/features/admin-styles/admin-styles.php:1826
 msgid "Primary Button Hover"
 msgstr "주 버튼 호버"
 
-#: includes/features/admin-styles/admin-styles.php:1551
+#: includes/features/admin-styles/admin-styles.php:1830
 msgid "Secondary Button Background"
 msgstr "보조 버튼 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1555
+#: includes/features/admin-styles/admin-styles.php:1834
 msgid "Secondary Button Text"
 msgstr "보조 버튼 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1559
+#: includes/features/admin-styles/admin-styles.php:1838
 msgid "Secondary Button Hover"
 msgstr "보조 버튼 호버"
 
-#: includes/features/admin-styles/admin-styles.php:1565
-msgid "Admin Menu"
-msgstr "관리 메뉴"
-
-#: includes/features/admin-styles/admin-styles.php:1566
+#: includes/features/admin-styles/admin-styles.php:1845
 msgid "Admin menu colors"
 msgstr "관리자 메뉴 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1569
+#: includes/features/admin-styles/admin-styles.php:1848
 msgid "Menu Background"
 msgstr "메뉴 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1573
+#: includes/features/admin-styles/admin-styles.php:1852
 msgid "Menu Text Color"
 msgstr "메뉴 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1577
+#: includes/features/admin-styles/admin-styles.php:1856
 msgid "Menu Icon Color"
 msgstr "메뉴 아이콘 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1581
+#: includes/features/admin-styles/admin-styles.php:1860
 msgid "Menu Hover Background"
 msgstr "메뉴 호버 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1585
+#: includes/features/admin-styles/admin-styles.php:1864
 msgid "Menu Hover Text"
 msgstr "메뉴 호버 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1589
+#: includes/features/admin-styles/admin-styles.php:1868
 msgid "Current Menu Background"
 msgstr "현재 메뉴 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1593
+#: includes/features/admin-styles/admin-styles.php:1872
 msgid "Current Menu Text"
 msgstr "현재 메뉴 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1597
+#: includes/features/admin-styles/admin-styles.php:1876
 msgid "Submenu Background"
 msgstr "서브메뉴 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1601
+#: includes/features/admin-styles/admin-styles.php:1880
 msgid "Submenu Text Color"
 msgstr "서브메뉴 텍스트 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1607
-msgid "Admin Bar"
-msgstr "관리자 바"
-
-#: includes/features/admin-styles/admin-styles.php:1608
+#: includes/features/admin-styles/admin-styles.php:1887
 msgid "Admin bar colors"
 msgstr "관리자 바 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1611
+#: includes/features/admin-styles/admin-styles.php:1890
 msgid "Admin Bar Background"
 msgstr "관리자 바 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1615
+#: includes/features/admin-styles/admin-styles.php:1894
 msgid "Admin Bar Text"
 msgstr "관리자 바 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1619
+#: includes/features/admin-styles/admin-styles.php:1898
 msgid "Admin Bar Icon"
 msgstr "관리자 바 아이콘"
 
-#: includes/features/admin-styles/admin-styles.php:1623
+#: includes/features/admin-styles/admin-styles.php:1902
 msgid "Admin Bar Hover Background"
 msgstr "관리자 바 호버 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1627
+#: includes/features/admin-styles/admin-styles.php:1906
 msgid "Admin Bar Hover Text"
 msgstr "관리자 바 호버 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1633
+#: includes/features/admin-styles/admin-styles.php:1912
 msgid "Dashboard Widgets"
 msgstr "대시보드 위젯"
 
-#: includes/features/admin-styles/admin-styles.php:1634
+#: includes/features/admin-styles/admin-styles.php:1913
 msgid "Dashboard widget colors"
 msgstr "대시보드 위젯 색상"
 
-#: includes/features/admin-styles/admin-styles.php:1637
+#: includes/features/admin-styles/admin-styles.php:1916
 msgid "Widget Background"
 msgstr "위젯 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1641
+#: includes/features/admin-styles/admin-styles.php:1920
 msgid "Widget Border"
 msgstr "위젯 테두리"
 
-#: includes/features/admin-styles/admin-styles.php:1645
+#: includes/features/admin-styles/admin-styles.php:1924
 msgid "Widget Header Background"
 msgstr "위젯 헤더 배경"
 
-#: includes/features/admin-styles/admin-styles.php:1649
+#: includes/features/admin-styles/admin-styles.php:1928
 msgid "Widget Title Text"
 msgstr "위젯 제목 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1653
+#: includes/features/admin-styles/admin-styles.php:1932
 msgid "Widget Body Text"
 msgstr "위젯 본문 텍스트"
 
-#: includes/features/admin-styles/admin-styles.php:1657
+#: includes/features/admin-styles/admin-styles.php:1936
 msgid "Widget Link"
 msgstr "위젯 링크"
 
-#: includes/features/admin-styles/admin-styles.php:1661
+#: includes/features/admin-styles/admin-styles.php:1940
 msgid "Widget Link Hover"
 msgstr "위젯 링크 호버"
 
-#: includes/features/admin-styles/admin-styles.php:1667
+#: includes/features/admin-styles/admin-styles.php:1946
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "고급"
 
-#: includes/features/admin-styles/admin-styles.php:1668
+#: includes/features/admin-styles/admin-styles.php:1947
 msgid "Custom selector color rules"
 msgstr "사용자 지정 선택기 색상 규칙"
 
-#: includes/features/admin-styles/admin-styles.php:1694
-#: includes/features/admin-styles/admin-styles.php:1763
+#: includes/features/admin-styles/admin-styles.php:1973
+#: includes/features/admin-styles/admin-styles.php:2055
 msgid "Default"
 msgstr "기본값"
 
@@ -2001,7 +2169,7 @@ msgid "show Classic Editor controls"
 msgstr "클래식 편집기 제어 표시"
 
 #: includes/features/editor-features.php:238
-#: includes/functions-admin.php:385
+#: includes/functions-admin.php:415
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr "편집기 기능을 사용하면 게시물 편집 화면에서 요소를 제거할 수 있습니다."
 
@@ -2055,9 +2223,9 @@ msgstr "Twenty Twenty-Three 저작권 바닥글 숨기기"
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
-#: includes/functions-admin.php:227
-#: includes/functions-admin.php:409
-#: includes/functions-admin.php:513
+#: includes/functions-admin.php:244
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:553
 msgid "Frontend Features"
 msgstr "프론트엔드 기능"
 
@@ -2205,7 +2373,7 @@ msgid "Enable Frontend Features for %1$s Role"
 msgstr "%1$s 역할에 대한 프론트엔드 기능 활성화"
 
 #: includes/features/frontend-features/frontend-features.php:247
-#: includes/functions-admin.php:410
+#: includes/functions-admin.php:440
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
@@ -2230,7 +2398,7 @@ msgid ""
 msgstr "프론트엔드 메뉴 링크가 없습니다. 탐색 메뉴에 대한 접근을 제어하려면 메뉴 링크를 추가해 주십시오."
 
 #: includes/features/nav-menus.php:301
-#: includes/functions-admin.php:415
+#: includes/functions-admin.php:445
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr "내비게이션 메뉴를 사용하면 프론트엔드 메뉴 링크에 대한 접근을 차단할 수 있습니다."
 
@@ -2275,7 +2443,7 @@ msgid "Refresh Profile Features"
 msgstr "프로필 기능 새로 고침"
 
 #: includes/features/profile-features.php:249
-#: includes/functions-admin.php:400
+#: includes/functions-admin.php:430
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr "프로필 기능을 사용하면 프로필 화면에서 요소를 제거할 수 있습니다."
 
@@ -2328,15 +2496,23 @@ msgstr "사용자 표시 이름"
 msgid "Yoast SEO"
 msgstr "요스트 SEO"
 
-#: includes/features/restrict-admin-features.php:115
+#: includes/features/restrict-admin-features.php:102
+msgid "Edit Post"
+msgstr "게시물 수정"
+
+#: includes/features/restrict-admin-features.php:103
+msgid "Edit Site"
+msgstr "사이트 수정"
+
+#: includes/features/restrict-admin-features.php:189
 msgid "Thank you for creating with WordPress"
 msgstr "WordPress로 제작해 주셔서 감사합니다"
 
-#: includes/features/restrict-admin-features.php:165
+#: includes/features/restrict-admin-features.php:239
 msgid "Welcome panel"
 msgstr "환영 패널"
 
-#: includes/features/restrict-admin-features.php:199
+#: includes/features/restrict-admin-features.php:273
 msgid "Remove Admin Toolbar"
 msgstr "관리자 도구 모음 제거"
 
@@ -2502,116 +2678,116 @@ msgstr "잘못된 역할이 제공되었습니다."
 msgid "Profile features access enabled for this role."
 msgstr "이 역할에 대해 프로필 기능 접근이 활성화되었습니다."
 
-#: includes/functions-admin.php:205
-#: includes/functions-admin.php:384
-#: includes/functions-admin.php:469
+#: includes/functions-admin.php:217
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:502
 #: includes/roles/class/class-pp-roles-admin.php:523
-#: includes/settings-ui.php:35
+#: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "편집기 기능"
 
-#: includes/functions-admin.php:216
-#: includes/functions-admin.php:389
-#: includes/functions-admin.php:476
+#: includes/functions-admin.php:228
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:509
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
 msgstr "관리자 기능"
 
-#: includes/functions-admin.php:231
-#: includes/functions-admin.php:399
-#: includes/functions-admin.php:499
+#: includes/functions-admin.php:248
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:539
 #: includes/roles/class/class-pp-roles-admin.php:525
-#: includes/settings-ui.php:36
+#: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "프로필 기능"
 
-#: includes/functions-admin.php:237
-#: includes/functions-admin.php:404
-#: includes/functions-admin.php:506
+#: includes/functions-admin.php:254
+#: includes/functions-admin.php:434
+#: includes/functions-admin.php:546
 msgid "Redirects"
 msgstr "리디렉션"
 
-#: includes/functions-admin.php:241
+#: includes/functions-admin.php:258
 msgid "Nav Menu"
 msgstr "내비게이션 메뉴"
 
-#: includes/functions-admin.php:375
+#: includes/functions-admin.php:405
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
 msgstr "역할을 사용하면 사이트의 모든 사용자 역할을 생성, 편집 및 삭제할 수 있습니다."
 
-#: includes/functions-admin.php:380
+#: includes/functions-admin.php:410
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr "권한을 사용하면 모든 사용자 역할의 권한을 변경할 수 있습니다."
 
-#: includes/functions-admin.php:395
+#: includes/functions-admin.php:425
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr "관리자 스타일을 사용하면 고유한 브랜딩으로 관리자 영역을 사용자화할 수 있습니다."
 
-#: includes/functions-admin.php:405
+#: includes/functions-admin.php:435
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
 msgstr "리디렉션 기능을 사용하면 등록, 로그인 또는 로그아웃 후 역할에 따라 사용자 리디렉션을 할 수 있습니다."
 
-#: includes/functions-admin.php:414
-#: includes/functions-admin.php:520
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:560
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "내비게이션 메뉴들"
 
-#: includes/functions-admin.php:419
+#: includes/functions-admin.php:449
 #: includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "사용자 테스트"
 
-#: includes/functions-admin.php:420
+#: includes/functions-admin.php:450
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
 msgstr "다른 사용자로 즉시 로그인하여 사이트를 테스트하세요. 현재 사용자가 편집할 수 있는 모든 계정이 포함됩니다."
 
-#: includes/functions-admin.php:425
+#: includes/functions-admin.php:455
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
 msgstr "워드프레스 관리자 화면에서 관리자 알림을 제거하고 이를 단일 영역으로 정리합니다."
 
-#: includes/functions.php:565
+#: includes/functions.php:650
 msgid "Login permission denied."
 msgstr "로그인 권한이 거부되었습니다."
 
-#: includes/functions.php:642
+#: includes/functions.php:742
 msgid "You do not have permission to access this page."
 msgstr "이 페이지에 액세스할 권한이 없습니다."
 
-#: includes/functions.php:707
+#: includes/functions.php:815
 msgid "Need PublishPress Capabilities Support?"
 msgstr "PublishPress 기능 지원이 필요하신가요?"
 
-#: includes/functions.php:712
+#: includes/functions.php:820
 msgid "If you need help or have a new feature request, let us know."
 msgstr "도움이 필요하시거나 새로운 기능 요청이 있으시면 알려주세요."
 
-#: includes/functions.php:714
+#: includes/functions.php:823
 msgid "Request Support"
 msgstr "지원 요청"
 
-#: includes/functions.php:723
+#: includes/functions.php:832
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "자세한 문서는 플러그인 웹사이트에서도 확인할 수 있습니다."
 
-#: includes/functions.php:725
+#: includes/functions.php:834
 msgid "View Knowledge Base"
 msgstr "지식 기반 보기"
 
-#: includes/functions.php:939
+#: includes/functions.php:1066
 msgid "Social Links"
 msgstr "소셜 링크"
 
-#: includes/functions.php:940
+#: includes/functions.php:1067
 msgid "Page Lists"
 msgstr "페이지 목록"
 
@@ -2625,7 +2801,7 @@ msgstr "오류: 새 역할 생성 실패."
 
 #: includes/handler.php:61
 #: includes/handler.php:89
-#: includes/manager.php:1157
+#: includes/manager.php:1219
 msgid "The selected role is not editable."
 msgstr "선택한 역할은 편집할 수 없습니다."
 
@@ -2710,86 +2886,219 @@ msgstr "편집기 기능을 관리할 권한이 없습니다."
 #: includes/manager.php:624
 #: includes/manager.php:678
 #: includes/manager.php:726
-#: includes/manager.php:807
-#: includes/manager.php:889
-#: includes/manager.php:970
+#: includes/manager.php:820
+#: includes/manager.php:869
+#: includes/manager.php:951
+#: includes/manager.php:1032
 msgid "Settings updated."
 msgstr "설정이 업데이트되었습니다."
 
 #: includes/manager.php:640
 #: includes/manager.php:662
-#: includes/manager.php:772
-#: includes/manager.php:823
-#: includes/manager.php:987
+#: includes/manager.php:834
+#: includes/manager.php:885
+#: includes/manager.php:1049
 msgid "You do not have permission to manage admin features."
 msgstr "관리 기능을 관리할 권한이 없습니다."
 
-#: includes/manager.php:794
+#: includes/manager.php:856
 msgid "You do not have permission to manage navigation menus."
 msgstr "내비게이션 메뉴를 관리할 권한이 없습니다."
 
-#: includes/manager.php:845
+#: includes/manager.php:907
 msgid "You do not have permission to manage profile features."
 msgstr "프로필 기능을 관리할 권한이 없습니다."
 
-#: includes/manager.php:905
+#: includes/manager.php:967
 msgid "You do not have permission to manage redirect."
 msgstr "리다이렉트를 관리할 권한이 없습니다."
 
-#: includes/manager.php:927
+#: includes/manager.php:989
 msgid "Invalid form. Reload this page and try again."
 msgstr "잘못된 양식입니다. 이 페이지를 새로 고치고 다시 시도하세요."
 
-#: includes/manager.php:1079
-#: includes/manager.php:1113
-#: includes/manager.php:1131
+#: includes/manager.php:1141
+#: includes/manager.php:1175
+#: includes/manager.php:1193
 msgid "You do not have permission to manage capabilities."
 msgstr "권한을 관리할 권한이 없습니다."
 
-#: includes/manager.php:1145
+#: includes/manager.php:1207
 msgid "New capability added to role."
 msgstr "역할에 새 기능이 추가되었습니다."
 
-#: includes/manager.php:1186
+#: includes/manager.php:1248
 msgid "Bad form Received"
 msgstr "잘못된 양식이 수신되었습니다"
 
-#: includes/manager.php:1306
+#: includes/manager.php:1368
 msgid "You do not have permission to restore roles."
 msgstr "역할을 복원할 권한이 없습니다."
 
-#: includes/manager.php:1344
+#: includes/manager.php:1406
 msgid "You do not have permission to perform this action."
 msgstr "이 작업을 수행할 권한이 없습니다."
 
-#: includes/manager.php:1505
+#: includes/manager.php:1567
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "당신이 %s를 좋아하신다면, 저희에게 %s 평가를 남겨주세요. 감사합니다!"
 
-#: includes/manager.php:1516
+#: includes/manager.php:1578
 msgid "About PublishPress Capabilities"
 msgstr "PublishPress 기능에 대한 정보"
 
-#: includes/manager.php:1516
+#: includes/manager.php:1578
 msgid "About"
 msgstr "정보"
 
-#: includes/manager.php:1518
+#: includes/manager.php:1580
 msgid "Capabilites Documentation"
 msgstr "권한 문서"
 
-#: includes/manager.php:1518
+#: includes/manager.php:1580
 msgid "Documentation"
 msgstr "문서"
 
-#: includes/manager.php:1520
+#: includes/manager.php:1582
 msgid "Contact the PublishPress team"
 msgstr "PublishPress 팀에 문의하기"
 
-#: includes/manager.php:1520
+#: includes/manager.php:1582
 msgid "Contact"
 msgstr "연락처"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:28
+msgid "Permissions & Access"
+msgstr "권한 및 접근"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:29
+msgid "Administer advanced content permissions and visibility rules."
+msgstr "고급 콘텐츠 권한 및 가시성 규칙을 관리합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:30
+msgid "Manage plugin permission settings."
+msgstr "플러그인 권한 설정을 관리합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:31
+msgid "Bypass content restrictions for editorial workflows."
+msgstr "편집 워크플로우를 위해 콘텐츠 제한을 우회합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:32
+msgid "Set custom post statuses for content items."
+msgstr "콘텐츠 항목에 대한 사용자 지정 게시물 상태를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:33
+msgid "Force Quick Edit access when restrictions would otherwise block it."
+msgstr "제한으로 인해 Quick Edit 접근이 차단되는 경우 강제로 접근을 허용합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:35
+msgid "Roles & Groups"
+msgstr "역할 및 그룹"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:36
+msgid "Assign or change role assignments for users."
+msgstr "사용자에 대한 역할 할당을 지정하거나 변경합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:37
+msgid "Create new permission groups."
+msgstr "새 권한 그룹을 생성합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:38
+msgid "Edit existing permission groups."
+msgstr "기존 권한 그룹을 수정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:39
+msgid "Delete permission groups."
+msgstr "권한 그룹을 삭제합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:40
+msgid "Add or remove members from permission groups."
+msgstr "권한 그룹의 구성원을 추가하거나 제거합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:41
+msgid "Create network-wide permission groups in multisite."
+msgstr "멀티사이트에서 네트워크 전체 권한 그룹을 생성합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:42
+msgid "Manage members of network-wide permission groups."
+msgstr "네트워크 전역 권한 그룹의 구성원을 관리합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:44
+msgid "Exception Management"
+msgstr "예외 관리"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:45
+msgid "Set per-item association exceptions."
+msgstr "항목별 연관 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:46
+msgid "Set per-item edit exceptions."
+msgstr "항목별 편집 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:47
+msgid "Set per-item read exceptions."
+msgstr "항목별 읽기 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:48
+msgid "Set per-item revision exceptions."
+msgstr "항목별 수정 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:49
+msgid "Set taxonomy term assignment exceptions."
+msgstr "taxonomy 용어 할당 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:50
+msgid "Set taxonomy term association exceptions."
+msgstr "taxonomy 용어 연관 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:51
+msgid "Set taxonomy term management exceptions."
+msgstr "taxonomy 용어 관리 예외를 설정합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:53
+msgid "Content Associations"
+msgstr "콘텐츠 연관"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:54
+msgid "Associate users or groups with any page."
+msgstr "사용자 또는 그룹을 모든 페이지와 연관시킵니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:55
+msgid "Define and apply custom post statuses."
+msgstr "사용자 정의 게시 상태를 정의하고 적용합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:56
+msgid "Define custom privacy policies for content."
+msgstr "콘텐츠에 대한 사용자 정의 개인 정보 보호 정책을 정의합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:57
+msgid "Moderate any item regardless of authorship."
+msgstr "저자와 관계없이 모든 항목을 관리합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:59
+msgid "Media & Misc"
+msgstr "미디어 및 기타"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:60
+msgid "Edit attachments uploaded by the current user."
+msgstr "현재 사용자가 업로드한 첨부 파일을 편집합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:61
+msgid "List unattached files uploaded by other users."
+msgstr "다른 사용자가 업로드한 첨부되지 않은 파일 목록을 나열합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:62
+msgid "List all media library files."
+msgstr "모든 미디어 라이브러리 파일을 나열합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:63
+msgid "Exempt user from edit-circle restrictions."
+msgstr "사용자를 편집 원 제한에서 면제합니다."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:64
+msgid "Exempt user from read-circle restrictions."
+msgstr "사용자를 읽기 원 제한에서 면제합니다."
 
 #: includes/pp-ui.php:62
 #, php-format
@@ -3281,10 +3590,6 @@ msgstr "당신의 역할"
 msgid "WordPress Core"
 msgstr "워드프레스 코어"
 
-#: includes/roles/class/class-pp-roles-list-table.php:403
-msgid "Custom"
-msgstr "사용자 정의"
-
 #: includes/roles/class/class-pp-roles-list-table.php:695
 msgid "Search Roles"
 msgstr "역할 검색"
@@ -3402,70 +3707,6 @@ msgstr ""
 "항상 프로필 요소를 자동으로 찾으려고 시도합니다. 이는 워드프레스 관리자 영역에 접근할 수 없는 사용자 역할을 업데이트할 때 일시적인 "
 "문제를 일으킬 수 있습니다."
 
-#: includes/settings-ui.php:290
-msgid "Success notices"
-msgstr "성공 알림"
-
-#: includes/settings-ui.php:291
-msgid "Error notices"
-msgstr "오류 알림"
-
-#: includes/settings-ui.php:292
-msgid "Warning notices"
-msgstr "경고 알림"
-
-#: includes/settings-ui.php:293
-msgid "Info notices"
-msgstr "정보 알림"
-
-#: includes/settings-ui.php:302
-msgid ""
-"The feature attempts to clean up the WordPress admin area by organizing "
-"extra messages and advertisements into the Admin Notices area. This will "
-"not remove any messages that appear when you perform an action."
-msgstr ""
-"이 기능은 추가 메시지와 광고를 관리 알림 영역으로 정리하여 WordPress 관리자 영역을 정리하려고 시도합니다. 이는 작업을 수행할 "
-"때 나타나는 메시지는 제거하지 않습니다."
-
-#: includes/settings-ui.php:306
-msgid "Select Role"
-msgstr "역할 선택"
-
-#: includes/settings-ui.php:343
-msgid "Notification center access"
-msgstr "알림 센터 접근"
-
-#: includes/settings-ui.php:352
-#, php-format
-msgid "Enable %1s access to the Admin Notices area."
-msgstr "관리 알림 영역에 대한 %1s 접근을 활성화합니다."
-
-#: includes/settings-ui.php:363
-msgid "Notifications to remove from WordPress admin pages"
-msgstr "워드프레스 관리자 페이지에서 제거할 알림입니다."
-
-#: includes/settings-ui.php:376
-#, php-format
-msgid ""
-"Select the notification types that should be hidden when a user in the %1s "
-"role is viewing WordPress admin screens."
-msgstr "%1s 역할의 사용자가 WordPress 관리 화면을 볼 때 숨겨야 하는 알림 유형을 선택하십시오."
-
-#: includes/settings-ui.php:376
-#: includes/settings-ui.php:398
-msgid "Click here for more on notice types."
-msgstr "알림 유형에 대한 자세한 내용을 보려면 여기를 클릭하십시오."
-
-#: includes/settings-ui.php:385
-msgid "Notifications to display in the Admin Notices area."
-msgstr "관리자 알림 영역에 표시할 알림입니다."
-
-#: includes/settings-ui.php:398
-msgid ""
-"Select the notification types that should be displayed in the Admin Notices "
-"area after been removed from the WordPress admin screens."
-msgstr "WordPress 관리 화면에서 제거된 후 Admin Notices 영역에 표시되어야 하는 알림 유형을 선택하십시오."
-
 #: includes/settings.php:13
 msgid "Capabilities Settings"
 msgstr "기능 설정"
@@ -3512,3 +3753,16 @@ msgstr "사용자 테스트 중: %1$s. %2$s관리자 보기로 돌아가기%3$s"
 #: includes/test-user.php:62
 msgid "Unable to retrieve user data."
 msgstr "사용자 데이터를 검색할 수 없습니다."
+
+#: common/js/admin.dev.js:890
+msgid "Updating Settings..."
+msgstr "설정 업데이트 중..."
+
+#: common/js/admin.dev.js:926
+msgid "Updating access..."
+msgstr "접근 권한 업데이트 중..."
+
+#: common/js/admin.dev.js:945
+#: common/js/admin.dev.js:950
+msgid "Error updating access."
+msgstr "접근 권한 업데이트 중 오류가 발생했습니다."
