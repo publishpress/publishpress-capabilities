@@ -625,3 +625,108 @@ if (!function_exists('pp_capabilities_convert_to_slug')) {
         return $title;
     }
 }
+
+if (!function_exists('pp_capabilities_group_capability_list')) {
+    /**
+     * Flatten grouped capability definitions to a unique capability list.
+     *
+     * @param array $groups
+     *
+     * @return array
+     */
+    function pp_capabilities_group_capability_list($groups)
+    {
+        if (!is_array($groups)) {
+            return [];
+        }
+
+        $caps = [];
+
+        foreach ($groups as $group_caps) {
+            if (empty($group_caps) || !is_array($group_caps)) {
+                continue;
+            }
+
+            foreach ($group_caps as $group_cap_key => $group_cap_value) {
+                if (is_string($group_cap_key) && ('' !== $group_cap_key) && !is_numeric($group_cap_key)) {
+                    $cap_name = sanitize_text_field($group_cap_key);
+                } else {
+                    $cap_name = sanitize_text_field((string) $group_cap_value);
+                }
+
+                if ('' !== $cap_name) {
+                    $caps[$cap_name] = true;
+                }
+            }
+        }
+
+        return array_keys($caps);
+    }
+}
+
+if (!function_exists('pp_capabilities_groups_with_descriptions')) {
+    /**
+     * Normalize grouped capabilities and merge optional description fallbacks.
+     *
+     * @param array $groups
+     * @param array $cap_descriptions
+     *
+     * @return array
+     */
+    function pp_capabilities_groups_with_descriptions($groups, $cap_descriptions = [])
+    {
+        if (!is_array($groups)) {
+            return [];
+        }
+
+        if (!is_array($cap_descriptions)) {
+            $cap_descriptions = [];
+        }
+
+        $normalized_groups = [];
+
+        foreach ($groups as $group_label => $group_caps) {
+            if (empty($group_caps) || !is_array($group_caps)) {
+                continue;
+            }
+
+            $group_label = sanitize_text_field((string) $group_label);
+            if ('' === $group_label) {
+                continue;
+            }
+
+            foreach ($group_caps as $group_cap_key => $group_cap_value) {
+                $cap_name = '';
+                $cap_description = '';
+
+                if (is_string($group_cap_key) && ('' !== $group_cap_key) && !is_numeric($group_cap_key)) {
+                    $cap_name = sanitize_text_field($group_cap_key);
+
+                    if (is_string($group_cap_value)) {
+                        $cap_description = $group_cap_value;
+                    } elseif (is_array($group_cap_value) && !empty($group_cap_value['description']) && is_string($group_cap_value['description'])) {
+                        $cap_description = $group_cap_value['description'];
+                    }
+                } else {
+                    $cap_name = sanitize_text_field((string) $group_cap_value);
+                }
+
+                if ('' === $cap_name) {
+                    continue;
+                }
+
+                if ('' === trim($cap_description) && !empty($cap_descriptions[$cap_name]) && is_string($cap_descriptions[$cap_name])) {
+                    $cap_description = $cap_descriptions[$cap_name];
+                }
+
+                if ('' !== trim($cap_description)) {
+                    $normalized_groups[$group_label][$cap_name] = $cap_description;
+                } else {
+                    $normalized_groups[$group_label][] = $cap_name;
+                }
+            }
+        }
+
+        return $normalized_groups;
+    }
+}

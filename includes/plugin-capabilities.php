@@ -21,8 +21,6 @@ class Plugin_Capabilities
         add_filter('cme_plugin_capabilities', [$this, 'cme_publishpress_capabilities_capabilities']);
         //PublishPress Authors
         add_filter('cme_plugin_capabilities', [$this, 'cme_multiple_authors_capabilities']);
-        //PublishPress Permissions
-        add_filter('cme_plugin_capabilities', [$this, 'cme_presspermit_capabilities']);
         //Gravity Forms
         add_filter('cme_plugin_capabilities', [$this, 'cme_gravityforms_capabilities']);
         //WPML
@@ -68,55 +66,6 @@ class Plugin_Capabilities
             if ($_caps = apply_filters('cme_multiple_authors_capabilities', [])) {
                 $plugin_caps['PublishPress Authors'] = $_caps;
             }
-        }
-
-        return $plugin_caps;
-    }
-
-    /**
-     * PublishPress Permissions
-     *
-     * @param array $plugin_caps
-     *
-     * @return array
-     */
-    public function cme_presspermit_capabilities($plugin_caps)
-    {
-
-        if (defined('PRESSPERMIT_VERSION')) {
-            $plugin_caps['PublishPress Permissions'] = apply_filters(
-                'cme_presspermit_capabilities',
-                [
-                    'edit_own_attachments',
-                    'list_others_unattached_files',
-                    'pp_administer_content',
-                    'pp_assign_roles',
-                    'pp_associate_any_page',
-                    'pp_create_groups',
-                    'pp_create_network_groups',
-                    'pp_define_post_status',
-                    'pp_define_privacy',
-                    'pp_delete_groups',
-                    'pp_edit_groups',
-                    'pp_exempt_edit_circle',
-                    'pp_exempt_read_circle',
-                    'pp_force_quick_edit',
-                    'pp_list_all_files',
-                    'pp_manage_members',
-                    'pp_manage_network_members',
-                    'pp_manage_settings',
-                    'pp_moderate_any',
-                    'pp_set_associate_exceptions',
-                    'pp_set_edit_exceptions',
-                    'pp_set_read_exceptions',
-                    'pp_set_revise_exceptions',
-                    'pp_set_term_assign_exceptions',
-                    'pp_set_term_associate_exceptions',
-                    'pp_set_term_manage_exceptions',
-                    'pp_unfiltered',
-                    'set_posts_status',
-                ]
-            );
         }
 
         return $plugin_caps;
