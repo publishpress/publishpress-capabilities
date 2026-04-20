@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-04-19 17:27+0000\n"
+"PO-Revision-Date: 2026-04-20 22:27+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: tr_TR\n"
@@ -28,6 +28,17 @@ msgstr "https://publishpress.com/capability-manager/"
 
 #: capsman-enhanced.php:9
 #. Description of the plugin
+msgid ""
+"PublishPress Capabilities is the access control plugin for WordPress. You "
+"can manage all your WordPress user roles, from Administrators to "
+"Subscribers."
+msgstr ""
+"PublishPress Yetkilendirme, WordPress için erişim kontrol eklentisidir. Tüm "
+"WordPress kullanıcı rollerinizi, Yöneticilerden Abonelere kadar "
+"yönetebilirsiniz."
+
+#: capsman-enhanced.php:13
+#. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
@@ -38,10 +49,33 @@ msgstr "https://publishpress.com/"
 
 #: capsman-enhanced.php:79
 #, php-format
+msgid ""
+"%1s Error: %2s  PublishPress Capabilities cannot function because another "
+"copy of the plugin is active."
+msgstr ""
+"%1s Hata: %2s  PublishPress Yetkilendirme başka bir eklenti kopyası aktif "
+"olduğu için çalışamaz."
+
+#: capsman-enhanced.php:108
 msgid "This plugin can be deleted."
 msgstr "Bu eklenti silinebilir."
 
 #: includes-core/admin-features-promo.php:74
+msgid ""
+"You can block pages by URL or hide Admin elements by entering a CSS class "
+"or ID. This feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"URL ile sayfaları engelleyebilir veya bir CSS sınıfı veya ID girerek Admin "
+"öğelerini gizleyebilirsiniz. Bu özellik PublishPress Yetkilendirme Pro'da "
+"mevcuttur."
+
+#: includes-core/admin-features-promo.php:79
+#: includes-core/admin-menus-promo.php:62
+#: includes-core/CoreAdmin.php:54
+#: includes-core/editor-features-promo.php:79
+#: includes-core/frontend-features-promo.php:32
+#: includes/admin-load.php:814
+#: includes/features/admin-styles/admin-styles-ui.php:324
 msgid "Upgrade to Pro"
 msgstr "Pro'ya Geç"
 
@@ -50,6 +84,28 @@ msgid "Admin Menu Restrictions"
 msgstr "Admin Menü Kısıtlamaları"
 
 #: includes-core/admin-menus-promo.php:58
+msgid ""
+"You can restrict access to admin menu screens. You can also edit, change, "
+"add, or remove links from the WordPress admin menu. This feature is "
+"available in PublishPress Capabilities Pro."
+msgstr ""
+"Admin menü ekranlarına erişimi kısıtlayabilirsiniz. Ayrıca, WordPress admin "
+"menüsünden bağlantıları düzenleyebilir, değiştirebilir, ekleyebilir veya "
+"kaldırabilirsiniz. Bu özellik PublishPress Yetkilendirme Pro'da mevcuttur."
+
+#: includes-core/CoreAdmin.php:19
+#, php-format
+msgid ""
+"You're using PublishPress Capabilities Free. The Pro version has more "
+"features and support. %sUpgrade to Pro%s"
+msgstr ""
+"PublishPress Yetkilendirme Ücretsiz sürümünü kullanıyorsunuz. Pro versiyonu "
+"daha fazla özellik ve destek sunar. %sPro'ya geçin%s"
+
+#: includes-core/CoreAdmin.php:90
+#: includes-core/CoreAdmin.php:153
+#: includes/functions-admin.php:531
+#: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "Admin Menüler"
 
@@ -62,6 +118,14 @@ msgid "Block by URL"
 msgstr "URL ile Engelle"
 
 #: includes-core/CoreAdmin.php:154
+msgid ""
+"Admin Menus allows you to edit the admin menu links and control who has "
+"access."
+msgstr ""
+"Admin Menüler, admin menü bağlantılarını düzenlemenize ve kimin erişimi "
+"olduğunu kontrol etmenize olanak tanır."
+
+#: includes-core/CoreAdmin.php:164
 msgid "Select pages..."
 msgstr "Sayfaları seçin..."
 
@@ -90,6 +154,16 @@ msgid "TaxoPress - Settings"
 msgstr "TaxoPress - Ayarlar"
 
 #: includes-core/editor-features-promo.php:74
+msgid ""
+"You can hide plugin metaboxes. You can also hide specific items by entering "
+"their CSS class or ID. This feature is available in PublishPress "
+"Capabilities Pro."
+msgstr ""
+"Eklenti metabox'larını gizleyebilirsiniz. Ayrıca, belirli öğeleri CSS "
+"sınıfı veya ID girerek gizleyebilirsiniz. Bu özellik PublishPress "
+"Yetkilendirme Pro'da mevcuttur."
+
+#: includes-core/editor-features-promo.php:89
 msgid "Custom Items"
 msgstr "Özel Öğeler"
 
@@ -106,10 +180,26 @@ msgid "Page Attributes: Order"
 msgstr "Sayfa Özellikleri: Sıra"
 
 #: includes-core/frontend-features-promo.php:25
+msgid ""
+"You can use Frontend Features to target specific posts and pages. This "
+"feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"Frontend Özelliklerini belirli gönderileri ve sayfaları hedeflemek için "
+"kullanabilirsiniz. Bu özellik PublishPress Yetkilendirme Pro'da mevcuttur."
+
+#: includes-core/frontend-features-promo.php:39
 msgid "Select post types..."
 msgstr "Gönderi türlerini seçin..."
 
 #: includes-core/frontend-features-promo.php:44
+msgid ""
+"This will add a metabox on the post editing screen. You can use this "
+"feature to add body classes only for that post."
+msgstr ""
+"Bu, gönderi düzenleme ekranında bir metabox ekleyecektir. Bu özelliği "
+"yalnızca o gönderi için gövde sınıfları eklemek için kullanabilirsiniz."
+
+#: includes/admin-load.php:371
 msgid "Drag multiple roles selection to change roles order."
 msgstr "Rollerin sırasını değiştirmek için birden fazla rol seçimini sürükleyin."
 
@@ -263,6 +353,15 @@ msgstr "WordPress admin sayfalarından kaldırılacak bildirimler"
 
 #: includes/admin-notices/admin-notices-settings.php:112
 #, php-format
+msgid ""
+"Select the notification types that should be hidden when a user in the %1$s "
+"role is viewing WordPress admin screens."
+msgstr ""
+"WordPress admin ekranlarını görüntüleyen %1$s rolündeki bir kullanıcının "
+"gizlenmesi gereken bildirim türlerini seçin."
+
+#: includes/admin-notices/admin-notices-settings.php:112
+#: includes/admin-notices/admin-notices-settings.php:135
 msgid "Click here for more on notice types."
 msgstr "Bildirim türleri hakkında daha fazla bilgi için buraya tıklayın."
 
@@ -271,6 +370,23 @@ msgid "Notifications to display in the Admin Notices area."
 msgstr "Admin Bildirimleri alanında görüntülenecek bildirimler."
 
 #: includes/admin-notices/admin-notices-settings.php:135
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr ""
+"WordPress admin ekranlarından kaldırıldıktan sonra Admin Bildirimleri "
+"alanında görüntülenmesi gereken bildirim türlerini seçin."
+
+#: includes/admin-notices/admin-notices-settings.php:168
+msgid ""
+"Admin Notices allows you to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into one place."
+msgstr ""
+"Admin Bildirimleri, ekstra mesajları ve reklamları bir araya getirerek "
+"WordPress admin alanını temizlemenize olanak tanır."
+
+#: includes/admin-notices/admin-notices-settings.php:170
+#: includes/features/admin-styles/admin-styles-ui.php:777
 msgid "Features include:"
 msgstr "Özellikler şunları içerir:"
 
@@ -323,6 +439,14 @@ msgid "Displayed notices will no longer be removed from admin pages."
 msgstr "Gösterilen bildirimler artık admin sayfalarından kaldırılmayacaktır."
 
 #: includes/admin-notices/admin-notices.php:77
+msgid ""
+"This notice will be moved to the \"Silenced Notices\" tab and you will not "
+"receive a notification if it appears again."
+msgstr ""
+"Bu bildirim \"Susturulmuş Bildirimler\" sekmesine taşınacak ve tekrar "
+"belirse bir bildirim almayacaksınız."
+
+#: includes/admin-notices/admin-notices.php:204
 msgid "Hidden Notices"
 msgstr "Gizli Bildirimler"
 
@@ -360,6 +484,14 @@ msgstr "Admin bildirim durumu başarıyla güncellendi."
 
 #: includes/admin.php:49
 #, php-format
+msgid ""
+"Warning: This role cannot access the dashboard without the read capability. "
+"%1$sClick here to fix this now%2$s."
+msgstr ""
+"Uyarı: Bu rol, okuma yeteneği olmadan dashboard'a erişemez. %1$sBunu şimdi "
+"düzeltmek için buraya tıklayın%2$s."
+
+#: includes/admin.php:84
 msgid "Negate All"
 msgstr "Hepsini İptal Et"
 
@@ -435,6 +567,14 @@ msgid "Can read posts which are currently published with private visibility."
 msgstr "Özel görünürlük ile şu anda yayımlanan gönderileri okuyabilir."
 
 #: includes/admin.php:295
+msgid ""
+"Has basic editing capability (but may need other capabilities based on post "
+"status and ownership)."
+msgstr ""
+"Temel düzenleme yeteneğine sahiptir (ancak gönderi durumu ve sahipliğine "
+"bağlı olarak başka yeteneklere ihtiyaç duyabilir)."
+
+#: includes/admin.php:296
 msgid "Can edit posts which were created by other users."
 msgstr "Diğer kullanıcılar tarafından oluşturulan gönderileri düzenleyebilir."
 
@@ -451,6 +591,14 @@ msgid "Can make a post publicly visible."
 msgstr "Bir gönderiyi herkese açık görünür hale getirebilir."
 
 #: includes/admin.php:300
+msgid ""
+"Has basic deletion capability (but may need other capabilities based on "
+"post status and ownership)."
+msgstr ""
+"Temel silme yeteneğine sahiptir (ancak gönderi durumu ve sahipliğine bağlı "
+"olarak başka yeteneklere ihtiyaç duyabilir)."
+
+#: includes/admin.php:301
 msgid "Can delete posts which were created by other users."
 msgstr "Diğer kullanıcılar tarafından oluşturulan gönderileri silebilir."
 
@@ -547,6 +695,14 @@ msgstr "Bu yetenek %s tarafından kontrol ediliyor"
 
 #: includes/admin.php:969
 #, php-format
+msgid ""
+"This capability is controlled by %s Use the sidebar settings to allow this "
+"to be controlled independently."
+msgstr ""
+"Bu yetenek %s tarafından kontrol edilmektedir. Bunu bağımsız olarak kontrol "
+"etmek için yan menü ayarlarını kullanın."
+
+#: includes/admin.php:986
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "Bunu bağımsız olarak kontrol etmek için yan panel ayarlarını kullanın."
 
@@ -556,6 +712,21 @@ msgid "This capability is not available for this post type."
 msgstr "Bu yetenek bu post tipi için mevcut değil."
 
 #: includes/admin.php:1056
+msgid ""
+"Admin listing access is normally provided by the \"Edit\" capabilities. "
+"These \"List\" capabilities only apply if the corresponding \"Edit\" "
+"capability is missing. Also, these \"List\" capabilities can grant access, "
+"but not deny access."
+msgstr ""
+"Admin listeleme erişimi genellikle \"Düzenle\" yetenekleri ile sağlanır. Bu "
+"\"Liste\" yetenekleri yalnızca karşılık gelen \"Düzenle\" yeteneği eksik "
+"olduğunda geçerlidir. Ayrıca, bu \"Liste\" yetenekleri erişim verebilir, "
+"ancak erişimi reddedemez."
+
+#: includes/admin.php:1133
+#: includes/admin.php:1252
+#: includes/admin.php:1441
+#: includes/admin.php:1712
 msgid "Filter by capability"
 msgstr "Yeteneklere göre filtrele"
 
@@ -611,6 +782,14 @@ msgid "The User Testing feature also requires the %1$s edit_users %2$s capabilit
 msgstr "Kullanıcı Testi özelliği, %1$s edit_users %2$s yeteneğini de gerektirir."
 
 #: includes/admin.php:1601
+msgid ""
+"The following entries have no effect. Please assign desired capabilities on "
+"the Editing / Deletion / Private tabs."
+msgstr ""
+"Aşağıdaki girdilerin hiçbir etkisi yoktur. Lütfen İstediğiniz yetenekleri "
+"Düzenleme / Silme / Özel sekmelerinde atayın."
+
+#: includes/admin.php:1709
 msgid "Additional Capabilities"
 msgstr "Ekstra Yetenekler"
 
@@ -667,6 +846,23 @@ msgid "Capabilities is Safe to Use"
 msgstr "Yetenekler Kullanmak için Güvenlidir"
 
 #: includes/admin.php:2051
+msgid ""
+"WordPress stores role capabilities in your database, where they remain even "
+"if the plugin is deactivated."
+msgstr ""
+"WordPress, rol yeteneklerini veritabanınızda saklar; bu, eklenti devre dışı "
+"bırakıldığında bile saklanır."
+
+#: includes/admin.php:2052
+msgid ""
+"Whenever you use PublishPress Capabilities to save changes, it also creates "
+"a backup which you can use to restore a previous configuration."
+msgstr ""
+"PublishPress Yetkilileri'ni kullanarak değişiklikleri kaydettiğinizde, "
+"ayrıca önceki bir yapılandırmayı geri yüklemek için kullanabileceğiniz bir "
+"yedek oluşturur."
+
+#: includes/admin.php:2055
 msgid "Go to the Backup feature"
 msgstr "Yedekleme özelliğine gidin"
 
@@ -687,10 +883,24 @@ msgid "PublishPress Permissions"
 msgstr "PublishPress İzinleri"
 
 #: includes/admin.php:2145
+msgid ""
+"Automatically define type-specific capabilities for your custom post types "
+"and taxonomies"
+msgstr ""
+"Özel post type'larınız ve taxonomileriniz için tür spesifik yetkileri "
+"otomatik olarak tanımlayın"
+
+#: includes/admin.php:2149
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Belirli bir post type için standart WP rollerini ek olarak atayın"
 
 #: includes/admin.php:2153
+msgid ""
+"Assign custom WP roles supplementally for a specific post type "
+"<em>(Pro)</em>"
+msgstr "Belirli bir post type için ek olarak özel WP rollerini atayın <em>(Pro)</em>"
+
+#: includes/admin.php:2157
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Kategori veya post başına okuma izinlerini özelleştirin"
 
@@ -699,10 +909,42 @@ msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "Kategori veya post başına düzenleme izinlerini özelleştirin <em>(Pro)</em>"
 
 #: includes/admin.php:2165
+msgid ""
+"Custom Post Visibility statuses, fully implemented throughout wp-admin "
+"<em>(Pro)</em>"
+msgstr ""
+"Özel Post Görünürlük durumları, wp-admin'de tamamen uygulanmıştır "
+"<em>(Pro)</em>"
+
+#: includes/admin.php:2169
+msgid ""
+"Custom Moderation statuses for access-controlled, multi-step publishing "
+"workflow <em>(Pro)</em>"
+msgstr ""
+"Erişim kontrolü olan, çok adımlı yayınlama iş akışı için özel Moderasyon "
+"durumları <em>(Pro)</em>"
+
+#: includes/admin.php:2173
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Edit Flow post durumları için izinleri düzenleyin <em>(Pro)</em>"
 
 #: includes/admin.php:2177
+msgid ""
+"Customize the moderated editing of published content with Revisionary or "
+"Post Forking <em>(Pro)</em>"
+msgstr ""
+"Yayınlanan içeriğin moderatörlü düzenlemesini Revisionary veya Post Forking "
+"ile özelleştirin <em>(Pro)</em>"
+
+#: includes/admin.php:2181
+msgid ""
+"Grant Spectator, Participant or Moderator access to specific bbPress forums "
+"<em>(Pro)</em>"
+msgstr ""
+"Belirli bbPress forumlarına Seyirci, Katılımcı veya Moderatör erişimi verin "
+"<em>(Pro)</em>"
+
+#: includes/admin.php:2185
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "Bir BuddyPress grubuna ek içerik izinleri verin <em>(Pro)</em>"
 
@@ -735,6 +977,16 @@ msgid "%s info/purchase"
 msgstr "%s bilgi/ satın alma"
 
 #: includes/admin.php:2234
+msgid ""
+"Role level is mostly deprecated. However, it still determines eligibility "
+"for Post Author assignment and limits the application of user editing "
+"capabilities."
+msgstr ""
+"Rol seviyesi çoğunlukla kullanılmaktan kaldırılmıştır. Ancak, Post Yazarı "
+"ataması için uygunluğu belirler ve kullanıcı düzenleme yetkilerinin "
+"uygulanmasını sınırlar."
+
+#: includes/admin.php:2236
 msgid "Level:"
 msgstr "Seviye:"
 
@@ -847,6 +1099,24 @@ msgstr "Yedekleme Rolleri ve Yetkileri"
 
 #: includes/backup.php:67
 #, php-format
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes. The initial backup and last %d auto-backups "
+"are kept."
+msgstr ""
+"PublishPress Yetkilileri, kurulum sırasında ve her değişiklik "
+"kaydedildiğinde otomatik olarak bir yedek oluşturur. İlk yedek ve son %d "
+"otomatik yedekler tutulur."
+
+#: includes/backup.php:69
+msgid ""
+"A backup created on this screen replaces any previous manual backups, but "
+"is never automatically replaced."
+msgstr ""
+"Bu ekranda oluşturulan bir yedek, önceki manuel yedeklerin yerini alır, "
+"ancak asla otomatik olarak değiştirilmez."
+
+#: includes/backup.php:74
 msgid "Manual Backup"
 msgstr "Manuel Yedekleme"
 
@@ -864,6 +1134,22 @@ msgid "Restore Previous Roles and Capabilities"
 msgstr "Önceki Rolleri ve Yetkileri Geri Yükle"
 
 #: includes/backup.php:91
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes."
+msgstr ""
+"PublishPress Yetkilileri, kurulum sırasında ve her değişiklik "
+"kaydedildiğinde otomatik olarak bir yedek oluşturur."
+
+#: includes/backup.php:92
+msgid ""
+"On this screen, you can restore an earlier version of your roles and "
+"capabilities."
+msgstr ""
+"Bu ekranda, rollerinizin ve yetkilerinizin daha önceki bir sürümünü geri "
+"yükleyebilirsiniz."
+
+#: includes/backup.php:95
 msgid "Available Backups:"
 msgstr "Mevcut Yedekler:"
 
@@ -931,12 +1217,36 @@ msgid "Warning:"
 msgstr "Uyarı:"
 
 #: includes/backup.php:285
+msgid ""
+"Reseting default Roles and Capabilities will set them to the WordPress "
+"install defaults."
+msgstr ""
+"Varsayılan Roller ve Yetkileri sıfırlamak, bunları WordPress kurulum "
+"varsayılanlarına ayarlayacaktır."
+
+#: includes/backup.php:287
+msgid ""
+"If you have installed any plugin that adds new roles or capabilities, these "
+"will be lost."
+msgstr ""
+"Yeni roller veya yetkiler ekleyen herhangi bir eklenti yüklediyseniz, "
+"bunlar kaybolacaktır."
+
+#: includes/backup.php:288
 msgid "It is recommended to use this only as a last resource!"
 msgstr "Bunu yalnızca son çare olarak kullanmanız önerilir!"
 
 #: includes/backup.php:291
 msgid "Reset Roles and Capabilities to WordPress defaults"
 msgstr "Rolleri ve Yetkileri WordPress varsayılanlarına sıfırla"
+
+#: includes/backup.php:293
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"Rolleri ve Yetkileri WordPress varsayılanlarına sıfırlamak üzeresiniz.\n"
+" 'İptal' ile durdurun, 'Tamam' ile sıfırlayın."
 
 #: includes/backup.php:293
 msgid "Reset to WordPress defaults"
@@ -947,6 +1257,14 @@ msgid "Export Settings"
 msgstr "Ayarları Dışa Aktar"
 
 #: includes/backup.php:303
+msgid ""
+"Export the plugin settings for this site as a .json file. This allows you "
+"to easily import the configuration into another site."
+msgstr ""
+"Bu site için eklenti ayarlarını .json dosyası olarak dışa aktarın. Bu, "
+"yapılandırmayı başka bir siteye kolayca içe aktarmanızı sağlar."
+
+#: includes/backup.php:308
 msgid "Roles and Capabilities"
 msgstr "Roller ve Yetkiler"
 
@@ -959,6 +1277,30 @@ msgid "Import Settings"
 msgstr "Ayarları İçe Aktar"
 
 #: includes/backup.php:332
+msgid ""
+"Please make a 'Manual Backup' in the backup tab to enable backup restore in "
+"case anything goes wrong."
+msgstr ""
+"Herhangi bir şey yanlış giderse, yedek geri yüklemeyi etkinleştirmek için "
+"lütfen yedek sekmesinde 'Manuel Yedek' yapın."
+
+#: includes/backup.php:333
+msgid ""
+"Import the plugin settings from a .json file. This file can be obtained by "
+"exporting the settings on another site using the form above."
+msgstr ""
+"Eklenti ayarlarını bir .json dosyasından içe aktarın. Bu dosya, yukarıdaki "
+"formu kullanarak başka bir sitedeki ayarları dışa aktararak elde edilebilir."
+
+#: includes/backup.php:334
+msgid ""
+"Before importing, we recommend using the \"Backup\" tab to create a backup "
+"of your current settings."
+msgstr ""
+"İçe aktarmadan önce, mevcut ayarlarınızın yedeğini oluşturmak için "
+"\"Yedek\" sekmesini kullanmanızı öneririz."
+
+#: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
 msgstr "Admin Özellik Kısıtlamaları"
 
@@ -990,6 +1332,18 @@ msgstr "Düzenle"
 
 #: includes/features/admin-features.php:344
 #: includes/functions-admin.php:420
+msgid ""
+"Admin Features allows you to remove elements from the admin area and "
+"toolbar."
+msgstr ""
+"Admin Özellikleri, admin alanından ve araç çubuğundan öğeleri kaldırmanıza "
+"olanak tanır."
+
+#: includes/features/admin-features.php:347
+#: includes/features/editor-features.php:241
+#: includes/features/frontend-features/frontend-features.php:250
+#: includes/features/nav-menus.php:304
+#: includes/features/profile-features.php:252
 msgid "No change"
 msgstr "Değişiklik yok"
 
@@ -1054,6 +1408,14 @@ msgid "Admin Color Scheme"
 msgstr "Admin Renk Şeması"
 
 #: includes/features/admin-styles/admin-styles-ui.php:189
+msgid ""
+"Sets the admin color scheme for all users. Click a scheme to preview it "
+"instantly."
+msgstr ""
+"Tüm kullanıcılar için yönetici renk şemasını ayarlar. Anında önizlemek için "
+"bir şemaya tıklayın."
+
+#: includes/features/admin-styles/admin-styles-ui.php:193
 msgid "Start from template"
 msgstr "Şablondan başla"
 
@@ -1074,6 +1436,30 @@ msgid "Edit Color Style"
 msgstr "Renk Stilini Düzenle"
 
 #: includes/features/admin-styles/admin-styles-ui.php:288
+msgid ""
+"Customize colors for different admin elements. Changes are previewed "
+"instantly."
+msgstr ""
+"Farklı yönetici öğeleri için renkleri özelleştirin. Değişiklikler anında "
+"önizlenir."
+
+#: includes/features/admin-styles/admin-styles-ui.php:319
+msgid ""
+"Add more than one custom admin styles. This feature is available in "
+"PublishPress Capabilities Pro."
+msgstr ""
+"Birden fazla özel yönetici stili ekleyin. Bu özellik PublishPress "
+"Capabilities Pro'da mevcuttur."
+
+#: includes/features/admin-styles/admin-styles-ui.php:343
+msgid ""
+"Add CSS selectors (class or ID), choose a style variation, and set a brand "
+"color."
+msgstr ""
+"CSS seçicileri (sınıf veya ID) ekleyin, bir stil varyasyonu seçin ve bir "
+"marka rengi ayarlayın."
+
+#: includes/features/admin-styles/admin-styles-ui.php:349
 msgid "Add New Element"
 msgstr "Yeni Eleman Ekle"
 
@@ -1148,6 +1534,16 @@ msgid "Custom Admin Logo"
 msgstr "Özel Admin Logosu"
 
 #: includes/features/admin-styles/admin-styles-ui.php:474
+msgid ""
+"Upload a custom logo to replace the WordPress icon in the admin bar. "
+"Recommended: 20px by 20px in SVG or PNG format."
+msgstr ""
+"Yönetici çubuğundaki WordPress simgesinin yerine geçecek özel bir logo "
+"yükleyin. Önerilen: 20px x 20px boyutunda SVG veya PNG formatında."
+
+#: includes/features/admin-styles/admin-styles-ui.php:491
+#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles.php:887
 msgid "Select Image"
 msgstr "Görüntü Seç"
 
@@ -1156,6 +1552,14 @@ msgid "Custom Favicon"
 msgstr "Özel Favicon"
 
 #: includes/features/admin-styles/admin-styles-ui.php:509
+msgid ""
+"Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
+"32px by 32px in SVG or PNG format."
+msgstr ""
+"Yönetim alanı için özel bir favicon yükleyin. Önerilen: 16px x 16px veya "
+"32px x 32px boyutunda SVG veya PNG formatında."
+
+#: includes/features/admin-styles/admin-styles-ui.php:541
 msgid "Admin Font Family"
 msgstr "Admin Yazı Tipi Ailesi"
 
@@ -1178,6 +1582,14 @@ msgid "Admin Font Size"
 msgstr "Admin Yazı Tipi Boyutu"
 
 #: includes/features/admin-styles/admin-styles-ui.php:581
+msgid ""
+"Set a base font size for the admin area. Leave empty to use the default "
+"WordPress size."
+msgstr ""
+"Yönetim alanı için bir temel yazı tipi boyutu ayarlayın. Varsayılan "
+"WordPress boyutunu kullanmak için boş bırakın."
+
+#: includes/features/admin-styles/admin-styles-ui.php:603
 msgid "Typography Overrides"
 msgstr "Tipografi Geçersiz Kılmaları"
 
@@ -1247,6 +1659,14 @@ msgid "Admin Footer Text"
 msgstr "Admin Alt Bilgi Metni"
 
 #: includes/features/admin-styles/admin-styles-ui.php:685
+msgid ""
+"Replace the default \"Thanks for creating with WordPress\" message in the "
+"admin footer."
+msgstr ""
+"Yönetici altbilgisindeki varsayılan \"WordPress ile oluşturduğunuz için "
+"teşekkürler\" mesajını değiştirin."
+
+#: includes/features/admin-styles/admin-styles-ui.php:699
 msgid "Replace \"Howdy\""
 msgstr "\"Merhaba\" yı değiştirin"
 
@@ -1267,10 +1687,35 @@ msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "Kullanıcı profilinde Admin Renk Şeması ayarlarını gizle"
 
 #: includes/features/admin-styles/admin-styles-ui.php:728
+msgid ""
+"When enabled, users cannot see or change color scheme settings in their "
+"profile. Role-based settings will be applied."
+msgstr ""
+"Etkinleştirildiğinde, kullanıcılar profilinde renk şeması ayarlarını "
+"göremez veya değiştiremez. Rol tabanlı ayarlar uygulanacaktır."
+
+#: includes/features/admin-styles/admin-styles-ui.php:736
 msgid "Force role settings (override user selection)"
 msgstr "Rol ayarlarını zorla (kullanıcı seçimlerini geçersiz kıl)"
 
 #: includes/features/admin-styles/admin-styles-ui.php:738
+msgid ""
+"When enabled, role settings will always apply, overriding any user "
+"selection even if the color scheme UI is visible to them."
+msgstr ""
+"Etkinleştirildiğinde, rol ayarları her zaman uygulanacak, kullanıcı "
+"seçimlerini geçersiz kılacak ve renk şeması UI'si onlara görünse bile "
+"geçerli olacaktır."
+
+#: includes/features/admin-styles/admin-styles-ui.php:775
+msgid ""
+"Admin Styles allows you to customize the WordPress admin area with your own "
+"branding."
+msgstr ""
+"Yönetici Stilleri, WordPress yönetim alanını kendi markanızla "
+"özelleştirmenizi sağlar."
+
+#: includes/features/admin-styles/admin-styles-ui.php:779
 msgid "Custom admin color schemes"
 msgstr "Özel admin renk şemaları"
 
@@ -1778,6 +2223,16 @@ msgstr "Klasik Editör %s Kısıtlamaları"
 #: includes/features/editor-features-classic.php:162
 #: includes/features/editor-features-gutenberg.php:158
 #, php-format
+msgid ""
+"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
+"refresh this page afterwards to load the new metaboxes."
+msgstr ""
+"%1s için hiçbir metabox bulunamadı. %2s Buraya tıklayın %3s %4s ekranını "
+"ziyaret etmek ve ardından bu sayfayı yenileyerek yeni metabox'ları yüklemek "
+"için."
+
+#: includes/features/editor-features-gutenberg.php:1
+#, php-format
 msgid "Gutenberg Editor %s Restrictions"
 msgstr "Gutenberg Editörü %s Kısıtlamaları"
 
@@ -1887,6 +2342,14 @@ msgid "Select %1$s..."
 msgstr "%1$s'yi seçin..."
 
 #: includes/features/frontend-features/frontend-features-ui.php:42
+msgid ""
+"This feature allows you to modify the site frontend by hiding IDs or "
+"classes, adding CSS styles, or adding body classes."
+msgstr ""
+"Bu özellik, kimlikleri veya sınıfları gizleyerek, CSS stilleri ekleyerek "
+"veya gövde sınıfları ekleyerek site ön yüzünü değiştirmenize olanak tanır."
+
+#: includes/features/frontend-features/frontend-features-ui.php:45
 msgid "Editing:"
 msgstr "Düzenleme:"
 
@@ -1915,6 +2378,22 @@ msgid "Add Body Class"
 msgstr "Gövde Sınıfı Ekle"
 
 #: includes/features/frontend-features/frontend-features-ui.php:81
+msgid ""
+"Enter IDs or classes to hide. Separate multiple values with a comma "
+"(.custom-item-one, .custom-item-two, #new-item-id)."
+msgstr ""
+"Gizlenecek kimlikleri veya sınıfları girin. Birden fazla değeri virgülle "
+"ayırın (.custom-item-one, .custom-item-two, #new-item-id)."
+
+#: includes/features/frontend-features/frontend-features-ui.php:92
+msgid ""
+"Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
+"color: red; } #custom-header { background: red; } "
+msgstr ""
+"Ön yüz sayfalarına eklenecek özel CSS girin. Örnekler: .custom-style-1 { "
+"color: red; } #custom-header { background: red; }"
+
+#: includes/features/frontend-features/frontend-features-ui.php:98
 msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
 msgstr "Gövde HTML'sine eklemek için sınıfları girin. HTML'den önce . eklemeyin."
 
@@ -1929,6 +2408,14 @@ msgstr ""
 "tıklayabilirsiniz."
 
 #: includes/features/frontend-features/frontend-features-ui.php:101
+msgid ""
+"Enter classes that should be added to the body HTML. Separate multiple "
+"values with a space (custom-item-one custom-item-two)."
+msgstr ""
+"Gövde HTML'sine eklenmesi gereken sınıfları girin. Birden fazla değeri "
+"boşlukla ayırın (custom-item-one custom-item-two)."
+
+#: includes/features/frontend-features/frontend-features-ui.php:109
 msgid "Load on page types:"
 msgstr "Şu sayfa türlerinde yükleyin:"
 
@@ -1994,6 +2481,14 @@ msgstr "%1$s Rolü için Ön Uç Özelliklerini Etkinleştir"
 
 #: includes/features/frontend-features/frontend-features.php:247
 #: includes/functions-admin.php:440
+msgid ""
+"Frontend Features allows you to add or remove elements from the frontend of "
+"your site."
+msgstr ""
+"Ön Yüz Özellikleri, sitenizin ön yüzünden öğeleri eklemenizi veya "
+"kaldırmanızı sağlar."
+
+#: includes/features/frontend-features/frontend-features.php:252
 msgid "Apply custom styling"
 msgstr "Özel stiller uygulayın"
 
@@ -2006,6 +2501,15 @@ msgid "Navigation Menu Restrictions"
 msgstr "Navigasyon Menüsü Kısıtlamaları"
 
 #: includes/features/nav-menus.php:275
+msgid ""
+"There are no frontend menu links. To control access to navigation menus, "
+"please add menu links."
+msgstr ""
+"Ön yüz menü bağlantısı yok. Navigasyon menülerine erişimi kontrol etmek "
+"için lütfen menü bağlantıları ekleyin."
+
+#: includes/features/nav-menus.php:301
+#: includes/functions-admin.php:445
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr "Navigasyon Menüsü, ön uç menü bağlantılarına erişimi engellemenizi sağlar."
 
@@ -2022,6 +2526,14 @@ msgid "Click the \"Find profile items for this role\" button."
 msgstr "Bu rol için \"Profil öğelerini bul\" butonuna tıklayın."
 
 #: includes/features/profile-features.php:142
+msgid ""
+"There are no users in this role. Please select a role that has users and is "
+"able to access the \"Profile\" screen."
+msgstr ""
+"Bu rolde kullanıcı yok. Lütfen kullanıcıları olan ve \"Profil\" ekranına "
+"erişebilen bir rol seçin."
+
+#: includes/features/profile-features.php:239
 msgid "Allow PublishPress to find profile items for this role."
 msgstr "PublishPress'in bu rol için profil öğelerini bulmasına izin verin."
 
@@ -2315,6 +2827,14 @@ msgid "Nav Menu"
 msgstr "Navigasyon Menüsü"
 
 #: includes/functions-admin.php:405
+msgid ""
+"Roles allows you to create, edit, and delete all the user roles on your "
+"site."
+msgstr ""
+"Roller, sitenizdeki tüm kullanıcı rollerini oluşturmanıza, düzenlemenize ve "
+"silmenize olanak tanır."
+
+#: includes/functions-admin.php:410
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr ""
 "Yetenekler, herhangi bir kullanıcı rolü için izinleri değiştirmenize olanak "
@@ -2327,6 +2847,16 @@ msgstr ""
 "tanır."
 
 #: includes/functions-admin.php:435
+msgid ""
+"Redirects allows you to redirect users in a role after Registration, Login "
+"or Logout."
+msgstr ""
+"Yönlendirmeler, kullanıcıları Kayıt, Giriş veya Çıkış sonrası bir rol "
+"içinde yönlendirmenizi sağlar."
+
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:560
+#: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "Navigasyon Menüsü"
 
@@ -2337,6 +2867,22 @@ msgid "User Testing"
 msgstr "Kullanıcı Testi"
 
 #: includes/functions-admin.php:450
+msgid ""
+"Test your site by instantly logging in as another user. Available accounts "
+"include any which the current user can edit."
+msgstr ""
+"Başka bir kullanıcı olarak anında giriş yaparak sitenizi test edin. Mevcut "
+"kullanıcı tarafından düzenlenebilen tüm hesaplar mevcuttur."
+
+#: includes/functions-admin.php:455
+msgid ""
+"Remove Admin Notices from WordPress admin screen and organize them in to a "
+"single area."
+msgstr ""
+"WordPress admin ekranından Yönetici Bildirimlerini kaldırın ve bunları tek "
+"bir alanda düzenleyin."
+
+#: includes/functions.php:650
 msgid "Login permission denied."
 msgstr "Giriş izni reddedildi."
 
@@ -2695,16 +3241,86 @@ msgstr "%1$sGelişmiş ayarları%2$s etkinleştir, Rol Kullanımı'na bakın"
 
 #: includes/pp-ui.php:69
 #, php-format
+msgid ""
+"\"Posts\" capabilities selected here also define type-specific role "
+"assignment for Permission Groups%s."
+msgstr ""
+"\"Gönderiler\" için burada seçilen yetenekler, İzin Grupları%s için tür "
+"özel rol atamalarını da tanımlar."
+
+#: includes/pp-ui.php:71
+#, php-format
+msgid ""
+"\"Posts\" capabilities selected here also define type-specific role "
+"assignment for Permit Groups%s."
+msgstr ""
+"\"Gönderiler\" için burada seçilen yetenekler, İzin Grupları%s için tür "
+"özel rol atamalarını da tanımlar."
+
+#: includes/pp-ui.php:79
+#, php-format
+msgid ""
+"Capabilities for custom statuses can be manually added here. (See "
+"%sPermissions > Post Statuses%s for applicable names). %sSupplemental "
+"status-specific roles%s are usually more convenient, though."
+msgstr ""
+"Özel durumlar için yetenekler burada manuel olarak eklenebilir. (Uygun "
+"adlar için %sİzinler > Gönderi Durumları%s bölümüne bakın). %sTamamlayıcı "
+"durum özel roller%s genellikle daha kullanışlıdır."
+
+#: includes/pp-ui.php:81
+msgid ""
+"Capabilities for custom statuses can be manually added here. Or activate "
+"the PP Custom Post Statuses extension to assign status-specific "
+"supplemental roles."
+msgstr ""
+"Özel durumlar için yetenekler burada manuel olarak eklenebilir. Veya "
+"durum-özel tamamlayıcı roller atamak için PP Özel Gönderi Durumları "
+"eklentisini etkinleştirin."
+
+#: includes/pp-ui.php:84
+msgid ""
+"Capabilities for custom statuses can be manually added to a role here (see "
+"Conditions > Status > Capability Mapping for applicable names). However, it "
+"is usually more convenient to use Permit Groups to assign a supplemental "
+"status-specific role."
+msgstr ""
+"Özel durumlar için yetenekler burada bir role manuel olarak eklenebilir "
+"(uygun adlar için Koşullar > Durum > Yetenek Eşleme bölümüne bakın). Ancak, "
+"genellikle tamamlayıcı durum-özel bir rol atamak için İzin Gruplarını "
+"kullanmak daha pratiktir."
+
+#: includes/pp-ui.php:108
 msgid "Unique Post Type Capabilities"
 msgstr "Benzersiz Gönderi Türü Yetenekleri"
 
 #: includes/pp-ui.php:120
 #. translators: %1$s and %2$s are link tags for 'Find out more.'
 #, php-format
+msgid ""
+"Allow post type permissions to be controlled separately from other areas of "
+"WordPress. %1$sFind out more.%2$s"
+msgstr ""
+"Gönderi türü izinlerinin WordPress'in diğer alanlarından ayrı olarak "
+"kontrol edilmesine izin verin. %1$sDaha fazla bilgi edinin.%2$s"
+
+#: includes/pp-ui.php:191
 msgid "Use the \"Create\" capability for selected post types"
 msgstr "Seçilen gönderi türleri için \"Oluştur\" yeteneğini kullanın"
 
 #: includes/pp-ui.php:192
+msgid ""
+"This will cause a new capability to be required for creating posts, and "
+"enable a checkbox column here for role assignments. Normally, post creation "
+"is controlled by the \"Edit\" capability."
+msgstr ""
+"Bu, gönderi oluşturmak için yeni bir yetenek gerektirecek ve burada rol "
+"atamaları için bir onay kutusu sütunu etkinleştirecektir. Normalde, gönderi "
+"oluşturma \"Düzenle\" yeteneği ile kontrol edilir."
+
+#: includes/pp-ui.php:200
+#: includes/pp-ui.php:286
+#: includes/pp-ui.php:365
 msgid "Update"
 msgstr "Güncelle"
 
@@ -2713,10 +3329,27 @@ msgid "Unique Taxonomy Capabilities"
 msgstr "Benzersiz Taksonomi Yetenekleri"
 
 #: includes/pp-ui.php:230
+msgid ""
+"Allow taxonomy permissions to be controlled separately from other areas of "
+"WordPress."
+msgstr ""
+"Taxonomy izinlerinin WordPress'in diğer alanlarından ayrı olarak kontrol "
+"edilmesine izin verin."
+
+#: includes/pp-ui.php:301
 msgid "Detailed Taxonomy Capabilities"
 msgstr "Ayrıntılı Taksonomi Yetenekleri"
 
 #: includes/pp-ui.php:311
+msgid ""
+"Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
+"\"Manage\" capability."
+msgstr ""
+"\"Düzenle\", \"Sil\" ve \"Atama\" yeteneklerini \"Yönet\" yeteneğinden ayrı "
+"olarak kullanıma sunun."
+
+#: includes/redirects/redirects.php:35
+#: includes/redirects/redirects.php:54
 msgid "Login Redirect"
 msgstr "Giriş Yönlendirmesi"
 
@@ -2754,6 +3387,15 @@ msgstr ""
 "girin."
 
 #: includes/redirects/redirects.php:82
+msgid ""
+"Enter the URL users in this role should be redirected to after their first "
+"login."
+msgstr ""
+"Bu roldeki kullanıcıların ilk girişlerinden sonra yönlendirilmesi gereken "
+"URL'yi girin."
+
+#: includes/redirects/redirects.php:94
+#, php-format
 msgid "%s Redirects"
 msgstr "%s Yönlendirmeleri"
 
@@ -2784,6 +3426,14 @@ msgid "Enter the relative path only without domain for logout redirect."
 msgstr "Çıkış yönlendirmesi için sadece alan adı olmadan göreli yolu girin."
 
 #: includes/redirects/redirects.php:333
+msgid ""
+"Redirect Features allows you to redirect users in a role after "
+"Registration, Login or Logout."
+msgstr ""
+"Yönlendirme Özellikleri, kullanıcıları Kayıt, Giriş veya Çıkış sonrası bir "
+"rol içinde yönlendirmenizi sağlar."
+
+#: includes/redirects/redirects.php:336
 msgid "How to use Redirect Features"
 msgstr "Yönlendirme Özellikleri nasıl kullanılır"
 
@@ -2818,6 +3468,15 @@ msgid "The role \"%s\" already exists. Please choose a different name."
 msgstr "Rol \"%s\" zaten mevcut. Lütfen farklı bir isim seçin."
 
 #: includes/roles/class/class-pp-roles-actions.php:250
+msgid ""
+"Something went wrong, the system wasn't able to create the role, refresh "
+"the page and try again."
+msgstr ""
+"Bir şeyler ters gitti, sistem rolü oluşturamadı, sayfayı yenileyin ve "
+"tekrar deneyin."
+
+#: includes/roles/class/class-pp-roles-actions.php:340
+#, php-format
 msgid "The new role %s was created successfully."
 msgstr "Yeni rol %s başarıyla oluşturuldu."
 
@@ -2881,6 +3540,14 @@ msgid "Role Slug"
 msgstr "Rol Slug'ı"
 
 #: includes/roles/class/class-pp-roles-admin.php:183
+msgid ""
+"The \"slug\" is the URL-friendly version of the role. It is usually all "
+"lowercase and contains only letters, numbers and underscores."
+msgstr ""
+"\"slug\", rolün URL dostu versiyonudur. Genellikle tamamen küçük harflerle "
+"yazılır ve yalnızca harfler, rakamlar ve alt çizgiler içerir."
+
+#: includes/roles/class/class-pp-roles-admin.php:194
 msgid "Block Login"
 msgstr "Girişi Engelle"
 
@@ -2901,10 +3568,28 @@ msgid "Role Level"
 msgstr "Rol Seviyesi"
 
 #: includes/roles/class/class-pp-roles-admin.php:217
+msgid ""
+"Each user role has a level from 0 to 10. The Subscriber role defaults to "
+"the lowest level (0). The Administrator role defaults to level 10."
+msgstr ""
+"Her kullanıcı rolü 0 ile 10 arasında bir seviyeye sahiptir. Abone rolü en "
+"düşük seviye (0) olarak varsayılan değeridir. Yönetici rolü ise 10 "
+"seviyesine varsayılan olarak sahiptir."
+
+#: includes/roles/class/class-pp-roles-admin.php:239
 msgid "Delete role"
 msgstr "Rolü Sil"
 
 #: includes/roles/class/class-pp-roles-admin.php:240
+msgid ""
+"Deleting this role will completely remove it from database and is "
+"irrecoverable."
+msgstr ""
+"Bu rolü silmek, onu veritabanından tamamen kaldıracak ve geri alınamaz hale "
+"getirecektir."
+
+#: includes/roles/class/class-pp-roles-admin.php:249
+#. Translators: "Editor" means post editor like Gutenberg
 msgid "Disable Code Editor"
 msgstr "Kod Editörünü Devre Dışı Bırak"
 
@@ -2929,6 +3614,16 @@ msgstr "WooCommerce yönetici kısıtlamalarını devre dışı bırak"
 
 #: includes/roles/class/class-pp-roles-admin.php:276
 #, php-format
+msgid ""
+"By default, WooCommerce prevents most users from accessing the WordPress "
+"admin area. When enabled, this setting will remove those restrictions for "
+"this role. %1s Click here for more details. %2s"
+msgstr ""
+"Varsayılan olarak, WooCommerce, çoğu kullanıcının WordPress admin alanına "
+"erişimini engeller. Bu ayar etkinleştirildiğinde, bu rol için bu "
+"kısıtlamaları kaldıracaktır. %1s Daha fazla bilgi için buraya tıklayın. %2s"
+
+#: includes/roles/class/class-pp-roles-admin.php:335
 msgid "Slug already exists"
 msgstr "Slug zaten mevcut"
 
@@ -2939,6 +3634,15 @@ msgstr "İzin Verilen Editörü Seç"
 
 #: includes/roles/class/class-pp-roles-admin.php:362
 #. Translators: "Editor" means post editor like Gutenberg
+msgid ""
+"You must select at least one editor for the role when managing allowed "
+"editor."
+msgstr ""
+"İzin verilen düzenleyiciyi yönetirken rol için en az bir düzenleyici "
+"seçmelisiniz."
+
+#: includes/roles/class/class-pp-roles-admin.php:391
+#, php-format
 msgid "Select %s"
 msgstr "%s Seç"
 
@@ -2952,6 +3656,15 @@ msgid "Are you sure you want to delete this role?"
 msgstr "Bu rolü silmek istediğinize emin misiniz?"
 
 #: includes/roles/class/class-pp-roles-admin.php:506
+#, php-format
+msgid ""
+"%s role copied. Please click the \"Create Role\" button to create this new "
+"role."
+msgstr ""
+"%s rol kopyalandı. Lütfen bu yeni rolü oluşturmak için \"Rol Oluştur\" "
+"butonuna tıklayın."
+
+#: includes/roles/class/class-pp-roles-admin.php:539
 #, php-format
 msgid "Edit Role: %s"
 msgstr "Rolü Düzenle: %s"
@@ -3075,14 +3788,49 @@ msgid "Set login redirect cookie"
 msgstr "Giriş yönlendirme çerezi ayarla"
 
 #: includes/settings-ui.php:93
+msgid ""
+"Use cookie to determine pages users were viewing before login. This is "
+"useful when login redirect is not working correctly due to wp_get_referer() "
+"limitation."
+msgstr ""
+"Kullanıcıların giriş yapmadan önce görüntüledikleri sayfaları belirlemek "
+"için çerezi kullanın. Bu, wp_get_referer() sınırlaması nedeniyle giriş "
+"yönlendirmesi doğru çalışmadığında faydalıdır."
+
+#: includes/settings-ui.php:109
+#: includes/settings-ui.php:149
 msgid "Show private post types"
 msgstr "Özel yazı türlerini göster"
 
 #: includes/settings-ui.php:114
+msgid ""
+"This will show all post types on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr ""
+"Bu, WordPress admin alanında genellikle gizli olanlar da dahil olmak üzere "
+"\"Yetenekler\" ekranında tüm gönderi türlerini gösterecektir."
+
+#: includes/settings-ui.php:125
 msgid "Show private taxonomies"
 msgstr "Özel taksonomileri göster"
 
 #: includes/settings-ui.php:130
+msgid ""
+"This will show all taxonomies on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr ""
+"Bu, WordPress admin alanında genellikle gizli olanlar da dahil olmak üzere "
+"\"Yetenekler\" ekranında tüm taksonomileri gösterecektir."
+
+#: includes/settings-ui.php:154
+msgid ""
+"Show all post types on the \"Editor Features\" screen, even ones normally "
+"hidden in the WordPress admin area."
+msgstr ""
+"WordPress admin alanında genellikle gizli olanlar da dahil olmak üzere "
+"\"Düzenleyici Özellikler\" ekranında tüm gönderi türlerini göster."
+
+#: includes/settings-ui.php:165
 msgid "Enable Classic Editor tab"
 msgstr "Klasik Editör sekmesini etkinleştir"
 
@@ -3131,6 +3879,16 @@ msgid "Automatically refresh profile elements"
 msgstr "Profil öğelerini otomatik olarak yenile"
 
 #: includes/settings-ui.php:277
+msgid ""
+"Always try to automatically find profile elements. This may cause temporary "
+"issues when updating user roles that do not have access to the WordPress "
+"admin area."
+msgstr ""
+"Her zaman profil öğelerini otomatik olarak bulmaya çalışın. Bu, WordPress "
+"admin alanına erişimi olmayan kullanıcı rolleri güncellenirken geçici "
+"sorunlara neden olabilir."
+
+#: includes/settings.php:13
 msgid "Capabilities Settings"
 msgstr "Yetenekler Ayarları"
 
