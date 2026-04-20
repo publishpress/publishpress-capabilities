@@ -1,6 +1,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.43.0] - 21 April, 2026
+
+- Update : Change fonts family and font sizes in Admin Styles, #1589
+- Update : Make Admin Notices a main screen, #1432
+- Update : Allow users to hide admin toolbar "Edit Site" link, #1486
+- Update : Support Sub-headings on Capabilities screen, #1650
+- Update : Add support for the Logtivity plugin capabilities, #1366
+- Update : Remove any unused or incomplete language files, #1652
+- Fixed : TypeError in admin-styles.php on PHP 8.x, #1653
+- Fixed : PHP Fatal error: Call to undefined function sanitize_key in Admin Styles, #1655
+- Update : Add remaining languages to complete all 26 languages, #1665
+
 [2.42.0] - 24 March, 2026
 
 - Fixed : 2.41 breaks on front-end: “pp_capabilities_feature_enabled()” undefined, #1640
