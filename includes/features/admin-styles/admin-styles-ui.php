@@ -67,6 +67,34 @@ $font_family_choices = [
     'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif' => 'System UI',
 ];
 
+$font_size_keyword_choices = [
+    'xx-small' => 'xx-small',
+    'x-small' => 'x-small',
+    'small' => 'small',
+    'medium' => 'medium',
+    'large' => 'large',
+    'x-large' => 'x-large',
+    'xx-large' => 'xx-large',
+];
+
+$font_size_numeric_choices = [
+    '10' => '10px',
+    '11' => '11px',
+    '12' => '12px',
+    '13' => '13px',
+    '14' => '14px',
+    '15' => '15px',
+    '16' => '16px',
+    '17' => '17px',
+    '18' => '18px',
+    '19' => '19px',
+    '20' => '20px',
+    '21' => '21px',
+    '22' => '22px',
+    '23' => '23px',
+    '24' => '24px',
+];
+
 // Display custom style success/error messages from transients
 $user_id = get_current_user_id();
 
@@ -156,6 +184,7 @@ if ($admin_styles_saved !== false) {
                                         value="<?php echo esc_attr(sprintf(esc_html__('Save for %s', 'capability-manager-enhanced'), esc_html($current_role_name))); ?>"
                                         class="button-primary ppc-admin-styles-submit" style="float:right" />
                                 </div>
+                                <div class="clear"></div>
 
                             </div>
 
@@ -582,18 +611,34 @@ if ($admin_styles_saved !== false) {
                                                                 </p>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
-                                                                <div style="display:flex; gap:10px; align-items:center; max-width:320px;">
-                                                                    <input type="number" name="settings[admin_font_size]"
-                                                                        id="admin_font_size"
-                                                                        value="<?php echo esc_attr($settings['admin_font_size']); ?>"
-                                                                        min="1" max="72" step="0.1"
-                                                                        class="small-text">
+                                                                <?php
+                                                                $current_admin_font_size = (string) ($settings['admin_font_size'] ?? '');
+                                                                $current_admin_font_size_unit = (string) ($settings['admin_font_size_unit'] ?? 'px');
+                                                                $current_admin_font_size_value = '';
 
-                                                                    <select name="settings[admin_font_size_unit]" id="admin_font_size_unit">
-                                                                        <option value="px" <?php selected($settings['admin_font_size_unit'], 'px'); ?>>px</option>
-                                                                        <option value="rem" <?php selected($settings['admin_font_size_unit'], 'rem'); ?>>rem</option>
-                                                                        <option value="em" <?php selected($settings['admin_font_size_unit'], 'em'); ?>>em</option>
+                                                                if (isset($font_size_keyword_choices[$current_admin_font_size])) {
+                                                                    $current_admin_font_size_value = $current_admin_font_size;
+                                                                } elseif (is_numeric($current_admin_font_size) && 'px' === $current_admin_font_size_unit) {
+                                                                    $current_admin_font_size_value = $current_admin_font_size;
+                                                                }
+                                                                ?>
+                                                                <div style="max-width:320px;">
+                                                                    <select name="settings[admin_font_size]" id="admin_font_size" class="regular-text" style="max-width: 400px;">
+                                                                        <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
+
+                                                                        <optgroup label="<?php echo esc_attr__('Named Sizes', 'capability-manager-enhanced'); ?>">
+                                                                            <?php foreach ($font_size_keyword_choices as $size_value => $size_label) : ?>
+                                                                                <option value="<?php echo esc_attr($size_value); ?>" <?php selected($current_admin_font_size_value, $size_value); ?>><?php echo esc_html($size_label); ?></option>
+                                                                            <?php endforeach; ?>
+                                                                        </optgroup>
+
+                                                                        <optgroup label="<?php echo esc_attr__('Pixel Sizes', 'capability-manager-enhanced'); ?>">
+                                                                            <?php foreach ($font_size_numeric_choices as $size_value => $size_label) : ?>
+                                                                                <option value="<?php echo esc_attr($size_value); ?>" <?php selected($current_admin_font_size_value, $size_value); ?>><?php echo esc_html($size_label); ?></option>
+                                                                            <?php endforeach; ?>
+                                                                        </optgroup>
                                                                     </select>
+                                                                    <input type="hidden" name="settings[admin_font_size_unit]" value="px" />
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -622,13 +667,20 @@ if ($admin_styles_saved !== false) {
                                                                         <tr>
                                                                             <th><?php esc_html_e('Target', 'capability-manager-enhanced'); ?></th>
                                                                             <th><?php esc_html_e('Font Family', 'capability-manager-enhanced'); ?></th>
-                                                                            <th><?php esc_html_e('Size', 'capability-manager-enhanced'); ?></th>
-                                                                            <th><?php esc_html_e('Unit', 'capability-manager-enhanced'); ?></th>
+                                                                            <th><?php esc_html_e('Font Size', 'capability-manager-enhanced'); ?></th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <?php foreach ($typography_targets as $target_key => $target_label) : ?>
                                                                             <?php $target_font_family = (string) ($settings['admin_typography'][$target_key]['font_family'] ?? ''); ?>
+                                                                            <?php $target_font_size = (string) ($settings['admin_typography'][$target_key]['font_size'] ?? ''); ?>
+                                                                            <?php $target_font_size_value = ''; ?>
+
+                                                                            <?php if (isset($font_size_keyword_choices[$target_font_size])) : ?>
+                                                                                <?php $target_font_size_value = $target_font_size; ?>
+                                                                            <?php elseif (is_numeric($target_font_size)) : ?>
+                                                                                <?php $target_font_size_value = $target_font_size; ?>
+                                                                            <?php endif; ?>
                                                                             <tr>
                                                                                 <td><strong><?php echo esc_html($target_label); ?></strong></td>
                                                                                 <td>
@@ -656,17 +708,20 @@ if ($admin_styles_saved !== false) {
                                                                                     </div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <input type="number"
-                                                                                        name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size]"
-                                                                                        value="<?php echo esc_attr($settings['admin_typography'][$target_key]['font_size']); ?>"
-                                                                                        min="1" max="72" step="0.1"
-                                                                                        class="small-text">
-                                                                                </td>
-                                                                                <td>
-                                                                                    <select name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size_unit]">
-                                                                                        <option value="px" <?php selected($settings['admin_typography'][$target_key]['font_size_unit'], 'px'); ?>>px</option>
-                                                                                        <option value="rem" <?php selected($settings['admin_typography'][$target_key]['font_size_unit'], 'rem'); ?>>rem</option>
-                                                                                        <option value="em" <?php selected($settings['admin_typography'][$target_key]['font_size_unit'], 'em'); ?>>em</option>
+                                                                                    <select name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size]" class="regular-text" style="width: 100%;max-width: 200px;">
+                                                                                        <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
+
+                                                                                        <optgroup label="<?php echo esc_attr__('Named Sizes', 'capability-manager-enhanced'); ?>">
+                                                                                            <?php foreach ($font_size_keyword_choices as $size_value => $size_label) : ?>
+                                                                                                <option value="<?php echo esc_attr($size_value); ?>" <?php selected($target_font_size_value, $size_value); ?>><?php echo esc_html($size_label); ?></option>
+                                                                                            <?php endforeach; ?>
+                                                                                        </optgroup>
+
+                                                                                        <optgroup label="<?php echo esc_attr__('Pixel Sizes', 'capability-manager-enhanced'); ?>">
+                                                                                            <?php foreach ($font_size_numeric_choices as $size_value => $size_label) : ?>
+                                                                                                <option value="<?php echo esc_attr($size_value); ?>" <?php selected($target_font_size_value, $size_value); ?>><?php echo esc_html($size_label); ?></option>
+                                                                                            <?php endforeach; ?>
+                                                                                        </optgroup>
                                                                                     </select>
                                                                                 </td>
                                                                             </tr>
@@ -763,6 +818,7 @@ if ($admin_styles_saved !== false) {
                                         class="button-primary ppc-admin-styles-submit" style="float:right" />
 
                                 </div>
+                                <div class="clear"></div>
                             </div>
 
                         </td>
