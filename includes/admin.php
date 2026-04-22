@@ -144,6 +144,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						</div>
 					</div>
                 </div>
+                <div class="clear"></div>
 
                 <select name="role">
                     <?php
@@ -614,8 +615,52 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							'</li>';
 						}
 
+						$sort_publishpress_plugin_caps = static function ($plugin_caps) {
+							if (!is_array($plugin_caps) || empty($plugin_caps)) {
+								return $plugin_caps;
+							}
+
+							$publishpress_capabilities_key = null;
+
+							foreach (array_keys($plugin_caps) as $plugin_title_key) {
+								if (0 === strcasecmp(trim((string) $plugin_title_key), 'PublishPress Capabilities')) {
+									$publishpress_capabilities_key = $plugin_title_key;
+									break;
+								}
+							}
+
+							if (null === $publishpress_capabilities_key) {
+								return $plugin_caps;
+							}
+
+							$sorted_plugin_caps = [
+								$publishpress_capabilities_key => $plugin_caps[$publishpress_capabilities_key],
+							];
+
+							foreach ($plugin_caps as $plugin_title_key => $plugin_cap_values) {
+								if ($plugin_title_key === $publishpress_capabilities_key) {
+									continue;
+								}
+
+								if (0 === stripos((string) $plugin_title_key, 'PublishPress')) {
+									$sorted_plugin_caps[$plugin_title_key] = $plugin_cap_values;
+								}
+							}
+
+							foreach ($plugin_caps as $plugin_title_key => $plugin_cap_values) {
+								if (array_key_exists($plugin_title_key, $sorted_plugin_caps)) {
+									continue;
+								}
+
+								$sorted_plugin_caps[$plugin_title_key] = $plugin_cap_values;
+							}
+
+							return $sorted_plugin_caps;
+						};
+
 						// caps: plugins
 						$plugin_caps =  apply_filters('cme_plugin_capabilities', []);
+						$plugin_caps = $sort_publishpress_plugin_caps($plugin_caps);
 
 						foreach($plugin_caps as $plugin_title => $__plugin_caps) {
 							$plugin_title = esc_html($plugin_title);
@@ -1244,16 +1289,146 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 					// caps: plugins
 					$plugin_caps = apply_filters('cme_plugin_capabilities', $plugin_caps);
+					$plugin_caps = $sort_publishpress_plugin_caps($plugin_caps);
 
 					$plugin_cap_descriptions = apply_filters('cme_capability_descriptions', []);
 
 					foreach($plugin_caps as $plugin_title => $__plugin_caps) {
-						$plugin_title = esc_html($plugin_title);
+						$plugin_title_raw = (string) $plugin_title;
+						$plugin_title = esc_html($plugin_title_raw);
 
-						$_plugin_caps = array_fill_keys($__plugin_caps, true);
+						// Compact for old permission description format
+						//TODO: Remove after permission update their code to new structure
+						if ('PublishPress Permissions' === $plugin_title_raw && function_exists('apply_filters')) {
+							$plugin_cap_descriptions = apply_filters('presspermit_cap_descriptions', $plugin_cap_descriptions);
+						}
+
+						$plugin_cap_payload = (array) $__plugin_caps;
+						$plugin_cap_groups = [];
+						$_plugin_caps = [];
+
+						// Support grouped or single list payload.
+						$is_grouped_payload = false;
+						foreach ($plugin_cap_payload as $payload_caps) {
+							if (is_array($payload_caps)) {
+								$is_grouped_payload = true;
+								break;
+							}
+						}
+
+						if ($is_grouped_payload) {
+							$plugin_cap_groups = function_exists('pp_capabilities_groups_with_descriptions')
+								? pp_capabilities_groups_with_descriptions($plugin_cap_payload, $plugin_cap_descriptions)
+								: $plugin_cap_payload;
+
+							$all_plugin_caps = function_exists('pp_capabilities_group_capability_list')
+								? pp_capabilities_group_capability_list($plugin_cap_groups)
+								: [];
+
+							foreach ((array) $all_plugin_caps as $plugin_cap) {
+								$plugin_cap = sanitize_text_field((string) $plugin_cap);
+
+								if ('' !== $plugin_cap) {
+									$_plugin_caps[$plugin_cap] = true;
+								}
+							}
+
+							$all_plugin_caps = array_keys($_plugin_caps);
+						} else {
+							foreach ($plugin_cap_payload as $plugin_cap_key => $plugin_cap_value) {
+								if (is_string($plugin_cap_key) && ('' !== $plugin_cap_key) && !is_numeric($plugin_cap_key)) {
+									$plugin_cap = sanitize_text_field($plugin_cap_key);
+								} else {
+									$plugin_cap = sanitize_text_field((string) $plugin_cap_value);
+								}
+
+								if ('' !== $plugin_cap) {
+									$_plugin_caps[$plugin_cap] = true;
+								}
+							}
+
+							$all_plugin_caps = array_keys($_plugin_caps);
+
+							$plugin_cap_groups = apply_filters(
+								'publishpress_caps_plugin_capability_groups',
+								[],
+								$plugin_title_raw,
+								$all_plugin_caps,
+								$default
+							);
+						}
+
+						$normalized_plugin_cap_groups = [];
+						$plugin_group_cap_descriptions = [];
+						$grouped_plugin_caps = [];
+
+						if (is_array($plugin_cap_groups)) {
+							foreach ($plugin_cap_groups as $group_label => $group_caps) {
+								if (empty($group_caps) || !is_array($group_caps)) {
+									continue;
+								}
+
+								$group_label = sanitize_text_field((string) $group_label);
+								if ('' === $group_label) {
+									continue;
+								}
+
+								$normalized_group_caps = [];
+								foreach ($group_caps as $group_cap_key => $group_cap_value) {
+									$group_cap_description = '';
+
+									if (is_string($group_cap_key) && ('' !== $group_cap_key) && !is_numeric($group_cap_key)) {
+										$group_cap = sanitize_text_field($group_cap_key);
+
+										if (is_string($group_cap_value)) {
+											$group_cap_description = $group_cap_value;
+										} elseif (is_array($group_cap_value) && !empty($group_cap_value['description']) && is_string($group_cap_value['description'])) {
+											$group_cap_description = $group_cap_value['description'];
+										}
+									} else {
+										$group_cap = sanitize_text_field((string) $group_cap_value);
+									}
+
+									if ('' === $group_cap || !isset($_plugin_caps[$group_cap]) || isset($grouped_plugin_caps[$group_cap])) {
+										continue;
+									}
+
+									$normalized_group_caps[] = $group_cap;
+									$grouped_plugin_caps[$group_cap] = true;
+
+									if ('' !== trim($group_cap_description)) {
+										$plugin_group_cap_descriptions[$group_cap] = $group_cap_description;
+									}
+								}
+
+								if (!empty($normalized_group_caps)) {
+									$normalized_plugin_cap_groups[$group_label] = $normalized_group_caps;
+								}
+							}
+						}
+
+						$plugin_cap_group_for_cap = [];
+						$ordered_plugin_caps = [];
+
+						foreach ($normalized_plugin_cap_groups as $group_label => $group_caps) {
+							foreach ($group_caps as $group_cap) {
+								$ordered_plugin_caps[] = $group_cap;
+								$plugin_cap_group_for_cap[$group_cap] = $group_label;
+							}
+						}
+
+						$ungrouped_plugin_caps = array_values(array_diff($all_plugin_caps, array_keys($grouped_plugin_caps)));
+						if (!empty($ungrouped_plugin_caps)) {
+							$general_group_label = __('General', 'capability-manager-enhanced');
+
+							foreach ($ungrouped_plugin_caps as $ungrouped_cap) {
+								$ordered_plugin_caps[] = $ungrouped_cap;
+								$plugin_cap_group_for_cap[$ungrouped_cap] = $general_group_label;
+							}
+						}
 
 						$tab_id = 'cme-cap-type-tables-' . esc_attr(pp_capabilities_convert_to_slug($plugin_title));
-						$tab_name = esc_html(str_replace('_', ' ', $plugin_title));
+						$tab_name = esc_html(str_replace('_', ' ', $plugin_title_raw));
 						// support extractor staging label
 						$tab_name = str_replace('(CAPABILITYEXTRACTOR)', '<span class="capability-extractor-label">CE</span>', $tab_name);
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
@@ -1285,7 +1460,11 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							</td>
 						</tr>
                         <?php
-						foreach( array_keys($_plugin_caps) as $cap_name ) {
+						$last_cap_group = '';
+						$unique_cap_groups = array_unique(array_values($plugin_cap_group_for_cap));
+						$show_group_headings = count($unique_cap_groups) > 1;
+
+						foreach( $ordered_plugin_caps as $cap_name ) {
 							$cap_name = sanitize_text_field($cap_name);
 
 							if ( isset( $type_caps[$cap_name] ) || in_array($cap_name, $grouped_caps_lists) || isset($type_metacaps[$cap_name]) ) {
@@ -1294,6 +1473,26 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 							if ( ! $is_administrator && ! current_user_can($cap_name) )
 								continue;
+
+							$cap_group = isset($plugin_cap_group_for_cap[$cap_name])
+								? $plugin_cap_group_for_cap[$cap_name]
+								: __('General', 'capability-manager-enhanced');
+
+							if ($cap_group !== $last_cap_group) {
+								if ($show_group_headings) {
+									if (!$centinel_ && $i > 0) {
+										for ($i; $i < $checks_per_row; $i++) {
+											echo '<td>&nbsp;</td>';
+										}
+										echo '</tr>';
+										$i = 0;
+										$centinel_ = true;
+									}
+
+									echo '<tr class="cme-cap-group-subheading"><td colspan="' . (int) ($checks_per_row + 1) . '"><h4 class="cme-cap-group-title">' . esc_html($cap_group) . '</h4></td></tr>';
+								}
+								$last_cap_group = $cap_group;
+							}
 
 							// Output first <tr>
 							if ( $centinel_ == true ) {
@@ -1350,7 +1549,10 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							</td>
 
 							<td class="pp-cap-description">
-							<?php if (!empty($plugin_cap_descriptions[$cap_name])) {
+							<?php
+							if (!empty($plugin_group_cap_descriptions[$cap_name])) {
+								echo $plugin_group_cap_descriptions[$cap_name];
+							} elseif (!empty($plugin_cap_descriptions[$cap_name])) {
 								echo $plugin_cap_descriptions[$cap_name];
 							}
 							?>
@@ -1536,6 +1738,71 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						uasort( $this->capabilities, 'strnatcasecmp' );  // sort by array values, but maintain keys );
 
 						$additional_caps = apply_filters('publishpress_caps_manage_additional_caps', $this->capabilities);
+
+						// Configure chunk grouping by tab slug. Default enables chunked grouping for Additional.
+						$tab_auto_group_sizes = apply_filters(
+							'publishpress_caps_capability_tab_auto_group_sizes',
+							[
+								'additional' => 10,
+							],
+							$default,
+							$additional_caps
+						);
+
+						if (!is_array($tab_auto_group_sizes)) {
+							$tab_auto_group_sizes = [];
+						}
+
+						$additional_group_size = isset($tab_auto_group_sizes['additional'])
+							? (int) $tab_auto_group_sizes['additional']
+							: 0;
+
+						$additional_group_size = (int) apply_filters(
+							'publishpress_caps_capability_tab_group_size',
+							$additional_group_size,
+							'additional',
+							$default,
+							$additional_caps
+						);
+
+						// Backward compatibility for existing Additional-specific filter.
+						$additional_group_size = (int) apply_filters(
+							'publishpress_caps_additional_capability_group_size',
+							$additional_group_size,
+							$default,
+							$additional_caps
+						);
+						if ($additional_group_size < 1) {
+							$additional_group_size = 0;
+						}
+
+						$additional_group_enabled = $additional_group_size > 0;
+
+						$additional_group_enabled = (bool) apply_filters(
+							'publishpress_caps_enable_capability_tab_grouping',
+							$additional_group_enabled,
+							'additional',
+							$additional_group_size,
+							$default,
+							$additional_caps
+						);
+
+						// Backward compatibility for existing Additional-specific filter.
+						$additional_group_enabled = (bool) apply_filters(
+							'publishpress_caps_enable_additional_capability_grouping',
+							$additional_group_enabled,
+							$default,
+							$additional_caps,
+							$additional_group_size
+						);
+
+						$additional_group_label = (string) apply_filters(
+							'publishpress_caps_additional_capability_group_label',
+							__('General', 'capability-manager-enhanced'),
+							$default
+						);
+
+						$additional_rendered_count = 0;
 						$caps_empty = true;
 						foreach ($additional_caps as $cap_name => $cap) :
 							$cap_name = sanitize_text_field($cap_name);
@@ -1561,6 +1828,31 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							// Levels are not shown.
 							if ( preg_match( '/^level_(10|[0-9])$/i', $cap_name ) ) {
 								continue;
+							}
+
+							if ($additional_group_enabled && (0 === ($additional_rendered_count % $additional_group_size))) {
+								if (!$centinel_ && $i > 0) {
+									for ($i; $i < $checks_per_row; $i++) {
+										echo '<td>&nbsp;</td>';
+									}
+									echo '</tr>';
+									$i = 0;
+									$centinel_ = true;
+								}
+
+								$group_start = $additional_rendered_count + 1;
+								$group_end = $group_start + $additional_group_size - 1;
+								$group_title = apply_filters(
+									'publishpress_caps_additional_capability_group_title',
+									sprintf('%s (%d-%d)', $additional_group_label, $group_start, $group_end),
+									$additional_group_label,
+									$group_start,
+									$group_end,
+									$default,
+									$additional_group_size
+								);
+
+								echo '<tr class="cme-cap-group-subheading"><td colspan="' . (int) $checks_per_row . '"><h4 class="cme-cap-group-title">' . esc_html($group_title) . '</h4></td></tr>';
 							}
 
 							// Output first <tr>
@@ -1627,6 +1919,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 							</td>
 						<?php
 							$i++;
+							$additional_rendered_count++;
 						endforeach;
 
 						if ( ! empty($lock_manage_caps_capability) ) {

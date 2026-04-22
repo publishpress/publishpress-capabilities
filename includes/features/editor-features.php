@@ -120,6 +120,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                                         class="button-primary ppc-editor-features-submit" style="float:right"
                                         data-current_cpt="<?php echo esc_attr(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), 'post_type')); ?>" />
                                 </div>
+                                <div class="clear"></div>
 
                             <?php if ($classic_editor) : ?>
                                 <ul class="nav-tab-wrapper">
@@ -226,6 +227,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                                     data-current_cpt="<?php echo esc_attr(sprintf(esc_html__('Save %s Restrictions', 'capability-manager-enhanced'), 'post_type')); ?>" />
 
                                 </div>
+                                <div class="clear"></div>
                             </div>
 
                         </td>

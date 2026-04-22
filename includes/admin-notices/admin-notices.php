@@ -3,7 +3,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
     class PP_Capabilities_Admin_Notices
     {
         /**
-         * @var 
+         * @var
          */
         private $admin_notice_data;
 
@@ -38,26 +38,26 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
         /**
          * Add admin notices script and styles
-         * 
+         *
          * @return void
          */
         public function admin_scripts() {
-                
+
             //enqueue styles
             wp_enqueue_style(
-                'ppc-admin-notice-css', 
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/css/admin-notices.css', 
-                [], 
-                PUBLISHPRESS_CAPS_VERSION, 
+                'ppc-admin-notice-css',
+                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/css/admin-notices.css',
+                [],
+                PUBLISHPRESS_CAPS_VERSION,
                 'all'
             );
 
             //enqueue scripts
             wp_enqueue_script(
-                'ppc-admin-notice-js', 
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/js/admin-notices.js', 
-                ['jquery'], 
-                PUBLISHPRESS_CAPS_VERSION, 
+                'ppc-admin-notice-js',
+                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/js/admin-notices.js',
+                ['jquery'],
+                PUBLISHPRESS_CAPS_VERSION,
                 false
             );
 
@@ -100,7 +100,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
         /**
          * Get admin notice option for current role
-         * 
+         *
          * @return array
          */
         private function admin_notice_options() {
@@ -108,7 +108,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
             if (!is_array($admin_notice_options)) {
                 $cme_admin_notice_options = (array) get_option('cme_admin_notice_options');
-                
+
                 $admin_notice_options = [
                     'enable_toolbar_access' => 0,
                     'notice_type_remove' => [],
@@ -140,7 +140,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
                     }
                 }
             }
-            
+
             return $admin_notice_options;
         }
 
@@ -163,9 +163,9 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
         /**
          * Add admin notices to admin toolbar
-         * 
+         *
          * @param \WP_Admin_Bar $wp_admin_bar WordPress admin bar.
-         * 
+         *
          * @return void
          */
         public function add_toolbar_item($wp_admin_bar) {
@@ -173,7 +173,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             if (!$this->canSeeAdminToolbar() || !is_admin_bar_showing()) {
                 return;
             }
-            
+
             $args = [
                 'id'     => 'ppc-admin-notices-panel',
                 'title'  => '<span class="ab-label">' . esc_html__('Admin Notices', 'capability-manager-enhanced') . ' <span class="ppc-admin-notices-count"></span></span>',
@@ -185,13 +185,13 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             ];
             $wp_admin_bar->add_node($args);
         }
-        
+
         /**
          * Render our toolbar panel in the footer
          * @return void
          */
         public function render_panel() {
-            if (!$this->canSeeAdminToolbar()) 
+            if (!$this->canSeeAdminToolbar())
             {
                 return;
             }
@@ -215,7 +215,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
                         <path d="M97.6667 78.6665H72.3333C70.5917 78.6665 69.1667 80.0915 69.1667 81.8332C69.1667 83.5748 70.5917 84.9998 72.3333 84.9998H97.6667C99.4083 84.9998 100.833 83.5748 100.833 81.8332C100.833 80.0915 99.4083 78.6665 97.6667 78.6665ZM107.167 56.4998H104V53.3332C104 51.5915 102.575 50.1665 100.833 50.1665C99.0917 50.1665 97.6667 51.5915 97.6667 53.3332V56.4998H72.3333V53.3332C72.3333 51.5915 70.9083 50.1665 69.1667 50.1665C67.425 50.1665 66 51.5915 66 53.3332V56.4998H62.8333C61.1536 56.4998 59.5427 57.1671 58.355 58.3548C57.1673 59.5426 56.5 61.1535 56.5 62.8332V107.167C56.5 108.846 57.1673 110.457 58.355 111.645C59.5427 112.833 61.1536 113.5 62.8333 113.5H107.167C110.65 113.5 113.5 110.65 113.5 107.167V62.8332C113.5 59.3498 110.65 56.4998 107.167 56.4998ZM104 107.167H66C64.2583 107.167 62.8333 105.742 62.8333 104V72.3332H107.167V104C107.167 105.742 105.742 107.167 104 107.167ZM88.1667 91.3332H72.3333C70.5917 91.3332 69.1667 92.7582 69.1667 94.4998C69.1667 96.2415 70.5917 97.6665 72.3333 97.6665H88.1667C89.9083 97.6665 91.3333 96.2415 91.3333 94.4998C91.3333 92.7582 89.9083 91.3332 88.1667 91.3332Z" fill="#8E8E8E"></path>
                     </svg>
                     <h4><?php esc_html_e('Admin Notices', 'capability-manager-enhanced'); ?></h4>
-                    <p><?php esc_html_e('There are currently no admin notices.', 'capability-manager-enhanced'); ?> <a target="_blank" href="<?php echo esc_url(admin_url('admin.php?page=pp-capabilities-settings&pp_tab=admin-notices')); ?>"><?php esc_html_e('Edit the settings.', 'capability-manager-enhanced'); ?></a></p>
+                    <p><?php esc_html_e('There are currently no admin notices.', 'capability-manager-enhanced'); ?> <a target="_blank" href="<?php echo esc_url(admin_url('admin.php?page=pp-capabilities-admin-notices')); ?>"><?php esc_html_e('Edit the settings.', 'capability-manager-enhanced'); ?></a></p>
                 </div>
                 <div class="ppc-admin-notices-panel-content"><?php esc_html_e('Admin Notices', 'capability-manager-enhanced'); ?></div>
             </div>
@@ -244,7 +244,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             } elseif (empty($action_type) || empty($action_option) && empty($notice_id)) {
                 $response['message'] = esc_html__('Invalid form.', 'capability-manager-enhanced');
             } else {
-                
+
                 $admin_notice_data = (array) get_option('cme_admin_notice_data', []);
 
                 // remove current notice from both whitelist and blacklist if present

@@ -85,6 +85,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                         value="<?php esc_attr_e('Save Changes');?>"
                                         class="button-primary ppc-frontend-features-submit" />
                                 </div>
+                                <div class="clear"></div>
 
                                 <select name="ppc-frontend-features-role" class="ppc-frontend-features-role">
                                     <optgroup label="<?php esc_attr_e('Users');?>">
@@ -235,6 +236,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                         value="<?php esc_attr_e('Save Changes');?>"
                                         class="button-primary ppc-frontend-features-submit" />
                                 </div>
+                                <div class="clear"></div>
                             </div>
 
                         </td>

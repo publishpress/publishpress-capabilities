@@ -10,26 +10,26 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-03-24 15:04+0000\n"
+"PO-Revision-Date: 2026-04-22 08:34+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
+">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1: 2);\n"
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1: 2);\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11 ? 0 : n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
 
-#: capsman-enhanced.php
-#: capsman-enhanced.php
+#: capsman-enhanced.php:5
 #. Plugin Name of the plugin
 msgid "PublishPress Capabilities"
 msgstr "Возможности PublishPress"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:7, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:9
 #. Description of the plugin
 msgid ""
 "PublishPress Capabilities is the access control plugin for WordPress. You "
@@ -40,12 +40,12 @@ msgstr ""
 "можете управлять всеми ролями пользователей WordPress, от администраторов "
 "до подписчиков."
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:13
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: capsman-enhanced.php
+#: capsman-enhanced.php:15, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -74,11 +74,11 @@ msgstr ""
 
 #: includes-core/admin-features-promo.php:79
 #: includes-core/admin-menus-promo.php:62
-#: includes-core/CoreAdmin.php:54
+#: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:813
-#: includes/features/admin-styles/admin-styles-ui.php:307
+#: includes/admin-load.php:814
+#: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Обновить до Pro"
 
@@ -106,22 +106,22 @@ msgstr ""
 "Вы используете PublishPress Capabilities Free. Профессиональная версия "
 "имеет больше функций и поддержку. %sПерейти на Pro%s"
 
-#: includes-core/CoreAdmin.php:90
-#: includes-core/CoreAdmin.php:153
-#: includes/functions-admin.php:491
+#: includes-core/CoreAdmin.php:92
+#: includes-core/CoreAdmin.php:155
+#: includes/functions-admin.php:531
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "Меню администратора"
 
-#: includes-core/CoreAdmin.php:133
+#: includes-core/CoreAdmin.php:135
 msgid "Hide CSS Elements"
 msgstr "Скрыть элементы CSS"
 
-#: includes-core/CoreAdmin.php:134
+#: includes-core/CoreAdmin.php:136
 msgid "Block by URL"
 msgstr "Блокировать по URL"
 
-#: includes-core/CoreAdmin.php:154
+#: includes-core/CoreAdmin.php:156
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -129,11 +129,11 @@ msgstr ""
 "Админские меню позволяют редактировать ссылки на меню администратора и "
 "контролировать, кто имеет доступ."
 
-#: includes-core/CoreAdmin.php:164
+#: includes-core/CoreAdmin.php:166
 msgid "Select pages..."
 msgstr "Выберите страницы..."
 
-#: includes-core/CoreAdmin.php:169
+#: includes-core/CoreAdmin.php:171
 msgid "You can select page types where this element will be added."
 msgstr "Вы можете выбрать типы страниц, на которые будет добавлен этот элемент."
 
@@ -211,17 +211,17 @@ msgstr "Перетащите выбор нескольких ролей, что�
 msgid "Page title"
 msgstr "Название страницы"
 
-#: includes/admin-load.php:375
+#: includes/admin-load.php:375, fuzzy
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:494
-#: includes/admin-load.php:826
-#: includes/functions-admin.php:379
-#: includes/functions-admin.php:462
+#: includes/admin-load.php:827
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:495
 #: includes/manager.php:387
 #: includes/roles/class/class-pp-roles-admin.php:637
-#: includes/settings-ui.php:34
+#: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Возможности"
 
@@ -237,7 +237,7 @@ msgstr "Недействительный токен nonce!"
 msgid "Error: wrong data"
 msgstr "Ошибка: неверные данные"
 
-#: includes/admin-load.php:648
+#: includes/admin-load.php:649
 #: includes/admin-notices/admin-notices.php:232
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -245,54 +245,185 @@ msgstr "Ошибка: неверные данные"
 msgid "An error occured!"
 msgstr "Произошла ошибка!"
 
-#: includes/admin-load.php:653
+#: includes/admin-load.php:654
 msgid "Security check failed"
 msgstr "Проверка безопасности не удалась"
 
-#: includes/admin-load.php:655
+#: includes/admin-load.php:656
 msgid "Permission denied"
 msgstr "Доступ запрещен"
 
-#: includes/admin-load.php:665
+#: includes/admin-load.php:666
 msgid "Settings updated successfully."
 msgstr "Настройки успешно обновлены."
 
-#: includes/admin-load.php:761
+#: includes/admin-load.php:762
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Вошедшие пользователи"
 
-#: includes/admin-load.php:762
+#: includes/admin-load.php:763
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Вышедшие пользователи"
 
-#: includes/admin-load.php:769
+#: includes/admin-load.php:770
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Ограничение меню PublishPress Capabilities"
 
-#: includes/admin-load.php:770
+#: includes/admin-load.php:771
 msgid "This menu is restricted for the following roles"
 msgstr "Это меню ограничено для следующих ролей"
 
-#: includes/admin-load.php:825
+#: includes/admin-load.php:826
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Панель управления"
 
-#: includes/admin-load.php:827
-#: includes/functions-admin.php:374
-#: includes/functions-admin.php:455
+#: includes/admin-load.php:828
+#: includes/functions-admin.php:404
+#: includes/functions-admin.php:488
 #: includes/roles/roles.php:8
-#: includes/settings-ui.php:33
+#: includes/settings-ui.php:34
 msgid "Roles"
 msgstr "Роли"
 
-#: includes/admin-load.php:828
+#: includes/admin-load.php:829
 msgid "Settings"
 msgstr "Настройки"
+
+#: includes/admin-notices/admin-notices-settings.php:7
+msgid "Success notices"
+msgstr "Уведомления об успехе"
+
+#: includes/admin-notices/admin-notices-settings.php:8
+msgid "Error notices"
+msgstr "Ошибки"
+
+#: includes/admin-notices/admin-notices-settings.php:9
+msgid "Warning notices"
+msgstr "Предупреждения"
+
+#: includes/admin-notices/admin-notices-settings.php:10
+msgid "Info notices"
+msgstr "Информационные уведомления"
+
+#: includes/admin-notices/admin-notices-settings.php:22
+msgid "Current Role"
+msgstr "Текущая роль"
+
+#: includes/admin-notices/admin-notices-settings.php:33
+#: includes/admin-notices/admin-notices.php:179
+#: includes/admin-notices/admin-notices.php:217
+#: includes/admin-notices/admin-notices.php:220
+#: includes/functions-admin.php:239
+#: includes/functions-admin.php:454
+#: includes/functions-admin.php:523
+msgid "Admin Notices"
+msgstr "Уведомления администратора"
+
+#: includes/admin-notices/admin-notices-settings.php:60
+#: includes/admin-notices/admin-notices-settings.php:152
+#: includes/features/admin-styles/admin-styles-ui.php:180
+#: includes/features/admin-styles/admin-styles-ui.php:815
+#: includes/redirects/redirects.php:117
+#: includes/redirects/redirects.php:321
+msgid "Save for all Roles"
+msgstr "Сохранить для всех Ролей"
+
+#: includes/admin-notices/admin-notices-settings.php:64
+#: includes/admin-notices/admin-notices-settings.php:156
+#: includes/features/admin-styles/admin-styles-ui.php:184
+#: includes/features/admin-styles/admin-styles-ui.php:819
+#: includes/features/admin-styles/admin-styles.php:856
+#, php-format
+msgid "Save for %s"
+msgstr "Сохранить для %s"
+
+#: includes/admin-notices/admin-notices-settings.php:78
+msgid "Notification center access"
+msgstr "Доступ к центру уведомлений"
+
+#: includes/admin-notices/admin-notices-settings.php:89
+#, php-format
+msgid "Enable %1$s access to the Admin Notices area."
+msgstr "Включить доступ к области Административных уведомлений для %1$s."
+
+#: includes/admin-notices/admin-notices-settings.php:96
+msgid "Notifications to remove from WordPress admin pages"
+msgstr "Уведомления для удаления со страниц администратора WordPress"
+
+#: includes/admin-notices/admin-notices-settings.php:113
+#, php-format
+msgid ""
+"Select the notification types that should be hidden when a user in the %1$s "
+"role is viewing WordPress admin screens."
+msgstr ""
+"Выберите типы уведомлений, которые должны быть скрыты, когда пользователь с "
+"ролью %1$s просматривает экраны администратора WordPress."
+
+#: includes/admin-notices/admin-notices-settings.php:113
+#: includes/admin-notices/admin-notices-settings.php:136
+msgid "Click here for more on notice types."
+msgstr "Нажмите здесь для получения дополнительной информации о типах уведомлений."
+
+#: includes/admin-notices/admin-notices-settings.php:119
+msgid "Notifications to display in the Admin Notices area."
+msgstr "Уведомления для отображения в области уведомлений администратора."
+
+#: includes/admin-notices/admin-notices-settings.php:136
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr ""
+"Выберите типы уведомлений, которые должны отображаться в области "
+"уведомлений администратора после их удаления с экранов администратора "
+"WordPress."
+
+#: includes/admin-notices/admin-notices-settings.php:170
+msgid ""
+"Admin Notices allows you to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into one place."
+msgstr ""
+"Административные уведомления позволяют очистить область администратора "
+"WordPress, организовав дополнительные сообщения и рекламу в одном месте."
+
+#: includes/admin-notices/admin-notices-settings.php:172
+#: includes/features/admin-styles/admin-styles-ui.php:835
+msgid "Features include:"
+msgstr "Возможности включают:"
+
+#: includes/admin-notices/admin-notices-settings.php:174
+msgid "Move selected notice types out of admin pages"
+msgstr "Переместить выбранные типы уведомлений из административных страниц"
+
+#: includes/admin-notices/admin-notices-settings.php:175
+msgid "Show selected notices in a dedicated Admin Notices panel"
+msgstr ""
+"Показать выбранные уведомления в специальной панели Административных "
+"уведомлений"
+
+#: includes/admin-notices/admin-notices-settings.php:176
+msgid "Configure notice visibility by user role"
+msgstr "Настроить видимость уведомлений по ролям пользователей"
+
+#: includes/admin-notices/admin-notices-settings.php:178
+#: includes/admin.php:2015
+#: includes/features/admin-features.php:352
+#: includes/features/admin-styles/admin-styles-ui.php:842
+#: includes/features/editor-features.php:247
+#: includes/features/frontend-features/frontend-features.php:256
+#: includes/features/nav-menus.php:308
+#: includes/features/profile-features.php:257
+#: includes/redirects/redirects.php:336
+msgid "View Documentation"
+msgstr "Просмотреть документацию"
+
+#: includes/admin-notices/admin-notices-settings.php:179
+msgid "How to use Admin Notices"
+msgstr "Как использовать Административные уведомления"
 
 #: includes/admin-notices/admin-notices.php:72
 msgid "Display this notice"
@@ -322,14 +453,6 @@ msgstr ""
 "Это уведомление будет перемещено на вкладку \"Приглушенные уведомления\" и "
 "вы не получите уведомление, если оно появится снова."
 
-#: includes/admin-notices/admin-notices.php:179
-#: includes/admin-notices/admin-notices.php:217
-#: includes/admin-notices/admin-notices.php:220
-#: includes/functions-admin.php:424
-#: includes/settings-ui.php:37
-msgid "Admin Notices"
-msgstr "Уведомления администратора"
-
 #: includes/admin-notices/admin-notices.php:204
 msgid "Hidden Notices"
 msgstr "Скрытые уведомления"
@@ -347,6 +470,8 @@ msgid "Edit the settings."
 msgstr "Изменить настройки."
 
 #: includes/admin-notices/admin-notices.php:241
+#: includes/manager.php:771
+#: includes/manager.php:795
 msgid "You do not have permission to manage admin notices."
 msgstr "У вас нет разрешения для управления уведомлениями админа."
 
@@ -389,68 +514,68 @@ msgstr "Возможности Роли"
 msgid "Search capabilities..."
 msgstr "Поиск возможностей..."
 
-#: includes/admin.php:207
-#: includes/admin.php:802
+#: includes/admin.php:208
+#: includes/admin.php:847
 msgid "Nav Menus (Block)"
 msgstr "Навигационные меню (блок)"
 
-#: includes/admin.php:209
+#: includes/admin.php:210
 msgid "Block"
 msgstr "Блокировать"
 
-#: includes/admin.php:216
-#: includes/admin.php:804
+#: includes/admin.php:217
+#: includes/admin.php:849
 msgid "Nav Menus (Legacy)"
 msgstr "Навигационные меню (наследие)"
 
-#: includes/admin.php:218
+#: includes/admin.php:219
 msgid "Legacy"
 msgstr "Устаревший"
 
-#: includes/admin.php:270
+#: includes/admin.php:271, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:271
+#: includes/admin.php:272
 msgid "Visibility"
 msgstr "Видимость"
 
-#: includes/admin.php:272
+#: includes/admin.php:273
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Редактирование"
 
-#: includes/admin.php:273
+#: includes/admin.php:274
 msgid "Deletion"
 msgstr "Удаление"
 
-#: includes/admin.php:274
+#: includes/admin.php:275
 msgid "Taxonomies"
 msgstr "Таксономии"
 
-#: includes/admin.php:278
+#: includes/admin.php:279
 msgid "Listing"
 msgstr "Список"
 
-#: includes/admin.php:282
+#: includes/admin.php:283
 msgid "Create Revision"
 msgstr "Создать ревизию"
 
-#: includes/admin.php:286
+#: includes/admin.php:287
 msgid "Submit Revision"
 msgstr "Отправить правку"
 
-#: includes/admin.php:290
+#: includes/admin.php:291
 msgid "Approve Revision"
 msgstr "Одобрить ревизию"
 
-#: includes/admin.php:294
+#: includes/admin.php:295
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 "Может читать записи, которые в настоящее время опубликованы с приватной "
 "видимостью."
 
-#: includes/admin.php:295
+#: includes/admin.php:296
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -458,25 +583,25 @@ msgstr ""
 "Имеет базовую возможность редактирования (но может потребоваться другие "
 "возможности в зависимости от статуса поста и владения)."
 
-#: includes/admin.php:296
+#: includes/admin.php:297
 msgid "Can edit posts which were created by other users."
 msgstr "Может редактировать записи, которые были созданы другими пользователями."
 
-#: includes/admin.php:297
+#: includes/admin.php:298
 msgid "Can edit posts which are currently published."
 msgstr "Может редактировать записи, которые в настоящее время опубликованы."
 
-#: includes/admin.php:298
+#: includes/admin.php:299
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
 "Может редактировать записи, которые в настоящее время опубликованы с "
 "приватной видимостью."
 
-#: includes/admin.php:299
+#: includes/admin.php:300
 msgid "Can make a post publicly visible."
 msgstr "Может сделать запись публично видимой."
 
-#: includes/admin.php:300
+#: includes/admin.php:301
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -484,104 +609,104 @@ msgstr ""
 "Имеет базовую возможность удаления (но может потребоваться другие "
 "возможности в зависимости от статуса поста и владения)."
 
-#: includes/admin.php:301
+#: includes/admin.php:302
 msgid "Can delete posts which were created by other users."
 msgstr "Может удалять записи, которые были созданы другими пользователями."
 
-#: includes/admin.php:302
+#: includes/admin.php:303
 msgid "Can delete posts which are currently published."
 msgstr "Может удалять записи, которые в настоящее время опубликованы."
 
-#: includes/admin.php:303
+#: includes/admin.php:304
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
 "Может удалять записи, которые в настоящее время опубликованы с приватной "
 "видимостью."
 
-#: includes/admin.php:598
-#: includes/admin.php:1069
-#: includes/admin.php:1811
+#: includes/admin.php:599
+#: includes/admin.php:1114
+#: includes/admin.php:2104
 msgid "Multisite"
 msgstr "Мультисайт"
 
-#: includes/admin.php:602
-#: includes/admin.php:1073
+#: includes/admin.php:603
+#: includes/admin.php:1118
 msgid "Admin"
 msgstr "Администратор"
 
-#: includes/admin.php:638
-#: includes/admin.php:1395
+#: includes/admin.php:683
+#: includes/admin.php:1597
 msgid "Invalid Capabilities"
 msgstr "Недействительные возможности"
 
-#: includes/admin.php:643
+#: includes/admin.php:688
 msgid "Additional"
 msgstr "Дополнительно"
 
-#: includes/admin.php:677
+#: includes/admin.php:722
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Возможности термина %s"
 
-#: includes/admin.php:680
+#: includes/admin.php:725
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s Возможности"
 
-#: includes/admin.php:681
+#: includes/admin.php:726
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Возможности поста %s"
 
-#: includes/admin.php:684
+#: includes/admin.php:729
 msgid "Taxonomy"
 msgstr "Таксономия"
 
-#: includes/admin.php:690
+#: includes/admin.php:735
 msgid "Filter by taxonomy"
 msgstr "Фильтр по таксономии"
 
-#: includes/admin.php:690
+#: includes/admin.php:735
 msgid "Filter by post type"
 msgstr "Фильтровать по типу записи"
 
-#: includes/admin.php:811
+#: includes/admin.php:856
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Slug для этой таксономии - %s"
 
-#: includes/admin.php:813
+#: includes/admin.php:858
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Slug для этого типа поста - %s"
 
-#: includes/admin.php:889
-#: includes/admin.php:1138
-#: includes/admin.php:1316
-#: includes/admin.php:1586
-#: includes/admin.php:1587
+#: includes/admin.php:934
+#: includes/admin.php:1183
+#: includes/admin.php:1515
+#: includes/admin.php:1878
+#: includes/admin.php:1879
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: назначено группой разрешений"
 
-#: includes/admin.php:892
-#: includes/admin.php:1140
-#: includes/admin.php:1318
-#: includes/admin.php:1443
-#: includes/admin.php:1589
+#: includes/admin.php:937
+#: includes/admin.php:1185
+#: includes/admin.php:1517
+#: includes/admin.php:1645
+#: includes/admin.php:1881
 #, php-format
 msgid "This capability is %s"
 msgstr "Эта возможность - %s"
 
-#: includes/admin.php:922
+#: includes/admin.php:967
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Эта возможность контролируется %s"
 
-#: includes/admin.php:925
+#: includes/admin.php:970
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -590,18 +715,18 @@ msgstr ""
 "Эта возможность контролируется %s Используйте настройки боковой панели, "
 "чтобы разрешить это контролировать независимо."
 
-#: includes/admin.php:942
+#: includes/admin.php:987
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
 "Используйте настройки боковой панели, чтобы это можно было контролировать "
 "независимо."
 
-#: includes/admin.php:944
-#: includes/admin.php:948
+#: includes/admin.php:989
+#: includes/admin.php:993
 msgid "This capability is not available for this post type."
 msgstr "Эта возможность недоступна для данного типа записи."
 
-#: includes/admin.php:1012
+#: includes/admin.php:1057
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -613,59 +738,67 @@ msgstr ""
 "если соответствующая функция \"Редактировать\" отсутствует. Также эти "
 "функции \"Список\" могут предоставлять доступ, но не могут его отменить."
 
-#: includes/admin.php:1089
-#: includes/admin.php:1208
-#: includes/admin.php:1267
-#: includes/admin.php:1511
+#: includes/admin.php:1134
+#: includes/admin.php:1253
+#: includes/admin.php:1442
+#: includes/admin.php:1713
 msgid "Filter by capability"
 msgstr "Фильтровать по возможности"
 
-#: includes/admin.php:1092
-#: includes/admin.php:1211
-#: includes/admin.php:1270
-#: includes/admin.php:1514
+#: includes/admin.php:1137
+#: includes/admin.php:1256
+#: includes/admin.php:1445
+#: includes/admin.php:1716
 msgid "No results found. Please try again with a different word."
 msgstr "Результатов не найдено. Пожалуйста, попробуйте снова с другим словом."
 
-#: includes/admin.php:1103
-#: includes/admin.php:1185
-#: includes/admin.php:1222
-#: includes/admin.php:1231
-#: includes/admin.php:1281
-#: includes/admin.php:1377
-#: includes/admin.php:1520
-#: includes/admin.php:1660
+#: includes/admin.php:1148
+#: includes/admin.php:1230
+#: includes/admin.php:1267
+#: includes/admin.php:1276
+#: includes/admin.php:1456
+#: includes/admin.php:1579
+#: includes/admin.php:1722
+#: includes/admin.php:1953
 msgid "check / uncheck all"
 msgstr "выбрать / снять выбор со всех"
 
-#: includes/admin.php:1103
-#: includes/admin.php:1185
-#: includes/admin.php:1222
-#: includes/admin.php:1231
-#: includes/admin.php:1281
-#: includes/admin.php:1377
-#: includes/admin.php:1520
-#: includes/admin.php:1660
+#: includes/admin.php:1148
+#: includes/admin.php:1230
+#: includes/admin.php:1267
+#: includes/admin.php:1276
+#: includes/admin.php:1456
+#: includes/admin.php:1579
+#: includes/admin.php:1722
+#: includes/admin.php:1953
 msgid "Capability Name"
 msgstr "Название возможности"
 
-#: includes/admin.php:1205
+#: includes/admin.php:1250
 msgid "WordPress Core Capabilities"
 msgstr "Возможности ядра WordPress"
 
-#: includes/admin.php:1264
+#: includes/admin.php:1422
+#: includes/admin.php:1479
+#: includes/admin.php:1801
+#: includes/features/admin-styles/admin-styles.php:1743
+#: includes/roles/class/class-pp-roles-admin.php:106
+msgid "General"
+msgstr "Общие"
+
+#: includes/admin.php:1439
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Возможности плагина &ndash; %s"
 
-#: includes/admin.php:1322
+#: includes/admin.php:1521
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "Функция пользовательского тестирования также требует возможности %1$s "
 "edit_users %2$s."
 
-#: includes/admin.php:1400
+#: includes/admin.php:1602
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -673,74 +806,63 @@ msgstr ""
 "Следующие записи не имеют эффекта. Пожалуйста, назначьте желаемые "
 "возможности на вкладках Редактирование / Удаление / Приватные."
 
-#: includes/admin.php:1508
+#: includes/admin.php:1710
 msgid "Additional Capabilities"
 msgstr "Дополнительные возможности"
 
-#: includes/admin.php:1653
+#: includes/admin.php:1946
 msgid "You have no additional capabilities."
 msgstr "У вас нет дополнительных возможностей."
 
-#: includes/admin.php:1677
+#: includes/admin.php:1970
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "Возможности позволяют вам изменять права для любой пользовательской роли."
 
-#: includes/admin.php:1678
+#: includes/admin.php:1971
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Возможность предоставлена %2$s"
 
-#: includes/admin.php:1678
-#: includes/admin.php:1679
-#: includes/admin.php:1680
-#: includes/features/admin-features.php:346
-#: includes/features/admin-features.php:348
-#: includes/features/editor-features.php:240
+#: includes/admin.php:1971
+#: includes/admin.php:1972
+#: includes/admin.php:1973
+#: includes/features/admin-features.php:347
+#: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
-#: includes/features/frontend-features/frontend-features.php:249
+#: includes/features/editor-features.php:244
 #: includes/features/frontend-features/frontend-features.php:251
+#: includes/features/frontend-features/frontend-features.php:253
 #: includes/features/nav-menus.php:303
 #: includes/features/nav-menus.php:305
-#: includes/features/profile-features.php:251
-#: includes/features/profile-features.php:253
+#: includes/features/profile-features.php:252
+#: includes/features/profile-features.php:254
 msgid "usage key"
 msgstr "ключ использования"
 
-#: includes/admin.php:1679
+#: includes/admin.php:1972
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Возможность не предоставлена %2$s"
 
-#: includes/admin.php:1680
+#: includes/admin.php:1973
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Возможность отклонена, даже если предоставлена другой ролью %2$s"
 
-#: includes/admin.php:1688
+#: includes/admin.php:1981
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Вы также можете настроить эту роль как группу %sРазрешений%s."
 
-#: includes/admin.php:1708
+#: includes/admin.php:2001
 msgid "How to use Capabilities"
 msgstr "Как использовать возможности"
 
-#: includes/admin.php:1722
-#: includes/features/admin-features.php:351
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/editor-features.php:245
-#: includes/features/frontend-features/frontend-features.php:254
-#: includes/features/nav-menus.php:308
-#: includes/features/profile-features.php:256
-#: includes/redirects/redirects.php:335
-msgid "View Documentation"
-msgstr "Просмотреть документацию"
-
-#: includes/admin.php:1746
+#: includes/admin.php:2039
 msgid "Capabilities is Safe to Use"
 msgstr "Возможности безопасны для использования"
 
-#: includes/admin.php:1759
+#: includes/admin.php:2052
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -748,7 +870,7 @@ msgstr ""
 "WordPress хранит возможности ролей в вашей базе данных, где они остаются, "
 "даже если плагин деактивирован."
 
-#: includes/admin.php:1760
+#: includes/admin.php:2053
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -757,27 +879,27 @@ msgstr ""
 "изменений, создается резервная копия, которую вы можете использовать для "
 "восстановления предыдущей конфигурации."
 
-#: includes/admin.php:1763
+#: includes/admin.php:2056
 msgid "Go to the Backup feature"
 msgstr "Перейти к функции резервного копирования"
 
-#: includes/admin.php:1782
+#: includes/admin.php:2075
 msgid "Add a New Capability"
 msgstr "Добавить новую возможность"
 
-#: includes/admin.php:1792
+#: includes/admin.php:2085
 msgid "Add to role"
 msgstr "Добавить в роль"
 
-#: includes/admin.php:1795
+#: includes/admin.php:2088
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Новые возможности контролируются на вкладке Дополнительно."
 
-#: includes/admin.php:1851
+#: includes/admin.php:2144
 msgid "PublishPress Permissions"
 msgstr "Разрешения PublishPress"
 
-#: includes/admin.php:1853
+#: includes/admin.php:2146
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -785,11 +907,11 @@ msgstr ""
 "Автоматически определяйте функции, специфичные для типов, для ваших "
 "пользовательских типов постов и таксономий"
 
-#: includes/admin.php:1857
+#: includes/admin.php:2150
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Дополнительно назначьте стандартные роли WP для конкретного типа поста"
 
-#: includes/admin.php:1861
+#: includes/admin.php:2154
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -797,17 +919,17 @@ msgstr ""
 "Дополнительно назначьте пользовательские WP роли для конкретного типа поста "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:1865
+#: includes/admin.php:2158
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Настроить разрешения на чтение по категориям или по постам"
 
-#: includes/admin.php:1869
+#: includes/admin.php:2162
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "Настроить разрешения на редактирование по категориям или по постам "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:1873
+#: includes/admin.php:2166
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -815,7 +937,7 @@ msgstr ""
 "Пользовательские статусы видимости постов, полностью реализованные на всех "
 "страницах wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:1877
+#: includes/admin.php:2170
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -823,11 +945,11 @@ msgstr ""
 "Пользовательские статусы модерации для контроля доступа, многошагового "
 "рабочего процесса публикации <em>(Pro)</em>"
 
-#: includes/admin.php:1881
+#: includes/admin.php:2174
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Регулировать разрешения для статусов публикаций Edit Flow <em>(Pro)</em>"
 
-#: includes/admin.php:1885
+#: includes/admin.php:2178
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -835,7 +957,7 @@ msgstr ""
 "Настройте модерацию редактирования опубликованного контента с помощью "
 "Revisionary или Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:1889
+#: includes/admin.php:2182
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -843,41 +965,41 @@ msgstr ""
 "Предоставьте доступ Зрителю, Участнику или Модератору к конкретным форумам "
 "bbPress <em>(Pro)</em>"
 
-#: includes/admin.php:1893
+#: includes/admin.php:2186
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
 "Предоставить разрешения на дополнительный контент группе BuddyPress "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:1897
+#: includes/admin.php:2190
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "Интеграция WPML для зеркалирования разрешений к переводам <em>(Pro)</em>"
 
-#: includes/admin.php:1901
+#: includes/admin.php:2194
 msgid "Member support forum"
 msgstr "Форум поддержки участников"
 
-#: includes/admin.php:1908
-#, php-format
+#: includes/admin.php:2201
+#, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:1908
+#: includes/admin.php:2201
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (бесплатная установка)"
 
-#: includes/admin.php:1910
-#, php-format
+#: includes/admin.php:2203
+#, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:1910
+#: includes/admin.php:2203
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s информация/покупка"
 
-#: includes/admin.php:1942
+#: includes/admin.php:2235
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -887,31 +1009,31 @@ msgstr ""
 "на назначение автора поста и ограничивает применение возможностей "
 "редактирования пользователя."
 
-#: includes/admin.php:1944
+#: includes/admin.php:2237
 msgid "Level:"
 msgstr "Уровень:"
 
-#: includes/admin.php:1987
+#: includes/admin.php:2280
 msgid "Create this role definition in new (future) sites"
 msgstr "Создать это определение роли на новых (будущих) сайтах"
 
-#: includes/admin.php:1987
+#: includes/admin.php:2280
 msgid "Include in new sites."
 msgstr "Включить в новые сайты."
 
-#: includes/admin.php:1990
+#: includes/admin.php:2283
 msgid "Copy / update this role definition to all sites now"
 msgstr "Скопировать / обновить это определение роли на всех сайтах сейчас"
 
-#: includes/admin.php:1990
+#: includes/admin.php:2283
 msgid "Sync role to all sites."
 msgstr "Синхронизировать роль на всех сайтах."
 
-#: includes/admin.php:1993
+#: includes/admin.php:2286
 msgid "Copy option settings to all sites now"
 msgstr "Скопировать настройки опции на все сайты сейчас"
 
-#: includes/admin.php:1993
+#: includes/admin.php:2286
 msgid "Sync options to all sites."
 msgstr "Синхронизировать параметры на всех сайтах."
 
@@ -984,7 +1106,7 @@ msgid "Restore"
 msgstr "Восстановить"
 
 #: includes/backup.php:51
-#: includes/functions-admin.php:527
+#: includes/functions-admin.php:567
 msgid "Backup"
 msgstr "Резервное копирование"
 
@@ -1115,7 +1237,7 @@ msgstr "Сбросить стандартные настройки WordPress"
 
 #: includes/backup.php:285
 #: includes/backup.php:332
-#: includes/features/profile-features.php:241
+#: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "Предупреждение:"
 
@@ -1208,34 +1330,34 @@ msgstr ""
 msgid "Admin Feature Restrictions"
 msgstr "Ограничения функций администратора"
 
-#: includes/features/admin-features.php:174
+#: includes/features/admin-features.php:175
 #: includes/features/nav-menus.php:127
 #: includes/features/nav-menus.php:147
-#: includes/features/profile-features.php:106
-#: includes/features/profile-features.php:125
+#: includes/features/profile-features.php:107
+#: includes/features/profile-features.php:126
 msgid "Toggle all"
 msgstr "Переключить все"
 
-#: includes/features/admin-features.php:249
+#: includes/features/admin-features.php:250
 msgid "Wildcard enabled"
 msgstr "Используются подстановочные знаки"
 
-#: includes/features/admin-features.php:251
+#: includes/features/admin-features.php:252
 msgid "URL targeted"
 msgstr "Целевой URL"
 
-#: includes/features/admin-features.php:253
+#: includes/features/admin-features.php:254
 msgid "URL wildcard"
 msgstr "Шаблон URL"
 
-#: includes/features/admin-features.php:276
+#: includes/features/admin-features.php:277
 #: includes/features/editor-features-classic.php:123
 #: includes/features/editor-features-gutenberg.php:120
 msgid "Edit"
 msgstr "Редактировать"
 
-#: includes/features/admin-features.php:344
-#: includes/functions-admin.php:390
+#: includes/features/admin-features.php:345
+#: includes/functions-admin.php:420
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
@@ -1243,85 +1365,75 @@ msgstr ""
 "Функции администратора позволяют удалять элементы из области администратора "
 "и панели инструментов."
 
-#: includes/features/admin-features.php:347
-#: includes/features/editor-features.php:241
-#: includes/features/frontend-features/frontend-features.php:250
+#: includes/features/admin-features.php:348
+#: includes/features/editor-features.php:243
+#: includes/features/frontend-features/frontend-features.php:252
 #: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:252
+#: includes/features/profile-features.php:253
 msgid "No change"
 msgstr "Нет изменений"
 
-#: includes/features/admin-features.php:349
-#: includes/features/editor-features.php:243
+#: includes/features/admin-features.php:350
+#: includes/features/editor-features.php:245
 #: includes/features/nav-menus.php:306
-#: includes/features/profile-features.php:254
+#: includes/features/profile-features.php:255
 msgid "This feature is denied"
 msgstr "Эта функция запрещена"
 
-#: includes/features/admin-features.php:352
+#: includes/features/admin-features.php:353
 msgid "How to use Admin Features"
 msgstr "Как использовать функции администратора"
 
-#: includes/features/admin-features.php:356
+#: includes/features/admin-features.php:357
 msgid "Admin Features Settings"
 msgstr "Настройки функций администратора"
 
-#: includes/features/admin-features.php:359
+#: includes/features/admin-features.php:360
 msgid "Hide Submenus"
 msgstr "Скрыть подменю"
 
-#: includes/features/admin-styles/admin-styles-ui.php:61
+#: includes/features/admin-styles/admin-styles-ui.php:55
+msgid "Select a preset font family"
+msgstr "Выберите предустановленное семейство шрифтов"
+
+#: includes/features/admin-styles/admin-styles-ui.php:105
 #, php-format
 msgid "Custom style \"%s\" saved successfully."
 msgstr "Пользовательский стиль \"%s\" успешно сохранён."
 
-#: includes/features/admin-styles/admin-styles-ui.php:70
+#: includes/features/admin-styles/admin-styles-ui.php:114
 #, php-format
 msgid "Custom style \"%s\" deleted successfully."
 msgstr "Пользовательский стиль \"%s\" успешно удалён."
 
-#: includes/features/admin-styles/admin-styles-ui.php:79
+#: includes/features/admin-styles/admin-styles-ui.php:123
 msgid "Custom style name cannot be empty."
 msgstr "Имя пользовательского стиля не может быть пустым."
 
-#: includes/features/admin-styles/admin-styles-ui.php:88
+#: includes/features/admin-styles/admin-styles-ui.php:132
 msgid "Admin styles saved successfully."
 msgstr "Стили администратора успешно сохранены."
 
-#: includes/features/admin-styles/admin-styles-ui.php:95
-#: includes/functions-admin.php:221
-#: includes/functions-admin.php:394
-#: includes/functions-admin.php:483
+#: includes/features/admin-styles/admin-styles-ui.php:140
+#: includes/functions-admin.php:233
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:516
 msgid "Admin Styles"
 msgstr "Стили администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:135
-#: includes/features/admin-styles/admin-styles-ui.php:601
-#: includes/redirects/redirects.php:117
-#: includes/redirects/redirects.php:320
-msgid "Save for all Roles"
-msgstr "Сохранить для всех Ролей"
-
-#: includes/features/admin-styles/admin-styles-ui.php:139
-#: includes/features/admin-styles/admin-styles-ui.php:605
-#: includes/features/admin-styles/admin-styles.php:771
-#, php-format
-msgid "Save for %s"
-msgstr "Сохранить для %s"
-
-#: includes/features/admin-styles/admin-styles-ui.php:157
+#: includes/features/admin-styles/admin-styles-ui.php:203
 msgid "Setting"
 msgstr "Настройка"
 
-#: includes/features/admin-styles/admin-styles-ui.php:160
+#: includes/features/admin-styles/admin-styles-ui.php:206
 msgid "Value"
 msgstr "Значение"
 
-#: includes/features/admin-styles/admin-styles-ui.php:169
+#: includes/features/admin-styles/admin-styles-ui.php:215
 msgid "Admin Color Scheme"
 msgstr "Цветовая схема администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:172
+#: includes/features/admin-styles/admin-styles-ui.php:218
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
@@ -1329,27 +1441,27 @@ msgstr ""
 "Устанавливает цветовую схему администратора для всех пользователей. "
 "Щелкните на схему, чтобы мгновенно просмотреть её."
 
-#: includes/features/admin-styles/admin-styles-ui.php:176
+#: includes/features/admin-styles/admin-styles-ui.php:222
 msgid "Start from template"
 msgstr "Начать с шаблона"
 
-#: includes/features/admin-styles/admin-styles-ui.php:180
+#: includes/features/admin-styles/admin-styles-ui.php:226
 msgid "Blank Template"
 msgstr "Пустой шаблон"
 
-#: includes/features/admin-styles/admin-styles-ui.php:190
+#: includes/features/admin-styles/admin-styles-ui.php:236
 msgid "Add Custom Style"
 msgstr "Добавить пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles-ui.php:220
+#: includes/features/admin-styles/admin-styles-ui.php:266
 msgid "Edit custom style"
 msgstr "Редактировать пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles-ui.php:268
+#: includes/features/admin-styles/admin-styles-ui.php:314
 msgid "Edit Color Style"
 msgstr "Редактировать цветовой стиль"
 
-#: includes/features/admin-styles/admin-styles-ui.php:271
+#: includes/features/admin-styles/admin-styles-ui.php:317
 msgid ""
 "Customize colors for different admin elements. Changes are previewed "
 "instantly."
@@ -1357,7 +1469,7 @@ msgstr ""
 "Настройте цвета для различных элементов администратора. Изменения "
 "отображаются мгновенно."
 
-#: includes/features/admin-styles/admin-styles-ui.php:302
+#: includes/features/admin-styles/admin-styles-ui.php:348
 msgid ""
 "Add more than one custom admin styles. This feature is available in "
 "PublishPress Capabilities Pro."
@@ -1365,7 +1477,7 @@ msgstr ""
 "Добавьте более одного пользовательского стиля администратора. Эта функция "
 "доступна в PublishPress Capabilities Pro."
 
-#: includes/features/admin-styles/admin-styles-ui.php:326
+#: includes/features/admin-styles/admin-styles-ui.php:372
 msgid ""
 "Add CSS selectors (class or ID), choose a style variation, and set a brand "
 "color."
@@ -1373,81 +1485,81 @@ msgstr ""
 "Добавьте CSS-селекторы (класс или ID), выберите вариант стиля и установите "
 "цвет бренда."
 
-#: includes/features/admin-styles/admin-styles-ui.php:332
+#: includes/features/admin-styles/admin-styles-ui.php:378
 msgid "Add New Element"
 msgstr "Добавить новый элемент"
 
-#: includes/features/admin-styles/admin-styles-ui.php:338
+#: includes/features/admin-styles/admin-styles-ui.php:384
 msgid "Selector"
 msgstr "Селектор"
 
-#: includes/features/admin-styles/admin-styles-ui.php:342
+#: includes/features/admin-styles/admin-styles-ui.php:388
 msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
 msgstr "например, .publishpress-wrap h1, #my-plugin-header"
 
-#: includes/features/admin-styles/admin-styles-ui.php:345
+#: includes/features/admin-styles/admin-styles-ui.php:391
 msgid "Variation"
 msgstr "Вариант"
 
-#: includes/features/admin-styles/admin-styles-ui.php:348
+#: includes/features/admin-styles/admin-styles-ui.php:394
 msgid "Background"
 msgstr "Фон"
 
-#: includes/features/admin-styles/admin-styles-ui.php:349
+#: includes/features/admin-styles/admin-styles-ui.php:395
 msgid "Text"
 msgstr "Текст"
 
-#: includes/features/admin-styles/admin-styles-ui.php:350
+#: includes/features/admin-styles/admin-styles-ui.php:396
 msgid "Border"
 msgstr "Граница"
 
-#: includes/features/admin-styles/admin-styles-ui.php:354
+#: includes/features/admin-styles/admin-styles-ui.php:400
 msgid "Brand Color"
 msgstr "Цвет бренда"
 
-#: includes/features/admin-styles/admin-styles-ui.php:364
-#: includes/features/admin-styles/admin-styles-ui.php:479
-#: includes/features/admin-styles/admin-styles-ui.php:515
+#: includes/features/admin-styles/admin-styles-ui.php:410
+#: includes/features/admin-styles/admin-styles-ui.php:525
+#: includes/features/admin-styles/admin-styles-ui.php:561
 msgid "Remove"
 msgstr "Удалить"
 
-#: includes/features/admin-styles/admin-styles-ui.php:380
-#: includes/features/admin-styles/admin-styles.php:787
+#: includes/features/admin-styles/admin-styles-ui.php:426
+#: includes/features/admin-styles/admin-styles.php:872
 msgid "Custom Style Name"
 msgstr "Название пользовательского стиля"
 
-#: includes/features/admin-styles/admin-styles-ui.php:388
+#: includes/features/admin-styles/admin-styles-ui.php:434
 msgid "e.g., Company Branding, Dark Mode"
 msgstr "напр., Брендинг компании, Тёмный режим"
 
-#: includes/features/admin-styles/admin-styles-ui.php:424
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:470
+#: includes/features/admin-styles/admin-styles-ui.php:480
 msgid "Cancel"
 msgstr "Отмена"
 
-#: includes/features/admin-styles/admin-styles-ui.php:430
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:476
+#: includes/features/admin-styles/admin-styles-ui.php:480
 msgid "Delete Custom Style"
 msgstr "Удалить пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:480
 #, php-format
 msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr "Вы уверены, что хотите удалить этот %1s? %2s %3s"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:480
 msgid "Custom Style"
 msgstr "Пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles-ui.php:440
+#: includes/features/admin-styles/admin-styles-ui.php:486
 msgid "Save Custom Style"
 msgstr "Сохранить пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles-ui.php:454
+#: includes/features/admin-styles/admin-styles-ui.php:500
 msgid "Custom Admin Logo"
 msgstr "Пользовательский логотип администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:457
+#: includes/features/admin-styles/admin-styles-ui.php:503
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
@@ -1455,17 +1567,17 @@ msgstr ""
 "Загрузите пользовательский логотип, чтобы заменить иконку WordPress на "
 "админ панели. Рекомендуется: 20px на 20px в формате SVG или PNG."
 
-#: includes/features/admin-styles/admin-styles-ui.php:474
-#: includes/features/admin-styles/admin-styles-ui.php:510
-#: includes/features/admin-styles/admin-styles.php:767
+#: includes/features/admin-styles/admin-styles-ui.php:520
+#: includes/features/admin-styles/admin-styles-ui.php:556
+#: includes/features/admin-styles/admin-styles.php:852
 msgid "Select Image"
 msgstr "Выберите изображение"
 
-#: includes/features/admin-styles/admin-styles-ui.php:489
+#: includes/features/admin-styles/admin-styles-ui.php:535
 msgid "Custom Favicon"
 msgstr "Пользовательский фавикон"
 
-#: includes/features/admin-styles/admin-styles-ui.php:492
+#: includes/features/admin-styles/admin-styles-ui.php:538
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
@@ -1473,11 +1585,123 @@ msgstr ""
 "Загрузите пользовательский фавикон для админ-области. Рекомендуется: 16px "
 "на 16px или 32px на 32px в формате SVG или PNG."
 
-#: includes/features/admin-styles/admin-styles-ui.php:524
+#: includes/features/admin-styles/admin-styles-ui.php:570
+msgid "Admin Font Family"
+msgstr "Семейство шрифтов администратора"
+
+#: includes/features/admin-styles/admin-styles-ui.php:573
+msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
+msgstr ""
+"Установите стек шрифтов для области администратора, например \"Segoe UI\", "
+"sans-serif."
+
+#: includes/features/admin-styles/admin-styles-ui.php:580
+msgid "Preset Fonts"
+msgstr "Предустановленные шрифты"
+
+#: includes/features/admin-styles/admin-styles-ui.php:581
+msgid "Custom Value"
+msgstr "Пользовательское значение"
+
+#: includes/features/admin-styles/admin-styles-ui.php:607
+msgid "Admin Font Size"
+msgstr "Размер шрифта администратора"
+
+#: includes/features/admin-styles/admin-styles-ui.php:610
+msgid ""
+"Set a base font size for the admin area. Leave empty to use the default "
+"WordPress size."
+msgstr ""
+"Установите базовый размер шрифта для области администратора. Оставьте "
+"пустым, чтобы использовать размер по умолчанию WordPress."
+
+#: includes/features/admin-styles/admin-styles-ui.php:627
+#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:713
+#: includes/features/admin-styles/admin-styles-ui.php:714
+#: includes/features/admin-styles/admin-styles.php:2022
+#: includes/features/admin-styles/admin-styles.php:2104
+msgid "Default"
+msgstr "По умолчанию"
+
+#: includes/features/admin-styles/admin-styles-ui.php:630
+#: includes/features/admin-styles/admin-styles-ui.php:716
+msgid "Named Sizes"
+msgstr "Именованные размеры"
+
+#: includes/features/admin-styles/admin-styles-ui.php:636
+#: includes/features/admin-styles/admin-styles-ui.php:722
+msgid "Pixel Sizes"
+msgstr "Пиксельные размеры"
+
+#: includes/features/admin-styles/admin-styles-ui.php:649
+msgid "Typography Overrides"
+msgstr "Переопределения типографики"
+
+#: includes/features/admin-styles/admin-styles-ui.php:651
+msgid "Optional target-specific typography rules for common admin elements."
+msgstr ""
+"Необязательные правила типографики, специфичные для целей, для общих "
+"элементов администратора."
+
+#: includes/features/admin-styles/admin-styles-ui.php:657
+msgid "Body Text"
+msgstr "Текст тела"
+
+#: includes/features/admin-styles/admin-styles-ui.php:658
+#: includes/features/admin-styles/admin-styles.php:1769
+msgid "Links"
+msgstr "Ссылки"
+
+#: includes/features/admin-styles/admin-styles-ui.php:659
+msgid "Headings"
+msgstr "Заголовки"
+
+#: includes/features/admin-styles/admin-styles-ui.php:660
+#: includes/features/admin-styles/admin-styles.php:1893
+msgid "Admin Menu"
+msgstr "Административное меню"
+
+#: includes/features/admin-styles/admin-styles-ui.php:661
+#: includes/features/admin-styles/admin-styles.php:1935
+msgid "Admin Bar"
+msgstr "Панель администратора"
+
+#: includes/features/admin-styles/admin-styles-ui.php:662
+msgid "Form Fields"
+msgstr "Поля форм"
+
+#: includes/features/admin-styles/admin-styles-ui.php:663
+#: includes/features/admin-styles/admin-styles.php:1863
+msgid "Buttons"
+msgstr "Кнопки"
+
+#: includes/features/admin-styles/admin-styles-ui.php:669
+msgid "Target"
+msgstr "Цель"
+
+#: includes/features/admin-styles/admin-styles-ui.php:670
+msgid "Font Family"
+msgstr "Семейство шрифтов"
+
+#: includes/features/admin-styles/admin-styles-ui.php:671
+msgid "Font Size"
+msgstr "Размер шрифта"
+
+#: includes/features/admin-styles/admin-styles-ui.php:690
+msgid "Preset"
+msgstr "Предустановка"
+
+#: includes/features/admin-styles/admin-styles-ui.php:691
+#: includes/roles/class/class-pp-roles-list-table.php:403
+msgid "Custom"
+msgstr "Пользовательский"
+
+#: includes/features/admin-styles/admin-styles-ui.php:739
 msgid "Admin Footer Text"
 msgstr "Текст нижнего колонтитула администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:527
+#: includes/features/admin-styles/admin-styles-ui.php:742
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
@@ -1485,27 +1709,27 @@ msgstr ""
 "Замените сообщение по умолчанию \"Спасибо за создание с WordPress\" в "
 "нижнем колонтитуле администратора."
 
-#: includes/features/admin-styles/admin-styles-ui.php:541
+#: includes/features/admin-styles/admin-styles-ui.php:756
 msgid "Replace \"Howdy\""
 msgstr "Заменить \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:544
+#: includes/features/admin-styles/admin-styles-ui.php:759
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "Заменить \"Howdy\" в панели администратора."
 
-#: includes/features/admin-styles/admin-styles-ui.php:557
+#: includes/features/admin-styles/admin-styles-ui.php:772
 msgid "Control Settings"
 msgstr "Настройки управления"
 
-#: includes/features/admin-styles/admin-styles-ui.php:559
+#: includes/features/admin-styles/admin-styles-ui.php:774
 msgid "Control how admin styles are applied to users."
 msgstr "Контролируйте, как стили администратора применяются к пользователям."
 
-#: includes/features/admin-styles/admin-styles-ui.php:568
+#: includes/features/admin-styles/admin-styles-ui.php:783
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "Скрыть настройки цветовой схемы администратора в профиле пользователя"
 
-#: includes/features/admin-styles/admin-styles-ui.php:570
+#: includes/features/admin-styles/admin-styles-ui.php:785
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
@@ -1513,11 +1737,11 @@ msgstr ""
 "Когда включено, пользователи не могут видеть или изменять настройки "
 "цветовой схемы в своем профиле. Настройки на основе роли будут применены."
 
-#: includes/features/admin-styles/admin-styles-ui.php:578
+#: includes/features/admin-styles/admin-styles-ui.php:793
 msgid "Force role settings (override user selection)"
 msgstr "Принудительные настройки роли (перезапись выбора пользователя)"
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/features/admin-styles/admin-styles-ui.php:795
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
@@ -1525,7 +1749,7 @@ msgstr ""
 "Когда включено, настройки роли всегда будут применяться, переопределяя "
 "любой выбор пользователя, даже если интерфейс цветовой схемы виден для них."
 
-#: includes/features/admin-styles/admin-styles-ui.php:618
+#: includes/features/admin-styles/admin-styles-ui.php:833
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
@@ -1533,530 +1757,500 @@ msgstr ""
 "Админские стили позволяют настраивать область администратора WordPress с "
 "вашим собственным брендингом."
 
-#: includes/features/admin-styles/admin-styles-ui.php:620
-msgid "Features include:"
-msgstr "Возможности включают:"
-
-#: includes/features/admin-styles/admin-styles-ui.php:622
+#: includes/features/admin-styles/admin-styles-ui.php:837
 msgid "Custom admin color schemes"
 msgstr "Пользовательские цветовые схемы администратора"
 
-#: includes/features/admin-styles/admin-styles-ui.php:623
+#: includes/features/admin-styles/admin-styles-ui.php:838
 msgid "Replace the WordPress logo and favicon"
 msgstr "Заменить логотип WordPress и фавикон"
 
-#: includes/features/admin-styles/admin-styles-ui.php:624
+#: includes/features/admin-styles/admin-styles-ui.php:839
 msgid "Custom footer text"
 msgstr "Пользовательский текст подвала"
 
-#: includes/features/admin-styles/admin-styles-ui.php:625
+#: includes/features/admin-styles/admin-styles-ui.php:840
 msgid "Replace \"Howdy\" text"
 msgstr "Заменить текст \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:843
 msgid "How to use Admin Styles"
 msgstr "Как использовать стили администратора"
 
-#: includes/features/admin-styles/admin-styles.php:454
+#: includes/features/admin-styles/admin-styles.php:539
 msgid "Security check failed."
 msgstr "Проверка безопасности не удалась."
 
-#: includes/features/admin-styles/admin-styles.php:459
+#: includes/features/admin-styles/admin-styles.php:544
 #: includes/manager.php:741
 msgid "You do not have permission to manage admin styles."
 msgstr "У вас нет разрешения для управления стилями админа."
 
-#: includes/features/admin-styles/admin-styles.php:522
+#: includes/features/admin-styles/admin-styles.php:607
 msgid "No role specified."
 msgstr "Роль не указана."
 
-#: includes/features/admin-styles/admin-styles.php:768
+#: includes/features/admin-styles/admin-styles.php:853
 msgid "Use this Image"
 msgstr "Использовать это изображение"
 
-#: includes/features/admin-styles/admin-styles.php:769
+#: includes/features/admin-styles/admin-styles.php:854
 msgid "Saving..."
 msgstr "Сохранение..."
 
-#: includes/features/admin-styles/admin-styles.php:770
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Settings saved."
 msgstr "Настройки сохранены."
 
-#: includes/features/admin-styles/admin-styles.php:772
+#: includes/features/admin-styles/admin-styles.php:857
 msgid "Current logo preview"
 msgstr "Предварительный просмотр текущего логотипа"
 
-#: includes/features/admin-styles/admin-styles.php:773
+#: includes/features/admin-styles/admin-styles.php:858
 msgid "Add New Custom Style"
 msgstr "Добавить новый пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles.php:774
+#: includes/features/admin-styles/admin-styles.php:859
 msgid "Edit Custom Style"
 msgstr "Редактировать пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles.php:775
+#: includes/features/admin-styles/admin-styles.php:860
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Вы уверены, что хотите удалить пользовательский стиль \"%s\"?"
 
-#: includes/features/admin-styles/admin-styles.php:776
+#: includes/features/admin-styles/admin-styles.php:861
 msgid "this custom style"
 msgstr "этот пользовательский стиль"
 
-#: includes/features/admin-styles/admin-styles.php:777
+#: includes/features/admin-styles/admin-styles.php:862
 msgid "Primary Button"
 msgstr "Основная кнопка"
 
-#: includes/features/admin-styles/admin-styles.php:778
+#: includes/features/admin-styles/admin-styles.php:863
 msgid "Hover State"
 msgstr "Состояние при наведении"
 
-#: includes/features/admin-styles/admin-styles.php:779
+#: includes/features/admin-styles/admin-styles.php:864
 msgid "Notification"
 msgstr "Уведомление"
 
-#: includes/features/admin-styles/admin-styles.php:780
+#: includes/features/admin-styles/admin-styles.php:865
 msgid "Live preview of your custom color scheme"
 msgstr "Предварительный просмотр вашей пользовательской цветовой схемы"
 
-#: includes/features/admin-styles/admin-styles.php:781
+#: includes/features/admin-styles/admin-styles.php:866
 msgid "Custom Style Name is required."
 msgstr "Имя пользовательского стиля обязательно."
 
-#: includes/features/admin-styles/admin-styles.php:782
+#: includes/features/admin-styles/admin-styles.php:867
 msgid "Main Admin Color is required."
 msgstr "Основной цвет администратора обязателен."
 
-#: includes/features/admin-styles/admin-styles.php:783
+#: includes/features/admin-styles/admin-styles.php:868, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:784
+#: includes/features/admin-styles/admin-styles.php:869
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
-#: includes/features/admin-styles/admin-styles.php:785
+#: includes/features/admin-styles/admin-styles.php:870
 msgid "Change how this style is displayed"
 msgstr "Измените, как отображается этот стиль"
 
-#: includes/features/admin-styles/admin-styles.php:786
+#: includes/features/admin-styles/admin-styles.php:871
 msgid "Enter a name for your custom style"
 msgstr "Введите имя для вашего пользовательского стиля"
 
-#: includes/features/admin-styles/admin-styles.php:800
+#: includes/features/admin-styles/admin-styles.php:885
 msgid "Forest"
 msgstr "Лес"
 
-#: includes/features/admin-styles/admin-styles.php:817
+#: includes/features/admin-styles/admin-styles.php:902
 msgid "Mint Breeze"
 msgstr "Мятный Бриз"
 
-#: includes/features/admin-styles/admin-styles.php:834
+#: includes/features/admin-styles/admin-styles.php:919
 msgid "Cherry"
 msgstr "Вишня"
 
-#: includes/features/admin-styles/admin-styles.php:851
+#: includes/features/admin-styles/admin-styles.php:936
 msgid "Graphite"
 msgstr "Графит"
 
-#: includes/features/admin-styles/admin-styles.php:868
+#: includes/features/admin-styles/admin-styles.php:953
 msgid "Midnight Teal"
 msgstr "Полуночный Бирюзовый"
 
-#: includes/features/admin-styles/admin-styles.php:885
+#: includes/features/admin-styles/admin-styles.php:970
 msgid "Sunrise"
 msgstr "Восход Солнца"
 
-#: includes/features/admin-styles/admin-styles.php:902
+#: includes/features/admin-styles/admin-styles.php:987
 msgid "Desert Sand"
 msgstr "Песок Пустыни"
 
-#: includes/features/admin-styles/admin-styles.php:919
+#: includes/features/admin-styles/admin-styles.php:1004
 msgid "Amber Glow"
 msgstr "Янтарное Сияние"
 
-#: includes/features/admin-styles/admin-styles.php:936
+#: includes/features/admin-styles/admin-styles.php:1021
 msgid "Citrus"
 msgstr "Цитрус"
 
-#: includes/features/admin-styles/admin-styles.php:953
+#: includes/features/admin-styles/admin-styles.php:1038
 msgid "Ocean Deep"
 msgstr "Глубокий Океан"
 
-#: includes/features/admin-styles/admin-styles.php:970
+#: includes/features/admin-styles/admin-styles.php:1055
 msgid "Sage"
 msgstr "Шалфей"
 
-#: includes/features/admin-styles/admin-styles.php:987
+#: includes/features/admin-styles/admin-styles.php:1072
 msgid "Modern Slate"
 msgstr "Современный Сланец"
 
-#: includes/features/admin-styles/admin-styles.php:1004
+#: includes/features/admin-styles/admin-styles.php:1089
 msgid "Royal Plum"
 msgstr "Королевская Слива"
 
-#: includes/features/admin-styles/admin-styles.php:1021
+#: includes/features/admin-styles/admin-styles.php:1106
 msgid "Nordic"
 msgstr "Скандинавский"
 
-#: includes/features/admin-styles/admin-styles.php:1038
+#: includes/features/admin-styles/admin-styles.php:1123
 msgid "Lagoon"
 msgstr "Лагуна"
 
-#: includes/features/admin-styles/admin-styles.php:1055
+#: includes/features/admin-styles/admin-styles.php:1140
 msgid "Ink"
 msgstr "Чернила"
 
-#: includes/features/admin-styles/admin-styles.php:1072
+#: includes/features/admin-styles/admin-styles.php:1157
 msgid "Orchid"
 msgstr "Орхидея"
 
-#: includes/features/admin-styles/admin-styles.php:1089
+#: includes/features/admin-styles/admin-styles.php:1174
 msgid "Cobalt"
 msgstr "Кобальт"
 
-#: includes/features/admin-styles/admin-styles.php:1106
+#: includes/features/admin-styles/admin-styles.php:1191
 msgid "Stone"
 msgstr "Камень"
 
-#: includes/features/admin-styles/admin-styles.php:1123
+#: includes/features/admin-styles/admin-styles.php:1208, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1140
+#: includes/features/admin-styles/admin-styles.php:1225, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1157
+#: includes/features/admin-styles/admin-styles.php:1242, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:1415
-#: includes/roles/class/class-pp-roles-admin.php:106
-msgid "General"
-msgstr "Общие"
-
-#: includes/features/admin-styles/admin-styles.php:1416
+#: includes/features/admin-styles/admin-styles.php:1744
 msgid "Main Admin Color settings"
 msgstr "Основные настройки цвета администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1419
+#: includes/features/admin-styles/admin-styles.php:1747
 msgid "Main Admin Color"
 msgstr "Основной цвет администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1420
+#: includes/features/admin-styles/admin-styles.php:1748
 msgid "Primary brand color"
 msgstr "Основной цвет бренда"
 
-#: includes/features/admin-styles/admin-styles.php:1423
+#: includes/features/admin-styles/admin-styles.php:1751
 msgid "Text Color"
 msgstr "Цвет текста"
 
-#: includes/features/admin-styles/admin-styles.php:1424
+#: includes/features/admin-styles/admin-styles.php:1752
 msgid "Primary text color"
 msgstr "Основной цвет текста"
 
-#: includes/features/admin-styles/admin-styles.php:1427
+#: includes/features/admin-styles/admin-styles.php:1755
 msgid "Highlight Color"
 msgstr "Цвет выделения"
 
-#: includes/features/admin-styles/admin-styles.php:1428
+#: includes/features/admin-styles/admin-styles.php:1756
 msgid "Used for hovers and highlights"
 msgstr "Используется для наведения и выделения"
 
-#: includes/features/admin-styles/admin-styles.php:1431
+#: includes/features/admin-styles/admin-styles.php:1759
 msgid "Notification Color"
 msgstr "Цвет уведомлений"
 
-#: includes/features/admin-styles/admin-styles.php:1432
+#: includes/features/admin-styles/admin-styles.php:1760
 msgid "Used for alerts and notifications"
 msgstr "Используется для предупреждений и уведомлений"
 
-#: includes/features/admin-styles/admin-styles.php:1435
+#: includes/features/admin-styles/admin-styles.php:1763
 msgid "Background Color"
 msgstr "Цвет фона"
 
-#: includes/features/admin-styles/admin-styles.php:1436
+#: includes/features/admin-styles/admin-styles.php:1764
 msgid "Page background color"
 msgstr "Цвет фона страницы"
 
-#: includes/features/admin-styles/admin-styles.php:1441
-msgid "Links"
-msgstr "Ссылки"
-
-#: includes/features/admin-styles/admin-styles.php:1442
+#: includes/features/admin-styles/admin-styles.php:1770
 msgid "Link element colors"
 msgstr "Цвета элементов ссылок"
 
-#: includes/features/admin-styles/admin-styles.php:1445
+#: includes/features/admin-styles/admin-styles.php:1773
 msgid "Default Link Color"
 msgstr "Цвет ссылки по умолчанию"
 
-#: includes/features/admin-styles/admin-styles.php:1446
+#: includes/features/admin-styles/admin-styles.php:1774
 msgid "Standard link color"
 msgstr "Стандартный цвет ссылки"
 
-#: includes/features/admin-styles/admin-styles.php:1449
+#: includes/features/admin-styles/admin-styles.php:1777
 msgid "Link Hover Color"
 msgstr "Цвет ссылки при наведении"
 
-#: includes/features/admin-styles/admin-styles.php:1450
+#: includes/features/admin-styles/admin-styles.php:1778
 msgid "Color on hover"
 msgstr "Цвет при наведении"
 
-#: includes/features/admin-styles/admin-styles.php:1453
+#: includes/features/admin-styles/admin-styles.php:1781
 msgid "Delete Link Color"
 msgstr "Цвет ссылки для удаления"
 
-#: includes/features/admin-styles/admin-styles.php:1454
+#: includes/features/admin-styles/admin-styles.php:1782
 msgid "Color for delete/trash actions"
 msgstr "Цвет для действий удаления/корзины"
 
-#: includes/features/admin-styles/admin-styles.php:1457
+#: includes/features/admin-styles/admin-styles.php:1785
 msgid "Trash Link Color"
 msgstr "Цвет ссылки в корзине"
 
-#: includes/features/admin-styles/admin-styles.php:1458
+#: includes/features/admin-styles/admin-styles.php:1786
 msgid "Color for trash actions"
 msgstr "Цвет для действий с корзиной"
 
-#: includes/features/admin-styles/admin-styles.php:1461
+#: includes/features/admin-styles/admin-styles.php:1789
 msgid "Spam Link Color"
 msgstr "Цвет ссылки для спама"
 
-#: includes/features/admin-styles/admin-styles.php:1462
+#: includes/features/admin-styles/admin-styles.php:1790
 msgid "Color for spam actions"
 msgstr "Цвет для действий со спамом"
 
-#: includes/features/admin-styles/admin-styles.php:1465
+#: includes/features/admin-styles/admin-styles.php:1793
 msgid "Inactive Link Color"
 msgstr "Цвет неактивной ссылки"
 
-#: includes/features/admin-styles/admin-styles.php:1466
+#: includes/features/admin-styles/admin-styles.php:1794
 msgid "Color for inactive items"
 msgstr "Цвет для неактивных элементов"
 
-#: includes/features/admin-styles/admin-styles.php:1471
+#: includes/features/admin-styles/admin-styles.php:1799
 msgid "Tables"
 msgstr "Таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1472
+#: includes/features/admin-styles/admin-styles.php:1800
 msgid "Table element colors"
 msgstr "Цвета элементов таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1475
+#: includes/features/admin-styles/admin-styles.php:1803
 msgid "Table Header Background"
 msgstr "Фоновый цвет заголовка таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1479
+#: includes/features/admin-styles/admin-styles.php:1807
 msgid "Table Header Text"
 msgstr "Текст заголовка таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1483
+#: includes/features/admin-styles/admin-styles.php:1811
 msgid "Table Row Background"
 msgstr "Фоновый цвет строки таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1487
+#: includes/features/admin-styles/admin-styles.php:1815
 msgid "Table Row Text Color"
 msgstr "Цвет текста строки таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1491
+#: includes/features/admin-styles/admin-styles.php:1819
 msgid "Row Hover Background"
 msgstr "Фоновый цвет при наведении на строку"
 
-#: includes/features/admin-styles/admin-styles.php:1495
+#: includes/features/admin-styles/admin-styles.php:1823
 msgid "Table Border Color"
 msgstr "Цвет границы таблицы"
 
-#: includes/features/admin-styles/admin-styles.php:1499
+#: includes/features/admin-styles/admin-styles.php:1827
 msgid "Alternate Row Background"
 msgstr "Фоновый цвет альтернативной строки"
 
-#: includes/features/admin-styles/admin-styles.php:1503
+#: includes/features/admin-styles/admin-styles.php:1831
 msgid "Alternate Row Text Color"
 msgstr "Цвет текста альтернативной строки"
 
-#: includes/features/admin-styles/admin-styles.php:1509
+#: includes/features/admin-styles/admin-styles.php:1837
 msgid "Forms"
 msgstr "Формы"
 
-#: includes/features/admin-styles/admin-styles.php:1510
+#: includes/features/admin-styles/admin-styles.php:1838
 msgid "Form input colors"
 msgstr "Цвета ввода в формах"
 
-#: includes/features/admin-styles/admin-styles.php:1513
+#: includes/features/admin-styles/admin-styles.php:1841
 msgid "Input Border Color"
 msgstr "Цвет границы ввода"
 
-#: includes/features/admin-styles/admin-styles.php:1517
+#: includes/features/admin-styles/admin-styles.php:1845
 msgid "Input Focus Border"
 msgstr "Граница фокуса ввода"
 
-#: includes/features/admin-styles/admin-styles.php:1521
+#: includes/features/admin-styles/admin-styles.php:1849
 msgid "Input Background Color"
 msgstr "Цвет фона ввода"
 
-#: includes/features/admin-styles/admin-styles.php:1525
+#: includes/features/admin-styles/admin-styles.php:1853
 msgid "Input Text Color"
 msgstr "Цвет текста ввода"
 
-#: includes/features/admin-styles/admin-styles.php:1529
+#: includes/features/admin-styles/admin-styles.php:1857
 msgid "Placeholder Text Color"
 msgstr "Цвет текста заполнитель"
 
-#: includes/features/admin-styles/admin-styles.php:1535
-msgid "Buttons"
-msgstr "Кнопки"
-
-#: includes/features/admin-styles/admin-styles.php:1536
+#: includes/features/admin-styles/admin-styles.php:1864
 msgid "Button colors"
 msgstr "Цвета кнопок"
 
-#: includes/features/admin-styles/admin-styles.php:1539
+#: includes/features/admin-styles/admin-styles.php:1867
 msgid "Primary Button Background"
 msgstr "Фоновый цвет основной кнопки"
 
-#: includes/features/admin-styles/admin-styles.php:1543
+#: includes/features/admin-styles/admin-styles.php:1871
 msgid "Primary Button Text"
 msgstr "Текст основной кнопки"
 
-#: includes/features/admin-styles/admin-styles.php:1547
+#: includes/features/admin-styles/admin-styles.php:1875
 msgid "Primary Button Hover"
 msgstr "Наведение на основную кнопку"
 
-#: includes/features/admin-styles/admin-styles.php:1551
+#: includes/features/admin-styles/admin-styles.php:1879
 msgid "Secondary Button Background"
 msgstr "Фоновый цвет вторичной кнопки"
 
-#: includes/features/admin-styles/admin-styles.php:1555
+#: includes/features/admin-styles/admin-styles.php:1883
 msgid "Secondary Button Text"
 msgstr "Текст вторичной кнопки"
 
-#: includes/features/admin-styles/admin-styles.php:1559
+#: includes/features/admin-styles/admin-styles.php:1887
 msgid "Secondary Button Hover"
 msgstr "Наведение на вторичную кнопку"
 
-#: includes/features/admin-styles/admin-styles.php:1565
-msgid "Admin Menu"
-msgstr "Административное меню"
-
-#: includes/features/admin-styles/admin-styles.php:1566
+#: includes/features/admin-styles/admin-styles.php:1894
 msgid "Admin menu colors"
 msgstr "Цвета меню администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1569
+#: includes/features/admin-styles/admin-styles.php:1897
 msgid "Menu Background"
 msgstr "Фон меню"
 
-#: includes/features/admin-styles/admin-styles.php:1573
+#: includes/features/admin-styles/admin-styles.php:1901
 msgid "Menu Text Color"
 msgstr "Цвет текста меню"
 
-#: includes/features/admin-styles/admin-styles.php:1577
+#: includes/features/admin-styles/admin-styles.php:1905
 msgid "Menu Icon Color"
 msgstr "Цвет значка меню"
 
-#: includes/features/admin-styles/admin-styles.php:1581
+#: includes/features/admin-styles/admin-styles.php:1909
 msgid "Menu Hover Background"
 msgstr "Фон при наведении на меню"
 
-#: includes/features/admin-styles/admin-styles.php:1585
+#: includes/features/admin-styles/admin-styles.php:1913
 msgid "Menu Hover Text"
 msgstr "Текст при наведении на меню"
 
-#: includes/features/admin-styles/admin-styles.php:1589
+#: includes/features/admin-styles/admin-styles.php:1917
 msgid "Current Menu Background"
 msgstr "Фон текущего меню"
 
-#: includes/features/admin-styles/admin-styles.php:1593
+#: includes/features/admin-styles/admin-styles.php:1921
 msgid "Current Menu Text"
 msgstr "Текст текущего меню"
 
-#: includes/features/admin-styles/admin-styles.php:1597
+#: includes/features/admin-styles/admin-styles.php:1925
 msgid "Submenu Background"
 msgstr "Фон подменю"
 
-#: includes/features/admin-styles/admin-styles.php:1601
+#: includes/features/admin-styles/admin-styles.php:1929
 msgid "Submenu Text Color"
 msgstr "Цвет текста подменю"
 
-#: includes/features/admin-styles/admin-styles.php:1607
-msgid "Admin Bar"
-msgstr "Панель администратора"
-
-#: includes/features/admin-styles/admin-styles.php:1608
+#: includes/features/admin-styles/admin-styles.php:1936
 msgid "Admin bar colors"
 msgstr "Цвета панели администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1611
+#: includes/features/admin-styles/admin-styles.php:1939
 msgid "Admin Bar Background"
 msgstr "Фон панели администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1615
+#: includes/features/admin-styles/admin-styles.php:1943
 msgid "Admin Bar Text"
 msgstr "Текст панели администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1619
+#: includes/features/admin-styles/admin-styles.php:1947
 msgid "Admin Bar Icon"
 msgstr "Значок панели администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1623
+#: includes/features/admin-styles/admin-styles.php:1951
 msgid "Admin Bar Hover Background"
 msgstr "Фон при наведении на панель администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1627
+#: includes/features/admin-styles/admin-styles.php:1955
 msgid "Admin Bar Hover Text"
 msgstr "Текст при наведении на панель администратора"
 
-#: includes/features/admin-styles/admin-styles.php:1633
+#: includes/features/admin-styles/admin-styles.php:1961
 msgid "Dashboard Widgets"
 msgstr "Виджеты панели управления"
 
-#: includes/features/admin-styles/admin-styles.php:1634
+#: includes/features/admin-styles/admin-styles.php:1962
 msgid "Dashboard widget colors"
 msgstr "Цвета виджетов панели управления"
 
-#: includes/features/admin-styles/admin-styles.php:1637
+#: includes/features/admin-styles/admin-styles.php:1965
 msgid "Widget Background"
 msgstr "Фон виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1641
+#: includes/features/admin-styles/admin-styles.php:1969
 msgid "Widget Border"
 msgstr "Граница виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1645
+#: includes/features/admin-styles/admin-styles.php:1973
 msgid "Widget Header Background"
 msgstr "Фон заголовка виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1649
+#: includes/features/admin-styles/admin-styles.php:1977
 msgid "Widget Title Text"
 msgstr "Текст заголовка виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1653
+#: includes/features/admin-styles/admin-styles.php:1981
 msgid "Widget Body Text"
 msgstr "Текст тела виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1657
+#: includes/features/admin-styles/admin-styles.php:1985
 msgid "Widget Link"
 msgstr "Ссылка виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1661
+#: includes/features/admin-styles/admin-styles.php:1989
 msgid "Widget Link Hover"
 msgstr "Наведение на ссылку виджета"
 
-#: includes/features/admin-styles/admin-styles.php:1667
+#: includes/features/admin-styles/admin-styles.php:1995
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Расширенный"
 
-#: includes/features/admin-styles/admin-styles.php:1668
+#: includes/features/admin-styles/admin-styles.php:1996
 msgid "Custom selector color rules"
 msgstr "Правила цветового оформления для пользовательского селектора"
-
-#: includes/features/admin-styles/admin-styles.php:1694
-#: includes/features/admin-styles/admin-styles.php:1763
-msgid "Default"
-msgstr "По умолчанию"
 
 #: includes/features/editor-features-classic.php:1
 #, php-format
@@ -2083,36 +2277,36 @@ msgid "Editor Feature Restrictions"
 msgstr "Ограничения функций редактора"
 
 #: includes/features/editor-features.php:115
-#: includes/features/editor-features.php:220
+#: includes/features/editor-features.php:221
 msgid "Save for all Post Types"
 msgstr "Сохранить для всех Типов Постов"
 
 #: includes/features/editor-features.php:119
 #: includes/features/editor-features.php:121
-#: includes/features/editor-features.php:224
-#: includes/features/editor-features.php:226
+#: includes/features/editor-features.php:225
+#: includes/features/editor-features.php:227
 #, php-format
 msgid "Save %s Restrictions"
 msgstr "Сохранить ограничения %s"
 
-#: includes/features/editor-features.php:127
+#: includes/features/editor-features.php:128
 msgid "Gutenberg"
 msgstr "Гутенберг"
 
-#: includes/features/editor-features.php:130
+#: includes/features/editor-features.php:131
 msgid "Classic"
 msgstr "Классический"
 
-#: includes/features/editor-features.php:135
+#: includes/features/editor-features.php:136
 msgid "show Classic Editor controls"
 msgstr "показать элементы управления классическим редактором"
 
-#: includes/features/editor-features.php:238
-#: includes/functions-admin.php:385
+#: includes/features/editor-features.php:240
+#: includes/functions-admin.php:415
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr "Функции редактора позволяют удалять элементы с экрана редактирования постов."
 
-#: includes/features/editor-features.php:246
+#: includes/features/editor-features.php:248
 msgid "How to use Editor Features"
 msgstr "Как использовать функции редактора"
 
@@ -2166,9 +2360,9 @@ msgstr "Скрыть нижний колонтитул Twenty Twenty-Three"
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
-#: includes/functions-admin.php:227
-#: includes/functions-admin.php:409
-#: includes/functions-admin.php:513
+#: includes/functions-admin.php:244
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:553
 msgid "Frontend Features"
 msgstr "Функции фронтенда"
 
@@ -2315,13 +2509,13 @@ msgstr "Метабокс типа поста"
 msgid "Role"
 msgstr "Роль"
 
-#: includes/features/frontend-features/frontend-features.php:151
+#: includes/features/frontend-features/frontend-features.php:152
 #, php-format
 msgid "Enable Frontend Features for %1$s Role"
 msgstr "Включить функции фронтенда для роли %1$s"
 
-#: includes/features/frontend-features/frontend-features.php:247
-#: includes/functions-admin.php:410
+#: includes/features/frontend-features/frontend-features.php:249
+#: includes/functions-admin.php:440
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
@@ -2329,11 +2523,11 @@ msgstr ""
 "Функции фронтенда позволяют добавлять или удалять элементы с фронтенда "
 "вашего сайта."
 
-#: includes/features/frontend-features/frontend-features.php:252
+#: includes/features/frontend-features/frontend-features.php:254
 msgid "Apply custom styling"
 msgstr "Применить пользовательский стиль"
 
-#: includes/features/frontend-features/frontend-features.php:255
+#: includes/features/frontend-features/frontend-features.php:257
 msgid "How to use Frontend Features"
 msgstr "Как использовать функции фронтенда"
 
@@ -2350,7 +2544,7 @@ msgstr ""
 "меню, пожалуйста, добавьте ссылки на меню."
 
 #: includes/features/nav-menus.php:301
-#: includes/functions-admin.php:415
+#: includes/functions-admin.php:445
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr "Навигационные меню позволяют блокировать доступ к ссылкам на меню фронтенда."
 
@@ -2362,11 +2556,11 @@ msgstr "Как использовать навигационные меню"
 msgid "Profile Feature Restrictions"
 msgstr "Ограничения функций профиля"
 
-#: includes/features/profile-features.php:140
+#: includes/features/profile-features.php:141
 msgid "Click the \"Find profile items for this role\" button."
 msgstr "Нажмите кнопку \"Найти элементы профиля для этой роли\"."
 
-#: includes/features/profile-features.php:142
+#: includes/features/profile-features.php:143
 msgid ""
 "There are no users in this role. Please select a role that has users and is "
 "able to access the \"Profile\" screen."
@@ -2374,34 +2568,34 @@ msgstr ""
 "В этой роли нет пользователей. Пожалуйста, выберите роль, в которой есть "
 "пользователи и которая может получить доступ к экрану \"Профиль\"."
 
-#: includes/features/profile-features.php:239
+#: includes/features/profile-features.php:240
 msgid "Allow PublishPress to find profile items for this role."
 msgstr "Разрешить PublishPress находить элементы профиля для этой роли."
 
-#: includes/features/profile-features.php:240
+#: includes/features/profile-features.php:241
 msgid "Find profile items for this role"
 msgstr "Найти элементы профиля для этой роли"
 
-#: includes/features/profile-features.php:241
+#: includes/features/profile-features.php:242
 #, php-format
 msgid "The %s role is not enabled for editing. The Find button is disabled."
 msgstr "Роль %s не включена для редактирования. Кнопка «Найти» отключена."
 
-#: includes/features/profile-features.php:242
+#: includes/features/profile-features.php:243
 #, php-format
 msgid "This feature will test the \"Profile\" screen as a user in the %s role."
 msgstr "Эта функция протестирует экран \"Профиль\" как пользователь в роли %s."
 
-#: includes/features/profile-features.php:244
+#: includes/features/profile-features.php:245
 msgid "Refresh Profile Features"
 msgstr "Обновить функции профиля"
 
-#: includes/features/profile-features.php:249
-#: includes/functions-admin.php:400
+#: includes/features/profile-features.php:250
+#: includes/functions-admin.php:430
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr "Функции профиля позволяют удалять элементы с экрана профиля."
 
-#: includes/features/profile-features.php:257
+#: includes/features/profile-features.php:258
 msgid "How to use Profile Features"
 msgstr "Как использовать функции профиля"
 
@@ -2446,19 +2640,27 @@ msgstr "Новый"
 msgid "User Display Name"
 msgstr "Отображаемое имя пользователя"
 
-#: includes/features/restrict-admin-features.php:101
+#: includes/features/restrict-admin-features.php:101, fuzzy
 msgid "Yoast SEO"
 msgstr "Yoast SEO"
 
-#: includes/features/restrict-admin-features.php:115
+#: includes/features/restrict-admin-features.php:102
+msgid "Edit Post"
+msgstr "Редактировать запись"
+
+#: includes/features/restrict-admin-features.php:103
+msgid "Edit Site"
+msgstr "Редактировать сайт"
+
+#: includes/features/restrict-admin-features.php:189
 msgid "Thank you for creating with WordPress"
 msgstr "Спасибо за создание с WordPress"
 
-#: includes/features/restrict-admin-features.php:165
+#: includes/features/restrict-admin-features.php:239
 msgid "Welcome panel"
 msgstr "Панель приветствия"
 
-#: includes/features/restrict-admin-features.php:199
+#: includes/features/restrict-admin-features.php:273
 msgid "Remove Admin Toolbar"
 msgstr "Удалить панель администратора"
 
@@ -2624,40 +2826,40 @@ msgstr "Предоставлена недействительная роль."
 msgid "Profile features access enabled for this role."
 msgstr "Доступ к функциям профиля включен для этой роли."
 
-#: includes/functions-admin.php:205
-#: includes/functions-admin.php:384
-#: includes/functions-admin.php:469
+#: includes/functions-admin.php:217
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:502
 #: includes/roles/class/class-pp-roles-admin.php:523
-#: includes/settings-ui.php:35
+#: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Функции редактора"
 
-#: includes/functions-admin.php:216
-#: includes/functions-admin.php:389
-#: includes/functions-admin.php:476
+#: includes/functions-admin.php:228
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:509
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
 msgstr "Функции администратора"
 
-#: includes/functions-admin.php:231
-#: includes/functions-admin.php:399
-#: includes/functions-admin.php:499
+#: includes/functions-admin.php:248
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:539
 #: includes/roles/class/class-pp-roles-admin.php:525
-#: includes/settings-ui.php:36
+#: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Функции профиля"
 
-#: includes/functions-admin.php:237
-#: includes/functions-admin.php:404
-#: includes/functions-admin.php:506
+#: includes/functions-admin.php:254
+#: includes/functions-admin.php:434
+#: includes/functions-admin.php:546
 msgid "Redirects"
 msgstr "Перенаправления"
 
-#: includes/functions-admin.php:241
+#: includes/functions-admin.php:258
 msgid "Nav Menu"
 msgstr "Навигационное меню"
 
-#: includes/functions-admin.php:375
+#: includes/functions-admin.php:405
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
@@ -2665,17 +2867,17 @@ msgstr ""
 "Роли позволяют вам создавать, редактировать и удалять все роли "
 "пользователей на вашем сайте."
 
-#: includes/functions-admin.php:380
+#: includes/functions-admin.php:410
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr "Возможности позволяют вам изменять права для любой пользовательской роли."
 
-#: includes/functions-admin.php:395
+#: includes/functions-admin.php:425
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
 "Стили администратора позволяют настраивать область администратора с вашим "
 "собственным брендингом."
 
-#: includes/functions-admin.php:405
+#: includes/functions-admin.php:435
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
@@ -2683,19 +2885,19 @@ msgstr ""
 "Перенаправления позволяют перенаправлять пользователей с ролью после "
 "регистрации, входа или выхода."
 
-#: includes/functions-admin.php:414
-#: includes/functions-admin.php:520
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:560
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "Навигационные меню"
 
-#: includes/functions-admin.php:419
+#: includes/functions-admin.php:449
 #: includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "Тестирование пользователей"
 
-#: includes/functions-admin.php:420
+#: includes/functions-admin.php:450
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
@@ -2704,7 +2906,7 @@ msgstr ""
 "Доступные аккаунты включают любые, которые текущий пользователь может "
 "редактировать."
 
-#: includes/functions-admin.php:425
+#: includes/functions-admin.php:455
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
@@ -2712,41 +2914,41 @@ msgstr ""
 "Удалите уведомления администратора с экрана администрирования WordPress и "
 "организуйте их в одной области."
 
-#: includes/functions.php:565
+#: includes/functions.php:650
 msgid "Login permission denied."
 msgstr "Доступ к логину запрещён."
 
-#: includes/functions.php:642
+#: includes/functions.php:742
 msgid "You do not have permission to access this page."
 msgstr "У вас нет разрешения для доступа к этой странице."
 
-#: includes/functions.php:707
+#: includes/functions.php:815
 msgid "Need PublishPress Capabilities Support?"
 msgstr "Нужна поддержка возможностей PublishPress?"
 
-#: includes/functions.php:712
+#: includes/functions.php:820
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 "Если вам нужна помощь или у вас есть запрос на новую функцию, дайте нам "
 "знать."
 
-#: includes/functions.php:714
+#: includes/functions.php:823
 msgid "Request Support"
 msgstr "Запросить поддержку"
 
-#: includes/functions.php:723
+#: includes/functions.php:832
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Подробная документация также доступна на сайте плагина."
 
-#: includes/functions.php:725
+#: includes/functions.php:834
 msgid "View Knowledge Base"
 msgstr "Просмотреть базу знаний"
 
-#: includes/functions.php:939
+#: includes/functions.php:1066
 msgid "Social Links"
 msgstr "Социальные ссылки"
 
-#: includes/functions.php:940
+#: includes/functions.php:1067
 msgid "Page Lists"
 msgstr "Списки страниц"
 
@@ -2760,7 +2962,7 @@ msgstr "Ошибка: Не удалось создать новую роль."
 
 #: includes/handler.php:61
 #: includes/handler.php:89
-#: includes/manager.php:1157
+#: includes/manager.php:1219
 msgid "The selected role is not editable."
 msgstr "Выбранную роль нельзя редактировать."
 
@@ -2847,86 +3049,221 @@ msgstr "У вас нет разрешения для управления фун
 #: includes/manager.php:624
 #: includes/manager.php:678
 #: includes/manager.php:726
-#: includes/manager.php:807
-#: includes/manager.php:889
-#: includes/manager.php:970
+#: includes/manager.php:820
+#: includes/manager.php:869
+#: includes/manager.php:951
+#: includes/manager.php:1032
 msgid "Settings updated."
 msgstr "Настройки обновлены."
 
 #: includes/manager.php:640
 #: includes/manager.php:662
-#: includes/manager.php:772
-#: includes/manager.php:823
-#: includes/manager.php:987
+#: includes/manager.php:834
+#: includes/manager.php:885
+#: includes/manager.php:1049
 msgid "You do not have permission to manage admin features."
 msgstr "У вас нет разрешения для управления функциями админа."
 
-#: includes/manager.php:794
+#: includes/manager.php:856
 msgid "You do not have permission to manage navigation menus."
 msgstr "У вас нет разрешения управлять навигационными меню."
 
-#: includes/manager.php:845
+#: includes/manager.php:907
 msgid "You do not have permission to manage profile features."
 msgstr "У вас нет разрешения управлять функциями профиля."
 
-#: includes/manager.php:905
+#: includes/manager.php:967
 msgid "You do not have permission to manage redirect."
 msgstr "У вас нет разрешения управлять перенаправлением."
 
-#: includes/manager.php:927
+#: includes/manager.php:989
 msgid "Invalid form. Reload this page and try again."
 msgstr "Недействительная форма. Перезагрузите эту страницу и попробуйте снова."
 
-#: includes/manager.php:1079
-#: includes/manager.php:1113
-#: includes/manager.php:1131
+#: includes/manager.php:1141
+#: includes/manager.php:1175
+#: includes/manager.php:1193
 msgid "You do not have permission to manage capabilities."
 msgstr "У вас нет разрешения для управления возможностями."
 
-#: includes/manager.php:1145
+#: includes/manager.php:1207
 msgid "New capability added to role."
 msgstr "Новая возможность добавлена к роли."
 
-#: includes/manager.php:1186
+#: includes/manager.php:1248
 msgid "Bad form Received"
 msgstr "Получена неверная форма"
 
-#: includes/manager.php:1306
+#: includes/manager.php:1368
 msgid "You do not have permission to restore roles."
 msgstr "У вас нет разрешения восстанавливать роли."
 
-#: includes/manager.php:1344
+#: includes/manager.php:1406
 msgid "You do not have permission to perform this action."
 msgstr "У вас нет разрешения выполнять это действие."
 
-#: includes/manager.php:1505
+#: includes/manager.php:1567
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Если вам нравится %s, пожалуйста, оставьте нам оценку %s. Спасибо!"
 
-#: includes/manager.php:1516
+#: includes/manager.php:1578
 msgid "About PublishPress Capabilities"
 msgstr "О PublishPress Capabilities"
 
-#: includes/manager.php:1516
+#: includes/manager.php:1578
 msgid "About"
 msgstr "О программе"
 
-#: includes/manager.php:1518
+#: includes/manager.php:1580
 msgid "Capabilites Documentation"
 msgstr "Документация по возможностям"
 
-#: includes/manager.php:1518
+#: includes/manager.php:1580
 msgid "Documentation"
 msgstr "Документация"
 
-#: includes/manager.php:1520
+#: includes/manager.php:1582
 msgid "Contact the PublishPress team"
 msgstr "Связаться с командой PublishPress"
 
-#: includes/manager.php:1520
+#: includes/manager.php:1582
 msgid "Contact"
 msgstr "Контакт"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:28
+msgid "Permissions & Access"
+msgstr "Разрешения и доступ"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:29
+msgid "Administer advanced content permissions and visibility rules."
+msgstr "Управляйте расширенными разрешениями контента и правилами видимости."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:30
+msgid "Manage plugin permission settings."
+msgstr "Управляйте настройками разрешений плагина."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:31
+msgid "Bypass content restrictions for editorial workflows."
+msgstr "Обойти ограничения контента для редакционных рабочих процессов."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:32
+msgid "Set custom post statuses for content items."
+msgstr "Установите пользовательские статусы записей для элементов контента."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:33
+msgid "Force Quick Edit access when restrictions would otherwise block it."
+msgstr ""
+"Принудительно предоставить доступ к быстрому редактированию, когда "
+"ограничения иначе заблокировали бы его."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:35
+msgid "Roles & Groups"
+msgstr "Роли и группы"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:36
+msgid "Assign or change role assignments for users."
+msgstr "Назначить или изменить назначения ролей для пользователей."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:37
+msgid "Create new permission groups."
+msgstr "Создать новые группы разрешений."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:38
+msgid "Edit existing permission groups."
+msgstr "Редактировать существующие группы разрешений."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:39
+msgid "Delete permission groups."
+msgstr "Удалить группы разрешений."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:40
+msgid "Add or remove members from permission groups."
+msgstr "Добавить или удалить участников из групп разрешений."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:41
+msgid "Create network-wide permission groups in multisite."
+msgstr "Создайте группы разрешений по всей сети в мультисайте."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:42
+msgid "Manage members of network-wide permission groups."
+msgstr "Управление членами групп разрешений по всей сети."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:44
+msgid "Exception Management"
+msgstr "Управление исключениями"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:45
+msgid "Set per-item association exceptions."
+msgstr "Установить исключения для ассоциаций по элементам."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:46
+msgid "Set per-item edit exceptions."
+msgstr "Установить исключения для редактирования по элементам."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:47
+msgid "Set per-item read exceptions."
+msgstr "Установить исключения для чтения по элементам."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:48
+msgid "Set per-item revision exceptions."
+msgstr "Установить исключения для ревизий по элементам."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:49
+msgid "Set taxonomy term assignment exceptions."
+msgstr "Установить исключения для назначения терминов таксономии."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:50
+msgid "Set taxonomy term association exceptions."
+msgstr "Установить исключения для ассоциаций терминов таксономии."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:51
+msgid "Set taxonomy term management exceptions."
+msgstr "Установить исключения для управления терминами таксономии."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:53
+msgid "Content Associations"
+msgstr "Ассоциации контента"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:54
+msgid "Associate users or groups with any page."
+msgstr "Ассоциировать пользователей или группы с любой страницей."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:55
+msgid "Define and apply custom post statuses."
+msgstr "Определить и применить пользовательские статусы постов."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:56
+msgid "Define custom privacy policies for content."
+msgstr "Определить пользовательские политики конфиденциальности для контента."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:57
+msgid "Moderate any item regardless of authorship."
+msgstr "Модерировать любой элемент независимо от авторства."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:59
+msgid "Media & Misc"
+msgstr "Медиа и прочее"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:60
+msgid "Edit attachments uploaded by the current user."
+msgstr "Редактировать вложения, загруженные текущим пользователем."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:61
+msgid "List unattached files uploaded by other users."
+msgstr "Список не прикрепленных файлов, загруженных другими пользователями."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:62
+msgid "List all media library files."
+msgstr "Список всех файлов медиатеки."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:63
+msgid "Exempt user from edit-circle restrictions."
+msgstr "Освободить пользователя от ограничений редактирования."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:64
+msgid "Exempt user from read-circle restrictions."
+msgstr "Освободить пользователя от ограничений чтения."
 
 #: includes/pp-ui.php:62
 #, php-format
@@ -3099,32 +3436,32 @@ msgid "%s Redirects"
 msgstr "%s Перенаправления"
 
 #: includes/redirects/redirects.php:112
-#: includes/redirects/redirects.php:315
+#: includes/redirects/redirects.php:316
 #: includes/roles/class/class-pp-roles-admin.php:512
 msgid "Save Changes"
 msgstr "Сохранить Изменения"
 
-#: includes/redirects/redirects.php:214
+#: includes/redirects/redirects.php:215
 msgid "Redirect users to the URL they were viewing before login."
 msgstr "Перенаправить пользователей на URL, который они просматривали перед входом."
 
-#: includes/redirects/redirects.php:226
+#: includes/redirects/redirects.php:227
 msgid "Redirect users to a specified URL."
 msgstr "Перенаправить пользователей на указанный URL."
 
-#: includes/redirects/redirects.php:242
+#: includes/redirects/redirects.php:243
 msgid "Enter the relative path only without domain for login redirect."
 msgstr "Введите относительный путь только без домена для редиректа при входе."
 
-#: includes/redirects/redirects.php:243
+#: includes/redirects/redirects.php:244
 msgid "You must enter the Login Redirect URL."
 msgstr "Вы должны ввести URL-адрес перенаправления для входа."
 
-#: includes/redirects/redirects.php:275
+#: includes/redirects/redirects.php:276
 msgid "Enter the relative path only without domain for logout redirect."
 msgstr "Введите относительный путь только без домена для редиректа при выходе."
 
-#: includes/redirects/redirects.php:333
+#: includes/redirects/redirects.php:334
 msgid ""
 "Redirect Features allows you to redirect users in a role after "
 "Registration, Login or Logout."
@@ -3132,7 +3469,7 @@ msgstr ""
 "Функции перенаправления позволяют перенаправлять пользователей с ролью "
 "после регистрации, входа или выхода."
 
-#: includes/redirects/redirects.php:336
+#: includes/redirects/redirects.php:337
 msgid "How to use Redirect Features"
 msgstr "Как использовать функции перенаправления"
 
@@ -3472,10 +3809,6 @@ msgstr "Ваша роль"
 msgid "WordPress Core"
 msgstr "Ядро WordPress"
 
-#: includes/roles/class/class-pp-roles-list-table.php:403
-msgid "Custom"
-msgstr "Пользовательский"
-
 #: includes/roles/class/class-pp-roles-list-table.php:695
 msgid "Search Roles"
 msgstr "Поиск ролей"
@@ -3607,77 +3940,6 @@ msgstr ""
 "временные проблемы при обновлении ролей пользователей, которые не имеют "
 "доступа к области администратора WordPress."
 
-#: includes/settings-ui.php:290
-msgid "Success notices"
-msgstr "Уведомления об успехе"
-
-#: includes/settings-ui.php:291
-msgid "Error notices"
-msgstr "Ошибки"
-
-#: includes/settings-ui.php:292
-msgid "Warning notices"
-msgstr "Предупреждения"
-
-#: includes/settings-ui.php:293
-msgid "Info notices"
-msgstr "Информационные уведомления"
-
-#: includes/settings-ui.php:302
-msgid ""
-"The feature attempts to clean up the WordPress admin area by organizing "
-"extra messages and advertisements into the Admin Notices area. This will "
-"not remove any messages that appear when you perform an action."
-msgstr ""
-"Эта функция пытается очистить область администрирования WordPress, "
-"организуя дополнительные сообщения и рекламу в области уведомлений "
-"администратора. Это не удалит сообщения, которые появляются, когда вы "
-"выполняете действие."
-
-#: includes/settings-ui.php:306
-msgid "Select Role"
-msgstr "Выберите роль"
-
-#: includes/settings-ui.php:343
-msgid "Notification center access"
-msgstr "Доступ к центру уведомлений"
-
-#: includes/settings-ui.php:352
-#, php-format
-msgid "Enable %1s access to the Admin Notices area."
-msgstr "Разрешить доступ %1s к области администраторских уведомлений."
-
-#: includes/settings-ui.php:363
-msgid "Notifications to remove from WordPress admin pages"
-msgstr "Уведомления для удаления со страниц администратора WordPress"
-
-#: includes/settings-ui.php:376
-#, php-format
-msgid ""
-"Select the notification types that should be hidden when a user in the %1s "
-"role is viewing WordPress admin screens."
-msgstr ""
-"Выберите типы уведомлений, которые должны быть скрыты, когда пользователь с "
-"ролью %1s просматривает экраны администратора WordPress."
-
-#: includes/settings-ui.php:376
-#: includes/settings-ui.php:398
-msgid "Click here for more on notice types."
-msgstr "Нажмите здесь для получения дополнительной информации о типах уведомлений."
-
-#: includes/settings-ui.php:385
-msgid "Notifications to display in the Admin Notices area."
-msgstr "Уведомления для отображения в области уведомлений администратора."
-
-#: includes/settings-ui.php:398
-msgid ""
-"Select the notification types that should be displayed in the Admin Notices "
-"area after been removed from the WordPress admin screens."
-msgstr ""
-"Выберите типы уведомлений, которые должны отображаться в области "
-"уведомлений администратора после их удаления с экранов администратора "
-"WordPress."
-
 #: includes/settings.php:13
 msgid "Capabilities Settings"
 msgstr "Настройки возможностей"
@@ -3726,3 +3988,16 @@ msgstr ""
 #: includes/test-user.php:62
 msgid "Unable to retrieve user data."
 msgstr "Не удалось получить данные пользователя."
+
+#: common/js/admin.dev.js:890
+msgid "Updating Settings..."
+msgstr "Обновление настроек..."
+
+#: common/js/admin.dev.js:926
+msgid "Updating access..."
+msgstr "Обновление доступа..."
+
+#: common/js/admin.dev.js:945
+#: common/js/admin.dev.js:950
+msgid "Error updating access."
+msgstr "Ошибка при обновлении доступа."

@@ -1,0 +1,3917 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Capabilities 2.42.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
+"PO-Revision-Date: 2026-04-22 08:34+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: capability-manager-enhanced\n"
+"Language: th\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: capsman-enhanced.php:5
+#. Plugin Name of the plugin
+msgid "PublishPress Capabilities"
+msgstr "ความสามารถของ PublishPress"
+
+#: capsman-enhanced.php:7, fuzzy
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/capability-manager/"
+msgstr "https://publishpress.com/capability-manager/"
+
+#: capsman-enhanced.php:9
+#. Description of the plugin
+msgid ""
+"PublishPress Capabilities is the access control plugin for WordPress. You "
+"can manage all your WordPress user roles, from Administrators to "
+"Subscribers."
+msgstr ""
+"PublishPress Capabilities เป็นปลั๊กอินควบคุมการเข้าถึงสำหรับ WordPress "
+"คุณสามารถจัดการบทบาทผู้ใช้ WordPress ทั้งหมดของคุณได้ "
+"ตั้งแต่ผู้ดูแลระบบไปจนถึงผู้สมัครสมาชิก。"
+
+#: capsman-enhanced.php:13
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: capsman-enhanced.php:15, fuzzy
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: capsman-enhanced.php:79
+#, php-format
+msgid ""
+"%1s Error: %2s  PublishPress Capabilities cannot function because another "
+"copy of the plugin is active."
+msgstr ""
+"%1s ข้อผิดพลาด: %2s  PublishPress Capabilities "
+"ไม่สามารถทำงานได้เนื่องจากมีสำเนาอื่นของปลั๊กอินที่เปิดใช้งานอยู่。"
+
+#: capsman-enhanced.php:108
+msgid "This plugin can be deleted."
+msgstr "สามารถลบปลั๊กอินนี้ได้"
+
+#: includes-core/admin-features-promo.php:74
+msgid ""
+"You can block pages by URL or hide Admin elements by entering a CSS class "
+"or ID. This feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"คุณสามารถบล็อกหน้าโดยใช้ URL หรือซ่อนองค์ประกอบของผู้ดูแลระบบโดยการป้อน CSS "
+"class หรือ ID ฟีเจอร์นี้มีใน PublishPress Capabilities Pro。"
+
+#: includes-core/admin-features-promo.php:79
+#: includes-core/admin-menus-promo.php:62
+#: includes-core/CoreAdmin.php:56
+#: includes-core/editor-features-promo.php:79
+#: includes-core/frontend-features-promo.php:32
+#: includes/admin-load.php:814
+#: includes/features/admin-styles/admin-styles-ui.php:353
+msgid "Upgrade to Pro"
+msgstr "อัปเกรดเป็น Pro"
+
+#: includes-core/admin-menus-promo.php:29
+msgid "Admin Menu Restrictions"
+msgstr "ข้อจำกัดเมนูผู้ดูแลระบบ"
+
+#: includes-core/admin-menus-promo.php:58
+msgid ""
+"You can restrict access to admin menu screens. You can also edit, change, "
+"add, or remove links from the WordPress admin menu. This feature is "
+"available in PublishPress Capabilities Pro."
+msgstr ""
+"คุณสามารถจำกัดการเข้าถึงหน้าจอเมนูผู้ดูแลระบบ นอกจากนี้คุณยังสามารถแก้ไข "
+"เปลี่ยน เพิ่ม หรือเอาลิงก์ออกจากเมนูผู้ดูแลระบบของ WordPress ฟีเจอร์นี้มีใน "
+"PublishPress Capabilities Pro。"
+
+#: includes-core/CoreAdmin.php:19
+#, php-format
+msgid ""
+"You're using PublishPress Capabilities Free. The Pro version has more "
+"features and support. %sUpgrade to Pro%s"
+msgstr ""
+"คุณกำลังใช้ PublishPress Capabilities Free เวอร์ชัน Pro "
+"มีฟีเจอร์และการสนับสนุนมากขึ้น %sอัปเกรดเป็น Pro%s"
+
+#: includes-core/CoreAdmin.php:92
+#: includes-core/CoreAdmin.php:155
+#: includes/functions-admin.php:531
+#: includes/roles/class/class-pp-roles-admin.php:526
+msgid "Admin Menus"
+msgstr "เมนูผู้ดูแลระบบ"
+
+#: includes-core/CoreAdmin.php:135
+msgid "Hide CSS Elements"
+msgstr "ซ่อนองค์ประกอบ CSS"
+
+#: includes-core/CoreAdmin.php:136
+msgid "Block by URL"
+msgstr "บล็อกตาม URL"
+
+#: includes-core/CoreAdmin.php:156
+msgid ""
+"Admin Menus allows you to edit the admin menu links and control who has "
+"access."
+msgstr ""
+"Admin Menus "
+"ช่วยให้คุณแก้ไขลิงก์ในเมนูผู้ดูแลระบบและควบคุมว่าใครมีสิทธิ์เข้าถึง。"
+
+#: includes-core/CoreAdmin.php:166
+msgid "Select pages..."
+msgstr "เลือกหน้า..."
+
+#: includes-core/CoreAdmin.php:171
+msgid "You can select page types where this element will be added."
+msgstr "คุณสามารถเลือกประเภทหน้าที่จะเพิ่มองค์ประกอบนี้ได้"
+
+#: includes-core/editor-features-promo.php:24, fuzzy
+msgid "Metaboxes"
+msgstr "Metaboxes"
+
+#: includes-core/editor-features-promo.php:36, fuzzy
+msgid "Checklist"
+msgstr "Checklist"
+
+#: includes-core/editor-features-promo.php:46
+msgid "Editorial Comments"
+msgstr "ความคิดเห็นบรรณาธิการ"
+
+#: includes-core/editor-features-promo.php:56
+msgid "Notifications"
+msgstr "การแจ้งเตือน"
+
+#: includes-core/editor-features-promo.php:66
+msgid "TaxoPress - Settings"
+msgstr "TaxoPress - การตั้งค่า"
+
+#: includes-core/editor-features-promo.php:74
+msgid ""
+"You can hide plugin metaboxes. You can also hide specific items by entering "
+"their CSS class or ID. This feature is available in PublishPress "
+"Capabilities Pro."
+msgstr ""
+"คุณสามารถซ่อนเมตาบ็อกซ์ของปลั๊กอินได้ "
+"นอกจากนี้คุณยังสามารถซ่อนรายการเฉพาะโดยการป้อน CSS class หรือ ID ของพวกเขา "
+"ฟีเจอร์นี้มีใน PublishPress Capabilities Pro。"
+
+#: includes-core/editor-features-promo.php:89
+msgid "Custom Items"
+msgstr "รายการที่กำหนดเอง"
+
+#: includes-core/editor-features-promo.php:98
+msgid "Custom item one"
+msgstr "รายการที่กำหนดเองหนึ่ง"
+
+#: includes-core/editor-features-promo.php:108
+msgid "Permalink: Descriptive Caption"
+msgstr "Permalink: คำบรรยายที่ชัดเจน"
+
+#: includes-core/editor-features-promo.php:118
+msgid "Page Attributes: Order"
+msgstr "คุณสมบัติของหน้า: ลำดับ"
+
+#: includes-core/frontend-features-promo.php:25
+msgid ""
+"You can use Frontend Features to target specific posts and pages. This "
+"feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"คุณสามารถใช้ฟีเจอร์ Frontend เพื่อกำหนดเป้าหมายโพสต์และหน้าเฉพาะ "
+"ฟีเจอร์นี้มีใน PublishPress Capabilities Pro。"
+
+#: includes-core/frontend-features-promo.php:39
+msgid "Select post types..."
+msgstr "เลือกประเภทโพสต์..."
+
+#: includes-core/frontend-features-promo.php:44
+msgid ""
+"This will add a metabox on the post editing screen. You can use this "
+"feature to add body classes only for that post."
+msgstr ""
+"สิ่งนี้จะเพิ่มเมตาบ็อกซ์ในหน้าจอแก้ไขโพสต์ คุณสามารถใช้ฟีเจอร์นี้เพื่อเพิ่ม "
+"body classes เฉพาะสำหรับโพสต์นั้น。"
+
+#: includes/admin-load.php:371
+msgid "Drag multiple roles selection to change roles order."
+msgstr "ลากการเลือกบทบาทหลายบทบาทเพื่อเปลี่ยนลำดับบทบาท."
+
+#: includes/admin-load.php:374
+msgid "Page title"
+msgstr "ชื่อหน้า"
+
+#: includes/admin-load.php:375, fuzzy
+msgid "Rank Math SEO"
+msgstr "Rank Math SEO"
+
+#: includes/admin-load.php:494
+#: includes/admin-load.php:827
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:495
+#: includes/manager.php:387
+#: includes/roles/class/class-pp-roles-admin.php:637
+#: includes/settings-ui.php:35
+msgid "Capabilities"
+msgstr "ความสามารถ"
+
+#: includes/admin-load.php:613
+msgid "No permission!"
+msgstr "ไม่มีสิทธิ์!"
+
+#: includes/admin-load.php:623
+msgid "Invalid nonce token!"
+msgstr "โทเค็น nonce ไม่ถูกต้อง!"
+
+#: includes/admin-load.php:627
+msgid "Error: wrong data"
+msgstr "ข้อผิดพลาด: ข้อมูลผิดพลาด"
+
+#: includes/admin-load.php:649
+#: includes/admin-notices/admin-notices.php:232
+#: includes/features/frontend-features/frontend-features-action.php:41
+#: includes/features/frontend-features/frontend-features-action.php:110
+#: includes/features/restrict-profile-features.php:29
+msgid "An error occured!"
+msgstr "เกิดข้อผิดพลาด!"
+
+#: includes/admin-load.php:654
+msgid "Security check failed"
+msgstr "การตรวจสอบความปลอดภัยล้มเหลว"
+
+#: includes/admin-load.php:656
+msgid "Permission denied"
+msgstr "การเข้าถึงถูกปฏิเสธ"
+
+#: includes/admin-load.php:666
+msgid "Settings updated successfully."
+msgstr "ปรับปรุงการตั้งค่าเรียบร้อยแล้ว."
+
+#: includes/admin-load.php:762
+#: includes/features/frontend-features/frontend-features.php:39
+#: includes/features/nav-menus.php:26
+msgid "Logged In Users"
+msgstr "ผู้ใช้ที่เข้าสู่ระบบ"
+
+#: includes/admin-load.php:763
+#: includes/features/frontend-features/frontend-features.php:40
+#: includes/features/nav-menus.php:26
+msgid "Logged Out Users"
+msgstr "ผู้ใช้ที่ออกจากระบบ"
+
+#: includes/admin-load.php:770
+msgid "PublishPress Capabilities Menu Restriction"
+msgstr "การจำกัดเมนูความสามารถของ PublishPress"
+
+#: includes/admin-load.php:771
+msgid "This menu is restricted for the following roles"
+msgstr "เมนูนี้ถูกจำกัดสำหรับบทบาทต่อไปนี้"
+
+#: includes/admin-load.php:826
+#: includes/dashboard.php:23
+msgid "Dashboard"
+msgstr "แดชบอร์ด"
+
+#: includes/admin-load.php:828
+#: includes/functions-admin.php:404
+#: includes/functions-admin.php:488
+#: includes/roles/roles.php:8
+#: includes/settings-ui.php:34
+msgid "Roles"
+msgstr "บทบาท"
+
+#: includes/admin-load.php:829
+msgid "Settings"
+msgstr "การตั้งค่า"
+
+#: includes/admin-notices/admin-notices-settings.php:7
+msgid "Success notices"
+msgstr "การแจ้งเตือนความสำเร็จ"
+
+#: includes/admin-notices/admin-notices-settings.php:8
+msgid "Error notices"
+msgstr "การแจ้งเตือนข้อผิดพลาด"
+
+#: includes/admin-notices/admin-notices-settings.php:9
+msgid "Warning notices"
+msgstr "การแจ้งเตือนคำเตือน"
+
+#: includes/admin-notices/admin-notices-settings.php:10
+msgid "Info notices"
+msgstr "การแจ้งเตือนข้อมูล"
+
+#: includes/admin-notices/admin-notices-settings.php:22
+msgid "Current Role"
+msgstr "บทบาทปัจจุบัน"
+
+#: includes/admin-notices/admin-notices-settings.php:33
+#: includes/admin-notices/admin-notices.php:179
+#: includes/admin-notices/admin-notices.php:217
+#: includes/admin-notices/admin-notices.php:220
+#: includes/functions-admin.php:239
+#: includes/functions-admin.php:454
+#: includes/functions-admin.php:523
+msgid "Admin Notices"
+msgstr "การแจ้งเตือนผู้ดูแลระบบ"
+
+#: includes/admin-notices/admin-notices-settings.php:60
+#: includes/admin-notices/admin-notices-settings.php:152
+#: includes/features/admin-styles/admin-styles-ui.php:180
+#: includes/features/admin-styles/admin-styles-ui.php:815
+#: includes/redirects/redirects.php:117
+#: includes/redirects/redirects.php:321
+msgid "Save for all Roles"
+msgstr "บันทึกสำหรับทุกบทบาท"
+
+#: includes/admin-notices/admin-notices-settings.php:64
+#: includes/admin-notices/admin-notices-settings.php:156
+#: includes/features/admin-styles/admin-styles-ui.php:184
+#: includes/features/admin-styles/admin-styles-ui.php:819
+#: includes/features/admin-styles/admin-styles.php:856
+#, php-format
+msgid "Save for %s"
+msgstr "บันทึกสำหรับ %s"
+
+#: includes/admin-notices/admin-notices-settings.php:78
+msgid "Notification center access"
+msgstr "การเข้าถึงศูนย์การแจ้งเตือน"
+
+#: includes/admin-notices/admin-notices-settings.php:89
+#, php-format
+msgid "Enable %1$s access to the Admin Notices area."
+msgstr "เปิดใช้งาน %1$s การเข้าถึงพื้นที่การแจ้งเตือนของผู้ดูแลระบบ."
+
+#: includes/admin-notices/admin-notices-settings.php:96
+msgid "Notifications to remove from WordPress admin pages"
+msgstr "การแจ้งเตือนที่จะลบจากหน้าแอดมินของ WordPress"
+
+#: includes/admin-notices/admin-notices-settings.php:113
+#, php-format
+msgid ""
+"Select the notification types that should be hidden when a user in the %1$s "
+"role is viewing WordPress admin screens."
+msgstr ""
+"เลือกประเภทการแจ้งเตือนที่ควรซ่อนเมื่อผู้ใช้ที่มีบทบาท %1$s "
+"กำลังดูหน้าจอผู้ดูแลระบบของ WordPress。"
+
+#: includes/admin-notices/admin-notices-settings.php:113
+#: includes/admin-notices/admin-notices-settings.php:136
+msgid "Click here for more on notice types."
+msgstr "คลิกที่นี่เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับประเภทการแจ้งเตือน."
+
+#: includes/admin-notices/admin-notices-settings.php:119
+msgid "Notifications to display in the Admin Notices area."
+msgstr "การแจ้งเตือนที่จะแสดงในพื้นที่การแจ้งเตือนของแอดมิน."
+
+#: includes/admin-notices/admin-notices-settings.php:136
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr ""
+"เลือกประเภทการแจ้งเตือนที่ควรแสดงในพื้นที่การแจ้งเตือนของผู้ดูแลระบบหลังจากถ"
+"ูกลบออกจากหน้าจอผู้ดูแลระบบของ WordPress。"
+
+#: includes/admin-notices/admin-notices-settings.php:170
+msgid ""
+"Admin Notices allows you to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into one place."
+msgstr ""
+"Admin Notices ช่วยให้คุณจัดระเบียบพื้นที่ผู้ดูแลระบบของ WordPress "
+"โดยการจัดระเบียบข้อความและโฆษณาเพิ่มเติมให้อยู่ในที่เดียว。"
+
+#: includes/admin-notices/admin-notices-settings.php:172
+#: includes/features/admin-styles/admin-styles-ui.php:835
+msgid "Features include:"
+msgstr "ฟีเจอร์รวมถึง:"
+
+#: includes/admin-notices/admin-notices-settings.php:174
+msgid "Move selected notice types out of admin pages"
+msgstr "ย้ายประเภทการแจ้งเตือนที่เลือกออกจากหน้าของแอดมิน"
+
+#: includes/admin-notices/admin-notices-settings.php:175
+msgid "Show selected notices in a dedicated Admin Notices panel"
+msgstr "แสดงการแจ้งเตือนที่เลือกในแผงการแจ้งเตือนของแอดมินที่เฉพาะเจาะจง"
+
+#: includes/admin-notices/admin-notices-settings.php:176
+msgid "Configure notice visibility by user role"
+msgstr "กำหนดการมองเห็นการแจ้งเตือนตามบทบาทผู้ใช้"
+
+#: includes/admin-notices/admin-notices-settings.php:178
+#: includes/admin.php:2015
+#: includes/features/admin-features.php:352
+#: includes/features/admin-styles/admin-styles-ui.php:842
+#: includes/features/editor-features.php:247
+#: includes/features/frontend-features/frontend-features.php:256
+#: includes/features/nav-menus.php:308
+#: includes/features/profile-features.php:257
+#: includes/redirects/redirects.php:336
+msgid "View Documentation"
+msgstr "ดูเอกสาร"
+
+#: includes/admin-notices/admin-notices-settings.php:179
+msgid "How to use Admin Notices"
+msgstr "วิธีการใช้การแจ้งเตือนของแอดมิน"
+
+#: includes/admin-notices/admin-notices.php:72
+msgid "Display this notice"
+msgstr "แสดงการแจ้งเตือนนี้"
+
+#: includes/admin-notices/admin-notices.php:73
+msgid "Silence this notice"
+msgstr "ปิดเสียงการแจ้งเตือนนี้"
+
+#: includes/admin-notices/admin-notices.php:74
+msgid "Hide this notice"
+msgstr "ซ่อนการแจ้งเตือนนี้"
+
+#: includes/admin-notices/admin-notices.php:75
+msgid "Move to Hidden Notices"
+msgstr "ย้ายไปยังการแจ้งเตือนที่ซ่อน"
+
+#: includes/admin-notices/admin-notices.php:76
+msgid "Displayed notices will no longer be removed from admin pages."
+msgstr "การแจ้งเตือนที่แสดงจะไม่ถูกลบออกจากหน้าของแอดมินอีกต่อไป."
+
+#: includes/admin-notices/admin-notices.php:77
+msgid ""
+"This notice will be moved to the \"Silenced Notices\" tab and you will not "
+"receive a notification if it appears again."
+msgstr ""
+"การแจ้งเตือนนี้จะถูกย้ายไปยังแท็บ \"การแจ้งเตือนที่เงียบ\" "
+"และคุณจะไม่ได้รับการแจ้งเตือนหากมันปรากฏอีกครั้ง。"
+
+#: includes/admin-notices/admin-notices.php:204
+msgid "Hidden Notices"
+msgstr "การแจ้งเตือนที่ซ่อน"
+
+#: includes/admin-notices/admin-notices.php:208
+msgid "Silenced Notices"
+msgstr "การแจ้งเตือนที่ปิดเสียง"
+
+#: includes/admin-notices/admin-notices.php:218
+msgid "There are currently no admin notices."
+msgstr "ขณะนี้ไม่มีการแจ้งเตือนของแอดมิน."
+
+#: includes/admin-notices/admin-notices.php:218
+msgid "Edit the settings."
+msgstr "แก้ไขการตั้งค่า."
+
+#: includes/admin-notices/admin-notices.php:241
+#: includes/manager.php:771
+#: includes/manager.php:795
+msgid "You do not have permission to manage admin notices."
+msgstr "คุณไม่มีสิทธิ์ในการจัดการประกาศของผู้ดูแลระบบ."
+
+#: includes/admin-notices/admin-notices.php:243
+#: includes/features/frontend-features/frontend-features-action.php:56
+#: includes/features/frontend-features/frontend-features-action.php:119
+msgid "Invalid action. Reload this page and try again."
+msgstr "การดำเนินการไม่ถูกต้อง โปรดโหลดหน้านี้ใหม่และลองอีกครั้ง."
+
+#: includes/admin-notices/admin-notices.php:245
+msgid "Invalid form."
+msgstr "แบบฟอร์มไม่ถูกต้อง."
+
+#: includes/admin-notices/admin-notices.php:269
+msgid "Admin notice status updated successfully."
+msgstr "สถานะประกาศผู้ดูแลระบบได้รับการอัปเดตเรียบร้อยแล้ว."
+
+#: includes/admin.php:49
+#, php-format
+msgid ""
+"Warning: This role cannot access the dashboard without the read capability. "
+"%1$sClick here to fix this now%2$s."
+msgstr ""
+"คำเตือน: บทบาทนี้ไม่สามารถเข้าถึงแดชบอร์ดได้โดยไม่มีความสามารถในการอ่าน "
+"%1$sคลิกที่นี่เพื่อแก้ไขตอนนี้%2$s。"
+
+#: includes/admin.php:84
+msgid "Negate All"
+msgstr "ปฏิเสธทั้งหมด"
+
+#: includes/admin.php:88
+msgid "Negate None"
+msgstr "ปฏิเสธไม่มี"
+
+#: includes/admin.php:95
+msgid "Role Capabilities"
+msgstr "ความสามารถของบทบาท"
+
+#: includes/admin.php:136
+msgid "Search capabilities..."
+msgstr "ค้นหาความสามารถ..."
+
+#: includes/admin.php:208
+#: includes/admin.php:847
+msgid "Nav Menus (Block)"
+msgstr "เมนูนำทาง (บล็อก)"
+
+#: includes/admin.php:210
+msgid "Block"
+msgstr "บล็อก"
+
+#: includes/admin.php:217
+#: includes/admin.php:849
+msgid "Nav Menus (Legacy)"
+msgstr "เมนูนำทาง (รุ่นเก่า)"
+
+#: includes/admin.php:219
+msgid "Legacy"
+msgstr "รุ่นเก่า"
+
+#: includes/admin.php:271, fuzzy
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: includes/admin.php:272
+msgid "Visibility"
+msgstr "การมองเห็น"
+
+#: includes/admin.php:273
+#: includes/roles/class/class-pp-roles-admin.php:111
+msgid "Editing"
+msgstr "การแก้ไข"
+
+#: includes/admin.php:274
+msgid "Deletion"
+msgstr "การลบ"
+
+#: includes/admin.php:275
+msgid "Taxonomies"
+msgstr "taxonomies"
+
+#: includes/admin.php:279
+msgid "Listing"
+msgstr "รายการ"
+
+#: includes/admin.php:283
+msgid "Create Revision"
+msgstr "สร้างการแก้ไข"
+
+#: includes/admin.php:287
+msgid "Submit Revision"
+msgstr "ส่งการแก้ไข"
+
+#: includes/admin.php:291
+msgid "Approve Revision"
+msgstr "อนุมัติการแก้ไข"
+
+#: includes/admin.php:295
+msgid "Can read posts which are currently published with private visibility."
+msgstr "สามารถอ่านโพสต์ที่เผยแพร่ในขณะนี้ซึ่งมีความเป็นส่วนตัว"
+
+#: includes/admin.php:296
+msgid ""
+"Has basic editing capability (but may need other capabilities based on post "
+"status and ownership)."
+msgstr ""
+"มีความสามารถในการแก้ไขพื้นฐาน (แต่อาจต้องการความสามารถอื่นๆ "
+"ขึ้นอยู่กับสถานะโพสต์และการเป็นเจ้าของ)"
+
+#: includes/admin.php:297
+msgid "Can edit posts which were created by other users."
+msgstr "สามารถแก้ไขโพสต์ที่สร้างโดยผู้ใช้คนอื่น"
+
+#: includes/admin.php:298
+msgid "Can edit posts which are currently published."
+msgstr "สามารถแก้ไขโพสต์ที่เผยแพร่ในขณะนี้"
+
+#: includes/admin.php:299
+msgid "Can edit posts which are currently published with private visibility."
+msgstr "สามารถแก้ไขโพสต์ที่เผยแพร่ในขณะนี้ซึ่งมีความเป็นส่วนตัว"
+
+#: includes/admin.php:300
+msgid "Can make a post publicly visible."
+msgstr "สามารถทำให้โพสต์เป็นสาธารณะ"
+
+#: includes/admin.php:301
+msgid ""
+"Has basic deletion capability (but may need other capabilities based on "
+"post status and ownership)."
+msgstr ""
+"มีความสามารถในการลบพื้นฐาน (แต่อาจต้องการความสามารถอื่นๆ "
+"ขึ้นอยู่กับสถานะโพสต์และการเป็นเจ้าของ)"
+
+#: includes/admin.php:302
+msgid "Can delete posts which were created by other users."
+msgstr "สามารถลบโพสต์ที่สร้างโดยผู้ใช้คนอื่น"
+
+#: includes/admin.php:303
+msgid "Can delete posts which are currently published."
+msgstr "สามารถลบโพสต์ที่เผยแพร่ในขณะนี้"
+
+#: includes/admin.php:304
+msgid "Can delete posts which are currently published with private visibility."
+msgstr "สามารถลบโพสต์ที่เผยแพร่ในขณะนี้ซึ่งมีความเป็นส่วนตัว"
+
+#: includes/admin.php:599
+#: includes/admin.php:1114
+#: includes/admin.php:2104, fuzzy
+msgid "Multisite"
+msgstr "Multisite"
+
+#: includes/admin.php:603
+#: includes/admin.php:1118
+msgid "Admin"
+msgstr "Admin"
+
+#: includes/admin.php:683
+#: includes/admin.php:1597
+msgid "Invalid Capabilities"
+msgstr "ความสามารถที่ไม่ถูกต้อง"
+
+#: includes/admin.php:688
+msgid "Additional"
+msgstr "เพิ่มเติม"
+
+#: includes/admin.php:722
+#, php-format
+msgid "Term %s Capabilities"
+msgstr "ความสามารถของคำศัพท์ %s"
+
+#: includes/admin.php:725
+#, php-format
+msgid "%s Capabilities"
+msgstr "ความสามารถของ %s"
+
+#: includes/admin.php:726
+#, php-format
+msgid "Post %s Capabilities"
+msgstr "ความสามารถของโพสต์ %s"
+
+#: includes/admin.php:729
+msgid "Taxonomy"
+msgstr "Taxonomy"
+
+#: includes/admin.php:735
+msgid "Filter by taxonomy"
+msgstr "กรองตาม taxonomy"
+
+#: includes/admin.php:735
+msgid "Filter by post type"
+msgstr "กรองตาม post type"
+
+#: includes/admin.php:856
+#: includes/pp-ui.php:263
+#: includes/pp-ui.php:342
+#, php-format
+msgid "The slug for this taxonomy is %s"
+msgstr "slug สำหรับ taxonomy นี้คือ %s"
+
+#: includes/admin.php:858
+#: includes/pp-ui.php:163
+#, php-format
+msgid "The slug for this post type is %s"
+msgstr "slug สำหรับ post type นี้คือ %s"
+
+#: includes/admin.php:934
+#: includes/admin.php:1183
+#: includes/admin.php:1515
+#: includes/admin.php:1878
+#: includes/admin.php:1879
+#, php-format
+msgid "%s: assigned by Permission Group"
+msgstr "%s: กำหนดโดย Permission Group"
+
+#: includes/admin.php:937
+#: includes/admin.php:1185
+#: includes/admin.php:1517
+#: includes/admin.php:1645
+#: includes/admin.php:1881
+#, php-format
+msgid "This capability is %s"
+msgstr "ความสามารถนี้คือ %s"
+
+#: includes/admin.php:967
+#, php-format
+msgid "This capability is controlled by %s"
+msgstr "ความสามารถนี้ถูกควบคุมโดย %s"
+
+#: includes/admin.php:970
+#, php-format
+msgid ""
+"This capability is controlled by %s Use the sidebar settings to allow this "
+"to be controlled independently."
+msgstr ""
+"ความสามารถนี้ถูกควบคุมโดย %s "
+"ใช้การตั้งค่าด้านข้างเพื่ออนุญาตให้ควบคุมได้อย่างอิสระ。"
+
+#: includes/admin.php:987
+msgid "Use the sidebar settings to allow this to be controlled independently."
+msgstr "ใช้การตั้งค่าข้างแถบเพื่ออนุญาตให้ควบคุมได้อย่างอิสระ"
+
+#: includes/admin.php:989
+#: includes/admin.php:993
+msgid "This capability is not available for this post type."
+msgstr "ความสามารถนี้ไม่สามารถใช้ได้สำหรับ post type นี้"
+
+#: includes/admin.php:1057
+msgid ""
+"Admin listing access is normally provided by the \"Edit\" capabilities. "
+"These \"List\" capabilities only apply if the corresponding \"Edit\" "
+"capability is missing. Also, these \"List\" capabilities can grant access, "
+"but not deny access."
+msgstr ""
+"การเข้าถึงรายการผู้ดูแลระบบจะถูกจัดให้โดยทั่วไปโดยความสามารถ \"แก้ไข\" "
+"ความสามารถ \"รายการ\" เหล่านี้ใช้ได้เฉพาะเมื่อความสามารถ \"แก้ไข\" "
+"ที่สอดคล้องกันขาดหายไป นอกจากนี้ ความสามารถ \"รายการ\" "
+"เหล่านี้สามารถให้การเข้าถึง แต่ไม่สามารถปฏิเสธการเข้าถึงได้。"
+
+#: includes/admin.php:1134
+#: includes/admin.php:1253
+#: includes/admin.php:1442
+#: includes/admin.php:1713
+msgid "Filter by capability"
+msgstr "กรองตามความสามารถ"
+
+#: includes/admin.php:1137
+#: includes/admin.php:1256
+#: includes/admin.php:1445
+#: includes/admin.php:1716
+msgid "No results found. Please try again with a different word."
+msgstr "ไม่พบผลลัพธ์ โปรดลองอีกครั้งด้วยคำที่แตกต่างกัน"
+
+#: includes/admin.php:1148
+#: includes/admin.php:1230
+#: includes/admin.php:1267
+#: includes/admin.php:1276
+#: includes/admin.php:1456
+#: includes/admin.php:1579
+#: includes/admin.php:1722
+#: includes/admin.php:1953
+msgid "check / uncheck all"
+msgstr "เลือกทั้งหมด / ยกเลิกการเลือกทั้งหมด"
+
+#: includes/admin.php:1148
+#: includes/admin.php:1230
+#: includes/admin.php:1267
+#: includes/admin.php:1276
+#: includes/admin.php:1456
+#: includes/admin.php:1579
+#: includes/admin.php:1722
+#: includes/admin.php:1953
+msgid "Capability Name"
+msgstr "ชื่อความสามารถ"
+
+#: includes/admin.php:1250
+msgid "WordPress Core Capabilities"
+msgstr "ความสามารถหลักของ WordPress"
+
+#: includes/admin.php:1422
+#: includes/admin.php:1479
+#: includes/admin.php:1801
+#: includes/features/admin-styles/admin-styles.php:1743
+#: includes/roles/class/class-pp-roles-admin.php:106
+msgid "General"
+msgstr "ทั่วไป"
+
+#: includes/admin.php:1439
+#, php-format
+msgid "Plugin Capabilities &ndash; %s"
+msgstr "ความสามารถของปลั๊กอิน &ndash; %s"
+
+#: includes/admin.php:1521
+#, php-format
+msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
+msgstr "ฟีเจอร์การทดสอบผู้ใช้ยังต้องการความสามารถ %1$s edit_users %2$s"
+
+#: includes/admin.php:1602
+msgid ""
+"The following entries have no effect. Please assign desired capabilities on "
+"the Editing / Deletion / Private tabs."
+msgstr ""
+"รายการต่อไปนี้ไม่มีผล กรุณามอบความสามารถที่ต้องการในแท็บการแก้ไข / การลบ / "
+"ส่วนตัว。"
+
+#: includes/admin.php:1710
+msgid "Additional Capabilities"
+msgstr "ความสามารถเพิ่มเติม"
+
+#: includes/admin.php:1946
+msgid "You have no additional capabilities."
+msgstr "คุณไม่มีความสามารถเพิ่มเติม。"
+
+#: includes/admin.php:1970
+msgid "Capabilities allows you change the permissions for any user role."
+msgstr "ความสามารถช่วยให้คุณเปลี่ยนแปลงสิทธิ์สำหรับบทบาทผู้ใช้ใด ๆ。"
+
+#: includes/admin.php:1971
+#, php-format
+msgid "%1$s = Capability granted %2$s"
+msgstr "%1$s = สิทธิ์ได้รับการอนุญาต %2$s"
+
+#: includes/admin.php:1971
+#: includes/admin.php:1972
+#: includes/admin.php:1973
+#: includes/features/admin-features.php:347
+#: includes/features/admin-features.php:349
+#: includes/features/editor-features.php:242
+#: includes/features/editor-features.php:244
+#: includes/features/frontend-features/frontend-features.php:251
+#: includes/features/frontend-features/frontend-features.php:253
+#: includes/features/nav-menus.php:303
+#: includes/features/nav-menus.php:305
+#: includes/features/profile-features.php:252
+#: includes/features/profile-features.php:254
+msgid "usage key"
+msgstr "คีย์การใช้งาน"
+
+#: includes/admin.php:1972
+#, php-format
+msgid "%1$s = Capability not granted %2$s"
+msgstr "%1$s = สิทธิ์ไม่ได้รับการอนุญาต %2$s"
+
+#: includes/admin.php:1973
+#, php-format
+msgid "%1$s = Capability denied, even if granted by another role %2$s"
+msgstr "%1$s = สิทธิ์ถูกปฏิเสธ แม้ว่าจะได้รับการอนุญาตจากบทบาทอื่น %2$s"
+
+#: includes/admin.php:1981
+#, php-format
+msgid "You can also configure this role as a %sPermission Group%s."
+msgstr "คุณยังสามารถกำหนดบทบาทนี้เป็น %sPermission Group%s ได้。"
+
+#: includes/admin.php:2001
+msgid "How to use Capabilities"
+msgstr "วิธีการใช้ความสามารถ"
+
+#: includes/admin.php:2039
+msgid "Capabilities is Safe to Use"
+msgstr "ความสามารถปลอดภัยต่อการใช้งาน"
+
+#: includes/admin.php:2052
+msgid ""
+"WordPress stores role capabilities in your database, where they remain even "
+"if the plugin is deactivated."
+msgstr ""
+"WordPress เก็บความสามารถของบทบาทในฐานข้อมูลของคุณ "
+"ซึ่งจะคงอยู่แม้ว่าปลั๊กอินจะถูกปิดใช้งาน。"
+
+#: includes/admin.php:2053
+msgid ""
+"Whenever you use PublishPress Capabilities to save changes, it also creates "
+"a backup which you can use to restore a previous configuration."
+msgstr ""
+"เมื่อใดก็ตามที่คุณใช้ PublishPress Capabilities เพื่อบันทึกการเปลี่ยนแปลง "
+"มันจะสร้างสำเนาสำรองซึ่งคุณสามารถใช้เพื่อกู้คืนการกำหนดค่าก่อนหน้าได้。"
+
+#: includes/admin.php:2056
+msgid "Go to the Backup feature"
+msgstr "ไปที่ฟีเจอร์การสำรองข้อมูล"
+
+#: includes/admin.php:2075
+msgid "Add a New Capability"
+msgstr "เพิ่มความสามารถใหม่"
+
+#: includes/admin.php:2085
+msgid "Add to role"
+msgstr "เพิ่มไปยังบทบาท"
+
+#: includes/admin.php:2088
+msgid "New capabilities are controlled on the Additonal tab."
+msgstr "ความสามารถใหม่จะถูกควบคุมในแท็บเพิ่มเติม。"
+
+#: includes/admin.php:2144, fuzzy
+msgid "PublishPress Permissions"
+msgstr "PublishPress Permissions"
+
+#: includes/admin.php:2146
+msgid ""
+"Automatically define type-specific capabilities for your custom post types "
+"and taxonomies"
+msgstr ""
+"กำหนดความสามารถเฉพาะประเภทโดยอัตโนมัติสำหรับประเภทโพสต์และ taxonomies "
+"ที่กำหนดเองของคุณ"
+
+#: includes/admin.php:2150
+msgid "Assign standard WP roles supplementally for a specific post type"
+msgstr "กำหนดบทบาท WP มาตรฐานเพิ่มเติมสำหรับประเภทโพสต์เฉพาะ"
+
+#: includes/admin.php:2154
+msgid ""
+"Assign custom WP roles supplementally for a specific post type "
+"<em>(Pro)</em>"
+msgstr "กำหนดบทบาท WP แบบกำหนดเองเพิ่มเติมสำหรับประเภทโพสต์เฉพาะ <em>(Pro)</em>"
+
+#: includes/admin.php:2158
+msgid "Customize reading permissions per-category or per-post"
+msgstr "ปรับแต่งสิทธิ์ในการอ่านตามหมวดหมู่หรือโพสต์"
+
+#: includes/admin.php:2162
+msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
+msgstr "ปรับแต่งสิทธิ์ในการแก้ไขตามหมวดหมู่หรือโพสต์ <em>(Pro)</em>"
+
+#: includes/admin.php:2166
+msgid ""
+"Custom Post Visibility statuses, fully implemented throughout wp-admin "
+"<em>(Pro)</em>"
+msgstr ""
+"สถานะการมองเห็นโพสต์แบบกำหนดเอง ที่มีการใช้งานเต็มรูปแบบใน wp-admin "
+"<em>(Pro)</em>"
+
+#: includes/admin.php:2170
+msgid ""
+"Custom Moderation statuses for access-controlled, multi-step publishing "
+"workflow <em>(Pro)</em>"
+msgstr ""
+"สถานะการตรวจสอบแบบกำหนดเองสำหรับการเข้าถึงที่ควบคุมได้ "
+"การทำงานหลายขั้นตอนในการเผยแพร่ <em>(Pro)</em>"
+
+#: includes/admin.php:2174
+msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
+msgstr "ควบคุมสิทธิ์สำหรับสถานะโพสต์ Edit Flow <em>(Pro)</em>"
+
+#: includes/admin.php:2178
+msgid ""
+"Customize the moderated editing of published content with Revisionary or "
+"Post Forking <em>(Pro)</em>"
+msgstr ""
+"ปรับแต่งการแก้ไขที่มีการตรวจสอบของเนื้อหาที่เผยแพร่ด้วย Revisionary หรือ "
+"Post Forking <em>(Pro)</em>"
+
+#: includes/admin.php:2182
+msgid ""
+"Grant Spectator, Participant or Moderator access to specific bbPress forums "
+"<em>(Pro)</em>"
+msgstr ""
+"ให้สิทธิ์การเข้าถึง Spectator, Participant หรือ Moderator สำหรับฟอรัม "
+"bbPress ที่เฉพาะเจาะจง <em>(Pro)</em>"
+
+#: includes/admin.php:2186
+msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
+msgstr "ให้สิทธิ์เนื้อหาเพิ่มเติมกับกลุ่ม BuddyPress <em>(Pro)</em>"
+
+#: includes/admin.php:2190
+msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
+msgstr "การรวม WPML เพื่อสะท้อนสิทธิ์ไปยังการแปล <em>(Pro)</em>"
+
+#: includes/admin.php:2194
+msgid "Member support forum"
+msgstr "ฟอรัมสนับสนุนสมาชิก"
+
+#: includes/admin.php:2201
+#, fuzzy, php-format
+msgid "%1$sgrab%2$s %3$s"
+msgstr "%1$sgrab%2$s %3$s"
+
+#: includes/admin.php:2201
+#, php-format
+msgid "%s (free install)"
+msgstr "%s (ติดตั้งฟรี)"
+
+#: includes/admin.php:2203
+#, fuzzy, php-format
+msgid "%1$sbuy%2$s %3$s"
+msgstr "%1$sbuy%2$s %3$s"
+
+#: includes/admin.php:2203
+#, php-format
+msgid "%s info/purchase"
+msgstr "%s ข้อมูล/ซื้อ"
+
+#: includes/admin.php:2235
+msgid ""
+"Role level is mostly deprecated. However, it still determines eligibility "
+"for Post Author assignment and limits the application of user editing "
+"capabilities."
+msgstr ""
+"ระดับบทบาทส่วนใหญ่จะถูกยกเลิกการใช้งาน อย่างไรก็ตาม "
+"มันยังคงกำหนดคุณสมบัติในการมอบหมายผู้เขียนโพสต์และจำกัดการใช้ความสามารถในการ"
+"แก้ไขของผู้ใช้。"
+
+#: includes/admin.php:2237
+msgid "Level:"
+msgstr "ระดับ:"
+
+#: includes/admin.php:2280
+msgid "Create this role definition in new (future) sites"
+msgstr "สร้างการกำหนดบทบาทนี้ในไซต์ใหม่ (ในอนาคต)"
+
+#: includes/admin.php:2280
+msgid "Include in new sites."
+msgstr "รวมอยู่ในไซต์ใหม่."
+
+#: includes/admin.php:2283
+msgid "Copy / update this role definition to all sites now"
+msgstr "คัดลอก/อัปเดตการกำหนดบทบาทนี้ไปยังไซต์ทั้งหมดในขณะนี้"
+
+#: includes/admin.php:2283
+msgid "Sync role to all sites."
+msgstr "ซิงค์บทบาทไปยังทุกไซต์."
+
+#: includes/admin.php:2286
+msgid "Copy option settings to all sites now"
+msgstr "คัดลอกการตั้งค่าไปยังทุกไซต์ตอนนี้"
+
+#: includes/admin.php:2286
+msgid "Sync options to all sites."
+msgstr "ซิงค์ตัวเลือกไปยังทุกไซต์."
+
+#: includes/backup-handler.php:15
+msgid "You do not have permission to restore backup."
+msgstr "คุณไม่มีสิทธิ์ในการกู้คืนข้อมูลสำรอง."
+
+#: includes/backup-handler.php:73
+msgid "New backup saved."
+msgstr "ข้อมูลสำรองใหม่ถูกบันทึก."
+
+#: includes/backup-handler.php:90
+msgid "Roles and Capabilities restored from initial backup."
+msgstr "บทบาทและความสามารถถูกกู้คืนจากข้อมูลสำรองเริ่มต้น."
+
+#: includes/backup-handler.php:92
+#: includes/backup-handler.php:121
+#: includes/backup-handler.php:130
+msgid "Restore failed. No backup found."
+msgstr "การกู้คืนล้มเหลว ไม่พบข้อมูลสำรอง."
+
+#: includes/backup-handler.php:119
+#, php-format
+msgid "%s restored from last backup."
+msgstr "%s ถูกกู้คืนจากข้อมูลสำรองล่าสุด."
+
+#: includes/backup-handler.php:128
+msgid "Roles and Capabilities restored from selected auto-backup."
+msgstr "บทบาทและความสามารถถูกกู้คืนจากข้อมูลสำรองอัตโนมัติที่เลือก."
+
+#: includes/backup-handler.php:140
+msgid "Please upload a file to import"
+msgstr "กรุณาอัปโหลดไฟล์เพื่อทำการนำเข้า"
+
+#: includes/backup-handler.php:145
+msgid "Please upload a valid .json file"
+msgstr "กรุณาอัปโหลดไฟล์ .json ที่ถูกต้อง"
+
+#: includes/backup-handler.php:165
+msgid "Error importing settings! Please try again."
+msgstr "เกิดข้อผิดพลาดในการนำเข้าการตั้งค่า! กรุณาลองอีกครั้ง."
+
+#: includes/backup-handler.php:178
+msgid "Error importing settings! Please check that you uploaded a valid json file."
+msgstr ""
+"เกิดข้อผิดพลาดในการนำเข้าการตั้งค่า! กรุณาตรวจสอบว่าได้อัปโหลดไฟล์ json "
+"ที่ถูกต้อง."
+
+#: includes/backup-handler.php:199
+#, php-format
+msgid "%s successfully imported from uploaded data."
+msgstr "%s นำเข้าจากข้อมูลที่อัปโหลดสำเร็จ."
+
+#: includes/backup-handler.php:274
+msgid "Needed function to create default roles not found!"
+msgstr "ฟังก์ชันที่จำเป็นในการสร้างบทบาทเริ่มต้นไม่พบ!"
+
+#: includes/backup-handler.php:293
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "บทบาทและความสามารถถูกรีเซ็ตเป็นค่าเริ่มต้นของ WordPress"
+
+#: includes/backup.php:41
+msgid "Backup Tool for PublishPress Capabilities"
+msgstr "เครื่องมือสำรองข้อมูลสำหรับความสามารถของ PublishPress"
+
+#: includes/backup.php:50
+msgid "Restore"
+msgstr "กู้คืน"
+
+#: includes/backup.php:51
+#: includes/functions-admin.php:567
+msgid "Backup"
+msgstr "สำรองข้อมูล"
+
+#: includes/backup.php:52
+msgid "Reset Roles"
+msgstr "รีเซ็ตบทบาท"
+
+#: includes/backup.php:53
+msgid "Export / Import"
+msgstr "ส่งออก / นำเข้า"
+
+#: includes/backup.php:62
+msgid "Backup Roles and Capabilities"
+msgstr "สำรองบทบาทและความสามารถ"
+
+#: includes/backup.php:67
+#, php-format
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes. The initial backup and last %d auto-backups "
+"are kept."
+msgstr ""
+"PublishPress Capabilities "
+"จะสร้างสำเนาสำรองโดยอัตโนมัติเมื่อทำการติดตั้งและเมื่อใดก็ตามที่คุณบันทึกการ"
+"เปลี่ยนแปลง สำเนาสำรองเริ่มต้นและสำเนาสำรองอัตโนมัติ %d "
+"รายการสุดท้ายจะถูกเก็บรักษาไว้。"
+
+#: includes/backup.php:69
+msgid ""
+"A backup created on this screen replaces any previous manual backups, but "
+"is never automatically replaced."
+msgstr ""
+"สำเนาสำรองที่สร้างขึ้นในหน้าจอนี้จะแทนที่สำเนาสำรองด้วยตนเองก่อนหน้านี้ "
+"แต่จะไม่มีการแทนที่โดยอัตโนมัติ。"
+
+#: includes/backup.php:74
+msgid "Manual Backup"
+msgstr "สำรองข้อมูลด้วยตนเอง"
+
+#: includes/backup.php:84
+#, php-format
+msgid "Last Manual Backup - %s"
+msgstr "การสำรองข้อมูลด้วยตนเองครั้งสุดท้าย - %s"
+
+#: includes/backup.php:84
+msgid "Last Backup"
+msgstr "การสำรองข้อมูลครั้งสุดท้าย"
+
+#: includes/backup.php:88
+msgid "Restore Previous Roles and Capabilities"
+msgstr "กู้คืนบทบาทและความสามารถก่อนหน้า"
+
+#: includes/backup.php:91
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes."
+msgstr ""
+"PublishPress Capabilities "
+"จะสร้างสำเนาสำรองโดยอัตโนมัติเมื่อทำการติดตั้งและเมื่อใดก็ตามที่คุณบันทึกการ"
+"เปลี่ยนแปลง。"
+
+#: includes/backup.php:92
+msgid ""
+"On this screen, you can restore an earlier version of your roles and "
+"capabilities."
+msgstr "ในหน้าจอนี้ คุณสามารถกู้คืนเวอร์ชันก่อนหน้าของบทบาทและความสามารถของคุณได้。"
+
+#: includes/backup.php:95
+msgid "Available Backups:"
+msgstr "การสำรองข้อมูลที่มีอยู่:"
+
+#: includes/backup.php:111
+msgid "all roles"
+msgstr "บทบาททั้งหมด"
+
+#: includes/backup.php:116
+#, php-format
+msgid "Manual backup of %s (%s)"
+msgstr "การสำรองข้อมูลด้วยตนเองของ %s (%s)"
+
+#: includes/backup.php:131
+#, php-format
+msgid "Auto-backup of all roles (%s)"
+msgstr "การสำรองข้อมูลอัตโนมัติของบทบาททั้งหมด (%s)"
+
+#: includes/backup.php:139
+msgid "Initial backup of all roles"
+msgstr "การสำรองข้อมูลเริ่มต้นของบทบาททั้งหมด"
+
+#: includes/backup.php:148
+msgid "Restore Selected Roles"
+msgstr "กู้คืนบทบาทที่เลือก"
+
+#: includes/backup.php:157
+msgid "Show changes from current roles only"
+msgstr "แสดงการเปลี่ยนแปลงจากบทบาทปัจจุบันเท่านั้น"
+
+#: includes/backup.php:164
+#, php-format
+msgid "Initial Backup - %s"
+msgstr "การสำรองข้อมูลเริ่มต้น - %s"
+
+#: includes/backup.php:164
+msgid "Initial Backup"
+msgstr "การสำรองข้อมูลเริ่มต้น"
+
+#: includes/backup.php:191
+#, php-format
+msgid "%s (%s roles)"
+msgstr "%s (%s บทบาท)"
+
+#: includes/backup.php:198
+msgid "(this role will be removed if you restore backup)"
+msgstr "(บทบาทนี้จะถูกลบออกหากคุณกู้คืนจากสำรอง)"
+
+#: includes/backup.php:227
+#, php-format
+msgid "%s (level %s)"
+msgstr "%s (ระดับ %s)"
+
+#: includes/backup.php:267
+msgid "No changes"
+msgstr "ไม่มีการเปลี่ยนแปลง"
+
+#: includes/backup.php:283
+msgid "Reset WordPress Defaults"
+msgstr "รีเซ็ตค่าเริ่มต้นของ WordPress"
+
+#: includes/backup.php:285
+#: includes/backup.php:332
+#: includes/features/profile-features.php:242
+msgid "Warning:"
+msgstr "คำเตือน:"
+
+#: includes/backup.php:285
+msgid ""
+"Reseting default Roles and Capabilities will set them to the WordPress "
+"install defaults."
+msgstr ""
+"การรีเซ็ตบทบาทและความสามารถเริ่มต้นจะตั้งค่าให้เป็นค่าเริ่มต้นของการติดตั้ง "
+"WordPress。"
+
+#: includes/backup.php:287
+msgid ""
+"If you have installed any plugin that adds new roles or capabilities, these "
+"will be lost."
+msgstr "หากคุณได้ติดตั้งปลั๊กอินใด ๆ ที่เพิ่มบทบาทหรือความสามารถใหม่ จะสูญหายไป。"
+
+#: includes/backup.php:288
+msgid "It is recommended to use this only as a last resource!"
+msgstr "แนะนำให้ใช้สิ่งนี้เฉพาะในกรณีสุดท้าย!"
+
+#: includes/backup.php:291
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "รีเซ็ตบทบาทและความสามารถเป็นค่าเริ่มต้นของ WordPress"
+
+#: includes/backup.php:293
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"คุณกำลังจะรีเซ็ตบทบาทและความสามารถเป็นค่าเริ่มต้นของ WordPress\n"
+" 'ยกเลิก' เพื่อหยุด, 'ตกลง' เพื่อรีเซ็ต。"
+
+#: includes/backup.php:293
+msgid "Reset to WordPress defaults"
+msgstr "รีเซ็ตเป็นค่าเริ่มต้นของ WordPress"
+
+#: includes/backup.php:301
+msgid "Export Settings"
+msgstr "ส่งออกการตั้งค่า"
+
+#: includes/backup.php:303
+msgid ""
+"Export the plugin settings for this site as a .json file. This allows you "
+"to easily import the configuration into another site."
+msgstr ""
+"ส่งออกการตั้งค่าปลั๊กอินสำหรับเว็บไซต์นี้เป็นไฟล์ .json "
+"ซึ่งช่วยให้คุณนำเข้าการกำหนดค่าไปยังเว็บไซต์อื่นได้อย่างง่ายดาย。"
+
+#: includes/backup.php:308
+msgid "Roles and Capabilities"
+msgstr "บทบาทและความสามารถ"
+
+#: includes/backup.php:325
+msgid "Export"
+msgstr "ส่งออก"
+
+#: includes/backup.php:331
+msgid "Import Settings"
+msgstr "นำเข้าการตั้งค่า"
+
+#: includes/backup.php:332
+msgid ""
+"Please make a 'Manual Backup' in the backup tab to enable backup restore in "
+"case anything goes wrong."
+msgstr ""
+"โปรดทำการ 'สำรองข้อมูลด้วยตนเอง' "
+"ในแท็บสำรองข้อมูลเพื่อเปิดใช้งานการกู้คืนสำเนาสำรองในกรณีที่มีอะไรผิดปกติ。"
+
+#: includes/backup.php:333
+msgid ""
+"Import the plugin settings from a .json file. This file can be obtained by "
+"exporting the settings on another site using the form above."
+msgstr ""
+"นำเข้าการตั้งค่าปลั๊กอินจากไฟล์ .json "
+"ไฟล์นี้สามารถได้รับจากการส่งออกการตั้งค่าในเว็บไซต์อื่นโดยใช้รูปแบบด้านบน。"
+
+#: includes/backup.php:334
+msgid ""
+"Before importing, we recommend using the \"Backup\" tab to create a backup "
+"of your current settings."
+msgstr ""
+"ก่อนที่จะนำเข้า เราขอแนะนำให้ใช้แท็บ \"สำรองข้อมูล\" "
+"เพื่อสร้างสำเนาสำรองของการตั้งค่าปัจจุบันของคุณ。"
+
+#: includes/features/admin-features.php:46
+msgid "Admin Feature Restrictions"
+msgstr "ข้อจำกัดฟีเจอร์ผู้ดูแลระบบ"
+
+#: includes/features/admin-features.php:175
+#: includes/features/nav-menus.php:127
+#: includes/features/nav-menus.php:147
+#: includes/features/profile-features.php:107
+#: includes/features/profile-features.php:126
+msgid "Toggle all"
+msgstr "เปิด/ปิดทั้งหมด"
+
+#: includes/features/admin-features.php:250
+msgid "Wildcard enabled"
+msgstr "เปิดใช้งานตัวอักษรแทน"
+
+#: includes/features/admin-features.php:252
+msgid "URL targeted"
+msgstr "เป้าหมาย URL"
+
+#: includes/features/admin-features.php:254
+msgid "URL wildcard"
+msgstr "ตัวอักษรแทน URL"
+
+#: includes/features/admin-features.php:277
+#: includes/features/editor-features-classic.php:123
+#: includes/features/editor-features-gutenberg.php:120
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: includes/features/admin-features.php:345
+#: includes/functions-admin.php:420
+msgid ""
+"Admin Features allows you to remove elements from the admin area and "
+"toolbar."
+msgstr ""
+"ฟีเจอร์ของผู้ดูแลระบบช่วยให้คุณลบองค์ประกอบจากพื้นที่ผู้ดูแลระบบและแถบเครื่อ"
+"งมือได้。"
+
+#: includes/features/admin-features.php:348
+#: includes/features/editor-features.php:243
+#: includes/features/frontend-features/frontend-features.php:252
+#: includes/features/nav-menus.php:304
+#: includes/features/profile-features.php:253
+msgid "No change"
+msgstr "ไม่มีการเปลี่ยนแปลง"
+
+#: includes/features/admin-features.php:350
+#: includes/features/editor-features.php:245
+#: includes/features/nav-menus.php:306
+#: includes/features/profile-features.php:255
+msgid "This feature is denied"
+msgstr "ฟีเจอร์นี้ถูกปฏิเสธ"
+
+#: includes/features/admin-features.php:353
+msgid "How to use Admin Features"
+msgstr "วิธีใช้ฟีเจอร์ผู้ดูแลระบบ"
+
+#: includes/features/admin-features.php:357
+msgid "Admin Features Settings"
+msgstr "การตั้งค่าฟีเจอร์ผู้ดูแลระบบ"
+
+#: includes/features/admin-features.php:360
+msgid "Hide Submenus"
+msgstr "ซ่อนเมนูย่อย"
+
+#: includes/features/admin-styles/admin-styles-ui.php:55
+msgid "Select a preset font family"
+msgstr "เลือกตระกูลตัวอักษรที่ตั้งไว้ล่วงหน้า"
+
+#: includes/features/admin-styles/admin-styles-ui.php:105
+#, php-format
+msgid "Custom style \"%s\" saved successfully."
+msgstr "สไตล์ที่กำหนดเอง \"%s\" บันทึกเรียบร้อยแล้ว."
+
+#: includes/features/admin-styles/admin-styles-ui.php:114
+#, php-format
+msgid "Custom style \"%s\" deleted successfully."
+msgstr "สไตล์ที่กำหนดเอง \"%s\" ถูกลบเรียบร้อยแล้ว."
+
+#: includes/features/admin-styles/admin-styles-ui.php:123
+msgid "Custom style name cannot be empty."
+msgstr "ชื่อสไตล์ที่กำหนดเองไม่สามารถว่างเปล่าได้."
+
+#: includes/features/admin-styles/admin-styles-ui.php:132
+msgid "Admin styles saved successfully."
+msgstr "สไตล์ผู้ดูแลระบบบันทึกเรียบร้อยแล้ว."
+
+#: includes/features/admin-styles/admin-styles-ui.php:140
+#: includes/functions-admin.php:233
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:516
+msgid "Admin Styles"
+msgstr "สไตล์ผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:203
+msgid "Setting"
+msgstr "การตั้งค่า"
+
+#: includes/features/admin-styles/admin-styles-ui.php:206
+msgid "Value"
+msgstr "ค่า"
+
+#: includes/features/admin-styles/admin-styles-ui.php:215
+msgid "Admin Color Scheme"
+msgstr "โทนสีผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:218
+msgid ""
+"Sets the admin color scheme for all users. Click a scheme to preview it "
+"instantly."
+msgstr ""
+"ตั้งค่าสีของผู้ดูแลระบบสำหรับผู้ใช้ทั้งหมด "
+"คลิกที่โครงการเพื่อดูตัวอย่างทันที."
+
+#: includes/features/admin-styles/admin-styles-ui.php:222
+msgid "Start from template"
+msgstr "เริ่มจากเทมเพลต"
+
+#: includes/features/admin-styles/admin-styles-ui.php:226
+msgid "Blank Template"
+msgstr "เทมเพลตว่าง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:236
+msgid "Add Custom Style"
+msgstr "เพิ่มสไตล์ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:266
+msgid "Edit custom style"
+msgstr "แก้ไขสไตล์ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:314
+msgid "Edit Color Style"
+msgstr "แก้ไขสไตล์สี"
+
+#: includes/features/admin-styles/admin-styles-ui.php:317
+msgid ""
+"Customize colors for different admin elements. Changes are previewed "
+"instantly."
+msgstr ""
+"ปรับแต่งสีสำหรับองค์ประกอบผู้ดูแลระบบที่แตกต่างกัน "
+"การเปลี่ยนแปลงจะแสดงตัวอย่างทันที."
+
+#: includes/features/admin-styles/admin-styles-ui.php:348
+msgid ""
+"Add more than one custom admin styles. This feature is available in "
+"PublishPress Capabilities Pro."
+msgstr ""
+"เพิ่มรูปแบบผู้ดูแลระบบที่กำหนดเองมากกว่าหนึ่งรูปแบบ คุณสมบัตินี้มีอยู่ใน "
+"PublishPress Capabilities Pro."
+
+#: includes/features/admin-styles/admin-styles-ui.php:372
+msgid ""
+"Add CSS selectors (class or ID), choose a style variation, and set a brand "
+"color."
+msgstr ""
+"เพิ่ม CSS selectors (class หรือ ID), เลือกการเปลี่ยนแปลงรูปแบบ "
+"และตั้งค่าสีแบรนด์."
+
+#: includes/features/admin-styles/admin-styles-ui.php:378
+msgid "Add New Element"
+msgstr "เพิ่มองค์ประกอบใหม่"
+
+#: includes/features/admin-styles/admin-styles-ui.php:384
+msgid "Selector"
+msgstr "ตัวเลือก"
+
+#: includes/features/admin-styles/admin-styles-ui.php:388
+msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
+msgstr "เช่น .publishpress-wrap h1, #my-plugin-header"
+
+#: includes/features/admin-styles/admin-styles-ui.php:391
+msgid "Variation"
+msgstr "รูปแบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:394
+msgid "Background"
+msgstr "พื้นหลัง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:395
+msgid "Text"
+msgstr "ข้อความ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:396
+msgid "Border"
+msgstr "กรอบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:400
+msgid "Brand Color"
+msgstr "สีแบรนด์"
+
+#: includes/features/admin-styles/admin-styles-ui.php:410
+#: includes/features/admin-styles/admin-styles-ui.php:525
+#: includes/features/admin-styles/admin-styles-ui.php:561
+msgid "Remove"
+msgstr "ลบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:426
+#: includes/features/admin-styles/admin-styles.php:872
+msgid "Custom Style Name"
+msgstr "ชื่อสไตล์ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:434
+msgid "e.g., Company Branding, Dark Mode"
+msgstr "เช่น บริษัท Branding, โหมดมืด"
+
+#: includes/features/admin-styles/admin-styles-ui.php:470
+#: includes/features/admin-styles/admin-styles-ui.php:480
+msgid "Cancel"
+msgstr "ยกเลิก"
+
+#: includes/features/admin-styles/admin-styles-ui.php:476
+#: includes/features/admin-styles/admin-styles-ui.php:480
+msgid "Delete Custom Style"
+msgstr "ลบสไตล์ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:480
+#, php-format
+msgid "Are you sure you want to delete this %1s? %2s %3s"
+msgstr "คุณแน่ใจหรือว่าต้องการลบ %1s นี้? %2s %3s"
+
+#: includes/features/admin-styles/admin-styles-ui.php:480
+msgid "Custom Style"
+msgstr "สไตล์ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:486
+msgid "Save Custom Style"
+msgstr "บันทึกสไตล์ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:500
+msgid "Custom Admin Logo"
+msgstr "โลโก้ผู้ดูแลระบบที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:503
+msgid ""
+"Upload a custom logo to replace the WordPress icon in the admin bar. "
+"Recommended: 20px by 20px in SVG or PNG format."
+msgstr ""
+"อัปโหลดโลโก้ที่กำหนดเองเพื่อแทนที่ไอคอน WordPress ในแถบผู้ดูแลระบบ แนะนำ: "
+"20px x 20px ในรูปแบบ SVG หรือ PNG."
+
+#: includes/features/admin-styles/admin-styles-ui.php:520
+#: includes/features/admin-styles/admin-styles-ui.php:556
+#: includes/features/admin-styles/admin-styles.php:852
+msgid "Select Image"
+msgstr "เลือกภาพ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:535
+msgid "Custom Favicon"
+msgstr "Favicon ที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:538
+msgid ""
+"Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
+"32px by 32px in SVG or PNG format."
+msgstr ""
+"อัปโหลด favicon ที่กำหนดเองสำหรับพื้นที่ผู้ดูแลระบบ แนะนำ: 16px x 16px หรือ "
+"32px x 32px ในรูปแบบ SVG หรือ PNG."
+
+#: includes/features/admin-styles/admin-styles-ui.php:570
+msgid "Admin Font Family"
+msgstr "ฟอนต์ครอบครัวสำหรับผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:573
+msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
+msgstr "ตั้งค่าฝูงฟอนต์สำหรับพื้นที่ผู้ดูแลระบบ เช่น \"Segoe UI\", sans-serif."
+
+#: includes/features/admin-styles/admin-styles-ui.php:580
+msgid "Preset Fonts"
+msgstr "ฟอนต์ที่ตั้งไว้ล่วงหน้า"
+
+#: includes/features/admin-styles/admin-styles-ui.php:581
+msgid "Custom Value"
+msgstr "ค่าที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:607
+msgid "Admin Font Size"
+msgstr "ขนาดฟอนต์สำหรับผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:610
+msgid ""
+"Set a base font size for the admin area. Leave empty to use the default "
+"WordPress size."
+msgstr ""
+"ตั้งค่าขนาดฟอนต์พื้นฐานสำหรับพื้นที่ผู้ดูแลระบบ "
+"ทิ้งว่างไว้เพื่อใช้ขนาดเริ่มต้นของ WordPress."
+
+#: includes/features/admin-styles/admin-styles-ui.php:627
+#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:713
+#: includes/features/admin-styles/admin-styles-ui.php:714
+#: includes/features/admin-styles/admin-styles.php:2022
+#: includes/features/admin-styles/admin-styles.php:2104
+msgid "Default"
+msgstr "เริ่มต้น"
+
+#: includes/features/admin-styles/admin-styles-ui.php:630
+#: includes/features/admin-styles/admin-styles-ui.php:716
+msgid "Named Sizes"
+msgstr "ขนาดที่ตั้งชื่อ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:636
+#: includes/features/admin-styles/admin-styles-ui.php:722
+msgid "Pixel Sizes"
+msgstr "ขนาดพิกเซล"
+
+#: includes/features/admin-styles/admin-styles-ui.php:649
+msgid "Typography Overrides"
+msgstr "การแทนที่พิมพ์"
+
+#: includes/features/admin-styles/admin-styles-ui.php:651
+msgid "Optional target-specific typography rules for common admin elements."
+msgstr "กฎการพิมพ์เฉพาะเป้าหมายที่เป็นทางเลือกสำหรับองค์ประกอบผู้ดูแลระบบทั่วไป."
+
+#: includes/features/admin-styles/admin-styles-ui.php:657
+msgid "Body Text"
+msgstr "ข้อความหลัก"
+
+#: includes/features/admin-styles/admin-styles-ui.php:658
+#: includes/features/admin-styles/admin-styles.php:1769
+msgid "Links"
+msgstr "ลิงก์"
+
+#: includes/features/admin-styles/admin-styles-ui.php:659
+msgid "Headings"
+msgstr "หัวข้อ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:660
+#: includes/features/admin-styles/admin-styles.php:1893
+msgid "Admin Menu"
+msgstr "เมนูผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:661
+#: includes/features/admin-styles/admin-styles.php:1935
+msgid "Admin Bar"
+msgstr "แถบผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:662
+msgid "Form Fields"
+msgstr "ฟิลด์แบบฟอร์ม"
+
+#: includes/features/admin-styles/admin-styles-ui.php:663
+#: includes/features/admin-styles/admin-styles.php:1863
+msgid "Buttons"
+msgstr "ปุ่ม"
+
+#: includes/features/admin-styles/admin-styles-ui.php:669
+msgid "Target"
+msgstr "เป้าหมาย"
+
+#: includes/features/admin-styles/admin-styles-ui.php:670
+msgid "Font Family"
+msgstr "ประเภทตัวอักษร"
+
+#: includes/features/admin-styles/admin-styles-ui.php:671
+msgid "Font Size"
+msgstr "ขนาดฟอนต์"
+
+#: includes/features/admin-styles/admin-styles-ui.php:690
+msgid "Preset"
+msgstr "ค่าเริ่มต้น"
+
+#: includes/features/admin-styles/admin-styles-ui.php:691
+#: includes/roles/class/class-pp-roles-list-table.php:403
+msgid "Custom"
+msgstr "กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:739
+msgid "Admin Footer Text"
+msgstr "ข้อความส่วนท้ายผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles-ui.php:742
+msgid ""
+"Replace the default \"Thanks for creating with WordPress\" message in the "
+"admin footer."
+msgstr ""
+"แทนที่ข้อความเริ่มต้น \"ขอบคุณที่สร้างด้วย WordPress\" "
+"ในส่วนท้ายของผู้ดูแลระบบ."
+
+#: includes/features/admin-styles/admin-styles-ui.php:756
+msgid "Replace \"Howdy\""
+msgstr "แทนที่ \"สวัสดี\""
+
+#: includes/features/admin-styles/admin-styles-ui.php:759
+msgid "Replace \"Howdy\" in the admin bar."
+msgstr "แทนที่ \"สวัสดี\" ในแถบผู้ดูแลระบบ."
+
+#: includes/features/admin-styles/admin-styles-ui.php:772
+msgid "Control Settings"
+msgstr "การควบคุมการตั้งค่า"
+
+#: includes/features/admin-styles/admin-styles-ui.php:774
+msgid "Control how admin styles are applied to users."
+msgstr "ควบคุมว่าแสตล์ผู้ดูแลระบบจะถูกนำไปใช้กับผู้ใช้ได้อย่างไร."
+
+#: includes/features/admin-styles/admin-styles-ui.php:783
+msgid "Hide Admin Color Scheme settings in user profile"
+msgstr "ซ่อนการตั้งค่าสีของผู้ดูแลระบบในโปรไฟล์ของผู้ใช้"
+
+#: includes/features/admin-styles/admin-styles-ui.php:785
+msgid ""
+"When enabled, users cannot see or change color scheme settings in their "
+"profile. Role-based settings will be applied."
+msgstr ""
+"เมื่อเปิดใช้งาน ผู้ใช้ไม่สามารถเห็นหรือเปลี่ยนการตั้งค่าสีในโปรไฟล์ของตนได้ "
+"การตั้งค่าตามบทบาทจะถูกนำไปใช้."
+
+#: includes/features/admin-styles/admin-styles-ui.php:793
+msgid "Force role settings (override user selection)"
+msgstr "บังคับตั้งค่าบทบาท (แทนที่การเลือกของผู้ใช้)"
+
+#: includes/features/admin-styles/admin-styles-ui.php:795
+msgid ""
+"When enabled, role settings will always apply, overriding any user "
+"selection even if the color scheme UI is visible to them."
+msgstr ""
+"เมื่อเปิดใช้งาน การตั้งค่าตามบทบาทจะถูกนำไปใช้เสมอ โดยข้ามการเลือกใด ๆ "
+"ของผู้ใช้แม้ว่าการตั้งค่าสี UI จะมองเห็นได้สำหรับพวกเขาก็ตาม."
+
+#: includes/features/admin-styles/admin-styles-ui.php:833
+msgid ""
+"Admin Styles allows you to customize the WordPress admin area with your own "
+"branding."
+msgstr ""
+"Admin Styles ช่วยให้คุณปรับแต่งพื้นที่ผู้ดูแลระบบของ WordPress "
+"ด้วยแบรนด์ของคุณเอง."
+
+#: includes/features/admin-styles/admin-styles-ui.php:837
+msgid "Custom admin color schemes"
+msgstr "ธีมสีผู้ดูแลระบบที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:838
+msgid "Replace the WordPress logo and favicon"
+msgstr "แทนที่โลโก้และไอคอนฟาเวอร์ของ WordPress"
+
+#: includes/features/admin-styles/admin-styles-ui.php:839
+msgid "Custom footer text"
+msgstr "ข้อความส่วนท้ายที่กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles-ui.php:840
+msgid "Replace \"Howdy\" text"
+msgstr "แทนที่ข้อความ \"Howdy\""
+
+#: includes/features/admin-styles/admin-styles-ui.php:843
+msgid "How to use Admin Styles"
+msgstr "วิธีใช้ Admin Styles"
+
+#: includes/features/admin-styles/admin-styles.php:539
+msgid "Security check failed."
+msgstr "การตรวจสอบความปลอดภัยล้มเหลว"
+
+#: includes/features/admin-styles/admin-styles.php:544
+#: includes/manager.php:741
+msgid "You do not have permission to manage admin styles."
+msgstr "คุณไม่มีสิทธิ์ในการจัดการสไตล์ผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:607
+msgid "No role specified."
+msgstr "ไม่มีบทบาทที่กำหนด"
+
+#: includes/features/admin-styles/admin-styles.php:853
+msgid "Use this Image"
+msgstr "ใช้ภาพนี้"
+
+#: includes/features/admin-styles/admin-styles.php:854
+msgid "Saving..."
+msgstr "กำลังบันทึก..."
+
+#: includes/features/admin-styles/admin-styles.php:855
+msgid "Settings saved."
+msgstr "การตั้งค่าถูกบันทึกแล้ว"
+
+#: includes/features/admin-styles/admin-styles.php:857
+msgid "Current logo preview"
+msgstr "ตัวอย่างโลโก้ปัจจุบัน"
+
+#: includes/features/admin-styles/admin-styles.php:858
+msgid "Add New Custom Style"
+msgstr "เพิ่มสไตล์กำหนดเองใหม่"
+
+#: includes/features/admin-styles/admin-styles.php:859
+msgid "Edit Custom Style"
+msgstr "แก้ไขสไตล์กำหนดเอง"
+
+#: includes/features/admin-styles/admin-styles.php:860
+#, php-format
+msgid "Are you sure you want to delete \"%s\" custom style?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบสไตล์กำหนดเอง \"%s\"?"
+
+#: includes/features/admin-styles/admin-styles.php:861
+msgid "this custom style"
+msgstr "สไตล์กำหนดเองนี้"
+
+#: includes/features/admin-styles/admin-styles.php:862
+msgid "Primary Button"
+msgstr "ปุ่มหลัก"
+
+#: includes/features/admin-styles/admin-styles.php:863
+msgid "Hover State"
+msgstr "สถานะเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:864
+msgid "Notification"
+msgstr "การแจ้งเตือน"
+
+#: includes/features/admin-styles/admin-styles.php:865
+msgid "Live preview of your custom color scheme"
+msgstr "ตัวอย่างสดของโทนสีที่กำหนดเองของคุณ"
+
+#: includes/features/admin-styles/admin-styles.php:866
+msgid "Custom Style Name is required."
+msgstr "ชื่อสไตล์ที่กำหนดเองเป็นสิ่งจำเป็น"
+
+#: includes/features/admin-styles/admin-styles.php:867
+msgid "Main Admin Color is required."
+msgstr "สีหลักของผู้ดูแลระบบเป็นสิ่งจำเป็น"
+
+#: includes/features/admin-styles/admin-styles.php:868, fuzzy
+msgid "PublishPress Custom"
+msgstr "PublishPress Custom"
+
+#: includes/features/admin-styles/admin-styles.php:869
+msgid "Display Name"
+msgstr "ชื่อที่แสดง"
+
+#: includes/features/admin-styles/admin-styles.php:870
+msgid "Change how this style is displayed"
+msgstr "เปลี่ยนวิธีการแสดงผลของสไตล์นี้"
+
+#: includes/features/admin-styles/admin-styles.php:871
+msgid "Enter a name for your custom style"
+msgstr "ป้อนชื่อสำหรับสไตล์ที่กำหนดเองของคุณ"
+
+#: includes/features/admin-styles/admin-styles.php:885
+msgid "Forest"
+msgstr "ป่า"
+
+#: includes/features/admin-styles/admin-styles.php:902
+msgid "Mint Breeze"
+msgstr "ลมมินต์"
+
+#: includes/features/admin-styles/admin-styles.php:919
+msgid "Cherry"
+msgstr "เชอร์รี่"
+
+#: includes/features/admin-styles/admin-styles.php:936
+msgid "Graphite"
+msgstr "กราไฟต์"
+
+#: includes/features/admin-styles/admin-styles.php:953
+msgid "Midnight Teal"
+msgstr "เขียวมิดไนท์"
+
+#: includes/features/admin-styles/admin-styles.php:970
+msgid "Sunrise"
+msgstr "พระอาทิตย์ขึ้น"
+
+#: includes/features/admin-styles/admin-styles.php:987
+msgid "Desert Sand"
+msgstr "ทรายทะเลทราย"
+
+#: includes/features/admin-styles/admin-styles.php:1004
+msgid "Amber Glow"
+msgstr "แอมเบอร์โกลว์"
+
+#: includes/features/admin-styles/admin-styles.php:1021
+msgid "Citrus"
+msgstr "ซิตรัส"
+
+#: includes/features/admin-styles/admin-styles.php:1038
+msgid "Ocean Deep"
+msgstr "มหาสมุทรลึก"
+
+#: includes/features/admin-styles/admin-styles.php:1055
+msgid "Sage"
+msgstr "เซจ"
+
+#: includes/features/admin-styles/admin-styles.php:1072
+msgid "Modern Slate"
+msgstr "หินสมัยใหม่"
+
+#: includes/features/admin-styles/admin-styles.php:1089, fuzzy
+msgid "Royal Plum"
+msgstr "Royal Plum"
+
+#: includes/features/admin-styles/admin-styles.php:1106, fuzzy
+msgid "Nordic"
+msgstr "Nordic"
+
+#: includes/features/admin-styles/admin-styles.php:1123, fuzzy
+msgid "Lagoon"
+msgstr "Lagoon"
+
+#: includes/features/admin-styles/admin-styles.php:1140, fuzzy
+msgid "Ink"
+msgstr "Ink"
+
+#: includes/features/admin-styles/admin-styles.php:1157, fuzzy
+msgid "Orchid"
+msgstr "Orchid"
+
+#: includes/features/admin-styles/admin-styles.php:1174, fuzzy
+msgid "Cobalt"
+msgstr "Cobalt"
+
+#: includes/features/admin-styles/admin-styles.php:1191, fuzzy
+msgid "Stone"
+msgstr "Stone"
+
+#: includes/features/admin-styles/admin-styles.php:1208, fuzzy
+msgid "Facebook Classic"
+msgstr "Facebook Classic"
+
+#: includes/features/admin-styles/admin-styles.php:1225, fuzzy
+msgid "Twitter Classic"
+msgstr "Twitter Classic"
+
+#: includes/features/admin-styles/admin-styles.php:1242, fuzzy
+msgid "Twitter Modern"
+msgstr "Twitter Modern"
+
+#: includes/features/admin-styles/admin-styles.php:1744
+msgid "Main Admin Color settings"
+msgstr "การตั้งค่าสีหลักของผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1747
+msgid "Main Admin Color"
+msgstr "สีหลักของผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1748
+msgid "Primary brand color"
+msgstr "สีแบรนด์หลัก"
+
+#: includes/features/admin-styles/admin-styles.php:1751
+msgid "Text Color"
+msgstr "สีข้อความ"
+
+#: includes/features/admin-styles/admin-styles.php:1752
+msgid "Primary text color"
+msgstr "สีข้อความหลัก"
+
+#: includes/features/admin-styles/admin-styles.php:1755
+msgid "Highlight Color"
+msgstr "สีไฮไลต์"
+
+#: includes/features/admin-styles/admin-styles.php:1756
+msgid "Used for hovers and highlights"
+msgstr "ใช้สำหรับการนำเมาส์ผ่านและไฮไลต์"
+
+#: includes/features/admin-styles/admin-styles.php:1759
+msgid "Notification Color"
+msgstr "สีการแจ้งเตือน"
+
+#: includes/features/admin-styles/admin-styles.php:1760
+msgid "Used for alerts and notifications"
+msgstr "ใช้สำหรับการแจ้งเตือนและการเตือนภัย"
+
+#: includes/features/admin-styles/admin-styles.php:1763
+msgid "Background Color"
+msgstr "สีพื้นหลัง"
+
+#: includes/features/admin-styles/admin-styles.php:1764
+msgid "Page background color"
+msgstr "สีพื้นหลังของหน้า"
+
+#: includes/features/admin-styles/admin-styles.php:1770
+msgid "Link element colors"
+msgstr "สีขององค์ประกอบลิงก์"
+
+#: includes/features/admin-styles/admin-styles.php:1773
+msgid "Default Link Color"
+msgstr "สีลิงก์เริ่มต้น"
+
+#: includes/features/admin-styles/admin-styles.php:1774
+msgid "Standard link color"
+msgstr "สีลิงก์มาตรฐาน"
+
+#: includes/features/admin-styles/admin-styles.php:1777
+msgid "Link Hover Color"
+msgstr "สีลิงก์เมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1778
+msgid "Color on hover"
+msgstr "สีเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1781
+msgid "Delete Link Color"
+msgstr "สีลิงก์ลบ"
+
+#: includes/features/admin-styles/admin-styles.php:1782
+msgid "Color for delete/trash actions"
+msgstr "สีสำหรับการลบ/ทิ้ง"
+
+#: includes/features/admin-styles/admin-styles.php:1785
+msgid "Trash Link Color"
+msgstr "สีลิงก์ถังขยะ"
+
+#: includes/features/admin-styles/admin-styles.php:1786
+msgid "Color for trash actions"
+msgstr "สีสำหรับการทิ้ง"
+
+#: includes/features/admin-styles/admin-styles.php:1789
+msgid "Spam Link Color"
+msgstr "สีลิงก์สแปม"
+
+#: includes/features/admin-styles/admin-styles.php:1790
+msgid "Color for spam actions"
+msgstr "สีสำหรับการสแปม"
+
+#: includes/features/admin-styles/admin-styles.php:1793
+msgid "Inactive Link Color"
+msgstr "สีลิงก์ที่ไม่ใช้งาน"
+
+#: includes/features/admin-styles/admin-styles.php:1794
+msgid "Color for inactive items"
+msgstr "สีสำหรับรายการที่ไม่ใช้งาน"
+
+#: includes/features/admin-styles/admin-styles.php:1799
+msgid "Tables"
+msgstr "ตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1800
+msgid "Table element colors"
+msgstr "สีขององค์ประกอบตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1803
+msgid "Table Header Background"
+msgstr "พื้นหลังส่วนหัวตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1807
+msgid "Table Header Text"
+msgstr "ข้อความส่วนหัวตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1811
+msgid "Table Row Background"
+msgstr "พื้นหลังแถวตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1815
+msgid "Table Row Text Color"
+msgstr "สีข้อความแถวตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1819
+msgid "Row Hover Background"
+msgstr "พื้นหลังเมื่อชี้ที่แถว"
+
+#: includes/features/admin-styles/admin-styles.php:1823
+msgid "Table Border Color"
+msgstr "สีขอบตาราง"
+
+#: includes/features/admin-styles/admin-styles.php:1827
+msgid "Alternate Row Background"
+msgstr "พื้นหลังแถวทางเลือก"
+
+#: includes/features/admin-styles/admin-styles.php:1831
+msgid "Alternate Row Text Color"
+msgstr "สีข้อความแถวทางเลือก"
+
+#: includes/features/admin-styles/admin-styles.php:1837
+msgid "Forms"
+msgstr "แบบฟอร์ม"
+
+#: includes/features/admin-styles/admin-styles.php:1838
+msgid "Form input colors"
+msgstr "สีของข้อมูลในแบบฟอร์ม"
+
+#: includes/features/admin-styles/admin-styles.php:1841
+msgid "Input Border Color"
+msgstr "สีขอบข้อมูล"
+
+#: includes/features/admin-styles/admin-styles.php:1845
+msgid "Input Focus Border"
+msgstr "ขอบข้อมูลเมื่อมีการโฟกัส"
+
+#: includes/features/admin-styles/admin-styles.php:1849
+msgid "Input Background Color"
+msgstr "สีพื้นหลังข้อมูล"
+
+#: includes/features/admin-styles/admin-styles.php:1853
+msgid "Input Text Color"
+msgstr "สีข้อความข้อมูล"
+
+#: includes/features/admin-styles/admin-styles.php:1857
+msgid "Placeholder Text Color"
+msgstr "สีข้อความตัวอย่าง"
+
+#: includes/features/admin-styles/admin-styles.php:1864
+msgid "Button colors"
+msgstr "สีของปุ่ม"
+
+#: includes/features/admin-styles/admin-styles.php:1867
+msgid "Primary Button Background"
+msgstr "พื้นหลังปุ่มหลัก"
+
+#: includes/features/admin-styles/admin-styles.php:1871
+msgid "Primary Button Text"
+msgstr "ข้อความปุ่มหลัก"
+
+#: includes/features/admin-styles/admin-styles.php:1875
+msgid "Primary Button Hover"
+msgstr "ปุ่มหลักเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1879
+msgid "Secondary Button Background"
+msgstr "พื้นหลังปุ่มรอง"
+
+#: includes/features/admin-styles/admin-styles.php:1883
+msgid "Secondary Button Text"
+msgstr "ข้อความปุ่มรอง"
+
+#: includes/features/admin-styles/admin-styles.php:1887
+msgid "Secondary Button Hover"
+msgstr "ปุ่มรองเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1894
+msgid "Admin menu colors"
+msgstr "สีเมนูผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1897
+msgid "Menu Background"
+msgstr "พื้นหลังเมนู"
+
+#: includes/features/admin-styles/admin-styles.php:1901
+msgid "Menu Text Color"
+msgstr "สีข้อความเมนู"
+
+#: includes/features/admin-styles/admin-styles.php:1905
+msgid "Menu Icon Color"
+msgstr "สีไอคอนเมนู"
+
+#: includes/features/admin-styles/admin-styles.php:1909
+msgid "Menu Hover Background"
+msgstr "พื้นหลังเมนูเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1913
+msgid "Menu Hover Text"
+msgstr "ข้อความเมนูเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1917
+msgid "Current Menu Background"
+msgstr "พื้นหลังเมนูปัจจุบัน"
+
+#: includes/features/admin-styles/admin-styles.php:1921
+msgid "Current Menu Text"
+msgstr "ข้อความเมนูปัจจุบัน"
+
+#: includes/features/admin-styles/admin-styles.php:1925
+msgid "Submenu Background"
+msgstr "พื้นหลังซับเมนู"
+
+#: includes/features/admin-styles/admin-styles.php:1929
+msgid "Submenu Text Color"
+msgstr "สีข้อความซับเมนู"
+
+#: includes/features/admin-styles/admin-styles.php:1936
+msgid "Admin bar colors"
+msgstr "สีของแถบผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1939
+msgid "Admin Bar Background"
+msgstr "พื้นหลังแถบผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1943
+msgid "Admin Bar Text"
+msgstr "ข้อความแถบผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1947
+msgid "Admin Bar Icon"
+msgstr "ไอคอนแถบผู้ดูแลระบบ"
+
+#: includes/features/admin-styles/admin-styles.php:1951
+msgid "Admin Bar Hover Background"
+msgstr "พื้นหลังแถบผู้ดูแลระบบเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1955
+msgid "Admin Bar Hover Text"
+msgstr "ข้อความแถบผู้ดูแลระบบเมื่อชี้"
+
+#: includes/features/admin-styles/admin-styles.php:1961
+msgid "Dashboard Widgets"
+msgstr "วิดเจ็ตแดชบอร์ด"
+
+#: includes/features/admin-styles/admin-styles.php:1962
+msgid "Dashboard widget colors"
+msgstr "สีของวิดเจ็ตแดชบอร์ด"
+
+#: includes/features/admin-styles/admin-styles.php:1965
+msgid "Widget Background"
+msgstr "พื้นหลังวิดเจ็ต"
+
+#: includes/features/admin-styles/admin-styles.php:1969
+msgid "Widget Border"
+msgstr "ขอบวิดเจ็ต"
+
+#: includes/features/admin-styles/admin-styles.php:1973
+msgid "Widget Header Background"
+msgstr "พื้นหลังหัววิดเจ็ต"
+
+#: includes/features/admin-styles/admin-styles.php:1977
+msgid "Widget Title Text"
+msgstr "ข้อความชื่อวิดเจ็ต"
+
+#: includes/features/admin-styles/admin-styles.php:1981
+msgid "Widget Body Text"
+msgstr "ข้อความใน Widget"
+
+#: includes/features/admin-styles/admin-styles.php:1985
+msgid "Widget Link"
+msgstr "ลิงก์ Widget"
+
+#: includes/features/admin-styles/admin-styles.php:1989
+msgid "Widget Link Hover"
+msgstr "ลิงก์ Widget เมื่อชี้เมาส์"
+
+#: includes/features/admin-styles/admin-styles.php:1995
+#: includes/roles/class/class-pp-roles-admin.php:123
+msgid "Advanced"
+msgstr "ขั้นสูง"
+
+#: includes/features/admin-styles/admin-styles.php:1996
+msgid "Custom selector color rules"
+msgstr "กฎสีของตัวเลือกที่กำหนดเอง"
+
+#: includes/features/editor-features-classic.php:1
+#, php-format
+msgid "Classic Editor %s Restrictions"
+msgstr "ข้อจำกัดของ Classic Editor %s"
+
+#: includes/features/editor-features-classic.php:162
+#: includes/features/editor-features-gutenberg.php:158
+#, php-format
+msgid ""
+"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
+"refresh this page afterwards to load the new metaboxes."
+msgstr ""
+"ไม่พบเมต้าเบ็อกซ์สำหรับ %1s. %2s คลิกที่นี่ %3s เพื่อเยี่ยมชมหน้าจอ %4s "
+"และรีเฟรชหน้านี้หลังจากนั้นเพื่อโหลดเมต้าเบ็อกซ์ใหม่."
+
+#: includes/features/editor-features-gutenberg.php:1
+#, php-format
+msgid "Gutenberg Editor %s Restrictions"
+msgstr "ข้อจำกัดของ Gutenberg Editor %s"
+
+#: includes/features/editor-features.php:69
+msgid "Editor Feature Restrictions"
+msgstr "ข้อจำกัดของฟีเจอร์ Editor"
+
+#: includes/features/editor-features.php:115
+#: includes/features/editor-features.php:221
+msgid "Save for all Post Types"
+msgstr "บันทึกสำหรับทุกประเภทโพสต์"
+
+#: includes/features/editor-features.php:119
+#: includes/features/editor-features.php:121
+#: includes/features/editor-features.php:225
+#: includes/features/editor-features.php:227
+#, php-format
+msgid "Save %s Restrictions"
+msgstr "บันทึก %s ข้อจำกัด"
+
+#: includes/features/editor-features.php:128, fuzzy
+msgid "Gutenberg"
+msgstr "Gutenberg"
+
+#: includes/features/editor-features.php:131, fuzzy
+msgid "Classic"
+msgstr "Classic"
+
+#: includes/features/editor-features.php:136
+msgid "show Classic Editor controls"
+msgstr "แสดงการควบคุม Classic Editor"
+
+#: includes/features/editor-features.php:240
+#: includes/functions-admin.php:415
+msgid "Editor Features allows you to remove elements from the post editing screen."
+msgstr "ฟีเจอร์ Editor ช่วยให้คุณลบองค์ประกอบจากหน้าจอแก้ไขโพสต์ได้."
+
+#: includes/features/editor-features.php:248
+msgid "How to use Editor Features"
+msgstr "วิธีการใช้ฟีเจอร์ Editor"
+
+#: includes/features/frontend-features/frontend-features-action.php:54
+#: includes/features/frontend-features/frontend-features-action.php:117
+#: includes/manager.php:693
+#: includes/manager.php:715
+msgid "You do not have permission to manage frontend features."
+msgstr "คุณไม่มีสิทธิ์จัดการฟีเจอร์ด้านหน้า."
+
+#: includes/features/frontend-features/frontend-features-action.php:58
+#: includes/features/frontend-features/frontend-features-ui.php:151
+msgid "All fields are required."
+msgstr "ฟิลด์ทั้งหมดจำเป็นต้องกรอก."
+
+#: includes/features/frontend-features/frontend-features-action.php:60
+msgid "Load on page types is required."
+msgstr "การโหลดในประเภทหน้าจำเป็นต้องมี."
+
+#: includes/features/frontend-features/frontend-features-action.php:92
+msgid "Frontend element item updated. Save changes to enable for role."
+msgstr "อัปเดตองค์ประกอบด้านหน้าแล้ว บันทึกการเปลี่ยนแปลงเพื่อเปิดใช้งานสำหรับบทบาท."
+
+#: includes/features/frontend-features/frontend-features-action.php:94
+msgid "New frontend element added. Save changes to enable for role."
+msgstr "เพิ่มองค์ประกอบด้านหน้าใหม่ บันทึกการเปลี่ยนแปลงเพื่อเปิดใช้งานสำหรับบทบาท."
+
+#: includes/features/frontend-features/frontend-features-action.php:121
+msgid "Invalid request!."
+msgstr "คำขอไม่ถูกต้อง!."
+
+#: includes/features/frontend-features/frontend-features-action.php:136
+msgid "Selected item deleted successfully"
+msgstr "ลบรายการที่เลือกเรียบร้อยแล้ว"
+
+#: includes/features/frontend-features/frontend-features-data.php:38
+msgid "Site Dark Mode"
+msgstr "โหมดมืดของเว็บไซต์"
+
+#: includes/features/frontend-features/frontend-features-data.php:54
+msgid "Site Light Mode"
+msgstr "โหมดสว่างของเว็บไซต์"
+
+#: includes/features/frontend-features/frontend-features-data.php:70
+msgid "Hide Twenty Twenty-Three Credit Footer"
+msgstr "ซ่อนฟุตเตอร์เครดิต Twenty Twenty-Three"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:55
+#: includes/features/frontend-features/frontend-features.php:70
+#: includes/functions-admin.php:244
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:553
+msgid "Frontend Features"
+msgstr "คุณสมบัติของด้านหน้า"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:77
+msgid "Choose Frontend Features that will apply to this post."
+msgstr "เลือกคุณสมบัติของด้านหน้าที่จะนำไปใช้กับโพสต์นี้."
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:90
+#, php-format
+msgid "Select %1$s..."
+msgstr "เลือก %1$s..."
+
+#: includes/features/frontend-features/frontend-features-ui.php:42
+msgid ""
+"This feature allows you to modify the site frontend by hiding IDs or "
+"classes, adding CSS styles, or adding body classes."
+msgstr ""
+"คุณสมบัตินี้ช่วยให้คุณสามารถปรับเปลี่ยนหน้าเว็บไซต์โดยการซ่อน ID หรือคลาส, "
+"เพิ่ม CSS สไตล์, หรือเพิ่มคลาสของ body."
+
+#: includes/features/frontend-features/frontend-features-ui.php:45
+msgid "Editing:"
+msgstr "กำลังแก้ไข:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:53
+msgid "Title:"
+msgstr "ชื่อ:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:59
+msgid "This will only show here in the WordPress admin area."
+msgstr "สิ่งนี้จะแสดงที่นี่เฉพาะในพื้นที่ผู้ดูแลระบบ WordPress."
+
+#: includes/features/frontend-features/frontend-features-ui.php:66
+msgid "Features:"
+msgstr "คุณสมบัติ:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:73
+msgid "Hide IDs or Classes"
+msgstr "ซ่อน ID หรือ คลาส"
+
+#: includes/features/frontend-features/frontend-features-ui.php:74
+msgid "Add Custom CSS"
+msgstr "เพิ่ม CSS แบบกำหนดเอง"
+
+#: includes/features/frontend-features/frontend-features-ui.php:75
+msgid "Add Body Class"
+msgstr "เพิ่ม Body Class"
+
+#: includes/features/frontend-features/frontend-features-ui.php:81
+msgid ""
+"Enter IDs or classes to hide. Separate multiple values with a comma "
+"(.custom-item-one, .custom-item-two, #new-item-id)."
+msgstr ""
+"กรอก ID หรือคลาสที่ต้องการซ่อน แยกค่าหลายค่าโดยใช้เครื่องหมายจุลภาค "
+"(.custom-item-one, .custom-item-two, #new-item-id)."
+
+#: includes/features/frontend-features/frontend-features-ui.php:92
+msgid ""
+"Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
+"color: red; } #custom-header { background: red; } "
+msgstr ""
+"กรอก CSS ที่กำหนดเองเพื่อนำไปใช้กับหน้าเว็บไซต์ ตัวอย่าง: .custom-style-1 { "
+"color: red; } #custom-header { background: red; } "
+
+#: includes/features/frontend-features/frontend-features-ui.php:98
+msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
+msgstr "กรอกคลาสเพื่อเพิ่ม HTML ของ body ไม่ต้องใส่ . ก่อนหน้า HTML."
+
+#: includes/features/frontend-features/frontend-features-ui.php:99
+msgid "Separate multiple values with a space (custom-style-one custom-style-two)."
+msgstr "แยกค่าหลายค่าโดยใช้ช่องว่าง (custom-style-one custom-style-two)."
+
+#: includes/features/frontend-features/frontend-features-ui.php:100
+msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
+msgstr "คุณสามารถเพิ่ม CSS สำหรับคลาสของคุณโดยการคลิก \"Add Custom CSS\"."
+
+#: includes/features/frontend-features/frontend-features-ui.php:101
+msgid ""
+"Enter classes that should be added to the body HTML. Separate multiple "
+"values with a space (custom-item-one custom-item-two)."
+msgstr ""
+"กรอกคลาสที่จะเพิ่มไปยัง HTML ของ body แยกค่าหลายค่าโดยใช้ช่องว่าง "
+"(custom-item-one custom-item-two)."
+
+#: includes/features/frontend-features/frontend-features-ui.php:109
+msgid "Load on page types:"
+msgstr "โหลดในประเภทหน้า:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:116, fuzzy
+msgid "Whole Site"
+msgstr "Whole Site"
+
+#: includes/features/frontend-features/frontend-features-ui.php:117, fuzzy
+msgid "Selected Pages"
+msgstr "Selected Pages"
+
+#: includes/features/frontend-features/frontend-features-ui.php:125
+msgid "This feature will be added to all pages."
+msgstr "ฟีเจอร์นี้จะถูกเพิ่มไปยังทุกหน้า."
+
+#: includes/features/frontend-features/frontend-features-ui.php:133, fuzzy
+msgid "Add post metabox:"
+msgstr "Add post metabox:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:148
+msgid "Cancel Edit"
+msgstr "ยกเลิกการแก้ไข"
+
+#: includes/features/frontend-features/frontend-features-ui.php:152
+#: includes/features/frontend-features/frontend-features-ui.php:155
+#: includes/features/restrict-editor-features.php:47
+#: includes/roles/roles.php:10
+msgid "Add New"
+msgstr "เพิ่มใหม่"
+
+#: includes/features/frontend-features/frontend-features-ui.php:153
+msgid "Save Edit"
+msgstr "บันทึกการแก้ไข"
+
+#: includes/features/frontend-features/frontend-features-ui.php:221
+msgid "Hidden IDs or Classes"
+msgstr "ไอดีหรือคลาสที่ซ่อนอยู่"
+
+#: includes/features/frontend-features/frontend-features-ui.php:226, fuzzy
+msgid "Body Class"
+msgstr "Body Class"
+
+#: includes/features/frontend-features/frontend-features-ui.php:231, fuzzy
+msgid "Custom CSS"
+msgstr "Custom CSS"
+
+#: includes/features/frontend-features/frontend-features-ui.php:240
+msgid "Pages"
+msgstr "หน้า"
+
+#: includes/features/frontend-features/frontend-features-ui.php:248, fuzzy
+msgid "Post Type Metabox"
+msgstr "Post Type Metabox"
+
+#: includes/features/frontend-features/frontend-features.php:58
+msgid "Role"
+msgstr "บทบาท"
+
+#: includes/features/frontend-features/frontend-features.php:152
+#, php-format
+msgid "Enable Frontend Features for %1$s Role"
+msgstr "เปิดใช้งานฟีเจอร์ Frontend สำหรับบทบาท %1$s"
+
+#: includes/features/frontend-features/frontend-features.php:249
+#: includes/functions-admin.php:440
+msgid ""
+"Frontend Features allows you to add or remove elements from the frontend of "
+"your site."
+msgstr ""
+"Frontend Features "
+"ช่วยให้คุณสามารถเพิ่มหรือลบองค์ประกอบจากส่วนหน้าของเว็บไซต์ของคุณ."
+
+#: includes/features/frontend-features/frontend-features.php:254
+msgid "Apply custom styling"
+msgstr "ใช้สไตล์ที่กำหนดเอง"
+
+#: includes/features/frontend-features/frontend-features.php:257
+msgid "How to use Frontend Features"
+msgstr "วิธีการใช้ฟีเจอร์ Frontend"
+
+#: includes/features/nav-menus.php:61
+msgid "Navigation Menu Restrictions"
+msgstr "ข้อจำกัดเมนูนำทาง"
+
+#: includes/features/nav-menus.php:275
+msgid ""
+"There are no frontend menu links. To control access to navigation menus, "
+"please add menu links."
+msgstr "ไม่มีลิงก์เมนูในส่วนหน้า เพื่อควบคุมการเข้าถึงเมนูนำทาง กรุณาเพิ่มลิงก์เมนู."
+
+#: includes/features/nav-menus.php:301
+#: includes/functions-admin.php:445
+msgid "Navigation Menus allows you to block access to frontend menu links."
+msgstr "เมนูนำทางอนุญาตให้คุณบล็อกการเข้าถึงลิงก์เมนู frontend"
+
+#: includes/features/nav-menus.php:309
+msgid "How to use Navigation Menus"
+msgstr "วิธีการใช้เมนูนำทาง"
+
+#: includes/features/profile-features.php:46
+msgid "Profile Feature Restrictions"
+msgstr "ข้อจำกัดฟีเจอร์โปรไฟล์"
+
+#: includes/features/profile-features.php:141
+msgid "Click the \"Find profile items for this role\" button."
+msgstr "คลิกปุ่ม \"ค้นหารายการโปรไฟล์สำหรับบทบาทนี้\""
+
+#: includes/features/profile-features.php:143
+msgid ""
+"There are no users in this role. Please select a role that has users and is "
+"able to access the \"Profile\" screen."
+msgstr ""
+"ไม่มีผู้ใช้ในบทบาทนี้ กรุณาเลือกบทบาทที่มีผู้ใช้และสามารถเข้าถึงหน้าจอ "
+"\"โปรไฟล์\"."
+
+#: includes/features/profile-features.php:240
+msgid "Allow PublishPress to find profile items for this role."
+msgstr "อนุญาตให้ PublishPress ค้นหารายการโปรไฟล์สำหรับบทบาทนี้"
+
+#: includes/features/profile-features.php:241
+msgid "Find profile items for this role"
+msgstr "ค้นหารายการโปรไฟล์สำหรับบทบาทนี้"
+
+#: includes/features/profile-features.php:242
+#, php-format
+msgid "The %s role is not enabled for editing. The Find button is disabled."
+msgstr "บทบาท %s ไม่สามารถแก้ไขได้ ปุ่มค้นหาถูกปิดใช้งาน"
+
+#: includes/features/profile-features.php:243
+#, php-format
+msgid "This feature will test the \"Profile\" screen as a user in the %s role."
+msgstr "ฟีเจอร์นี้จะทดสอบหน้าจอ \"โปรไฟล์\" ในฐานะผู้ใช้ในบทบาท %s"
+
+#: includes/features/profile-features.php:245
+msgid "Refresh Profile Features"
+msgstr "รีเฟรชฟีเจอร์โปรไฟล์"
+
+#: includes/features/profile-features.php:250
+#: includes/functions-admin.php:430
+msgid "Profile Features allows you to remove elements from the Profile screen."
+msgstr "ฟีเจอร์โปรไฟล์อนุญาตให้คุณลบองค์ประกอบจากหน้าจอโปรไฟล์"
+
+#: includes/features/profile-features.php:258
+msgid "How to use Profile Features"
+msgstr "วิธีการใช้ฟีเจอร์โปรไฟล์"
+
+#: includes/features/restrict-admin-features.php:36
+msgid "Hide Default Items"
+msgstr "ซ่อนรายการเริ่มต้น"
+
+#: includes/features/restrict-admin-features.php:37
+msgid "Hide Admin Toolbar"
+msgstr "ซ่อนแถบเครื่องมือผู้ดูแลระบบ"
+
+#: includes/features/restrict-admin-features.php:38
+msgid "Hide Dashboard Widgets"
+msgstr "ซ่อนวิดเจ็ตแดชบอร์ด"
+
+#: includes/features/restrict-admin-features.php:91
+msgid "Mobile Menu Toggle"
+msgstr "เปิด/ปิดเมนูมือถือ"
+
+#: includes/features/restrict-admin-features.php:92
+msgid "WordPress Logo"
+msgstr "โลโก้ WordPress"
+
+#: includes/features/restrict-admin-features.php:93
+msgid "WordPress External Links"
+msgstr "ลิงก์ภายนอก WordPress"
+
+#: includes/features/restrict-admin-features.php:96
+msgid "Right bar"
+msgstr "แถบขวา"
+
+#: includes/features/restrict-admin-features.php:97
+msgid "User actions"
+msgstr "การกระทำของผู้ใช้"
+
+#: includes/features/restrict-admin-features.php:98
+#: includes/features/restrict-admin-features.php:99
+msgid "New"
+msgstr "ใหม่"
+
+#: includes/features/restrict-admin-features.php:100
+msgid "User Display Name"
+msgstr "ชื่อแสดงของผู้ใช้"
+
+#: includes/features/restrict-admin-features.php:101, fuzzy
+msgid "Yoast SEO"
+msgstr "Yoast SEO"
+
+#: includes/features/restrict-admin-features.php:102
+msgid "Edit Post"
+msgstr "แก้ไขโพสต์"
+
+#: includes/features/restrict-admin-features.php:103
+msgid "Edit Site"
+msgstr "แก้ไขไซต์"
+
+#: includes/features/restrict-admin-features.php:189
+msgid "Thank you for creating with WordPress"
+msgstr "ขอบคุณที่สร้างด้วย WordPress"
+
+#: includes/features/restrict-admin-features.php:239
+msgid "Welcome panel"
+msgstr "แผงต้อนรับ"
+
+#: includes/features/restrict-admin-features.php:273
+msgid "Remove Admin Toolbar"
+msgstr "ลบแถบเครื่องมือผู้ดูแลระบบ"
+
+#: includes/features/restrict-editor-features.php:40
+msgid "Top Tabs"
+msgstr "แท็บด้านบน"
+
+#: includes/features/restrict-editor-features.php:59, fuzzy
+msgid "Slug"
+msgstr "Slug"
+
+#: includes/features/restrict-editor-features.php:62
+msgid "Media Buttons (all)"
+msgstr "ปุ่มสื่อ (ทั้งหมด)"
+
+#: includes/features/restrict-editor-features.php:67
+msgid "HTML Editor Button"
+msgstr "ปุ่มแก้ไข HTML"
+
+#: includes/features/restrict-editor-features.php:72
+msgid "Word count"
+msgstr "จำนวนคำ"
+
+#: includes/features/restrict-editor-features.php:77
+#: includes/features/restrict-editor-features.php:78
+msgid "Publish Box"
+msgstr "กล่องเผยแพร่"
+
+#: includes/features/restrict-editor-features.php:85
+msgid "Publish Actions"
+msgstr "การกระทำการเผยแพร่"
+
+#: includes/features/restrict-editor-features.php:91
+msgid "Taxonomy Boxes"
+msgstr "กล่อง taxonomy"
+
+#: includes/features/restrict-editor-features.php:126
+msgid "Page Boxes"
+msgstr "กล่องหน้า"
+
+#: includes/features/restrict-editor-features.php:148
+msgid "Other Boxes"
+msgstr "กล่องอื่นๆ"
+
+#: includes/features/restrict-editor-features.php:150
+msgid "Featured Image"
+msgstr "ภาพเด่น"
+
+#: includes/features/restrict-editor-features.php:164
+msgid "Coupon Description"
+msgstr "รายละเอียดคูปอง"
+
+#: includes/features/restrict-editor-features.php:382
+msgid "Top Bar - Left"
+msgstr "แถบด้านบน - ซ้าย"
+
+#: includes/features/restrict-editor-features.php:383
+msgid "Add block"
+msgstr "เพิ่มบล็อก"
+
+#: includes/features/restrict-editor-features.php:384
+msgid "Modes"
+msgstr "โหมด"
+
+#: includes/features/restrict-editor-features.php:388
+msgid "Outline"
+msgstr "โครงร่าง"
+
+#: includes/features/restrict-editor-features.php:389
+msgid "Document Overview"
+msgstr "ภาพรวมเอกสาร"
+
+#: includes/features/restrict-editor-features.php:390
+msgid "Document Bar Title"
+msgstr "ชื่อแถบเอกสาร"
+
+#: includes/features/restrict-editor-features.php:393
+msgid "Top Bar - Right"
+msgstr "แถบด้านบน - ขวา"
+
+#: includes/features/restrict-editor-features.php:395
+msgid "Switch to Draft"
+msgstr "เปลี่ยนเป็นร่าง"
+
+#: includes/features/restrict-editor-features.php:398
+msgid "Publish / Update"
+msgstr "เผยแพร่ / อัปเดต"
+
+#: includes/features/restrict-editor-features.php:400
+msgid "Options"
+msgstr "ตัวเลือก"
+
+#: includes/features/restrict-editor-features.php:403
+msgid "Body"
+msgstr "เนื้อหา"
+
+#: includes/features/restrict-editor-features.php:415
+msgid "Add new block"
+msgstr "เพิ่มบล็อกใหม่"
+
+#: includes/features/restrict-editor-features.php:420
+msgid "Document Panel"
+msgstr "แผงเอกสาร"
+
+#: includes/features/restrict-editor-features.php:421
+msgid "Settings Panel"
+msgstr "แผงการตั้งค่า"
+
+#: includes/features/restrict-editor-features.php:422
+msgid "Status & visibility"
+msgstr "สถานะ & การมองเห็น"
+
+#: includes/features/restrict-editor-features.php:428
+msgid "Permalink"
+msgstr "ลิงก์ถาวร"
+
+#: includes/features/restrict-editor-features.php:461
+msgid "Featured image"
+msgstr "ภาพที่โดดเด่น"
+
+#: includes/features/restrict-editor-features.php:476
+msgid "Post Attributes"
+msgstr "คุณสมบัติของโพสต์"
+
+#: includes/features/restrict-editor-features.php:482
+#: includes/features/restrict-editor-features.php:483
+msgid "Block Panel"
+msgstr "แผงบล็อก"
+
+#: includes/features/restrict-editor-features.php:484
+msgid "Paragraph"
+msgstr "ย่อหน้า"
+
+#: includes/features/restrict-editor-features.php:485
+msgid "Typography"
+msgstr "แบบตัวอักษร"
+
+#: includes/features/restrict-editor-features.php:486
+msgid "Color settings"
+msgstr "การตั้งค่าสี"
+
+#: includes/features/restrict-editor-features.php:487
+msgid "Text settings"
+msgstr "การตั้งค่าข้อความ"
+
+#: includes/features/restrict-profile-features.php:45
+msgid "This role is not enabled for profile feature editing."
+msgstr "บทบาทนี้ไม่ได้เปิดใช้งานสำหรับการแก้ไขฟีเจอร์โปรไฟล์."
+
+#: includes/features/restrict-profile-features.php:110
+msgid "An error occurred!"
+msgstr "เกิดข้อผิดพลาด!"
+
+#: includes/features/restrict-profile-features.php:123
+msgid "Profile features access disabled."
+msgstr "การเข้าถึงฟีเจอร์โปรไฟล์ถูกปิดใช้งาน."
+
+#: includes/features/restrict-profile-features.php:128
+msgid "Invalid role provided."
+msgstr "บทบาทที่ให้มาไม่ถูกต้อง."
+
+#: includes/features/restrict-profile-features.php:136
+msgid "Profile features access enabled for this role."
+msgstr "การเข้าถึงฟีเจอร์โปรไฟล์เปิดใช้งานสำหรับบทบาทนี้."
+
+#: includes/functions-admin.php:217
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:502
+#: includes/roles/class/class-pp-roles-admin.php:523
+#: includes/settings-ui.php:36
+msgid "Editor Features"
+msgstr "ฟีเจอร์ของผู้แก้ไข"
+
+#: includes/functions-admin.php:228
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:509
+#: includes/roles/class/class-pp-roles-admin.php:524
+msgid "Admin Features"
+msgstr "ฟีเจอร์ของผู้ดูแลระบบ"
+
+#: includes/functions-admin.php:248
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:539
+#: includes/roles/class/class-pp-roles-admin.php:525
+#: includes/settings-ui.php:37
+msgid "Profile Features"
+msgstr "ฟีเจอร์โปรไฟล์"
+
+#: includes/functions-admin.php:254
+#: includes/functions-admin.php:434
+#: includes/functions-admin.php:546
+msgid "Redirects"
+msgstr "การเปลี่ยนเส้นทาง"
+
+#: includes/functions-admin.php:258
+msgid "Nav Menu"
+msgstr "เมนูนำทาง"
+
+#: includes/functions-admin.php:405
+msgid ""
+"Roles allows you to create, edit, and delete all the user roles on your "
+"site."
+msgstr "Roles ช่วยให้คุณสร้าง แก้ไข และลบบทบาทผู้ใช้ทั้งหมดในเว็บไซต์ของคุณ."
+
+#: includes/functions-admin.php:410
+msgid "Capabilities allows you to change the permissions for any user role."
+msgstr "ความสามารถช่วยให้คุณเปลี่ยนแปลงสิทธิ์สำหรับบทบาทผู้ใช้ใด ๆ."
+
+#: includes/functions-admin.php:425
+msgid "Admin Styles allows you to customize the admin area with your own branding."
+msgstr "สไตล์ของผู้ดูแลระบบช่วยให้คุณปรับแต่งพื้นที่ผู้ดูแลระบบด้วยแบรนด์ของคุณเอง."
+
+#: includes/functions-admin.php:435
+msgid ""
+"Redirects allows you to redirect users in a role after Registration, Login "
+"or Logout."
+msgstr ""
+"การเปลี่ยนเส้นทางช่วยให้คุณเปลี่ยนเส้นทางผู้ใช้ในบทบาทหลังจากการลงทะเบียน, "
+"การเข้าสู่ระบบ หรือการออกจากระบบ."
+
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:560
+#: includes/roles/class/class-pp-roles-admin.php:527
+msgid "Navigation Menus"
+msgstr "เมนูนำทาง"
+
+#: includes/functions-admin.php:449
+#: includes/settings-ui.php:39
+#: includes/test-user-ui.php:38
+msgid "User Testing"
+msgstr "การทดสอบผู้ใช้"
+
+#: includes/functions-admin.php:450
+msgid ""
+"Test your site by instantly logging in as another user. Available accounts "
+"include any which the current user can edit."
+msgstr ""
+"ทดสอบเว็บไซต์ของคุณโดยการเข้าสู่ระบบทันทีในฐานะผู้ใช้อื่น "
+"บัญชีที่มีอยู่รวมถึงบัญชีใด ๆ ที่ผู้ใช้ปัจจุบันสามารถแก้ไขได้."
+
+#: includes/functions-admin.php:455
+msgid ""
+"Remove Admin Notices from WordPress admin screen and organize them in to a "
+"single area."
+msgstr ""
+"ลบประกาศของผู้ดูแลระบบจากหน้าจอผู้ดูแลระบบของ WordPress "
+"และจัดระเบียบในพื้นที่เดียว."
+
+#: includes/functions.php:650
+msgid "Login permission denied."
+msgstr "การเข้าสู่ระบบถูกปฏิเสธ."
+
+#: includes/functions.php:742
+msgid "You do not have permission to access this page."
+msgstr "คุณไม่มีสิทธิ์เข้าถึงหน้านี้."
+
+#: includes/functions.php:815
+msgid "Need PublishPress Capabilities Support?"
+msgstr "ต้องการการสนับสนุนความสามารถของ PublishPress?"
+
+#: includes/functions.php:820
+msgid "If you need help or have a new feature request, let us know."
+msgstr "หากคุณต้องการความช่วยเหลือหรือมีคำขอฟีเจอร์ใหม่ แจ้งให้เราทราบ."
+
+#: includes/functions.php:823
+msgid "Request Support"
+msgstr "ขอรับการสนับสนุน"
+
+#: includes/functions.php:832
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "เอกสารรายละเอียดยังมีให้ที่เว็บไซต์ปลั๊กอิน."
+
+#: includes/functions.php:834
+msgid "View Knowledge Base"
+msgstr "ดูฐานความรู้"
+
+#: includes/functions.php:1066
+msgid "Social Links"
+msgstr "ลิงก์โซเชียล"
+
+#: includes/functions.php:1067
+msgid "Page Lists"
+msgstr "รายการหน้า"
+
+#: includes/handler.php:45
+msgid "New role created."
+msgstr "สร้างบทบาทใหม่แล้ว."
+
+#: includes/handler.php:51
+msgid "Error: Failed creating the new role."
+msgstr "ข้อผิดพลาด: ไม่สามารถสร้างบทบาทใหม่ได้."
+
+#: includes/handler.php:61
+#: includes/handler.php:89
+#: includes/manager.php:1219
+msgid "The selected role is not editable."
+msgstr "บทบาทที่เลือกไม่สามารถแก้ไขได้."
+
+#: includes/handler.php:119
+msgid "Incorrect capability name."
+msgstr "ชื่อความสามารถไม่ถูกต้อง."
+
+#: includes/handler.php:124
+msgid "Type / Taxonomy settings saved."
+msgstr "ประเภท / การตั้งค่าหมวดหมู่ถูกบันทึก."
+
+#: includes/handler.php:127
+msgid "Bad form received."
+msgstr "รูปแบบไม่ถูกต้องที่ได้รับ."
+
+#: includes/handler.php:250
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "คุณไม่สามารถลบ Manage Capabilities จาก Administrators ได้"
+
+#: includes/manager.php:238
+msgid "This capability is explicitly negated. Click to add/remove normally."
+msgstr "ความสามารถนี้ถูกปฏิเสธอย่างชัดเจน คลิกเพื่อเพิ่ม/ลบตามปกติ"
+
+#: includes/manager.php:246
+msgid "Explicity negate this capability by storing as disabled"
+msgstr "ปฏิเสธความสามารถนี้อย่างชัดเจนโดยการจัดเก็บเป็นปิดใช้งาน"
+
+#: includes/manager.php:247
+msgid "Explicitly negate these capabilities by storing as disabled"
+msgstr "ปฏิเสธความสามารถเหล่านี้อย่างชัดเจนโดยการจัดเก็บเป็นปิดใช้งาน"
+
+#: includes/manager.php:248
+msgid "Post type registration does not define this capability distinctly"
+msgstr "การลงทะเบียน post type ไม่ได้กำหนดความสามารถนี้อย่างชัดเจน"
+
+#: includes/manager.php:250
+msgid "Add or remove this capability from the WordPress role"
+msgstr "เพิ่มหรือลบความสามารถนี้จากบทบาท WordPress"
+
+#: includes/manager.php:251
+msgid "Add or remove capability from the role normally"
+msgstr "เพิ่มหรือลบความสามารถจากบทบาทตามปกติ"
+
+#: includes/manager.php:252
+msgid "Are you sure you want to delete this item ?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบรายการนี้?"
+
+#: includes/manager.php:253
+msgid "Add or clear custom item entry before saving changes."
+msgstr "เพิ่มหรือล้างรายการกำหนดเองก่อนบันทึกการเปลี่ยนแปลง."
+
+#: includes/manager.php:513
+#: includes/roles/class/class-pp-roles-admin.php:172
+#: includes/roles/class/class-pp-roles-list-table.php:175
+msgid "Role Name"
+msgstr "ชื่อบทบาท"
+
+#: includes/manager.php:515
+#: includes/roles/class/class-pp-roles-list-table.php:177
+msgid "Role Type"
+msgstr "ประเภทบทบาท"
+
+#: includes/manager.php:516
+#: includes/roles/class/class-pp-roles-list-table.php:178
+msgid "Default Role"
+msgstr "บทบาทเริ่มต้น"
+
+#: includes/manager.php:517
+#: includes/roles/class/class-pp-roles-list-table.php:179
+msgid "Admin Access"
+msgstr "การเข้าถึงผู้ดูแลระบบ"
+
+#: includes/manager.php:544
+msgid "You do not have permission to manage roles."
+msgstr "คุณไม่มีสิทธิ์จัดการบทบาท"
+
+#: includes/manager.php:567
+#: includes/manager.php:589
+msgid "You do not have permission to manage editor features."
+msgstr "คุณไม่มีสิทธิ์จัดการฟีเจอร์ของผู้ดูแล"
+
+#: includes/manager.php:624
+#: includes/manager.php:678
+#: includes/manager.php:726
+#: includes/manager.php:820
+#: includes/manager.php:869
+#: includes/manager.php:951
+#: includes/manager.php:1032
+msgid "Settings updated."
+msgstr "อัปเดตการตั้งค่าแล้ว"
+
+#: includes/manager.php:640
+#: includes/manager.php:662
+#: includes/manager.php:834
+#: includes/manager.php:885
+#: includes/manager.php:1049
+msgid "You do not have permission to manage admin features."
+msgstr "คุณไม่มีสิทธิ์จัดการฟีเจอร์ของผู้ดูแลระบบ"
+
+#: includes/manager.php:856
+msgid "You do not have permission to manage navigation menus."
+msgstr "คุณไม่มีสิทธิ์จัดการเมนูนำทาง"
+
+#: includes/manager.php:907
+msgid "You do not have permission to manage profile features."
+msgstr "คุณไม่มีสิทธิ์จัดการฟีเจอร์โปรไฟล์"
+
+#: includes/manager.php:967
+msgid "You do not have permission to manage redirect."
+msgstr "คุณไม่มีสิทธิ์จัดการการเปลี่ยนเส้นทาง"
+
+#: includes/manager.php:989
+msgid "Invalid form. Reload this page and try again."
+msgstr "รูปแบบไม่ถูกต้อง กรุณารีโหลดหน้านี้และลองอีกครั้ง."
+
+#: includes/manager.php:1141
+#: includes/manager.php:1175
+#: includes/manager.php:1193
+msgid "You do not have permission to manage capabilities."
+msgstr "คุณไม่มีสิทธิ์ในการจัดการความสามารถ."
+
+#: includes/manager.php:1207
+msgid "New capability added to role."
+msgstr "ความสามารถใหม่ถูกเพิ่มไปยังบทบาท."
+
+#: includes/manager.php:1248
+msgid "Bad form Received"
+msgstr "รูปแบบไม่ถูกต้องที่ได้รับ"
+
+#: includes/manager.php:1368
+msgid "You do not have permission to restore roles."
+msgstr "คุณไม่มีสิทธิ์ในการกู้คืนบทบาท."
+
+#: includes/manager.php:1406
+msgid "You do not have permission to perform this action."
+msgstr "คุณไม่มีสิทธิ์ในการดำเนินการนี้."
+
+#: includes/manager.php:1567
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "หากคุณชอบ %s กรุณาให้คะแนน %s กับเรา ขอบคุณ!"
+
+#: includes/manager.php:1578
+msgid "About PublishPress Capabilities"
+msgstr "เกี่ยวกับความสามารถของ PublishPress"
+
+#: includes/manager.php:1578
+msgid "About"
+msgstr "เกี่ยวกับ"
+
+#: includes/manager.php:1580
+msgid "Capabilites Documentation"
+msgstr "เอกสารความสามารถ"
+
+#: includes/manager.php:1580
+msgid "Documentation"
+msgstr "เอกสาร"
+
+#: includes/manager.php:1582
+msgid "Contact the PublishPress team"
+msgstr "ติดต่อทีม PublishPress"
+
+#: includes/manager.php:1582
+msgid "Contact"
+msgstr "ติดต่อ"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:28
+msgid "Permissions & Access"
+msgstr "สิทธิ์ & การเข้าถึง"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:29
+msgid "Administer advanced content permissions and visibility rules."
+msgstr "จัดการสิทธิ์เนื้อหาขั้นสูงและกฎการมองเห็น."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:30
+msgid "Manage plugin permission settings."
+msgstr "จัดการการตั้งค่าการอนุญาตของปลั๊กอิน."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:31
+msgid "Bypass content restrictions for editorial workflows."
+msgstr "ข้ามข้อจำกัดเนื้อหาสำหรับการทำงานด้านบรรณาธิการ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:32
+msgid "Set custom post statuses for content items."
+msgstr "ตั้งสถานะโพสต์ที่กำหนดเองสำหรับรายการเนื้อหา."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:33
+msgid "Force Quick Edit access when restrictions would otherwise block it."
+msgstr "บังคับให้เข้าถึงการแก้ไขด่วนเมื่อข้อจำกัดจะปิดกั้น."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:35
+msgid "Roles & Groups"
+msgstr "บทบาท & กลุ่ม"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:36
+msgid "Assign or change role assignments for users."
+msgstr "กำหนดหรือเปลี่ยนการมอบหมายบทบาทสำหรับผู้ใช้."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:37
+msgid "Create new permission groups."
+msgstr "สร้างกลุ่มสิทธิ์ใหม่."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:38
+msgid "Edit existing permission groups."
+msgstr "แก้ไขกลุ่มสิทธิ์ที่มีอยู่."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:39
+msgid "Delete permission groups."
+msgstr "ลบกลุ่มสิทธิ์."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:40
+msgid "Add or remove members from permission groups."
+msgstr "เพิ่มหรือลบสมาชิกจากกลุ่มสิทธิ์."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:41
+msgid "Create network-wide permission groups in multisite."
+msgstr "สร้างกลุ่มสิทธิ์ทั่วทั้งเครือข่ายในระบบหลายไซต์."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:42
+msgid "Manage members of network-wide permission groups."
+msgstr "จัดการสมาชิกของกลุ่มสิทธิ์ทั่วทั้งเครือข่าย."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:44
+msgid "Exception Management"
+msgstr "การจัดการข้อยกเว้น"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:45
+msgid "Set per-item association exceptions."
+msgstr "กำหนดข้อยกเว้นการเชื่อมโยงต่อรายการ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:46
+msgid "Set per-item edit exceptions."
+msgstr "กำหนดข้อยกเว้นการแก้ไขต่อรายการ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:47
+msgid "Set per-item read exceptions."
+msgstr "กำหนดข้อยกเว้นการอ่านต่อรายการ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:48
+msgid "Set per-item revision exceptions."
+msgstr "กำหนดข้อยกเว้นการแก้ไขต่อรายการ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:49
+msgid "Set taxonomy term assignment exceptions."
+msgstr "กำหนดข้อยกเว้นการมอบหมายคำศัพท์ทางวิทยาศาสตร์."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:50
+msgid "Set taxonomy term association exceptions."
+msgstr "กำหนดข้อยกเว้นการเชื่อมโยงคำศัพท์ทางวิทยาศาสตร์."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:51
+msgid "Set taxonomy term management exceptions."
+msgstr "กำหนดข้อยกเว้นการจัดการคำศัพท์ทางวิทยาศาสตร์."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:53
+msgid "Content Associations"
+msgstr "การเชื่อมโยงเนื้อหา"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:54
+msgid "Associate users or groups with any page."
+msgstr "เชื่อมโยงผู้ใช้หรือกลุ่มกับหน้าใด ๆ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:55
+msgid "Define and apply custom post statuses."
+msgstr "กำหนดและใช้สถานะโพสต์ที่กำหนดเอง."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:56
+msgid "Define custom privacy policies for content."
+msgstr "กำหนดนโยบายความเป็นส่วนตัวที่กำหนดเองสำหรับเนื้อหา."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:57
+msgid "Moderate any item regardless of authorship."
+msgstr "ตรวจสอบรายการใด ๆ โดยไม่คำนึงถึงผู้เขียน."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:59
+msgid "Media & Misc"
+msgstr "สื่อ & อื่นๆ"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:60
+msgid "Edit attachments uploaded by the current user."
+msgstr "แก้ไขไฟล์แนบที่อัปโหลดโดยผู้ใช้ปัจจุบัน."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:61
+msgid "List unattached files uploaded by other users."
+msgstr "แสดงรายการไฟล์ที่ไม่ได้แนบซึ่งอัปโหลดโดยผู้ใช้อื่น."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:62
+msgid "List all media library files."
+msgstr "แสดงรายการไฟล์ทั้งหมดในห้องสมุดสื่อ."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:63
+msgid "Exempt user from edit-circle restrictions."
+msgstr "ยกเว้นผู้ใช้จากข้อจำกัดในการแก้ไขวงกลม."
+
+#: includes/plugin-capabilities/publishpress-permissions.php:64
+msgid "Exempt user from read-circle restrictions."
+msgstr "ยกเว้นผู้ใช้จากข้อจำกัดในการอ่านวงกลม."
+
+#: includes/pp-ui.php:62
+#, php-format
+msgid "see %1$sRole Usage%2$s: \"Pattern Roles\""
+msgstr "ดู %1$sการใช้งานบทบาท%2$s: \"บทบาทแบบแพทเทิร์น\""
+
+#: includes/pp-ui.php:64
+#, php-format
+msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
+msgstr "เปิดใช้งาน %1$sการตั้งค่าขั้นสูง%2$s, ดูการใช้งานบทบาท"
+
+#: includes/pp-ui.php:69
+#, php-format
+msgid ""
+"\"Posts\" capabilities selected here also define type-specific role "
+"assignment for Permission Groups%s."
+msgstr ""
+"\"Posts\" "
+"ความสามารถที่เลือกที่นี่ยังนิยามการมอบหมายบทบาทเฉพาะประเภทสำหรับกลุ่มอนุญาต%"
+"s."
+
+#: includes/pp-ui.php:71
+#, php-format
+msgid ""
+"\"Posts\" capabilities selected here also define type-specific role "
+"assignment for Permit Groups%s."
+msgstr ""
+"\"Posts\" "
+"ความสามารถที่เลือกที่นี่ยังนิยามการมอบหมายบทบาทเฉพาะประเภทสำหรับกลุ่มอนุญาต%"
+"s."
+
+#: includes/pp-ui.php:79
+#, php-format
+msgid ""
+"Capabilities for custom statuses can be manually added here. (See "
+"%sPermissions > Post Statuses%s for applicable names). %sSupplemental "
+"status-specific roles%s are usually more convenient, though."
+msgstr ""
+"ความสามารถสำหรับสถานะที่กำหนดเองสามารถเพิ่มได้ด้วยตนเองที่นี่ (ดู "
+"%sPermissions > Post Statuses%s สำหรับชื่อที่ใช้ได้). "
+"%sบทบาทเฉพาะสถานะเสริม%s มักจะสะดวกกว่า."
+
+#: includes/pp-ui.php:81
+msgid ""
+"Capabilities for custom statuses can be manually added here. Or activate "
+"the PP Custom Post Statuses extension to assign status-specific "
+"supplemental roles."
+msgstr ""
+"ความสามารถสำหรับสถานะที่กำหนดเองสามารถเพิ่มได้ด้วยตนเองที่นี่ "
+"หรือเปิดใช้งานส่วนขยาย PP Custom Post Statuses "
+"เพื่อมอบหมายบทบาทเสริมเฉพาะสถานะ."
+
+#: includes/pp-ui.php:84
+msgid ""
+"Capabilities for custom statuses can be manually added to a role here (see "
+"Conditions > Status > Capability Mapping for applicable names). However, it "
+"is usually more convenient to use Permit Groups to assign a supplemental "
+"status-specific role."
+msgstr ""
+"ความสามารถสำหรับสถานะที่กำหนดเองสามารถเพิ่มได้ด้วยตนเองในบทบาทที่นี่ (ดู "
+"Conditions > Status > Capability Mapping สำหรับชื่อที่ใช้ได้). อย่างไรก็ตาม "
+"มักจะสะดวกกว่าที่จะใช้กลุ่มอนุญาตเพื่อมอบหมายบทบาทเสริมเฉพาะสถานะ."
+
+#: includes/pp-ui.php:108
+msgid "Unique Post Type Capabilities"
+msgstr "ความสามารถเฉพาะประเภทโพสต์"
+
+#: includes/pp-ui.php:120
+#. translators: %1$s and %2$s are link tags for 'Find out more.'
+#, php-format
+msgid ""
+"Allow post type permissions to be controlled separately from other areas of "
+"WordPress. %1$sFind out more.%2$s"
+msgstr ""
+"อนุญาตให้การอนุญาตประเภทโพสต์ถูกควบคุมแยกต่างหากจากพื้นที่อื่น ๆ ของ "
+"WordPress. %1$sเรียนรู้เพิ่มเติม.%2$s"
+
+#: includes/pp-ui.php:191
+msgid "Use the \"Create\" capability for selected post types"
+msgstr "ใช้ความสามารถ \"สร้าง\" สำหรับประเภทโพสต์ที่เลือก"
+
+#: includes/pp-ui.php:192
+msgid ""
+"This will cause a new capability to be required for creating posts, and "
+"enable a checkbox column here for role assignments. Normally, post creation "
+"is controlled by the \"Edit\" capability."
+msgstr ""
+"สิ่งนี้จะทำให้ความสามารถใหม่จำเป็นสำหรับการสร้างโพสต์ "
+"และเปิดใช้งานคอลัมน์ช่องทำเครื่องหมายที่นี่สำหรับการมอบหมายบทบาท "
+"โดยปกติการสร้างโพสต์จะถูกควบคุมโดยความสามารถ \"แก้ไข\"."
+
+#: includes/pp-ui.php:200
+#: includes/pp-ui.php:286
+#: includes/pp-ui.php:365
+msgid "Update"
+msgstr "อัปเดต"
+
+#: includes/pp-ui.php:221
+msgid "Unique Taxonomy Capabilities"
+msgstr "ความสามารถเฉพาะหมวดหมู่"
+
+#: includes/pp-ui.php:230
+msgid ""
+"Allow taxonomy permissions to be controlled separately from other areas of "
+"WordPress."
+msgstr ""
+"อนุญาตให้การอนุญาต taxonomy ถูกควบคุมแยกต่างหากจากพื้นที่อื่น ๆ ของ "
+"WordPress."
+
+#: includes/pp-ui.php:301
+msgid "Detailed Taxonomy Capabilities"
+msgstr "ความสามารถในการจำแนกประเภทอย่างละเอียด"
+
+#: includes/pp-ui.php:311
+msgid ""
+"Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
+"\"Manage\" capability."
+msgstr ""
+"อนุญาตให้ความสามารถ \"แก้ไข\", \"ลบ\" และ \"มอบหมาย\" "
+"แยกต่างหากจากความสามารถ \"จัดการ\"."
+
+#: includes/redirects/redirects.php:35
+#: includes/redirects/redirects.php:54
+msgid "Login Redirect"
+msgstr "การเปลี่ยนเส้นทางเข้าสู่ระบบ"
+
+#: includes/redirects/redirects.php:39
+#: includes/redirects/redirects.php:63
+msgid "Logout Redirect"
+msgstr "การเปลี่ยนเส้นทางออกจากระบบ"
+
+#: includes/redirects/redirects.php:43
+#: includes/redirects/redirects.php:72
+msgid "Registration Redirect"
+msgstr "การเปลี่ยนเส้นทางการลงทะเบียน"
+
+#: includes/redirects/redirects.php:47
+#: includes/redirects/redirects.php:81
+msgid "First Login Redirect"
+msgstr "การเปลี่ยนเส้นทางเข้าสู่ระบบครั้งแรก"
+
+#: includes/redirects/redirects.php:55
+msgid "Enter the URL users in this role should be redirected to after login."
+msgstr "กรุณาใส่ URL ที่ผู้ใช้ในบทบาทนี้ควรเปลี่ยนเส้นทางไปหลังจากเข้าสู่ระบบ."
+
+#: includes/redirects/redirects.php:64
+msgid "Enter the URL users in this role should be redirected to after logout."
+msgstr "กรุณาใส่ URL ที่ผู้ใช้ในบทบาทนี้ควรเปลี่ยนเส้นทางไปหลังจากออกจากระบบ."
+
+#: includes/redirects/redirects.php:73
+msgid "Enter the URL users in this role should be redirected to after registration."
+msgstr "กรุณาใส่ URL ที่ผู้ใช้ในบทบาทนี้ควรเปลี่ยนเส้นทางไปหลังจากการลงทะเบียน."
+
+#: includes/redirects/redirects.php:82
+msgid ""
+"Enter the URL users in this role should be redirected to after their first "
+"login."
+msgstr ""
+"กรอก URL "
+"ที่ผู้ใช้ในบทบาทนี้ควรเปลี่ยนเส้นทางไปหลังจากการเข้าสู่ระบบครั้งแรก."
+
+#: includes/redirects/redirects.php:94
+#, php-format
+msgid "%s Redirects"
+msgstr "%s การเปลี่ยนเส้นทาง"
+
+#: includes/redirects/redirects.php:112
+#: includes/redirects/redirects.php:316
+#: includes/roles/class/class-pp-roles-admin.php:512
+msgid "Save Changes"
+msgstr "บันทึกการเปลี่ยนแปลง"
+
+#: includes/redirects/redirects.php:215
+msgid "Redirect users to the URL they were viewing before login."
+msgstr "เปลี่ยนเส้นทางผู้ใช้ไปยัง URL ที่พวกเขากำลังดูอยู่ก่อนเข้าสู่ระบบ."
+
+#: includes/redirects/redirects.php:227
+msgid "Redirect users to a specified URL."
+msgstr "เปลี่ยนเส้นทางผู้ใช้ไปยัง URL ที่กำหนด."
+
+#: includes/redirects/redirects.php:243
+msgid "Enter the relative path only without domain for login redirect."
+msgstr ""
+"กรุณาใส่เส้นทางสัมพัทธ์เท่านั้นโดยไม่รวมโดเมนสำหรับการเปลี่ยนเส้นทางเข้าสู่ร"
+"ะบบ."
+
+#: includes/redirects/redirects.php:244
+msgid "You must enter the Login Redirect URL."
+msgstr "คุณต้องใส่ URL สำหรับการเปลี่ยนเส้นทางเข้าสู่ระบบ."
+
+#: includes/redirects/redirects.php:276
+msgid "Enter the relative path only without domain for logout redirect."
+msgstr ""
+"กรุณาใส่เส้นทางสัมพัทธ์เท่านั้นโดยไม่รวมโดเมนสำหรับการเปลี่ยนเส้นทางออกจากระ"
+"บบ."
+
+#: includes/redirects/redirects.php:334
+msgid ""
+"Redirect Features allows you to redirect users in a role after "
+"Registration, Login or Logout."
+msgstr ""
+"ฟีเจอร์การเปลี่ยนเส้นทางช่วยให้คุณเปลี่ยนเส้นทางผู้ใช้ในบทบาทหลังจากการลงทะเ"
+"บียน, การเข้าสู่ระบบ หรือการออกจากระบบ."
+
+#: includes/redirects/redirects.php:337
+msgid "How to use Redirect Features"
+msgstr "วิธีการใช้คุณสมบัติการเปลี่ยนเส้นทาง"
+
+#: includes/roles/class/class-pp-roles-actions.php:148
+msgid "You do not have sufficient permissions to perform this action."
+msgstr "คุณไม่มีสิทธิ์เพียงพอในการดำเนินการนี้."
+
+#: includes/roles/class/class-pp-roles-actions.php:162
+#: includes/roles/class/class-pp-roles-actions.php:180
+#: includes/roles/class/class-pp-roles-actions.php:374
+#: includes/roles/class/class-pp-roles-actions.php:490
+#: includes/test-user.php:53
+msgid "Your link has expired, refresh the page and try again."
+msgstr "ลิงก์ของคุณหมดอายุแล้ว กรุณารีเฟรชหน้าและลองใหม่อีกครั้ง."
+
+#: includes/roles/class/class-pp-roles-actions.php:184
+#: includes/roles/class/class-pp-roles-actions.php:378
+#: includes/roles/class/class-pp-roles-actions.php:514
+#: includes/roles/class/class-pp-roles-actions.php:641
+#: includes/roles/class/class-pp-roles-actions.php:702
+msgid "Missing parameters, refresh the page and try again."
+msgstr "ขาดพารามิเตอร์ กรุณารีเฟรชหน้าและลองใหม่อีกครั้ง."
+
+#: includes/roles/class/class-pp-roles-actions.php:211
+#, php-format
+msgid "Invalid role name entry: %s"
+msgstr "ชื่อบทบาทไม่ถูกต้อง: %s"
+
+#: includes/roles/class/class-pp-roles-actions.php:223
+#, php-format
+msgid "The role \"%s\" already exists. Please choose a different name."
+msgstr "บทบาท \"%s\" มีอยู่แล้ว กรุณาเลือกชื่อที่แตกต่างออกไป."
+
+#: includes/roles/class/class-pp-roles-actions.php:250
+msgid ""
+"Something went wrong, the system wasn't able to create the role, refresh "
+"the page and try again."
+msgstr "มีบางอย่างผิดพลาด ระบบไม่สามารถสร้างบทบาทได้ โปรดรีเฟรชหน้าและลองอีกครั้ง."
+
+#: includes/roles/class/class-pp-roles-actions.php:340
+#, php-format
+msgid "The new role %s was created successfully."
+msgstr "บทบาทใหม่ %s ถูกสร้างขึ้นสำเร็จ."
+
+#: includes/roles/class/class-pp-roles-actions.php:448
+#, php-format
+msgid "%s role updated successfully."
+msgstr "%s บทบาทอัปเดตสำเร็จ."
+
+#: includes/roles/class/class-pp-roles-actions.php:522
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "ไม่สามารถลบบทบาทเริ่มต้นได้ คุณ <a href=\"%s\">ต้องเปลี่ยนมันก่อน</a>."
+
+#: includes/roles/class/class-pp-roles-actions.php:541
+msgid "Deleting a system role is not allowed."
+msgstr "ไม่อนุญาตให้ลบบทบาทระบบ."
+
+#: includes/roles/class/class-pp-roles-actions.php:565
+#, php-format
+msgid "%1$d users moved to default role %2$s."
+msgstr "%1$d ผู้ใช้ถูกย้ายไปยังบทบาทเริ่มต้น %2$s."
+
+#: includes/roles/class/class-pp-roles-actions.php:570
+#, php-format
+msgid "The role %1$s was successfully deleted. %2$s"
+msgstr "บทบาท %1$s ถูกลบออกสำเร็จ. %2$s"
+
+#: includes/roles/class/class-pp-roles-actions.php:576
+#, php-format
+msgid "The selected %1$s roles were successfully deleted. %2$s"
+msgstr "บทบาท %1$s ที่เลือกถูกลบออกสำเร็จ. %2$s"
+
+#: includes/roles/class/class-pp-roles-actions.php:598
+msgid "The role could not be deleted."
+msgstr "ไม่สามารถลบบทบาทได้."
+
+#: includes/roles/class/class-pp-roles-actions.php:652
+#, php-format
+msgid "The role %1$s was successfully hidden."
+msgstr "บทบาท %1$s ถูกซ่อนไว้สำเร็จ."
+
+#: includes/roles/class/class-pp-roles-actions.php:712
+#, php-format
+msgid "The role %1$s was successfully unhidden."
+msgstr "บทบาท %1$s ถูกเปิดเผยสำเร็จ."
+
+#: includes/roles/class/class-pp-roles-admin.php:117
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/roles/class/class-pp-roles-admin.php:158, fuzzy
+msgid "Gutenberg editor"
+msgstr "Gutenberg editor"
+
+#: includes/roles/class/class-pp-roles-admin.php:160, fuzzy
+msgid "Classic editor"
+msgstr "Classic editor"
+
+#: includes/roles/class/class-pp-roles-admin.php:182, fuzzy
+msgid "Role Slug"
+msgstr "Role Slug"
+
+#: includes/roles/class/class-pp-roles-admin.php:183
+msgid ""
+"The \"slug\" is the URL-friendly version of the role. It is usually all "
+"lowercase and contains only letters, numbers and underscores."
+msgstr ""
+" \"slug\" คือเวอร์ชันที่เป็นมิตรกับ URL ของบทบาท "
+"มักจะใช้ตัวพิมพ์เล็กทั้งหมดและประกอบด้วยตัวอักษร, ตัวเลข และขีดล่างเท่านั้น."
+
+#: includes/roles/class/class-pp-roles-admin.php:194
+msgid "Block Login"
+msgstr "บล็อกการเข้าสู่ระบบ"
+
+#: includes/roles/class/class-pp-roles-admin.php:195
+msgid "Block users in this role from logging into the site."
+msgstr "บล็อกผู้ใช้ในบทบาทนี้ไม่ให้เข้าสู่ไซต์"
+
+#: includes/roles/class/class-pp-roles-admin.php:204
+msgid "Block Dashboard Access"
+msgstr "บล็อกการเข้าถึงแดชบอร์ด"
+
+#: includes/roles/class/class-pp-roles-admin.php:205
+msgid "Block users in this role from accessing admin area."
+msgstr "บล็อกผู้ใช้ในบทบาทนี้ไม่ให้เข้าถึงพื้นที่ผู้ดูแลระบบ"
+
+#: includes/roles/class/class-pp-roles-admin.php:216
+msgid "Role Level"
+msgstr "ระดับบทบาท"
+
+#: includes/roles/class/class-pp-roles-admin.php:217
+msgid ""
+"Each user role has a level from 0 to 10. The Subscriber role defaults to "
+"the lowest level (0). The Administrator role defaults to level 10."
+msgstr ""
+"แต่ละบทบาทผู้ใช้มีระดับจาก 0 ถึง 10 โดยบทบาท Subscriber จะมีระดับต่ำสุด (0) "
+"และบทบาท Administrator จะมีระดับ 10."
+
+#: includes/roles/class/class-pp-roles-admin.php:239
+msgid "Delete role"
+msgstr "ลบบทบาท"
+
+#: includes/roles/class/class-pp-roles-admin.php:240
+msgid ""
+"Deleting this role will completely remove it from database and is "
+"irrecoverable."
+msgstr "การลบบทบาทนี้จะลบออกจากฐานข้อมูลโดยสมบูรณ์และไม่สามารถกู้คืนได้."
+
+#: includes/roles/class/class-pp-roles-admin.php:249
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Disable Code Editor"
+msgstr "ปิดใช้งานตัวแก้ไขโค้ด"
+
+#: includes/roles/class/class-pp-roles-admin.php:250
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
+msgstr "ปิดใช้งานตัวเลือก \"ตัวแก้ไขโค้ด\" สำหรับตัวแก้ไขบล็อก Gutenberg"
+
+#: includes/roles/class/class-pp-roles-admin.php:261
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Control Allowed Editors"
+msgstr "ควบคุมตัวแก้ไขที่อนุญาต"
+
+#: includes/roles/class/class-pp-roles-admin.php:262
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Select the allowed editor options for users in this role."
+msgstr "เลือกตัวเลือกตัวแก้ไขที่อนุญาตสำหรับผู้ใช้ในบทบาทนี้"
+
+#: includes/roles/class/class-pp-roles-admin.php:275
+msgid "Disable WooCommerce admin restrictions"
+msgstr "ปิดใช้งานข้อจำกัดของผู้ดูแลระบบ WooCommerce"
+
+#: includes/roles/class/class-pp-roles-admin.php:276
+#, php-format
+msgid ""
+"By default, WooCommerce prevents most users from accessing the WordPress "
+"admin area. When enabled, this setting will remove those restrictions for "
+"this role. %1s Click here for more details. %2s"
+msgstr ""
+"โดยค่าเริ่มต้น WooCommerce "
+"จะป้องกันไม่ให้ผู้ใช้ส่วนใหญ่เข้าถึงพื้นที่ผู้ดูแลระบบของ WordPress "
+"เมื่อเปิดใช้งาน การตั้งค่านี้จะลบข้อจำกัดเหล่านั้นสำหรับบทบาทนี้. %1s "
+"คลิกที่นี่เพื่อดูรายละเอียดเพิ่มเติม. %2s"
+
+#: includes/roles/class/class-pp-roles-admin.php:335
+msgid "Slug already exists"
+msgstr "Slug มีอยู่แล้ว"
+
+#: includes/roles/class/class-pp-roles-admin.php:361
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Select allowed editor"
+msgstr "เลือกตัวแก้ไขที่อนุญาต"
+
+#: includes/roles/class/class-pp-roles-admin.php:362
+#. Translators: "Editor" means post editor like Gutenberg
+msgid ""
+"You must select at least one editor for the role when managing allowed "
+"editor."
+msgstr "คุณต้องเลือกผู้แก้ไขอย่างน้อยหนึ่งคนสำหรับบทบาทเมื่อจัดการผู้แก้ไขที่อนุญาต."
+
+#: includes/roles/class/class-pp-roles-admin.php:391
+#, php-format
+msgid "Select %s"
+msgstr "เลือก %s"
+
+#: includes/roles/class/class-pp-roles-admin.php:414
+msgid "Read more on Role Level."
+msgstr "อ่านเพิ่มเติมเกี่ยวกับระดับบทบาท"
+
+#: includes/roles/class/class-pp-roles-admin.php:427
+#: includes/roles/roles-functions.php:33
+msgid "Are you sure you want to delete this role?"
+msgstr "คุณแน่ใจหรือว่าต้องการลบบทบาทนี้?"
+
+#: includes/roles/class/class-pp-roles-admin.php:506
+#, php-format
+msgid ""
+"%s role copied. Please click the \"Create Role\" button to create this new "
+"role."
+msgstr ""
+"%s ถูกคัดลอกบทบาทเรียบร้อยแล้ว โปรดคลิกปุ่ม \"สร้างบทบาท\" "
+"เพื่อสร้างบทบาทใหม่นี้."
+
+#: includes/roles/class/class-pp-roles-admin.php:539
+#, php-format
+msgid "Edit Role: %s"
+msgstr "แก้ไขบทบาท: %s"
+
+#: includes/roles/class/class-pp-roles-admin.php:541
+msgid "Copy Role"
+msgstr "คัดลอบบทบาท"
+
+#: includes/roles/class/class-pp-roles-admin.php:543
+msgid "Create New Role"
+msgstr "สร้างบทบาทใหม่"
+
+#: includes/roles/class/class-pp-roles-admin.php:547
+msgid "All Roles"
+msgstr "บทบาททั้งหมด"
+
+#: includes/roles/class/class-pp-roles-admin.php:652
+#, php-format
+msgid "These can be edited on the %1s Capabilities screen %2s"
+msgstr "สามารถแก้ไขได้ที่หน้าความสามารถ %1s %2s"
+
+#: includes/roles/class/class-pp-roles-admin.php:680
+msgid "Load More"
+msgstr "โหลดเพิ่มเติม"
+
+#: includes/roles/class/class-pp-roles-admin.php:683
+msgid "Load Less"
+msgstr "โหลดน้อยลง"
+
+#: includes/roles/class/class-pp-roles-list-table.php:86
+#, php-format
+msgid "All %s"
+msgid_plural "All %s"
+msgstr[0] "ทั้งหมด %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:87
+#, php-format
+msgid "Mine %s"
+msgid_plural "Mine %s"
+msgstr[0] "ของฉัน %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:88
+#, php-format
+msgid "Has Users %s"
+msgid_plural "Has Users %s"
+msgstr[0] "มีผู้ใช้ %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:89
+#, php-format
+msgid "No Users %s"
+msgid_plural "No Users %s"
+msgstr[0] "ไม่มีผู้ใช้ %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:90
+#, php-format
+msgid "Editable %s"
+msgid_plural "Editable %s"
+msgstr[0] "แก้ไขได้ %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:91
+#, php-format
+msgid "Uneditable %s"
+msgid_plural "Uneditable %s"
+msgstr[0] "ไม่สามารถแก้ไขได้ %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:92
+#, php-format
+msgid "System %s"
+msgid_plural "System %s"
+msgstr[0] "ระบบ %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:238
+msgid "Copy"
+msgstr "คัดลอก"
+
+#: includes/roles/class/class-pp-roles-list-table.php:243
+msgid "(non-editable role)"
+msgstr "(บทบาทที่ไม่สามารถแก้ไขได้)"
+
+#: includes/roles/class/class-pp-roles-list-table.php:261
+msgid "Unhide"
+msgstr "แสดง"
+
+#: includes/roles/class/class-pp-roles-list-table.php:349
+msgid "Your Role"
+msgstr "บทบาทของคุณ"
+
+#: includes/roles/class/class-pp-roles-list-table.php:401, fuzzy
+msgid "WordPress Core"
+msgstr "WordPress Core"
+
+#: includes/roles/class/class-pp-roles-list-table.php:695
+msgid "Search Roles"
+msgstr "ค้นหาบทบาท"
+
+#: includes/settings-ui.php:56
+msgid "Multiples roles on \"Add New User\" screen"
+msgstr "บทบาทหลายรายการบนหน้าจอ \"เพิ่มผู้ใช้ใหม่\""
+
+#: includes/settings-ui.php:61
+msgid "This allows you to assign a new user to multiples roles."
+msgstr "สิ่งนี้อนุญาตให้คุณมอบหมายผู้ใช้ใหม่ให้กับบทบาทหลายรายการ."
+
+#: includes/settings-ui.php:72
+msgid "Multiples roles on \"User Edit\" screen"
+msgstr "บทบาทหลายรายการบนหน้าจอ \"แก้ไขผู้ใช้\""
+
+#: includes/settings-ui.php:77
+msgid "This allows you to assign an existing user to multiple roles."
+msgstr "สิ่งนี้อนุญาตให้คุณมอบหมายผู้ใช้ที่มีอยู่ให้กับบทบาทหลายรายการ."
+
+#: includes/settings-ui.php:88
+msgid "Set login redirect cookie"
+msgstr "ตั้งค่าคุกกี้การเปลี่ยนเส้นทางการเข้าสู่ระบบ"
+
+#: includes/settings-ui.php:93
+msgid ""
+"Use cookie to determine pages users were viewing before login. This is "
+"useful when login redirect is not working correctly due to wp_get_referer() "
+"limitation."
+msgstr ""
+"ใช้คุกกี้เพื่อตรวจสอบหน้าที่ผู้ใช้กำลังดูอยู่ก่อนเข้าสู่ระบบ "
+"นี่มีประโยชน์เมื่อการเปลี่ยนเส้นทางหลังเข้าสู่ระบบไม่ทำงานอย่างถูกต้องเนื่อง"
+"จากข้อจำกัดของ wp_get_referer()"
+
+#: includes/settings-ui.php:109
+#: includes/settings-ui.php:149
+msgid "Show private post types"
+msgstr "แสดงประเภทโพสต์ส่วนตัว"
+
+#: includes/settings-ui.php:114
+msgid ""
+"This will show all post types on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr ""
+"สิ่งนี้จะแสดงประเภทโพสต์ทั้งหมดบนหน้าจอ \"ความสามารถ\" "
+"แม้กระทั่งประเภทที่ปกติจะซ่อนอยู่ในพื้นที่ผู้ดูแลระบบ WordPress."
+
+#: includes/settings-ui.php:125
+msgid "Show private taxonomies"
+msgstr "แสดงภาษีส่วนตัว"
+
+#: includes/settings-ui.php:130
+msgid ""
+"This will show all taxonomies on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr ""
+"สิ่งนี้จะแสดง taxonomies ทั้งหมดบนหน้าจอ \"ความสามารถ\" "
+"แม้กระทั่งประเภทที่ปกติจะซ่อนอยู่ในพื้นที่ผู้ดูแลระบบ WordPress."
+
+#: includes/settings-ui.php:154
+msgid ""
+"Show all post types on the \"Editor Features\" screen, even ones normally "
+"hidden in the WordPress admin area."
+msgstr ""
+"แสดงประเภทโพสต์ทั้งหมดบนหน้าจอ \"คุณสมบัติของผู้แก้ไข\" "
+"แม้กระทั่งประเภทที่ปกติจะซ่อนอยู่ในพื้นที่ผู้ดูแลระบบ WordPress."
+
+#: includes/settings-ui.php:165
+msgid "Enable Classic Editor tab"
+msgstr "เปิดใช้งานแท็บ Classic Editor"
+
+#: includes/settings-ui.php:170
+msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
+msgstr "แสดงแท็บ Classic Editor เสมอในหน้าจอ \"คุณสมบัติของผู้แก้ไข\"."
+
+#: includes/settings-ui.php:186
+msgid "Admin Bar modification"
+msgstr "การปรับแต่งแถบผู้ดูแลระบบ"
+
+#: includes/settings-ui.php:191
+msgid "When testing, display a caption and return link in the Admin Bar."
+msgstr "เมื่อทดสอบ ให้แสดงคำบรรยายและลิงก์กลับในแถบผู้ดูแลระบบ."
+
+#: includes/settings-ui.php:202
+msgid "Admin Bar search"
+msgstr "การค้นหาในแถบผู้ดูแลระบบ"
+
+#: includes/settings-ui.php:207
+msgid "Add option to search and user testing in the Admin Bar."
+msgstr "เพิ่มตัวเลือกในการค้นหาและทดสอบผู้ใช้ในแถบผู้ดูแลระบบ."
+
+#: includes/settings-ui.php:218
+msgid "Front End footer notice"
+msgstr "ข้อความแจ้งเตือนส่วนท้ายด้านหน้า"
+
+#: includes/settings-ui.php:223
+msgid "When testing, display a return link in the front end footer."
+msgstr "เมื่อทดสอบ ให้แสดงลิงก์กลับในส่วนท้ายด้านหน้า."
+
+#: includes/settings-ui.php:234
+msgid "Exclude role from User Testing"
+msgstr "ไม่รวมบทบาทจากการทดสอบผู้ใช้"
+
+#: includes/settings-ui.php:241
+msgid "Select roles..."
+msgstr "เลือกบทบาท..."
+
+#: includes/settings-ui.php:255
+msgid "Exclude users in selected roles from User Testing."
+msgstr "ไม่รวมผู้ใช้ในบทบาทที่เลือกจากการทดสอบผู้ใช้。"
+
+#: includes/settings-ui.php:272
+msgid "Automatically refresh profile elements"
+msgstr "รีเฟรชองค์ประกอบโปรไฟล์โดยอัตโนมัติ"
+
+#: includes/settings-ui.php:277
+msgid ""
+"Always try to automatically find profile elements. This may cause temporary "
+"issues when updating user roles that do not have access to the WordPress "
+"admin area."
+msgstr ""
+"พยายามค้นหาองค์ประกอบโปรไฟล์โดยอัตโนมัติเสมอ "
+"สิ่งนี้อาจทำให้เกิดปัญชั่วคราวเมื่ออัปเดตบทบาทผู้ใช้ที่ไม่มีสิทธิ์เข้าถึงพื้"
+"นที่ผู้ดูแลระบบ WordPress."
+
+#: includes/settings.php:13
+msgid "Capabilities Settings"
+msgstr "การตั้งค่าความสามารถ"
+
+#: includes/test-user-ui.php:52
+msgid "Search user..."
+msgstr "ค้นหาผู้ใช้..."
+
+#: includes/test-user-ui.php:53
+msgid "Search"
+msgstr "ค้นหา"
+
+#: includes/test-user-ui.php:70
+msgid "No results found."
+msgstr "ไม่พบผลลัพธ์。"
+
+#: includes/test-user-ui.php:79
+msgid "Permission denied."
+msgstr "การอนุญาตถูกปฏิเสธ。"
+
+#: includes/test-user-ui.php:180
+#: includes/test-user-ui.php:204
+msgid "Test user"
+msgstr "ผู้ใช้ทดสอบ"
+
+#: includes/test-user-ui.php:210
+msgid "Test this user"
+msgstr "ทดสอบผู้ใช้นี้"
+
+#: includes/test-user-ui.php:255
+msgid "Testing: "
+msgstr "การทดสอบ: "
+
+#: includes/test-user-ui.php:269
+#, php-format
+msgid "%1$sReturn to Administrator view%2$s"
+msgstr "%1$sกลับไปยังมุมมองผู้ดูแลระบบ%2$s"
+
+#: includes/test-user-ui.php:316
+#, php-format
+msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
+msgstr "ทดสอบในฐานะผู้ใช้: %1$s. %2$sกลับไปยังมุมมองผู้ดูแลระบบ%3$s"
+
+#: includes/test-user.php:62
+msgid "Unable to retrieve user data."
+msgstr "ไม่สามารถดึงข้อมูลผู้ใช้ได้。"
+
+#: common/js/admin.dev.js:890
+msgid "Updating Settings..."
+msgstr "กำลังอัปเดตการตั้งค่า..."
+
+#: common/js/admin.dev.js:926
+msgid "Updating access..."
+msgstr "กำลังอัปเดตการเข้าถึง..."
+
+#: common/js/admin.dev.js:945
+#: common/js/admin.dev.js:950
+msgid "Error updating access."
+msgstr "เกิดข้อผิดพลาดในการอัปเดตการเข้าถึง。"

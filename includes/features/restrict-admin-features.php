@@ -99,8 +99,82 @@ class PP_Capabilities_Admin_Features
         $title['new-content']      = esc_html__('New', 'capability-manager-enhanced');
         $title['user-info']        = esc_html__('User Display Name', 'capability-manager-enhanced');
         $title['wpseo-menu']       = esc_html__('Yoast SEO', 'capability-manager-enhanced');
+        $title['edit']             = esc_html__('Edit Post', 'capability-manager-enhanced');
+        $title['site-editor']      = esc_html__('Edit Site', 'capability-manager-enhanced');
 
         return isset($title[$id]) ? $title[$id] : $id;
+    }
+
+    /**
+     * Add fallback toolbar entries for dynamic frontend links.
+     *
+     * @return void
+     */
+    private static function addDynamicToolbarFallbacks()
+    {
+        global $toolbar_items;
+
+        if (!is_array($toolbar_items)) {
+            $toolbar_items = [];
+        }
+
+        $fallback_items = [
+            'edit' => [
+                'label'    => self::elementToolbarTitleFallback('edit'),
+                'parent'   => '',
+                'step'     => 1,
+                'position' => 0,
+                'action'   => 'ppc_adminbar'
+            ],
+            'site-editor' => [
+                'label'    => self::elementToolbarTitleFallback('site-editor'),
+                'parent'   => '',
+                'step'     => 1,
+                'position' => 0,
+                'action'   => 'ppc_adminbar'
+            ],
+        ];
+
+        // Keep existing runtime entries untouched; only inject missing dynamic items.
+        foreach ($fallback_items as $id => $item) {
+            if (!isset($toolbar_items[$id])) {
+                $fallback_items[$id]['position'] = !empty($toolbar_items['new-content']['position'])
+                    ? ((int)$toolbar_items['new-content']['position'] + 1)
+                    : 999999998;
+                $fallback_items[$id]['step'] = !empty($toolbar_items['new-content']['step'])
+                    ? (int)$toolbar_items['new-content']['step']
+                    : 1;
+            } else {
+                unset($fallback_items[$id]);
+            }
+        }
+
+        if (empty($fallback_items)) {
+            return;
+        }
+
+        // Insert right after + New when available, otherwise append.
+        $ordered_items = [];
+        $inserted = false;
+
+        foreach ($toolbar_items as $id => $item) {
+            $ordered_items[$id] = $item;
+
+            if ('new-content' === $id) {
+                foreach ($fallback_items as $fallback_id => $fallback_item) {
+                    $ordered_items[$fallback_id] = $fallback_item;
+                }
+                $inserted = true;
+            }
+        }
+
+        if (!$inserted) {
+            foreach ($fallback_items as $fallback_id => $fallback_item) {
+                $ordered_items[$fallback_id] = $fallback_item;
+            }
+        }
+
+        $toolbar_items = $ordered_items;
     }
 
     /**
@@ -207,6 +281,7 @@ class PP_Capabilities_Admin_Features
         $toolbarTree = self::formatAdminToolbarTree($toolbars);
         //set toolbar element with steps
         self::setAdminToolbarElement($toolbarTree);
+        self::addDynamicToolbarFallbacks();
 
         return $toolbar_items;
     }

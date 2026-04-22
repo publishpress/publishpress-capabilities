@@ -235,6 +235,11 @@ if (!function_exists('pp_capabilities_backup_sections')) {
         $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles_roles";
         $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_custom_admin_styles";
 
+        //Admin Notices
+        $backup_sections[$cms_id . '_admin_notices_backup']['label'] = esc_html__('Admin Notices', 'capability-manager-enhanced');
+        $backup_sections[$cms_id . '_admin_notices_backup']['options'][] = "cme_admin_notice_options";
+        $backup_sections[$cms_id . '_admin_notices_backup']['options'][] = "cme_admin_notice_data";
+
         //Frontend Features
         $backup_sections[$cms_id . '_frontend_features_backup']['label'] = esc_html__('Frontend Features', 'capability-manager-enhanced');
         $backup_sections[$cms_id . '_frontend_features_backup']['options'][] = "capsman_disabled_frontend_features";
@@ -341,7 +346,6 @@ if (!function_exists('pp_capabilities_settings_options')) {
             'cme_test_user_excluded_roles',
             'cme_profile_features_auto_redirect',
             'cme_role_same_page_redirect_cookie',
-            'cme_admin_notice_options',
         ];
 
         return apply_filters('pp_capabilities_settings_options', $settings_options);
@@ -363,6 +367,7 @@ if (!function_exists('cme_publishpress_capabilities_capabilities')) {
                 'manage_capabilities_editor_features',
                 'manage_capabilities_admin_features',
                 'manage_capabilities_admin_styles',
+                'manage_capabilities_admin_notices',
                 'manage_capabilities_admin_menus',
                 'manage_capabilities_frontend_features',
                 'manage_capabilities_profile_features',
@@ -514,6 +519,13 @@ if (!function_exists('pp_capabilities_sub_menu_lists')) {
             'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminStyles'],
             'dashboard_control' => true,
         ];
+        $sub_menu_pages['admin-notices'] = [
+            'title' => __('Admin Notices', 'capability-manager-enhanced'),
+            'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_notices',
+            'page' => 'pp-capabilities-admin-notices',
+            'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminNotices'],
+            'dashboard_control' => true,
+        ];
         if ($cme_fakefunc) {
             $sub_menu_pages['admin-menus'] = [
                 'title' => __('Admin Menus', 'capability-manager-enhanced'),
@@ -611,5 +623,110 @@ if (!function_exists('pp_capabilities_convert_to_slug')) {
         $title = trim($title, $separator);
 
         return $title;
+    }
+}
+
+if (!function_exists('pp_capabilities_group_capability_list')) {
+    /**
+     * Flatten grouped capability definitions to a unique capability list.
+     *
+     * @param array $groups
+     *
+     * @return array
+     */
+    function pp_capabilities_group_capability_list($groups)
+    {
+        if (!is_array($groups)) {
+            return [];
+        }
+
+        $caps = [];
+
+        foreach ($groups as $group_caps) {
+            if (empty($group_caps) || !is_array($group_caps)) {
+                continue;
+            }
+
+            foreach ($group_caps as $group_cap_key => $group_cap_value) {
+                if (is_string($group_cap_key) && ('' !== $group_cap_key) && !is_numeric($group_cap_key)) {
+                    $cap_name = sanitize_text_field($group_cap_key);
+                } else {
+                    $cap_name = sanitize_text_field((string) $group_cap_value);
+                }
+
+                if ('' !== $cap_name) {
+                    $caps[$cap_name] = true;
+                }
+            }
+        }
+
+        return array_keys($caps);
+    }
+}
+
+if (!function_exists('pp_capabilities_groups_with_descriptions')) {
+    /**
+     * Normalize grouped capabilities and merge optional description fallbacks.
+     *
+     * @param array $groups
+     * @param array $cap_descriptions
+     *
+     * @return array
+     */
+    function pp_capabilities_groups_with_descriptions($groups, $cap_descriptions = [])
+    {
+        if (!is_array($groups)) {
+            return [];
+        }
+
+        if (!is_array($cap_descriptions)) {
+            $cap_descriptions = [];
+        }
+
+        $normalized_groups = [];
+
+        foreach ($groups as $group_label => $group_caps) {
+            if (empty($group_caps) || !is_array($group_caps)) {
+                continue;
+            }
+
+            $group_label = sanitize_text_field((string) $group_label);
+            if ('' === $group_label) {
+                continue;
+            }
+
+            foreach ($group_caps as $group_cap_key => $group_cap_value) {
+                $cap_name = '';
+                $cap_description = '';
+
+                if (is_string($group_cap_key) && ('' !== $group_cap_key) && !is_numeric($group_cap_key)) {
+                    $cap_name = sanitize_text_field($group_cap_key);
+
+                    if (is_string($group_cap_value)) {
+                        $cap_description = $group_cap_value;
+                    } elseif (is_array($group_cap_value) && !empty($group_cap_value['description']) && is_string($group_cap_value['description'])) {
+                        $cap_description = $group_cap_value['description'];
+                    }
+                } else {
+                    $cap_name = sanitize_text_field((string) $group_cap_value);
+                }
+
+                if ('' === $cap_name) {
+                    continue;
+                }
+
+                if ('' === trim($cap_description) && !empty($cap_descriptions[$cap_name]) && is_string($cap_descriptions[$cap_name])) {
+                    $cap_description = $cap_descriptions[$cap_name];
+                }
+
+                if ('' !== trim($cap_description)) {
+                    $normalized_groups[$group_label][$cap_name] = $cap_description;
+                } else {
+                    $normalized_groups[$group_label][] = $cap_name;
+                }
+            }
+        }
+
+        return $normalized_groups;
     }
 }

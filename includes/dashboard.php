@@ -29,7 +29,7 @@
                     <?php foreach (pp_capabilities_dashboard_options() as $feature => $option) : ?>
                         <?php
                             $feature_capability = 'manage_capabilities';
-                            if (!in_array($feature, ['capabilities', 'admin-notices'])) {
+                            if (!in_array($feature, ['capabilities'])) {
                                 $feature_capability .= '_' . str_replace('-', '_', $feature);
                             }
                             $promo_feature = !empty($option['promo']);
