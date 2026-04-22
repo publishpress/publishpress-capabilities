@@ -64,6 +64,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                     value="<?php esc_attr_e('Save Changes');?>"
                                                     class="button-primary ppc-admin-features-submit" />
                                             </div>
+                                            <div class="clear"></div>
 
                                             <select name="ppc-admin-features-role" class="ppc-admin-features-role">
                                                 <?php

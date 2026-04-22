@@ -64,6 +64,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                     value="<?php echo esc_attr(sprintf(esc_html__('Save for %s', 'capability-manager-enhanced'), esc_html($selected_role_name))); ?>"
                                     class="button-primary" style="float:right" />
                             </div>
+                            <div class="clear"></div>
 
                             <div id="pp-capability-menu-wrapper" class="postbox" style="border: none;">
                                 <div class="pp-capability-menus">
@@ -155,6 +156,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                         value="<?php echo esc_attr(sprintf(esc_html__('Save for %s', 'capability-manager-enhanced'), esc_html($selected_role_name))); ?>"
                                         class="button-primary" style="float:right" />
                                 </div>
+                                <div class="clear"></div>
                             </div>
 
                         </td>

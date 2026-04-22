@@ -118,6 +118,7 @@ $fields = [
                                                 class="button-secondary ppc-redirects-features-submit" />
 
                                             </div>
+                                            <div class="clear"></div>
 
                                             <select name="ppc-redirects-features-role" class="ppc-redirects-features-role">
                                                 <?php

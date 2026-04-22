@@ -63,6 +63,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                     value="<?php esc_attr_e('Save Changes');?>"
                                                     class="button-primary ppc-profile-features-submit" />
                                             </div>
+                                            <div class="clear"></div>
 
                                             <select name="ppc-profile-features-role" class="ppc-profile-features-role">
                                                 <?php

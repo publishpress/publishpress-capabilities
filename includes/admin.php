@@ -144,6 +144,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						</div>
 					</div>
                 </div>
+                <div class="clear"></div>
 
                 <select name="role">
                     <?php

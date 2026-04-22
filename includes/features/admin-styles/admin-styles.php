@@ -250,6 +250,8 @@ class PP_Capabilities_Admin_Styles
     public function apply_admin_styles_for_settings($settings)
     {
         $css = '';
+        $global_typography_selectors = $this->get_global_typography_selectors();
+        $global_selector_string = implode(",\n                ", $global_typography_selectors);
 
         // Custom admin logo
         if (!empty($settings['admin_logo'])) {
@@ -305,55 +307,15 @@ class PP_Capabilities_Admin_Styles
         if (!empty($settings['admin_font_family'])) {
             $font_family = $settings['admin_font_family'];
 
-            $css .= '
-                body.wp-admin,
-                body.wp-admin #wpwrap,
-                body.wp-admin .wrap,
-                body.wp-admin input,
-                body.wp-admin select,
-                body.wp-admin textarea,
-                body.wp-admin button,
-                body.wp-admin .button,
-                body.wp-admin .button-primary,
-                body.wp-admin .button-secondary,
-                body.wp-admin .notice,
-                body.wp-admin .wp-list-table,
-                body.wp-admin .wp-list-table th,
-                body.wp-admin .wp-list-table td,
-                body.wp-admin #adminmenu a,
-                body.wp-admin #adminmenu .wp-submenu a,
-                body.wp-admin #wpadminbar .ab-item,
-                body.wp-admin #wpadminbar .ab-label {
-                    font-family: ' . $font_family . ' !important;
-                }
-            ';
+            $css .= "\n                " . $global_selector_string . " {\n                    font-family: " . $font_family . " !important;\n                }\n            ";
         }
 
         if (!empty($settings['admin_font_size'])) {
-            $font_size = $settings['admin_font_size'] . $this->sanitize_font_size_unit($settings['admin_font_size_unit'] ?? 'px');
+            $font_size = $this->format_admin_font_size_value($settings['admin_font_size'] ?? '');
 
-            $css .= '
-                body.wp-admin,
-                body.wp-admin #wpwrap,
-                body.wp-admin .wrap,
-                body.wp-admin input,
-                body.wp-admin select,
-                body.wp-admin textarea,
-                body.wp-admin button,
-                body.wp-admin .button,
-                body.wp-admin .button-primary,
-                body.wp-admin .button-secondary,
-                body.wp-admin .notice,
-                body.wp-admin .wp-list-table,
-                body.wp-admin .wp-list-table th,
-                body.wp-admin .wp-list-table td,
-                body.wp-admin #adminmenu a,
-                body.wp-admin #adminmenu .wp-submenu a,
-                body.wp-admin #wpadminbar .ab-item,
-                body.wp-admin #wpadminbar .ab-label {
-                    font-size: ' . $font_size . ' !important;
-                }
-            ';
+            if (!empty($font_size)) {
+                $css .= "\n                " . $global_selector_string . " {\n                    font-size: " . $font_size . " !important;\n                }\n            ";
+            }
         }
 
         if (!empty($settings['admin_typography']) && is_array($settings['admin_typography'])) {
@@ -372,8 +334,11 @@ class PP_Capabilities_Admin_Styles
                 }
 
                 if (!empty($target_settings['font_size'])) {
-                    $target_font_size = $target_settings['font_size'] . $this->sanitize_font_size_unit($target_settings['font_size_unit'] ?? 'px');
-                    $css .= "\n                " . $selector_string . " {\n                    font-size: " . $target_font_size . " !important;\n                }\n            ";
+                    $target_font_size = $this->format_admin_font_size_value($target_settings['font_size'] ?? '');
+
+                    if (!empty($target_font_size)) {
+                        $css .= "\n                " . $selector_string . " {\n                    font-size: " . $target_font_size . " !important;\n                }\n            ";
+                    }
                 }
             }
         }
@@ -1384,7 +1349,7 @@ class PP_Capabilities_Admin_Styles
                     break;
 
                 case 'admin_font_size':
-                    $sanitized[$key] = $this->sanitize_font_size($value);
+                    $sanitized[$key] = $this->sanitize_admin_font_size_choice($value);
                     break;
 
                 case 'admin_font_size_unit':
@@ -1487,6 +1452,60 @@ class PP_Capabilities_Admin_Styles
     }
 
     /**
+     * Allowed CSS keyword values for admin font size.
+     */
+    private function get_admin_font_size_keywords()
+    {
+        return ['xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'];
+    }
+
+    /**
+     * Sanitize admin font size setting (CSS keyword or numeric).
+     */
+    private function sanitize_admin_font_size_choice($font_size)
+    {
+        if (!is_scalar($font_size)) {
+            return '';
+        }
+
+        $font_size = trim((string) $font_size);
+
+        if ($font_size === '') {
+            return '';
+        }
+
+        if (in_array($font_size, $this->get_admin_font_size_keywords(), true)) {
+            return $font_size;
+        }
+
+        return $this->sanitize_font_size($font_size);
+    }
+
+    /**
+     * Compile admin font size as CSS value.
+     */
+    private function format_admin_font_size_value($font_size, $unit = 'px')
+    {
+        $font_size = $this->sanitize_admin_font_size_choice($font_size);
+
+        if ($font_size === '') {
+            return '';
+        }
+
+        if (in_array($font_size, $this->get_admin_font_size_keywords(), true)) {
+            return $font_size;
+        }
+
+        $unit = $this->sanitize_font_size_unit($unit);
+
+        if (in_array($unit, ['rem', 'em'], true)) {
+            return $font_size . $unit;
+        }
+
+        return $font_size . 'px';
+    }
+
+    /**
      * Sanitize font size unit.
      */
     private function sanitize_font_size_unit($unit)
@@ -1518,8 +1537,8 @@ class PP_Capabilities_Admin_Styles
 
             $sanitized[$target] = [
                 'font_family' => $this->sanitize_font_family($target_input['font_family'] ?? ''),
-                'font_size' => $this->sanitize_font_size($target_input['font_size'] ?? ''),
-                'font_size_unit' => $this->sanitize_font_size_unit($target_input['font_size_unit'] ?? 'px'),
+                'font_size' => $this->sanitize_admin_font_size_choice($target_input['font_size'] ?? ''),
+                'font_size_unit' => 'px',
             ];
         }
 
@@ -1571,6 +1590,36 @@ class PP_Capabilities_Admin_Styles
                 'body.wp-admin .button-secondary',
             ],
         ];
+    }
+
+    /**
+     * Global typography selectors for admin-wide font family / size rules.
+     * Includes baseline admin wrappers plus all Typography Overrides selectors.
+     */
+    private function get_global_typography_selectors()
+    {
+        $base_selectors = [
+            'body.wp-admin',
+            'body.wp-admin #wpwrap',
+            'body.wp-admin .wrap',
+            'body.wp-admin .notice',
+            'body.wp-admin .wp-list-table',
+        ];
+
+        $typography_selectors = $this->get_typography_target_selectors();
+        $flattened_typography_selectors = [];
+
+        foreach ($typography_selectors as $selectors) {
+            if (!is_array($selectors)) {
+                continue;
+            }
+
+            foreach ($selectors as $selector) {
+                $flattened_typography_selectors[] = $selector;
+            }
+        }
+
+        return array_values(array_unique(array_merge($base_selectors, $flattened_typography_selectors)));
     }
 
     /**
