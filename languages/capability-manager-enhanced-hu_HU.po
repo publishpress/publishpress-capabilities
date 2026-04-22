@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-04-20 22:20+0000\n"
+"PO-Revision-Date: 2026-04-22 08:33+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -71,11 +71,11 @@ msgstr ""
 
 #: includes-core/admin-features-promo.php:79
 #: includes-core/admin-menus-promo.php:62
-#: includes-core/CoreAdmin.php:54
+#: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
 #: includes/admin-load.php:814
-#: includes/features/admin-styles/admin-styles-ui.php:324
+#: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Frissítés Pro verzióra"
 
@@ -102,22 +102,22 @@ msgstr ""
 "A PublishPress Capabilities Free verzióját használja. A Pro verzió több "
 "funkciót és támogatást kínál. %sFrissítés Pro-ra%s"
 
-#: includes-core/CoreAdmin.php:90
-#: includes-core/CoreAdmin.php:153
+#: includes-core/CoreAdmin.php:92
+#: includes-core/CoreAdmin.php:155
 #: includes/functions-admin.php:531
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "Admin Menük"
 
-#: includes-core/CoreAdmin.php:133
+#: includes-core/CoreAdmin.php:135
 msgid "Hide CSS Elements"
 msgstr "CSS Elek Elrejtése"
 
-#: includes-core/CoreAdmin.php:134
+#: includes-core/CoreAdmin.php:136
 msgid "Block by URL"
 msgstr "Blokkolás URL alapján"
 
-#: includes-core/CoreAdmin.php:154
+#: includes-core/CoreAdmin.php:156
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -125,11 +125,11 @@ msgstr ""
 "Az Admin Menük lehetővé teszik az admin menü linkjeinek szerkesztését és a "
 "hozzáférés szabályozását."
 
-#: includes-core/CoreAdmin.php:164
+#: includes-core/CoreAdmin.php:166
 msgid "Select pages..."
 msgstr "Oldalak kiválasztása..."
 
-#: includes-core/CoreAdmin.php:169
+#: includes-core/CoreAdmin.php:171
 msgid "You can select page types where this element will be added."
 msgstr "Kiválaszthatja azokat az oldaltípusokat, ahol ez az elem hozzáadódik."
 
@@ -321,37 +321,37 @@ msgid "Admin Notices"
 msgstr "Admin értesítések"
 
 #: includes/admin-notices/admin-notices-settings.php:60
-#: includes/admin-notices/admin-notices-settings.php:151
-#: includes/features/admin-styles/admin-styles-ui.php:152
-#: includes/features/admin-styles/admin-styles-ui.php:758
+#: includes/admin-notices/admin-notices-settings.php:152
+#: includes/features/admin-styles/admin-styles-ui.php:180
+#: includes/features/admin-styles/admin-styles-ui.php:815
 #: includes/redirects/redirects.php:117
-#: includes/redirects/redirects.php:320
+#: includes/redirects/redirects.php:321
 msgid "Save for all Roles"
 msgstr "Mentés minden szerepkör számára"
 
 #: includes/admin-notices/admin-notices-settings.php:64
-#: includes/admin-notices/admin-notices-settings.php:155
-#: includes/features/admin-styles/admin-styles-ui.php:156
-#: includes/features/admin-styles/admin-styles-ui.php:762
-#: includes/features/admin-styles/admin-styles.php:891
+#: includes/admin-notices/admin-notices-settings.php:156
+#: includes/features/admin-styles/admin-styles-ui.php:184
+#: includes/features/admin-styles/admin-styles-ui.php:819
+#: includes/features/admin-styles/admin-styles.php:856
 #, php-format
 msgid "Save for %s"
 msgstr "Mentés %s számára"
 
-#: includes/admin-notices/admin-notices-settings.php:77
+#: includes/admin-notices/admin-notices-settings.php:78
 msgid "Notification center access"
 msgstr "Értesítési központ hozzáférés"
 
-#: includes/admin-notices/admin-notices-settings.php:88
+#: includes/admin-notices/admin-notices-settings.php:89
 #, php-format
 msgid "Enable %1$s access to the Admin Notices area."
 msgstr "Engedélyezze %1$s hozzáférését az Admin értesítések területéhez."
 
-#: includes/admin-notices/admin-notices-settings.php:95
+#: includes/admin-notices/admin-notices-settings.php:96
 msgid "Notifications to remove from WordPress admin pages"
 msgstr "Értesítések eltávolítása a WordPress admin oldalakról"
 
-#: includes/admin-notices/admin-notices-settings.php:112
+#: includes/admin-notices/admin-notices-settings.php:113
 #, php-format
 msgid ""
 "Select the notification types that should be hidden when a user in the %1$s "
@@ -360,16 +360,16 @@ msgstr ""
 "Válassza ki azokat az értesítéstípusokat, amelyeket el kell rejteni, amikor "
 "a %1$s szerepű felhasználó a WordPress admin képernyőit nézi."
 
-#: includes/admin-notices/admin-notices-settings.php:112
-#: includes/admin-notices/admin-notices-settings.php:135
+#: includes/admin-notices/admin-notices-settings.php:113
+#: includes/admin-notices/admin-notices-settings.php:136
 msgid "Click here for more on notice types."
 msgstr "Kattints ide az értesítési típusokkal kapcsolatos további információkért."
 
-#: includes/admin-notices/admin-notices-settings.php:118
+#: includes/admin-notices/admin-notices-settings.php:119
 msgid "Notifications to display in the Admin Notices area."
 msgstr "Értesítések megjelenítése az Admin Értesítések területen."
 
-#: includes/admin-notices/admin-notices-settings.php:135
+#: includes/admin-notices/admin-notices-settings.php:136
 msgid ""
 "Select the notification types that should be displayed in the Admin Notices "
 "area after been removed from the WordPress admin screens."
@@ -378,7 +378,7 @@ msgstr ""
 "területén kell megjeleníteni, miután eltávolították a WordPress admin "
 "képernyőiből."
 
-#: includes/admin-notices/admin-notices-settings.php:168
+#: includes/admin-notices/admin-notices-settings.php:170
 msgid ""
 "Admin Notices allows you to clean up the WordPress admin area by organizing "
 "extra messages and advertisements into one place."
@@ -387,38 +387,38 @@ msgstr ""
 "megtisztítását az extra üzenetek és hirdetések egy helyre történő "
 "rendezésével."
 
-#: includes/admin-notices/admin-notices-settings.php:170
-#: includes/features/admin-styles/admin-styles-ui.php:777
+#: includes/admin-notices/admin-notices-settings.php:172
+#: includes/features/admin-styles/admin-styles-ui.php:835
 msgid "Features include:"
 msgstr "A funkciók közé tartozik:"
 
-#: includes/admin-notices/admin-notices-settings.php:172
+#: includes/admin-notices/admin-notices-settings.php:174
 msgid "Move selected notice types out of admin pages"
 msgstr "Kiválasztott értesítési típusok eltávolítása az admin lapokról"
 
-#: includes/admin-notices/admin-notices-settings.php:173
+#: includes/admin-notices/admin-notices-settings.php:175
 msgid "Show selected notices in a dedicated Admin Notices panel"
 msgstr ""
 "Kiválasztott értesítések megjelenítése egy dedikált Admin Értesítések "
 "panelen"
 
-#: includes/admin-notices/admin-notices-settings.php:174
+#: includes/admin-notices/admin-notices-settings.php:176
 msgid "Configure notice visibility by user role"
 msgstr "Értesítések láthatóságának konfigurálása felhasználói szerepkör alapján"
 
-#: includes/admin-notices/admin-notices-settings.php:176
-#: includes/admin.php:2014
-#: includes/features/admin-features.php:351
-#: includes/features/admin-styles/admin-styles-ui.php:784
-#: includes/features/editor-features.php:245
-#: includes/features/frontend-features/frontend-features.php:254
+#: includes/admin-notices/admin-notices-settings.php:178
+#: includes/admin.php:2015
+#: includes/features/admin-features.php:352
+#: includes/features/admin-styles/admin-styles-ui.php:842
+#: includes/features/editor-features.php:247
+#: includes/features/frontend-features/frontend-features.php:256
 #: includes/features/nav-menus.php:308
-#: includes/features/profile-features.php:256
-#: includes/redirects/redirects.php:335
+#: includes/features/profile-features.php:257
+#: includes/redirects/redirects.php:336
 msgid "View Documentation"
 msgstr "Dokumentáció megtekintése"
 
-#: includes/admin-notices/admin-notices-settings.php:177
+#: includes/admin-notices/admin-notices-settings.php:179
 msgid "How to use Admin Notices"
 msgstr "Hogyan használd az Admin Értesítéseket"
 
@@ -511,68 +511,68 @@ msgstr "Szerepkör jogosultságok"
 msgid "Search capabilities..."
 msgstr "Jogosultságok keresése..."
 
-#: includes/admin.php:207
-#: includes/admin.php:846
+#: includes/admin.php:208
+#: includes/admin.php:847
 msgid "Nav Menus (Block)"
 msgstr "Nav Menük (Blokk)"
 
-#: includes/admin.php:209
+#: includes/admin.php:210
 msgid "Block"
 msgstr "Blokk"
 
-#: includes/admin.php:216
-#: includes/admin.php:848
+#: includes/admin.php:217
+#: includes/admin.php:849
 msgid "Nav Menus (Legacy)"
 msgstr "Nav Menük (Örökölt)"
 
-#: includes/admin.php:218
+#: includes/admin.php:219
 msgid "Legacy"
 msgstr "Örökölt"
 
-#: includes/admin.php:270, fuzzy
+#: includes/admin.php:271, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:271
+#: includes/admin.php:272
 msgid "Visibility"
 msgstr "Láthatóság"
 
-#: includes/admin.php:272
+#: includes/admin.php:273
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Szerkesztés"
 
-#: includes/admin.php:273
+#: includes/admin.php:274
 msgid "Deletion"
 msgstr "Törlés"
 
-#: includes/admin.php:274
+#: includes/admin.php:275
 msgid "Taxonomies"
 msgstr "Taxonomies"
 
-#: includes/admin.php:278
+#: includes/admin.php:279
 msgid "Listing"
 msgstr "Lista"
 
-#: includes/admin.php:282
+#: includes/admin.php:283
 msgid "Create Revision"
 msgstr "Revízió létrehozása"
 
-#: includes/admin.php:286
+#: includes/admin.php:287
 msgid "Submit Revision"
 msgstr "Revízió benyújtása"
 
-#: includes/admin.php:290
+#: includes/admin.php:291
 msgid "Approve Revision"
 msgstr "Revízió jóváhagyása"
 
-#: includes/admin.php:294
+#: includes/admin.php:295
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 "Olvashatja azokat a bejegyzéseket, amelyek jelenleg privát láthatósággal "
 "vannak közzétéve."
 
-#: includes/admin.php:295
+#: includes/admin.php:296
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -580,23 +580,23 @@ msgstr ""
 "Alapvető szerkesztési képességgel rendelkezik (de szüksége lehet más "
 "képességekre a bejegyzés státusza és tulajdonjoga alapján)."
 
-#: includes/admin.php:296
+#: includes/admin.php:297
 msgid "Can edit posts which were created by other users."
 msgstr "Szerkesztheti más felhasználók által létrehozott bejegyzéseket."
 
-#: includes/admin.php:297
+#: includes/admin.php:298
 msgid "Can edit posts which are currently published."
 msgstr "Szerkesztheti a jelenleg közzétett bejegyzéseket."
 
-#: includes/admin.php:298
+#: includes/admin.php:299
 msgid "Can edit posts which are currently published with private visibility."
 msgstr "Szerkesztheti a jelenleg privát láthatósággal közzétett bejegyzéseket."
 
-#: includes/admin.php:299
+#: includes/admin.php:300
 msgid "Can make a post publicly visible."
 msgstr "Nyilvánosan láthatóvá teheti a bejegyzést."
 
-#: includes/admin.php:300
+#: includes/admin.php:301
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -604,102 +604,102 @@ msgstr ""
 "Alapvető törlési képességgel rendelkezik (de szüksége lehet más "
 "képességekre a bejegyzés státusza és tulajdonjoga alapján)."
 
-#: includes/admin.php:301
+#: includes/admin.php:302
 msgid "Can delete posts which were created by other users."
 msgstr "Törölheti a más felhasználók által létrehozott bejegyzéseket."
 
-#: includes/admin.php:302
+#: includes/admin.php:303
 msgid "Can delete posts which are currently published."
 msgstr "Törölheti a jelenleg közzétett bejegyzéseket."
 
-#: includes/admin.php:303
+#: includes/admin.php:304
 msgid "Can delete posts which are currently published with private visibility."
 msgstr "Törölheti a jelenleg privát láthatósággal közzétett bejegyzéseket."
 
-#: includes/admin.php:598
-#: includes/admin.php:1113
-#: includes/admin.php:2103, fuzzy
+#: includes/admin.php:599
+#: includes/admin.php:1114
+#: includes/admin.php:2104, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:602
-#: includes/admin.php:1117
+#: includes/admin.php:603
+#: includes/admin.php:1118
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:682
-#: includes/admin.php:1596
+#: includes/admin.php:683
+#: includes/admin.php:1597
 msgid "Invalid Capabilities"
 msgstr "Érvénytelen képességek"
 
-#: includes/admin.php:687
+#: includes/admin.php:688
 msgid "Additional"
 msgstr "További"
 
-#: includes/admin.php:721
+#: includes/admin.php:722
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Képességek %s időszakra"
 
-#: includes/admin.php:724
+#: includes/admin.php:725
 #, php-format
 msgid "%s Capabilities"
 msgstr "Képességek %s"
 
-#: includes/admin.php:725
+#: includes/admin.php:726
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Bejegyzés %s képességei"
 
-#: includes/admin.php:728
+#: includes/admin.php:729
 msgid "Taxonomy"
 msgstr "Taxonómia"
 
-#: includes/admin.php:734
+#: includes/admin.php:735
 msgid "Filter by taxonomy"
 msgstr "Szűrés taxonómia szerint"
 
-#: includes/admin.php:734
+#: includes/admin.php:735
 msgid "Filter by post type"
 msgstr "Szűrés post type szerint"
 
-#: includes/admin.php:855
+#: includes/admin.php:856
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "A slug erre a taxonómiára: %s"
 
-#: includes/admin.php:857
+#: includes/admin.php:858
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "A slug erre a post type-ra: %s"
 
-#: includes/admin.php:933
-#: includes/admin.php:1182
-#: includes/admin.php:1514
-#: includes/admin.php:1877
+#: includes/admin.php:934
+#: includes/admin.php:1183
+#: includes/admin.php:1515
 #: includes/admin.php:1878
+#: includes/admin.php:1879
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: hozzárendelve a Jogosultsági Csoport által"
 
-#: includes/admin.php:936
-#: includes/admin.php:1184
-#: includes/admin.php:1516
-#: includes/admin.php:1644
-#: includes/admin.php:1880
+#: includes/admin.php:937
+#: includes/admin.php:1185
+#: includes/admin.php:1517
+#: includes/admin.php:1645
+#: includes/admin.php:1881
 #, php-format
 msgid "This capability is %s"
 msgstr "Ez a jogosultság: %s"
 
-#: includes/admin.php:966
+#: includes/admin.php:967
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Ez a jogosultság %s által van vezérelve"
 
-#: includes/admin.php:969
+#: includes/admin.php:970
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -708,16 +708,16 @@ msgstr ""
 "Ezt a képességet %s vezérli. Használja az oldalsáv beállításait, hogy ezt "
 "függetlenül lehessen vezérelni."
 
-#: includes/admin.php:986
+#: includes/admin.php:987
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "Használja az oldalsáv beállításait, hogy ezt függetlenül lehessen vezérelni."
 
-#: includes/admin.php:988
-#: includes/admin.php:992
+#: includes/admin.php:989
+#: includes/admin.php:993
 msgid "This capability is not available for this post type."
 msgstr "Ez a jogosultság nem elérhető erre a post type-ra."
 
-#: includes/admin.php:1056
+#: includes/admin.php:1057
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -729,67 +729,67 @@ msgstr ""
 "megfelelő \"Edit\" képesség hiányzik. Az \"List\" képességek hozzáférést "
 "adhatnak, de nem tagadhatják meg azt."
 
-#: includes/admin.php:1133
-#: includes/admin.php:1252
-#: includes/admin.php:1441
-#: includes/admin.php:1712
+#: includes/admin.php:1134
+#: includes/admin.php:1253
+#: includes/admin.php:1442
+#: includes/admin.php:1713
 msgid "Filter by capability"
 msgstr "Szűrés jogosultság szerint"
 
-#: includes/admin.php:1136
-#: includes/admin.php:1255
-#: includes/admin.php:1444
-#: includes/admin.php:1715
+#: includes/admin.php:1137
+#: includes/admin.php:1256
+#: includes/admin.php:1445
+#: includes/admin.php:1716
 msgid "No results found. Please try again with a different word."
 msgstr "Nincs találat. Kérjük, próbálja meg egy másik szóval."
 
-#: includes/admin.php:1147
-#: includes/admin.php:1229
-#: includes/admin.php:1266
-#: includes/admin.php:1275
-#: includes/admin.php:1455
-#: includes/admin.php:1578
-#: includes/admin.php:1721
-#: includes/admin.php:1952
+#: includes/admin.php:1148
+#: includes/admin.php:1230
+#: includes/admin.php:1267
+#: includes/admin.php:1276
+#: includes/admin.php:1456
+#: includes/admin.php:1579
+#: includes/admin.php:1722
+#: includes/admin.php:1953
 msgid "check / uncheck all"
 msgstr "minden jelölése / törlése"
 
-#: includes/admin.php:1147
-#: includes/admin.php:1229
-#: includes/admin.php:1266
-#: includes/admin.php:1275
-#: includes/admin.php:1455
-#: includes/admin.php:1578
-#: includes/admin.php:1721
-#: includes/admin.php:1952
+#: includes/admin.php:1148
+#: includes/admin.php:1230
+#: includes/admin.php:1267
+#: includes/admin.php:1276
+#: includes/admin.php:1456
+#: includes/admin.php:1579
+#: includes/admin.php:1722
+#: includes/admin.php:1953
 msgid "Capability Name"
 msgstr "Jogosultság neve"
 
-#: includes/admin.php:1249
+#: includes/admin.php:1250
 msgid "WordPress Core Capabilities"
 msgstr "WordPress Core Jogosultságok"
 
-#: includes/admin.php:1421
-#: includes/admin.php:1478
-#: includes/admin.php:1800
-#: includes/features/admin-styles/admin-styles.php:1694
+#: includes/admin.php:1422
+#: includes/admin.php:1479
+#: includes/admin.php:1801
+#: includes/features/admin-styles/admin-styles.php:1743
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Általános"
 
-#: includes/admin.php:1438
+#: includes/admin.php:1439
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Bővítmény Jogosultságok &ndash; %s"
 
-#: includes/admin.php:1520
+#: includes/admin.php:1521
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "A Felhasználói Tesztelés funkcióhoz szükséges a %1$s edit_users %2$s "
 "jogosultság is."
 
-#: includes/admin.php:1601
+#: includes/admin.php:1602
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -797,67 +797,67 @@ msgstr ""
 "A következő bejegyzéseknek nincs hatása. Kérjük, rendeljen kívánt "
 "képességeket a Szerkesztés / Törlés / Privát fülekhez."
 
-#: includes/admin.php:1709
+#: includes/admin.php:1710
 msgid "Additional Capabilities"
 msgstr "További Jogosultságok"
 
-#: includes/admin.php:1945
+#: includes/admin.php:1946
 msgid "You have no additional capabilities."
 msgstr "Nincsenek további jogosultságai."
 
-#: includes/admin.php:1969
+#: includes/admin.php:1970
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "A jogosultságok lehetővé teszik, hogy megváltoztassa a jogosultságokat "
 "bármely felhasználói szerep számára."
 
-#: includes/admin.php:1970
+#: includes/admin.php:1971
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Jogosultság megadva %2$s"
 
-#: includes/admin.php:1970
 #: includes/admin.php:1971
 #: includes/admin.php:1972
-#: includes/features/admin-features.php:346
-#: includes/features/admin-features.php:348
-#: includes/features/editor-features.php:240
+#: includes/admin.php:1973
+#: includes/features/admin-features.php:347
+#: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
-#: includes/features/frontend-features/frontend-features.php:249
+#: includes/features/editor-features.php:244
 #: includes/features/frontend-features/frontend-features.php:251
+#: includes/features/frontend-features/frontend-features.php:253
 #: includes/features/nav-menus.php:303
 #: includes/features/nav-menus.php:305
-#: includes/features/profile-features.php:251
-#: includes/features/profile-features.php:253
+#: includes/features/profile-features.php:252
+#: includes/features/profile-features.php:254
 msgid "usage key"
 msgstr "felhasználási kulcs"
 
-#: includes/admin.php:1971
+#: includes/admin.php:1972
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Jogosultság nem megadva %2$s"
 
-#: includes/admin.php:1972
+#: includes/admin.php:1973
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr ""
 "%1$s = Jogosultság megtagadva, még akkor is, ha egy másik szerep adta meg "
 "%2$s"
 
-#: includes/admin.php:1980
+#: includes/admin.php:1981
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Ezt a szerepet %sJogosultsági Csoport%s formában is konfigurálhatja."
 
-#: includes/admin.php:2000
+#: includes/admin.php:2001
 msgid "How to use Capabilities"
 msgstr "Hogyan használjuk a Jogosultságokat"
 
-#: includes/admin.php:2038
+#: includes/admin.php:2039
 msgid "Capabilities is Safe to Use"
 msgstr "A Jogosultságok biztonságosak a használatra"
 
-#: includes/admin.php:2051
+#: includes/admin.php:2052
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -865,7 +865,7 @@ msgstr ""
 "A WordPress a szerepképességeket az adatbázisában tárolja, ahol azok "
 "megmaradnak, még akkor is, ha a bővítmény le van tiltva."
 
-#: includes/admin.php:2052
+#: includes/admin.php:2053
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -874,27 +874,27 @@ msgstr ""
 "egy biztonsági másolatot is készít, amelyet a korábbi konfiguráció "
 "visszaállítására használhatsz."
 
-#: includes/admin.php:2055
+#: includes/admin.php:2056
 msgid "Go to the Backup feature"
 msgstr "Menjen a Biztonsági másolat funkcióhoz"
 
-#: includes/admin.php:2074
+#: includes/admin.php:2075
 msgid "Add a New Capability"
 msgstr "Új Jogosultság hozzáadása"
 
-#: includes/admin.php:2084
+#: includes/admin.php:2085
 msgid "Add to role"
 msgstr "Hozzáadás a szerephez"
 
-#: includes/admin.php:2087
+#: includes/admin.php:2088
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Az új jogosultságokat a További fülön lehet szabályozni."
 
-#: includes/admin.php:2143
+#: includes/admin.php:2144
 msgid "PublishPress Permissions"
 msgstr "PublishPress Jogosultságok"
 
-#: includes/admin.php:2145
+#: includes/admin.php:2146
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -902,11 +902,11 @@ msgstr ""
 "Automatikusan definiálj típus-specifikus jogosultságokat a saját post "
 "típusaidhoz és taxonómiáidhoz"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2150
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Állítson be standard WP szerepeket kiegészítőként egy adott post type-hoz"
 
-#: includes/admin.php:2153
+#: includes/admin.php:2154
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -914,15 +914,15 @@ msgstr ""
 "Adjon meg egyedi WP szerepeket kiegészítőként egy adott post típushoz "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2157, fuzzy
+#: includes/admin.php:2158, fuzzy
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Customize reading permissions per-category or per-post"
 
-#: includes/admin.php:2161, fuzzy
+#: includes/admin.php:2162, fuzzy
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 
-#: includes/admin.php:2165
+#: includes/admin.php:2166
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -930,7 +930,7 @@ msgstr ""
 "Egyedi Post Láthatósági státuszok, teljeskörűen megvalósítva a wp-admin "
 "felületen <em>(Pro)</em>"
 
-#: includes/admin.php:2169
+#: includes/admin.php:2170
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -938,11 +938,11 @@ msgstr ""
 "Egyedi Moderálási státuszok hozzáférés-vezérelt, többlépcsős kiadási "
 "munkafolyamat számára <em>(Pro)</em>"
 
-#: includes/admin.php:2173, fuzzy
+#: includes/admin.php:2174, fuzzy
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2178
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -950,7 +950,7 @@ msgstr ""
 "Személyre szabhatod a közzétett tartalom moderált szerkesztését a "
 "Revisionary vagy a Post Forking segítségével <em>(Pro)</em>"
 
-#: includes/admin.php:2181
+#: includes/admin.php:2182
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -958,39 +958,39 @@ msgstr ""
 "Adjon Spectator, Participant vagy Moderator hozzáférést a specifikus "
 "bbPress fórumokhoz <em>(Pro)</em>"
 
-#: includes/admin.php:2185, fuzzy
+#: includes/admin.php:2186, fuzzy
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 
-#: includes/admin.php:2189, fuzzy
+#: includes/admin.php:2190, fuzzy
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 
-#: includes/admin.php:2193, fuzzy
+#: includes/admin.php:2194, fuzzy
 msgid "Member support forum"
 msgstr "Member support forum"
 
-#: includes/admin.php:2200
+#: includes/admin.php:2201
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2200
+#: includes/admin.php:2201
 #, fuzzy, php-format
 msgid "%s (free install)"
 msgstr "%s (free install)"
 
-#: includes/admin.php:2202
+#: includes/admin.php:2203
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2202
+#: includes/admin.php:2203
 #, fuzzy, php-format
 msgid "%s info/purchase"
 msgstr "%s info/purchase"
 
-#: includes/admin.php:2234
+#: includes/admin.php:2235
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1000,31 +1000,31 @@ msgstr ""
 "Post Author hozzárendelés jogosultságát és korlátozza a felhasználói "
 "szerkesztési jogosultságok alkalmazását."
 
-#: includes/admin.php:2236, fuzzy
+#: includes/admin.php:2237, fuzzy
 msgid "Level:"
 msgstr "Level:"
 
-#: includes/admin.php:2279, fuzzy
+#: includes/admin.php:2280, fuzzy
 msgid "Create this role definition in new (future) sites"
 msgstr "Create this role definition in new (future) sites"
 
-#: includes/admin.php:2279, fuzzy
+#: includes/admin.php:2280, fuzzy
 msgid "Include in new sites."
 msgstr "Include in new sites."
 
-#: includes/admin.php:2282, fuzzy
+#: includes/admin.php:2283, fuzzy
 msgid "Copy / update this role definition to all sites now"
 msgstr "Copy / update this role definition to all sites now"
 
-#: includes/admin.php:2282
+#: includes/admin.php:2283
 msgid "Sync role to all sites."
 msgstr "Szinkronizálja a szerepkört az összes webhelyen."
 
-#: includes/admin.php:2285
+#: includes/admin.php:2286
 msgid "Copy option settings to all sites now"
 msgstr "Másolja az opciók beállításait az összes webhelyre most"
 
-#: includes/admin.php:2285
+#: includes/admin.php:2286
 msgid "Sync options to all sites."
 msgstr "Szinkronizálja az opciókat az összes webhelyre."
 
@@ -1234,7 +1234,7 @@ msgstr "WordPress alapértelmezett beállításainak visszaállítása"
 
 #: includes/backup.php:285
 #: includes/backup.php:332
-#: includes/features/profile-features.php:241
+#: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "Figyelmeztetés:"
 
@@ -1329,33 +1329,33 @@ msgstr ""
 msgid "Admin Feature Restrictions"
 msgstr "Admin funkciók korlátozása"
 
-#: includes/features/admin-features.php:174
+#: includes/features/admin-features.php:175
 #: includes/features/nav-menus.php:127
 #: includes/features/nav-menus.php:147
-#: includes/features/profile-features.php:106
-#: includes/features/profile-features.php:125
+#: includes/features/profile-features.php:107
+#: includes/features/profile-features.php:126
 msgid "Toggle all"
 msgstr "Összes váltás"
 
-#: includes/features/admin-features.php:249
+#: includes/features/admin-features.php:250
 msgid "Wildcard enabled"
 msgstr "Wildcard engedélyezve"
 
-#: includes/features/admin-features.php:251
+#: includes/features/admin-features.php:252
 msgid "URL targeted"
 msgstr "URL célzott"
 
-#: includes/features/admin-features.php:253, fuzzy
+#: includes/features/admin-features.php:254, fuzzy
 msgid "URL wildcard"
 msgstr "URL wildcard"
 
-#: includes/features/admin-features.php:276
+#: includes/features/admin-features.php:277
 #: includes/features/editor-features-classic.php:123
 #: includes/features/editor-features-gutenberg.php:120
 msgid "Edit"
 msgstr "Szerkesztés"
 
-#: includes/features/admin-features.php:344
+#: includes/features/admin-features.php:345
 #: includes/functions-admin.php:420
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
@@ -1364,30 +1364,30 @@ msgstr ""
 "Az Admin Funkciók lehetővé teszik, hogy elemeket távolíts el az admin "
 "területről és az eszköztárról."
 
-#: includes/features/admin-features.php:347
-#: includes/features/editor-features.php:241
-#: includes/features/frontend-features/frontend-features.php:250
+#: includes/features/admin-features.php:348
+#: includes/features/editor-features.php:243
+#: includes/features/frontend-features/frontend-features.php:252
 #: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:252
+#: includes/features/profile-features.php:253
 msgid "No change"
 msgstr "Nincs változás"
 
-#: includes/features/admin-features.php:349
-#: includes/features/editor-features.php:243
+#: includes/features/admin-features.php:350
+#: includes/features/editor-features.php:245
 #: includes/features/nav-menus.php:306
-#: includes/features/profile-features.php:254
+#: includes/features/profile-features.php:255
 msgid "This feature is denied"
 msgstr "Ez a funkció megtagadva"
 
-#: includes/features/admin-features.php:352
+#: includes/features/admin-features.php:353
 msgid "How to use Admin Features"
 msgstr "Hogyan használjuk az Admin Funkciókat"
 
-#: includes/features/admin-features.php:356
+#: includes/features/admin-features.php:357
 msgid "Admin Features Settings"
 msgstr "Admin Funkciók Beállításai"
 
-#: includes/features/admin-features.php:359
+#: includes/features/admin-features.php:360
 msgid "Hide Submenus"
 msgstr "Almenük elrejtése"
 
@@ -1395,44 +1395,44 @@ msgstr "Almenük elrejtése"
 msgid "Select a preset font family"
 msgstr "Válasszon egy előre beállított betűtípust"
 
-#: includes/features/admin-styles/admin-styles-ui.php:77
+#: includes/features/admin-styles/admin-styles-ui.php:105
 #, php-format
 msgid "Custom style \"%s\" saved successfully."
 msgstr "A \"%s\" egyedi stílus sikeresen mentve."
 
-#: includes/features/admin-styles/admin-styles-ui.php:86
+#: includes/features/admin-styles/admin-styles-ui.php:114
 #, php-format
 msgid "Custom style \"%s\" deleted successfully."
 msgstr "A \"%s\" egyedi stílus sikeresen törölve."
 
-#: includes/features/admin-styles/admin-styles-ui.php:95
+#: includes/features/admin-styles/admin-styles-ui.php:123
 msgid "Custom style name cannot be empty."
 msgstr "Az egyedi stílus neve nem lehet üres."
 
-#: includes/features/admin-styles/admin-styles-ui.php:104
+#: includes/features/admin-styles/admin-styles-ui.php:132
 msgid "Admin styles saved successfully."
 msgstr "Az Admin stílusok sikeresen mentve."
 
-#: includes/features/admin-styles/admin-styles-ui.php:112
+#: includes/features/admin-styles/admin-styles-ui.php:140
 #: includes/functions-admin.php:233
 #: includes/functions-admin.php:424
 #: includes/functions-admin.php:516
 msgid "Admin Styles"
 msgstr "Admin Stílusok"
 
-#: includes/features/admin-styles/admin-styles-ui.php:174
+#: includes/features/admin-styles/admin-styles-ui.php:203
 msgid "Setting"
 msgstr "Beállítás"
 
-#: includes/features/admin-styles/admin-styles-ui.php:177
+#: includes/features/admin-styles/admin-styles-ui.php:206
 msgid "Value"
 msgstr "Érték"
 
-#: includes/features/admin-styles/admin-styles-ui.php:186
+#: includes/features/admin-styles/admin-styles-ui.php:215
 msgid "Admin Color Scheme"
 msgstr "Admin Színskála"
 
-#: includes/features/admin-styles/admin-styles-ui.php:189
+#: includes/features/admin-styles/admin-styles-ui.php:218
 msgid ""
 "Sets the admin color scheme for all users. Click a scheme to preview it "
 "instantly."
@@ -1440,27 +1440,27 @@ msgstr ""
 "Beállítja az admin színsémát minden felhasználó számára. Kattintson egy "
 "sémára az azonnali előnézethez."
 
-#: includes/features/admin-styles/admin-styles-ui.php:193
+#: includes/features/admin-styles/admin-styles-ui.php:222
 msgid "Start from template"
 msgstr "Indítás sablonból"
 
-#: includes/features/admin-styles/admin-styles-ui.php:197
+#: includes/features/admin-styles/admin-styles-ui.php:226
 msgid "Blank Template"
 msgstr "Üres sablon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:207
+#: includes/features/admin-styles/admin-styles-ui.php:236
 msgid "Add Custom Style"
 msgstr "Egyedi stílus hozzáadása"
 
-#: includes/features/admin-styles/admin-styles-ui.php:237
+#: includes/features/admin-styles/admin-styles-ui.php:266
 msgid "Edit custom style"
 msgstr "Egyedi stílus szerkesztése"
 
-#: includes/features/admin-styles/admin-styles-ui.php:285
+#: includes/features/admin-styles/admin-styles-ui.php:314
 msgid "Edit Color Style"
 msgstr "Színstílus szerkesztése"
 
-#: includes/features/admin-styles/admin-styles-ui.php:288
+#: includes/features/admin-styles/admin-styles-ui.php:317
 msgid ""
 "Customize colors for different admin elements. Changes are previewed "
 "instantly."
@@ -1468,7 +1468,7 @@ msgstr ""
 "Testre szabhatja a különböző admin elemek színeit. A változtatások azonnal "
 "előnézetben megjelennek."
 
-#: includes/features/admin-styles/admin-styles-ui.php:319
+#: includes/features/admin-styles/admin-styles-ui.php:348
 msgid ""
 "Add more than one custom admin styles. This feature is available in "
 "PublishPress Capabilities Pro."
@@ -1476,7 +1476,7 @@ msgstr ""
 "Több egyedi admin stílust is hozzáadhat. Ez a funkció a PublishPress "
 "Capabilities Pro-ban érhető el."
 
-#: includes/features/admin-styles/admin-styles-ui.php:343
+#: includes/features/admin-styles/admin-styles-ui.php:372
 msgid ""
 "Add CSS selectors (class or ID), choose a style variation, and set a brand "
 "color."
@@ -1484,81 +1484,81 @@ msgstr ""
 "CSS szelektorokat (osztály vagy azonosító) adhat hozzá, válasszon egy "
 "stílusvariációt, és állítson be egy márkaszínt."
 
-#: includes/features/admin-styles/admin-styles-ui.php:349
+#: includes/features/admin-styles/admin-styles-ui.php:378
 msgid "Add New Element"
 msgstr "Új elem hozzáadása"
 
-#: includes/features/admin-styles/admin-styles-ui.php:355
+#: includes/features/admin-styles/admin-styles-ui.php:384
 msgid "Selector"
 msgstr "Kiválasztó"
 
-#: includes/features/admin-styles/admin-styles-ui.php:359
+#: includes/features/admin-styles/admin-styles-ui.php:388
 msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
 msgstr "pl. .publishpress-wrap h1, #my-plugin-header"
 
-#: includes/features/admin-styles/admin-styles-ui.php:362
+#: includes/features/admin-styles/admin-styles-ui.php:391
 msgid "Variation"
 msgstr "Változat"
 
-#: includes/features/admin-styles/admin-styles-ui.php:365
+#: includes/features/admin-styles/admin-styles-ui.php:394
 msgid "Background"
 msgstr "Háttér"
 
-#: includes/features/admin-styles/admin-styles-ui.php:366
+#: includes/features/admin-styles/admin-styles-ui.php:395
 msgid "Text"
 msgstr "Szöveg"
 
-#: includes/features/admin-styles/admin-styles-ui.php:367
+#: includes/features/admin-styles/admin-styles-ui.php:396
 msgid "Border"
 msgstr "Keret"
 
-#: includes/features/admin-styles/admin-styles-ui.php:371
+#: includes/features/admin-styles/admin-styles-ui.php:400
 msgid "Brand Color"
 msgstr "Márkaszín"
 
-#: includes/features/admin-styles/admin-styles-ui.php:381
-#: includes/features/admin-styles/admin-styles-ui.php:496
-#: includes/features/admin-styles/admin-styles-ui.php:532
+#: includes/features/admin-styles/admin-styles-ui.php:410
+#: includes/features/admin-styles/admin-styles-ui.php:525
+#: includes/features/admin-styles/admin-styles-ui.php:561
 msgid "Remove"
 msgstr "Eltávolítás"
 
-#: includes/features/admin-styles/admin-styles-ui.php:397
-#: includes/features/admin-styles/admin-styles.php:907
+#: includes/features/admin-styles/admin-styles-ui.php:426
+#: includes/features/admin-styles/admin-styles.php:872
 msgid "Custom Style Name"
 msgstr "Egyedi stílus név"
 
-#: includes/features/admin-styles/admin-styles-ui.php:405
+#: includes/features/admin-styles/admin-styles-ui.php:434
 msgid "e.g., Company Branding, Dark Mode"
 msgstr "pl. Cég arculat, Sötét mód"
 
-#: includes/features/admin-styles/admin-styles-ui.php:441
-#: includes/features/admin-styles/admin-styles-ui.php:451
+#: includes/features/admin-styles/admin-styles-ui.php:470
+#: includes/features/admin-styles/admin-styles-ui.php:480
 msgid "Cancel"
 msgstr "Mégse"
 
-#: includes/features/admin-styles/admin-styles-ui.php:447
-#: includes/features/admin-styles/admin-styles-ui.php:451
+#: includes/features/admin-styles/admin-styles-ui.php:476
+#: includes/features/admin-styles/admin-styles-ui.php:480
 msgid "Delete Custom Style"
 msgstr "Egyedi stílus törlése"
 
-#: includes/features/admin-styles/admin-styles-ui.php:451
+#: includes/features/admin-styles/admin-styles-ui.php:480
 #, php-format
 msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr "Biztos benne, hogy törölni akarja ezt a %1s-t? %2s %3s"
 
-#: includes/features/admin-styles/admin-styles-ui.php:451
+#: includes/features/admin-styles/admin-styles-ui.php:480
 msgid "Custom Style"
 msgstr "Egyedi stílus"
 
-#: includes/features/admin-styles/admin-styles-ui.php:457
+#: includes/features/admin-styles/admin-styles-ui.php:486
 msgid "Save Custom Style"
 msgstr "Egyedi stílus mentése"
 
-#: includes/features/admin-styles/admin-styles-ui.php:471
+#: includes/features/admin-styles/admin-styles-ui.php:500
 msgid "Custom Admin Logo"
 msgstr "Egyedi admin logó"
 
-#: includes/features/admin-styles/admin-styles-ui.php:474
+#: includes/features/admin-styles/admin-styles-ui.php:503
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
@@ -1566,17 +1566,17 @@ msgstr ""
 "Töltsön fel egy egyedi logót, hogy helyettesítse a WordPress ikont az admin "
 "sávban. Ajánlott: 20px x 20px SVG vagy PNG formátumban."
 
-#: includes/features/admin-styles/admin-styles-ui.php:491
-#: includes/features/admin-styles/admin-styles-ui.php:527
-#: includes/features/admin-styles/admin-styles.php:887
+#: includes/features/admin-styles/admin-styles-ui.php:520
+#: includes/features/admin-styles/admin-styles-ui.php:556
+#: includes/features/admin-styles/admin-styles.php:852
 msgid "Select Image"
 msgstr "Kép kiválasztása"
 
-#: includes/features/admin-styles/admin-styles-ui.php:506
+#: includes/features/admin-styles/admin-styles-ui.php:535
 msgid "Custom Favicon"
 msgstr "Egyedi favicon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:509
+#: includes/features/admin-styles/admin-styles-ui.php:538
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
@@ -1584,29 +1584,29 @@ msgstr ""
 "Töltsön fel egy egyedi favicont az admin területhez. Ajánlott: 16px x 16px "
 "vagy 32px x 32px SVG vagy PNG formátumban."
 
-#: includes/features/admin-styles/admin-styles-ui.php:541
+#: includes/features/admin-styles/admin-styles-ui.php:570
 msgid "Admin Font Family"
 msgstr "Admin betűtípus család"
 
-#: includes/features/admin-styles/admin-styles-ui.php:544
+#: includes/features/admin-styles/admin-styles-ui.php:573
 msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
 msgstr ""
 "Állítson be egy betűkészletet az admin területhez, például \"Segoe UI\", "
 "sans-serif."
 
-#: includes/features/admin-styles/admin-styles-ui.php:551
+#: includes/features/admin-styles/admin-styles-ui.php:580
 msgid "Preset Fonts"
 msgstr "Előre beállított betűtípusok"
 
-#: includes/features/admin-styles/admin-styles-ui.php:552
+#: includes/features/admin-styles/admin-styles-ui.php:581
 msgid "Custom Value"
 msgstr "Egyedi érték"
 
-#: includes/features/admin-styles/admin-styles-ui.php:578
+#: includes/features/admin-styles/admin-styles-ui.php:607
 msgid "Admin Font Size"
 msgstr "Admin betűméret"
 
-#: includes/features/admin-styles/admin-styles-ui.php:581
+#: includes/features/admin-styles/admin-styles-ui.php:610
 msgid ""
 "Set a base font size for the admin area. Leave empty to use the default "
 "WordPress size."
@@ -1614,76 +1614,91 @@ msgstr ""
 "Állítson be egy alapértelmezett betűméretet az admin területhez. Hagyja "
 "üresen az alapértelmezett WordPress méret használatához."
 
-#: includes/features/admin-styles/admin-styles-ui.php:603
+#: includes/features/admin-styles/admin-styles-ui.php:627
+#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:713
+#: includes/features/admin-styles/admin-styles-ui.php:714
+#: includes/features/admin-styles/admin-styles.php:2022
+#: includes/features/admin-styles/admin-styles.php:2104
+msgid "Default"
+msgstr "Alapértelmezett"
+
+#: includes/features/admin-styles/admin-styles-ui.php:630
+#: includes/features/admin-styles/admin-styles-ui.php:716
+msgid "Named Sizes"
+msgstr "Névleges méretek"
+
+#: includes/features/admin-styles/admin-styles-ui.php:636
+#: includes/features/admin-styles/admin-styles-ui.php:722
+msgid "Pixel Sizes"
+msgstr "Pixel méretek"
+
+#: includes/features/admin-styles/admin-styles-ui.php:649
 msgid "Typography Overrides"
 msgstr "Tipográfiai felülírások"
 
-#: includes/features/admin-styles/admin-styles-ui.php:605
+#: includes/features/admin-styles/admin-styles-ui.php:651
 msgid "Optional target-specific typography rules for common admin elements."
 msgstr "Opcionális célzott tipográfiai szabályok a közönséges admin elemekhez."
 
-#: includes/features/admin-styles/admin-styles-ui.php:611
+#: includes/features/admin-styles/admin-styles-ui.php:657
 msgid "Body Text"
 msgstr "Törzs szöveg"
 
-#: includes/features/admin-styles/admin-styles-ui.php:612
-#: includes/features/admin-styles/admin-styles.php:1720
+#: includes/features/admin-styles/admin-styles-ui.php:658
+#: includes/features/admin-styles/admin-styles.php:1769
 msgid "Links"
 msgstr "Linkek"
 
-#: includes/features/admin-styles/admin-styles-ui.php:613
+#: includes/features/admin-styles/admin-styles-ui.php:659
 msgid "Headings"
 msgstr "Fejlécek"
 
-#: includes/features/admin-styles/admin-styles-ui.php:614
-#: includes/features/admin-styles/admin-styles.php:1844
+#: includes/features/admin-styles/admin-styles-ui.php:660
+#: includes/features/admin-styles/admin-styles.php:1893
 msgid "Admin Menu"
 msgstr "Admin Menü"
 
-#: includes/features/admin-styles/admin-styles-ui.php:615
-#: includes/features/admin-styles/admin-styles.php:1886
+#: includes/features/admin-styles/admin-styles-ui.php:661
+#: includes/features/admin-styles/admin-styles.php:1935
 msgid "Admin Bar"
 msgstr "Admin Eszköztár"
 
-#: includes/features/admin-styles/admin-styles-ui.php:616
+#: includes/features/admin-styles/admin-styles-ui.php:662
 msgid "Form Fields"
 msgstr "Űrlapmezők"
 
-#: includes/features/admin-styles/admin-styles-ui.php:617
-#: includes/features/admin-styles/admin-styles.php:1814
+#: includes/features/admin-styles/admin-styles-ui.php:663
+#: includes/features/admin-styles/admin-styles.php:1863
 msgid "Buttons"
 msgstr "Gombok"
 
-#: includes/features/admin-styles/admin-styles-ui.php:623
+#: includes/features/admin-styles/admin-styles-ui.php:669
 msgid "Target"
 msgstr "Cél"
 
-#: includes/features/admin-styles/admin-styles-ui.php:624
+#: includes/features/admin-styles/admin-styles-ui.php:670
 msgid "Font Family"
 msgstr "Betűtípus"
 
-#: includes/features/admin-styles/admin-styles-ui.php:625
-msgid "Size"
-msgstr "Méret"
+#: includes/features/admin-styles/admin-styles-ui.php:671
+msgid "Font Size"
+msgstr "Betűméret"
 
-#: includes/features/admin-styles/admin-styles-ui.php:626
-msgid "Unit"
-msgstr "Mértékegység"
-
-#: includes/features/admin-styles/admin-styles-ui.php:637
+#: includes/features/admin-styles/admin-styles-ui.php:690
 msgid "Preset"
 msgstr "Előre beállított"
 
-#: includes/features/admin-styles/admin-styles-ui.php:638
+#: includes/features/admin-styles/admin-styles-ui.php:691
 #: includes/roles/class/class-pp-roles-list-table.php:403
 msgid "Custom"
 msgstr "Egyedi"
 
-#: includes/features/admin-styles/admin-styles-ui.php:682
+#: includes/features/admin-styles/admin-styles-ui.php:739
 msgid "Admin Footer Text"
 msgstr "Admin Lábléc Szöveg"
 
-#: includes/features/admin-styles/admin-styles-ui.php:685
+#: includes/features/admin-styles/admin-styles-ui.php:742
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
@@ -1691,27 +1706,27 @@ msgstr ""
 "Cserélje ki az alapértelmezett \"Köszönjük, hogy a WordPress-szel "
 "dolgozott\" üzenetet az admin láblécben."
 
-#: includes/features/admin-styles/admin-styles-ui.php:699
+#: includes/features/admin-styles/admin-styles-ui.php:756
 msgid "Replace \"Howdy\""
 msgstr "Cserélje ki a \"Howdy\" üdvözlést"
 
-#: includes/features/admin-styles/admin-styles-ui.php:702
+#: includes/features/admin-styles/admin-styles-ui.php:759
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "Cserélje ki a \"Howdy\" üdvözlést az admin eszköztárában."
 
-#: includes/features/admin-styles/admin-styles-ui.php:715
+#: includes/features/admin-styles/admin-styles-ui.php:772
 msgid "Control Settings"
 msgstr "Beállítások vezérlése"
 
-#: includes/features/admin-styles/admin-styles-ui.php:717
+#: includes/features/admin-styles/admin-styles-ui.php:774
 msgid "Control how admin styles are applied to users."
 msgstr "Irányítsa, hogyan alkalmazzák az admin stílusokat a felhasználókra."
 
-#: includes/features/admin-styles/admin-styles-ui.php:726
+#: includes/features/admin-styles/admin-styles-ui.php:783
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "Admin színbeállítások elrejtése a felhasználói profilban"
 
-#: includes/features/admin-styles/admin-styles-ui.php:728
+#: includes/features/admin-styles/admin-styles-ui.php:785
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
@@ -1720,11 +1735,11 @@ msgstr ""
 "színséma beállításokat a profiljukban. A szerepköralapú beállítások "
 "érvényesülni fognak."
 
-#: includes/features/admin-styles/admin-styles-ui.php:736
+#: includes/features/admin-styles/admin-styles-ui.php:793
 msgid "Force role settings (override user selection)"
 msgstr "Kényszerítse a szerepkör beállításokat (felülírja a felhasználói választást)"
 
-#: includes/features/admin-styles/admin-styles-ui.php:738
+#: includes/features/admin-styles/admin-styles-ui.php:795
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
@@ -1733,7 +1748,7 @@ msgstr ""
 "felülbírálva bármely felhasználói választást, még akkor is, ha a színséma "
 "UI látható számukra."
 
-#: includes/features/admin-styles/admin-styles-ui.php:775
+#: includes/features/admin-styles/admin-styles-ui.php:833
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
@@ -1741,505 +1756,500 @@ msgstr ""
 "Az Admin Stílusok lehetővé teszik a WordPress admin terület testreszabását "
 "a saját márkájával."
 
-#: includes/features/admin-styles/admin-styles-ui.php:779
+#: includes/features/admin-styles/admin-styles-ui.php:837
 msgid "Custom admin color schemes"
 msgstr "Egyedi admin színsémák"
 
-#: includes/features/admin-styles/admin-styles-ui.php:780
+#: includes/features/admin-styles/admin-styles-ui.php:838
 msgid "Replace the WordPress logo and favicon"
 msgstr "Cserélje le a WordPress logót és a favicon-t"
 
-#: includes/features/admin-styles/admin-styles-ui.php:781
+#: includes/features/admin-styles/admin-styles-ui.php:839
 msgid "Custom footer text"
 msgstr "Egyedi lábléc szöveg"
 
-#: includes/features/admin-styles/admin-styles-ui.php:782
+#: includes/features/admin-styles/admin-styles-ui.php:840
 msgid "Replace \"Howdy\" text"
 msgstr "Cserélje le a \"Howdy\" szöveget"
 
-#: includes/features/admin-styles/admin-styles-ui.php:785
+#: includes/features/admin-styles/admin-styles-ui.php:843
 msgid "How to use Admin Styles"
 msgstr "Hogyan használjuk az Admin Stílusokat"
 
-#: includes/features/admin-styles/admin-styles.php:574
+#: includes/features/admin-styles/admin-styles.php:539
 msgid "Security check failed."
 msgstr "Biztonsági ellenőrzés nem sikerült."
 
-#: includes/features/admin-styles/admin-styles.php:579
+#: includes/features/admin-styles/admin-styles.php:544
 #: includes/manager.php:741
 msgid "You do not have permission to manage admin styles."
 msgstr "Nincs engedélye az admin stílusok kezelésére."
 
-#: includes/features/admin-styles/admin-styles.php:642
+#: includes/features/admin-styles/admin-styles.php:607
 msgid "No role specified."
 msgstr "Nincs megadva szerepkör."
 
-#: includes/features/admin-styles/admin-styles.php:888
+#: includes/features/admin-styles/admin-styles.php:853
 msgid "Use this Image"
 msgstr "Használja ezt a képet"
 
-#: includes/features/admin-styles/admin-styles.php:889
+#: includes/features/admin-styles/admin-styles.php:854
 msgid "Saving..."
 msgstr "Mentés..."
 
-#: includes/features/admin-styles/admin-styles.php:890
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Settings saved."
 msgstr "Beállítások mentve."
 
-#: includes/features/admin-styles/admin-styles.php:892
+#: includes/features/admin-styles/admin-styles.php:857
 msgid "Current logo preview"
 msgstr "Jelenlegi logó előnézet"
 
-#: includes/features/admin-styles/admin-styles.php:893
+#: includes/features/admin-styles/admin-styles.php:858
 msgid "Add New Custom Style"
 msgstr "Új egyedi stílus hozzáadása"
 
-#: includes/features/admin-styles/admin-styles.php:894
+#: includes/features/admin-styles/admin-styles.php:859
 msgid "Edit Custom Style"
 msgstr "Egyedi stílus szerkesztése"
 
-#: includes/features/admin-styles/admin-styles.php:895
+#: includes/features/admin-styles/admin-styles.php:860
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Biztos benne, hogy törli a \"%s\" egyedi stílust?"
 
-#: includes/features/admin-styles/admin-styles.php:896
+#: includes/features/admin-styles/admin-styles.php:861
 msgid "this custom style"
 msgstr "ez az egyedi stílus"
 
-#: includes/features/admin-styles/admin-styles.php:897
+#: includes/features/admin-styles/admin-styles.php:862
 msgid "Primary Button"
 msgstr "Elsődleges gomb"
 
-#: includes/features/admin-styles/admin-styles.php:898
+#: includes/features/admin-styles/admin-styles.php:863
 msgid "Hover State"
 msgstr "Lebegő állapot"
 
-#: includes/features/admin-styles/admin-styles.php:899
+#: includes/features/admin-styles/admin-styles.php:864
 msgid "Notification"
 msgstr "Értesítés"
 
-#: includes/features/admin-styles/admin-styles.php:900
+#: includes/features/admin-styles/admin-styles.php:865
 msgid "Live preview of your custom color scheme"
 msgstr "A saját színséma élő előnézete"
 
-#: includes/features/admin-styles/admin-styles.php:901
+#: includes/features/admin-styles/admin-styles.php:866
 msgid "Custom Style Name is required."
 msgstr "Egyedi stílusnév megadása kötelező."
 
-#: includes/features/admin-styles/admin-styles.php:902
+#: includes/features/admin-styles/admin-styles.php:867
 msgid "Main Admin Color is required."
 msgstr "Fő admin szín megadása kötelező."
 
-#: includes/features/admin-styles/admin-styles.php:903, fuzzy
+#: includes/features/admin-styles/admin-styles.php:868, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:904
+#: includes/features/admin-styles/admin-styles.php:869
 msgid "Display Name"
 msgstr "Megjelenítési név"
 
-#: includes/features/admin-styles/admin-styles.php:905
+#: includes/features/admin-styles/admin-styles.php:870
 msgid "Change how this style is displayed"
 msgstr "A stílus megjelenítésének módosítása"
 
-#: includes/features/admin-styles/admin-styles.php:906
+#: includes/features/admin-styles/admin-styles.php:871
 msgid "Enter a name for your custom style"
 msgstr "Adja meg a saját stílusának nevét"
 
-#: includes/features/admin-styles/admin-styles.php:920
+#: includes/features/admin-styles/admin-styles.php:885
 msgid "Forest"
 msgstr "Erdő"
 
-#: includes/features/admin-styles/admin-styles.php:937
+#: includes/features/admin-styles/admin-styles.php:902
 msgid "Mint Breeze"
 msgstr "Mentás szellő"
 
-#: includes/features/admin-styles/admin-styles.php:954
+#: includes/features/admin-styles/admin-styles.php:919
 msgid "Cherry"
 msgstr "Cseresznye"
 
-#: includes/features/admin-styles/admin-styles.php:971
+#: includes/features/admin-styles/admin-styles.php:936
 msgid "Graphite"
 msgstr "Grafit"
 
-#: includes/features/admin-styles/admin-styles.php:988
+#: includes/features/admin-styles/admin-styles.php:953
 msgid "Midnight Teal"
 msgstr "Éjféli türkiz"
 
-#: includes/features/admin-styles/admin-styles.php:1005
+#: includes/features/admin-styles/admin-styles.php:970
 msgid "Sunrise"
 msgstr "Napfelkelte"
 
-#: includes/features/admin-styles/admin-styles.php:1022
+#: includes/features/admin-styles/admin-styles.php:987
 msgid "Desert Sand"
 msgstr "Sivatagi homok"
 
-#: includes/features/admin-styles/admin-styles.php:1039
+#: includes/features/admin-styles/admin-styles.php:1004
 msgid "Amber Glow"
 msgstr "Borostyán fény"
 
-#: includes/features/admin-styles/admin-styles.php:1056, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1021, fuzzy
 msgid "Citrus"
 msgstr "Citrus"
 
-#: includes/features/admin-styles/admin-styles.php:1073
+#: includes/features/admin-styles/admin-styles.php:1038
 msgid "Ocean Deep"
 msgstr "Óceán mély"
 
-#: includes/features/admin-styles/admin-styles.php:1090
+#: includes/features/admin-styles/admin-styles.php:1055
 msgid "Sage"
 msgstr "Zsálya"
 
-#: includes/features/admin-styles/admin-styles.php:1107
+#: includes/features/admin-styles/admin-styles.php:1072
 msgid "Modern Slate"
 msgstr "Modern pala"
 
-#: includes/features/admin-styles/admin-styles.php:1124, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1089, fuzzy
 msgid "Royal Plum"
 msgstr "Royal Plum"
 
-#: includes/features/admin-styles/admin-styles.php:1141, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1106, fuzzy
 msgid "Nordic"
 msgstr "Nordic"
 
-#: includes/features/admin-styles/admin-styles.php:1158, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1123, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1175, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1140, fuzzy
 msgid "Ink"
 msgstr "Ink"
 
-#: includes/features/admin-styles/admin-styles.php:1192, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1157, fuzzy
 msgid "Orchid"
 msgstr "Orchid"
 
-#: includes/features/admin-styles/admin-styles.php:1209, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1174, fuzzy
 msgid "Cobalt"
 msgstr "Cobalt"
 
-#: includes/features/admin-styles/admin-styles.php:1226, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1191, fuzzy
 msgid "Stone"
 msgstr "Stone"
 
-#: includes/features/admin-styles/admin-styles.php:1243, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1208, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1260, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1225, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1277, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1242, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:1695
+#: includes/features/admin-styles/admin-styles.php:1744
 msgid "Main Admin Color settings"
 msgstr "Fő admin színbeállítások"
 
-#: includes/features/admin-styles/admin-styles.php:1698
+#: includes/features/admin-styles/admin-styles.php:1747
 msgid "Main Admin Color"
 msgstr "Fő admin szín"
 
-#: includes/features/admin-styles/admin-styles.php:1699
+#: includes/features/admin-styles/admin-styles.php:1748
 msgid "Primary brand color"
 msgstr "Elsődleges márkaszín"
 
-#: includes/features/admin-styles/admin-styles.php:1702
+#: includes/features/admin-styles/admin-styles.php:1751
 msgid "Text Color"
 msgstr "Szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1703
+#: includes/features/admin-styles/admin-styles.php:1752
 msgid "Primary text color"
 msgstr "Elsődleges szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1706
+#: includes/features/admin-styles/admin-styles.php:1755
 msgid "Highlight Color"
 msgstr "Kiemelő szín"
 
-#: includes/features/admin-styles/admin-styles.php:1707
+#: includes/features/admin-styles/admin-styles.php:1756
 msgid "Used for hovers and highlights"
 msgstr "Használva lebegéshez és kiemelésekhez"
 
-#: includes/features/admin-styles/admin-styles.php:1710
+#: includes/features/admin-styles/admin-styles.php:1759
 msgid "Notification Color"
 msgstr "Értesítési szín"
 
-#: includes/features/admin-styles/admin-styles.php:1711
+#: includes/features/admin-styles/admin-styles.php:1760
 msgid "Used for alerts and notifications"
 msgstr "Használva riasztásokhoz és értesítésekhez"
 
-#: includes/features/admin-styles/admin-styles.php:1714
+#: includes/features/admin-styles/admin-styles.php:1763
 msgid "Background Color"
 msgstr "Háttérszín"
 
-#: includes/features/admin-styles/admin-styles.php:1715
+#: includes/features/admin-styles/admin-styles.php:1764
 msgid "Page background color"
 msgstr "Oldal háttérszíne"
 
-#: includes/features/admin-styles/admin-styles.php:1721
+#: includes/features/admin-styles/admin-styles.php:1770
 msgid "Link element colors"
 msgstr "Link elem színei"
 
-#: includes/features/admin-styles/admin-styles.php:1724
+#: includes/features/admin-styles/admin-styles.php:1773
 msgid "Default Link Color"
 msgstr "Alapértelmezett link szín"
 
-#: includes/features/admin-styles/admin-styles.php:1725
+#: includes/features/admin-styles/admin-styles.php:1774
 msgid "Standard link color"
 msgstr "Szabványos link szín"
 
-#: includes/features/admin-styles/admin-styles.php:1728
+#: includes/features/admin-styles/admin-styles.php:1777
 msgid "Link Hover Color"
 msgstr "Link lebegő szín"
 
-#: includes/features/admin-styles/admin-styles.php:1729
+#: includes/features/admin-styles/admin-styles.php:1778
 msgid "Color on hover"
 msgstr "Szín lebegéskor"
 
-#: includes/features/admin-styles/admin-styles.php:1732
+#: includes/features/admin-styles/admin-styles.php:1781
 msgid "Delete Link Color"
 msgstr "Link törlés szín"
 
-#: includes/features/admin-styles/admin-styles.php:1733
+#: includes/features/admin-styles/admin-styles.php:1782
 msgid "Color for delete/trash actions"
 msgstr "Szín törlés/ürítés műveletekhez"
 
-#: includes/features/admin-styles/admin-styles.php:1736
+#: includes/features/admin-styles/admin-styles.php:1785
 msgid "Trash Link Color"
 msgstr "Üres link szín"
 
-#: includes/features/admin-styles/admin-styles.php:1737
+#: includes/features/admin-styles/admin-styles.php:1786
 msgid "Color for trash actions"
 msgstr "Szín ürítési műveletekhez"
 
-#: includes/features/admin-styles/admin-styles.php:1740
+#: includes/features/admin-styles/admin-styles.php:1789
 msgid "Spam Link Color"
 msgstr "Spam link szín"
 
-#: includes/features/admin-styles/admin-styles.php:1741
+#: includes/features/admin-styles/admin-styles.php:1790
 msgid "Color for spam actions"
 msgstr "Szín spam műveletekhez"
 
-#: includes/features/admin-styles/admin-styles.php:1744
+#: includes/features/admin-styles/admin-styles.php:1793
 msgid "Inactive Link Color"
 msgstr "Inaktív link szín"
 
-#: includes/features/admin-styles/admin-styles.php:1745
+#: includes/features/admin-styles/admin-styles.php:1794
 msgid "Color for inactive items"
 msgstr "Szín inaktív elemekhez"
 
-#: includes/features/admin-styles/admin-styles.php:1750
+#: includes/features/admin-styles/admin-styles.php:1799
 msgid "Tables"
 msgstr "Táblázatok"
 
-#: includes/features/admin-styles/admin-styles.php:1751
+#: includes/features/admin-styles/admin-styles.php:1800
 msgid "Table element colors"
 msgstr "Táblázat elem színei"
 
-#: includes/features/admin-styles/admin-styles.php:1754
+#: includes/features/admin-styles/admin-styles.php:1803
 msgid "Table Header Background"
 msgstr "Táblázat fejléc háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1758
+#: includes/features/admin-styles/admin-styles.php:1807
 msgid "Table Header Text"
 msgstr "Táblázat fejléc szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1762
+#: includes/features/admin-styles/admin-styles.php:1811
 msgid "Table Row Background"
 msgstr "Táblázat sor háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1766
+#: includes/features/admin-styles/admin-styles.php:1815
 msgid "Table Row Text Color"
 msgstr "Táblázat sor szöveg szín"
 
-#: includes/features/admin-styles/admin-styles.php:1770
+#: includes/features/admin-styles/admin-styles.php:1819
 msgid "Row Hover Background"
 msgstr "Sor fölötti háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1774
+#: includes/features/admin-styles/admin-styles.php:1823
 msgid "Table Border Color"
 msgstr "Táblázat keret színe"
 
-#: includes/features/admin-styles/admin-styles.php:1778
+#: includes/features/admin-styles/admin-styles.php:1827
 msgid "Alternate Row Background"
 msgstr "Alternáló sor háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1782
+#: includes/features/admin-styles/admin-styles.php:1831
 msgid "Alternate Row Text Color"
 msgstr "Alternáló sor szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1788
+#: includes/features/admin-styles/admin-styles.php:1837
 msgid "Forms"
 msgstr "Űrlapok"
 
-#: includes/features/admin-styles/admin-styles.php:1789
+#: includes/features/admin-styles/admin-styles.php:1838
 msgid "Form input colors"
 msgstr "Űrlapbeviteli színek"
 
-#: includes/features/admin-styles/admin-styles.php:1792
+#: includes/features/admin-styles/admin-styles.php:1841
 msgid "Input Border Color"
 msgstr "Beviteli keret színe"
 
-#: includes/features/admin-styles/admin-styles.php:1796
+#: includes/features/admin-styles/admin-styles.php:1845
 msgid "Input Focus Border"
 msgstr "Beviteli fókusz keret"
 
-#: includes/features/admin-styles/admin-styles.php:1800
+#: includes/features/admin-styles/admin-styles.php:1849
 msgid "Input Background Color"
 msgstr "Beviteli háttérszín"
 
-#: includes/features/admin-styles/admin-styles.php:1804
+#: includes/features/admin-styles/admin-styles.php:1853
 msgid "Input Text Color"
 msgstr "Beviteli szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1808
+#: includes/features/admin-styles/admin-styles.php:1857
 msgid "Placeholder Text Color"
 msgstr "Helykitöltő szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1815
+#: includes/features/admin-styles/admin-styles.php:1864
 msgid "Button colors"
 msgstr "Gomb színek"
 
-#: includes/features/admin-styles/admin-styles.php:1818
+#: includes/features/admin-styles/admin-styles.php:1867
 msgid "Primary Button Background"
 msgstr "Elsődleges gomb háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1822
+#: includes/features/admin-styles/admin-styles.php:1871
 msgid "Primary Button Text"
 msgstr "Elsődleges gomb szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1826
+#: includes/features/admin-styles/admin-styles.php:1875
 msgid "Primary Button Hover"
 msgstr "Elsődleges gomb hover"
 
-#: includes/features/admin-styles/admin-styles.php:1830
+#: includes/features/admin-styles/admin-styles.php:1879
 msgid "Secondary Button Background"
 msgstr "Másodlagos gomb háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1834
+#: includes/features/admin-styles/admin-styles.php:1883
 msgid "Secondary Button Text"
 msgstr "Másodlagos gomb szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1838
+#: includes/features/admin-styles/admin-styles.php:1887
 msgid "Secondary Button Hover"
 msgstr "Másodlagos gomb hover"
 
-#: includes/features/admin-styles/admin-styles.php:1845
+#: includes/features/admin-styles/admin-styles.php:1894
 msgid "Admin menu colors"
 msgstr "Admin menü színek"
 
-#: includes/features/admin-styles/admin-styles.php:1848
+#: includes/features/admin-styles/admin-styles.php:1897
 msgid "Menu Background"
 msgstr "Menü háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1852
+#: includes/features/admin-styles/admin-styles.php:1901
 msgid "Menu Text Color"
 msgstr "Menü szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1856
+#: includes/features/admin-styles/admin-styles.php:1905
 msgid "Menu Icon Color"
 msgstr "Menü ikon színe"
 
-#: includes/features/admin-styles/admin-styles.php:1860
+#: includes/features/admin-styles/admin-styles.php:1909
 msgid "Menu Hover Background"
 msgstr "Menü lebegő háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1864
+#: includes/features/admin-styles/admin-styles.php:1913
 msgid "Menu Hover Text"
 msgstr "Menü lebegő szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1868
+#: includes/features/admin-styles/admin-styles.php:1917
 msgid "Current Menu Background"
 msgstr "Aktuális menü háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1872
+#: includes/features/admin-styles/admin-styles.php:1921
 msgid "Current Menu Text"
 msgstr "Aktuális menü szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1876
+#: includes/features/admin-styles/admin-styles.php:1925
 msgid "Submenu Background"
 msgstr "Almenü háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1880
+#: includes/features/admin-styles/admin-styles.php:1929
 msgid "Submenu Text Color"
 msgstr "Almenü szöveg színe"
 
-#: includes/features/admin-styles/admin-styles.php:1887
+#: includes/features/admin-styles/admin-styles.php:1936
 msgid "Admin bar colors"
 msgstr "Admin sáv színei"
 
-#: includes/features/admin-styles/admin-styles.php:1890
+#: includes/features/admin-styles/admin-styles.php:1939
 msgid "Admin Bar Background"
 msgstr "Admin sáv háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1894
+#: includes/features/admin-styles/admin-styles.php:1943
 msgid "Admin Bar Text"
 msgstr "Admin sáv szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1898
+#: includes/features/admin-styles/admin-styles.php:1947
 msgid "Admin Bar Icon"
 msgstr "Admin sáv ikon"
 
-#: includes/features/admin-styles/admin-styles.php:1902
+#: includes/features/admin-styles/admin-styles.php:1951
 msgid "Admin Bar Hover Background"
 msgstr "Admin sáv lebegő háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1906
+#: includes/features/admin-styles/admin-styles.php:1955
 msgid "Admin Bar Hover Text"
 msgstr "Admin sáv lebegő szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1912
+#: includes/features/admin-styles/admin-styles.php:1961
 msgid "Dashboard Widgets"
 msgstr "Dashboard widgetek"
 
-#: includes/features/admin-styles/admin-styles.php:1913
+#: includes/features/admin-styles/admin-styles.php:1962
 msgid "Dashboard widget colors"
 msgstr "Dashboard widget színei"
 
-#: includes/features/admin-styles/admin-styles.php:1916
+#: includes/features/admin-styles/admin-styles.php:1965
 msgid "Widget Background"
 msgstr "Widget háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1920
+#: includes/features/admin-styles/admin-styles.php:1969
 msgid "Widget Border"
 msgstr "Widget keret"
 
-#: includes/features/admin-styles/admin-styles.php:1924
+#: includes/features/admin-styles/admin-styles.php:1973
 msgid "Widget Header Background"
 msgstr "Widget fejléc háttér"
 
-#: includes/features/admin-styles/admin-styles.php:1928
+#: includes/features/admin-styles/admin-styles.php:1977
 msgid "Widget Title Text"
 msgstr "Widget cím szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1932
+#: includes/features/admin-styles/admin-styles.php:1981
 msgid "Widget Body Text"
 msgstr "Widget test szöveg"
 
-#: includes/features/admin-styles/admin-styles.php:1936
+#: includes/features/admin-styles/admin-styles.php:1985
 msgid "Widget Link"
 msgstr "Widget hivatkozás"
 
-#: includes/features/admin-styles/admin-styles.php:1940
+#: includes/features/admin-styles/admin-styles.php:1989
 msgid "Widget Link Hover"
 msgstr "Widget hivatkozás lebegtetés"
 
-#: includes/features/admin-styles/admin-styles.php:1946
+#: includes/features/admin-styles/admin-styles.php:1995
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Haladó"
 
-#: includes/features/admin-styles/admin-styles.php:1947
+#: includes/features/admin-styles/admin-styles.php:1996
 msgid "Custom selector color rules"
 msgstr "Egyedi szelektor szín szabályok"
-
-#: includes/features/admin-styles/admin-styles.php:1973
-#: includes/features/admin-styles/admin-styles.php:2055
-msgid "Default"
-msgstr "Alapértelmezett"
 
 #: includes/features/editor-features-classic.php:1
 #, php-format
@@ -2267,38 +2277,38 @@ msgid "Editor Feature Restrictions"
 msgstr "Szerkesztő funkciók korlátozásai"
 
 #: includes/features/editor-features.php:115
-#: includes/features/editor-features.php:220
+#: includes/features/editor-features.php:221
 msgid "Save for all Post Types"
 msgstr "Mentés minden bejegyzéstípushoz"
 
 #: includes/features/editor-features.php:119
 #: includes/features/editor-features.php:121
-#: includes/features/editor-features.php:224
-#: includes/features/editor-features.php:226
+#: includes/features/editor-features.php:225
+#: includes/features/editor-features.php:227
 #, php-format
 msgid "Save %s Restrictions"
 msgstr "Mentés %s Korlátozások"
 
-#: includes/features/editor-features.php:127, fuzzy
+#: includes/features/editor-features.php:128, fuzzy
 msgid "Gutenberg"
 msgstr "Gutenberg"
 
-#: includes/features/editor-features.php:130, fuzzy
+#: includes/features/editor-features.php:131, fuzzy
 msgid "Classic"
 msgstr "Classic"
 
-#: includes/features/editor-features.php:135
+#: includes/features/editor-features.php:136
 msgid "show Classic Editor controls"
 msgstr "Classic Editor vezérlők megjelenítése"
 
-#: includes/features/editor-features.php:238
+#: includes/features/editor-features.php:240
 #: includes/functions-admin.php:415
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr ""
 "A szerkesztő funkciók lehetővé teszik, hogy elemeket távolítson el a "
 "bejegyzés szerkesztő képernyőről."
 
-#: includes/features/editor-features.php:246
+#: includes/features/editor-features.php:248
 msgid "How to use Editor Features"
 msgstr "Hogyan használjuk a szerkesztő funkciókat"
 
@@ -2504,12 +2514,12 @@ msgstr "Post Type Metabox"
 msgid "Role"
 msgstr "Szerep"
 
-#: includes/features/frontend-features/frontend-features.php:151
+#: includes/features/frontend-features/frontend-features.php:152
 #, php-format
 msgid "Enable Frontend Features for %1$s Role"
 msgstr "Frontend funkciók engedélyezése a %1$s szerephez"
 
-#: includes/features/frontend-features/frontend-features.php:247
+#: includes/features/frontend-features/frontend-features.php:249
 #: includes/functions-admin.php:440
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
@@ -2518,11 +2528,11 @@ msgstr ""
 "A Frontend Funkciók lehetővé teszik elemek hozzáadását vagy eltávolítását a "
 "webhely front-endjéről."
 
-#: includes/features/frontend-features/frontend-features.php:252
+#: includes/features/frontend-features/frontend-features.php:254
 msgid "Apply custom styling"
 msgstr "Alkalmazza a testreszabott stílusokat"
 
-#: includes/features/frontend-features/frontend-features.php:255
+#: includes/features/frontend-features/frontend-features.php:257
 msgid "How to use Frontend Features"
 msgstr "Hogyan használjuk a frontend funkciókat"
 
@@ -2553,11 +2563,11 @@ msgstr "Hogyan használjuk a Navigációs Menüket"
 msgid "Profile Feature Restrictions"
 msgstr "Profil funkció korlátozások"
 
-#: includes/features/profile-features.php:140
+#: includes/features/profile-features.php:141
 msgid "Click the \"Find profile items for this role\" button."
 msgstr "Kattintson a \"Profil elemek keresése ehhez a szerepkörhöz\" gombra."
 
-#: includes/features/profile-features.php:142
+#: includes/features/profile-features.php:143
 msgid ""
 "There are no users in this role. Please select a role that has users and is "
 "able to access the \"Profile\" screen."
@@ -2566,42 +2576,42 @@ msgstr ""
 "szerepkört, amelynek vannak felhasználói, és képes elérni a \"Profil\" "
 "képernyőt."
 
-#: includes/features/profile-features.php:239
+#: includes/features/profile-features.php:240
 msgid "Allow PublishPress to find profile items for this role."
 msgstr ""
 "Engedélyezze a PublishPress számára, hogy profil elemeket találjon ehhez a "
 "szerepkörhöz."
 
-#: includes/features/profile-features.php:240
+#: includes/features/profile-features.php:241
 msgid "Find profile items for this role"
 msgstr "Profil elemek keresése ehhez a szerepkörhöz"
 
-#: includes/features/profile-features.php:241
+#: includes/features/profile-features.php:242
 #, php-format
 msgid "The %s role is not enabled for editing. The Find button is disabled."
 msgstr ""
 "A %s szerepkör nincs engedélyezve a szerkesztéshez. A Keresés gomb le van "
 "tiltva."
 
-#: includes/features/profile-features.php:242
+#: includes/features/profile-features.php:243
 #, php-format
 msgid "This feature will test the \"Profile\" screen as a user in the %s role."
 msgstr ""
 "Ez a funkció a \"Profil\" képernyőt fogja tesztelni a %s szerepkörben lévő "
 "felhasználóként."
 
-#: includes/features/profile-features.php:244
+#: includes/features/profile-features.php:245
 msgid "Refresh Profile Features"
 msgstr "Profil funkciók frissítése"
 
-#: includes/features/profile-features.php:249
+#: includes/features/profile-features.php:250
 #: includes/functions-admin.php:430
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr ""
 "A Profil funkciók lehetővé teszik, hogy eltávolítson elemeket a Profil "
 "képernyőről."
 
-#: includes/features/profile-features.php:257
+#: includes/features/profile-features.php:258
 msgid "How to use Profile Features"
 msgstr "Hogyan használjuk a Profil funkciókat"
 
@@ -3450,38 +3460,38 @@ msgid "%s Redirects"
 msgstr "%s Átirányítások"
 
 #: includes/redirects/redirects.php:112
-#: includes/redirects/redirects.php:315
+#: includes/redirects/redirects.php:316
 #: includes/roles/class/class-pp-roles-admin.php:512
 msgid "Save Changes"
 msgstr "Változtatások mentése"
 
-#: includes/redirects/redirects.php:214
+#: includes/redirects/redirects.php:215
 msgid "Redirect users to the URL they were viewing before login."
 msgstr ""
 "Irányítsa át a felhasználókat arra az URL-re, amelyet a bejelentkezés előtt "
 "néztek."
 
-#: includes/redirects/redirects.php:226
+#: includes/redirects/redirects.php:227
 msgid "Redirect users to a specified URL."
 msgstr "Irányítsa át a felhasználókat egy megadott URL-re."
 
-#: includes/redirects/redirects.php:242
+#: includes/redirects/redirects.php:243
 msgid "Enter the relative path only without domain for login redirect."
 msgstr ""
 "Csak a relatív elérési utat adja meg domain nélkül a bejelentkezés "
 "átirányításhoz."
 
-#: includes/redirects/redirects.php:243
+#: includes/redirects/redirects.php:244
 msgid "You must enter the Login Redirect URL."
 msgstr "Meg kell adnia a Bejelentkezés Átirányítás URL-jét."
 
-#: includes/redirects/redirects.php:275
+#: includes/redirects/redirects.php:276
 msgid "Enter the relative path only without domain for logout redirect."
 msgstr ""
 "Csak a relatív elérési utat adja meg domain nélkül a kijelentkezés "
 "átirányításhoz."
 
-#: includes/redirects/redirects.php:333
+#: includes/redirects/redirects.php:334
 msgid ""
 "Redirect Features allows you to redirect users in a role after "
 "Registration, Login or Logout."
@@ -3489,7 +3499,7 @@ msgstr ""
 "A Redirect Features lehetővé teszi, hogy a felhasználókat átirányítsa egy "
 "szerepkörbe a Regisztráció, Bejelentkezés vagy Kijelentkezés után."
 
-#: includes/redirects/redirects.php:336
+#: includes/redirects/redirects.php:337
 msgid "How to use Redirect Features"
 msgstr "Hogyan használjuk az Átirányítási Funkciókat"
 
@@ -3952,6 +3962,9 @@ msgid ""
 "issues when updating user roles that do not have access to the WordPress "
 "admin area."
 msgstr ""
+"Mindig próbálja meg automatikusan megtalálni a profil elemeket. Ez "
+"ideiglenes problémákat okozhat, amikor a felhasználói szerepkörök "
+"frissítése történik, amelyek nem férnek hozzá a WordPress admin területhez."
 
 #: includes/settings.php:13
 msgid "Capabilities Settings"

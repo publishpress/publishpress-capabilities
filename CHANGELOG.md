@@ -1,7 +1,7 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.43.0] - 21 April, 2026
+[2.43.0] - 22 April, 2026
 
 - Update : Change fonts family and font sizes in Admin Styles, #1589
 - Update : Make Admin Notices a main screen, #1432
