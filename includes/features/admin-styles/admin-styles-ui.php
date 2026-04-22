@@ -624,8 +624,9 @@ if ($admin_styles_saved !== false) {
                                                                 ?>
                                                                 <div style="max-width:320px;">
                                                                     <select name="settings[admin_font_size]" id="admin_font_size" class="regular-text" style="max-width: 400px;">
-                                                                        <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
-
+ <optgroup label="<?php echo esc_attr__('Default', 'capability-manager-enhanced'); ?>">
+                                                                         <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
+</optgroup>
                                                                         <optgroup label="<?php echo esc_attr__('Named Sizes', 'capability-manager-enhanced'); ?>">
                                                                             <?php foreach ($font_size_keyword_choices as $size_value => $size_label) : ?>
                                                                                 <option value="<?php echo esc_attr($size_value); ?>" <?php selected($current_admin_font_size_value, $size_value); ?>><?php echo esc_html($size_label); ?></option>
@@ -709,8 +710,9 @@ if ($admin_styles_saved !== false) {
                                                                                 </td>
                                                                                 <td>
                                                                                     <select name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size]" class="regular-text" style="width: 100%;max-width: 200px;">
-                                                                                        <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
-
+                 <optgroup label="<?php echo esc_attr__('Default', 'capability-manager-enhanced'); ?>">
+                    <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
+                </optgroup></optgroup>
                                                                                         <optgroup label="<?php echo esc_attr__('Named Sizes', 'capability-manager-enhanced'); ?>">
                                                                                             <?php foreach ($font_size_keyword_choices as $size_value => $size_label) : ?>
                                                                                                 <option value="<?php echo esc_attr($size_value); ?>" <?php selected($target_font_size_value, $size_value); ?>><?php echo esc_html($size_label); ?></option>
