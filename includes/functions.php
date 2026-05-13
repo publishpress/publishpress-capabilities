@@ -149,7 +149,7 @@ if (!function_exists('capsman_get_pp_option')) {
 if (!function_exists('pp_capabilities_get_auto_backup_index_option')) {
     function pp_capabilities_get_auto_backup_index_option()
     {
-        return 'cme_backup_auto_index';
+        return 'cme_backup_index';
     }
 }
 
@@ -160,14 +160,19 @@ if (!function_exists('pp_capabilities_get_auto_backup_option_names')) {
         global $wpdb;
 
         $index_option = pp_capabilities_get_auto_backup_index_option();
+        $excluded_options = array($index_option, 'cme_backup_auto_index');
         $option_names = get_option($index_option, false);
 
         if (!$force_refresh && is_array($option_names)) {
-            return array_values(array_filter(array_map('sanitize_key', $option_names)));
+            return array_values(array_filter(array_map('sanitize_key', $option_names), function ($option_name) use ($excluded_options) {
+                return !in_array($option_name, $excluded_options, true);
+            }));
         }
 
         $option_names = $wpdb->get_col("SELECT option_name FROM $wpdb->options WHERE option_name LIKE 'cme_backup_auto_%' ORDER BY option_id DESC");
-        $option_names = array_values(array_filter(array_map('sanitize_key', (array) $option_names)));
+        $option_names = array_values(array_filter(array_map('sanitize_key', (array) $option_names), function ($option_name) use ($excluded_options) {
+            return !in_array($option_name, $excluded_options, true);
+        }));
 
         update_option($index_option, $option_names, false);
 
@@ -211,7 +216,6 @@ if (!function_exists('pp_capabilities_autobackup')) {
 
                 if ($i > $max_auto_backups) {
                     delete_option($option_name);
-                    wp_cache_delete($option_name, 'options');
                     unset($current_options[$i - 1]);
                 }
             }
