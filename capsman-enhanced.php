@@ -203,7 +203,24 @@ register_activation_hook(
 register_deactivation_hook(
 	__FILE__,
 	function () {
-		if (function_exists('wp_clear_scheduled_hook')) {
+		if (function_exists('wp_unschedule_hook')) {
+			wp_unschedule_hook('cme_network_sync_batch');
+		} elseif (function_exists('_get_cron_array') && function_exists('wp_unschedule_event')) {
+			$crons = _get_cron_array();
+
+			if (is_array($crons)) {
+				foreach ($crons as $timestamp => $cronhooks) {
+					if (empty($cronhooks['cme_network_sync_batch']) || !is_array($cronhooks['cme_network_sync_batch'])) {
+						continue;
+					}
+
+					foreach ($cronhooks['cme_network_sync_batch'] as $event) {
+						$args = isset($event['args']) && is_array($event['args']) ? $event['args'] : [];
+						wp_unschedule_event($timestamp, 'cme_network_sync_batch', $args);
+					}
+				}
+			}
+		} elseif (function_exists('wp_clear_scheduled_hook')) {
 			wp_clear_scheduled_hook('cme_network_sync_batch');
 		}
 	}
