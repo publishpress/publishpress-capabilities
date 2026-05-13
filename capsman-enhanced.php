@@ -164,6 +164,15 @@ add_action('plugins_loaded', function () {
 
 	add_action('init', '_cme_cap_helper', 49);  // Press Permit Cap Helper, registered at 50, will leave caps which we've already defined
 
+	add_action('cme_network_sync_batch', function($token) {
+		require_once dirname(__FILE__) . '/includes/manager.php';
+		require_once dirname(__FILE__) . '/includes/handler.php';
+
+		$manager = new CapabilityManager();
+		$handler = new CapsmanHandler($manager);
+		$handler->runNetworkSyncBatch($token);
+	}, 10, 1);
+
 		// Skip admin UI initialization when loaded by Pro
 		if ($pro_active) {
 			do_action('publishpress_capabilities_loaded');
@@ -189,4 +198,13 @@ register_activation_hook(
     function () {
         update_option('pp_capabilities_activated', true);
     }
+);
+
+register_deactivation_hook(
+	__FILE__,
+	function () {
+		if (function_exists('wp_clear_scheduled_hook')) {
+			wp_clear_scheduled_hook('cme_network_sync_batch');
+		}
+	}
 );

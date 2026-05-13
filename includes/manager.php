@@ -1193,6 +1193,16 @@ class CapabilityManager
 		    wp_die('<strong>' . esc_html__('You do not have permission to manage capabilities.', 'capability-manager-enhanced') . '</strong>');
 		}
 
+		if (!empty($_REQUEST['cme_network_sync_token'])) {
+			$token = sanitize_key($_REQUEST['cme_network_sync_token']);
+			if (get_site_transient('cme_network_sync_done_' . $token)) {
+				delete_site_transient('cme_network_sync_done_' . $token);
+				ak_admin_notify(__('Network sync completed.', 'capability-manager-enhanced'));
+			} else {
+				ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
+			}
+		}
+
 		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD'])) {
 			if ( empty($_REQUEST['SaveRole']) && empty($_REQUEST['AddCap']) && empty($_REQUEST['RenameRole']) ) {
 				check_admin_referer('capsman-general-manager');
