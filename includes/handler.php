@@ -293,7 +293,9 @@ class CapsmanHandler
 					$do_option_sync
 				);
 
-				$this->cm->network_sync_token = $token;
+				if (!empty($token)) {
+					$this->cm->network_sync_token = $token;
+				}
 
 				ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
 			}
@@ -331,7 +333,7 @@ class CapsmanHandler
 			'do_role_sync' => (bool) $do_role_sync,
 			'do_option_sync' => (bool) $do_option_sync,
 			'offset' => 0,
-			'token' => sanitize_key(wp_generate_password(20, false, false)),
+			'token' => function_exists('wp_generate_uuid4') ? wp_generate_uuid4() : strtolower(wp_generate_password(32, false, false)),
 		];
 
 		set_site_transient('cme_network_sync_' . $state['token'], $state, DAY_IN_SECONDS);
