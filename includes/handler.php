@@ -286,8 +286,8 @@ class CapsmanHandler
 
 			if ($do_role_sync || $do_option_sync) {
 				$this->processNetworkSyncBatch(
-					sanitize_key($_POST['current']),
-					array_map('boolval', $_POST['caps']),
+					$role_name,
+					$caps,
 					$level,
 					$do_role_sync,
 					$do_option_sync
