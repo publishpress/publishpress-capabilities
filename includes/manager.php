@@ -1193,13 +1193,16 @@ class CapabilityManager
 		    wp_die('<strong>' . esc_html__('You do not have permission to manage capabilities.', 'capability-manager-enhanced') . '</strong>');
 		}
 
-		if (!empty($_REQUEST['cme_network_sync_token'])) {
-			$token = sanitize_key($_REQUEST['cme_network_sync_token']);
-			if (get_site_transient('cme_network_sync_done_' . $token)) {
-				delete_site_transient('cme_network_sync_done_' . $token);
-				ak_admin_notify(__('Network sync completed.', 'capability-manager-enhanced'));
-			} else {
-				ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
+		if (isset($_REQUEST['cme_network_sync_token']) && is_scalar($_REQUEST['cme_network_sync_token'])) {
+			$token = (string) wp_unslash($_REQUEST['cme_network_sync_token']);
+
+			if ('' !== $token) {
+				if (get_site_transient('cme_network_sync_done_' . $token)) {
+					delete_site_transient('cme_network_sync_done_' . $token);
+					ak_admin_notify(__('Network sync completed.', 'capability-manager-enhanced'));
+				} else {
+					ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
+				}
 			}
 		}
 
