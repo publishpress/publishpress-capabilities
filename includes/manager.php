@@ -357,7 +357,7 @@ class CapabilityManager
 			update_option( $this->ID . '_backup_datestamp', current_time( 'timestamp' ), false );
 		}
 
-		if (!$wpdb->get_var("SELECT COUNT(option_id) FROM $wpdb->options WHERE option_name LIKE 'cme_backup_auto_%'")) {
+		if (!pp_capabilities_get_auto_backup_option_names()) {
 			pp_capabilities_autobackup();
 		}
 	}

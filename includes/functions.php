@@ -146,17 +146,62 @@ if (!function_exists('capsman_get_pp_option')) {
 }
 
 
+if (!function_exists('pp_capabilities_get_auto_backup_index_option')) {
+    function pp_capabilities_get_auto_backup_index_option()
+    {
+        return 'cme_backup_auto_index';
+    }
+}
+
+
+if (!function_exists('pp_capabilities_get_auto_backup_option_names')) {
+    function pp_capabilities_get_auto_backup_option_names($force_refresh = false)
+    {
+        global $wpdb;
+
+        $index_option = pp_capabilities_get_auto_backup_index_option();
+        $option_names = get_option($index_option, false);
+
+        if (!$force_refresh && is_array($option_names)) {
+            return array_values(array_filter(array_map('sanitize_key', $option_names)));
+        }
+
+        $option_names = $wpdb->get_col("SELECT option_name FROM $wpdb->options WHERE option_name LIKE 'cme_backup_auto_%' ORDER BY option_id DESC");
+        $option_names = array_values(array_filter(array_map('sanitize_key', (array) $option_names)));
+
+        update_option($index_option, $option_names, false);
+
+        return $option_names;
+    }
+}
+
+
+if (!function_exists('pp_capabilities_update_auto_backup_option_names')) {
+    function pp_capabilities_update_auto_backup_option_names($option_names)
+    {
+        update_option(
+            pp_capabilities_get_auto_backup_index_option(),
+            array_values(array_filter(array_map('sanitize_key', (array) $option_names))),
+            false
+        );
+    }
+}
+
+
 if (!function_exists('pp_capabilities_autobackup')) {
     function pp_capabilities_autobackup()
     {
         global $wpdb;
 
+        $option_name = 'cme_backup_auto_' . current_time('Y-m-d_g-i-s_a');
         $roles = get_option($wpdb->prefix . 'user_roles');
-        update_option('cme_backup_auto_' . current_time('Y-m-d_g-i-s_a'), $roles, false);
+        update_option($option_name, $roles, false);
 
         $max_auto_backups = (defined('CME_AUTOBACKUPS')) ? (int) CME_AUTOBACKUPS : 20;
 
-        $current_options = $wpdb->get_col("SELECT option_name FROM $wpdb->options WHERE option_name LIKE 'cme_backup_auto_%' ORDER BY option_id DESC");
+        $current_options = pp_capabilities_get_auto_backup_option_names();
+        array_unshift($current_options, $option_name);
+        $current_options = array_values(array_unique($current_options));
 
         if (count($current_options) >= $max_auto_backups) {
             $i = 0;
@@ -165,17 +210,14 @@ if (!function_exists('pp_capabilities_autobackup')) {
                 $i++;
 
                 if ($i > $max_auto_backups) {
-                    $wpdb->query(
-                        $wpdb->prepare(
-                            "DELETE FROM $wpdb->options WHERE option_name = %s",
-                            $option_name
-                        )
-                    );
-
+                    delete_option($option_name);
                     wp_cache_delete($option_name, 'options');
+                    unset($current_options[$i - 1]);
                 }
             }
         }
+
+        pp_capabilities_update_auto_backup_option_names($current_options);
     }
 }
 

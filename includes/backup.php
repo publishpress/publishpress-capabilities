@@ -29,9 +29,7 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-global $wpdb;
-
-$auto_backups = $wpdb->get_results("SELECT option_name, option_value FROM $wpdb->options WHERE option_name LIKE 'cme_backup_auto_%' ORDER BY option_id DESC");
+$auto_backups = pp_capabilities_get_auto_backup_option_names();
 
 $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 ?>
@@ -99,8 +97,8 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                 <td class="cme-backup-list">
                                                     <div id="cme_select_restore_div">
                                                     <ul id="cme_select_restore">
-                                                        <?php foreach ($auto_backups as $row):
-                                                            $arr = explode('_', str_replace('cme_backup_auto_', '', $row->option_name));
+                                                        <?php foreach ($auto_backups as $option_name):
+                                                            $arr = explode('_', str_replace('cme_backup_auto_', '', $option_name));
                                                             $arr[1] = str_replace('-', ':', $arr[1]);
                                                             $date_caption = implode(' ', $arr);
 
@@ -127,8 +125,8 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                             ?>
 
                                                             <li>
-                                                            <input type="radio" name="select_restore" value="<?php echo esc_attr($row->option_name);?>" id="<?php echo esc_attr($row->option_name);?>">
-                                                            <label for="<?php echo esc_attr($row->option_name);?>"><?php printf(esc_html__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_html($date_caption)); ?></label>
+                                                            <input type="radio" name="select_restore" value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>">
+                                                            <label for="<?php echo esc_attr($option_name);?>"><?php printf(esc_html__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_html($date_caption)); ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
 
@@ -171,8 +169,8 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                         $backups['capsman_backup'] = $last_caption;
                                                     }
 
-                                                    foreach ($auto_backups as $row) {
-                                                        $arr = explode('_', str_replace('cme_backup_auto_', '', $row->option_name));
+                                                    foreach ($auto_backups as $option_name) {
+                                                        $arr = explode('_', str_replace('cme_backup_auto_', '', $option_name));
                                                         $arr[1] = str_replace('-', ':', $arr[1]);
 
                                                         $date_caption = implode(' ', $arr);
@@ -180,7 +178,6 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                         $date_caption = str_replace(', am', ' am', $date_caption);
                                                         $date_caption = str_replace(', pm', ' pm', $date_caption);
 
-                                                        $option_name = sanitize_key($row->option_name);
                                                         $backups[$option_name] = "Auto-backup from " . $date_caption;
                                                     }
 
