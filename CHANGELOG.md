@@ -4,6 +4,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [2.44.0] - [UNRELEASHED]
 
 - Fixed : Direct SQL autoload update after update_option can desync option cache behavior, #1689
+- Fixed : Network role/option sync processes all blogs in one request, #1690
 
 [2.43.0] - 22 April, 2026
 
