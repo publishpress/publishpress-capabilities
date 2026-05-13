@@ -1,6 +1,10 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.44.0] - [UNRELEASHED]
+
+- Fixed : Direct SQL autoload update after update_option can desync option cache behavior, #1689
+
 [2.43.0] - 22 April, 2026
 
 - Update : Change fonts family and font sizes in Admin Styles, #1589
