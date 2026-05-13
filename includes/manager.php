@@ -123,6 +123,8 @@ class CapabilityManager
 
 	var $message;
 
+	var $network_sync_token;
+
 	/**
 	 * Module ID. Is the module internal short name.
 	 *
@@ -1164,6 +1166,21 @@ class CapabilityManager
 						$user->update_user_level_from_caps();
 					}
 				}
+
+				if (!empty($this->network_sync_token)) {
+					$redirect_args = [
+						'page' => 'pp-capabilities',
+						'role' => sanitize_key($_REQUEST['current']),
+						'cme_network_sync_token' => $this->network_sync_token,
+					];
+
+					if (!empty($_REQUEST['pp_caps_tab'])) {
+						$redirect_args['pp_caps_tab'] = sanitize_key($_REQUEST['pp_caps_tab']);
+					}
+
+					wp_redirect(add_query_arg($redirect_args, admin_url('admin.php')));
+					exit;
+				}
 			}
 		}
 
@@ -1194,7 +1211,7 @@ class CapabilityManager
 		}
 
 		if (isset($_REQUEST['cme_network_sync_token']) && is_scalar($_REQUEST['cme_network_sync_token'])) {
-			$token = (string) wp_unslash($_REQUEST['cme_network_sync_token']);
+			$token = sanitize_key(wp_unslash($_REQUEST['cme_network_sync_token']));
 
 			if ('' !== $token) {
 				if (get_site_transient('cme_network_sync_done_' . $token)) {
