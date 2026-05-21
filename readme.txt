@@ -6,7 +6,7 @@ Author URI: https://publishpress.com
 Tags: capabilities, permissions, admin menus, user roles, user role editor
 Requires at least: 5.5
 Requires PHP: 7.2.5
-Tested up to: 6.9
+Tested up to: 7.0
 Stable tag: 2.43.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
