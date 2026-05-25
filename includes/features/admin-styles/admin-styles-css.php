@@ -10,7 +10,7 @@ if (!isset($_GET['ppc_custom_scheme']) || $_GET['ppc_custom_scheme'] !== '1') {
     exit;
 }
 
-// Define WordPress context (minimal)
+// Define WordPress context (minimal).
 define('SHORTINIT', true);
 $wp_load_path = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php';
 
@@ -23,6 +23,32 @@ if (file_exists($wp_load_path)) {
             require_once(str_repeat('../', $i) . 'wp-load.php');
             break;
         }
+    }
+}
+
+// Validate that the request is from an authenticated logged-in user.
+if (defined('ABSPATH')) {
+    $plugin_api = ABSPATH . WPINC . '/plugin.php';
+    if (file_exists($plugin_api)) {
+        require_once $plugin_api;
+    }
+
+    $pluggable = ABSPATH . WPINC . '/pluggable.php';
+    if (file_exists($pluggable)) {
+        require_once $pluggable;
+    }
+}
+
+if (function_exists('wp_validate_auth_cookie')) {
+    if (!wp_validate_auth_cookie('', 'logged_in')) {
+        header('HTTP/1.0 403 Forbidden');
+        exit;
+    }
+} else {
+    // SHORTINIT fallback: require a logged-in cookie to avoid false 403 if pluggable auth is unavailable.
+    if (!defined('LOGGED_IN_COOKIE') || empty($_COOKIE[LOGGED_IN_COOKIE])) {
+        header('HTTP/1.0 403 Forbidden');
+        exit;
     }
 }
 
