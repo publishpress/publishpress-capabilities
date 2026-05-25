@@ -37,7 +37,7 @@ class PP_Capabilities_Frontend_Features_Restrict
     public function setFrontendFeaturesRestrictionGlobal()
     {
         global $ppc_ff_page_restriction_data;
-        
+
         if (is_admin() || (defined('DOING_AJAX') && DOING_AJAX)) {
             return;
         }
@@ -45,7 +45,7 @@ class PP_Capabilities_Frontend_Features_Restrict
         $cache_key = 'ppc_ff_page_restriction_cache';
 
         /**
-         * Filter if frontend feature should use cache data. 
+         * Filter if frontend feature should use cache data.
          * Check https://github.com/publishpress/PublishPress-Capabilities/issues/1152
          * @var mixed
          */
@@ -108,13 +108,13 @@ class PP_Capabilities_Frontend_Features_Restrict
                 $ppc_disabled_customstyles     = array_filter($ppc_disabled_customstyles);
                 $ppc_disabled_frontendelements = array_filter($ppc_disabled_frontendelements);
                 $ppc_disabled_bodyclass        = array_filter($ppc_disabled_bodyclass);
-            
+
                 $page_restriction_data['custom_styles']     = $ppc_disabled_customstyles;
                 $page_restriction_data['frontend_elements'] = $ppc_disabled_frontendelements;
                 $page_restriction_data['body_class']        = $ppc_disabled_bodyclass;
 
                 $page_restriction_data['element_data']      = $frontend_element_data;
-                
+
                 do_action('ppc_frontend_features_role_raw_restricted_data', $role_disabled_features);
                 do_action('ppc_frontend_features_role_restricted_data', $page_restriction_data);
             }
@@ -189,10 +189,13 @@ class PP_Capabilities_Frontend_Features_Restrict
             }
         }
 
-        if (!empty($custom_css)) : ?>
+        if (!empty($custom_css)) :
+            // Prevent breaking out of the style block while preserving valid CSS syntax.
+            $safe_css = str_ireplace('</style', '<\/style', $custom_css);
+            ?>
 
         <style>
-            <?php echo $custom_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+            <?php echo $safe_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
         </style>
 
         <?php
@@ -251,17 +254,17 @@ class PP_Capabilities_Frontend_Features_Restrict
             //all pages element
             return true;
         }
-        
+
         if (in_array('homepage', $enabled_pages) && (is_front_page() || is_home())) {
             //homepage element
             return  true;
         }
-        
+
         if (in_array('archive_pages', $enabled_pages) && is_archive()) {
             //archive element
             return true;
         }
-        
+
         if (in_array('single_pages', $enabled_pages) && is_singular()) {
             //singular element
             return true;
