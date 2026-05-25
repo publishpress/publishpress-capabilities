@@ -251,7 +251,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                                                 <?php echo $depth_space; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                                                                 <?php if ($fse_theme) : ?>
                                                                                     <span class="ppc-nav-item-title">
-                                                                                        <?php echo $menu_item->title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                                                                        <?php echo esc_html(wp_strip_all_tags($menu_item->title)); ?>
                                                                                     </span>
                                                                                 <?php else : ?>
                                                                                 <?php echo esc_html(wp_strip_all_tags($menu_item->title)); ?>
