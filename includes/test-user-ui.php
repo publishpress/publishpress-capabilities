@@ -51,7 +51,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
                         type="text"
                         placeholder="' . __('Search user...', 'capability-manager-enhanced' ) . '"/>
                 <button class="test-user-btn button"><span class="search-text">' . __( 'Search', 'capability-manager-enhanced' ) . '</span> <span class="spinner ppc-test-user-search-spinner" style="display: none;"></span></button>
-                
+
                 <div class="ppc-test-user-search-response"></div>
             </div>',
             )
@@ -72,20 +72,20 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
 
         $security       = isset($_POST['security']) ? sanitize_key($_POST['security']) : false;
         $search_text    = isset($_POST['search_text']) ? sanitize_key($_POST['search_text']) : '';
-        if (!$security 
-            || !wp_verify_nonce($security, 'ppc-test-user-admin-bar-action') 
+        if (!$security
+            || !wp_verify_nonce($security, 'ppc-test-user-admin-bar-action')
             || !current_user_can('manage_capabilities_user_testing')
         ) {
             $response['message'] = __('Permission denied.', 'capability-manager-enhanced');
         } else {
             $response['status']  = 'success';
             $excluded_roles = (array) get_option('cme_test_user_excluded_roles', []);
-                
+
             $roles = wp_roles()->roles;
-            $editable = function_exists('get_editable_roles') ? 
-                            array_keys(get_editable_roles()) : 
+            $editable = function_exists('get_editable_roles') ?
+                            array_keys(get_editable_roles()) :
                             array_keys(apply_filters('editable_roles', $roles));
-            
+
             $included_roles = [];
             foreach ($editable as $role_name) {
                 if (!in_array($role_name, $excluded_roles)) {
@@ -132,9 +132,9 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
                                 foreach ($user_lists as $user) {
                                     $link = add_query_arg(
                                         [
-                                            'ppc_test_user' => base64_encode($user->ID), 
+                                            'ppc_test_user' => base64_encode($user->ID),
                                             '_wpnonce'      => wp_create_nonce('ppc-test-user')
-                                        ], 
+                                        ],
                                         admin_url('users.php')
                                     );
                                     $response_content .= '
@@ -150,7 +150,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
                 }
             }
         }
-        
+
         wp_send_json($response);
     }
 
@@ -159,7 +159,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
      *
      * @param $actions
      * @param $user
-     * 
+     *
      * @return $action
      */
     public function adminUsersRowActions($actions, $user)
@@ -168,9 +168,9 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
 
             $link = add_query_arg(
                 [
-                    'ppc_test_user' => base64_encode($user->ID), 
+                    'ppc_test_user' => base64_encode($user->ID),
                     '_wpnonce'      => wp_create_nonce('ppc-test-user')
-                ], 
+                ],
                 admin_url('users.php')
             );
 
@@ -194,16 +194,16 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
         if (current_user_can('manage_capabilities_user_testing') && current_user_can('edit_user', $user->ID) && $user->ID !== get_current_user_id()) {
             $link = add_query_arg(
                 [
-                    'ppc_test_user' => base64_encode($user->ID), 
+                    'ppc_test_user' => base64_encode($user->ID),
                     '_wpnonce'      => wp_create_nonce('ppc-test-user')
-                ], 
+                ],
                 admin_url('users.php')
             );
             ?>
             <tr class="user-test-user-wrap">
                 <th scope="row"><?php esc_html_e('Test user', 'capability-manager-enhanced'); ?></th>
                 <td>
-                    <?php 
+                    <?php
                     printf(
                         '<a href="%s" class="button">%s</a>',
                         esc_url($link),
@@ -252,7 +252,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
 
                 var switchBackDiv = '<span class="ppc-testing-user top-notice">'
                 + '<?php echo wp_kses(
-                        esc_html__('Testing: ', 'capability-manager-enhanced'), 
+                        esc_html__('Testing: ', 'capability-manager-enhanced'),
                         [
                             'a' => ['href' => []],
                         ]
@@ -271,7 +271,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
                     '</a>'
                 );
                 ?>
-                
+
                 $('#wp-admin-bar-logout').after('<?php echo $message;?>');
             });
             /* ]]> */
@@ -281,13 +281,13 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
 
     private function switchBackLink() {
         $user = wp_get_current_user();
-        
+
         return add_query_arg(
             [
-                'ppc_test_user'   => base64_encode($user->ID), 
+                'ppc_test_user'   => base64_encode($user->ID),
                 'ppc_return_back' => 1,
                 '_wpnonce'        => wp_create_nonce('ppc-test-user')
-            ], 
+            ],
             home_url()
         );
     }
