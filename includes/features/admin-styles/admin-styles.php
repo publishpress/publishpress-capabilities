@@ -434,6 +434,8 @@ class PP_Capabilities_Admin_Styles
     {
         $plugin_url = plugin_dir_url(__FILE__);
 
+        $style_slug = sanitize_key($style_slug);
+
         // Get the custom style's individual version for cache busting
         $custom_styles = $this->get_custom_styles();
         $version = (isset($custom_styles[$style_slug]['custom_scheme_version']) ? $custom_styles[$style_slug]['custom_scheme_version'] : time());
