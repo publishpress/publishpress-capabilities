@@ -139,7 +139,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
                                     );
                                     $response_content .= '
                                         <p class="result">
-                                            <a href="' . esc_url($link) . '">' . $user->display_name . '</a>
+                                            <a href="' . esc_url($link) . '">' . esc_html($user->display_name) . '</a>
                                         </p>
                                     ';
                                 }
