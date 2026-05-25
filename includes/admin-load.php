@@ -441,13 +441,32 @@ class PP_Capabilities_Admin_UI {
         if ((!empty($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'update-user_' . $userId)
             || !empty($_REQUEST['_wpnonce_create-user']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce_create-user']), 'create-user'))
             && isset($_POST['pp_roles']) && current_user_can('promote_users')) {
-            // Remove the user's roles
-            $user = get_user_by('ID', $userId);
+            if (!current_user_can('edit_user', $userId) || !current_user_can('promote_user', $userId)) {
+                return;
+            }
 
-            $newRoles     = array_map('sanitize_key', $_POST['pp_roles']);
+            $user = get_user_by('ID', $userId);
+            if (empty($user)) {
+                return;
+            }
+
+            $newRoles = array_unique(
+                array_filter(
+                    array_map('sanitize_key', (array) $_POST['pp_roles'])
+                )
+            );
             $currentRoles = $user->roles;
 
             if (empty($newRoles) || !is_array($newRoles)) {
+                return;
+            }
+
+            $editableRoles = function_exists('get_editable_roles')
+                ? array_keys(get_editable_roles())
+                : array_keys(apply_filters('editable_roles', wp_roles()->roles));
+
+            // Reject the request if any submitted role is not editable by current user.
+            if (array_diff($newRoles, $editableRoles)) {
                 return;
             }
 
