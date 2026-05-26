@@ -176,6 +176,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 					$main_site_id = (function_exists('get_main_site_id')) ? get_main_site_id() : 1;
 					switch_to_blog($main_site_id);
 					wp_cache_delete( $wpdb->prefix . 'user_roles', 'options' );
+					restore_current_blog();
 				}
 
 				( method_exists( $wp_roles, 'for_site' ) ) ? $wp_roles->for_site() : $wp_roles->reinit();
