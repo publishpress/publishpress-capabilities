@@ -664,6 +664,202 @@ if (!function_exists('pp_capabilities_group_capability_list')) {
     }
 }
 
+if (!function_exists('pp_capabilities_plugin_capability_list')) {
+    /**
+     * Flatten plugin capability definitions to a unique capability list.
+     *
+     * Supports both flat lists and grouped capability definitions.
+     *
+     * @param array $plugin_cap_payload
+     *
+     * @return array
+     */
+    function pp_capabilities_plugin_capability_list($plugin_cap_payload)
+    {
+        if (!is_array($plugin_cap_payload)) {
+            return [];
+        }
+
+        $caps = [];
+        $add_cap = static function ($cap_name) use (&$caps) {
+            if (!is_scalar($cap_name)) {
+                return;
+            }
+
+            $cap_name = sanitize_text_field((string) $cap_name);
+
+            if ('' !== $cap_name) {
+                $caps[$cap_name] = true;
+            }
+        };
+
+        $is_grouped_payload = false;
+        foreach ($plugin_cap_payload as $payload_caps) {
+            if (is_array($payload_caps)) {
+                $is_grouped_payload = true;
+                break;
+            }
+        }
+
+        if ($is_grouped_payload) {
+            foreach (pp_capabilities_group_capability_list($plugin_cap_payload) as $plugin_cap) {
+                $add_cap($plugin_cap);
+            }
+        } else {
+            foreach ($plugin_cap_payload as $plugin_cap_key => $plugin_cap_value) {
+                $add_cap(
+                    is_string($plugin_cap_key) && ('' !== $plugin_cap_key) && !is_numeric($plugin_cap_key)
+                        ? $plugin_cap_key
+                        : $plugin_cap_value
+                );
+            }
+        }
+
+        return array_keys($caps);
+    }
+}
+
+if (!function_exists('pp_capabilities_plugin_capability_lookup')) {
+    /**
+     * Build a capability lookup from all registered plugin capability definitions.
+     *
+     * @param array $plugin_caps
+     *
+     * @return array
+     */
+    function pp_capabilities_plugin_capability_lookup($plugin_caps)
+    {
+        if (!is_array($plugin_caps)) {
+            return [];
+        }
+
+        $cap_lookup = [];
+
+        foreach ($plugin_caps as $plugin_cap_payload) {
+            $cap_lookup += array_fill_keys(
+                pp_capabilities_plugin_capability_list((array) $plugin_cap_payload),
+                true
+            );
+        }
+
+        return $cap_lookup;
+    }
+}
+
+if (!function_exists('pp_capabilities_capability_tab_group_config')) {
+    /**
+     * Build auto-grouping configuration for a capability tab.
+     *
+     * @param string $tab_slug
+     * @param string $tab_label
+     * @param string $role
+     * @param array  $capabilities
+     * @param array  $default_group_sizes
+     *
+     * @return array
+     */
+    function pp_capabilities_capability_tab_group_config($tab_slug, $tab_label, $role, $capabilities, $default_group_sizes = [])
+    {
+        $tab_slug = sanitize_key($tab_slug);
+
+        if (!is_array($capabilities)) {
+            $capabilities = [];
+        }
+
+        if (!is_array($default_group_sizes)) {
+            $default_group_sizes = [];
+        }
+
+        $tab_auto_group_sizes = apply_filters(
+            'publishpress_caps_capability_tab_auto_group_sizes',
+            $default_group_sizes,
+            $role,
+            $capabilities
+        );
+
+        if (!is_array($tab_auto_group_sizes)) {
+            $tab_auto_group_sizes = [];
+        }
+
+        $group_size = isset($tab_auto_group_sizes[$tab_slug])
+            ? (int) $tab_auto_group_sizes[$tab_slug]
+            : 0;
+
+        $group_size = (int) apply_filters(
+            'publishpress_caps_capability_tab_group_size',
+            $group_size,
+            $tab_slug,
+            $role,
+            $capabilities
+        );
+
+        if ($group_size < 1) {
+            $group_size = 0;
+        }
+
+        $group_enabled = $group_size > 0;
+
+        $group_enabled = (bool) apply_filters(
+            'publishpress_caps_enable_capability_tab_grouping',
+            $group_enabled,
+            $tab_slug,
+            $group_size,
+            $role,
+            $capabilities
+        );
+
+        if ($group_size < 1) {
+            $group_enabled = false;
+        }
+
+        $group_label = (string) apply_filters(
+            'publishpress_caps_capability_tab_group_label',
+            $tab_label,
+            $tab_slug,
+            $role,
+            $capabilities
+        );
+
+        return [
+            'enabled' => $group_enabled,
+            'label' => $group_label,
+            'size' => $group_size,
+        ];
+    }
+}
+
+if (!function_exists('pp_capabilities_capability_tab_group_title')) {
+    /**
+     * Build an auto-group heading for a capability tab.
+     *
+     * @param string $tab_slug
+     * @param string $group_label
+     * @param int    $group_start
+     * @param int    $group_end
+     * @param string $role
+     * @param int    $group_size
+     * @param array  $capabilities
+     *
+     * @return string
+     */
+    function pp_capabilities_capability_tab_group_title($tab_slug, $group_label, $group_start, $group_end, $role, $group_size, $capabilities)
+    {
+        $group_title = sprintf('%s (%d-%d)', $group_label, $group_start, $group_end);
+
+        return (string) apply_filters(
+            'publishpress_caps_capability_tab_group_title',
+            $group_title,
+            $group_label,
+            $group_start,
+            $group_end,
+            sanitize_key($tab_slug),
+            $role,
+            $group_size,
+            $capabilities
+        );
+    }
+}
+
 if (!function_exists('pp_capabilities_groups_with_descriptions')) {
     /**
      * Normalize grouped capabilities and merge optional description fallbacks.
