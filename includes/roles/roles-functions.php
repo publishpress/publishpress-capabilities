@@ -84,13 +84,14 @@ function pp_roles_user_has_role($user_id, $roles)
  * Check if role exist and return it data
  *
  * @param string $role_name
+ * @param string $view
  * @return bool|WP_Role
  */
-function pp_roles_get_role_data($role_name)
+function pp_roles_get_role_data($role_name, $view = 'all')
 {
 
     $role = false;
-    $all_roles      = pp_capabilities_roles()->manager->get_roles_for_list_table('all', true, true);
+    $all_roles      = pp_capabilities_roles()->manager->get_roles_for_list_table($view, true, true);
 
     foreach ($all_roles as $role_data) {
         if ($role_name === $role_data['role']) {
@@ -201,9 +202,9 @@ function pp_capabilities_roles_admin_menus($role, $check = false)
     if ($role && $check) {
         $admin_menu_option = !empty(get_option('capsman_admin_menus')) ? get_option('capsman_admin_menus') : [];
         $admin_menu_option = array_key_exists($role, $admin_menu_option) ? (array)$admin_menu_option[$role] : [];
-    
+
         $disabled_items = array_filter($admin_menu_option);
-    
+
         return count($disabled_items);
     } else {
         return 0;

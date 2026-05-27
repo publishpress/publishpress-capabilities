@@ -234,12 +234,27 @@ class Pp_Roles_Actions
         $copied_role       = false;
 
         //get copied role capabilites
-        if (!empty($_REQUEST['role_action']) && $_REQUEST['role_action'] === 'copy'
-            && !empty($_REQUEST['role'])
-            && $role_data = pp_roles_get_role_data(sanitize_key($_REQUEST['role']))
-        ) {
-            $role_capabilities = $role_data['capabilities'];
-            $copied_role       = sanitize_key($_REQUEST['role']);
+        if (!empty($_REQUEST['role_action']) && $_REQUEST['role_action'] === 'copy' && !empty($_REQUEST['role'])) {
+            $source_role = sanitize_key($_REQUEST['role']);
+
+            // Reject direct requests that target roles outside editable-role scope.
+            if (!function_exists('pp_capabilities_is_editable_role') || !pp_capabilities_is_editable_role($source_role)) {
+                $this->notify(esc_html__('You do not have sufficient permissions to perform this action.', 'capability-manager-enhanced'));
+            }
+
+            $role_data = pp_roles_get_role_data($source_role, 'editable');
+            if (empty($role_data) || !is_array($role_data) || empty($role_data['capabilities']) || !is_array($role_data['capabilities'])) {
+                $this->notify(esc_html__('Missing parameters, refresh the page and try again.', 'capability-manager-enhanced'));
+            }
+
+            $role_capabilities = [];
+            foreach ($role_data['capabilities'] as $cap => $grant) {
+                if (current_user_can('administrator') || current_user_can($cap)) {
+                    $role_capabilities[$cap] = $grant;
+                }
+            }
+
+            $copied_role = $source_role;
         }
 
         if (isset($_REQUEST['role_level'])) {

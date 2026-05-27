@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Capabilities
  * Plugin URI: https://publishpress.com/capability-manager/
  * Description: PublishPress Capabilities is the access control plugin for WordPress. You can manage all your WordPress user roles, from Administrators to Subscribers.
- * Version: 2.43.0
+ * Version: 2.44.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: capability-manager-enhanced
@@ -68,7 +68,7 @@ if (
 add_action('plugins_loaded', function () {
 
 	if (!defined('CAPSMAN_VERSION')) {
-		define('CAPSMAN_VERSION', '2.43.0');
+		define('CAPSMAN_VERSION', '2.44.0');
 		define('CAPSMAN_ENH_VERSION', CAPSMAN_VERSION);
 		define('PUBLISHPRESS_CAPS_VERSION', CAPSMAN_VERSION);
 	}
@@ -164,6 +164,15 @@ add_action('plugins_loaded', function () {
 
 	add_action('init', '_cme_cap_helper', 49);  // Press Permit Cap Helper, registered at 50, will leave caps which we've already defined
 
+	add_action('cme_network_sync_batch', function($token) {
+		require_once dirname(__FILE__) . '/includes/manager.php';
+		require_once dirname(__FILE__) . '/includes/handler.php';
+
+		$manager = new CapabilityManager();
+		$handler = new CapsmanHandler($manager);
+		$handler->runNetworkSyncBatch($token);
+	}, 10, 1);
+
 		// Skip admin UI initialization when loaded by Pro
 		if ($pro_active) {
 			do_action('publishpress_capabilities_loaded');
@@ -189,4 +198,30 @@ register_activation_hook(
     function () {
         update_option('pp_capabilities_activated', true);
     }
+);
+
+register_deactivation_hook(
+	__FILE__,
+	function () {
+		if (function_exists('wp_unschedule_hook')) {
+			wp_unschedule_hook('cme_network_sync_batch');
+		} elseif (function_exists('_get_cron_array') && function_exists('wp_unschedule_event')) {
+			$crons = _get_cron_array();
+
+			if (is_array($crons)) {
+				foreach ($crons as $timestamp => $cronhooks) {
+					if (empty($cronhooks['cme_network_sync_batch']) || !is_array($cronhooks['cme_network_sync_batch'])) {
+						continue;
+					}
+
+					foreach ($cronhooks['cme_network_sync_batch'] as $event) {
+						$args = isset($event['args']) && is_array($event['args']) ? $event['args'] : [];
+						wp_unschedule_event($timestamp, 'cme_network_sync_batch', $args);
+					}
+				}
+			}
+		} elseif (function_exists('wp_clear_scheduled_hook')) {
+			wp_clear_scheduled_hook('cme_network_sync_batch');
+		}
+	}
 );

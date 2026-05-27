@@ -123,6 +123,8 @@ class CapabilityManager
 
 	var $message;
 
+	var $network_sync_token;
+
 	/**
 	 * Module ID. Is the module internal short name.
 	 *
@@ -355,7 +357,7 @@ class CapabilityManager
 			update_option( $this->ID . '_backup_datestamp', current_time( 'timestamp' ), false );
 		}
 
-		if (!$wpdb->get_var("SELECT COUNT(option_id) FROM $wpdb->options WHERE option_name LIKE 'cme_backup_auto_%'")) {
+		if (!pp_capabilities_get_auto_backup_option_names()) {
 			pp_capabilities_autobackup();
 		}
 	}
@@ -1164,6 +1166,21 @@ class CapabilityManager
 						$user->update_user_level_from_caps();
 					}
 				}
+
+				if (!empty($this->network_sync_token)) {
+					$redirect_args = [
+						'page' => 'pp-capabilities',
+						'role' => sanitize_key($_REQUEST['current']),
+						'cme_network_sync_token' => $this->network_sync_token,
+					];
+
+					if (!empty($_REQUEST['pp_caps_tab'])) {
+						$redirect_args['pp_caps_tab'] = sanitize_key($_REQUEST['pp_caps_tab']);
+					}
+
+					wp_redirect(add_query_arg($redirect_args, admin_url('admin.php')));
+					exit;
+				}
 			}
 		}
 
@@ -1191,6 +1208,19 @@ class CapabilityManager
 		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities')) {
             // TODO: Implement exceptions.
 		    wp_die('<strong>' . esc_html__('You do not have permission to manage capabilities.', 'capability-manager-enhanced') . '</strong>');
+		}
+
+		if (isset($_REQUEST['cme_network_sync_token']) && is_scalar($_REQUEST['cme_network_sync_token'])) {
+			$token = sanitize_key(wp_unslash($_REQUEST['cme_network_sync_token']));
+
+			if ('' !== $token) {
+				if (get_site_transient('cme_network_sync_done_' . $token)) {
+					delete_site_transient('cme_network_sync_done_' . $token);
+					ak_admin_notify(__('Network sync completed.', 'capability-manager-enhanced'));
+				} else {
+					ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
+				}
+			}
 		}
 
 		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD'])) {

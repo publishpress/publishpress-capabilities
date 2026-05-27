@@ -74,18 +74,99 @@ jQuery(document).ready(function ($) {
     }
   });
 
+  function getBulkCapabilityInputs(table) {
+    return table
+      .find('input[type="checkbox"]')
+      .not('.cme-check-all')
+      .not('.excluded-input')
+      .not(':disabled')
+      .filter(function () {
+        return $(this).closest('td').length &&
+          !$(this).closest('td').hasClass('cap-unreg') &&
+          $(this).closest('tr').is(':visible');
+      });
+  }
+
+  function applyCapabilityState(input, state) {
+    var cap_name_attr = input.attr('name');
+
+    if (!cap_name_attr) {
+      return;
+    }
+
+    $(document.getElementsByName(cap_name_attr)).filter('input[type="checkbox"]').not(':disabled').each(function () {
+      var matching_input = $(this);
+      var cell = matching_input.closest('td');
+
+      // Remove all class states first
+      cell.removeClass('cap-neg').removeClass('cap-yes').removeClass('cap-no');
+      cell.find('input.cme-negation-input').remove();
+
+      if (state === 'negated') {
+        // Set checkbox to unchecked for negated state
+        matching_input.prop('checked', false);
+        cell.addClass('cap-neg');
+        cell.append('<input type="hidden" class="cme-negation-input" name="' + cap_name_attr + '" value="" />');
+      } else if (state === 'checked') {
+        // Set checkbox to checked for checked state
+        matching_input.prop('checked', true);
+        cell.addClass('cap-yes');
+      } else {
+        // Set checkbox to unchecked for unchecked state
+        matching_input.prop('checked', false);
+        cell.addClass('cap-no');
+      }
+
+      // Trigger change event so individual handlers can track interacted state properly
+      matching_input.trigger('change');
+    });
+  }
+
+  function getNextBulkCapabilityState(table, bulk_checkbox) {
+    // Simplified deterministic cycle: checked -> unchecked -> negated -> checked
+    var current = bulk_checkbox.data('cmeBulkState');
+    if (!current) {
+      // If not set, infer a sensible default based on table contents
+      var inputs = getBulkCapabilityInputs(table);
+      var anyChecked = false;
+      var anyNegated = false;
+      var anyUnchecked = false;
+      inputs.each(function () {
+        if ($(this).closest('td').hasClass('cap-neg')) anyNegated = true;
+        if ($(this).prop('checked')) anyChecked = true;
+        if (!$(this).prop('checked')) anyUnchecked = true;
+      });
+      if (!inputs.length) current = 'unchecked';
+      else if (anyUnchecked) current = 'negated';
+      else current = 'checked';
+    }
+
+    if (current === 'checked') return 'unchecked';
+    if (current === 'unchecked') return 'negated';
+    return 'checked';
+  }
+
+  function syncBulkCapabilityControls(table, state) {
+    table.find('input.cme-check-all')
+      .prop('checked', state === 'checked')
+      .prop('indeterminate', state === 'negated')
+      .data('cmeBulkState', state);
+  }
+
   $('input.cme-check-all').click(function (e) {
-    $(this).closest('table').find('input[type="checkbox"][disabled!="disabled"]:visible').prop('checked', $(this).is(":checked"));
-  });
+    e.preventDefault();
 
-  $('a.cme-neg-all').click(function (e) {
-    $(this).closest('table').find('a.neg-cap:visible').click();
-    return false;
-  });
+    var bulk_checkbox = $(this);
+    var table = bulk_checkbox.closest('table');
+    var next_state = getNextBulkCapabilityState(table, bulk_checkbox);
 
-  $('a.cme-switch-all').click(function (e) {
-    $(this).closest('table').find('td.cap-neg span').click();
-    return false;
+    var inputs = getBulkCapabilityInputs(table);
+
+    inputs.each(function () {
+      applyCapabilityState($(this), next_state);
+    });
+
+    syncBulkCapabilityControls(table, next_state);
   });
 
   $('table.cme-typecaps a.neg-type-caps').click(function (e) {

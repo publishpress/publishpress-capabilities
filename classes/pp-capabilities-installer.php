@@ -167,7 +167,7 @@ class PP_Capabilities_Installer
 
     private static function addAdminNoticesCapabilities()
     {
-        $eligible_roles = ['administrator', 'editor'];
+        $eligible_roles = ['administrator'];
 
         foreach ($eligible_roles as $eligible_role) {
             $role = get_role($eligible_role);

@@ -1,6 +1,23 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.44.0] - 27 May, 2026
+
+- Fixed : The Additional tab showing PublishPress Permissions capabilities, #1713
+- Update : Remove Admin Menus "New Menu Link" button icon, #1704
+- Fixed : Can't bulk disable capabilities, #1702
+- Update : Limit Admin Notices menu capability to administrator on installs, #1698
+- Fixed : Direct SQL autoload update after update_option can desync option cache behavior, #1689
+- Fixed : Network role/option sync processes all blogs in one request, #1690
+- Fixed : Uncached options-table scans in backup routines increase DB load, #1691
+- Fixed : switch_to_blog() calls without a corresponding restore_current_blog(), #1695
+
+[2.44.0] - [UNRELEASED]
+
+- Fixed : Direct SQL autoload update after update_option can desync option cache behavior, #1689
+- Fixed : Network role/option sync processes all blogs in one request, #1690
+- Fixed : Uncached options-table scans in backup routines increase DB load, #1691
+
 [2.43.0] - 22 April, 2026
 
 - Update : Change fonts family and font sizes in Admin Styles, #1589
