@@ -2,13 +2,6 @@ name: Unit and Integration Tests
 permissions:
   contents: read
 on:
-  pull_request:
-    branches:
-      - 'master'
-      - 'development'
-      - 'release/*'
-      - 'release-*'
-
   workflow_call:
 
   workflow_dispatch:
