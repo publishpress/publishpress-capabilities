@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-04-22 08:32+0000\n"
+"PO-Revision-Date: 2026-05-27 08:58+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "% 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);\n"
@@ -75,7 +75,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:814
+#: includes/admin-load.php:833
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "ترقية إلى Pro"
@@ -210,29 +210,29 @@ msgstr "عنوان الصفحة"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:494
-#: includes/admin-load.php:827
+#: includes/admin-load.php:513
+#: includes/admin-load.php:846
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:495
-#: includes/manager.php:387
+#: includes/manager.php:389
 #: includes/roles/class/class-pp-roles-admin.php:637
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "القدرات"
 
-#: includes/admin-load.php:613
+#: includes/admin-load.php:632
 msgid "No permission!"
 msgstr "لا يوجد إذن!"
 
-#: includes/admin-load.php:623
+#: includes/admin-load.php:642
 msgid "Invalid nonce token!"
 msgstr "رمز nonce غير صالح!"
 
-#: includes/admin-load.php:627
+#: includes/admin-load.php:646
 msgid "Error: wrong data"
 msgstr "خطأ: بيانات خاطئة"
 
-#: includes/admin-load.php:649
+#: includes/admin-load.php:668
 #: includes/admin-notices/admin-notices.php:232
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -240,44 +240,44 @@ msgstr "خطأ: بيانات خاطئة"
 msgid "An error occured!"
 msgstr "حدث خطأ!"
 
-#: includes/admin-load.php:654
+#: includes/admin-load.php:673
 msgid "Security check failed"
 msgstr "فشل فحص الأمان"
 
-#: includes/admin-load.php:656
+#: includes/admin-load.php:675
 msgid "Permission denied"
 msgstr "تم رفض الإذن"
 
-#: includes/admin-load.php:666
+#: includes/admin-load.php:685
 msgid "Settings updated successfully."
 msgstr "تم تحديث الإعدادات بنجاح."
 
-#: includes/admin-load.php:762
+#: includes/admin-load.php:781
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "المستخدمون المتصلون"
 
-#: includes/admin-load.php:763
+#: includes/admin-load.php:782
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "المستخدمون غير المتصلين"
 
-#: includes/admin-load.php:770
+#: includes/admin-load.php:789
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "تقييد قائمة قدرات PublishPress"
 
-#: includes/admin-load.php:771
+#: includes/admin-load.php:790
 msgid "This menu is restricted for the following roles"
 msgstr "هذه القائمة مقيدة للأدوار التالية"
 
-#: includes/admin-load.php:826
+#: includes/admin-load.php:845
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: includes/admin-load.php:828
+#: includes/admin-load.php:847
 #: includes/functions-admin.php:404
 #: includes/functions-admin.php:488
 #: includes/roles/roles.php:8
@@ -285,7 +285,7 @@ msgstr "لوحة التحكم"
 msgid "Roles"
 msgstr "الأدوار"
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:848
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -332,7 +332,7 @@ msgstr "حفظ لجميع الأدوار"
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
 #: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:856
+#: includes/features/admin-styles/admin-styles.php:858
 #, php-format
 msgid "Save for %s"
 msgstr "حفظ لـ %s"
@@ -402,7 +402,7 @@ msgid "Configure notice visibility by user role"
 msgstr "تكوين رؤية الإشعار حسب دور المستخدم"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:2015
+#: includes/admin.php:1906
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -462,8 +462,8 @@ msgid "Edit the settings."
 msgstr "قم بتعديل الإعدادات."
 
 #: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:771
-#: includes/manager.php:795
+#: includes/manager.php:773
+#: includes/manager.php:797
 msgid "You do not have permission to manage admin notices."
 msgstr "ليس لديك إذن لإدارة إشعارات الإدارة."
 
@@ -490,82 +490,74 @@ msgstr ""
 "تحذير: لا يمكن لهذا الدور الوصول إلى لوحة التحكم دون القدرة على القراءة. "
 "%1$sانقر هنا لإصلاح ذلك الآن%2$s."
 
-#: includes/admin.php:84
-msgid "Negate All"
-msgstr "إلغاء الكل"
-
-#: includes/admin.php:88
-msgid "Negate None"
-msgstr "إلغاء none"
-
-#: includes/admin.php:95
+#: includes/admin.php:87
 msgid "Role Capabilities"
 msgstr "قدرات الدور"
 
-#: includes/admin.php:136
+#: includes/admin.php:128
 msgid "Search capabilities..."
 msgstr "البحث عن القدرات..."
 
-#: includes/admin.php:208
-#: includes/admin.php:847
+#: includes/admin.php:201
+#: includes/admin.php:840
 msgid "Nav Menus (Block)"
 msgstr "قوائم التنقل (كتلة)"
 
-#: includes/admin.php:210
+#: includes/admin.php:203
 msgid "Block"
 msgstr "كتلة"
 
-#: includes/admin.php:217
-#: includes/admin.php:849
+#: includes/admin.php:210
+#: includes/admin.php:842
 msgid "Nav Menus (Legacy)"
 msgstr "قوائم التنقل (إصدار قديم)"
 
-#: includes/admin.php:219
+#: includes/admin.php:212
 msgid "Legacy"
 msgstr "إصدار قديم"
 
-#: includes/admin.php:271, fuzzy
+#: includes/admin.php:264, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:272
+#: includes/admin.php:265
 msgid "Visibility"
 msgstr "الرؤية"
 
-#: includes/admin.php:273
+#: includes/admin.php:266
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "التعديل"
 
-#: includes/admin.php:274
+#: includes/admin.php:267
 msgid "Deletion"
 msgstr "الحذف"
 
-#: includes/admin.php:275
+#: includes/admin.php:268
 msgid "Taxonomies"
 msgstr "taxonomies"
 
-#: includes/admin.php:279
+#: includes/admin.php:272
 msgid "Listing"
 msgstr "القائمة"
 
-#: includes/admin.php:283
+#: includes/admin.php:276
 msgid "Create Revision"
 msgstr "إنشاء مراجعة"
 
-#: includes/admin.php:287
+#: includes/admin.php:280
 msgid "Submit Revision"
 msgstr "إرسال مراجعة"
 
-#: includes/admin.php:291
+#: includes/admin.php:284
 msgid "Approve Revision"
 msgstr "الموافقة على المراجعة"
 
-#: includes/admin.php:295
+#: includes/admin.php:288
 msgid "Can read posts which are currently published with private visibility."
 msgstr "يمكنه قراءة المشاركات التي تم نشرها حاليًا مع رؤية خاصة."
 
-#: includes/admin.php:296
+#: includes/admin.php:289
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -573,23 +565,23 @@ msgstr ""
 "يمتلك قدرة تحرير أساسية (لكن قد يحتاج إلى قدرات أخرى بناءً على حالة المنشور "
 "والملكية)."
 
-#: includes/admin.php:297
+#: includes/admin.php:290
 msgid "Can edit posts which were created by other users."
 msgstr "يمكنه تحرير المشاركات التي أنشأها مستخدمون آخرون."
 
-#: includes/admin.php:298
+#: includes/admin.php:291
 msgid "Can edit posts which are currently published."
 msgstr "يمكنه تحرير المشاركات التي تم نشرها حاليًا."
 
-#: includes/admin.php:299
+#: includes/admin.php:292
 msgid "Can edit posts which are currently published with private visibility."
 msgstr "يمكنه تحرير المشاركات التي تم نشرها حاليًا مع رؤية خاصة."
 
-#: includes/admin.php:300
+#: includes/admin.php:293
 msgid "Can make a post publicly visible."
 msgstr "يمكنه جعل المشاركة مرئية للجمهور."
 
-#: includes/admin.php:301
+#: includes/admin.php:294
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -597,102 +589,103 @@ msgstr ""
 "يمتلك قدرة حذف أساسية (لكن قد يحتاج إلى قدرات أخرى بناءً على حالة المنشور "
 "والملكية)."
 
-#: includes/admin.php:302
+#: includes/admin.php:295
 msgid "Can delete posts which were created by other users."
 msgstr "يمكنه حذف المشاركات التي أنشأها مستخدمون آخرون."
 
-#: includes/admin.php:303
+#: includes/admin.php:296
 msgid "Can delete posts which are currently published."
 msgstr "يمكنه حذف المشاركات التي تم نشرها حاليًا."
 
-#: includes/admin.php:304
+#: includes/admin.php:297
 msgid "Can delete posts which are currently published with private visibility."
 msgstr "يمكنه حذف المشاركات التي تم نشرها حاليًا مع رؤية خاصة."
 
-#: includes/admin.php:599
-#: includes/admin.php:1114
-#: includes/admin.php:2104
+#: includes/admin.php:592
+#: includes/admin.php:1107
+#: includes/admin.php:1995
 msgid "Multisite"
 msgstr "متعدد المواقع"
 
-#: includes/admin.php:603
-#: includes/admin.php:1118
+#: includes/admin.php:596
+#: includes/admin.php:1111
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:683
-#: includes/admin.php:1597
+#: includes/admin.php:676
+#: includes/admin.php:1545
 msgid "Invalid Capabilities"
 msgstr "قدرات غير صالحة"
 
-#: includes/admin.php:688
+#: includes/admin.php:681
+#: includes/admin.php:1690
 msgid "Additional"
 msgstr "إضافي"
 
-#: includes/admin.php:722
+#: includes/admin.php:715
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "مصطلح %s القدرات"
 
-#: includes/admin.php:725
+#: includes/admin.php:718
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s القدرات"
 
-#: includes/admin.php:726
+#: includes/admin.php:719
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "مشاركة %s القدرات"
 
-#: includes/admin.php:729
+#: includes/admin.php:722
 msgid "Taxonomy"
 msgstr "التصنيف"
 
-#: includes/admin.php:735
+#: includes/admin.php:728
 msgid "Filter by taxonomy"
 msgstr "تصفية حسب التصنيف"
 
-#: includes/admin.php:735
+#: includes/admin.php:728
 msgid "Filter by post type"
 msgstr "تصفية حسب نوع المنشور"
 
-#: includes/admin.php:856
+#: includes/admin.php:849
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "الرمز لهذا التصنيف هو %s"
 
-#: includes/admin.php:858
+#: includes/admin.php:851
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "الرمز لهذا النوع من المنشور هو %s"
 
-#: includes/admin.php:934
-#: includes/admin.php:1183
-#: includes/admin.php:1515
-#: includes/admin.php:1878
-#: includes/admin.php:1879
+#: includes/admin.php:927
+#: includes/admin.php:1173
+#: includes/admin.php:1466
+#: includes/admin.php:1772
+#: includes/admin.php:1773
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: مُعين بواسطة مجموعة الأذونات"
 
-#: includes/admin.php:937
-#: includes/admin.php:1185
-#: includes/admin.php:1517
-#: includes/admin.php:1645
-#: includes/admin.php:1881
+#: includes/admin.php:930
+#: includes/admin.php:1175
+#: includes/admin.php:1468
+#: includes/admin.php:1593
+#: includes/admin.php:1775
 #, php-format
 msgid "This capability is %s"
 msgstr "هذه القدرة هي %s"
 
-#: includes/admin.php:967
+#: includes/admin.php:960
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "هذه القدرة يتم التحكم بها بواسطة %s"
 
-#: includes/admin.php:970
+#: includes/admin.php:963
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -701,16 +694,16 @@ msgstr ""
 "تتحكم هذه القدرة بواسطة %s استخدم إعدادات الشريط الجانبي للسماح بالتحكم في "
 "ذلك بشكل مستقل."
 
-#: includes/admin.php:987
+#: includes/admin.php:980
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "استخدم إعدادات الشريط الجانبي للسماح بالتحكم بها بشكل مستقل."
 
-#: includes/admin.php:989
-#: includes/admin.php:993
+#: includes/admin.php:982
+#: includes/admin.php:986
 msgid "This capability is not available for this post type."
 msgstr "هذه القدرة غير متاحة لهذا النوع من المنشور."
 
-#: includes/admin.php:1057
+#: includes/admin.php:1050
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -721,65 +714,64 @@ msgstr ""
 "القدرات \"القائمة\" فقط إذا كانت قدرة \"تحرير\" المقابلة مفقودة. أيضًا، "
 "يمكن أن تمنح هذه القدرات \"القائمة\" الوصول، ولكن لا يمكنها منع الوصول."
 
-#: includes/admin.php:1134
-#: includes/admin.php:1253
-#: includes/admin.php:1442
-#: includes/admin.php:1713
+#: includes/admin.php:1127
+#: includes/admin.php:1240
+#: includes/admin.php:1396
+#: includes/admin.php:1661
 msgid "Filter by capability"
 msgstr "تصفية حسب القدرة"
 
-#: includes/admin.php:1137
-#: includes/admin.php:1256
-#: includes/admin.php:1445
-#: includes/admin.php:1716
+#: includes/admin.php:1130
+#: includes/admin.php:1243
+#: includes/admin.php:1399
+#: includes/admin.php:1664
 msgid "No results found. Please try again with a different word."
 msgstr "لم يتم العثور على نتائج. يرجى المحاولة مرة أخرى بكلمة مختلفة."
 
-#: includes/admin.php:1148
-#: includes/admin.php:1230
-#: includes/admin.php:1267
-#: includes/admin.php:1276
-#: includes/admin.php:1456
-#: includes/admin.php:1579
-#: includes/admin.php:1722
-#: includes/admin.php:1953
-msgid "check / uncheck all"
-msgstr "تحديد / إلغاء تحديد الكل"
+#: includes/admin.php:1141
+#: includes/admin.php:1220
+#: includes/admin.php:1254
+#: includes/admin.php:1260
+#: includes/admin.php:1410
+#: includes/admin.php:1530
+#: includes/admin.php:1670
+#: includes/admin.php:1847
+msgid "check / uncheck / negate all"
+msgstr "تحديد / إلغاء تحديد / نفي الكل"
 
-#: includes/admin.php:1148
-#: includes/admin.php:1230
-#: includes/admin.php:1267
-#: includes/admin.php:1276
-#: includes/admin.php:1456
-#: includes/admin.php:1579
-#: includes/admin.php:1722
-#: includes/admin.php:1953
+#: includes/admin.php:1141
+#: includes/admin.php:1220
+#: includes/admin.php:1254
+#: includes/admin.php:1260
+#: includes/admin.php:1410
+#: includes/admin.php:1530
+#: includes/admin.php:1670
+#: includes/admin.php:1847
 msgid "Capability Name"
 msgstr "اسم القدرة"
 
-#: includes/admin.php:1250
+#: includes/admin.php:1237
 msgid "WordPress Core Capabilities"
 msgstr "قدرات WordPress الأساسية"
 
-#: includes/admin.php:1422
-#: includes/admin.php:1479
-#: includes/admin.php:1801
-#: includes/features/admin-styles/admin-styles.php:1743
+#: includes/admin.php:1376
+#: includes/admin.php:1430
+#: includes/features/admin-styles/admin-styles.php:1745
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "عام"
 
-#: includes/admin.php:1439
+#: includes/admin.php:1393
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "قدرات الإضافات &ndash; %s"
 
-#: includes/admin.php:1521
+#: includes/admin.php:1472
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "تتطلب ميزة اختبار المستخدم أيضًا القدرة %1$s edit_users %2$s."
 
-#: includes/admin.php:1602
+#: includes/admin.php:1550
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -787,26 +779,26 @@ msgstr ""
 "لا تؤثر الإدخالات التالية. يرجى تعيين القدرات المرغوبة على علامات التبويب "
 "تحرير / حذف / خاص."
 
-#: includes/admin.php:1710
+#: includes/admin.php:1658
 msgid "Additional Capabilities"
 msgstr "قدرات إضافية"
 
-#: includes/admin.php:1946
+#: includes/admin.php:1840
 msgid "You have no additional capabilities."
 msgstr "ليس لديك قدرات إضافية."
 
-#: includes/admin.php:1970
+#: includes/admin.php:1861
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "تتيح لك القدرات تغيير الأذونات لأي دور مستخدم."
 
-#: includes/admin.php:1971
+#: includes/admin.php:1862
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = القدرة الممنوحة %2$s"
 
-#: includes/admin.php:1971
-#: includes/admin.php:1972
-#: includes/admin.php:1973
+#: includes/admin.php:1862
+#: includes/admin.php:1863
+#: includes/admin.php:1864
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -820,30 +812,30 @@ msgstr "%1$s = القدرة الممنوحة %2$s"
 msgid "usage key"
 msgstr "مفتاح الاستخدام"
 
-#: includes/admin.php:1972
+#: includes/admin.php:1863
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = القدرة غير الممنوحة %2$s"
 
-#: includes/admin.php:1973
+#: includes/admin.php:1864
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = القدرة مرفوضة، حتى لو تم منحها من قبل دور آخر %2$s"
 
-#: includes/admin.php:1981
+#: includes/admin.php:1872
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "يمكنك أيضًا تكوين هذا الدور كمجموعة %sالأذونات%s."
 
-#: includes/admin.php:2001
+#: includes/admin.php:1892
 msgid "How to use Capabilities"
 msgstr "كيفية استخدام القدرات"
 
-#: includes/admin.php:2039
+#: includes/admin.php:1930
 msgid "Capabilities is Safe to Use"
 msgstr "القدرات آمنة للاستخدام"
 
-#: includes/admin.php:2052
+#: includes/admin.php:1943
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -851,7 +843,7 @@ msgstr ""
 "تخزن WordPress قدرات الدور في قاعدة بياناتك، حيث تبقى حتى إذا تم تعطيل "
 "الإضافة."
 
-#: includes/admin.php:2053
+#: includes/admin.php:1944
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -859,67 +851,67 @@ msgstr ""
 "كلما استخدمت PublishPress Capabilities لحفظ التغييرات، فإنه يقوم أيضًا "
 "بإنشاء نسخة احتياطية يمكنك استخدامها لاستعادة تكوين سابق."
 
-#: includes/admin.php:2056
+#: includes/admin.php:1947
 msgid "Go to the Backup feature"
 msgstr "اذهب إلى ميزة النسخ الاحتياطي"
 
-#: includes/admin.php:2075
+#: includes/admin.php:1966
 msgid "Add a New Capability"
 msgstr "أضف قدرة جديدة"
 
-#: includes/admin.php:2085
+#: includes/admin.php:1976
 msgid "Add to role"
 msgstr "أضف إلى الدور"
 
-#: includes/admin.php:2088
+#: includes/admin.php:1979
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "تتحكم القدرات الجديدة في علامة التبويب الإضافية."
 
-#: includes/admin.php:2144
+#: includes/admin.php:2035
 msgid "PublishPress Permissions"
 msgstr "أذونات PublishPress"
 
-#: includes/admin.php:2146
+#: includes/admin.php:2037
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
 msgstr "تعريف قدرات محددة للنوع تلقائيًا لأنواع منشوراتك المخصصة وtaxonomies"
 
-#: includes/admin.php:2150
+#: includes/admin.php:2041
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "قم بتعيين أدوار WP القياسية بشكل إضافي لنوع معين من المشاركات"
 
-#: includes/admin.php:2154
+#: includes/admin.php:2045
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr "تعيين أدوار WP مخصصة إضافيًا لنوع منشور محدد <em>(Pro)</em>"
 
-#: includes/admin.php:2158
+#: includes/admin.php:2049
 msgid "Customize reading permissions per-category or per-post"
 msgstr "تخصيص أذونات القراءة حسب الفئة أو حسب المنشور"
 
-#: includes/admin.php:2162
+#: includes/admin.php:2053
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "تخصيص أذونات التحرير حسب الفئة أو حسب المنشور <em>(Pro)</em>"
 
-#: includes/admin.php:2166
+#: includes/admin.php:2057
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
 msgstr "حالات رؤية منشورات مخصصة، تم تنفيذها بالكامل في wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:2170
+#: includes/admin.php:2061
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
 msgstr "حالات إشراف مخصصة لعملية نشر متعددة الخطوات تحت السيطرة <em>(Pro)</em>"
 
-#: includes/admin.php:2174
+#: includes/admin.php:2065
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "تنظيم الأذونات لحالات منشور Edit Flow <em>(Pro)</em>"
 
-#: includes/admin.php:2178
+#: includes/admin.php:2069
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -927,7 +919,7 @@ msgstr ""
 "تخصيص التحرير تحت الإشراف للمحتوى المنشور باستخدام Revisionary أو Post "
 "Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2182
+#: includes/admin.php:2073
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -935,39 +927,39 @@ msgstr ""
 "منح وصول المتفرج أو المشارك أو المشرف إلى منتديات bbPress محددة "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2077
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "منح أذونات المحتوى الإضافية لمجموعة BuddyPress <em>(Pro)</em>"
 
-#: includes/admin.php:2190
+#: includes/admin.php:2081
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "تكامل WPML لمزامنة الأذونات مع الترجمات <em>(Pro)</em>"
 
-#: includes/admin.php:2194
+#: includes/admin.php:2085
 msgid "Member support forum"
 msgstr "منتدى دعم الأعضاء"
 
-#: includes/admin.php:2201
+#: includes/admin.php:2092
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2201
+#: includes/admin.php:2092
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (تثبيت مجاني)"
 
-#: includes/admin.php:2203
+#: includes/admin.php:2094
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2203
+#: includes/admin.php:2094
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s معلومات/شراء"
 
-#: includes/admin.php:2235
+#: includes/admin.php:2126
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -976,31 +968,31 @@ msgstr ""
 "مستوى الدور أصبح إلى حد كبير غير مستخدم. ومع ذلك، فهو لا يزال يحدد الأهلية "
 "لتعيين مؤلف المنشور ويحدد تطبيق قدرات تحرير المستخدم."
 
-#: includes/admin.php:2237
+#: includes/admin.php:2128
 msgid "Level:"
 msgstr "المستوى:"
 
-#: includes/admin.php:2280
+#: includes/admin.php:2171
 msgid "Create this role definition in new (future) sites"
 msgstr "إنشاء تعريف هذا الدور في المواقع الجديدة (المستقبلية)"
 
-#: includes/admin.php:2280
+#: includes/admin.php:2171
 msgid "Include in new sites."
 msgstr "تضمين في المواقع الجديدة."
 
-#: includes/admin.php:2283
+#: includes/admin.php:2174
 msgid "Copy / update this role definition to all sites now"
 msgstr "نسخ / تحديث تعريف هذا الدور إلى جميع المواقع الآن"
 
-#: includes/admin.php:2283
+#: includes/admin.php:2174
 msgid "Sync role to all sites."
 msgstr "مزامنة الدور مع جميع المواقع."
 
-#: includes/admin.php:2286
+#: includes/admin.php:2177
 msgid "Copy option settings to all sites now"
 msgstr "نسخ إعدادات الخيار إلى جميع المواقع الآن"
 
-#: includes/admin.php:2286
+#: includes/admin.php:2177
 msgid "Sync options to all sites."
 msgstr "مزامنة الخيارات مع جميع المواقع."
 
@@ -1049,45 +1041,54 @@ msgstr ""
 "حدث خطأ أثناء استيراد الإعدادات! يرجى التحقق من أنك قد قمت برفع ملف json "
 "صالح."
 
-#: includes/backup-handler.php:199
+#: includes/backup-handler.php:222
+#, php-format
+msgid "Skipped %d invalid or unsupported import entries."
+msgstr "تم تخطي %d إدخالات استيراد غير صالحة أو غير مدعومة."
+
+#: includes/backup-handler.php:226
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s تم استيراده بنجاح من البيانات المرفوعة."
 
-#: includes/backup-handler.php:274
+#: includes/backup-handler.php:228
+msgid "No valid backup data found to import."
+msgstr "لم يتم العثور على بيانات نسخة احتياطية صالحة للاستيراد."
+
+#: includes/backup-handler.php:519
 msgid "Needed function to create default roles not found!"
 msgstr "وظيفة ضرورية لإنشاء الأدوار الافتراضية غير موجودة!"
 
-#: includes/backup-handler.php:293
+#: includes/backup-handler.php:538
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "تم إعادة تعيين الأدوار والقدرات إلى الإعدادات الافتراضية لـ WordPress"
 
-#: includes/backup.php:41
+#: includes/backup.php:39
 msgid "Backup Tool for PublishPress Capabilities"
 msgstr "أداة النسخ الاحتياطي لقدرات PublishPress"
 
-#: includes/backup.php:50
+#: includes/backup.php:48
 msgid "Restore"
 msgstr "استعادة"
 
-#: includes/backup.php:51
+#: includes/backup.php:49
 #: includes/functions-admin.php:567
 msgid "Backup"
 msgstr "نسخ احتياطي"
 
-#: includes/backup.php:52
+#: includes/backup.php:50
 msgid "Reset Roles"
 msgstr "إعادة تعيين الأدوار"
 
-#: includes/backup.php:53
+#: includes/backup.php:51
 msgid "Export / Import"
 msgstr "تصدير / استيراد"
 
-#: includes/backup.php:62
+#: includes/backup.php:60
 msgid "Backup Roles and Capabilities"
 msgstr "نسخ احتياطي للأدوار والقدرات"
 
-#: includes/backup.php:67
+#: includes/backup.php:65
 #, php-format
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
@@ -1098,7 +1099,7 @@ msgstr ""
 "كلما قمت بحفظ التغييرات. يتم الاحتفاظ بالنسخة الاحتياطية الأولية وآخر %d "
 "نسخ احتياطية تلقائية."
 
-#: includes/backup.php:69
+#: includes/backup.php:67
 msgid ""
 "A backup created on this screen replaces any previous manual backups, but "
 "is never automatically replaced."
@@ -1106,24 +1107,24 @@ msgstr ""
 "النسخة الاحتياطية التي تم إنشاؤها في هذه الشاشة تحل محل أي نسخ احتياطية "
 "يدوية سابقة، ولكن لا يتم استبدالها تلقائيًا أبدًا."
 
-#: includes/backup.php:74
+#: includes/backup.php:72
 msgid "Manual Backup"
 msgstr "نسخة احتياطية يدوية"
 
-#: includes/backup.php:84
+#: includes/backup.php:82
 #, php-format
 msgid "Last Manual Backup - %s"
 msgstr "آخر نسخة احتياطية يدوية - %s"
 
-#: includes/backup.php:84
+#: includes/backup.php:82
 msgid "Last Backup"
 msgstr "آخر نسخة احتياطية"
 
-#: includes/backup.php:88
+#: includes/backup.php:86
 msgid "Restore Previous Roles and Capabilities"
 msgstr "استعادة الأدوار والقدرات السابقة"
 
-#: includes/backup.php:91
+#: includes/backup.php:89
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
 "and whenever you save changes."
@@ -1131,80 +1132,80 @@ msgstr ""
 "PublishPress Capabilities ينشئ تلقائيًا نسخة احتياطية عند التثبيت وأيضًا "
 "كلما قمت بحفظ التغييرات."
 
-#: includes/backup.php:92
+#: includes/backup.php:90
 msgid ""
 "On this screen, you can restore an earlier version of your roles and "
 "capabilities."
 msgstr "في هذه الشاشة، يمكنك استعادة إصدار سابق من الأدوار والقدرات الخاصة بك."
 
-#: includes/backup.php:95
+#: includes/backup.php:93
 msgid "Available Backups:"
 msgstr "النسخ الاحتياطية المتاحة:"
 
-#: includes/backup.php:111
+#: includes/backup.php:109
 msgid "all roles"
 msgstr "جميع الأدوار"
 
-#: includes/backup.php:116
+#: includes/backup.php:114
 #, php-format
 msgid "Manual backup of %s (%s)"
 msgstr "نسخة احتياطية يدوية من %s (%s)"
 
-#: includes/backup.php:131
+#: includes/backup.php:129
 #, php-format
 msgid "Auto-backup of all roles (%s)"
 msgstr "نسخة احتياطية تلقائية من جميع الأدوار (%s)"
 
-#: includes/backup.php:139
+#: includes/backup.php:137
 msgid "Initial backup of all roles"
 msgstr "نسخة احتياطية أولية من جميع الأدوار"
 
-#: includes/backup.php:148
+#: includes/backup.php:146
 msgid "Restore Selected Roles"
 msgstr "استعادة الأدوار المحددة"
 
-#: includes/backup.php:157
+#: includes/backup.php:155
 msgid "Show changes from current roles only"
 msgstr "عرض التغييرات من الأدوار الحالية فقط"
 
-#: includes/backup.php:164
+#: includes/backup.php:162
 #, php-format
 msgid "Initial Backup - %s"
 msgstr "نسخة احتياطية أولية - %s"
 
-#: includes/backup.php:164
+#: includes/backup.php:162
 msgid "Initial Backup"
 msgstr "نسخة احتياطية أولية"
 
-#: includes/backup.php:191
+#: includes/backup.php:188
 #, php-format
 msgid "%s (%s roles)"
 msgstr "%s (%s أدوار)"
 
-#: includes/backup.php:198
+#: includes/backup.php:195
 msgid "(this role will be removed if you restore backup)"
 msgstr "(سيتم إزالة هذا الدور إذا قمت باستعادة النسخة الاحتياطية)"
 
-#: includes/backup.php:227
+#: includes/backup.php:224
 #, php-format
 msgid "%s (level %s)"
 msgstr "%s (المستوى %s)"
 
-#: includes/backup.php:267
+#: includes/backup.php:264
 msgid "No changes"
 msgstr "لا تغييرات"
 
-#: includes/backup.php:283
+#: includes/backup.php:280
 msgid "Reset WordPress Defaults"
 msgstr "إعادة تعيين إعدادات WordPress الافتراضية"
 
-#: includes/backup.php:285
-#: includes/backup.php:332
+#: includes/backup.php:282
+#: includes/backup.php:329
 #: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "تحذير:"
 
-#: includes/backup.php:285
+#: includes/backup.php:282
 msgid ""
 "Reseting default Roles and Capabilities will set them to the WordPress "
 "install defaults."
@@ -1212,7 +1213,7 @@ msgstr ""
 "إعادة تعيين الأدوار والقدرات الافتراضية سيعيد تعيينها إلى الافتراضات الخاصة "
 "بتثبيت WordPress."
 
-#: includes/backup.php:287
+#: includes/backup.php:284
 msgid ""
 "If you have installed any plugin that adds new roles or capabilities, these "
 "will be lost."
@@ -1220,15 +1221,15 @@ msgstr ""
 "إذا قمت بتثبيت أي مكون إضافي يضيف أدوار أو قدرات جديدة، فسيتم فقدان هذه "
 "الأدوار."
 
-#: includes/backup.php:288
+#: includes/backup.php:285
 msgid "It is recommended to use this only as a last resource!"
 msgstr "يوصى باستخدام هذا فقط كخطوة أخيرة!"
 
-#: includes/backup.php:291
+#: includes/backup.php:288
 msgid "Reset Roles and Capabilities to WordPress defaults"
 msgstr "إعادة تعيين الأدوار والقدرات إلى الإعدادات الافتراضية لـ WordPress"
 
-#: includes/backup.php:293
+#: includes/backup.php:290
 msgid ""
 "You are about to reset Roles and Capabilities to WordPress defaults.\n"
 " 'Cancel' to stop, 'OK' to reset."
@@ -1236,15 +1237,15 @@ msgstr ""
 "أنت على وشك إعادة تعيين الأدوار والقدرات إلى الافتراضات الخاصة بـ "
 "WordPress. 'إلغاء' لإيقاف، 'موافق' لإعادة التعيين."
 
-#: includes/backup.php:293
+#: includes/backup.php:290
 msgid "Reset to WordPress defaults"
 msgstr "إعادة إلى الإعدادات الافتراضية لـ WordPress"
 
-#: includes/backup.php:301
+#: includes/backup.php:298
 msgid "Export Settings"
 msgstr "تصدير الإعدادات"
 
-#: includes/backup.php:303
+#: includes/backup.php:300
 msgid ""
 "Export the plugin settings for this site as a .json file. This allows you "
 "to easily import the configuration into another site."
@@ -1252,19 +1253,19 @@ msgstr ""
 "تصدير إعدادات المكون الإضافي لهذا الموقع كملف .json. هذا يسمح لك باستيراد "
 "التكوين بسهولة إلى موقع آخر."
 
-#: includes/backup.php:308
+#: includes/backup.php:305
 msgid "Roles and Capabilities"
 msgstr "الأدوار والقدرات"
 
-#: includes/backup.php:325
+#: includes/backup.php:322
 msgid "Export"
 msgstr "تصدير"
 
-#: includes/backup.php:331
+#: includes/backup.php:328
 msgid "Import Settings"
 msgstr "استيراد الإعدادات"
 
-#: includes/backup.php:332
+#: includes/backup.php:329
 msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
@@ -1272,7 +1273,7 @@ msgstr ""
 "يرجى عمل 'نسخة احتياطية يدوية' في علامة التبويب النسخ الاحتياطية لتمكين "
 "استعادة النسخة الاحتياطية في حالة حدوث أي شيء خاطئ."
 
-#: includes/backup.php:333
+#: includes/backup.php:330
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
@@ -1280,7 +1281,7 @@ msgstr ""
 "استيراد إعدادات المكون الإضافي من ملف .json. يمكن الحصول على هذا الملف عن "
 "طريق تصدير الإعدادات من موقع آخر باستخدام النموذج أعلاه."
 
-#: includes/backup.php:334
+#: includes/backup.php:331
 msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
@@ -1480,7 +1481,7 @@ msgid "Remove"
 msgstr "إزالة"
 
 #: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:872
+#: includes/features/admin-styles/admin-styles.php:874
 msgid "Custom Style Name"
 msgstr "اسم النمط المخصص"
 
@@ -1525,7 +1526,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:520
 #: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:852
+#: includes/features/admin-styles/admin-styles.php:854
 msgid "Select Image"
 msgstr "اختر صورة"
 
@@ -1575,8 +1576,8 @@ msgstr ""
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2022
-#: includes/features/admin-styles/admin-styles.php:2104
+#: includes/features/admin-styles/admin-styles.php:2024
+#: includes/features/admin-styles/admin-styles.php:2106
 msgid "Default"
 msgstr "افتراضي"
 
@@ -1603,7 +1604,7 @@ msgid "Body Text"
 msgstr "نص الجسم"
 
 #: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:1769
+#: includes/features/admin-styles/admin-styles.php:1771
 msgid "Links"
 msgstr "الروابط"
 
@@ -1612,12 +1613,12 @@ msgid "Headings"
 msgstr "العناوين"
 
 #: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:1893
+#: includes/features/admin-styles/admin-styles.php:1895
 msgid "Admin Menu"
 msgstr "قائمة الإدارة"
 
 #: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:1935
+#: includes/features/admin-styles/admin-styles.php:1937
 msgid "Admin Bar"
 msgstr "شريط الإدارة"
 
@@ -1626,7 +1627,7 @@ msgid "Form Fields"
 msgstr "حقول النموذج"
 
 #: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:1863
+#: includes/features/admin-styles/admin-styles.php:1865
 msgid "Buttons"
 msgstr "الأزرار"
 
@@ -1731,478 +1732,478 @@ msgstr "استبدل نص \"Howdy\""
 msgid "How to use Admin Styles"
 msgstr "كيفية استخدام أنماط المسؤول"
 
-#: includes/features/admin-styles/admin-styles.php:539
+#: includes/features/admin-styles/admin-styles.php:541
 msgid "Security check failed."
 msgstr "فشل فحص الأمان."
 
-#: includes/features/admin-styles/admin-styles.php:544
-#: includes/manager.php:741
+#: includes/features/admin-styles/admin-styles.php:546
+#: includes/manager.php:743
 msgid "You do not have permission to manage admin styles."
 msgstr "ليس لديك إذن لإدارة أنماط المسؤول."
 
-#: includes/features/admin-styles/admin-styles.php:607
+#: includes/features/admin-styles/admin-styles.php:609
 msgid "No role specified."
 msgstr "لم يتم تحديد دور."
 
-#: includes/features/admin-styles/admin-styles.php:853
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Use this Image"
 msgstr "استخدم هذه الصورة"
 
-#: includes/features/admin-styles/admin-styles.php:854
+#: includes/features/admin-styles/admin-styles.php:856
 msgid "Saving..."
 msgstr "جارٍ الحفظ..."
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:857
 msgid "Settings saved."
 msgstr "تم حفظ الإعدادات."
 
-#: includes/features/admin-styles/admin-styles.php:857
+#: includes/features/admin-styles/admin-styles.php:859
 msgid "Current logo preview"
 msgstr "معاينة الشعار الحالي"
 
-#: includes/features/admin-styles/admin-styles.php:858
+#: includes/features/admin-styles/admin-styles.php:860
 msgid "Add New Custom Style"
 msgstr "إضافة نمط مخصص جديد"
 
-#: includes/features/admin-styles/admin-styles.php:859
+#: includes/features/admin-styles/admin-styles.php:861
 msgid "Edit Custom Style"
 msgstr "تحرير النمط المخصص"
 
-#: includes/features/admin-styles/admin-styles.php:860
+#: includes/features/admin-styles/admin-styles.php:862
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "هل أنت متأكد أنك تريد حذف النمط المخصص \"%s\"؟"
 
-#: includes/features/admin-styles/admin-styles.php:861
+#: includes/features/admin-styles/admin-styles.php:863
 msgid "this custom style"
 msgstr "هذا النمط المخصص"
 
-#: includes/features/admin-styles/admin-styles.php:862
+#: includes/features/admin-styles/admin-styles.php:864
 msgid "Primary Button"
 msgstr "زر أساسي"
 
-#: includes/features/admin-styles/admin-styles.php:863
+#: includes/features/admin-styles/admin-styles.php:865
 msgid "Hover State"
 msgstr "حالة التمرير"
 
-#: includes/features/admin-styles/admin-styles.php:864
+#: includes/features/admin-styles/admin-styles.php:866
 msgid "Notification"
 msgstr "إشعار"
 
-#: includes/features/admin-styles/admin-styles.php:865
+#: includes/features/admin-styles/admin-styles.php:867
 msgid "Live preview of your custom color scheme"
 msgstr "معاينة حية لنظام الألوان المخصص الخاص بك"
 
-#: includes/features/admin-styles/admin-styles.php:866
+#: includes/features/admin-styles/admin-styles.php:868
 msgid "Custom Style Name is required."
 msgstr "اسم النمط المخصص مطلوب."
 
-#: includes/features/admin-styles/admin-styles.php:867
+#: includes/features/admin-styles/admin-styles.php:869
 msgid "Main Admin Color is required."
 msgstr "لون المسؤول الرئيسي مطلوب."
 
-#: includes/features/admin-styles/admin-styles.php:868, fuzzy
+#: includes/features/admin-styles/admin-styles.php:870, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:869
+#: includes/features/admin-styles/admin-styles.php:871
 msgid "Display Name"
 msgstr "اسم العرض"
 
-#: includes/features/admin-styles/admin-styles.php:870
+#: includes/features/admin-styles/admin-styles.php:872
 msgid "Change how this style is displayed"
 msgstr "تغيير كيفية عرض هذا النمط"
 
-#: includes/features/admin-styles/admin-styles.php:871
+#: includes/features/admin-styles/admin-styles.php:873
 msgid "Enter a name for your custom style"
 msgstr "أدخل اسمًا لنمطك المخصص"
 
-#: includes/features/admin-styles/admin-styles.php:885
+#: includes/features/admin-styles/admin-styles.php:887
 msgid "Forest"
 msgstr "غابة"
 
-#: includes/features/admin-styles/admin-styles.php:902
+#: includes/features/admin-styles/admin-styles.php:904
 msgid "Mint Breeze"
 msgstr "نسيم النعناع"
 
-#: includes/features/admin-styles/admin-styles.php:919
+#: includes/features/admin-styles/admin-styles.php:921
 msgid "Cherry"
 msgstr "كرز"
 
-#: includes/features/admin-styles/admin-styles.php:936
+#: includes/features/admin-styles/admin-styles.php:938
 msgid "Graphite"
 msgstr "جرافيت"
 
-#: includes/features/admin-styles/admin-styles.php:953
+#: includes/features/admin-styles/admin-styles.php:955
 msgid "Midnight Teal"
 msgstr "تيل منتصف الليل"
 
-#: includes/features/admin-styles/admin-styles.php:970
+#: includes/features/admin-styles/admin-styles.php:972
 msgid "Sunrise"
 msgstr "شروق الشمس"
 
-#: includes/features/admin-styles/admin-styles.php:987
+#: includes/features/admin-styles/admin-styles.php:989
 msgid "Desert Sand"
 msgstr "رمال الصحراء"
 
-#: includes/features/admin-styles/admin-styles.php:1004
+#: includes/features/admin-styles/admin-styles.php:1006
 msgid "Amber Glow"
 msgstr "توهج العنبر"
 
-#: includes/features/admin-styles/admin-styles.php:1021
+#: includes/features/admin-styles/admin-styles.php:1023
 msgid "Citrus"
 msgstr "حمضيات"
 
-#: includes/features/admin-styles/admin-styles.php:1038
+#: includes/features/admin-styles/admin-styles.php:1040
 msgid "Ocean Deep"
 msgstr "أعماق المحيط"
 
-#: includes/features/admin-styles/admin-styles.php:1055
+#: includes/features/admin-styles/admin-styles.php:1057
 msgid "Sage"
 msgstr "ساج"
 
-#: includes/features/admin-styles/admin-styles.php:1072
+#: includes/features/admin-styles/admin-styles.php:1074
 msgid "Modern Slate"
 msgstr "Slate الحديثة"
 
-#: includes/features/admin-styles/admin-styles.php:1089
+#: includes/features/admin-styles/admin-styles.php:1091
 msgid "Royal Plum"
 msgstr "الس prune الملكي"
 
-#: includes/features/admin-styles/admin-styles.php:1106
+#: includes/features/admin-styles/admin-styles.php:1108
 msgid "Nordic"
 msgstr "شمالي"
 
-#: includes/features/admin-styles/admin-styles.php:1123
+#: includes/features/admin-styles/admin-styles.php:1125
 msgid "Lagoon"
 msgstr "لاجون"
 
-#: includes/features/admin-styles/admin-styles.php:1140
+#: includes/features/admin-styles/admin-styles.php:1142
 msgid "Ink"
 msgstr "حبر"
 
-#: includes/features/admin-styles/admin-styles.php:1157
+#: includes/features/admin-styles/admin-styles.php:1159
 msgid "Orchid"
 msgstr "أوركيد"
 
-#: includes/features/admin-styles/admin-styles.php:1174
+#: includes/features/admin-styles/admin-styles.php:1176
 msgid "Cobalt"
 msgstr "كوبالت"
 
-#: includes/features/admin-styles/admin-styles.php:1191
+#: includes/features/admin-styles/admin-styles.php:1193
 msgid "Stone"
 msgstr "حجر"
 
-#: includes/features/admin-styles/admin-styles.php:1208
+#: includes/features/admin-styles/admin-styles.php:1210
 msgid "Facebook Classic"
 msgstr "فيسبوك كلاسيك"
 
-#: includes/features/admin-styles/admin-styles.php:1225
+#: includes/features/admin-styles/admin-styles.php:1227
 msgid "Twitter Classic"
 msgstr "تويتر كلاسيك"
 
-#: includes/features/admin-styles/admin-styles.php:1242
+#: includes/features/admin-styles/admin-styles.php:1244
 msgid "Twitter Modern"
 msgstr "تويتر مودرن"
 
-#: includes/features/admin-styles/admin-styles.php:1744
+#: includes/features/admin-styles/admin-styles.php:1746
 msgid "Main Admin Color settings"
 msgstr "إعدادات لون المشرف الرئيسي"
 
-#: includes/features/admin-styles/admin-styles.php:1747
+#: includes/features/admin-styles/admin-styles.php:1749
 msgid "Main Admin Color"
 msgstr "لون المشرف الرئيسي"
 
-#: includes/features/admin-styles/admin-styles.php:1748
+#: includes/features/admin-styles/admin-styles.php:1750
 msgid "Primary brand color"
 msgstr "لون العلامة التجارية الرئيسي"
 
-#: includes/features/admin-styles/admin-styles.php:1751
+#: includes/features/admin-styles/admin-styles.php:1753
 msgid "Text Color"
 msgstr "لون النص"
 
-#: includes/features/admin-styles/admin-styles.php:1752
+#: includes/features/admin-styles/admin-styles.php:1754
 msgid "Primary text color"
 msgstr "لون النص الرئيسي"
 
-#: includes/features/admin-styles/admin-styles.php:1755
+#: includes/features/admin-styles/admin-styles.php:1757
 msgid "Highlight Color"
 msgstr "لون التمييز"
 
-#: includes/features/admin-styles/admin-styles.php:1756
+#: includes/features/admin-styles/admin-styles.php:1758
 msgid "Used for hovers and highlights"
 msgstr "يستخدم للتأثيرات والتمييزات"
 
-#: includes/features/admin-styles/admin-styles.php:1759
+#: includes/features/admin-styles/admin-styles.php:1761
 msgid "Notification Color"
 msgstr "لون الإشعار"
 
-#: includes/features/admin-styles/admin-styles.php:1760
+#: includes/features/admin-styles/admin-styles.php:1762
 msgid "Used for alerts and notifications"
 msgstr "يستخدم للتنبيهات والإشعارات"
 
-#: includes/features/admin-styles/admin-styles.php:1763
+#: includes/features/admin-styles/admin-styles.php:1765
 msgid "Background Color"
 msgstr "لون الخلفية"
 
-#: includes/features/admin-styles/admin-styles.php:1764
+#: includes/features/admin-styles/admin-styles.php:1766
 msgid "Page background color"
 msgstr "لون خلفية الصفحة"
 
-#: includes/features/admin-styles/admin-styles.php:1770
+#: includes/features/admin-styles/admin-styles.php:1772
 msgid "Link element colors"
 msgstr "ألوان عناصر الروابط"
 
-#: includes/features/admin-styles/admin-styles.php:1773
+#: includes/features/admin-styles/admin-styles.php:1775
 msgid "Default Link Color"
 msgstr "لون الرابط الافتراضي"
 
-#: includes/features/admin-styles/admin-styles.php:1774
+#: includes/features/admin-styles/admin-styles.php:1776
 msgid "Standard link color"
 msgstr "لون الرابط القياسي"
 
-#: includes/features/admin-styles/admin-styles.php:1777
+#: includes/features/admin-styles/admin-styles.php:1779
 msgid "Link Hover Color"
 msgstr "لون الرابط عند التحويم"
 
-#: includes/features/admin-styles/admin-styles.php:1778
+#: includes/features/admin-styles/admin-styles.php:1780
 msgid "Color on hover"
 msgstr "لون عند التحويم"
 
-#: includes/features/admin-styles/admin-styles.php:1781
+#: includes/features/admin-styles/admin-styles.php:1783
 msgid "Delete Link Color"
 msgstr "لون رابط الحذف"
 
-#: includes/features/admin-styles/admin-styles.php:1782
+#: includes/features/admin-styles/admin-styles.php:1784
 msgid "Color for delete/trash actions"
 msgstr "لون إجراءات الحذف/سلة المهملات"
 
-#: includes/features/admin-styles/admin-styles.php:1785
+#: includes/features/admin-styles/admin-styles.php:1787
 msgid "Trash Link Color"
 msgstr "لون رابط سلة المهملات"
 
-#: includes/features/admin-styles/admin-styles.php:1786
+#: includes/features/admin-styles/admin-styles.php:1788
 msgid "Color for trash actions"
 msgstr "لون إجراءات سلة المهملات"
 
-#: includes/features/admin-styles/admin-styles.php:1789
+#: includes/features/admin-styles/admin-styles.php:1791
 msgid "Spam Link Color"
 msgstr "لون رابط البريد المزعج"
 
-#: includes/features/admin-styles/admin-styles.php:1790
+#: includes/features/admin-styles/admin-styles.php:1792
 msgid "Color for spam actions"
 msgstr "لون إجراءات البريد المزعج"
 
-#: includes/features/admin-styles/admin-styles.php:1793
+#: includes/features/admin-styles/admin-styles.php:1795
 msgid "Inactive Link Color"
 msgstr "لون الرابط غير النشط"
 
-#: includes/features/admin-styles/admin-styles.php:1794
+#: includes/features/admin-styles/admin-styles.php:1796
 msgid "Color for inactive items"
 msgstr "لون العناصر غير النشطة"
 
-#: includes/features/admin-styles/admin-styles.php:1799
+#: includes/features/admin-styles/admin-styles.php:1801
 msgid "Tables"
 msgstr "الجداول"
 
-#: includes/features/admin-styles/admin-styles.php:1800
+#: includes/features/admin-styles/admin-styles.php:1802
 msgid "Table element colors"
 msgstr "ألوان عناصر الجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1803
+#: includes/features/admin-styles/admin-styles.php:1805
 msgid "Table Header Background"
 msgstr "خلفية رأس الجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1807
+#: includes/features/admin-styles/admin-styles.php:1809
 msgid "Table Header Text"
 msgstr "نص رأس الجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1811
+#: includes/features/admin-styles/admin-styles.php:1813
 msgid "Table Row Background"
 msgstr "خلفية صف الجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1815
+#: includes/features/admin-styles/admin-styles.php:1817
 msgid "Table Row Text Color"
 msgstr "لون نص صف الجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1819
+#: includes/features/admin-styles/admin-styles.php:1821
 msgid "Row Hover Background"
 msgstr "لون خلفية الصف عند التمرير"
 
-#: includes/features/admin-styles/admin-styles.php:1823
+#: includes/features/admin-styles/admin-styles.php:1825
 msgid "Table Border Color"
 msgstr "لون حدود الجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1827
+#: includes/features/admin-styles/admin-styles.php:1829
 msgid "Alternate Row Background"
 msgstr "لون خلفية الصف البديل"
 
-#: includes/features/admin-styles/admin-styles.php:1831
+#: includes/features/admin-styles/admin-styles.php:1833
 msgid "Alternate Row Text Color"
 msgstr "لون نص الصف البديل"
 
-#: includes/features/admin-styles/admin-styles.php:1837
+#: includes/features/admin-styles/admin-styles.php:1839
 msgid "Forms"
 msgstr "نماذج"
 
-#: includes/features/admin-styles/admin-styles.php:1838
+#: includes/features/admin-styles/admin-styles.php:1840
 msgid "Form input colors"
 msgstr "ألوان مدخل النموذج"
 
-#: includes/features/admin-styles/admin-styles.php:1841
+#: includes/features/admin-styles/admin-styles.php:1843
 msgid "Input Border Color"
 msgstr "لون حدود المدخل"
 
-#: includes/features/admin-styles/admin-styles.php:1845
+#: includes/features/admin-styles/admin-styles.php:1847
 msgid "Input Focus Border"
 msgstr "حدود التركيز للمدخل"
 
-#: includes/features/admin-styles/admin-styles.php:1849
+#: includes/features/admin-styles/admin-styles.php:1851
 msgid "Input Background Color"
 msgstr "لون خلفية المدخل"
 
-#: includes/features/admin-styles/admin-styles.php:1853
+#: includes/features/admin-styles/admin-styles.php:1855
 msgid "Input Text Color"
 msgstr "لون نص المدخل"
 
-#: includes/features/admin-styles/admin-styles.php:1857
+#: includes/features/admin-styles/admin-styles.php:1859
 msgid "Placeholder Text Color"
 msgstr "لون نص العنصر النائب"
 
-#: includes/features/admin-styles/admin-styles.php:1864
+#: includes/features/admin-styles/admin-styles.php:1866
 msgid "Button colors"
 msgstr "ألوان الأزرار"
 
-#: includes/features/admin-styles/admin-styles.php:1867
+#: includes/features/admin-styles/admin-styles.php:1869
 msgid "Primary Button Background"
 msgstr "خلفية الزر الأساسي"
 
-#: includes/features/admin-styles/admin-styles.php:1871
+#: includes/features/admin-styles/admin-styles.php:1873
 msgid "Primary Button Text"
 msgstr "نص الزر الأساسي"
 
-#: includes/features/admin-styles/admin-styles.php:1875
+#: includes/features/admin-styles/admin-styles.php:1877
 msgid "Primary Button Hover"
 msgstr "زر أساسي عند التمرير"
 
-#: includes/features/admin-styles/admin-styles.php:1879
+#: includes/features/admin-styles/admin-styles.php:1881
 msgid "Secondary Button Background"
 msgstr "خلفية الزر الثانوي"
 
-#: includes/features/admin-styles/admin-styles.php:1883
+#: includes/features/admin-styles/admin-styles.php:1885
 msgid "Secondary Button Text"
 msgstr "نص الزر الثانوي"
 
-#: includes/features/admin-styles/admin-styles.php:1887
+#: includes/features/admin-styles/admin-styles.php:1889
 msgid "Secondary Button Hover"
 msgstr "زر ثانوي عند التمرير"
 
-#: includes/features/admin-styles/admin-styles.php:1894
+#: includes/features/admin-styles/admin-styles.php:1896
 msgid "Admin menu colors"
 msgstr "ألوان قائمة الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1897
+#: includes/features/admin-styles/admin-styles.php:1899
 msgid "Menu Background"
 msgstr "خلفية القائمة"
 
-#: includes/features/admin-styles/admin-styles.php:1901
+#: includes/features/admin-styles/admin-styles.php:1903
 msgid "Menu Text Color"
 msgstr "لون نص القائمة"
 
-#: includes/features/admin-styles/admin-styles.php:1905
+#: includes/features/admin-styles/admin-styles.php:1907
 msgid "Menu Icon Color"
 msgstr "لون أيقونة القائمة"
 
-#: includes/features/admin-styles/admin-styles.php:1909
+#: includes/features/admin-styles/admin-styles.php:1911
 msgid "Menu Hover Background"
 msgstr "خلفية تداخل القائمة"
 
-#: includes/features/admin-styles/admin-styles.php:1913
+#: includes/features/admin-styles/admin-styles.php:1915
 msgid "Menu Hover Text"
 msgstr "نص تداخل القائمة"
 
-#: includes/features/admin-styles/admin-styles.php:1917
+#: includes/features/admin-styles/admin-styles.php:1919
 msgid "Current Menu Background"
 msgstr "خلفية القائمة الحالية"
 
-#: includes/features/admin-styles/admin-styles.php:1921
+#: includes/features/admin-styles/admin-styles.php:1923
 msgid "Current Menu Text"
 msgstr "نص القائمة الحالية"
 
-#: includes/features/admin-styles/admin-styles.php:1925
+#: includes/features/admin-styles/admin-styles.php:1927
 msgid "Submenu Background"
 msgstr "خلفية القائمة الفرعية"
 
-#: includes/features/admin-styles/admin-styles.php:1929
+#: includes/features/admin-styles/admin-styles.php:1931
 msgid "Submenu Text Color"
 msgstr "لون نص القائمة الفرعية"
 
-#: includes/features/admin-styles/admin-styles.php:1936
+#: includes/features/admin-styles/admin-styles.php:1938
 msgid "Admin bar colors"
 msgstr "ألوان شريط الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1939
+#: includes/features/admin-styles/admin-styles.php:1941
 msgid "Admin Bar Background"
 msgstr "خلفية شريط الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1943
+#: includes/features/admin-styles/admin-styles.php:1945
 msgid "Admin Bar Text"
 msgstr "نص شريط الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1947
+#: includes/features/admin-styles/admin-styles.php:1949
 msgid "Admin Bar Icon"
 msgstr "أيقونة شريط الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1951
+#: includes/features/admin-styles/admin-styles.php:1953
 msgid "Admin Bar Hover Background"
 msgstr "خلفية تداخل شريط الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1955
+#: includes/features/admin-styles/admin-styles.php:1957
 msgid "Admin Bar Hover Text"
 msgstr "نص تداخل شريط الإدارة"
 
-#: includes/features/admin-styles/admin-styles.php:1961
+#: includes/features/admin-styles/admin-styles.php:1963
 msgid "Dashboard Widgets"
 msgstr "الأدوات في لوحة التحكم"
 
-#: includes/features/admin-styles/admin-styles.php:1962
+#: includes/features/admin-styles/admin-styles.php:1964
 msgid "Dashboard widget colors"
 msgstr "ألوان أدوات لوحة التحكم"
 
-#: includes/features/admin-styles/admin-styles.php:1965
+#: includes/features/admin-styles/admin-styles.php:1967
 msgid "Widget Background"
 msgstr "خلفية الأداة"
 
-#: includes/features/admin-styles/admin-styles.php:1969
+#: includes/features/admin-styles/admin-styles.php:1971
 msgid "Widget Border"
 msgstr "حدود الأداة"
 
-#: includes/features/admin-styles/admin-styles.php:1973
+#: includes/features/admin-styles/admin-styles.php:1975
 msgid "Widget Header Background"
 msgstr "خلفية رأس الأداة"
 
-#: includes/features/admin-styles/admin-styles.php:1977
+#: includes/features/admin-styles/admin-styles.php:1979
 msgid "Widget Title Text"
 msgstr "نص عنوان الأداة"
 
-#: includes/features/admin-styles/admin-styles.php:1981
+#: includes/features/admin-styles/admin-styles.php:1983
 msgid "Widget Body Text"
 msgstr "نص جسم الويدجت"
 
-#: includes/features/admin-styles/admin-styles.php:1985
+#: includes/features/admin-styles/admin-styles.php:1987
 msgid "Widget Link"
 msgstr "رابط الويدجت"
 
-#: includes/features/admin-styles/admin-styles.php:1989
+#: includes/features/admin-styles/admin-styles.php:1991
 msgid "Widget Link Hover"
 msgstr "رابط الويدجت عند التحويم"
 
-#: includes/features/admin-styles/admin-styles.php:1995
+#: includes/features/admin-styles/admin-styles.php:1997
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "متقدم"
 
-#: includes/features/admin-styles/admin-styles.php:1996
+#: includes/features/admin-styles/admin-styles.php:1998
 msgid "Custom selector color rules"
 msgstr "قواعد لون المحدد المخصص"
 
@@ -2266,8 +2267,8 @@ msgstr "كيفية استخدام ميزات المحرر"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:693
-#: includes/manager.php:715
+#: includes/manager.php:695
+#: includes/manager.php:717
 msgid "You do not have permission to manage frontend features."
 msgstr "ليس لديك إذن لإدارة ميزات الواجهة الأمامية."
 
@@ -2852,39 +2853,39 @@ msgid ""
 "single area."
 msgstr "قم بإزالة إشعارات المسؤول من شاشة إدارة WordPress وتنظيمها في منطقة واحدة."
 
-#: includes/functions.php:650
+#: includes/functions.php:713
 msgid "Login permission denied."
 msgstr "تم رفض إذن تسجيل الدخول."
 
-#: includes/functions.php:742
+#: includes/functions.php:805
 msgid "You do not have permission to access this page."
 msgstr "ليس لديك إذن للوصول إلى هذه الصفحة."
 
-#: includes/functions.php:815
+#: includes/functions.php:878
 msgid "Need PublishPress Capabilities Support?"
 msgstr "تحتاج إلى دعم قدرات PublishPress؟"
 
-#: includes/functions.php:820
+#: includes/functions.php:883
 msgid "If you need help or have a new feature request, let us know."
 msgstr "إذا كنت بحاجة إلى مساعدة أو لديك طلب ميزة جديدة، يرجى إبلاغنا."
 
-#: includes/functions.php:823
+#: includes/functions.php:886
 msgid "Request Support"
 msgstr "طلب الدعم"
 
-#: includes/functions.php:832
+#: includes/functions.php:895
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "التوثيق التفصيلي متاح أيضًا على موقع الملحق الإلكتروني."
 
-#: includes/functions.php:834
+#: includes/functions.php:897
 msgid "View Knowledge Base"
 msgstr "عرض قاعدة المعرفة"
 
-#: includes/functions.php:1066
+#: includes/functions.php:1129
 msgid "Social Links"
 msgstr "روابط التواصل الاجتماعي"
 
-#: includes/functions.php:1067
+#: includes/functions.php:1130
 msgid "Page Lists"
 msgstr "قوائم الصفحات"
 
@@ -2897,171 +2898,180 @@ msgid "Error: Failed creating the new role."
 msgstr "خطأ: فشل إنشاء الدور الجديد."
 
 #: includes/handler.php:61
-#: includes/handler.php:89
-#: includes/manager.php:1219
+#: includes/handler.php:87
+#: includes/manager.php:1249
 msgid "The selected role is not editable."
 msgstr "الدور المحدد غير قابل للتحرير."
 
-#: includes/handler.php:119
+#: includes/handler.php:115
 msgid "Incorrect capability name."
 msgstr "اسم القدرة غير صحيح."
 
-#: includes/handler.php:124
+#: includes/handler.php:120
 msgid "Type / Taxonomy settings saved."
 msgstr "تم حفظ إعدادات النوع / التصنيف."
 
-#: includes/handler.php:127
+#: includes/handler.php:123
 msgid "Bad form received."
 msgstr "تم استلام نموذج سيء."
 
-#: includes/handler.php:250
+#: includes/handler.php:246
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "لا يمكنك إزالة إدارة القدرات من المسؤولين"
 
-#: includes/manager.php:238
+#: includes/handler.php:300
+#: includes/manager.php:1221
+msgid "Network sync has been queued and will continue in the background."
+msgstr "تم وضع مزامنة الشبكة في قائمة الانتظار وستستمر في الخلفية."
+
+#: includes/manager.php:240
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr "تم نفي هذه القدرة بشكل صريح. انقر لإضافة/إزالة بشكل عادي."
 
-#: includes/manager.php:246
+#: includes/manager.php:248
 msgid "Explicity negate this capability by storing as disabled"
 msgstr "قم بنفي هذه القدرة بشكل صريح عن طريق تخزينها كمعطلة"
 
-#: includes/manager.php:247
+#: includes/manager.php:249
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr "قم بنفي هذه القدرات بشكل صريح عن طريق تخزينها كمعطلة"
 
-#: includes/manager.php:248
+#: includes/manager.php:250
 msgid "Post type registration does not define this capability distinctly"
 msgstr "لا يحدد تسجيل نوع المشاركة هذه القدرة بشكل مميز"
 
-#: includes/manager.php:250
+#: includes/manager.php:252
 msgid "Add or remove this capability from the WordPress role"
 msgstr "أضف أو أزل هذه القدرة من دور WordPress"
 
-#: includes/manager.php:251
+#: includes/manager.php:253
 msgid "Add or remove capability from the role normally"
 msgstr "أضف أو أزل القدرة من الدور بشكل عادي"
 
-#: includes/manager.php:252
+#: includes/manager.php:254
 msgid "Are you sure you want to delete this item ?"
 msgstr "هل أنت متأكد أنك تريد حذف هذا العنصر؟"
 
-#: includes/manager.php:253
+#: includes/manager.php:255
 msgid "Add or clear custom item entry before saving changes."
 msgstr "أضف أو امسح إدخال العنصر المخصص قبل حفظ التغييرات."
 
-#: includes/manager.php:513
+#: includes/manager.php:515
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:175
 msgid "Role Name"
 msgstr "اسم الدور"
 
-#: includes/manager.php:515
+#: includes/manager.php:517
 #: includes/roles/class/class-pp-roles-list-table.php:177
 msgid "Role Type"
 msgstr "نوع الدور"
 
-#: includes/manager.php:516
+#: includes/manager.php:518
 #: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Default Role"
 msgstr "الدور الافتراضي"
 
-#: includes/manager.php:517
+#: includes/manager.php:519
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Admin Access"
 msgstr "وصول المسؤول"
 
-#: includes/manager.php:544
+#: includes/manager.php:546
 msgid "You do not have permission to manage roles."
 msgstr "ليس لديك إذن لإدارة الأدوار."
 
-#: includes/manager.php:567
-#: includes/manager.php:589
+#: includes/manager.php:569
+#: includes/manager.php:591
 msgid "You do not have permission to manage editor features."
 msgstr "ليس لديك إذن لإدارة ميزات المحرر."
 
-#: includes/manager.php:624
-#: includes/manager.php:678
-#: includes/manager.php:726
-#: includes/manager.php:820
-#: includes/manager.php:869
-#: includes/manager.php:951
-#: includes/manager.php:1032
+#: includes/manager.php:626
+#: includes/manager.php:680
+#: includes/manager.php:728
+#: includes/manager.php:822
+#: includes/manager.php:871
+#: includes/manager.php:953
+#: includes/manager.php:1034
 msgid "Settings updated."
 msgstr "تم تحديث الإعدادات."
 
-#: includes/manager.php:640
-#: includes/manager.php:662
-#: includes/manager.php:834
-#: includes/manager.php:885
-#: includes/manager.php:1049
+#: includes/manager.php:642
+#: includes/manager.php:664
+#: includes/manager.php:836
+#: includes/manager.php:887
+#: includes/manager.php:1051
 msgid "You do not have permission to manage admin features."
 msgstr "ليس لديك إذن لإدارة ميزات المسؤول."
 
-#: includes/manager.php:856
+#: includes/manager.php:858
 msgid "You do not have permission to manage navigation menus."
 msgstr "ليس لديك إذن لإدارة قوائم التنقل."
 
-#: includes/manager.php:907
+#: includes/manager.php:909
 msgid "You do not have permission to manage profile features."
 msgstr "ليس لديك إذن لإدارة ميزات الملف الشخصي."
 
-#: includes/manager.php:967
+#: includes/manager.php:969
 msgid "You do not have permission to manage redirect."
 msgstr "ليس لديك إذن لإدارة إعادة التوجيه."
 
-#: includes/manager.php:989
+#: includes/manager.php:991
 msgid "Invalid form. Reload this page and try again."
 msgstr "نموذج غير صالح. أعد تحميل هذه الصفحة وحاول مرة أخرى."
 
-#: includes/manager.php:1141
-#: includes/manager.php:1175
-#: includes/manager.php:1193
+#: includes/manager.php:1143
+#: includes/manager.php:1192
+#: includes/manager.php:1210
 msgid "You do not have permission to manage capabilities."
 msgstr "ليس لديك إذن لإدارة القدرات."
 
-#: includes/manager.php:1207
+#: includes/manager.php:1219
+msgid "Network sync completed."
+msgstr "اكتملت مزامنة الشبكة."
+
+#: includes/manager.php:1237
 msgid "New capability added to role."
 msgstr "تمت إضافة قدرة جديدة للدور."
 
-#: includes/manager.php:1248
+#: includes/manager.php:1278
 msgid "Bad form Received"
 msgstr "تم استلام نموذج غير صحيح"
 
-#: includes/manager.php:1368
+#: includes/manager.php:1398
 msgid "You do not have permission to restore roles."
 msgstr "ليس لديك إذن لاستعادة الأدوار."
 
-#: includes/manager.php:1406
+#: includes/manager.php:1436
 msgid "You do not have permission to perform this action."
 msgstr "ليس لديك إذن لأداء هذا الإجراء."
 
-#: includes/manager.php:1567
+#: includes/manager.php:1597
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "إذا كنت تحب %s، يرجى ترك تقييم %s لنا. شكراً لك!"
 
-#: includes/manager.php:1578
+#: includes/manager.php:1608
 msgid "About PublishPress Capabilities"
 msgstr "حول قدرات PublishPress"
 
-#: includes/manager.php:1578
+#: includes/manager.php:1608
 msgid "About"
 msgstr "حول"
 
-#: includes/manager.php:1580
+#: includes/manager.php:1610
 msgid "Capabilites Documentation"
 msgstr "وثائق القدرات"
 
-#: includes/manager.php:1580
+#: includes/manager.php:1610
 msgid "Documentation"
 msgstr "وثائق"
 
-#: includes/manager.php:1582
+#: includes/manager.php:1612
 msgid "Contact the PublishPress team"
 msgstr "اتصل بفريق PublishPress"
 
-#: includes/manager.php:1582
+#: includes/manager.php:1612
 msgid "Contact"
 msgstr "اتصل"
 
@@ -3400,22 +3410,24 @@ msgid "How to use Redirect Features"
 msgstr "كيفية استخدام ميزات إعادة التوجيه"
 
 #: includes/roles/class/class-pp-roles-actions.php:148
+#: includes/roles/class/class-pp-roles-actions.php:242
 msgid "You do not have sufficient permissions to perform this action."
 msgstr "ليس لديك أذونات كافية لتنفيذ هذا الإجراء."
 
 #: includes/roles/class/class-pp-roles-actions.php:162
 #: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:374
-#: includes/roles/class/class-pp-roles-actions.php:490
+#: includes/roles/class/class-pp-roles-actions.php:389
+#: includes/roles/class/class-pp-roles-actions.php:505
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "لقد انتهت صلاحية الرابط الخاص بك، قم بتحديث الصفحة وحاول مرة أخرى."
 
 #: includes/roles/class/class-pp-roles-actions.php:184
-#: includes/roles/class/class-pp-roles-actions.php:378
-#: includes/roles/class/class-pp-roles-actions.php:514
-#: includes/roles/class/class-pp-roles-actions.php:641
-#: includes/roles/class/class-pp-roles-actions.php:702
+#: includes/roles/class/class-pp-roles-actions.php:247
+#: includes/roles/class/class-pp-roles-actions.php:393
+#: includes/roles/class/class-pp-roles-actions.php:529
+#: includes/roles/class/class-pp-roles-actions.php:656
+#: includes/roles/class/class-pp-roles-actions.php:717
 msgid "Missing parameters, refresh the page and try again."
 msgstr "معلمات مفقودة، قم بتحديث الصفحة وحاول مرة أخرى."
 
@@ -3429,56 +3441,56 @@ msgstr "إدخال اسم الدور غير صالح: %s"
 msgid "The role \"%s\" already exists. Please choose a different name."
 msgstr "الدور \"%s\" موجود بالفعل. يرجى اختيار اسم مختلف."
 
-#: includes/roles/class/class-pp-roles-actions.php:250
+#: includes/roles/class/class-pp-roles-actions.php:265
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
 msgstr "حدث خطأ ما، لم يتمكن النظام من إنشاء الدور، قم بتحديث الصفحة وحاول مرة أخرى."
 
-#: includes/roles/class/class-pp-roles-actions.php:340
+#: includes/roles/class/class-pp-roles-actions.php:355
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "تم إنشاء الدور الجديد %s بنجاح."
 
-#: includes/roles/class/class-pp-roles-actions.php:448
+#: includes/roles/class/class-pp-roles-actions.php:463
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s تم تحديث الدور بنجاح."
 
-#: includes/roles/class/class-pp-roles-actions.php:522
+#: includes/roles/class/class-pp-roles-actions.php:537
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr "لا يمكن حذف الدور الافتراضي. عليك <a href=\"%s\">تغييره أولاً</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:541
+#: includes/roles/class/class-pp-roles-actions.php:556
 msgid "Deleting a system role is not allowed."
 msgstr "لا يُسمح بحذف دور النظام."
 
-#: includes/roles/class/class-pp-roles-actions.php:565
+#: includes/roles/class/class-pp-roles-actions.php:580
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d مستخدمين تم نقلهم إلى الدور الافتراضي %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:570
+#: includes/roles/class/class-pp-roles-actions.php:585
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "تم حذف الدور %1$s بنجاح. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:576
+#: includes/roles/class/class-pp-roles-actions.php:591
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "تم حذف الأدوار %1$s المحددة بنجاح. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:598
+#: includes/roles/class/class-pp-roles-actions.php:613
 msgid "The role could not be deleted."
 msgstr "لم يكن من الممكن حذف الدور."
 
-#: includes/roles/class/class-pp-roles-actions.php:652
+#: includes/roles/class/class-pp-roles-actions.php:667
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "تم إخفاء الدور %1$s بنجاح."
 
-#: includes/roles/class/class-pp-roles-actions.php:712
+#: includes/roles/class/class-pp-roles-actions.php:727
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "تم إظهار الدور %1$s بنجاح."
@@ -3916,15 +3928,15 @@ msgstr "اختبار كمستخدم: %1$s. %2$sالعودة إلى عرض الم
 msgid "Unable to retrieve user data."
 msgstr "غير قادر على استرداد بيانات المستخدم."
 
-#: common/js/admin.dev.js:890
+#: common/js/admin.dev.js:971
 msgid "Updating Settings..."
 msgstr "تحديث الإعدادات..."
 
-#: common/js/admin.dev.js:926
+#: common/js/admin.dev.js:1007
 msgid "Updating access..."
 msgstr "تحديث الوصول..."
 
-#: common/js/admin.dev.js:945
-#: common/js/admin.dev.js:950
+#: common/js/admin.dev.js:1026
+#: common/js/admin.dev.js:1031
 msgid "Error updating access."
 msgstr "خطأ في تحديث الوصول."

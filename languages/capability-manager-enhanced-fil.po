@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-04 15:47+0000\n"
-"PO-Revision-Date: 2026-04-22 08:33+0000\n"
+"PO-Revision-Date: 2026-05-27 08:59+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "|| n % 10 == 6 || n % 10 == 9);\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:814
+#: includes/admin-load.php:833
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "I-upgrade sa Pro"
@@ -220,29 +220,29 @@ msgstr "Pamagat ng pahina"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:494
-#: includes/admin-load.php:827
+#: includes/admin-load.php:513
+#: includes/admin-load.php:846
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:495
-#: includes/manager.php:387
+#: includes/manager.php:389
 #: includes/roles/class/class-pp-roles-admin.php:637
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Mga Kakayahan"
 
-#: includes/admin-load.php:613
+#: includes/admin-load.php:632
 msgid "No permission!"
 msgstr "Walang pahintulot!"
 
-#: includes/admin-load.php:623
+#: includes/admin-load.php:642
 msgid "Invalid nonce token!"
 msgstr "Maling nonce token!"
 
-#: includes/admin-load.php:627
+#: includes/admin-load.php:646
 msgid "Error: wrong data"
 msgstr "Error: maling data"
 
-#: includes/admin-load.php:649
+#: includes/admin-load.php:668
 #: includes/admin-notices/admin-notices.php:232
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -250,44 +250,44 @@ msgstr "Error: maling data"
 msgid "An error occured!"
 msgstr "Nagkaroon ng error!"
 
-#: includes/admin-load.php:654
+#: includes/admin-load.php:673
 msgid "Security check failed"
 msgstr "Nabigong suriin ang seguridad"
 
-#: includes/admin-load.php:656
+#: includes/admin-load.php:675
 msgid "Permission denied"
 msgstr "Tanggihan ang pahintulot"
 
-#: includes/admin-load.php:666
+#: includes/admin-load.php:685
 msgid "Settings updated successfully."
 msgstr "Matagumpay na na-update ang mga setting."
 
-#: includes/admin-load.php:762
+#: includes/admin-load.php:781
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Mga Naka-log In na Gumagamit"
 
-#: includes/admin-load.php:763
+#: includes/admin-load.php:782
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Mga Naka-log Out na Gumagamit"
 
-#: includes/admin-load.php:770
+#: includes/admin-load.php:789
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Paglilimita sa Menu ng PublishPress"
 
-#: includes/admin-load.php:771
+#: includes/admin-load.php:790
 msgid "This menu is restricted for the following roles"
 msgstr "Ang menu na ito ay limitado para sa mga sumusunod na papel"
 
-#: includes/admin-load.php:826
+#: includes/admin-load.php:845
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: includes/admin-load.php:828
+#: includes/admin-load.php:847
 #: includes/functions-admin.php:404
 #: includes/functions-admin.php:488
 #: includes/roles/roles.php:8
@@ -295,7 +295,7 @@ msgstr "Dashboard"
 msgid "Roles"
 msgstr "Mga Papel"
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:848
 msgid "Settings"
 msgstr "Mga Pagtatakda"
 
@@ -342,7 +342,7 @@ msgstr "I-save para sa lahat ng Mga Papel"
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
 #: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:856
+#: includes/features/admin-styles/admin-styles.php:858
 #, php-format
 msgid "Save for %s"
 msgstr "I-save para sa %s"
@@ -413,7 +413,7 @@ msgid "Configure notice visibility by user role"
 msgstr "I-configure ang visibility ng notice ayon sa papel ng user"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:2015
+#: includes/admin.php:1906
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -473,8 +473,8 @@ msgid "Edit the settings."
 msgstr "I-edit ang mga setting."
 
 #: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:771
-#: includes/manager.php:795
+#: includes/manager.php:773
+#: includes/manager.php:797
 msgid "You do not have permission to manage admin notices."
 msgstr "Wala kang pahintulot na pamahalaan ang mga paunawa ng admin."
 
@@ -501,84 +501,76 @@ msgstr ""
 "Babala: Ang papel na ito ay hindi makaka-access sa dashboard nang walang "
 "kakayahang magbasa. %1$sMag-click dito upang ayusin ito ngayon%2$s."
 
-#: includes/admin.php:84
-msgid "Negate All"
-msgstr "Laktawan ang Lahat"
-
-#: includes/admin.php:88
-msgid "Negate None"
-msgstr "Huwag Laktawan ang Anuman"
-
-#: includes/admin.php:95
+#: includes/admin.php:87
 msgid "Role Capabilities"
 msgstr "Kakayahan ng Papel"
 
-#: includes/admin.php:136
+#: includes/admin.php:128
 msgid "Search capabilities..."
 msgstr "Maghanap ng mga kakayahan..."
 
-#: includes/admin.php:208
-#: includes/admin.php:847, fuzzy
+#: includes/admin.php:201
+#: includes/admin.php:840, fuzzy
 msgid "Nav Menus (Block)"
 msgstr "Nav Menus (Block)"
 
-#: includes/admin.php:210
+#: includes/admin.php:203
 msgid "Block"
 msgstr "I-block"
 
-#: includes/admin.php:217
-#: includes/admin.php:849, fuzzy
+#: includes/admin.php:210
+#: includes/admin.php:842, fuzzy
 msgid "Nav Menus (Legacy)"
 msgstr "Nav Menus (Legacy)"
 
-#: includes/admin.php:219, fuzzy
+#: includes/admin.php:212, fuzzy
 msgid "Legacy"
 msgstr "Legacy"
 
-#: includes/admin.php:271, fuzzy
+#: includes/admin.php:264, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:272, fuzzy
+#: includes/admin.php:265, fuzzy
 msgid "Visibility"
 msgstr "Visibility"
 
-#: includes/admin.php:273
+#: includes/admin.php:266
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Pag-e-edit"
 
-#: includes/admin.php:274
+#: includes/admin.php:267
 msgid "Deletion"
 msgstr "Pagtanggal"
 
-#: includes/admin.php:275
+#: includes/admin.php:268
 msgid "Taxonomies"
 msgstr "Mga Taxonomy"
 
-#: includes/admin.php:279
+#: includes/admin.php:272
 msgid "Listing"
 msgstr "Listahan"
 
-#: includes/admin.php:283
+#: includes/admin.php:276
 msgid "Create Revision"
 msgstr "Lumikha ng Rebisyon"
 
-#: includes/admin.php:287
+#: includes/admin.php:280
 msgid "Submit Revision"
 msgstr "I-submit ang Rebisyon"
 
-#: includes/admin.php:291
+#: includes/admin.php:284
 msgid "Approve Revision"
 msgstr "Aprubahan ang Rebisyon"
 
-#: includes/admin.php:295
+#: includes/admin.php:288
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 "Maaaring basahin ang mga post na kasalukuyang nai-publish na may pribadong "
 "visibility."
 
-#: includes/admin.php:296
+#: includes/admin.php:289
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -586,25 +578,25 @@ msgstr ""
 "May pangunahing kakayahan sa pag-edit (ngunit maaaring kailanganin ang iba "
 "pang kakayahan batay sa katayuan ng post at pagmamay-ari)."
 
-#: includes/admin.php:297
+#: includes/admin.php:290
 msgid "Can edit posts which were created by other users."
 msgstr "Maaaring i-edit ang mga post na nilikha ng ibang mga gumagamit."
 
-#: includes/admin.php:298
+#: includes/admin.php:291
 msgid "Can edit posts which are currently published."
 msgstr "Maaaring i-edit ang mga post na kasalukuyang nai-publish."
 
-#: includes/admin.php:299
+#: includes/admin.php:292
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
 "Maaaring i-edit ang mga post na kasalukuyang nai-publish na may pribadong "
 "visibility."
 
-#: includes/admin.php:300
+#: includes/admin.php:293
 msgid "Can make a post publicly visible."
 msgstr "Maaaring gawing pampublikong nakikita ang isang post."
 
-#: includes/admin.php:301
+#: includes/admin.php:294
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -612,104 +604,105 @@ msgstr ""
 "May pangunahing kakayahan sa pagbura (ngunit maaaring kailanganin ang iba "
 "pang kakayahan batay sa katayuan ng post at pagmamay-ari)."
 
-#: includes/admin.php:302
+#: includes/admin.php:295
 msgid "Can delete posts which were created by other users."
 msgstr "Maaaring burahin ang mga post na nilikha ng ibang mga gumagamit."
 
-#: includes/admin.php:303
+#: includes/admin.php:296
 msgid "Can delete posts which are currently published."
 msgstr "Maaaring burahin ang mga post na kasalukuyang nai-publish."
 
-#: includes/admin.php:304
+#: includes/admin.php:297
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
 "Maaaring burahin ang mga post na kasalukuyang nai-publish na may pribadong "
 "visibility."
 
-#: includes/admin.php:599
-#: includes/admin.php:1114
-#: includes/admin.php:2104, fuzzy
+#: includes/admin.php:592
+#: includes/admin.php:1107
+#: includes/admin.php:1995, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:603
-#: includes/admin.php:1118
+#: includes/admin.php:596
+#: includes/admin.php:1111
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:683
-#: includes/admin.php:1597
+#: includes/admin.php:676
+#: includes/admin.php:1545
 msgid "Invalid Capabilities"
 msgstr "Maling Kakayahan"
 
-#: includes/admin.php:688
+#: includes/admin.php:681
+#: includes/admin.php:1690
 msgid "Additional"
 msgstr "Karagdagan"
 
-#: includes/admin.php:722
+#: includes/admin.php:715
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Mga Kakayahan ng Term %s"
 
-#: includes/admin.php:725
+#: includes/admin.php:718
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s Kakayahan"
 
-#: includes/admin.php:726
+#: includes/admin.php:719
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Mga Kakayahan ng Post %s"
 
-#: includes/admin.php:729
+#: includes/admin.php:722
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: includes/admin.php:735
+#: includes/admin.php:728
 msgid "Filter by taxonomy"
 msgstr "Salain ayon sa taxonomy"
 
-#: includes/admin.php:735
+#: includes/admin.php:728
 msgid "Filter by post type"
 msgstr "I-filter ayon sa uri ng post"
 
-#: includes/admin.php:856
+#: includes/admin.php:849
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Ang slug para sa taxonomy na ito ay %s"
 
-#: includes/admin.php:858
+#: includes/admin.php:851
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Ang slug para sa uri ng post na ito ay %s"
 
-#: includes/admin.php:934
-#: includes/admin.php:1183
-#: includes/admin.php:1515
-#: includes/admin.php:1878
-#: includes/admin.php:1879
+#: includes/admin.php:927
+#: includes/admin.php:1173
+#: includes/admin.php:1466
+#: includes/admin.php:1772
+#: includes/admin.php:1773
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: itinalaga ng Permission Group"
 
-#: includes/admin.php:937
-#: includes/admin.php:1185
-#: includes/admin.php:1517
-#: includes/admin.php:1645
-#: includes/admin.php:1881
+#: includes/admin.php:930
+#: includes/admin.php:1175
+#: includes/admin.php:1468
+#: includes/admin.php:1593
+#: includes/admin.php:1775
 #, php-format
 msgid "This capability is %s"
 msgstr "Ang kakayahang ito ay %s"
 
-#: includes/admin.php:967
+#: includes/admin.php:960
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Ang kakayahang ito ay kontrolado ng %s"
 
-#: includes/admin.php:970
+#: includes/admin.php:963
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -718,18 +711,18 @@ msgstr ""
 "Ang kakayahang ito ay kontrolado ng %s Gamitin ang mga setting sa sidebar "
 "upang payagan itong makontrol nang hiwalay."
 
-#: includes/admin.php:987
+#: includes/admin.php:980
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
 "Gamitin ang mga setting ng sidebar upang pahintulutan itong makontrol nang "
 "hiwalay."
 
-#: includes/admin.php:989
-#: includes/admin.php:993
+#: includes/admin.php:982
+#: includes/admin.php:986
 msgid "This capability is not available for this post type."
 msgstr "Ang kakayahang ito ay hindi available para sa uri ng post na ito."
 
-#: includes/admin.php:1057
+#: includes/admin.php:1050
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -742,67 +735,66 @@ msgstr ""
 "\"List\" na ito ay maaaring magbigay ng access, ngunit hindi maaaring "
 "magtanggi ng access."
 
-#: includes/admin.php:1134
-#: includes/admin.php:1253
-#: includes/admin.php:1442
-#: includes/admin.php:1713
+#: includes/admin.php:1127
+#: includes/admin.php:1240
+#: includes/admin.php:1396
+#: includes/admin.php:1661
 msgid "Filter by capability"
 msgstr "I-filter ayon sa kakayahan"
 
-#: includes/admin.php:1137
-#: includes/admin.php:1256
-#: includes/admin.php:1445
-#: includes/admin.php:1716
+#: includes/admin.php:1130
+#: includes/admin.php:1243
+#: includes/admin.php:1399
+#: includes/admin.php:1664
 msgid "No results found. Please try again with a different word."
 msgstr "Walang nahanap na resulta. Mangyaring subukan muli gamit ang ibang salita."
 
-#: includes/admin.php:1148
-#: includes/admin.php:1230
-#: includes/admin.php:1267
-#: includes/admin.php:1276
-#: includes/admin.php:1456
-#: includes/admin.php:1579
-#: includes/admin.php:1722
-#: includes/admin.php:1953
-msgid "check / uncheck all"
-msgstr "markahan / alisin ang marka ang lahat"
+#: includes/admin.php:1141
+#: includes/admin.php:1220
+#: includes/admin.php:1254
+#: includes/admin.php:1260
+#: includes/admin.php:1410
+#: includes/admin.php:1530
+#: includes/admin.php:1670
+#: includes/admin.php:1847
+msgid "check / uncheck / negate all"
+msgstr "suriin / huwag suriin / baligtarin ang lahat"
 
-#: includes/admin.php:1148
-#: includes/admin.php:1230
-#: includes/admin.php:1267
-#: includes/admin.php:1276
-#: includes/admin.php:1456
-#: includes/admin.php:1579
-#: includes/admin.php:1722
-#: includes/admin.php:1953
+#: includes/admin.php:1141
+#: includes/admin.php:1220
+#: includes/admin.php:1254
+#: includes/admin.php:1260
+#: includes/admin.php:1410
+#: includes/admin.php:1530
+#: includes/admin.php:1670
+#: includes/admin.php:1847
 msgid "Capability Name"
 msgstr "Pangalan ng Kakayahan"
 
-#: includes/admin.php:1250
+#: includes/admin.php:1237
 msgid "WordPress Core Capabilities"
 msgstr "Mga Kakayahan ng WordPress Core"
 
-#: includes/admin.php:1422
-#: includes/admin.php:1479
-#: includes/admin.php:1801
-#: includes/features/admin-styles/admin-styles.php:1743
+#: includes/admin.php:1376
+#: includes/admin.php:1430
+#: includes/features/admin-styles/admin-styles.php:1745
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Pangkalahatan"
 
-#: includes/admin.php:1439
+#: includes/admin.php:1393
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Mga Kakayahan ng Plugin &ndash; %s"
 
-#: includes/admin.php:1521
+#: includes/admin.php:1472
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "Kinakailangan din ng tampok na Pagsusuri ng User ang kakayahang %1$s "
 "edit_users %2$s."
 
-#: includes/admin.php:1602
+#: includes/admin.php:1550
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -810,28 +802,28 @@ msgstr ""
 "Walang epekto ang mga sumusunod na entry. Mangyaring magtalaga ng nais na "
 "mga kakayahan sa mga tab na Pag-edit / Pagtanggal / Pribado."
 
-#: includes/admin.php:1710
+#: includes/admin.php:1658
 msgid "Additional Capabilities"
 msgstr "Karagdagang Kakayahan"
 
-#: includes/admin.php:1946
+#: includes/admin.php:1840
 msgid "You have no additional capabilities."
 msgstr "Wala kang karagdagang kakayahan."
 
-#: includes/admin.php:1970
+#: includes/admin.php:1861
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "Ang mga Kakayahan ay nagpapahintulot sa iyo na baguhin ang mga pahintulot "
 "para sa anumang papel ng gumagamit."
 
-#: includes/admin.php:1971
+#: includes/admin.php:1862
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Kakayahan ay ibinigay %2$s"
 
-#: includes/admin.php:1971
-#: includes/admin.php:1972
-#: includes/admin.php:1973
+#: includes/admin.php:1862
+#: includes/admin.php:1863
+#: includes/admin.php:1864
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -845,32 +837,32 @@ msgstr "%1$s = Kakayahan ay ibinigay %2$s"
 msgid "usage key"
 msgstr "key ng paggamit"
 
-#: includes/admin.php:1972
+#: includes/admin.php:1863
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Kakayahan ay hindi ibinigay %2$s"
 
-#: includes/admin.php:1973
+#: includes/admin.php:1864
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Kakayahan ay tinanggihan, kahit na ibinigay ng ibang tungkulin %2$s"
 
-#: includes/admin.php:1981
+#: includes/admin.php:1872
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr ""
 "Maaari mo ring i-configure ang papel na ito bilang isang %sPermission "
 "Group%s."
 
-#: includes/admin.php:2001
+#: includes/admin.php:1892
 msgid "How to use Capabilities"
 msgstr "Paano gamitin ang mga Kakayahan"
 
-#: includes/admin.php:2039
+#: includes/admin.php:1930
 msgid "Capabilities is Safe to Use"
 msgstr "Ang mga kakayahan ay Ligtas Gamitin"
 
-#: includes/admin.php:2052
+#: includes/admin.php:1943
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -878,7 +870,7 @@ msgstr ""
 "Nagt stores ng mga kakayahan ng papel ang WordPress sa iyong database, kung "
 "saan sila ay mananatili kahit na ang plugin ay na-deactivate."
 
-#: includes/admin.php:2053
+#: includes/admin.php:1944
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -887,27 +879,27 @@ msgstr ""
 "pagbabago, ito rin ay lumilikha ng backup na maaari mong gamitin upang "
 "ibalik ang isang nakaraang configuration."
 
-#: includes/admin.php:2056
+#: includes/admin.php:1947
 msgid "Go to the Backup feature"
 msgstr "Pumunta sa tampok na Backup"
 
-#: includes/admin.php:2075
+#: includes/admin.php:1966
 msgid "Add a New Capability"
 msgstr "Magdagdag ng Bagong Kakayahan"
 
-#: includes/admin.php:2085
+#: includes/admin.php:1976
 msgid "Add to role"
 msgstr "Magdagdag sa papel"
 
-#: includes/admin.php:2088
+#: includes/admin.php:1979
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Ang mga bagong kakayahan ay kinokontrol sa tab na Karagdagang."
 
-#: includes/admin.php:2144
+#: includes/admin.php:2035
 msgid "PublishPress Permissions"
 msgstr "Mga Pahintulot ng PublishPress"
 
-#: includes/admin.php:2146
+#: includes/admin.php:2037
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -915,13 +907,13 @@ msgstr ""
 "Awtomatikong tukuyin ang mga kakayahan na tiyak sa uri para sa iyong mga "
 "pasadyang uri ng post at taxonomies"
 
-#: includes/admin.php:2150
+#: includes/admin.php:2041
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr ""
 "Magtalaga ng mga pamantayang tungkulin ng WP bilang karagdagan para sa "
 "isang tiyak na uri ng post"
 
-#: includes/admin.php:2154
+#: includes/admin.php:2045
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -929,17 +921,17 @@ msgstr ""
 "Magtalaga ng mga pasadyang tungkulin ng WP bilang karagdagan para sa isang "
 "tiyak na uri ng post <em>(Pro)</em>"
 
-#: includes/admin.php:2158
+#: includes/admin.php:2049
 msgid "Customize reading permissions per-category or per-post"
 msgstr "I-customize ang mga pahintulot sa pagbabasa ayon sa kategorya o ayon sa post"
 
-#: includes/admin.php:2162
+#: includes/admin.php:2053
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "I-customize ang mga pahintulot sa pag-edit ayon sa kategorya o ayon sa post "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2166
+#: includes/admin.php:2057
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -947,7 +939,7 @@ msgstr ""
 "Pasadyang mga katayuan ng Post Visibility, ganap na ipinatupad sa buong "
 "wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:2170
+#: includes/admin.php:2061
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -955,13 +947,13 @@ msgstr ""
 "Pasadyang mga katayuan ng Moderation para sa access-controlled, multi-step "
 "publishing workflow <em>(Pro)</em>"
 
-#: includes/admin.php:2174
+#: includes/admin.php:2065
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr ""
 "I-regulate ang mga pahintulot para sa mga estado ng post ng Edit Flow "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2178
+#: includes/admin.php:2069
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -969,7 +961,7 @@ msgstr ""
 "I-customize ang pinamamahalaang pag-edit ng nailathalang nilalaman gamit "
 "ang Revisionary o Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2182
+#: includes/admin.php:2073
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -977,43 +969,43 @@ msgstr ""
 "Bigyan ng access ang Spectator, Participant o Moderator sa mga tiyak na "
 "bbPress forums <em>(Pro)</em>"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2077
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
 "Bigyan ng karagdagang pahintulot sa nilalaman ang isang BuddyPress group "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2190
+#: includes/admin.php:2081
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr ""
 "WPML integration upang i-mirror ang mga pahintulot sa mga pagsasalin "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2194
+#: includes/admin.php:2085
 msgid "Member support forum"
 msgstr "Pagtulong sa forum ng mga miyembro"
 
-#: includes/admin.php:2201
+#: includes/admin.php:2092
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$s kunin%2$s %3$s"
 
-#: includes/admin.php:2201
+#: includes/admin.php:2092
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (libre na pag-install)"
 
-#: includes/admin.php:2203
+#: includes/admin.php:2094
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$s bumili%2$s %3$s"
 
-#: includes/admin.php:2203
+#: includes/admin.php:2094
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s impormasyon/pagbili"
 
-#: includes/admin.php:2235
+#: includes/admin.php:2126
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1023,33 +1015,33 @@ msgstr ""
 "ang tumutukoy sa pagiging karapat-dapat para sa asignasyon ng May-akda ng "
 "Post at nililimitahan ang aplikasyon ng kakayahan sa pag-edit ng gumagamit."
 
-#: includes/admin.php:2237
+#: includes/admin.php:2128
 msgid "Level:"
 msgstr "Antas:"
 
-#: includes/admin.php:2280
+#: includes/admin.php:2171
 msgid "Create this role definition in new (future) sites"
 msgstr "Lumikha ng kahulugan ng papel na ito sa mga bagong (hinaharap) site"
 
-#: includes/admin.php:2280
+#: includes/admin.php:2171
 msgid "Include in new sites."
 msgstr "Isama sa mga bagong site."
 
-#: includes/admin.php:2283
+#: includes/admin.php:2174
 msgid "Copy / update this role definition to all sites now"
 msgstr ""
 "Kopyahin / i-update ang depinisyon ng papel na ito sa lahat ng mga site "
 "ngayon"
 
-#: includes/admin.php:2283
+#: includes/admin.php:2174
 msgid "Sync role to all sites."
 msgstr "I-synchronize ang papel sa lahat ng mga site."
 
-#: includes/admin.php:2286
+#: includes/admin.php:2177
 msgid "Copy option settings to all sites now"
 msgstr "Kopyahin ang mga setting ng opsyon sa lahat ng site ngayon"
 
-#: includes/admin.php:2286
+#: includes/admin.php:2177
 msgid "Sync options to all sites."
 msgstr "I-synchronize ang mga opsyon sa lahat ng mga site."
 
@@ -1098,47 +1090,58 @@ msgstr ""
 "Error sa pag-import ng mga setting! Pakisuri na na-upload mo ang isang "
 "wastong json na file."
 
-#: includes/backup-handler.php:199
+#: includes/backup-handler.php:222
+#, php-format
+msgid "Skipped %d invalid or unsupported import entries."
+msgstr ""
+"Nakalaktawan ang %d na hindi wasto o hindi suportadong mga entry ng "
+"pag-import."
+
+#: includes/backup-handler.php:226
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s matagumpay na na-import mula sa na-upload na data."
 
-#: includes/backup-handler.php:274
+#: includes/backup-handler.php:228
+msgid "No valid backup data found to import."
+msgstr "Walang natagpuang wastong backup na data na maaring i-import."
+
+#: includes/backup-handler.php:519
 msgid "Needed function to create default roles not found!"
 msgstr ""
 "Kailangan na function para lumikha ng default na mga papel ay hindi "
 "natagpuan!"
 
-#: includes/backup-handler.php:293
+#: includes/backup-handler.php:538
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "Ang mga Papel at Kakayahan ay na-reset sa mga default ng WordPress"
 
-#: includes/backup.php:41
+#: includes/backup.php:39
 msgid "Backup Tool for PublishPress Capabilities"
 msgstr "Tool sa Backup para sa PublishPress Capabilities"
 
-#: includes/backup.php:50
+#: includes/backup.php:48
 msgid "Restore"
 msgstr "Ibalik"
 
-#: includes/backup.php:51
+#: includes/backup.php:49
 #: includes/functions-admin.php:567, fuzzy
 msgid "Backup"
 msgstr "Backup"
 
-#: includes/backup.php:52
+#: includes/backup.php:50
 msgid "Reset Roles"
 msgstr "I-reset ang mga Papel"
 
-#: includes/backup.php:53
+#: includes/backup.php:51
 msgid "Export / Import"
 msgstr "I-export / I-import"
 
-#: includes/backup.php:62
+#: includes/backup.php:60
 msgid "Backup Roles and Capabilities"
 msgstr "Backup ng mga Tungkulin at Kakayahan"
 
-#: includes/backup.php:67
+#: includes/backup.php:65
 #, php-format
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
@@ -1149,7 +1152,7 @@ msgstr ""
 "pag-install at sa tuwing nagse-save ka ng mga pagbabago. Ang paunang backup "
 "at ang huling %d auto-backup ay pinapanatili."
 
-#: includes/backup.php:69
+#: includes/backup.php:67
 msgid ""
 "A backup created on this screen replaces any previous manual backups, but "
 "is never automatically replaced."
@@ -1157,24 +1160,24 @@ msgstr ""
 "Ang backup na nilikha sa screen na ito ay pumapalit sa anumang nakaraang "
 "manu-manong backup, ngunit hindi kailanman awtomatikong napapalitan."
 
-#: includes/backup.php:74
+#: includes/backup.php:72
 msgid "Manual Backup"
 msgstr "Manu-manong Backup"
 
-#: includes/backup.php:84
+#: includes/backup.php:82
 #, php-format
 msgid "Last Manual Backup - %s"
 msgstr "Huling Manu-manong Backup - %s"
 
-#: includes/backup.php:84
+#: includes/backup.php:82
 msgid "Last Backup"
 msgstr "Huling Backup"
 
-#: includes/backup.php:88
+#: includes/backup.php:86
 msgid "Restore Previous Roles and Capabilities"
 msgstr "Ibalik ang Mga Nakaraang Papel at Kakayahan"
 
-#: includes/backup.php:91
+#: includes/backup.php:89
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
 "and whenever you save changes."
@@ -1182,7 +1185,7 @@ msgstr ""
 "Ang Mga Kakayahan ng PublishPress ay awtomatikong lumilikha ng backup sa "
 "pag-install at sa tuwing nagse-save ka ng mga pagbabago."
 
-#: includes/backup.php:92
+#: includes/backup.php:90
 msgid ""
 "On this screen, you can restore an earlier version of your roles and "
 "capabilities."
@@ -1190,74 +1193,74 @@ msgstr ""
 "Sa screen na ito, maaari mong ibalik ang mas naunang bersyon ng iyong mga "
 "papel at kakayahan."
 
-#: includes/backup.php:95
+#: includes/backup.php:93
 msgid "Available Backups:"
 msgstr "Magagamit na mga Backup:"
 
-#: includes/backup.php:111
+#: includes/backup.php:109
 msgid "all roles"
 msgstr "lahat ng roles"
 
-#: includes/backup.php:116
+#: includes/backup.php:114
 #, php-format
 msgid "Manual backup of %s (%s)"
 msgstr "Manu-manong backup ng %s (%s)"
 
-#: includes/backup.php:131
+#: includes/backup.php:129
 #, php-format
 msgid "Auto-backup of all roles (%s)"
 msgstr "Auto-backup ng lahat ng tungkulin (%s)"
 
-#: includes/backup.php:139
+#: includes/backup.php:137
 msgid "Initial backup of all roles"
 msgstr "Paunang backup ng lahat ng mga tungkulin"
 
-#: includes/backup.php:148
+#: includes/backup.php:146
 msgid "Restore Selected Roles"
 msgstr "Ibalik ang Napiling Mga Papel"
 
-#: includes/backup.php:157
+#: includes/backup.php:155
 msgid "Show changes from current roles only"
 msgstr "Ipakita ang mga pagbabago mula sa kasalukuyang mga tungkulin lamang"
 
-#: includes/backup.php:164
+#: includes/backup.php:162
 #, php-format
 msgid "Initial Backup - %s"
 msgstr "Paunang Backup - %s"
 
-#: includes/backup.php:164
+#: includes/backup.php:162
 msgid "Initial Backup"
 msgstr "Paunang Backup"
 
-#: includes/backup.php:191
+#: includes/backup.php:188
 #, php-format
 msgid "%s (%s roles)"
 msgstr "%s (%s tungkulin)"
 
-#: includes/backup.php:198
+#: includes/backup.php:195
 msgid "(this role will be removed if you restore backup)"
 msgstr "(ang papel na ito ay aalisin kung ibabalik mo ang backup)"
 
-#: includes/backup.php:227
+#: includes/backup.php:224
 #, php-format
 msgid "%s (level %s)"
 msgstr "%s (antas %s)"
 
-#: includes/backup.php:267
+#: includes/backup.php:264
 msgid "No changes"
 msgstr "Walang mga pagbabago"
 
-#: includes/backup.php:283
+#: includes/backup.php:280
 msgid "Reset WordPress Defaults"
 msgstr "I-reset ang mga Default ng WordPress"
 
-#: includes/backup.php:285
-#: includes/backup.php:332
+#: includes/backup.php:282
+#: includes/backup.php:329
 #: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "Babala:"
 
-#: includes/backup.php:285
+#: includes/backup.php:282
 msgid ""
 "Reseting default Roles and Capabilities will set them to the WordPress "
 "install defaults."
@@ -1265,7 +1268,7 @@ msgstr ""
 "Ang pag-reset ng mga default na Papel at Kakayahan ay itatakda ang mga ito "
 "sa mga default ng pag-install ng WordPress."
 
-#: includes/backup.php:287
+#: includes/backup.php:284
 msgid ""
 "If you have installed any plugin that adds new roles or capabilities, these "
 "will be lost."
@@ -1273,15 +1276,15 @@ msgstr ""
 "Kung mayroon kang na-install na anumang plugin na nagdadagdag ng mga bagong "
 "tungkulin o kakayahan, mawawala ang mga ito."
 
-#: includes/backup.php:288
+#: includes/backup.php:285
 msgid "It is recommended to use this only as a last resource!"
 msgstr "Inirerekomenda na gamitin ito lamang bilang huling mapagkukunan!"
 
-#: includes/backup.php:291
+#: includes/backup.php:288
 msgid "Reset Roles and Capabilities to WordPress defaults"
 msgstr "I-reset ang mga Papel at Kakayahan sa mga default ng WordPress"
 
-#: includes/backup.php:293
+#: includes/backup.php:290
 msgid ""
 "You are about to reset Roles and Capabilities to WordPress defaults.\n"
 " 'Cancel' to stop, 'OK' to reset."
@@ -1289,15 +1292,15 @@ msgstr ""
 "Ikaw ay malapit nang i-reset ang mga Papel at Kakayahan sa mga default ng "
 "WordPress. 'Kanselahin' upang itigil, 'OK' upang i-reset."
 
-#: includes/backup.php:293
+#: includes/backup.php:290
 msgid "Reset to WordPress defaults"
 msgstr "I-reset sa mga default ng WordPress"
 
-#: includes/backup.php:301
+#: includes/backup.php:298
 msgid "Export Settings"
 msgstr "I-export ang Mga Setting"
 
-#: includes/backup.php:303
+#: includes/backup.php:300
 msgid ""
 "Export the plugin settings for this site as a .json file. This allows you "
 "to easily import the configuration into another site."
@@ -1306,19 +1309,19 @@ msgstr ""
 "file. Pinapayagan ka nitong madaling i-import ang configuration sa ibang "
 "site."
 
-#: includes/backup.php:308
+#: includes/backup.php:305
 msgid "Roles and Capabilities"
 msgstr "Mga Papel at Kakayahan"
 
-#: includes/backup.php:325
+#: includes/backup.php:322
 msgid "Export"
 msgstr "I-export"
 
-#: includes/backup.php:331
+#: includes/backup.php:328
 msgid "Import Settings"
 msgstr "I-import ang Mga Setting"
 
-#: includes/backup.php:332
+#: includes/backup.php:329
 msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
@@ -1326,7 +1329,7 @@ msgstr ""
 "Mangyaring gumawa ng 'Manwal na Backup' sa tab ng backup upang paganahin "
 "ang pag-restore ng backup sakaling may mangyaring masama."
 
-#: includes/backup.php:333
+#: includes/backup.php:330
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
@@ -1335,7 +1338,7 @@ msgstr ""
 "ito ay maaaring makuha sa pamamagitan ng pag-export ng mga setting sa ibang "
 "site gamit ang form sa itaas."
 
-#: includes/backup.php:334
+#: includes/backup.php:331
 msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
@@ -1541,7 +1544,7 @@ msgid "Remove"
 msgstr "Tanggalin"
 
 #: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:872
+#: includes/features/admin-styles/admin-styles.php:874
 msgid "Custom Style Name"
 msgstr "Pangalan ng Pasadyang Estilo"
 
@@ -1586,7 +1589,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:520
 #: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:852
+#: includes/features/admin-styles/admin-styles.php:854
 msgid "Select Image"
 msgstr "Pumili ng Imahe"
 
@@ -1636,8 +1639,8 @@ msgstr ""
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2022
-#: includes/features/admin-styles/admin-styles.php:2104, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2024
+#: includes/features/admin-styles/admin-styles.php:2106, fuzzy
 msgid "Default"
 msgstr "Default"
 
@@ -1666,7 +1669,7 @@ msgid "Body Text"
 msgstr "Teksto ng Katawan"
 
 #: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:1769
+#: includes/features/admin-styles/admin-styles.php:1771
 msgid "Links"
 msgstr "Mga Link"
 
@@ -1675,12 +1678,12 @@ msgid "Headings"
 msgstr "Mga Ulo"
 
 #: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:1893
+#: includes/features/admin-styles/admin-styles.php:1895
 msgid "Admin Menu"
 msgstr "Menu ng Admin"
 
 #: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:1935
+#: includes/features/admin-styles/admin-styles.php:1937
 msgid "Admin Bar"
 msgstr "Bar ng Admin"
 
@@ -1689,7 +1692,7 @@ msgid "Form Fields"
 msgstr "Mga Form Field"
 
 #: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:1863
+#: includes/features/admin-styles/admin-styles.php:1865
 msgid "Buttons"
 msgstr "Mga Button"
 
@@ -1796,478 +1799,478 @@ msgstr "Palitan ang teksto ng \"Howdy\""
 msgid "How to use Admin Styles"
 msgstr "Paano gamitin ang mga Estilo ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:539
+#: includes/features/admin-styles/admin-styles.php:541
 msgid "Security check failed."
 msgstr "Nabigong suriin ang seguridad."
 
-#: includes/features/admin-styles/admin-styles.php:544
-#: includes/manager.php:741
+#: includes/features/admin-styles/admin-styles.php:546
+#: includes/manager.php:743
 msgid "You do not have permission to manage admin styles."
 msgstr "Wala kang pahintulot na pamahalaan ang mga estilo ng admin."
 
-#: includes/features/admin-styles/admin-styles.php:607
+#: includes/features/admin-styles/admin-styles.php:609
 msgid "No role specified."
 msgstr "Walang tinukoy na papel."
 
-#: includes/features/admin-styles/admin-styles.php:853
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Use this Image"
 msgstr "Gamitin ang Larawang Ito"
 
-#: includes/features/admin-styles/admin-styles.php:854
+#: includes/features/admin-styles/admin-styles.php:856
 msgid "Saving..."
 msgstr "Nagsasal save..."
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:857
 msgid "Settings saved."
 msgstr "Naka-save ang mga setting."
 
-#: includes/features/admin-styles/admin-styles.php:857
+#: includes/features/admin-styles/admin-styles.php:859
 msgid "Current logo preview"
 msgstr "Kasalukuyang preview ng logo"
 
-#: includes/features/admin-styles/admin-styles.php:858
+#: includes/features/admin-styles/admin-styles.php:860
 msgid "Add New Custom Style"
 msgstr "Magdagdag ng Bagong Pasadyang Estilo"
 
-#: includes/features/admin-styles/admin-styles.php:859
+#: includes/features/admin-styles/admin-styles.php:861
 msgid "Edit Custom Style"
 msgstr "I-edit ang Pasadyang Estilo"
 
-#: includes/features/admin-styles/admin-styles.php:860
+#: includes/features/admin-styles/admin-styles.php:862
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Sigurado ka bang nais mong burahin ang \"%s\" na pasadyang estilo?"
 
-#: includes/features/admin-styles/admin-styles.php:861
+#: includes/features/admin-styles/admin-styles.php:863
 msgid "this custom style"
 msgstr "ang pasadyang estilong ito"
 
-#: includes/features/admin-styles/admin-styles.php:862
+#: includes/features/admin-styles/admin-styles.php:864
 msgid "Primary Button"
 msgstr "Pangunahing Button"
 
-#: includes/features/admin-styles/admin-styles.php:863
+#: includes/features/admin-styles/admin-styles.php:865
 msgid "Hover State"
 msgstr "Estado ng Hover"
 
-#: includes/features/admin-styles/admin-styles.php:864
+#: includes/features/admin-styles/admin-styles.php:866
 msgid "Notification"
 msgstr "Abiso"
 
-#: includes/features/admin-styles/admin-styles.php:865
+#: includes/features/admin-styles/admin-styles.php:867
 msgid "Live preview of your custom color scheme"
 msgstr "Buhay na preview ng iyong pasadyang scheme ng kulay"
 
-#: includes/features/admin-styles/admin-styles.php:866
+#: includes/features/admin-styles/admin-styles.php:868
 msgid "Custom Style Name is required."
 msgstr "Kailangan ang pangalan ng Pasadyang Estilo."
 
-#: includes/features/admin-styles/admin-styles.php:867
+#: includes/features/admin-styles/admin-styles.php:869
 msgid "Main Admin Color is required."
 msgstr "Kailangan ang Pangunahing Kulay ng Admin."
 
-#: includes/features/admin-styles/admin-styles.php:868
+#: includes/features/admin-styles/admin-styles.php:870
 msgid "PublishPress Custom"
 msgstr "PublishPress Pasadya"
 
-#: includes/features/admin-styles/admin-styles.php:869
+#: includes/features/admin-styles/admin-styles.php:871
 msgid "Display Name"
 msgstr "Pangalan ng Ipinapakita"
 
-#: includes/features/admin-styles/admin-styles.php:870
+#: includes/features/admin-styles/admin-styles.php:872
 msgid "Change how this style is displayed"
 msgstr "Baguhin kung paano ipinapakita ang estilo na ito"
 
-#: includes/features/admin-styles/admin-styles.php:871
+#: includes/features/admin-styles/admin-styles.php:873
 msgid "Enter a name for your custom style"
 msgstr "Maglagay ng pangalan para sa iyong pasadyang estilo"
 
-#: includes/features/admin-styles/admin-styles.php:885
+#: includes/features/admin-styles/admin-styles.php:887
 msgid "Forest"
 msgstr "Gubat"
 
-#: includes/features/admin-styles/admin-styles.php:902, fuzzy
+#: includes/features/admin-styles/admin-styles.php:904, fuzzy
 msgid "Mint Breeze"
 msgstr "Mint Breeze"
 
-#: includes/features/admin-styles/admin-styles.php:919
+#: includes/features/admin-styles/admin-styles.php:921
 msgid "Cherry"
 msgstr "Seresa"
 
-#: includes/features/admin-styles/admin-styles.php:936, fuzzy
+#: includes/features/admin-styles/admin-styles.php:938, fuzzy
 msgid "Graphite"
 msgstr "Graphite"
 
-#: includes/features/admin-styles/admin-styles.php:953, fuzzy
+#: includes/features/admin-styles/admin-styles.php:955, fuzzy
 msgid "Midnight Teal"
 msgstr "Midnight Teal"
 
-#: includes/features/admin-styles/admin-styles.php:970
+#: includes/features/admin-styles/admin-styles.php:972
 msgid "Sunrise"
 msgstr "Pagsikat ng Araw"
 
-#: includes/features/admin-styles/admin-styles.php:987, fuzzy
+#: includes/features/admin-styles/admin-styles.php:989, fuzzy
 msgid "Desert Sand"
 msgstr "Desert Sand"
 
-#: includes/features/admin-styles/admin-styles.php:1004, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1006, fuzzy
 msgid "Amber Glow"
 msgstr "Amber Glow"
 
-#: includes/features/admin-styles/admin-styles.php:1021, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1023, fuzzy
 msgid "Citrus"
 msgstr "Citrus"
 
-#: includes/features/admin-styles/admin-styles.php:1038, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1040, fuzzy
 msgid "Ocean Deep"
 msgstr "Ocean Deep"
 
-#: includes/features/admin-styles/admin-styles.php:1055, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1057, fuzzy
 msgid "Sage"
 msgstr "Sage"
 
-#: includes/features/admin-styles/admin-styles.php:1072, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1074, fuzzy
 msgid "Modern Slate"
 msgstr "Modern Slate"
 
-#: includes/features/admin-styles/admin-styles.php:1089, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1091, fuzzy
 msgid "Royal Plum"
 msgstr "Royal Plum"
 
-#: includes/features/admin-styles/admin-styles.php:1106, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1108, fuzzy
 msgid "Nordic"
 msgstr "Nordic"
 
-#: includes/features/admin-styles/admin-styles.php:1123, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1125, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1140, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1142, fuzzy
 msgid "Ink"
 msgstr "Ink"
 
-#: includes/features/admin-styles/admin-styles.php:1157, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1159, fuzzy
 msgid "Orchid"
 msgstr "Orchid"
 
-#: includes/features/admin-styles/admin-styles.php:1174, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1176, fuzzy
 msgid "Cobalt"
 msgstr "Cobalt"
 
-#: includes/features/admin-styles/admin-styles.php:1191
+#: includes/features/admin-styles/admin-styles.php:1193
 msgid "Stone"
 msgstr "Bato"
 
-#: includes/features/admin-styles/admin-styles.php:1208, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1210, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1225, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1227, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1242, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1244, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:1744
+#: includes/features/admin-styles/admin-styles.php:1746
 msgid "Main Admin Color settings"
 msgstr "Pangunahing Setting ng Kulay ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1747
+#: includes/features/admin-styles/admin-styles.php:1749
 msgid "Main Admin Color"
 msgstr "Pangunahing Kulay ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1748
+#: includes/features/admin-styles/admin-styles.php:1750
 msgid "Primary brand color"
 msgstr "Pangunahing kulay ng tatak"
 
-#: includes/features/admin-styles/admin-styles.php:1751
+#: includes/features/admin-styles/admin-styles.php:1753
 msgid "Text Color"
 msgstr "Kulay ng Teksto"
 
-#: includes/features/admin-styles/admin-styles.php:1752
+#: includes/features/admin-styles/admin-styles.php:1754
 msgid "Primary text color"
 msgstr "Pangunahing kulay ng teksto"
 
-#: includes/features/admin-styles/admin-styles.php:1755
+#: includes/features/admin-styles/admin-styles.php:1757
 msgid "Highlight Color"
 msgstr "Kulay ng Highlight"
 
-#: includes/features/admin-styles/admin-styles.php:1756
+#: includes/features/admin-styles/admin-styles.php:1758
 msgid "Used for hovers and highlights"
 msgstr "Ginagamit para sa mga hover at highlight"
 
-#: includes/features/admin-styles/admin-styles.php:1759
+#: includes/features/admin-styles/admin-styles.php:1761
 msgid "Notification Color"
 msgstr "Kulay ng Notipikasyon"
 
-#: includes/features/admin-styles/admin-styles.php:1760
+#: includes/features/admin-styles/admin-styles.php:1762
 msgid "Used for alerts and notifications"
 msgstr "Ginagamit para sa mga alerto at notipikasyon"
 
-#: includes/features/admin-styles/admin-styles.php:1763
+#: includes/features/admin-styles/admin-styles.php:1765
 msgid "Background Color"
 msgstr "Kulay ng Background"
 
-#: includes/features/admin-styles/admin-styles.php:1764
+#: includes/features/admin-styles/admin-styles.php:1766
 msgid "Page background color"
 msgstr "Kulay ng background ng pahina"
 
-#: includes/features/admin-styles/admin-styles.php:1770
+#: includes/features/admin-styles/admin-styles.php:1772
 msgid "Link element colors"
 msgstr "Mga kulay ng elemento ng Link"
 
-#: includes/features/admin-styles/admin-styles.php:1773
+#: includes/features/admin-styles/admin-styles.php:1775
 msgid "Default Link Color"
 msgstr "Kulay ng Default na Link"
 
-#: includes/features/admin-styles/admin-styles.php:1774
+#: includes/features/admin-styles/admin-styles.php:1776
 msgid "Standard link color"
 msgstr "Karaniwang kulay ng link"
 
-#: includes/features/admin-styles/admin-styles.php:1777
+#: includes/features/admin-styles/admin-styles.php:1779
 msgid "Link Hover Color"
 msgstr "Kulay ng Link sa Hover"
 
-#: includes/features/admin-styles/admin-styles.php:1778
+#: includes/features/admin-styles/admin-styles.php:1780
 msgid "Color on hover"
 msgstr "Kulay kapag naka-hover"
 
-#: includes/features/admin-styles/admin-styles.php:1781
+#: includes/features/admin-styles/admin-styles.php:1783
 msgid "Delete Link Color"
 msgstr "Kulay ng Tanggalin na Link"
 
-#: includes/features/admin-styles/admin-styles.php:1782
+#: includes/features/admin-styles/admin-styles.php:1784
 msgid "Color for delete/trash actions"
 msgstr "Kulay para sa mga aksyon ng tanggalin/trash"
 
-#: includes/features/admin-styles/admin-styles.php:1785
+#: includes/features/admin-styles/admin-styles.php:1787
 msgid "Trash Link Color"
 msgstr "Kulay ng Trash Link"
 
-#: includes/features/admin-styles/admin-styles.php:1786
+#: includes/features/admin-styles/admin-styles.php:1788
 msgid "Color for trash actions"
 msgstr "Kulay para sa mga aksyon ng trash"
 
-#: includes/features/admin-styles/admin-styles.php:1789
+#: includes/features/admin-styles/admin-styles.php:1791
 msgid "Spam Link Color"
 msgstr "Kulay ng Spam Link"
 
-#: includes/features/admin-styles/admin-styles.php:1790
+#: includes/features/admin-styles/admin-styles.php:1792
 msgid "Color for spam actions"
 msgstr "Kulay para sa mga aksyon ng spam"
 
-#: includes/features/admin-styles/admin-styles.php:1793
+#: includes/features/admin-styles/admin-styles.php:1795
 msgid "Inactive Link Color"
 msgstr "Kulay ng Inactive na Link"
 
-#: includes/features/admin-styles/admin-styles.php:1794
+#: includes/features/admin-styles/admin-styles.php:1796
 msgid "Color for inactive items"
 msgstr "Kulay para sa mga hindi aktibong item"
 
-#: includes/features/admin-styles/admin-styles.php:1799
+#: includes/features/admin-styles/admin-styles.php:1801
 msgid "Tables"
 msgstr "Mga Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1800
+#: includes/features/admin-styles/admin-styles.php:1802
 msgid "Table element colors"
 msgstr "Mga kulay ng elemento ng Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1803
+#: includes/features/admin-styles/admin-styles.php:1805
 msgid "Table Header Background"
 msgstr "Likuran ng Ulo ng Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1807
+#: includes/features/admin-styles/admin-styles.php:1809
 msgid "Table Header Text"
 msgstr "Teksto ng Ulo ng Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1811
+#: includes/features/admin-styles/admin-styles.php:1813
 msgid "Table Row Background"
 msgstr "Likuran ng Row ng Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1815
+#: includes/features/admin-styles/admin-styles.php:1817
 msgid "Table Row Text Color"
 msgstr "Kulay ng Teksto ng Row ng Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1819
+#: includes/features/admin-styles/admin-styles.php:1821
 msgid "Row Hover Background"
 msgstr "Kulay ng Hover ng Row"
 
-#: includes/features/admin-styles/admin-styles.php:1823
+#: includes/features/admin-styles/admin-styles.php:1825
 msgid "Table Border Color"
 msgstr "Kulay ng Hangganan ng Talahanayan"
 
-#: includes/features/admin-styles/admin-styles.php:1827
+#: includes/features/admin-styles/admin-styles.php:1829
 msgid "Alternate Row Background"
 msgstr "Kulay ng Alternatibong Row"
 
-#: includes/features/admin-styles/admin-styles.php:1831
+#: includes/features/admin-styles/admin-styles.php:1833
 msgid "Alternate Row Text Color"
 msgstr "Kulay ng Teksto ng Alternatibong Row"
 
-#: includes/features/admin-styles/admin-styles.php:1837
+#: includes/features/admin-styles/admin-styles.php:1839
 msgid "Forms"
 msgstr "Mga Form"
 
-#: includes/features/admin-styles/admin-styles.php:1838
+#: includes/features/admin-styles/admin-styles.php:1840
 msgid "Form input colors"
 msgstr "Mga kulay ng input ng form"
 
-#: includes/features/admin-styles/admin-styles.php:1841
+#: includes/features/admin-styles/admin-styles.php:1843
 msgid "Input Border Color"
 msgstr "Kulay ng Hangganan ng Input"
 
-#: includes/features/admin-styles/admin-styles.php:1845
+#: includes/features/admin-styles/admin-styles.php:1847
 msgid "Input Focus Border"
 msgstr "Hangganan ng Focus ng Input"
 
-#: includes/features/admin-styles/admin-styles.php:1849
+#: includes/features/admin-styles/admin-styles.php:1851
 msgid "Input Background Color"
 msgstr "Kulay ng Background ng Input"
 
-#: includes/features/admin-styles/admin-styles.php:1853
+#: includes/features/admin-styles/admin-styles.php:1855
 msgid "Input Text Color"
 msgstr "Kulay ng Teksto ng Input"
 
-#: includes/features/admin-styles/admin-styles.php:1857
+#: includes/features/admin-styles/admin-styles.php:1859
 msgid "Placeholder Text Color"
 msgstr "Kulay ng Teksto ng Placeholder"
 
-#: includes/features/admin-styles/admin-styles.php:1864
+#: includes/features/admin-styles/admin-styles.php:1866
 msgid "Button colors"
 msgstr "Mga kulay ng button"
 
-#: includes/features/admin-styles/admin-styles.php:1867
+#: includes/features/admin-styles/admin-styles.php:1869
 msgid "Primary Button Background"
 msgstr "Kulay ng Background ng Pangunahing Button"
 
-#: includes/features/admin-styles/admin-styles.php:1871
+#: includes/features/admin-styles/admin-styles.php:1873
 msgid "Primary Button Text"
 msgstr "Teksto ng Pangunahing Button"
 
-#: includes/features/admin-styles/admin-styles.php:1875
+#: includes/features/admin-styles/admin-styles.php:1877
 msgid "Primary Button Hover"
 msgstr "Hover ng Pangunahing Button"
 
-#: includes/features/admin-styles/admin-styles.php:1879
+#: includes/features/admin-styles/admin-styles.php:1881
 msgid "Secondary Button Background"
 msgstr "Kulay ng Background ng Sekondaryang Button"
 
-#: includes/features/admin-styles/admin-styles.php:1883
+#: includes/features/admin-styles/admin-styles.php:1885
 msgid "Secondary Button Text"
 msgstr "Teksto ng Sekondaryang Button"
 
-#: includes/features/admin-styles/admin-styles.php:1887
+#: includes/features/admin-styles/admin-styles.php:1889
 msgid "Secondary Button Hover"
 msgstr "Hover ng Sekondaryang Button"
 
-#: includes/features/admin-styles/admin-styles.php:1894
+#: includes/features/admin-styles/admin-styles.php:1896
 msgid "Admin menu colors"
 msgstr "Mga kulay ng menu ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1897
+#: includes/features/admin-styles/admin-styles.php:1899
 msgid "Menu Background"
 msgstr "Pondo ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1901
+#: includes/features/admin-styles/admin-styles.php:1903
 msgid "Menu Text Color"
 msgstr "Kulay ng Teksto ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1905
+#: includes/features/admin-styles/admin-styles.php:1907
 msgid "Menu Icon Color"
 msgstr "Kulay ng Icon ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1909
+#: includes/features/admin-styles/admin-styles.php:1911
 msgid "Menu Hover Background"
 msgstr "Pondo ng Hover ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1913
+#: includes/features/admin-styles/admin-styles.php:1915
 msgid "Menu Hover Text"
 msgstr "Teksto ng Hover ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1917
+#: includes/features/admin-styles/admin-styles.php:1919
 msgid "Current Menu Background"
 msgstr "Kasalukuyang Pondo ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1921
+#: includes/features/admin-styles/admin-styles.php:1923
 msgid "Current Menu Text"
 msgstr "Kasalukuyang Teksto ng Menu"
 
-#: includes/features/admin-styles/admin-styles.php:1925
+#: includes/features/admin-styles/admin-styles.php:1927
 msgid "Submenu Background"
 msgstr "Pondo ng Submenu"
 
-#: includes/features/admin-styles/admin-styles.php:1929
+#: includes/features/admin-styles/admin-styles.php:1931
 msgid "Submenu Text Color"
 msgstr "Kulay ng Teksto ng Submenu"
 
-#: includes/features/admin-styles/admin-styles.php:1936
+#: includes/features/admin-styles/admin-styles.php:1938
 msgid "Admin bar colors"
 msgstr "Mga kulay ng bar ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1939
+#: includes/features/admin-styles/admin-styles.php:1941
 msgid "Admin Bar Background"
 msgstr "Pondo ng Bar ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1943
+#: includes/features/admin-styles/admin-styles.php:1945
 msgid "Admin Bar Text"
 msgstr "Teksto ng Bar ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1947
+#: includes/features/admin-styles/admin-styles.php:1949
 msgid "Admin Bar Icon"
 msgstr "Icon ng Bar ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1951
+#: includes/features/admin-styles/admin-styles.php:1953
 msgid "Admin Bar Hover Background"
 msgstr "Pondo ng Hover ng Bar ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1955
+#: includes/features/admin-styles/admin-styles.php:1957
 msgid "Admin Bar Hover Text"
 msgstr "Teksto ng Hover ng Bar ng Admin"
 
-#: includes/features/admin-styles/admin-styles.php:1961
+#: includes/features/admin-styles/admin-styles.php:1963
 msgid "Dashboard Widgets"
 msgstr "Mga Widget ng Dashboard"
 
-#: includes/features/admin-styles/admin-styles.php:1962
+#: includes/features/admin-styles/admin-styles.php:1964
 msgid "Dashboard widget colors"
 msgstr "Mga kulay ng widget ng Dashboard"
 
-#: includes/features/admin-styles/admin-styles.php:1965
+#: includes/features/admin-styles/admin-styles.php:1967
 msgid "Widget Background"
 msgstr "Pondo ng Widget"
 
-#: includes/features/admin-styles/admin-styles.php:1969
+#: includes/features/admin-styles/admin-styles.php:1971
 msgid "Widget Border"
 msgstr "Hangganan ng Widget"
 
-#: includes/features/admin-styles/admin-styles.php:1973
+#: includes/features/admin-styles/admin-styles.php:1975
 msgid "Widget Header Background"
 msgstr "Pondo ng Ulo ng Widget"
 
-#: includes/features/admin-styles/admin-styles.php:1977
+#: includes/features/admin-styles/admin-styles.php:1979
 msgid "Widget Title Text"
 msgstr "Teksto ng Pamagat ng Widget"
 
-#: includes/features/admin-styles/admin-styles.php:1981
+#: includes/features/admin-styles/admin-styles.php:1983
 msgid "Widget Body Text"
 msgstr "Teksto ng Katawan ng Widget"
 
-#: includes/features/admin-styles/admin-styles.php:1985
+#: includes/features/admin-styles/admin-styles.php:1987
 msgid "Widget Link"
 msgstr "Link ng Widget"
 
-#: includes/features/admin-styles/admin-styles.php:1989
+#: includes/features/admin-styles/admin-styles.php:1991
 msgid "Widget Link Hover"
 msgstr "Link ng Widget sa Hover"
 
-#: includes/features/admin-styles/admin-styles.php:1995
+#: includes/features/admin-styles/admin-styles.php:1997
 #: includes/roles/class/class-pp-roles-admin.php:123, fuzzy
 msgid "Advanced"
 msgstr "Advanced"
 
-#: includes/features/admin-styles/admin-styles.php:1996
+#: includes/features/admin-styles/admin-styles.php:1998
 msgid "Custom selector color rules"
 msgstr "Mga patakaran sa kulay ng pasadyang selector"
 
@@ -2334,8 +2337,8 @@ msgstr "Paano gamitin ang mga Tampok ng Editor"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:693
-#: includes/manager.php:715
+#: includes/manager.php:695
+#: includes/manager.php:717
 msgid "You do not have permission to manage frontend features."
 msgstr "Wala kang pahintulot na pamahalaan ang mga tampok ng frontend."
 
@@ -2955,41 +2958,41 @@ msgstr ""
 "Tanggalin ang Mga Abiso ng Admin mula sa WordPress admin screen at ayusin "
 "ang mga ito sa isang solong lugar."
 
-#: includes/functions.php:650
+#: includes/functions.php:713
 msgid "Login permission denied."
 msgstr "Tinanggihan ang pahintulot sa pag-login."
 
-#: includes/functions.php:742
+#: includes/functions.php:805
 msgid "You do not have permission to access this page."
 msgstr "Wala kang pahintulot na ma-access ang pahinang ito."
 
-#: includes/functions.php:815
+#: includes/functions.php:878
 msgid "Need PublishPress Capabilities Support?"
 msgstr "Kailangan ng Suporta para sa PublishPress Capabilities?"
 
-#: includes/functions.php:820
+#: includes/functions.php:883
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 "Kung kailangan mo ng tulong o may bagong kahilingan sa tampok, ipaalam sa "
 "amin."
 
-#: includes/functions.php:823
+#: includes/functions.php:886
 msgid "Request Support"
 msgstr "Humiling ng Suporta"
 
-#: includes/functions.php:832
+#: includes/functions.php:895
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Ang detalyadong dokumentasyon ay magagamit din sa website ng plugin."
 
-#: includes/functions.php:834
+#: includes/functions.php:897
 msgid "View Knowledge Base"
 msgstr "Tingnan ang Knowledge Base"
 
-#: includes/functions.php:1066
+#: includes/functions.php:1129
 msgid "Social Links"
 msgstr "Mga Social Links"
 
-#: includes/functions.php:1067
+#: includes/functions.php:1130
 msgid "Page Lists"
 msgstr "Mga Listahan ng Pahina"
 
@@ -3002,181 +3005,190 @@ msgid "Error: Failed creating the new role."
 msgstr "Error: Nabigo ang paglikha ng bagong papel."
 
 #: includes/handler.php:61
-#: includes/handler.php:89
-#: includes/manager.php:1219
+#: includes/handler.php:87
+#: includes/manager.php:1249
 msgid "The selected role is not editable."
 msgstr "Hindi ma-edit ang napiling papel."
 
-#: includes/handler.php:119
+#: includes/handler.php:115
 msgid "Incorrect capability name."
 msgstr "Maling pangalan ng kakayahan."
 
-#: includes/handler.php:124
+#: includes/handler.php:120
 msgid "Type / Taxonomy settings saved."
 msgstr "Naka-save ang mga setting ng Uri / Taksonomiya."
 
-#: includes/handler.php:127
+#: includes/handler.php:123
 msgid "Bad form received."
 msgstr "Maling form na natanggap."
 
-#: includes/handler.php:250
+#: includes/handler.php:246
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "Hindi mo maalis ang Pamahalaan ang Kakayahan mula sa mga Administrator"
 
-#: includes/manager.php:238
+#: includes/handler.php:300
+#: includes/manager.php:1221
+msgid "Network sync has been queued and will continue in the background."
+msgstr "Ang pag-synchronize ng network ay naipon at magpapatuloy sa background."
+
+#: includes/manager.php:240
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr ""
 "Ang kakayahang ito ay tahasang tinanggihan. I-click upang idagdag/alisin "
 "ito nang normal."
 
-#: includes/manager.php:246
+#: includes/manager.php:248
 msgid "Explicity negate this capability by storing as disabled"
 msgstr ""
 "Tahasang itanggi ang kakayahang ito sa pamamagitan ng pag-iimbak bilang "
 "hindi pinagana"
 
-#: includes/manager.php:247
+#: includes/manager.php:249
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr ""
 "Tahasang itanggi ang mga kakayahang ito sa pamamagitan ng pag-iimbak bilang "
 "hindi pinagana"
 
-#: includes/manager.php:248
+#: includes/manager.php:250
 msgid "Post type registration does not define this capability distinctly"
 msgstr ""
 "Ang pagpaparehistro ng uri ng post ay hindi nagtatakda ng kakayahang ito "
 "nang hiwalay"
 
-#: includes/manager.php:250
+#: includes/manager.php:252
 msgid "Add or remove this capability from the WordPress role"
 msgstr "Magdagdag o mag-alis ng kakayahang ito mula sa papel ng WordPress"
 
-#: includes/manager.php:251
+#: includes/manager.php:253
 msgid "Add or remove capability from the role normally"
 msgstr "Magdagdag o mag-alis ng kakayahan mula sa papel nang normal"
 
-#: includes/manager.php:252
+#: includes/manager.php:254
 msgid "Are you sure you want to delete this item ?"
 msgstr "Sigurado ka bang nais mong tanggalin ang item na ito?"
 
-#: includes/manager.php:253
+#: includes/manager.php:255
 msgid "Add or clear custom item entry before saving changes."
 msgstr ""
 "Magdagdag o mag-clear ng pasadyang item na entry bago i-save ang mga "
 "pagbabago."
 
-#: includes/manager.php:513
+#: includes/manager.php:515
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:175
 msgid "Role Name"
 msgstr "Pangalan ng Papel"
 
-#: includes/manager.php:515
+#: includes/manager.php:517
 #: includes/roles/class/class-pp-roles-list-table.php:177
 msgid "Role Type"
 msgstr "Uri ng Papel"
 
-#: includes/manager.php:516
+#: includes/manager.php:518
 #: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Default Role"
 msgstr "Pangkaraniwang Papel"
 
-#: includes/manager.php:517
+#: includes/manager.php:519
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Admin Access"
 msgstr "Access ng Admin"
 
-#: includes/manager.php:544
+#: includes/manager.php:546
 msgid "You do not have permission to manage roles."
 msgstr "Wala kang pahintulot na pamahalaan ang mga papel."
 
-#: includes/manager.php:567
-#: includes/manager.php:589
+#: includes/manager.php:569
+#: includes/manager.php:591
 msgid "You do not have permission to manage editor features."
 msgstr "Wala kang pahintulot na pamahalaan ang mga tampok ng editor."
 
-#: includes/manager.php:624
-#: includes/manager.php:678
-#: includes/manager.php:726
-#: includes/manager.php:820
-#: includes/manager.php:869
-#: includes/manager.php:951
-#: includes/manager.php:1032
+#: includes/manager.php:626
+#: includes/manager.php:680
+#: includes/manager.php:728
+#: includes/manager.php:822
+#: includes/manager.php:871
+#: includes/manager.php:953
+#: includes/manager.php:1034
 msgid "Settings updated."
 msgstr "Na-update ang mga setting."
 
-#: includes/manager.php:640
-#: includes/manager.php:662
-#: includes/manager.php:834
-#: includes/manager.php:885
-#: includes/manager.php:1049
+#: includes/manager.php:642
+#: includes/manager.php:664
+#: includes/manager.php:836
+#: includes/manager.php:887
+#: includes/manager.php:1051
 msgid "You do not have permission to manage admin features."
 msgstr "Wala kang pahintulot na pamahalaan ang mga tampok ng admin."
 
-#: includes/manager.php:856
+#: includes/manager.php:858
 msgid "You do not have permission to manage navigation menus."
 msgstr "Wala kang pahintulot na pamahalaan ang mga menu ng nabigasyon."
 
-#: includes/manager.php:907
+#: includes/manager.php:909
 msgid "You do not have permission to manage profile features."
 msgstr "Wala kang pahintulot na pamahalaan ang mga tampok ng profile."
 
-#: includes/manager.php:967
+#: includes/manager.php:969
 msgid "You do not have permission to manage redirect."
 msgstr "Wala kang pahintulot na pamahalaan ang redirect."
 
-#: includes/manager.php:989
+#: includes/manager.php:991
 msgid "Invalid form. Reload this page and try again."
 msgstr "Maling form. I-reload ang pahinang ito at subukan muli."
 
-#: includes/manager.php:1141
-#: includes/manager.php:1175
-#: includes/manager.php:1193
+#: includes/manager.php:1143
+#: includes/manager.php:1192
+#: includes/manager.php:1210
 msgid "You do not have permission to manage capabilities."
 msgstr "Wala kang pahintulot na pamahalaan ang mga kakayahan."
 
-#: includes/manager.php:1207
+#: includes/manager.php:1219
+msgid "Network sync completed."
+msgstr "Nakumpleto ang pag-synchronize ng network."
+
+#: includes/manager.php:1237
 msgid "New capability added to role."
 msgstr "Bago ang kakayahan ay idinagdag sa papel."
 
-#: includes/manager.php:1248
+#: includes/manager.php:1278
 msgid "Bad form Received"
 msgstr "Maling form na natanggap"
 
-#: includes/manager.php:1368
+#: includes/manager.php:1398
 msgid "You do not have permission to restore roles."
 msgstr "Wala kang pahintulot na ibalik ang mga papel."
 
-#: includes/manager.php:1406
+#: includes/manager.php:1436
 msgid "You do not have permission to perform this action."
 msgstr "Wala kang pahintulot na isagawa ang aksyong ito."
 
-#: includes/manager.php:1567
+#: includes/manager.php:1597
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Kung gusto mo ang %s, mangyaring iwanan kami ng %s na rating. Salamat!"
 
-#: includes/manager.php:1578
+#: includes/manager.php:1608
 msgid "About PublishPress Capabilities"
 msgstr "Tungkol sa PublishPress Capabilities"
 
-#: includes/manager.php:1578
+#: includes/manager.php:1608
 msgid "About"
 msgstr "Tungkol"
 
-#: includes/manager.php:1580
+#: includes/manager.php:1610
 msgid "Capabilites Documentation"
 msgstr "Dokumentasyon ng Mga Kakayahan"
 
-#: includes/manager.php:1580
+#: includes/manager.php:1610
 msgid "Documentation"
 msgstr "Dokumentasyon"
 
-#: includes/manager.php:1582
+#: includes/manager.php:1612
 msgid "Contact the PublishPress team"
 msgstr "Makipag-ugnayan sa team ng PublishPress"
 
-#: includes/manager.php:1582
+#: includes/manager.php:1612
 msgid "Contact"
 msgstr "Makipag-ugnayan"
 
@@ -3532,22 +3544,24 @@ msgid "How to use Redirect Features"
 msgstr "Paano gamitin ang mga Tampok ng Redirect"
 
 #: includes/roles/class/class-pp-roles-actions.php:148
+#: includes/roles/class/class-pp-roles-actions.php:242
 msgid "You do not have sufficient permissions to perform this action."
 msgstr "Wala kang sapat na pahintulot upang isagawa ang aksyong ito."
 
 #: includes/roles/class/class-pp-roles-actions.php:162
 #: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:374
-#: includes/roles/class/class-pp-roles-actions.php:490
+#: includes/roles/class/class-pp-roles-actions.php:389
+#: includes/roles/class/class-pp-roles-actions.php:505
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "Nawalan na ng bisa ang iyong link, i-refresh ang pahina at subukang muli."
 
 #: includes/roles/class/class-pp-roles-actions.php:184
-#: includes/roles/class/class-pp-roles-actions.php:378
-#: includes/roles/class/class-pp-roles-actions.php:514
-#: includes/roles/class/class-pp-roles-actions.php:641
-#: includes/roles/class/class-pp-roles-actions.php:702
+#: includes/roles/class/class-pp-roles-actions.php:247
+#: includes/roles/class/class-pp-roles-actions.php:393
+#: includes/roles/class/class-pp-roles-actions.php:529
+#: includes/roles/class/class-pp-roles-actions.php:656
+#: includes/roles/class/class-pp-roles-actions.php:717
 msgid "Missing parameters, refresh the page and try again."
 msgstr "Kulang ang mga parameter, i-refresh ang pahina at subukan muli."
 
@@ -3561,7 +3575,7 @@ msgstr "Maling entry ng pangalan ng tungkulin: %s"
 msgid "The role \"%s\" already exists. Please choose a different name."
 msgstr "Umiiral na ang papel na \"%s\". Mangyaring pumili ng ibang pangalan."
 
-#: includes/roles/class/class-pp-roles-actions.php:250
+#: includes/roles/class/class-pp-roles-actions.php:265
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
@@ -3569,52 +3583,52 @@ msgstr ""
 "May nangyaring mali, hindi nagawa ng sistema na lumikha ng tungkulin, "
 "i-refresh ang pahina at subukang muli."
 
-#: includes/roles/class/class-pp-roles-actions.php:340
+#: includes/roles/class/class-pp-roles-actions.php:355
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "Matagumpay na nalikha ang bagong papel na %s."
 
-#: includes/roles/class/class-pp-roles-actions.php:448
+#: includes/roles/class/class-pp-roles-actions.php:463
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s na papel ay matagumpay na na-update."
 
-#: includes/roles/class/class-pp-roles-actions.php:522
+#: includes/roles/class/class-pp-roles-actions.php:537
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
 "Hindi ma-burahin ang default na papel. Kailangan mong <a "
 "href=\"%s\">baguhin ito muna</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:541
+#: includes/roles/class/class-pp-roles-actions.php:556
 msgid "Deleting a system role is not allowed."
 msgstr "Ang pagtanggal ng isang sistemang papel ay hindi pinapayagan."
 
-#: includes/roles/class/class-pp-roles-actions.php:565
+#: includes/roles/class/class-pp-roles-actions.php:580
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d mga gumagamit ay inilipat sa default na tungkulin %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:570
+#: includes/roles/class/class-pp-roles-actions.php:585
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "Matagumpay na natanggal ang papel na %1$s. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:576
+#: includes/roles/class/class-pp-roles-actions.php:591
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "Matagumpay na natanggal ang napiling %1$s na mga papel. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:598
+#: includes/roles/class/class-pp-roles-actions.php:613
 msgid "The role could not be deleted."
 msgstr "Hindi maaalis ang papel."
 
-#: includes/roles/class/class-pp-roles-actions.php:652
+#: includes/roles/class/class-pp-roles-actions.php:667
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "Matagumpay na itinago ang papel na %1$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:712
+#: includes/roles/class/class-pp-roles-actions.php:727
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "Matagumpay na naipakita ang papel na %1$s."
@@ -4046,15 +4060,15 @@ msgstr "Sinusubok bilang user: %1$s. %2$sBumalik sa view ng Administrator%3$s"
 msgid "Unable to retrieve user data."
 msgstr "Hindi ma-retrieve ang data ng gumagamit."
 
-#: common/js/admin.dev.js:890
+#: common/js/admin.dev.js:971
 msgid "Updating Settings..."
 msgstr "Nag-a-update ng mga Setting..."
 
-#: common/js/admin.dev.js:926
+#: common/js/admin.dev.js:1007
 msgid "Updating access..."
 msgstr "Nag-a-update ng access..."
 
-#: common/js/admin.dev.js:945
-#: common/js/admin.dev.js:950
+#: common/js/admin.dev.js:1026
+#: common/js/admin.dev.js:1031
 msgid "Error updating access."
 msgstr "Error sa pag-update ng access."
