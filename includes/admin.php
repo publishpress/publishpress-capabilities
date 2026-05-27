@@ -80,14 +80,6 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 	$pp_revisions_approve = false;
 }
 
-$cme_negate_all_tooltip_msg = '<span class="tool-tip-text">
-<p>'. esc_html__('Negate All', 'capability-manager-enhanced') .'</p>
-<i></i>
-</span>';
-$cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
-<p>'. esc_html__('Negate None', 'capability-manager-enhanced') .'</p>
-<i></i>
-</span>';
 ?>
 <div class="wrap publishpress-caps-manage pressshack-admin-wrapper">
 	<div id="icon-capsman-admin" class="icon32"></div>
@@ -1146,10 +1138,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
                         ?>
 						<tr class="cme-bulk-select">
                             <td colspan="<?php echo (int) $checks_per_row;?>">
-                                <input type="checkbox" class="cme-check-all" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+                                <input type="checkbox" class="cme-check-all" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
                         <?php
@@ -1228,10 +1217,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 						<tr class="cme-bulk-select">
 							<td colspan="<?php echo (int) $checks_per_row;?>">
-								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
 
@@ -1265,19 +1251,13 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
                         ?>
 						<tr class="cme-bulk-select">
                             <td colspan="<?php echo (int) $checks_per_row;?>">
-                                <input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+                                <input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
 
 						<tr class="cme-bulk-select">
 							<td colspan="<?php echo (int) $checks_per_row;?>">
-								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
 
@@ -1427,10 +1407,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
                         ?>
 						<tr class="cme-bulk-select">
                             <td colspan="<?php echo (int) $checks_per_row + 1;?>" style="width: 100%">
-                                <input type="checkbox" class="cme-check-all" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+                                <input type="checkbox" class="cme-check-all" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
                         <?php
@@ -1550,10 +1527,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 						<tr class="cme-bulk-select">
 							<td colspan="<?php echo (int) $checks_per_row + 1;?>">
-								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
 
@@ -1693,10 +1667,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 
 						<tr class="cme-bulk-select">
                             <td colspan="<?php echo (int) $checks_per_row;?>">
-                                <input type="checkbox" class="cme-check-all" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+                                <input type="checkbox" class="cme-check-all" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
 
@@ -1873,10 +1844,7 @@ $cme_negate_none_tooltip_msg = '<span class="tool-tip-text">
 						<?php endif; ?>
 						<tr class="cme-bulk-select">
 							<td colspan="<?php echo (int) $checks_per_row;?>">
-								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
-								<span style="float:right">
-								&nbsp;&nbsp;<span class="ppc-tool-tip disabled"><a class="cme-neg-all" href="#" >X</a> <?php echo $cme_negate_all_tooltip_msg; ?> </span> <span class="ppc-tool-tip disabled"><a class="cme-switch-all" href="#" >X</a> <?php echo $cme_negate_none_tooltip_msg; ?> </span>
-								</span>
+								<input type="checkbox" class="cme-check-all" autocomplete="off" title="<?php esc_attr_e('check / uncheck / negate all', 'capability-manager-enhanced');?>"> <span><?php _e('Capability Name', 'capability-manager-enhanced');?></span>
 							</td>
 						</tr>
 
