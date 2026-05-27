@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-04-22 08:34+0000\n"
+"PO-Revision-Date: 2026-05-27 08:59+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
@@ -75,7 +75,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:814
+#: includes/admin-load.php:833
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Upgradează la Pro"
@@ -213,29 +213,29 @@ msgstr "Titlul paginii"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:494
-#: includes/admin-load.php:827
+#: includes/admin-load.php:513
+#: includes/admin-load.php:846
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:495
-#: includes/manager.php:387
+#: includes/manager.php:389
 #: includes/roles/class/class-pp-roles-admin.php:637
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Capabilități"
 
-#: includes/admin-load.php:613
+#: includes/admin-load.php:632
 msgid "No permission!"
 msgstr "Nici o permisiune!"
 
-#: includes/admin-load.php:623
+#: includes/admin-load.php:642
 msgid "Invalid nonce token!"
 msgstr "Token nonce invalid!"
 
-#: includes/admin-load.php:627
+#: includes/admin-load.php:646
 msgid "Error: wrong data"
 msgstr "Eroare: date greșite"
 
-#: includes/admin-load.php:649
+#: includes/admin-load.php:668
 #: includes/admin-notices/admin-notices.php:232
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -243,44 +243,44 @@ msgstr "Eroare: date greșite"
 msgid "An error occured!"
 msgstr "A apărut o eroare!"
 
-#: includes/admin-load.php:654
+#: includes/admin-load.php:673
 msgid "Security check failed"
 msgstr "Verificarea securității a eșuat"
 
-#: includes/admin-load.php:656
+#: includes/admin-load.php:675
 msgid "Permission denied"
 msgstr "Permisiune refuzată"
 
-#: includes/admin-load.php:666
+#: includes/admin-load.php:685
 msgid "Settings updated successfully."
 msgstr "Setările au fost actualizate cu succes."
 
-#: includes/admin-load.php:762
+#: includes/admin-load.php:781
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Utilizatori conectați"
 
-#: includes/admin-load.php:763
+#: includes/admin-load.php:782
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Utilizatori deconectați"
 
-#: includes/admin-load.php:770
+#: includes/admin-load.php:789
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Restricția meniului Capabilități PublishPress"
 
-#: includes/admin-load.php:771
+#: includes/admin-load.php:790
 msgid "This menu is restricted for the following roles"
 msgstr "Acest meniu este restricționat pentru următoarele roluri"
 
-#: includes/admin-load.php:826
+#: includes/admin-load.php:845
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: includes/admin-load.php:828
+#: includes/admin-load.php:847
 #: includes/functions-admin.php:404
 #: includes/functions-admin.php:488
 #: includes/roles/roles.php:8
@@ -288,7 +288,7 @@ msgstr "Dashboard"
 msgid "Roles"
 msgstr "Roluri"
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:848
 msgid "Settings"
 msgstr "Setări"
 
@@ -335,7 +335,7 @@ msgstr "Salvează pentru toate rolurile"
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
 #: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:856
+#: includes/features/admin-styles/admin-styles.php:858
 #, php-format
 msgid "Save for %s"
 msgstr "Salvează pentru %s"
@@ -405,7 +405,7 @@ msgid "Configure notice visibility by user role"
 msgstr "Configurați vizibilitatea notificărilor în funcție de rolul utilizatorului"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:2015
+#: includes/admin.php:1906
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -465,8 +465,8 @@ msgid "Edit the settings."
 msgstr "Editați setările."
 
 #: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:771
-#: includes/manager.php:795
+#: includes/manager.php:773
+#: includes/manager.php:797
 msgid "You do not have permission to manage admin notices."
 msgstr "Nu aveți permisiunea de a gestiona notificările admin."
 
@@ -493,84 +493,76 @@ msgstr ""
 "Atenție: Acest rol nu poate accesa dashboard-ul fără capacitatea de citire. "
 "%1$sFaceți clic aici pentru a remedia acest lucru acum%2$s."
 
-#: includes/admin.php:84
-msgid "Negate All"
-msgstr "Negare tot"
-
-#: includes/admin.php:88
-msgid "Negate None"
-msgstr "Negare niciunul"
-
-#: includes/admin.php:95
+#: includes/admin.php:87
 msgid "Role Capabilities"
 msgstr "Capabilitățile rolului"
 
-#: includes/admin.php:136
+#: includes/admin.php:128
 msgid "Search capabilities..."
 msgstr "Căutați capabilități..."
 
-#: includes/admin.php:208
-#: includes/admin.php:847
+#: includes/admin.php:201
+#: includes/admin.php:840
 msgid "Nav Menus (Block)"
 msgstr "Meniuri de navigare (Bloc)"
 
-#: includes/admin.php:210
+#: includes/admin.php:203
 msgid "Block"
 msgstr "Bloc"
 
-#: includes/admin.php:217
-#: includes/admin.php:849
+#: includes/admin.php:210
+#: includes/admin.php:842
 msgid "Nav Menus (Legacy)"
 msgstr "Meniuri de navigare (Legacy)"
 
-#: includes/admin.php:219, fuzzy
+#: includes/admin.php:212, fuzzy
 msgid "Legacy"
 msgstr "Legacy"
 
-#: includes/admin.php:271, fuzzy
+#: includes/admin.php:264, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:272
+#: includes/admin.php:265
 msgid "Visibility"
 msgstr "Vizibilitate"
 
-#: includes/admin.php:273
+#: includes/admin.php:266
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Editare"
 
-#: includes/admin.php:274
+#: includes/admin.php:267
 msgid "Deletion"
 msgstr "Ștergere"
 
-#: includes/admin.php:275
+#: includes/admin.php:268
 msgid "Taxonomies"
 msgstr "Taxonomies"
 
-#: includes/admin.php:279
+#: includes/admin.php:272
 msgid "Listing"
 msgstr "Listare"
 
-#: includes/admin.php:283
+#: includes/admin.php:276
 msgid "Create Revision"
 msgstr "Creează revizia"
 
-#: includes/admin.php:287
+#: includes/admin.php:280
 msgid "Submit Revision"
 msgstr "Trimite revizia"
 
-#: includes/admin.php:291
+#: includes/admin.php:284
 msgid "Approve Revision"
 msgstr "Aprobă revizia"
 
-#: includes/admin.php:295
+#: includes/admin.php:288
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 "Poate citi postările care sunt actualmente publicate cu vizibilitate "
 "privată."
 
-#: includes/admin.php:296
+#: includes/admin.php:289
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -578,25 +570,25 @@ msgstr ""
 "Are capacitate de editare de bază (dar poate necesita alte capacități în "
 "funcție de starea și proprietatea postării)."
 
-#: includes/admin.php:297
+#: includes/admin.php:290
 msgid "Can edit posts which were created by other users."
 msgstr "Poate edita postările care au fost create de alți utilizatori."
 
-#: includes/admin.php:298
+#: includes/admin.php:291
 msgid "Can edit posts which are currently published."
 msgstr "Poate edita postările care sunt actualmente publicate."
 
-#: includes/admin.php:299
+#: includes/admin.php:292
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
 "Poate edita postările care sunt actualmente publicate cu vizibilitate "
 "privată."
 
-#: includes/admin.php:300
+#: includes/admin.php:293
 msgid "Can make a post publicly visible."
 msgstr "Poate face o postare vizibilă public."
 
-#: includes/admin.php:301
+#: includes/admin.php:294
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -604,104 +596,105 @@ msgstr ""
 "Are capacitate de ștergere de bază (dar poate necesita alte capacități în "
 "funcție de starea și proprietatea postării)."
 
-#: includes/admin.php:302
+#: includes/admin.php:295
 msgid "Can delete posts which were created by other users."
 msgstr "Poate șterge postările care au fost create de alți utilizatori."
 
-#: includes/admin.php:303
+#: includes/admin.php:296
 msgid "Can delete posts which are currently published."
 msgstr "Poate șterge postările care sunt actualmente publicate."
 
-#: includes/admin.php:304
+#: includes/admin.php:297
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
 "Poate șterge postările care sunt actualmente publicate cu vizibilitate "
 "privată."
 
-#: includes/admin.php:599
-#: includes/admin.php:1114
-#: includes/admin.php:2104, fuzzy
+#: includes/admin.php:592
+#: includes/admin.php:1107
+#: includes/admin.php:1995, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:603
-#: includes/admin.php:1118
+#: includes/admin.php:596
+#: includes/admin.php:1111
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:683
-#: includes/admin.php:1597
+#: includes/admin.php:676
+#: includes/admin.php:1545
 msgid "Invalid Capabilities"
 msgstr "Capabilități invalide"
 
-#: includes/admin.php:688
+#: includes/admin.php:681
+#: includes/admin.php:1690
 msgid "Additional"
 msgstr "Suplimentar"
 
-#: includes/admin.php:722
+#: includes/admin.php:715
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Termen %s Capabilități"
 
-#: includes/admin.php:725
+#: includes/admin.php:718
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s Capabilități"
 
-#: includes/admin.php:726
+#: includes/admin.php:719
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Postare %s Capabilități"
 
-#: includes/admin.php:729
+#: includes/admin.php:722
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: includes/admin.php:735
+#: includes/admin.php:728
 msgid "Filter by taxonomy"
 msgstr "Filtrează după taxonomy"
 
-#: includes/admin.php:735
+#: includes/admin.php:728
 msgid "Filter by post type"
 msgstr "Filtrează după post type"
 
-#: includes/admin.php:856
+#: includes/admin.php:849
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Slug-ul pentru această taxonomy este %s"
 
-#: includes/admin.php:858
+#: includes/admin.php:851
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Slug-ul pentru acest post type este %s"
 
-#: includes/admin.php:934
-#: includes/admin.php:1183
-#: includes/admin.php:1515
-#: includes/admin.php:1878
-#: includes/admin.php:1879
+#: includes/admin.php:927
+#: includes/admin.php:1173
+#: includes/admin.php:1466
+#: includes/admin.php:1772
+#: includes/admin.php:1773
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: atribuit de Grupul de Permisiuni"
 
-#: includes/admin.php:937
-#: includes/admin.php:1185
-#: includes/admin.php:1517
-#: includes/admin.php:1645
-#: includes/admin.php:1881
+#: includes/admin.php:930
+#: includes/admin.php:1175
+#: includes/admin.php:1468
+#: includes/admin.php:1593
+#: includes/admin.php:1775
 #, php-format
 msgid "This capability is %s"
 msgstr "Această capacitate este %s"
 
-#: includes/admin.php:967
+#: includes/admin.php:960
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Această capacitate este controlată de %s"
 
-#: includes/admin.php:970
+#: includes/admin.php:963
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -710,16 +703,16 @@ msgstr ""
 "Această capacitate este controlată de %s Utilizați setările din bara "
 "laterală pentru a permite acest lucru să fie controlat independent."
 
-#: includes/admin.php:987
+#: includes/admin.php:980
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "Folosește setările din bara laterală pentru a permite controlul independent."
 
-#: includes/admin.php:989
-#: includes/admin.php:993
+#: includes/admin.php:982
+#: includes/admin.php:986
 msgid "This capability is not available for this post type."
 msgstr "Această capacitate nu este disponibilă pentru acest post type."
 
-#: includes/admin.php:1057
+#: includes/admin.php:1050
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -731,67 +724,66 @@ msgstr ""
 "corespunzătoare \"Editare\" lipsește. De asemenea, aceste capacități "
 "\"Listă\" pot acorda acces, dar nu pot refuza accesul."
 
-#: includes/admin.php:1134
-#: includes/admin.php:1253
-#: includes/admin.php:1442
-#: includes/admin.php:1713
+#: includes/admin.php:1127
+#: includes/admin.php:1240
+#: includes/admin.php:1396
+#: includes/admin.php:1661
 msgid "Filter by capability"
 msgstr "Filtrează după capacitate"
 
-#: includes/admin.php:1137
-#: includes/admin.php:1256
-#: includes/admin.php:1445
-#: includes/admin.php:1716
+#: includes/admin.php:1130
+#: includes/admin.php:1243
+#: includes/admin.php:1399
+#: includes/admin.php:1664
 msgid "No results found. Please try again with a different word."
 msgstr "Nu s-au găsit rezultate. Te rugăm să încerci din nou cu un cuvânt diferit."
 
-#: includes/admin.php:1148
-#: includes/admin.php:1230
-#: includes/admin.php:1267
-#: includes/admin.php:1276
-#: includes/admin.php:1456
-#: includes/admin.php:1579
-#: includes/admin.php:1722
-#: includes/admin.php:1953
-msgid "check / uncheck all"
-msgstr "bifează / debifează tot"
+#: includes/admin.php:1141
+#: includes/admin.php:1220
+#: includes/admin.php:1254
+#: includes/admin.php:1260
+#: includes/admin.php:1410
+#: includes/admin.php:1530
+#: includes/admin.php:1670
+#: includes/admin.php:1847
+msgid "check / uncheck / negate all"
+msgstr "bifează / debifează / neagă tot"
 
-#: includes/admin.php:1148
-#: includes/admin.php:1230
-#: includes/admin.php:1267
-#: includes/admin.php:1276
-#: includes/admin.php:1456
-#: includes/admin.php:1579
-#: includes/admin.php:1722
-#: includes/admin.php:1953
+#: includes/admin.php:1141
+#: includes/admin.php:1220
+#: includes/admin.php:1254
+#: includes/admin.php:1260
+#: includes/admin.php:1410
+#: includes/admin.php:1530
+#: includes/admin.php:1670
+#: includes/admin.php:1847
 msgid "Capability Name"
 msgstr "Numele capacității"
 
-#: includes/admin.php:1250
+#: includes/admin.php:1237
 msgid "WordPress Core Capabilities"
 msgstr "Capacitățile de bază WordPress"
 
-#: includes/admin.php:1422
-#: includes/admin.php:1479
-#: includes/admin.php:1801
-#: includes/features/admin-styles/admin-styles.php:1743
+#: includes/admin.php:1376
+#: includes/admin.php:1430
+#: includes/features/admin-styles/admin-styles.php:1745
 #: includes/roles/class/class-pp-roles-admin.php:106, fuzzy
 msgid "General"
 msgstr "General"
 
-#: includes/admin.php:1439
+#: includes/admin.php:1393
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Capacitățile Plugin-ului &ndash; %s"
 
-#: includes/admin.php:1521
+#: includes/admin.php:1472
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "Funcția de Testare a Utilizatorului necesită de asemenea capacitatea %1$s "
 "edit_users %2$s."
 
-#: includes/admin.php:1602
+#: includes/admin.php:1550
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -799,28 +791,28 @@ msgstr ""
 "Următoarele intrări nu au efect. Vă rugăm să atribuiți capacitățile dorite "
 "pe tab-urile Editare / Ștergere / Privat."
 
-#: includes/admin.php:1710
+#: includes/admin.php:1658
 msgid "Additional Capabilities"
 msgstr "Capabilități suplimentare"
 
-#: includes/admin.php:1946
+#: includes/admin.php:1840
 msgid "You have no additional capabilities."
 msgstr "Nu aveți capabilități suplimentare."
 
-#: includes/admin.php:1970
+#: includes/admin.php:1861
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "Capabilitățile vă permit să schimbați permisiunile pentru orice rol de "
 "utilizator."
 
-#: includes/admin.php:1971
+#: includes/admin.php:1862
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Capacitate acordată %2$s"
 
-#: includes/admin.php:1971
-#: includes/admin.php:1972
-#: includes/admin.php:1973
+#: includes/admin.php:1862
+#: includes/admin.php:1863
+#: includes/admin.php:1864
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -834,30 +826,30 @@ msgstr "%1$s = Capacitate acordată %2$s"
 msgid "usage key"
 msgstr "cheie de utilizare"
 
-#: includes/admin.php:1972
+#: includes/admin.php:1863
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Capacitate neacordată %2$s"
 
-#: includes/admin.php:1973
+#: includes/admin.php:1864
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Capacitate refuzată, chiar dacă a fost acordată de un alt rol %2$s"
 
-#: includes/admin.php:1981
+#: includes/admin.php:1872
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Puteți, de asemenea, să configurați acest rol ca un %sGrup de Permisiuni%s."
 
-#: includes/admin.php:2001
+#: includes/admin.php:1892
 msgid "How to use Capabilities"
 msgstr "Cum să folosiți Capabilitățile"
 
-#: includes/admin.php:2039
+#: includes/admin.php:1930
 msgid "Capabilities is Safe to Use"
 msgstr "Capabilitățile sunt sigure de utilizat"
 
-#: includes/admin.php:2052
+#: includes/admin.php:1943
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -865,7 +857,7 @@ msgstr ""
 "WordPress stochează capacitățile rolurilor în baza dumneavoastră de date, "
 "unde rămân chiar și dacă pluginul este dezactivat."
 
-#: includes/admin.php:2053
+#: includes/admin.php:1944
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -874,27 +866,27 @@ msgstr ""
 "modificări, se creează și o copie de rezervă pe care o poți folosi pentru a "
 "restaura o configurație anterioară."
 
-#: includes/admin.php:2056
+#: includes/admin.php:1947
 msgid "Go to the Backup feature"
 msgstr "Accesați funcția de Backup"
 
-#: includes/admin.php:2075
+#: includes/admin.php:1966
 msgid "Add a New Capability"
 msgstr "Adăugați o nouă capacitate"
 
-#: includes/admin.php:2085
+#: includes/admin.php:1976
 msgid "Add to role"
 msgstr "Adăugați la rol"
 
-#: includes/admin.php:2088
+#: includes/admin.php:1979
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Capabilitățile noi sunt controlate în tab-ul Suplimentar."
 
-#: includes/admin.php:2144
+#: includes/admin.php:2035
 msgid "PublishPress Permissions"
 msgstr "Permisiuni PublishPress"
 
-#: includes/admin.php:2146
+#: includes/admin.php:2037
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -902,11 +894,11 @@ msgstr ""
 "Definirea automată a capacităților specifice tipului pentru tipurile tale "
 "de posturi personalizate și taxonomii"
 
-#: includes/admin.php:2150
+#: includes/admin.php:2041
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Atribuiți roluri standard WP suplimentar pentru un tip specific de post"
 
-#: includes/admin.php:2154
+#: includes/admin.php:2045
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -914,17 +906,17 @@ msgstr ""
 "Atribuie roluri WP personalizate suplimentar pentru un tip de post specific "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2158
+#: includes/admin.php:2049
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Personalizați permisiunile de citire pe categorie sau pe postare"
 
-#: includes/admin.php:2162
+#: includes/admin.php:2053
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "Personalizați permisiunile de editare pe categorie sau pe postare "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2166
+#: includes/admin.php:2057
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -932,7 +924,7 @@ msgstr ""
 "Stările de vizibilitate pentru posturi personalizate, implementate complet "
 "în wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:2170
+#: includes/admin.php:2061
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -940,11 +932,11 @@ msgstr ""
 "Stări de moderare personalizate pentru fluxul de publicare controlat prin "
 "acces, în mai multe etape <em>(Pro)</em>"
 
-#: includes/admin.php:2174
+#: includes/admin.php:2065
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Reglați permisiunile pentru stările de postare Edit Flow <em>(Pro)</em>"
 
-#: includes/admin.php:2178
+#: includes/admin.php:2069
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -952,7 +944,7 @@ msgstr ""
 "Personalizează editarea moderată a conținutului publicat cu Revisionary sau "
 "Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2182
+#: includes/admin.php:2073
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -960,41 +952,41 @@ msgstr ""
 "Acordă acces Spectator, Participant sau Moderator la forumuri bbPress "
 "specifice <em>(Pro)</em>"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2077
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
 "Acordați permisiuni suplimentare de conținut unui grup BuddyPress "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2190
+#: includes/admin.php:2081
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "Integrare WPML pentru a oglindi permisiunile în traduceri <em>(Pro)</em>"
 
-#: includes/admin.php:2194
+#: includes/admin.php:2085
 msgid "Member support forum"
 msgstr "Forum de suport pentru membri"
 
-#: includes/admin.php:2201
+#: includes/admin.php:2092
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sprinde%2$s %3$s"
 
-#: includes/admin.php:2201
+#: includes/admin.php:2092
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (instalare gratuită)"
 
-#: includes/admin.php:2203
+#: includes/admin.php:2094
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$scumpărați%2$s %3$s"
 
-#: includes/admin.php:2203
+#: includes/admin.php:2094
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s informații/achiziție"
 
-#: includes/admin.php:2235
+#: includes/admin.php:2126
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1004,31 +996,31 @@ msgstr ""
 "determină în continuare eligibilitatea pentru atribuirea autorului postului "
 "și limitează aplicarea capacităților de editare a utilizatorului."
 
-#: includes/admin.php:2237
+#: includes/admin.php:2128
 msgid "Level:"
 msgstr "Nivel:"
 
-#: includes/admin.php:2280
+#: includes/admin.php:2171
 msgid "Create this role definition in new (future) sites"
 msgstr "Creează această definiție de rol în site-uri noi (viitoare)"
 
-#: includes/admin.php:2280
+#: includes/admin.php:2171
 msgid "Include in new sites."
 msgstr "Includeți în site-uri noi."
 
-#: includes/admin.php:2283
+#: includes/admin.php:2174
 msgid "Copy / update this role definition to all sites now"
 msgstr "Copiați / actualizați această definiție de rol pentru toate site-urile acum"
 
-#: includes/admin.php:2283
+#: includes/admin.php:2174
 msgid "Sync role to all sites."
 msgstr "Sincronizează rolul pe toate site-urile."
 
-#: includes/admin.php:2286
+#: includes/admin.php:2177
 msgid "Copy option settings to all sites now"
 msgstr "Copiază setările opțiunilor pe toate site-urile acum"
 
-#: includes/admin.php:2286
+#: includes/admin.php:2177
 msgid "Sync options to all sites."
 msgstr "Sincronizează opțiunile pe toate site-urile."
 
@@ -1077,45 +1069,54 @@ msgstr ""
 "Eroare la importarea setărilor! Te rog să verifici că ai încărcat un fișier "
 "json valid."
 
-#: includes/backup-handler.php:199
+#: includes/backup-handler.php:222
+#, php-format
+msgid "Skipped %d invalid or unsupported import entries."
+msgstr "%d intrări de import invalide sau nesuportate au fost omise."
+
+#: includes/backup-handler.php:226
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s importat cu succes din datele încărcate."
 
-#: includes/backup-handler.php:274
+#: includes/backup-handler.php:228
+msgid "No valid backup data found to import."
+msgstr "Nu au fost găsite date de backup valide de importat."
+
+#: includes/backup-handler.php:519
 msgid "Needed function to create default roles not found!"
 msgstr "Funcția necesară pentru a crea roluri implicite nu a fost găsită!"
 
-#: includes/backup-handler.php:293
+#: includes/backup-handler.php:538
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "Rolurile și Capacitățile au fost resetate la valorile implicite WordPress"
 
-#: includes/backup.php:41
+#: includes/backup.php:39
 msgid "Backup Tool for PublishPress Capabilities"
 msgstr "Instrument de Backup pentru Capacitățile PublishPress"
 
-#: includes/backup.php:50
+#: includes/backup.php:48
 msgid "Restore"
 msgstr "Restaurează"
 
-#: includes/backup.php:51
+#: includes/backup.php:49
 #: includes/functions-admin.php:567, fuzzy
 msgid "Backup"
 msgstr "Backup"
 
-#: includes/backup.php:52
+#: includes/backup.php:50
 msgid "Reset Roles"
 msgstr "Resetează Rolurile"
 
-#: includes/backup.php:53, fuzzy
+#: includes/backup.php:51, fuzzy
 msgid "Export / Import"
 msgstr "Export / Import"
 
-#: includes/backup.php:62
+#: includes/backup.php:60
 msgid "Backup Roles and Capabilities"
 msgstr "Backup Roluri și Capacități"
 
-#: includes/backup.php:67
+#: includes/backup.php:65
 #, php-format
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
@@ -1126,7 +1127,7 @@ msgstr ""
 "și de fiecare dată când salvezi modificări. Copia de rezervă inițială și "
 "ultimele %d copii de rezervă automate sunt păstrate."
 
-#: includes/backup.php:69
+#: includes/backup.php:67
 msgid ""
 "A backup created on this screen replaces any previous manual backups, but "
 "is never automatically replaced."
@@ -1134,24 +1135,24 @@ msgstr ""
 "O copie de rezervă creată pe acest ecran înlocuiește orice copii de rezervă "
 "manuale anterioare, dar nu este niciodată înlocuită automat."
 
-#: includes/backup.php:74
+#: includes/backup.php:72
 msgid "Manual Backup"
 msgstr "Copia de rezervă manuală"
 
-#: includes/backup.php:84
+#: includes/backup.php:82
 #, php-format
 msgid "Last Manual Backup - %s"
 msgstr "Ultima Copie de Rezervă Manuală - %s"
 
-#: includes/backup.php:84
+#: includes/backup.php:82
 msgid "Last Backup"
 msgstr "Ultima Copie de Rezervă"
 
-#: includes/backup.php:88
+#: includes/backup.php:86
 msgid "Restore Previous Roles and Capabilities"
 msgstr "Restaurare Roluri și Capacități Anterioare"
 
-#: includes/backup.php:91
+#: includes/backup.php:89
 msgid ""
 "PublishPress Capabilities automatically creates a backup on installation "
 "and whenever you save changes."
@@ -1159,7 +1160,7 @@ msgstr ""
 "PublishPress Capabilities creează automat o copie de rezervă la instalare "
 "și de fiecare dată când salvezi modificări."
 
-#: includes/backup.php:92
+#: includes/backup.php:90
 msgid ""
 "On this screen, you can restore an earlier version of your roles and "
 "capabilities."
@@ -1167,74 +1168,74 @@ msgstr ""
 "Pe acest ecran, poți restaura o versiune anterioară a rolurilor și "
 "capacităților tale."
 
-#: includes/backup.php:95
+#: includes/backup.php:93
 msgid "Available Backups:"
 msgstr "Copii de rezervă disponibile:"
 
-#: includes/backup.php:111
+#: includes/backup.php:109
 msgid "all roles"
 msgstr "toate rolurile"
 
-#: includes/backup.php:116
+#: includes/backup.php:114
 #, php-format
 msgid "Manual backup of %s (%s)"
 msgstr "Copia de rezervă manuală a %s (%s)"
 
-#: includes/backup.php:131
+#: includes/backup.php:129
 #, php-format
 msgid "Auto-backup of all roles (%s)"
 msgstr "Copia de rezervă automată a tuturor rolurilor (%s)"
 
-#: includes/backup.php:139
+#: includes/backup.php:137
 msgid "Initial backup of all roles"
 msgstr "Copia de rezervă inițială a tuturor rolurilor"
 
-#: includes/backup.php:148
+#: includes/backup.php:146
 msgid "Restore Selected Roles"
 msgstr "Restaurare Roluri Selectate"
 
-#: includes/backup.php:157
+#: includes/backup.php:155
 msgid "Show changes from current roles only"
 msgstr "Afișează modificările doar din rolurile curente"
 
-#: includes/backup.php:164
+#: includes/backup.php:162
 #, php-format
 msgid "Initial Backup - %s"
 msgstr "Copia de rezervă inițială - %s"
 
-#: includes/backup.php:164
+#: includes/backup.php:162
 msgid "Initial Backup"
 msgstr "Copia de rezervă inițială"
 
-#: includes/backup.php:191
+#: includes/backup.php:188
 #, php-format
 msgid "%s (%s roles)"
 msgstr "%s (%s roluri)"
 
-#: includes/backup.php:198
+#: includes/backup.php:195
 msgid "(this role will be removed if you restore backup)"
 msgstr "(acest rol va fi eliminat dacă restabiliți backup-ul)"
 
-#: includes/backup.php:227
+#: includes/backup.php:224
 #, php-format
 msgid "%s (level %s)"
 msgstr "%s (nivel %s)"
 
-#: includes/backup.php:267
+#: includes/backup.php:264
 msgid "No changes"
 msgstr "Nici o modificare"
 
-#: includes/backup.php:283
+#: includes/backup.php:280
 msgid "Reset WordPress Defaults"
 msgstr "Resetare la valorile implicite WordPress"
 
-#: includes/backup.php:285
-#: includes/backup.php:332
+#: includes/backup.php:282
+#: includes/backup.php:329
 #: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "Avertizare:"
 
-#: includes/backup.php:285
+#: includes/backup.php:282
 msgid ""
 "Reseting default Roles and Capabilities will set them to the WordPress "
 "install defaults."
@@ -1242,7 +1243,7 @@ msgstr ""
 "Resetarea rolurilor și capacităților implicite le va seta la valorile "
 "implicite ale instalării WordPress."
 
-#: includes/backup.php:287
+#: includes/backup.php:284
 msgid ""
 "If you have installed any plugin that adds new roles or capabilities, these "
 "will be lost."
@@ -1250,15 +1251,15 @@ msgstr ""
 "Dacă ai instalat vreun plugin care adaugă roluri sau capacități noi, "
 "acestea vor fi pierdute."
 
-#: includes/backup.php:288
+#: includes/backup.php:285
 msgid "It is recommended to use this only as a last resource!"
 msgstr "Se recomandă să folosiți aceasta doar ca o ultimă soluție!"
 
-#: includes/backup.php:291
+#: includes/backup.php:288
 msgid "Reset Roles and Capabilities to WordPress defaults"
 msgstr "Resetare roluri și capabilități la valorile implicite WordPress"
 
-#: includes/backup.php:293
+#: includes/backup.php:290
 msgid ""
 "You are about to reset Roles and Capabilities to WordPress defaults.\n"
 " 'Cancel' to stop, 'OK' to reset."
@@ -1266,15 +1267,15 @@ msgstr ""
 "Ești pe cale să resetezi rolurile și capacitățile la valorile implicite "
 "WordPress. 'Anulează' pentru a opri, 'OK' pentru a reseta."
 
-#: includes/backup.php:293
+#: includes/backup.php:290
 msgid "Reset to WordPress defaults"
 msgstr "Resetare la valorile implicite WordPress"
 
-#: includes/backup.php:301
+#: includes/backup.php:298
 msgid "Export Settings"
 msgstr "Exportare setări"
 
-#: includes/backup.php:303
+#: includes/backup.php:300
 msgid ""
 "Export the plugin settings for this site as a .json file. This allows you "
 "to easily import the configuration into another site."
@@ -1282,19 +1283,19 @@ msgstr ""
 "Exportă setările pluginului pentru acest site ca fișier .json. Acest lucru "
 "îți permite să imporți ușor configurația într-un alt site."
 
-#: includes/backup.php:308
+#: includes/backup.php:305
 msgid "Roles and Capabilities"
 msgstr "Roluri și capabilități"
 
-#: includes/backup.php:325
+#: includes/backup.php:322
 msgid "Export"
 msgstr "Exportare"
 
-#: includes/backup.php:331
+#: includes/backup.php:328
 msgid "Import Settings"
 msgstr "Importare setări"
 
-#: includes/backup.php:332
+#: includes/backup.php:329
 msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
@@ -1302,7 +1303,7 @@ msgstr ""
 "Te rugăm să faci o 'Copia de rezervă manuală' în tab-ul de backup pentru a "
 "activa restaurarea copiei de rezervă în cazul în care ceva nu merge bine."
 
-#: includes/backup.php:333
+#: includes/backup.php:330
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
@@ -1311,7 +1312,7 @@ msgstr ""
 "obținut prin exportarea setărilor pe un alt site folosind formularul de mai "
 "sus."
 
-#: includes/backup.php:334
+#: includes/backup.php:331
 msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
@@ -1517,7 +1518,7 @@ msgid "Remove"
 msgstr "Elimină"
 
 #: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:872
+#: includes/features/admin-styles/admin-styles.php:874
 msgid "Custom Style Name"
 msgstr "Numele stilului personalizat"
 
@@ -1562,7 +1563,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:520
 #: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:852
+#: includes/features/admin-styles/admin-styles.php:854
 msgid "Select Image"
 msgstr "Selectează imaginea"
 
@@ -1612,8 +1613,8 @@ msgstr ""
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2022
-#: includes/features/admin-styles/admin-styles.php:2104
+#: includes/features/admin-styles/admin-styles.php:2024
+#: includes/features/admin-styles/admin-styles.php:2106
 msgid "Default"
 msgstr "Implicit"
 
@@ -1642,7 +1643,7 @@ msgid "Body Text"
 msgstr "Text principal"
 
 #: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:1769
+#: includes/features/admin-styles/admin-styles.php:1771
 msgid "Links"
 msgstr "Linkuri"
 
@@ -1651,12 +1652,12 @@ msgid "Headings"
 msgstr "Antete"
 
 #: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:1893
+#: includes/features/admin-styles/admin-styles.php:1895
 msgid "Admin Menu"
 msgstr "Meniu Admin"
 
 #: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:1935
+#: includes/features/admin-styles/admin-styles.php:1937
 msgid "Admin Bar"
 msgstr "Bară Admin"
 
@@ -1665,7 +1666,7 @@ msgid "Form Fields"
 msgstr "Câmpuri Formular"
 
 #: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:1863
+#: includes/features/admin-styles/admin-styles.php:1865
 msgid "Buttons"
 msgstr "Buton"
 
@@ -1771,478 +1772,478 @@ msgstr "Înlocuiți textul \"Howdy\""
 msgid "How to use Admin Styles"
 msgstr "Cum să utilizați Admin Styles"
 
-#: includes/features/admin-styles/admin-styles.php:539
+#: includes/features/admin-styles/admin-styles.php:541
 msgid "Security check failed."
 msgstr "Verificarea de securitate a eșuat."
 
-#: includes/features/admin-styles/admin-styles.php:544
-#: includes/manager.php:741
+#: includes/features/admin-styles/admin-styles.php:546
+#: includes/manager.php:743
 msgid "You do not have permission to manage admin styles."
 msgstr "Nu aveți permisiunea de a gestiona stilurile admin."
 
-#: includes/features/admin-styles/admin-styles.php:607
+#: includes/features/admin-styles/admin-styles.php:609
 msgid "No role specified."
 msgstr "Niciun rol specificat."
 
-#: includes/features/admin-styles/admin-styles.php:853
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Use this Image"
 msgstr "Utilizați această imagine"
 
-#: includes/features/admin-styles/admin-styles.php:854
+#: includes/features/admin-styles/admin-styles.php:856
 msgid "Saving..."
 msgstr "Se salvează..."
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:857
 msgid "Settings saved."
 msgstr "Setările au fost salvate."
 
-#: includes/features/admin-styles/admin-styles.php:857
+#: includes/features/admin-styles/admin-styles.php:859
 msgid "Current logo preview"
 msgstr "Previzualizare logo curent"
 
-#: includes/features/admin-styles/admin-styles.php:858
+#: includes/features/admin-styles/admin-styles.php:860
 msgid "Add New Custom Style"
 msgstr "Adăugați un nou stil personalizat"
 
-#: includes/features/admin-styles/admin-styles.php:859
+#: includes/features/admin-styles/admin-styles.php:861
 msgid "Edit Custom Style"
 msgstr "Editați stilul personalizat"
 
-#: includes/features/admin-styles/admin-styles.php:860
+#: includes/features/admin-styles/admin-styles.php:862
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Sunteți sigur că doriți să ștergeți stilul personalizat \"%s\"?"
 
-#: includes/features/admin-styles/admin-styles.php:861
+#: includes/features/admin-styles/admin-styles.php:863
 msgid "this custom style"
 msgstr "acest stil personalizat"
 
-#: includes/features/admin-styles/admin-styles.php:862
+#: includes/features/admin-styles/admin-styles.php:864
 msgid "Primary Button"
 msgstr "Buton principal"
 
-#: includes/features/admin-styles/admin-styles.php:863
+#: includes/features/admin-styles/admin-styles.php:865
 msgid "Hover State"
 msgstr "Stare de trecere"
 
-#: includes/features/admin-styles/admin-styles.php:864
+#: includes/features/admin-styles/admin-styles.php:866
 msgid "Notification"
 msgstr "Notificare"
 
-#: includes/features/admin-styles/admin-styles.php:865
+#: includes/features/admin-styles/admin-styles.php:867
 msgid "Live preview of your custom color scheme"
 msgstr "Previzualizare live a schemei de culori personalizate"
 
-#: includes/features/admin-styles/admin-styles.php:866
+#: includes/features/admin-styles/admin-styles.php:868
 msgid "Custom Style Name is required."
 msgstr "Numele stilului personalizat este obligatoriu."
 
-#: includes/features/admin-styles/admin-styles.php:867
+#: includes/features/admin-styles/admin-styles.php:869
 msgid "Main Admin Color is required."
 msgstr "Culoarea principală a administratorului este obligatorie."
 
-#: includes/features/admin-styles/admin-styles.php:868, fuzzy
+#: includes/features/admin-styles/admin-styles.php:870, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:869
+#: includes/features/admin-styles/admin-styles.php:871
 msgid "Display Name"
 msgstr "Nume de afișare"
 
-#: includes/features/admin-styles/admin-styles.php:870
+#: includes/features/admin-styles/admin-styles.php:872
 msgid "Change how this style is displayed"
 msgstr "Schimbă modul în care este afișat acest stil"
 
-#: includes/features/admin-styles/admin-styles.php:871
+#: includes/features/admin-styles/admin-styles.php:873
 msgid "Enter a name for your custom style"
 msgstr "Introdu un nume pentru stilul tău personalizat"
 
-#: includes/features/admin-styles/admin-styles.php:885
+#: includes/features/admin-styles/admin-styles.php:887
 msgid "Forest"
 msgstr "Pădure"
 
-#: includes/features/admin-styles/admin-styles.php:902
+#: includes/features/admin-styles/admin-styles.php:904
 msgid "Mint Breeze"
 msgstr "Briză de mentă"
 
-#: includes/features/admin-styles/admin-styles.php:919
+#: includes/features/admin-styles/admin-styles.php:921
 msgid "Cherry"
 msgstr "Cireș"
 
-#: includes/features/admin-styles/admin-styles.php:936
+#: includes/features/admin-styles/admin-styles.php:938
 msgid "Graphite"
 msgstr "Grafit"
 
-#: includes/features/admin-styles/admin-styles.php:953
+#: includes/features/admin-styles/admin-styles.php:955
 msgid "Midnight Teal"
 msgstr "Teal de miez de noapte"
 
-#: includes/features/admin-styles/admin-styles.php:970
+#: includes/features/admin-styles/admin-styles.php:972
 msgid "Sunrise"
 msgstr "Răsărit"
 
-#: includes/features/admin-styles/admin-styles.php:987
+#: includes/features/admin-styles/admin-styles.php:989
 msgid "Desert Sand"
 msgstr "Nisip de deșert"
 
-#: includes/features/admin-styles/admin-styles.php:1004
+#: includes/features/admin-styles/admin-styles.php:1006
 msgid "Amber Glow"
 msgstr "Strălucire de chihlimbar"
 
-#: includes/features/admin-styles/admin-styles.php:1021, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1023, fuzzy
 msgid "Citrus"
 msgstr "Citrus"
 
-#: includes/features/admin-styles/admin-styles.php:1038
+#: includes/features/admin-styles/admin-styles.php:1040
 msgid "Ocean Deep"
 msgstr "Ocean adânc"
 
-#: includes/features/admin-styles/admin-styles.php:1055, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1057, fuzzy
 msgid "Sage"
 msgstr "Sage"
 
-#: includes/features/admin-styles/admin-styles.php:1072
+#: includes/features/admin-styles/admin-styles.php:1074
 msgid "Modern Slate"
 msgstr "Ardezie modernă"
 
-#: includes/features/admin-styles/admin-styles.php:1089
+#: includes/features/admin-styles/admin-styles.php:1091
 msgid "Royal Plum"
 msgstr "Prun Regal"
 
-#: includes/features/admin-styles/admin-styles.php:1106, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1108, fuzzy
 msgid "Nordic"
 msgstr "Nordic"
 
-#: includes/features/admin-styles/admin-styles.php:1123, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1125, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1140
+#: includes/features/admin-styles/admin-styles.php:1142
 msgid "Ink"
 msgstr "Cerneală"
 
-#: includes/features/admin-styles/admin-styles.php:1157
+#: includes/features/admin-styles/admin-styles.php:1159
 msgid "Orchid"
 msgstr "Orhidee"
 
-#: includes/features/admin-styles/admin-styles.php:1174, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1176, fuzzy
 msgid "Cobalt"
 msgstr "Cobalt"
 
-#: includes/features/admin-styles/admin-styles.php:1191
+#: includes/features/admin-styles/admin-styles.php:1193
 msgid "Stone"
 msgstr "Piatră"
 
-#: includes/features/admin-styles/admin-styles.php:1208, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1210, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1225, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1227, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1242, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1244, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:1744
+#: includes/features/admin-styles/admin-styles.php:1746
 msgid "Main Admin Color settings"
 msgstr "Setări de culoare pentru Admin Principal"
 
-#: includes/features/admin-styles/admin-styles.php:1747
+#: includes/features/admin-styles/admin-styles.php:1749
 msgid "Main Admin Color"
 msgstr "Culoare Admin Principal"
 
-#: includes/features/admin-styles/admin-styles.php:1748
+#: includes/features/admin-styles/admin-styles.php:1750
 msgid "Primary brand color"
 msgstr "Culoare principală a mărcii"
 
-#: includes/features/admin-styles/admin-styles.php:1751
+#: includes/features/admin-styles/admin-styles.php:1753
 msgid "Text Color"
 msgstr "Culoare text"
 
-#: includes/features/admin-styles/admin-styles.php:1752
+#: includes/features/admin-styles/admin-styles.php:1754
 msgid "Primary text color"
 msgstr "Culoare text principală"
 
-#: includes/features/admin-styles/admin-styles.php:1755
+#: includes/features/admin-styles/admin-styles.php:1757
 msgid "Highlight Color"
 msgstr "Culoare de evidențiere"
 
-#: includes/features/admin-styles/admin-styles.php:1756
+#: includes/features/admin-styles/admin-styles.php:1758
 msgid "Used for hovers and highlights"
 msgstr "Folosită pentru hover-uri și evidențieri"
 
-#: includes/features/admin-styles/admin-styles.php:1759
+#: includes/features/admin-styles/admin-styles.php:1761
 msgid "Notification Color"
 msgstr "Culoare de notificare"
 
-#: includes/features/admin-styles/admin-styles.php:1760
+#: includes/features/admin-styles/admin-styles.php:1762
 msgid "Used for alerts and notifications"
 msgstr "Folosită pentru alerte și notificări"
 
-#: includes/features/admin-styles/admin-styles.php:1763
+#: includes/features/admin-styles/admin-styles.php:1765
 msgid "Background Color"
 msgstr "Culoare de fundal"
 
-#: includes/features/admin-styles/admin-styles.php:1764
+#: includes/features/admin-styles/admin-styles.php:1766
 msgid "Page background color"
 msgstr "Culoarea de fundal a paginii"
 
-#: includes/features/admin-styles/admin-styles.php:1770
+#: includes/features/admin-styles/admin-styles.php:1772
 msgid "Link element colors"
 msgstr "Culorile elementelor link"
 
-#: includes/features/admin-styles/admin-styles.php:1773
+#: includes/features/admin-styles/admin-styles.php:1775
 msgid "Default Link Color"
 msgstr "Culoarea implicită a linkului"
 
-#: includes/features/admin-styles/admin-styles.php:1774
+#: includes/features/admin-styles/admin-styles.php:1776
 msgid "Standard link color"
 msgstr "Culoarea standard a linkului"
 
-#: includes/features/admin-styles/admin-styles.php:1777
+#: includes/features/admin-styles/admin-styles.php:1779
 msgid "Link Hover Color"
 msgstr "Culoarea linkului la trecerea cu mouse-ul"
 
-#: includes/features/admin-styles/admin-styles.php:1778
+#: includes/features/admin-styles/admin-styles.php:1780
 msgid "Color on hover"
 msgstr "Culoare la trecerea cu mouse-ul"
 
-#: includes/features/admin-styles/admin-styles.php:1781
+#: includes/features/admin-styles/admin-styles.php:1783
 msgid "Delete Link Color"
 msgstr "Culoarea linkului de ștergere"
 
-#: includes/features/admin-styles/admin-styles.php:1782
+#: includes/features/admin-styles/admin-styles.php:1784
 msgid "Color for delete/trash actions"
 msgstr "Culoare pentru acțiuni de ștergere/coș"
 
-#: includes/features/admin-styles/admin-styles.php:1785
+#: includes/features/admin-styles/admin-styles.php:1787
 msgid "Trash Link Color"
 msgstr "Culoarea linkului de coș"
 
-#: includes/features/admin-styles/admin-styles.php:1786
+#: includes/features/admin-styles/admin-styles.php:1788
 msgid "Color for trash actions"
 msgstr "Culoare pentru acțiuni de coș"
 
-#: includes/features/admin-styles/admin-styles.php:1789
+#: includes/features/admin-styles/admin-styles.php:1791
 msgid "Spam Link Color"
 msgstr "Culoarea linkului de spam"
 
-#: includes/features/admin-styles/admin-styles.php:1790
+#: includes/features/admin-styles/admin-styles.php:1792
 msgid "Color for spam actions"
 msgstr "Culoare pentru acțiuni de spam"
 
-#: includes/features/admin-styles/admin-styles.php:1793
+#: includes/features/admin-styles/admin-styles.php:1795
 msgid "Inactive Link Color"
 msgstr "Culoarea linkului inactiv"
 
-#: includes/features/admin-styles/admin-styles.php:1794
+#: includes/features/admin-styles/admin-styles.php:1796
 msgid "Color for inactive items"
 msgstr "Culoare pentru elemente inactive"
 
-#: includes/features/admin-styles/admin-styles.php:1799
+#: includes/features/admin-styles/admin-styles.php:1801
 msgid "Tables"
 msgstr "Tabele"
 
-#: includes/features/admin-styles/admin-styles.php:1800
+#: includes/features/admin-styles/admin-styles.php:1802
 msgid "Table element colors"
 msgstr "Culorile elementelor tabel"
 
-#: includes/features/admin-styles/admin-styles.php:1803
+#: includes/features/admin-styles/admin-styles.php:1805
 msgid "Table Header Background"
 msgstr "Fundalul antetului tabelului"
 
-#: includes/features/admin-styles/admin-styles.php:1807
+#: includes/features/admin-styles/admin-styles.php:1809
 msgid "Table Header Text"
 msgstr "Textul antetului tabelului"
 
-#: includes/features/admin-styles/admin-styles.php:1811
+#: includes/features/admin-styles/admin-styles.php:1813
 msgid "Table Row Background"
 msgstr "Fundalul rândului tabelului"
 
-#: includes/features/admin-styles/admin-styles.php:1815
+#: includes/features/admin-styles/admin-styles.php:1817
 msgid "Table Row Text Color"
 msgstr "Culoarea textului rândului tabelului"
 
-#: includes/features/admin-styles/admin-styles.php:1819
+#: includes/features/admin-styles/admin-styles.php:1821
 msgid "Row Hover Background"
 msgstr "Fundalul rândului la trecerea cu mouse-ul"
 
-#: includes/features/admin-styles/admin-styles.php:1823
+#: includes/features/admin-styles/admin-styles.php:1825
 msgid "Table Border Color"
 msgstr "Culoarea marginii tabelului"
 
-#: includes/features/admin-styles/admin-styles.php:1827
+#: includes/features/admin-styles/admin-styles.php:1829
 msgid "Alternate Row Background"
 msgstr "Fundalul rândului alternativ"
 
-#: includes/features/admin-styles/admin-styles.php:1831
+#: includes/features/admin-styles/admin-styles.php:1833
 msgid "Alternate Row Text Color"
 msgstr "Culoarea textului rândului alternativ"
 
-#: includes/features/admin-styles/admin-styles.php:1837
+#: includes/features/admin-styles/admin-styles.php:1839
 msgid "Forms"
 msgstr "Formulare"
 
-#: includes/features/admin-styles/admin-styles.php:1838
+#: includes/features/admin-styles/admin-styles.php:1840
 msgid "Form input colors"
 msgstr "Culorile de intrare ale formularului"
 
-#: includes/features/admin-styles/admin-styles.php:1841
+#: includes/features/admin-styles/admin-styles.php:1843
 msgid "Input Border Color"
 msgstr "Culoarea marginii de intrare"
 
-#: includes/features/admin-styles/admin-styles.php:1845
+#: includes/features/admin-styles/admin-styles.php:1847
 msgid "Input Focus Border"
 msgstr "Marginea de intrare la focalizare"
 
-#: includes/features/admin-styles/admin-styles.php:1849
+#: includes/features/admin-styles/admin-styles.php:1851
 msgid "Input Background Color"
 msgstr "Culoarea fundalului de intrare"
 
-#: includes/features/admin-styles/admin-styles.php:1853
+#: includes/features/admin-styles/admin-styles.php:1855
 msgid "Input Text Color"
 msgstr "Culoarea textului de intrare"
 
-#: includes/features/admin-styles/admin-styles.php:1857
+#: includes/features/admin-styles/admin-styles.php:1859
 msgid "Placeholder Text Color"
 msgstr "Culoarea textului de loc rezervat"
 
-#: includes/features/admin-styles/admin-styles.php:1864
+#: includes/features/admin-styles/admin-styles.php:1866
 msgid "Button colors"
 msgstr "Culorile butoanelor"
 
-#: includes/features/admin-styles/admin-styles.php:1867
+#: includes/features/admin-styles/admin-styles.php:1869
 msgid "Primary Button Background"
 msgstr "Fundalul butonului primar"
 
-#: includes/features/admin-styles/admin-styles.php:1871
+#: includes/features/admin-styles/admin-styles.php:1873
 msgid "Primary Button Text"
 msgstr "Textul butonului primar"
 
-#: includes/features/admin-styles/admin-styles.php:1875
+#: includes/features/admin-styles/admin-styles.php:1877
 msgid "Primary Button Hover"
 msgstr "Trecerea cu mouse-ul butonului primar"
 
-#: includes/features/admin-styles/admin-styles.php:1879
+#: includes/features/admin-styles/admin-styles.php:1881
 msgid "Secondary Button Background"
 msgstr "Fundalul butonului secundar"
 
-#: includes/features/admin-styles/admin-styles.php:1883
+#: includes/features/admin-styles/admin-styles.php:1885
 msgid "Secondary Button Text"
 msgstr "Textul butonului secundar"
 
-#: includes/features/admin-styles/admin-styles.php:1887
+#: includes/features/admin-styles/admin-styles.php:1889
 msgid "Secondary Button Hover"
 msgstr "Trecerea cu mouse-ul butonului secundar"
 
-#: includes/features/admin-styles/admin-styles.php:1894
+#: includes/features/admin-styles/admin-styles.php:1896
 msgid "Admin menu colors"
 msgstr "Culorile meniului de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1897
+#: includes/features/admin-styles/admin-styles.php:1899
 msgid "Menu Background"
 msgstr "Fundalul meniului"
 
-#: includes/features/admin-styles/admin-styles.php:1901
+#: includes/features/admin-styles/admin-styles.php:1903
 msgid "Menu Text Color"
 msgstr "Culoarea textului din meniu"
 
-#: includes/features/admin-styles/admin-styles.php:1905
+#: includes/features/admin-styles/admin-styles.php:1907
 msgid "Menu Icon Color"
 msgstr "Culoarea icoanei din meniu"
 
-#: includes/features/admin-styles/admin-styles.php:1909
+#: includes/features/admin-styles/admin-styles.php:1911
 msgid "Menu Hover Background"
 msgstr "Fundalul hover al meniului"
 
-#: includes/features/admin-styles/admin-styles.php:1913
+#: includes/features/admin-styles/admin-styles.php:1915
 msgid "Menu Hover Text"
 msgstr "Textul hover al meniului"
 
-#: includes/features/admin-styles/admin-styles.php:1917
+#: includes/features/admin-styles/admin-styles.php:1919
 msgid "Current Menu Background"
 msgstr "Fundalul meniului curent"
 
-#: includes/features/admin-styles/admin-styles.php:1921
+#: includes/features/admin-styles/admin-styles.php:1923
 msgid "Current Menu Text"
 msgstr "Textul meniului curent"
 
-#: includes/features/admin-styles/admin-styles.php:1925
+#: includes/features/admin-styles/admin-styles.php:1927
 msgid "Submenu Background"
 msgstr "Fundalul submeniu"
 
-#: includes/features/admin-styles/admin-styles.php:1929
+#: includes/features/admin-styles/admin-styles.php:1931
 msgid "Submenu Text Color"
 msgstr "Culoarea textului din submeniu"
 
-#: includes/features/admin-styles/admin-styles.php:1936
+#: includes/features/admin-styles/admin-styles.php:1938
 msgid "Admin bar colors"
 msgstr "Culorile barei de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1939
+#: includes/features/admin-styles/admin-styles.php:1941
 msgid "Admin Bar Background"
 msgstr "Fundalul barei de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1943
+#: includes/features/admin-styles/admin-styles.php:1945
 msgid "Admin Bar Text"
 msgstr "Textul barei de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1947
+#: includes/features/admin-styles/admin-styles.php:1949
 msgid "Admin Bar Icon"
 msgstr "Icoana barei de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1951
+#: includes/features/admin-styles/admin-styles.php:1953
 msgid "Admin Bar Hover Background"
 msgstr "Fundalul hover al barei de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1955
+#: includes/features/admin-styles/admin-styles.php:1957
 msgid "Admin Bar Hover Text"
 msgstr "Textul hover al barei de admin"
 
-#: includes/features/admin-styles/admin-styles.php:1961
+#: includes/features/admin-styles/admin-styles.php:1963
 msgid "Dashboard Widgets"
 msgstr "Widget-uri dashboard"
 
-#: includes/features/admin-styles/admin-styles.php:1962
+#: includes/features/admin-styles/admin-styles.php:1964
 msgid "Dashboard widget colors"
 msgstr "Culorile widget-urilor dashboard"
 
-#: includes/features/admin-styles/admin-styles.php:1965
+#: includes/features/admin-styles/admin-styles.php:1967
 msgid "Widget Background"
 msgstr "Fundalul widget-ului"
 
-#: includes/features/admin-styles/admin-styles.php:1969
+#: includes/features/admin-styles/admin-styles.php:1971
 msgid "Widget Border"
 msgstr "Marginea widget-ului"
 
-#: includes/features/admin-styles/admin-styles.php:1973
+#: includes/features/admin-styles/admin-styles.php:1975
 msgid "Widget Header Background"
 msgstr "Fundalul antetului widget-ului"
 
-#: includes/features/admin-styles/admin-styles.php:1977
+#: includes/features/admin-styles/admin-styles.php:1979
 msgid "Widget Title Text"
 msgstr "Textul titlului widget-ului"
 
-#: includes/features/admin-styles/admin-styles.php:1981
+#: includes/features/admin-styles/admin-styles.php:1983
 msgid "Widget Body Text"
 msgstr "Textul corpului widget"
 
-#: includes/features/admin-styles/admin-styles.php:1985
+#: includes/features/admin-styles/admin-styles.php:1987
 msgid "Widget Link"
 msgstr "Link widget"
 
-#: includes/features/admin-styles/admin-styles.php:1989
+#: includes/features/admin-styles/admin-styles.php:1991
 msgid "Widget Link Hover"
 msgstr "Link widget la trecerea cu mouse-ul"
 
-#: includes/features/admin-styles/admin-styles.php:1995
+#: includes/features/admin-styles/admin-styles.php:1997
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Avansat"
 
-#: includes/features/admin-styles/admin-styles.php:1996
+#: includes/features/admin-styles/admin-styles.php:1998
 msgid "Custom selector color rules"
 msgstr "Reguli de culoare pentru selector personalizat"
 
@@ -2309,8 +2310,8 @@ msgstr "Cum să folosești caracteristicile editorului"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:693
-#: includes/manager.php:715
+#: includes/manager.php:695
+#: includes/manager.php:717
 msgid "You do not have permission to manage frontend features."
 msgstr "Nu aveți permisiunea de a gestiona caracteristicile frontend."
 
@@ -2921,41 +2922,41 @@ msgstr ""
 "Elimină notificările Admin de pe ecranul de administrare WordPress și "
 "organizează-le într-o singură zonă."
 
-#: includes/functions.php:650
+#: includes/functions.php:713
 msgid "Login permission denied."
 msgstr "Permisiunea de conectare a fost refuzată."
 
-#: includes/functions.php:742
+#: includes/functions.php:805
 msgid "You do not have permission to access this page."
 msgstr "Nu ai permisiunea de a accesa această pagină."
 
-#: includes/functions.php:815
+#: includes/functions.php:878
 msgid "Need PublishPress Capabilities Support?"
 msgstr "Ai nevoie de suport pentru capacitățile PublishPress?"
 
-#: includes/functions.php:820
+#: includes/functions.php:883
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 "Dacă ai nevoie de ajutor sau ai o solicitare pentru o nouă funcție, "
 "anunță-ne."
 
-#: includes/functions.php:823
+#: includes/functions.php:886
 msgid "Request Support"
 msgstr "Solicită suport"
 
-#: includes/functions.php:832
+#: includes/functions.php:895
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Documentația detaliată este, de asemenea, disponibilă pe site-ul pluginului."
 
-#: includes/functions.php:834
+#: includes/functions.php:897
 msgid "View Knowledge Base"
 msgstr "Vezi baza de cunoștințe"
 
-#: includes/functions.php:1066
+#: includes/functions.php:1129
 msgid "Social Links"
 msgstr "Linkuri sociale"
 
-#: includes/functions.php:1067
+#: includes/functions.php:1130
 msgid "Page Lists"
 msgstr "Liste de pagini"
 
@@ -2968,175 +2969,184 @@ msgid "Error: Failed creating the new role."
 msgstr "Eroare: Crearea rolului nou a eșuat."
 
 #: includes/handler.php:61
-#: includes/handler.php:89
-#: includes/manager.php:1219
+#: includes/handler.php:87
+#: includes/manager.php:1249
 msgid "The selected role is not editable."
 msgstr "Rolul selectat nu este editabil."
 
-#: includes/handler.php:119
+#: includes/handler.php:115
 msgid "Incorrect capability name."
 msgstr "Nume de capacitate incorect."
 
-#: includes/handler.php:124
+#: includes/handler.php:120
 msgid "Type / Taxonomy settings saved."
 msgstr "Setările tip / taxonomie au fost salvate."
 
-#: includes/handler.php:127
+#: includes/handler.php:123
 msgid "Bad form received."
 msgstr "Formular primit incorect."
 
-#: includes/handler.php:250
+#: includes/handler.php:246
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "Nu poți elimina capacitățile de gestionare din Administratori"
 
-#: includes/manager.php:238
+#: includes/handler.php:300
+#: includes/manager.php:1221
+msgid "Network sync has been queued and will continue in the background."
+msgstr "Sincronizarea rețelei a fost pusă în așteptare și va continua în fundal."
+
+#: includes/manager.php:240
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr ""
 "Această capacitate este negată în mod explicit. Fă clic pentru a "
 "adăuga/elimina normal."
 
-#: includes/manager.php:246
+#: includes/manager.php:248
 msgid "Explicity negate this capability by storing as disabled"
 msgstr "Negarea explicită a acestei capacități prin stocarea ca dezactivată"
 
-#: includes/manager.php:247
+#: includes/manager.php:249
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr "Negarea explicită a acestor capacități prin stocarea ca dezactivate"
 
-#: includes/manager.php:248
+#: includes/manager.php:250
 msgid "Post type registration does not define this capability distinctly"
 msgstr ""
 "Înregistrarea tipului de post nu definește această capacitate în mod "
 "distinct"
 
-#: includes/manager.php:250
+#: includes/manager.php:252
 msgid "Add or remove this capability from the WordPress role"
 msgstr "Adaugă sau elimină această capacitate din rolul WordPress"
 
-#: includes/manager.php:251
+#: includes/manager.php:253
 msgid "Add or remove capability from the role normally"
 msgstr "Adaugă sau elimină capacitatea din rol în mod normal"
 
-#: includes/manager.php:252
+#: includes/manager.php:254
 msgid "Are you sure you want to delete this item ?"
 msgstr "Ești sigur că vrei să ștergi acest element?"
 
-#: includes/manager.php:253
+#: includes/manager.php:255
 msgid "Add or clear custom item entry before saving changes."
 msgstr "Adaugă sau șterge intrarea personalizată înainte de a salva modificările."
 
-#: includes/manager.php:513
+#: includes/manager.php:515
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:175
 msgid "Role Name"
 msgstr "Numele rolului"
 
-#: includes/manager.php:515
+#: includes/manager.php:517
 #: includes/roles/class/class-pp-roles-list-table.php:177
 msgid "Role Type"
 msgstr "Tipul rolului"
 
-#: includes/manager.php:516
+#: includes/manager.php:518
 #: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Default Role"
 msgstr "Rol implicit"
 
-#: includes/manager.php:517
+#: includes/manager.php:519
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Admin Access"
 msgstr "Acces Admin"
 
-#: includes/manager.php:544
+#: includes/manager.php:546
 msgid "You do not have permission to manage roles."
 msgstr "Nu ai permisiunea de a gestiona rolurile."
 
-#: includes/manager.php:567
-#: includes/manager.php:589
+#: includes/manager.php:569
+#: includes/manager.php:591
 msgid "You do not have permission to manage editor features."
 msgstr "Nu ai permisiunea de a gestiona caracteristicile editorului."
 
-#: includes/manager.php:624
-#: includes/manager.php:678
-#: includes/manager.php:726
-#: includes/manager.php:820
-#: includes/manager.php:869
-#: includes/manager.php:951
-#: includes/manager.php:1032
+#: includes/manager.php:626
+#: includes/manager.php:680
+#: includes/manager.php:728
+#: includes/manager.php:822
+#: includes/manager.php:871
+#: includes/manager.php:953
+#: includes/manager.php:1034
 msgid "Settings updated."
 msgstr "Setările au fost actualizate."
 
-#: includes/manager.php:640
-#: includes/manager.php:662
-#: includes/manager.php:834
-#: includes/manager.php:885
-#: includes/manager.php:1049
+#: includes/manager.php:642
+#: includes/manager.php:664
+#: includes/manager.php:836
+#: includes/manager.php:887
+#: includes/manager.php:1051
 msgid "You do not have permission to manage admin features."
 msgstr "Nu ai permisiunea de a gestiona caracteristicile admin."
 
-#: includes/manager.php:856
+#: includes/manager.php:858
 msgid "You do not have permission to manage navigation menus."
 msgstr "Nu ai permisiunea de a gestiona meniurile de navigare."
 
-#: includes/manager.php:907
+#: includes/manager.php:909
 msgid "You do not have permission to manage profile features."
 msgstr "Nu ai permisiunea de a gestiona caracteristicile profilului."
 
-#: includes/manager.php:967
+#: includes/manager.php:969
 msgid "You do not have permission to manage redirect."
 msgstr "Nu ai permisiunea de a gestiona redirecționarea."
 
-#: includes/manager.php:989
+#: includes/manager.php:991
 msgid "Invalid form. Reload this page and try again."
 msgstr "Formular invalid. Reîncărcați această pagină și încercați din nou."
 
-#: includes/manager.php:1141
-#: includes/manager.php:1175
-#: includes/manager.php:1193
+#: includes/manager.php:1143
+#: includes/manager.php:1192
+#: includes/manager.php:1210
 msgid "You do not have permission to manage capabilities."
 msgstr "Nu aveți permisiunea de a gestiona capacitățile."
 
-#: includes/manager.php:1207
+#: includes/manager.php:1219
+msgid "Network sync completed."
+msgstr "Sincronizarea rețelei s-a finalizat."
+
+#: includes/manager.php:1237
 msgid "New capability added to role."
 msgstr "O nouă capacitate a fost adăugată rolului."
 
-#: includes/manager.php:1248
+#: includes/manager.php:1278
 msgid "Bad form Received"
 msgstr "Formular rău primit"
 
-#: includes/manager.php:1368
+#: includes/manager.php:1398
 msgid "You do not have permission to restore roles."
 msgstr "Nu aveți permisiunea de a restaura rolurile."
 
-#: includes/manager.php:1406
+#: includes/manager.php:1436
 msgid "You do not have permission to perform this action."
 msgstr "Nu aveți permisiunea de a efectua această acțiune."
 
-#: includes/manager.php:1567
+#: includes/manager.php:1597
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Dacă vă place %s, vă rugăm să ne lăsați o evaluare %s. Vă mulțumim!"
 
-#: includes/manager.php:1578
+#: includes/manager.php:1608
 msgid "About PublishPress Capabilities"
 msgstr "Despre Capacitățile PublishPress"
 
-#: includes/manager.php:1578
+#: includes/manager.php:1608
 msgid "About"
 msgstr "Despre"
 
-#: includes/manager.php:1580
+#: includes/manager.php:1610
 msgid "Capabilites Documentation"
 msgstr "Documentația Capacităților"
 
-#: includes/manager.php:1580
+#: includes/manager.php:1610
 msgid "Documentation"
 msgstr "Documentație"
 
-#: includes/manager.php:1582
+#: includes/manager.php:1612
 msgid "Contact the PublishPress team"
 msgstr "Contactați echipa PublishPress"
 
-#: includes/manager.php:1582, fuzzy
+#: includes/manager.php:1612, fuzzy
 msgid "Contact"
 msgstr "Contact"
 
@@ -3485,22 +3495,24 @@ msgid "How to use Redirect Features"
 msgstr "Cum să folosiți Funcțiile de Redirectare"
 
 #: includes/roles/class/class-pp-roles-actions.php:148
+#: includes/roles/class/class-pp-roles-actions.php:242
 msgid "You do not have sufficient permissions to perform this action."
 msgstr "Nu aveți suficiente permisiuni pentru a efectua această acțiune."
 
 #: includes/roles/class/class-pp-roles-actions.php:162
 #: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:374
-#: includes/roles/class/class-pp-roles-actions.php:490
+#: includes/roles/class/class-pp-roles-actions.php:389
+#: includes/roles/class/class-pp-roles-actions.php:505
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "Linkul dumneavoastră a expirat, reîmprospătați pagina și încercați din nou."
 
 #: includes/roles/class/class-pp-roles-actions.php:184
-#: includes/roles/class/class-pp-roles-actions.php:378
-#: includes/roles/class/class-pp-roles-actions.php:514
-#: includes/roles/class/class-pp-roles-actions.php:641
-#: includes/roles/class/class-pp-roles-actions.php:702
+#: includes/roles/class/class-pp-roles-actions.php:247
+#: includes/roles/class/class-pp-roles-actions.php:393
+#: includes/roles/class/class-pp-roles-actions.php:529
+#: includes/roles/class/class-pp-roles-actions.php:656
+#: includes/roles/class/class-pp-roles-actions.php:717
 msgid "Missing parameters, refresh the page and try again."
 msgstr "Parametrii lipsă, reîmprospătați pagina și încercați din nou."
 
@@ -3514,7 +3526,7 @@ msgstr "Intrare invalidă a numelui rolului: %s"
 msgid "The role \"%s\" already exists. Please choose a different name."
 msgstr "Rolul \"%s\" există deja. Vă rugăm să alegeți un alt nume."
 
-#: includes/roles/class/class-pp-roles-actions.php:250
+#: includes/roles/class/class-pp-roles-actions.php:265
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
@@ -3522,52 +3534,52 @@ msgstr ""
 "Ceva a mers prost, sistemul nu a reușit să creeze rolul, reîmprospătează "
 "pagina și încearcă din nou."
 
-#: includes/roles/class/class-pp-roles-actions.php:340
+#: includes/roles/class/class-pp-roles-actions.php:355
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "Rolul nou %s a fost creat cu succes."
 
-#: includes/roles/class/class-pp-roles-actions.php:448
+#: includes/roles/class/class-pp-roles-actions.php:463
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s rol actualizat cu succes."
 
-#: includes/roles/class/class-pp-roles-actions.php:522
+#: includes/roles/class/class-pp-roles-actions.php:537
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
 "Nu se poate șterge rolul implicit. Trebuie să <a href=\"%s\">îl schimbați "
 "mai întâi</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:541
+#: includes/roles/class/class-pp-roles-actions.php:556
 msgid "Deleting a system role is not allowed."
 msgstr "Ștergerea unui rol de sistem nu este permisă."
 
-#: includes/roles/class/class-pp-roles-actions.php:565
+#: includes/roles/class/class-pp-roles-actions.php:580
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d utilizatori mutați în rolul implicit %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:570
+#: includes/roles/class/class-pp-roles-actions.php:585
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "Rolul %1$s a fost șters cu succes. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:576
+#: includes/roles/class/class-pp-roles-actions.php:591
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "Rolurile %1$s selectate au fost șterse cu succes. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:598
+#: includes/roles/class/class-pp-roles-actions.php:613
 msgid "The role could not be deleted."
 msgstr "Rolul nu a putut fi șters."
 
-#: includes/roles/class/class-pp-roles-actions.php:652
+#: includes/roles/class/class-pp-roles-actions.php:667
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "Rolul %1$s a fost ascuns cu succes."
 
-#: includes/roles/class/class-pp-roles-actions.php:712
+#: includes/roles/class/class-pp-roles-actions.php:727
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "Rolul %1$s a fost dezvăluit cu succes."
@@ -4001,15 +4013,15 @@ msgstr ""
 msgid "Unable to retrieve user data."
 msgstr "Imposibil de recuperat datele utilizatorului."
 
-#: common/js/admin.dev.js:890
+#: common/js/admin.dev.js:971
 msgid "Updating Settings..."
 msgstr "Actualizare setări..."
 
-#: common/js/admin.dev.js:926
+#: common/js/admin.dev.js:1007
 msgid "Updating access..."
 msgstr "Actualizare acces..."
 
-#: common/js/admin.dev.js:945
-#: common/js/admin.dev.js:950
+#: common/js/admin.dev.js:1026
+#: common/js/admin.dev.js:1031
 msgid "Error updating access."
 msgstr "Eroare la actualizarea accesului."
