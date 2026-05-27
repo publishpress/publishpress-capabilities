@@ -8,4 +8,5 @@ on:
 
 jobs:
   deploy-assets:
-    uses: publishpress/github-workflows/.github/workflows/deploy-free-assets.yml@v3
+    uses: publishpress/github-workflows/.github/workflows/deploy-free-assets.yml@c4c2f067b2d0fab1793893d92e7fd4043c97e3d4
+    secrets: inherit
