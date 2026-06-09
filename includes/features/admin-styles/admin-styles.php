@@ -430,17 +430,331 @@ class PP_Capabilities_Admin_Styles
     /**
      * Generate CSS URL for custom style
      */
-    private function generate_custom_style_url($style_slug)
+    private function generate_custom_style_url($style_slug, $style = [])
     {
-        $plugin_url = plugin_dir_url(__FILE__);
-
+        $stored_style_slug = (string) $style_slug;
         $style_slug = sanitize_key($style_slug);
 
-        // Get the custom style's individual version for cache busting
-        $custom_styles = $this->get_custom_styles();
-        $version = (isset($custom_styles[$style_slug]['custom_scheme_version']) ? $custom_styles[$style_slug]['custom_scheme_version'] : time());
+        if (empty($style_slug)) {
+            return '';
+        }
+
+        if (empty($style)) {
+            $custom_styles = $this->get_custom_styles();
+            if (isset($custom_styles[$stored_style_slug])) {
+                $style = $custom_styles[$stored_style_slug];
+            } else {
+                $style = isset($custom_styles[$style_slug]) ? $custom_styles[$style_slug] : [];
+            }
+        }
+
+        $css_url = $this->get_generated_custom_style_url($style_slug, $style);
+
+        if (empty($css_url) && !empty($style)) {
+            $style = $this->generate_custom_style_css_file($style_slug, $style);
+            $css_url = $this->get_generated_custom_style_url($style_slug, $style);
+
+            if (!empty($css_url) && !empty($style['css_file'])) {
+                $custom_styles = $this->get_custom_styles();
+                $option_style_slug = isset($custom_styles[$stored_style_slug]) ? $stored_style_slug : $style_slug;
+
+                if (isset($custom_styles[$option_style_slug])) {
+                    $custom_styles[$option_style_slug]['css_file'] = $style['css_file'];
+                    $custom_styles[$option_style_slug]['css_file_hash'] = $style['css_file_hash'];
+                    $custom_styles[$option_style_slug]['css_file_updated'] = $style['css_file_updated'];
+                    $this->save_custom_styles($custom_styles);
+                }
+            }
+        }
+
+        $version = (isset($style['custom_scheme_version']) ? $style['custom_scheme_version'] : time());
+
+        if (!empty($css_url)) {
+            return add_query_arg('ver', $version, $css_url);
+        }
+
+        $plugin_url = plugin_dir_url(__FILE__);
 
         return $plugin_url . 'admin-styles-css.php?ppc_custom_scheme=1&ppc_custom_style=' . urlencode($style_slug) . '&css_ver=' . $version;
+    }
+
+    /**
+     * Get uploads directory data for generated admin style CSS files.
+     */
+    private function get_admin_styles_upload_dir()
+    {
+        $uploads = wp_upload_dir(null, false);
+
+        if (!empty($uploads['error'])) {
+            return false;
+        }
+
+        $relative_dir = 'publishpress/capabilities/admin-styles';
+
+        $upload_dir = [
+            'path' => trailingslashit($uploads['basedir']) . $relative_dir,
+            'url' => trailingslashit($uploads['baseurl']) . $relative_dir,
+            'relative_dir' => $relative_dir,
+        ];
+
+        return apply_filters('pp_capabilities_admin_styles_upload_dir', $upload_dir, $uploads);
+    }
+
+    /**
+     * Generate the stable CSS file name for a custom admin style.
+     */
+    private function get_custom_style_css_file_name($style_slug, $css = '')
+    {
+        $style_slug = sanitize_key($style_slug);
+        $file_name = $style_slug;
+
+        if ($css !== '') {
+            $file_name .= '-' . substr(md5($css), 0, 12);
+        }
+
+        return sanitize_file_name($file_name . '.css');
+    }
+
+    /**
+     * Initialize the WordPress filesystem API.
+     */
+    private function init_wp_filesystem()
+    {
+        global $wp_filesystem;
+
+        if (!empty($wp_filesystem)) {
+            return true;
+        }
+
+        if (!function_exists('WP_Filesystem')) {
+            require_once ABSPATH . 'wp-admin/includes/file.php';
+        }
+
+        return WP_Filesystem();
+    }
+
+    /**
+     * Load the reusable CSS generator functions.
+     */
+    private function load_custom_style_css_generator()
+    {
+        if (!function_exists('ppc_generate_custom_scheme_css')) {
+            if (!defined('PPC_ADMIN_STYLES_CSS_LIBRARY')) {
+                define('PPC_ADMIN_STYLES_CSS_LIBRARY', true);
+            }
+
+            require_once __DIR__ . '/admin-styles-css.php';
+        }
+
+        return function_exists('ppc_generate_custom_scheme_css');
+    }
+
+    /**
+     * Build the color array expected by the CSS generator.
+     */
+    private function get_custom_style_css_colors($style)
+    {
+        return [
+            'base' => $style['custom_scheme_base'] ?? '',
+            'text' => $style['custom_scheme_text'] ?? '',
+            'highlight' => $style['custom_scheme_highlight'] ?? '',
+            'notification' => $style['custom_scheme_notification'] ?? '',
+            'background' => $style['custom_scheme_background'] ?? '',
+            'element_colors' => (isset($style['element_colors']) && is_array($style['element_colors'])) ? $style['element_colors'] : [],
+            'advanced_rules' => (isset($style['advanced_rules']) && is_array($style['advanced_rules'])) ? $style['advanced_rules'] : [],
+        ];
+    }
+
+    /**
+     * Generate a physical CSS file for a custom admin style.
+     */
+    private function generate_custom_style_css_file($style_slug, $style)
+    {
+        $style_slug = sanitize_key($style_slug);
+
+        if (empty($style_slug) || empty($style) || !$this->load_custom_style_css_generator()) {
+            return $style;
+        }
+
+        $upload_dir = $this->get_admin_styles_upload_dir();
+
+        if (empty($upload_dir) || !wp_mkdir_p($upload_dir['path']) || !$this->init_wp_filesystem()) {
+            return $style;
+        }
+
+        global $wp_filesystem;
+
+        $css = ppc_generate_custom_scheme_css($this->get_custom_style_css_colors($style));
+        $css_hash = substr(md5($css), 0, 12);
+        $file_name = $this->get_custom_style_css_file_name($style_slug, $css);
+
+        if (empty($file_name) || validate_file($file_name) !== 0) {
+            return $style;
+        }
+
+        $file_path = trailingslashit($upload_dir['path']) . $file_name;
+        $current_file = !empty($style['css_file']) ? sanitize_file_name(wp_basename($style['css_file'])) : '';
+        $file_exists = $wp_filesystem->exists($file_path);
+        $file_exists = apply_filters('pp_capabilities_admin_styles_css_file_exists', $file_exists, $file_path, $style_slug, $file_name, $style, $upload_dir);
+
+        if ($current_file === $file_name && !empty($style['css_file_hash']) && $style['css_file_hash'] === $css_hash && $file_exists) {
+            return $style;
+        }
+
+        $chmod = defined('FS_CHMOD_FILE') ? FS_CHMOD_FILE : 0644;
+
+        if ($wp_filesystem->put_contents($file_path, $css, $chmod) && $wp_filesystem->exists($file_path)) {
+            $style['css_file'] = $file_name;
+            $style['css_file_hash'] = $css_hash;
+            $style['css_file_updated'] = current_time('timestamp');
+            $this->delete_custom_style_css_files($style_slug, $style, $file_name);
+        } else {
+            unset($style['css_file'], $style['css_file_hash'], $style['css_file_updated']);
+            $this->delete_custom_style_css_files($style_slug, $style);
+        }
+
+        return $style;
+    }
+
+    /**
+     * Get the URL for a generated custom admin style CSS file.
+     */
+    private function get_generated_custom_style_url($style_slug, $style)
+    {
+        $upload_dir = $this->get_admin_styles_upload_dir();
+
+        if (empty($upload_dir)) {
+            return '';
+        }
+
+        $file_name = !empty($style['css_file'])
+            ? sanitize_file_name(wp_basename($style['css_file']))
+            : $this->get_custom_style_css_file_name($style_slug);
+
+        if (empty($file_name) || validate_file($file_name) !== 0) {
+            return '';
+        }
+
+        $file_path = trailingslashit($upload_dir['path']) . $file_name;
+
+        $file_exists = false;
+
+        if ($this->init_wp_filesystem()) {
+            global $wp_filesystem;
+
+            $file_exists = $wp_filesystem->exists($file_path);
+        }
+
+        $file_exists = apply_filters('pp_capabilities_admin_styles_css_file_exists', $file_exists, $file_path, $style_slug, $file_name, $style, $upload_dir);
+
+        if (!$file_exists) {
+            return '';
+        }
+
+        $css_url = trailingslashit($upload_dir['url']) . $file_name;
+
+        return apply_filters('pp_capabilities_admin_styles_css_url', $css_url, $style_slug, $file_name, $style, $upload_dir);
+    }
+
+    /**
+     * Delete generated CSS files for a custom admin style.
+     */
+    private function delete_custom_style_css_files($style_slug, $style = [], $preserve_file = '')
+    {
+        $style_slug = sanitize_key($style_slug);
+        $upload_dir = $this->get_admin_styles_upload_dir();
+
+        if (empty($style_slug) || empty($upload_dir)) {
+            return;
+        }
+
+        $files = [$this->get_custom_style_css_file_name($style_slug)];
+
+        if (!empty($style['css_file'])) {
+            $files[] = sanitize_file_name(wp_basename($style['css_file']));
+        }
+
+        if ($this->init_wp_filesystem()) {
+            global $wp_filesystem;
+
+            $dirlist = $wp_filesystem->dirlist($upload_dir['path']);
+            $prefix = preg_quote(sanitize_file_name($style_slug), '/');
+
+            if (is_array($dirlist)) {
+                foreach (array_keys($dirlist) as $file_name) {
+                    if (preg_match('/^' . $prefix . '(-[a-f0-9]{8,32})?\.css$/', $file_name)) {
+                        $files[] = sanitize_file_name($file_name);
+                    }
+                }
+            }
+        }
+
+        $base_path = wp_normalize_path(trailingslashit($upload_dir['path']));
+
+        $preserve_file = !empty($preserve_file) ? sanitize_file_name(wp_basename($preserve_file)) : '';
+
+        foreach (array_unique(array_filter($files)) as $file_name) {
+            if (!empty($preserve_file) && $file_name === $preserve_file) {
+                continue;
+            }
+
+            if (validate_file($file_name) !== 0) {
+                continue;
+            }
+
+            $file_path = trailingslashit($upload_dir['path']) . $file_name;
+            $normalized_path = wp_normalize_path($file_path);
+
+            if (strpos($normalized_path, $base_path) === 0) {
+                wp_delete_file($file_path);
+            }
+        }
+    }
+
+    /**
+     * Generate missing custom admin style CSS files and persist their metadata.
+     */
+    private function ensure_custom_styles_css_files($custom_styles = [])
+    {
+        if (empty($custom_styles)) {
+            $custom_styles = $this->get_custom_styles();
+        }
+
+        if (empty($custom_styles) || !is_array($custom_styles)) {
+            return [];
+        }
+
+        $updated = false;
+
+        foreach ($custom_styles as $stored_style_slug => $style) {
+            if (empty($style) || !is_array($style)) {
+                continue;
+            }
+
+            $style_slug = sanitize_key($stored_style_slug);
+
+            if (empty($style_slug)) {
+                continue;
+            }
+
+            $generated_style = $this->generate_custom_style_css_file($style_slug, $style);
+
+            if (!empty($generated_style['css_file']) && (
+                empty($style['css_file'])
+                || empty($style['css_file_hash'])
+                || $generated_style['css_file'] !== $style['css_file']
+                || $generated_style['css_file_hash'] !== $style['css_file_hash']
+            )) {
+                $custom_styles[$stored_style_slug] = $generated_style;
+                $updated = true;
+            }
+        }
+
+        if ($updated) {
+            $this->save_custom_styles($custom_styles);
+        }
+
+        return $custom_styles;
     }
 
     /**
@@ -719,6 +1033,8 @@ class PP_Capabilities_Admin_Styles
                 isset($_POST['custom_style_advanced_rules']) ? (array) $_POST['custom_style_advanced_rules'] : []
             );
 
+            $custom_style = $this->generate_custom_style_css_file($style_slug, $custom_style);
+
             // Save custom style and move to top
             if (isset($custom_styles[$style_slug])) {
                 unset($custom_styles[$style_slug]);
@@ -765,6 +1081,7 @@ class PP_Capabilities_Admin_Styles
 
                 if (isset($custom_styles[$style_slug])) {
                     $style_name = $custom_styles[$style_slug]['name'];
+                    $this->delete_custom_style_css_files($style_slug, $custom_styles[$style_slug]);
                     unset($custom_styles[$style_slug]);
                     $this->save_custom_styles($custom_styles);
 
@@ -838,7 +1155,7 @@ class PP_Capabilities_Admin_Styles
         );
 
         $color_schemes = $this->get_color_schemes_data();
-        $custom_styles = $this->get_custom_styles();
+        $custom_styles = $this->ensure_custom_styles_css_files($this->get_custom_styles());
 
         // Localize script
         wp_localize_script('pp-capabilities-admin-styles', 'ppCapabilitiesAdminStyles', [
@@ -1270,11 +1587,11 @@ class PP_Capabilities_Admin_Styles
         $schemes = [];
 
         // Add user custom styles
-        $custom_styles = $this->get_custom_styles();
+        $custom_styles = $this->ensure_custom_styles_css_files($this->get_custom_styles());
 
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
-                $css_url = $this->generate_custom_style_url($slug);
+                $css_url = $this->generate_custom_style_url($slug, $style);
                 $menu_icon = $style['element_colors']['admin_menu']['menu_icon'] ?? '';
                 $menu_hover_text = $style['element_colors']['admin_menu']['menu_hover_text'] ?? '';
                 $menu_current_text = $style['element_colors']['admin_menu']['menu_current_text'] ?? '';
@@ -2116,21 +2433,30 @@ class PP_Capabilities_Admin_Styles
      */
     public function generate_unique_slug($name, $existing_styles = [])
     {
+        if (function_exists('remove_accents')) {
+            $name = remove_accents($name);
+        }
+
         // Convert to lowercase and replace spaces with hyphens
         $slug = strtolower($name);
         $slug = preg_replace('/\s+/', '-', $slug);
 
-        // Keep all Unicode letters, numbers, and hyphens
-        $slug = preg_replace('/[^\p{L}\p{N}-]/u', '', $slug);
+        // Keep characters supported by sanitize_key and CSS file names.
+        $slug = preg_replace('/[^a-z0-9_-]/', '', $slug);
 
         // Replace multiple hyphens with single hyphen
         $slug = preg_replace('/-+/', '-', $slug);
 
         // Remove hyphens from start and end
         $slug = trim($slug, '-');
+        $slug = sanitize_key($slug);
 
         // Remove any existing prefixes
         $slug = preg_replace('/^(ppc-custom-style-|custom-style-)/', '', $slug);
+
+        if (empty($slug)) {
+            $slug = 'style';
+        }
 
         // Add our standard prefix
         $slug = 'ppc-custom-style-' . $slug;
@@ -2164,7 +2490,7 @@ class PP_Capabilities_Admin_Styles
         }
 
         // Register user custom styles first
-        $custom_styles = $this->get_custom_styles();
+        $custom_styles = $this->ensure_custom_styles_css_files($this->get_custom_styles());
 
         foreach ($custom_styles as $slug => $style) {
             if (!empty($style['name'])) {
@@ -2183,7 +2509,7 @@ class PP_Capabilities_Admin_Styles
                 $icon_current = $menu_current_text ?: $icon_base;
 
                 // Generate CSS URL for this custom style
-                $css_url = $this->generate_custom_style_url($slug);
+                $css_url = $this->generate_custom_style_url($slug, $style);
 
                 wp_admin_css_color(
                     $slug,

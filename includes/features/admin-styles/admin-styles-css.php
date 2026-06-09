@@ -4,166 +4,131 @@
  * Direct URL: /wp-content/plugins/capabilities-pro/includes/features/admin-styles/admin-styles-css.php
  */
 
-// Prevent direct access without the parameter
-if (!isset($_GET['ppc_custom_scheme']) || $_GET['ppc_custom_scheme'] !== '1') {
-    header('HTTP/1.0 403 Forbidden');
-    exit;
-}
+$is_library = defined('PPC_ADMIN_STYLES_CSS_LIBRARY') && PPC_ADMIN_STYLES_CSS_LIBRARY;
 
-// Define WordPress context (minimal).
-define('SHORTINIT', true);
-$wp_load_path = dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/wp-load.php';
-
-if (file_exists($wp_load_path)) {
-    require_once($wp_load_path);
-} else {
-    // Fallback if path is different
-    for ($i = 0; $i < 8; $i++) {
-        if (file_exists(str_repeat('../', $i) . 'wp-load.php')) {
-            require_once(str_repeat('../', $i) . 'wp-load.php');
-            break;
-        }
-    }
-}
-
-// Validate that the request is from an authenticated logged-in user.
-if (defined('ABSPATH')) {
-    $plugin_api = ABSPATH . WPINC . '/plugin.php';
-    if (file_exists($plugin_api)) {
-        require_once $plugin_api;
-    }
-
-    $pluggable = ABSPATH . WPINC . '/pluggable.php';
-    if (file_exists($pluggable)) {
-        require_once $pluggable;
-    }
-}
-
-if (function_exists('wp_validate_auth_cookie')) {
-    if (!wp_validate_auth_cookie('', 'logged_in')) {
+if (!$is_library) {
+    // Prevent direct access without the parameter
+    if (!isset($_GET['ppc_custom_scheme']) || $_GET['ppc_custom_scheme'] !== '1') {
         header('HTTP/1.0 403 Forbidden');
         exit;
     }
-} else {
-    // SHORTINIT fallback: require a logged-in cookie to avoid false 403 if pluggable auth is unavailable.
-    if (!defined('LOGGED_IN_COOKIE') || empty($_COOKIE[LOGGED_IN_COOKIE])) {
-        header('HTTP/1.0 403 Forbidden');
-        exit;
-    }
-}
 
-// Internal wrapper functions with exact WordPress core implementations as fallbacks for functions not available under SHORTINIT.
+    if (!defined('ABSPATH')) {
+        $path = __DIR__;
 
-/**
- * Sanitizes a string key
- */
-function ppc_admin_style_sanitize_key( $key ) {
-    if ( function_exists( 'sanitize_key' ) ) {
-        return sanitize_key( $key );
-    }
-    $sanitized_key = '';
+        for ($i = 0; $i < 8; $i++) {
+            $wp_load_path = $path . DIRECTORY_SEPARATOR . 'wp-load.php';
 
-    if ( is_scalar( $key ) ) {
-        $sanitized_key = strtolower( $key );
-        $sanitized_key = preg_replace( '/[^a-z0-9_\-]/', '', $sanitized_key );
-    }
-
-    return $sanitized_key;
-}
-
-/**
- * Sanitizes a hex color
- */
-function ppc_admin_style_sanitize_hex_color( $color ) {
-    if ( function_exists( 'sanitize_hex_color' ) ) {
-        return sanitize_hex_color( $color );
-    }
-    if ( '' === $color ) {
-        return '';
-    }
-
-    // 3 or 6 hex digits, or the empty string.
-    if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
-        return $color;
-    }
-}
-
-/**
- * Strips all HTML tags including 'script' and 'style'
- */
-function ppc_admin_style_wp_strip_all_tags( $text, $remove_breaks = false ) {
-    if ( function_exists( 'wp_strip_all_tags' ) ) {
-        return wp_strip_all_tags( $text, $remove_breaks );
-    }
-    if ( is_null( $text ) ) {
-        return '';
-    }
-
-    if ( ! is_scalar( $text ) ) {
-        /*
-         * To maintain consistency with pre-PHP 8 error levels,
-         * wp_trigger_error() is used to trigger an E_USER_WARNING,
-         * rather than _doing_it_wrong(), which triggers an E_USER_NOTICE.
-         */
-        // Simplified - skip wp_trigger_error as it requires many dependencies
-        return '';
-    }
-
-    $text = preg_replace( '@<(script|style)[^>]*?>.*?</\1>@si', '', $text );
-    $text = strip_tags( $text );
-
-    if ( $remove_breaks ) {
-        $text = preg_replace( '/[\r\n\t ]+/', ' ', $text );
-    }
-
-    return trim( $text );
-}
-
-/**
- * Retrieves an option value - simplified from WordPress core (wp-includes/option.php).
- * Under SHORTINIT, caching and filters are unavailable, so we query directly.
- */
-function ppc_admin_style_get_option( $option, $default_value = false ) {
-    if ( function_exists( 'get_option' ) ) {
-        return get_option( $option, $default_value );
-    }
-    global $wpdb;
-    if ( ! isset( $wpdb ) ) {
-        return $default_value;
-    }
-
-    if ( is_scalar( $option ) ) {
-        $option = trim( $option );
-    }
-
-    if ( empty( $option ) ) {
-        return false;
-    }
-
-    $row = $wpdb->get_row( $wpdb->prepare( "SELECT option_value FROM {$wpdb->options} WHERE option_name = %s LIMIT 1", $option ) );
-
-    if ( is_object( $row ) ) {
-        $value = $row->option_value;
-        if ( function_exists( 'maybe_unserialize' ) ) {
-            return maybe_unserialize( $value );
-        }
-        // Fallback basic unserialization
-        if ( isset( $value[0] ) && in_array( $value[0], array( 'a', 'O' ), true ) ) {
-            $unserialized = @unserialize( $value );
-            if ( $unserialized !== false ) {
-                return $unserialized;
+            if (file_exists($wp_load_path)) {
+                require_once $wp_load_path;
+                break;
             }
+
+            $parent_path = dirname($path);
+
+            if ($parent_path === $path) {
+                break;
+            }
+
+            $path = $parent_path;
         }
-        return $value;
     }
 
-    return $default_value;
+    if (!defined('ABSPATH')) {
+        header('HTTP/1.0 500 Internal Server Error');
+        exit;
+    }
+
+    if (!is_user_logged_in()) {
+        header('HTTP/1.0 403 Forbidden');
+        exit;
+    }
+
+    // Set headers
+    header('Content-Type: text/css');
+    header('Cache-Control: public, max-age=86400'); // 24 hours
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
 }
 
-// Set headers
-header('Content-Type: text/css');
-header('Cache-Control: public, max-age=86400'); // 24 hours
-header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 86400) . ' GMT');
+if (!function_exists('ppc_hex_to_rgb')) {
+    function ppc_hex_to_rgb($hex) {
+        if (empty($hex) || !is_string($hex)) {
+            return null;
+        }
+
+        $hex = str_replace('#', '', $hex);
+
+        if (strlen($hex) == 3) {
+            $r = hexdec(substr($hex, 0, 1) . substr($hex, 0, 1));
+            $g = hexdec(substr($hex, 1, 1) . substr($hex, 1, 1));
+            $b = hexdec(substr($hex, 2, 1) . substr($hex, 2, 1));
+        } elseif (strlen($hex) == 6) {
+            $r = hexdec(substr($hex, 0, 2));
+            $g = hexdec(substr($hex, 2, 2));
+            $b = hexdec(substr($hex, 4, 2));
+        } else {
+            return null;
+        }
+
+        return "$r, $g, $b";
+    }
+}
+
+if (!function_exists('ppc_is_light_color')) {
+    function ppc_is_light_color($hex) {
+        if (empty($hex) || !is_string($hex)) {
+            return false;
+        }
+
+        $hex = ltrim($hex, '#');
+        if (strlen($hex) == 3) {
+            $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+        }
+        if (strlen($hex) !== 6) {
+            return false;
+        }
+
+        $r = hexdec(substr($hex, 0, 2));
+        $g = hexdec(substr($hex, 2, 2));
+        $b = hexdec(substr($hex, 4, 2));
+        $luminance = (0.299 * $r + 0.587 * $g + 0.114 * $b) / 255;
+
+        return $luminance > 0.6;
+    }
+}
+
+if (!function_exists('ppc_adjust_brightness')) {
+    function ppc_adjust_brightness($hex, $steps) {
+        if (empty($hex) || !is_string($hex)) {
+            return null;
+        }
+
+        $steps = max(-255, min(255, $steps));
+        $hex = str_replace('#', '', $hex);
+
+        if (strlen($hex) == 3) {
+            $hex = str_repeat(substr($hex, 0, 1), 2) . str_repeat(substr($hex, 1, 1), 2) . str_repeat(substr($hex, 2, 1), 2);
+        }
+
+        if (strlen($hex) != 6) {
+            return null;
+        }
+
+        $r = hexdec(substr($hex, 0, 2));
+        $g = hexdec(substr($hex, 2, 2));
+        $b = hexdec(substr($hex, 4, 2));
+
+        $r = max(0, min(255, $r + $steps));
+        $g = max(0, min(255, $g + $steps));
+        $b = max(0, min(255, $b + $steps));
+
+        $r_hex = str_pad(dechex($r), 2, '0', STR_PAD_LEFT);
+        $g_hex = str_pad(dechex($g), 2, '0', STR_PAD_LEFT);
+        $b_hex = str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
+
+        return '#' . $r_hex . $g_hex . $b_hex;
+    }
+}
 
 function ppc_get_custom_colors() {
 
@@ -180,13 +145,23 @@ function ppc_get_custom_colors() {
     $element_colors = [];
 
     if (isset($_GET['ppc_custom_style'])) {
-        $custom_style_slug = ppc_admin_style_sanitize_key($_GET['ppc_custom_style']);
+        $custom_style_slug = sanitize_key($_GET['ppc_custom_style']);
 
-        $custom_styles = ppc_admin_style_get_option('pp_capabilities_custom_admin_styles', []);
+        $custom_styles = get_option('pp_capabilities_custom_admin_styles', []);
+        $style = null;
 
         if (isset($custom_styles[$custom_style_slug])) {
             $style = $custom_styles[$custom_style_slug];
+        } elseif (is_array($custom_styles)) {
+            foreach ($custom_styles as $stored_style_slug => $stored_style) {
+                if (sanitize_key($stored_style_slug) === $custom_style_slug) {
+                    $style = $stored_style;
+                    break;
+                }
+            }
+        }
 
+        if (is_array($style)) {
             $colors['base'] = $style['custom_scheme_base'] ?? '';
             $colors['text'] = $style['custom_scheme_text'] ?? '';
             $colors['highlight'] = $style['custom_scheme_highlight'] ?? '';
@@ -202,7 +177,7 @@ function ppc_get_custom_colors() {
 }
 
 function ppc_sanitize_advanced_selector($selector) {
-    $selector = trim(ppc_admin_style_wp_strip_all_tags((string) $selector));
+    $selector = trim(wp_strip_all_tags((string) $selector));
 
     if (empty($selector)) {
         return '';
@@ -236,8 +211,8 @@ function ppc_generate_advanced_rules_css($advanced_rules) {
         }
 
         $selector = isset($rule['selector']) ? ppc_sanitize_advanced_selector($rule['selector']) : '';
-        $variation = isset($rule['variation']) ? ppc_admin_style_sanitize_key($rule['variation']) : 'background';
-        $color = isset($rule['color']) ? ppc_admin_style_sanitize_hex_color($rule['color']) : '';
+        $variation = isset($rule['variation']) ? sanitize_key($rule['variation']) : 'background';
+        $color = isset($rule['color']) ? sanitize_hex_color($rule['color']) : '';
 
         if (empty($selector) || empty($color)) {
             continue;
@@ -469,84 +444,7 @@ function ppc_generate_element_colors_css($element_colors) {
 
 // Function to generate CSS
 function ppc_generate_custom_scheme_css($colors) {
-
-    // Convert hex to RGB
-    function ppc_hex_to_rgb($hex) {
-        if (empty($hex) || !is_string($hex)) {
-            return null;
-        }
-
-        $hex = str_replace('#', '', $hex);
-
-        if(strlen($hex) == 3) {
-            $r = hexdec(substr($hex,0,1).substr($hex,0,1));
-            $g = hexdec(substr($hex,1,1).substr($hex,1,1));
-            $b = hexdec(substr($hex,2,1).substr($hex,2,1));
-        } else if (strlen($hex) == 6) {
-            $r = hexdec(substr($hex,0,2));
-            $g = hexdec(substr($hex,2,2));
-            $b = hexdec(substr($hex,4,2));
-        } else {
-            return null;
-        }
-
-        return "$r, $g, $b";
-    }
-
-    function ppc_is_light_color($hex) {
-        if (empty($hex) || !is_string($hex)) {
-            return false;
-        }
-
-        $hex = ltrim($hex, '#');
-        if (strlen($hex) == 3) {
-            $hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
-        }
-        if (strlen($hex) !== 6) {
-            return false;
-        }
-
-        $r = hexdec(substr($hex, 0, 2));
-        $g = hexdec(substr($hex, 2, 2));
-        $b = hexdec(substr($hex, 4, 2));
-        $luminance = (0.299 * $r + 0.587 * $g + 0.114 * $b) / 255;
-
-        return $luminance > 0.6;
-    }
-
     $text_rgb = !empty($colors['text']) ? ppc_hex_to_rgb($colors['text']) : null;
-
-    // Generate shade variations
-    function ppc_adjust_brightness($hex, $steps) {
-        if (empty($hex) || !is_string($hex)) {
-            return null;
-        }
-
-        $steps = max(-255, min(255, $steps));
-        $hex = str_replace('#', '', $hex);
-
-        if (strlen($hex) == 3) {
-            $hex = str_repeat(substr($hex,0,1),2).str_repeat(substr($hex,1,1),2).str_repeat(substr($hex,2,1),2);
-        }
-
-        if (strlen($hex) != 6) {
-            return null;
-        }
-
-        $r = hexdec(substr($hex,0,2));
-        $g = hexdec(substr($hex,2,2));
-        $b = hexdec(substr($hex,4,2));
-
-        $r = max(0,min(255,$r + $steps));
-        $g = max(0,min(255,$g + $steps));
-        $b = max(0,min(255,$b + $steps));
-
-        $r_hex = str_pad(dechex($r), 2, '0', STR_PAD_LEFT);
-        $g_hex = str_pad(dechex($g), 2, '0', STR_PAD_LEFT);
-        $b_hex = str_pad(dechex($b), 2, '0', STR_PAD_LEFT);
-
-        return '#'.$r_hex.$g_hex.$b_hex;
-    }
 
     $base_darker = !empty($colors['base']) ? ppc_adjust_brightness($colors['base'], -20) : null;
     $base_lighter = !empty($colors['base']) ? ppc_adjust_brightness($colors['base'], 20) : null;
@@ -1319,7 +1217,9 @@ CSS;
     return $css;
 }
 
-// Get colors and output CSS
-$colors = ppc_get_custom_colors();
-echo ppc_generate_custom_scheme_css($colors);
-exit;
+if (!$is_library) {
+    // Get colors and output CSS
+    $colors = ppc_get_custom_colors();
+    echo ppc_generate_custom_scheme_css($colors);
+    exit;
+}
