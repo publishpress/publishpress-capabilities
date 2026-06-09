@@ -1322,6 +1322,11 @@ class CapabilityManager
 	function generateSysNames ()
 	{
 		$this->max_level = 10;
+
+		if ( ! function_exists( 'ak_get_roles' ) ) {
+			require_once dirname( CME_FILE ) . '/framework/lib/users.php';
+		}
+
 		$this->roles = ak_get_roles(true);
 		$caps = array();
 
@@ -1359,6 +1364,10 @@ class CapabilityManager
     		$names = array_map(array($this, '_capNamesCB'), $keys);
 
 	    	$this->capabilities = ( $keys ) ? array_combine($keys, $names) : array();
+
+		    if ( ! function_exists( 'ak_get_roles' ) ) {
+				require_once dirname( CME_FILE ) . '/framework/lib/users.php';
+			}
 
 		    $roles = ak_get_roles(true);
     		unset($roles['administrator']);
