@@ -61,6 +61,11 @@ function _cme_core_caps() {
 
 function _cme_is_read_removal_blocked( $role_name ) {
 	$role = get_role($role_name);
+
+	if (!$role || empty($role->capabilities) || !is_array($role->capabilities)) {
+		return false;
+	}
+
 	$rcaps = $role->capabilities;
 
 	$core_caps = array_diff_key( _cme_core_caps(), array_fill_keys( array( 'unfiltered_html', 'unfiltered_upload', 'upload_files', 'edit_files', 'read' ), true ) );
@@ -306,6 +311,22 @@ class CapabilityManager
 		global $current_user;
 
 		$role_name = get_option("capsman_last_role_{$current_user->ID}");
+
+		if ($role_name && function_exists('pp_capabilities_is_application_password_subject') && pp_capabilities_is_application_password_subject($role_name)) {
+			$current_page = (!empty($_REQUEST['page']) && is_scalar($_REQUEST['page']))
+				? sanitize_key(wp_unslash($_REQUEST['page']))
+				: '';
+
+			if (
+				('pp-capabilities' === $current_page)
+				&& function_exists('pp_capabilities_can_manage_application_password_subject')
+				&& pp_capabilities_can_manage_application_password_subject($role_name)
+			) {
+				return sanitize_key($role_name);
+			}
+
+			$role_name = '';
+		}
 
 		if (!$role_name || !get_role($role_name)) {
 			$role_name = get_option('default_role');
@@ -1144,14 +1165,16 @@ class CapabilityManager
 			}
 
 			if ( ! empty($_REQUEST['current']) ) { // don't process role update unless form variable is received
-				$role = get_role(sanitize_key($_REQUEST['current']));
+				$current_subject = sanitize_key($_REQUEST['current']);
+				$is_application_password = function_exists('pp_capabilities_can_manage_application_password_subject') && pp_capabilities_can_manage_application_password_subject($current_subject);
+				$role = $is_application_password ? false : get_role($current_subject);
 				$current_level = ($role) ? ak_caps2level($role->capabilities) : 0;
 
 				$this->processAdminGeneral();
 
 				$set_level = (isset($_POST['level'])) ? (int) $_POST['level'] : 0;
 
-				if ($set_level != $current_level) {
+				if (!$is_application_password && ($set_level != $current_level)) {
 					global $wp_roles, $wp_version;
 
 					if ( version_compare($wp_version, '4.9', '>=') ) {
@@ -1160,7 +1183,7 @@ class CapabilityManager
 						$wp_roles->reinit();
 					}
 
-					foreach( get_users(array('role' => sanitize_key($_REQUEST['current']), 'fields' => 'ID')) as $ID ) {
+					foreach( get_users(array('role' => $current_subject, 'fields' => 'ID')) as $ID ) {
 						$user = new WP_User($ID);
 						$user->get_role_caps();
 						$user->update_user_level_from_caps();
@@ -1240,24 +1263,29 @@ class CapabilityManager
 
 		$this->generateNames();
 		$roles = array_keys($this->roles);
+		$application_password_subjects = function_exists('pp_capabilities_get_application_password_subjects')
+			? pp_capabilities_get_application_password_subjects()
+			: [];
 
 		if ( ! isset($this->current) ) { // By default, we manage the default role
 			if ('POST' !== $_SERVER['REQUEST_METHOD'] && !empty($_REQUEST['role'])) {
-				$role = sanitize_key($_REQUEST['role']);
+				$subject = sanitize_key($_REQUEST['role']);
 
-				if (!pp_capabilities_is_editable_role($role)) {
+				if (isset($application_password_subjects[$subject])) {
+					$this->set_current_role($subject);
+				} elseif (!pp_capabilities_is_editable_role($subject)) {
 					wp_die(esc_html__('The selected role is not editable.', 'capability-manager-enhanced'));
+				} else {
+					$this->set_current_role($subject);
 				}
-
-				$this->set_current_role($role);
 			}
 		}
 
-		if (!isset($this->current) || !get_role($this->current)) {
+		if (!isset($this->current) || (!get_role($this->current) && !isset($application_password_subjects[$this->current]))) {
 			$this->current = $this->get_last_role();
 		}
 
-		if ( ! in_array($this->current, $roles) ) {    // Current role has been deleted.
+		if (!in_array($this->current, $roles) && !isset($application_password_subjects[$this->current])) {    // Current role has been deleted.
 			$this->current = array_shift($roles);
 		}
 

@@ -42,8 +42,31 @@ if (!isset($sidebar_metabox_state['multi_site'])) {
 }
 $roles = $this->roles;
 $default = $this->current;
+$application_password_subjects = function_exists('pp_capabilities_get_application_password_subjects')
+	? pp_capabilities_get_application_password_subjects()
+	: [];
+$is_application_password = function_exists('pp_capabilities_is_application_password_subject')
+	&& pp_capabilities_is_application_password_subject($default)
+	&& isset($application_password_subjects[$default]);
+$application_password_denied_caps = $is_application_password && function_exists('pp_capabilities_get_application_password_denied_capabilities')
+	? pp_capabilities_get_application_password_denied_capabilities($default)
+	: [];
+$rcaps = [];
+$set_application_password_cap = function ($cap_name) use ($is_application_password, $application_password_denied_caps, &$rcaps) {
+	if (!$is_application_password || !is_scalar($cap_name)) {
+		return;
+	}
 
-if ( $block_read_removal = _cme_is_read_removal_blocked( $this->current ) ) {
+	$cap_name = sanitize_text_field((string) $cap_name);
+
+	if ('' === $cap_name) {
+		return;
+	}
+
+	$rcaps[$cap_name] = empty($application_password_denied_caps[$cap_name]);
+};
+
+if ( !$is_application_password && ( $block_read_removal = _cme_is_read_removal_blocked( $this->current ) ) ) {
 	if ( $current = get_role($default) ) {
 		if ( empty( $current->capabilities['read'] ) ) {
 			ak_admin_error( sprintf( __( 'Warning: This role cannot access the dashboard without the read capability. %1$sClick here to fix this now%2$s.', 'capability-manager-enhanced' ), '<a href="javascript:void(0)" class="cme-fix-read-cap">', '</a>' ) );
@@ -59,7 +82,7 @@ require_once (dirname(CME_FILE) . '/includes/roles/roles-functions.php');
 require_once( dirname(__FILE__).'/pp-ui.php' );
 $pp_ui = new Capsman_PP_UI();
 
-if( defined('PRESSPERMIT_ACTIVE') ) {
+if( defined('PRESSPERMIT_ACTIVE') && !$is_application_password ) {
 	$pp_metagroup_caps = $pp_ui->get_metagroup_caps( $default );
 } else {
 	$pp_metagroup_caps = array();
@@ -139,6 +162,18 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                 <div class="clear"></div>
 
                 <select name="role">
+                    <?php if (!empty($application_password_subjects)) : ?>
+                        <optgroup label="<?php esc_attr_e('Application Passwords', 'capability-manager-enhanced'); ?>">
+                            <?php foreach ($application_password_subjects as $subject => $application_password) : ?>
+                                <option value="<?php echo esc_attr($subject); ?>" <?php selected($default, $subject); ?>>
+                                    <?php echo esc_html($application_password['label']); ?> &nbsp;
+                                </option>
+                            <?php endforeach; ?>
+                        </optgroup>
+                    <?php endif; ?>
+                    <?php if (function_exists('pp_capabilities_application_password_capabilities_enabled') && pp_capabilities_application_password_capabilities_enabled()) : ?>
+                        <optgroup label="<?php esc_attr_e('Roles', 'capability-manager-enhanced'); ?>">
+                    <?php endif; ?>
                     <?php
                     foreach ( $roles as $role_name => $name ) {
                         $role_name = sanitize_key($role_name);
@@ -149,6 +184,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                         }
                     }
                     ?>
+                    <?php if (function_exists('pp_capabilities_application_password_capabilities_enabled') && pp_capabilities_application_password_capabilities_enabled()) : ?>
+                        </optgroup>
+                    <?php endif; ?>
                 </select>
             </div>
 			<?php
@@ -156,7 +194,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 			?>
 
 			<?php
-			if ( defined( 'PRESSPERMIT_ACTIVE' ) ) {
+			if ( defined( 'PRESSPERMIT_ACTIVE' ) && !$is_application_password ) {
 				$pp_ui->show_capability_hints( $default );
 			}
 
@@ -175,9 +213,18 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 			}
 			$capsman->reinstate_db_roles();
 
-			$current = get_role($default);
-
-			$rcaps = $current->capabilities;
+			if ($is_application_password) {
+				$rcaps = function_exists('pp_capabilities_get_application_password_ui_capabilities')
+					? pp_capabilities_get_application_password_ui_capabilities($default, array_keys($this->capabilities))
+					: [];
+				$current = (object) [
+					'name'         => isset($application_password_subjects[$default]['label']) ? $application_password_subjects[$default]['label'] : $default,
+					'capabilities' => $rcaps,
+				];
+			} else {
+				$current = get_role($default);
+				$rcaps = $current->capabilities;
+			}
 
 			$is_administrator = current_user_can( 'administrator' ) || (is_multisite() && is_super_admin());
 
@@ -913,6 +960,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 												}
 
 												$cap_name = sanitize_text_field($type_obj->cap->$prop);
+												$set_application_password_cap($cap_name);
 
 												if ( 'taxonomy' == $item_type )
 													$td_classes []= "term-cap";
@@ -954,6 +1002,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 												$disabled_cap = true;
                                                 $display_row = true;
                                                 $cap_name = sanitize_text_field($type_obj->cap->$prop);
+												$set_application_password_cap($cap_name);
 												$cap_title = '';
 
 												if (($cap_name === 'manage_categories') && !defined('PRESSPERMIT_ACTIVE')) {
@@ -1144,6 +1193,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                         <?php
 						foreach( array_keys($_grouped_caps) as $cap_name ) {
 							$cap_name = sanitize_text_field($cap_name);
+							$set_application_password_cap($cap_name);
 
 							if ( isset( $type_caps[$cap_name] ) || isset($type_metacaps[$cap_name]) ) {
 								continue;
@@ -1417,6 +1467,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 						foreach( $ordered_plugin_caps as $cap_name ) {
 							$cap_name = sanitize_text_field($cap_name);
+							$set_application_password_cap($cap_name);
 
 							if ( isset( $type_caps[$cap_name] ) || in_array($cap_name, $grouped_caps_lists) || isset($type_metacaps[$cap_name]) ) {
 								continue;
@@ -1537,7 +1588,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					}
 
 					// caps: invalid
-					if (array_intersect(array_keys(array_filter($type_metacaps)), $all_capabilities) && array_intersect_key($type_metacaps, array_filter($rcaps))) {
+					if (!$is_application_password && array_intersect(array_keys(array_filter($type_metacaps)), $all_capabilities) && array_intersect_key($type_metacaps, array_filter($rcaps))) {
 						$tab_id = "cme-cap-type-tables-invalid";
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
 
@@ -1565,6 +1616,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 						foreach ( $this->capabilities as $cap_name => $cap ) :
 							$cap_name = sanitize_text_field($cap_name);
+							$set_application_password_cap($cap_name);
 
 							if (!isset($type_metacaps[$cap_name]) || empty($rcaps[$cap_name])) {
 								continue;
@@ -1702,6 +1754,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						$caps_empty = true;
 						foreach ($additional_caps as $cap_name => $cap) :
 							$cap_name = sanitize_text_field($cap_name);
+							$set_application_password_cap($cap_name);
 
 							if ((isset($type_caps[$cap_name]) && !isset($type_metacaps[$cap_name]))
 							|| in_array($cap_name, $grouped_caps_lists)
@@ -1862,7 +1915,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						$banner_messages[] = sprintf(esc_html__('%1$s = Capability granted %2$s', 'capability-manager-enhanced'), '<table class="pp-capabilities-cb-key"><tr><td class="pp-cap-icon pp-cap-icon-checked"><input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" checked disabled></td><td>', '</td></tr>');
 						$banner_messages[] = sprintf(esc_html__('%1$s = Capability not granted %2$s', 'capability-manager-enhanced'), '<tr><td class="pp-cap-icon"><input type="checkbox" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'" disabled></td><td class="pp-cap-not-checked-definition">', '</td></tr>');
 						$banner_messages[] = sprintf(esc_html__('%1$s = Capability denied, even if granted by another role %2$s', 'capability-manager-enhanced'), '<tr><td class="pp-cap-icon pp-cap-x"><span class="cap-x pp-cap-key" title="'. esc_attr__('usage key', 'capability-manager-enhanced') .'">X</span></td><td class="cap-x-definition">', '</td></tr></table>');
-						if (defined('PRESSPERMIT_ACTIVE') && function_exists('presspermit')) {
+						if (!$is_application_password && defined('PRESSPERMIT_ACTIVE') && function_exists('presspermit')) {
 							if ($group = presspermit()->groups()->getMetagroup('wp_role', $this->current)) {
 								$additional_message = sprintf(
 									// back compat with existing language string
@@ -1953,6 +2006,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							</div>
 						</div>
 
+						<?php if (!$is_application_password) : ?>
 						<div class="ppc-sidebar-panel-metabox meta-box-sortables ppc-add-cap">
 							<?php $meta_box_state = (isset($sidebar_metabox_state['add_capability'])) ? $sidebar_metabox_state['add_capability'] : 'closed';  ?>
 							<div class="postbox ppc-sidebar-panel <?php echo esc_attr($meta_box_state); ?>">
@@ -1980,8 +2034,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 								</div>
 							</div>
 						</div>
+						<?php endif; ?>
 
-						<?php if (is_multisite() && is_super_admin() && is_main_site()) : ?>
+						<?php if (!$is_application_password && is_multisite() && is_super_admin() && is_main_site()) : ?>
 							<div class="ppc-sidebar-panel-metabox meta-box-sortables ppc-multi-site">
 								<?php $meta_box_state = (isset($sidebar_metabox_state['multi_site'])) ? $sidebar_metabox_state['multi_site'] : 'closed';  ?>
 								<div class="postbox ppc-sidebar-panel <?php echo esc_attr($meta_box_state); ?>">
@@ -2119,6 +2174,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 			/* ]]> */
 			</script>
 
+			<?php if (!$is_application_password) : ?>
 			<div style="display:none; float:right;">
 			<?php
 			$level = ak_caps2level($rcaps);
@@ -2134,6 +2190,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 			</span>
 
 			</div>
+			<?php endif; ?>
 
 		<p class="submit" style="padding-top:0;">
 			<input type="hidden" name="action" value="update" />

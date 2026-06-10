@@ -57,13 +57,23 @@ class CapsmanHandler
 				( method_exists( $wp_roles, 'for_site' ) ) ? $wp_roles->for_site() : $wp_roles->reinit();
 			}
 
-			if (!pp_capabilities_is_editable_role(sanitize_key($_POST['current']))) {
+			$current_subject = sanitize_key($_POST['current']);
+
+			if (function_exists('pp_capabilities_can_manage_application_password_subject') && pp_capabilities_can_manage_application_password_subject($current_subject)) {
+				$this->saveApplicationPasswordCapabilities(
+					$current_subject,
+					isset($_POST['caps']) && is_array($_POST['caps']) ? $_POST['caps'] : []
+				);
+				return;
+			}
+
+			if (!pp_capabilities_is_editable_role($current_subject)) {
 				ak_admin_error(__('The selected role is not editable.', 'capability-manager-enhanced'));
 				return;
 			}
 
 			$level = (isset($_POST['level'])) ? (int) $_POST['level'] : 0;
-			$this->saveRoleCapabilities(sanitize_key($_POST['current']), array_map('boolval', $_POST['caps']), $level);
+			$this->saveRoleCapabilities($current_subject, array_map('boolval', $_POST['caps']), $level);
 
 			if (defined( 'PRESSPERMIT_ACTIVE' ) && !empty($_POST['role'])) {  // log customized role caps for subsequent restoration
 				// for bbPress < 2.2, need to log customization of roles following bbPress activation
@@ -297,11 +307,38 @@ class CapsmanHandler
 					$this->cm->network_sync_token = $token;
 				}
 
-				ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
 			}
 		} // endif multisite installation with super admin editing a main site role
 
 		pp_capabilities_autobackup();
+	}
+
+	private function saveApplicationPasswordCapabilities($subject, $caps)
+	{
+		$this->cm->generateNames();
+
+		if (method_exists($this->cm, 'initPluginCapabilities')) {
+			$this->cm->initPluginCapabilities();
+		}
+
+		if (defined('CME_FILE')) {
+			$extractor_capabilities_file = dirname(CME_FILE) . '/includes/extractor-capabilities.php';
+
+			if (is_readable($extractor_capabilities_file)) {
+				require_once $extractor_capabilities_file;
+			}
+		}
+
+		$managed_capabilities = function_exists('pp_capabilities_get_application_password_managed_capabilities')
+			? pp_capabilities_get_application_password_managed_capabilities(array_keys($this->cm->capabilities))
+			: array_keys($this->cm->capabilities);
+
+		if (!pp_capabilities_save_application_password_capabilities($subject, $caps, $managed_capabilities)) {
+			ak_admin_error(__('The selected application password is not editable.', 'capability-manager-enhanced'));
+			return;
+		}
+
+		$this->cm->message = __('Application password capabilities saved.', 'capability-manager-enhanced');
 	}
 
 	public function continueNetworkSync($token)

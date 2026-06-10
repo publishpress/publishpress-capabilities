@@ -134,6 +134,22 @@ class Capabilities_Settings_UI {
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <?php
+                                        $checked = checked(!empty(get_option('cme_capabilities_application_password_capabilities', 0)), true, false);
+                                    ?>
+                                    <th scope="row"> <?php esc_html_e('Application password capabilities', 'capability-manager-enhanced'); ?></th>
+                                    <td>
+                                        <label>
+                                        <input type="checkbox" name="cme_capabilities_application_password_capabilities" id="cme_capabilities_application_password_capabilities" autocomplete="off" value="1" <?php echo $checked;?>>
+                                        <span class="description">
+                                            <?php esc_html_e('Allow the Capabilities screen to deny selected capabilities for individual WordPress application passwords.', 'capability-manager-enhanced'); ?>
+                                        </span>
+                                        </label>
+                                        <br>
+                                    </td>
+                                </tr>
+
                                 <?php do_action('pp_capabilities_settings_after_capabilities_content'); ?>
 
                                 </tbody>
