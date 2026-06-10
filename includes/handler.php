@@ -307,7 +307,6 @@ class CapsmanHandler
 					$this->cm->network_sync_token = $token;
 				}
 
-				ak_admin_notify(__('Network sync has been queued and will continue in the background.', 'capability-manager-enhanced'));
 			}
 		} // endif multisite installation with super admin editing a main site role
 
