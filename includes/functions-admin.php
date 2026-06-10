@@ -258,6 +258,10 @@ if (!function_exists('pp_capabilities_backup_sections')) {
         $backup_sections['capsman_nav_menu_backup']['label'] = esc_html__('Nav Menu', 'capability-manager-enhanced');
         $backup_sections['capsman_nav_menu_backup']['options'][] = "capsman_nav_item_menus";
 
+        //Application Password Capabilities
+        $backup_sections['capsman_application_password_capabilities_backup']['label'] = esc_html__('Application Password Capabilities', 'capability-manager-enhanced');
+        $backup_sections['capsman_application_password_capabilities_backup']['options'][] = "cme_application_password_capabilities";
+
         //settings
         $backup_sections['capsman_settings_backup']['label'] = esc_html__('Settings');
         $backup_sections['capsman_settings_backup']['options'] = pp_capabilities_settings_options();
@@ -337,6 +341,7 @@ if (!function_exists('pp_capabilities_settings_options')) {
             'cme_editor_features_private_post_type',
             'cme_capabilities_show_private_taxonomies',
             'cme_capabilities_show_private_post_types',
+            'cme_capabilities_application_password_capabilities',
             'cme_capabilities_add_user_multi_roles',
             'cme_capabilities_edit_user_multi_roles',
             'cme_editor_features_classic_editor_tab',
