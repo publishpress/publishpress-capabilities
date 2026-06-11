@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-05-27 08:58+0000\n"
+"PO-Revision-Date: 2026-06-11 10:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: includes-core/CoreAdmin.php:92
 #: includes-core/CoreAdmin.php:155
-#: includes/functions-admin.php:531
+#: includes/functions-admin.php:536
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "Admin-menuer"
@@ -213,9 +213,9 @@ msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:513
 #: includes/admin-load.php:846
-#: includes/functions-admin.php:409
-#: includes/functions-admin.php:495
-#: includes/manager.php:389
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:500
+#: includes/manager.php:410
 #: includes/roles/class/class-pp-roles-admin.php:637
 #: includes/settings-ui.php:35
 msgid "Capabilities"
@@ -279,8 +279,9 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: includes/admin-load.php:847
-#: includes/functions-admin.php:404
-#: includes/functions-admin.php:488
+#: includes/admin.php:175
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:493
 #: includes/roles/roles.php:8
 #: includes/settings-ui.php:34
 msgid "Roles"
@@ -315,8 +316,8 @@ msgstr "Aktuel rolle"
 #: includes/admin-notices/admin-notices.php:217
 #: includes/admin-notices/admin-notices.php:220
 #: includes/functions-admin.php:239
-#: includes/functions-admin.php:454
-#: includes/functions-admin.php:523
+#: includes/functions-admin.php:459
+#: includes/functions-admin.php:528
 msgid "Admin Notices"
 msgstr "Admin meddelelser"
 
@@ -333,7 +334,7 @@ msgstr "Gem for alle roller"
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
 #: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:858
+#: includes/features/admin-styles/admin-styles.php:1175
 #, php-format
 msgid "Save for %s"
 msgstr "Gem for %s"
@@ -403,7 +404,7 @@ msgid "Configure notice visibility by user role"
 msgstr "Konfigurer meddelelsers synlighed efter brugerrolle"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1906
+#: includes/admin.php:1959
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -463,8 +464,8 @@ msgid "Edit the settings."
 msgstr "Rediger indstillingerne."
 
 #: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:773
-#: includes/manager.php:797
+#: includes/manager.php:794
+#: includes/manager.php:818
 msgid "You do not have permission to manage admin notices."
 msgstr "Du har ikke tilladelse til at administrere admin-meddelelser."
 
@@ -482,7 +483,7 @@ msgstr "Ugyldig formular."
 msgid "Admin notice status updated successfully."
 msgstr "Admin-meddelelse status opdateret med succes."
 
-#: includes/admin.php:49
+#: includes/admin.php:72
 #, php-format
 msgid ""
 "Warning: This role cannot access the dashboard without the read capability. "
@@ -491,74 +492,78 @@ msgstr ""
 "Advarsel: Denne rolle kan ikke få adgang til dashboardet uden "
 "læsekapacitet. %1$sKlik her for at løse dette nu%2$s."
 
-#: includes/admin.php:87
+#: includes/admin.php:110
 msgid "Role Capabilities"
 msgstr "Rollekapaciteter"
 
-#: includes/admin.php:128
+#: includes/admin.php:151
 msgid "Search capabilities..."
 msgstr "Søg kapaciteter..."
 
-#: includes/admin.php:201
-#: includes/admin.php:840
+#: includes/admin.php:166
+msgid "Application Passwords"
+msgstr "Applikationsadgangskoder"
+
+#: includes/admin.php:248
+#: includes/admin.php:887
 msgid "Nav Menus (Block)"
 msgstr "Nav-menuer (Blok)"
 
-#: includes/admin.php:203
+#: includes/admin.php:250
 msgid "Block"
 msgstr "Blok"
 
-#: includes/admin.php:210
-#: includes/admin.php:842
+#: includes/admin.php:257
+#: includes/admin.php:889
 msgid "Nav Menus (Legacy)"
 msgstr "Nav-menuer (Legacy)"
 
-#: includes/admin.php:212, fuzzy
+#: includes/admin.php:259, fuzzy
 msgid "Legacy"
 msgstr "Legacy"
 
-#: includes/admin.php:264, fuzzy
+#: includes/admin.php:311, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:265
+#: includes/admin.php:312
 msgid "Visibility"
 msgstr "Synlighed"
 
-#: includes/admin.php:266
+#: includes/admin.php:313
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Redigering"
 
-#: includes/admin.php:267
+#: includes/admin.php:314
 msgid "Deletion"
 msgstr "Sletning"
 
-#: includes/admin.php:268
+#: includes/admin.php:315
 msgid "Taxonomies"
 msgstr "Taxonomier"
 
-#: includes/admin.php:272
+#: includes/admin.php:319
 msgid "Listing"
 msgstr "Opstilling"
 
-#: includes/admin.php:276
+#: includes/admin.php:323
 msgid "Create Revision"
 msgstr "Opret revision"
 
-#: includes/admin.php:280
+#: includes/admin.php:327
 msgid "Submit Revision"
 msgstr "Indsend revision"
 
-#: includes/admin.php:284
+#: includes/admin.php:331
 msgid "Approve Revision"
 msgstr "Godkend revision"
 
-#: includes/admin.php:288
+#: includes/admin.php:335
 msgid "Can read posts which are currently published with private visibility."
 msgstr "Kan læse indlæg, som i øjeblikket er offentliggjort med privat synlighed."
 
-#: includes/admin.php:289
+#: includes/admin.php:336
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -566,25 +571,25 @@ msgstr ""
 "Har grundlæggende redigeringsmuligheder (men kan have brug for andre "
 "muligheder baseret på indlæggets status og ejerskab)."
 
-#: includes/admin.php:290
+#: includes/admin.php:337
 msgid "Can edit posts which were created by other users."
 msgstr "Kan redigere indlæg, som er oprettet af andre brugere."
 
-#: includes/admin.php:291
+#: includes/admin.php:338
 msgid "Can edit posts which are currently published."
 msgstr "Kan redigere indlæg, som i øjeblikket er offentliggjort."
 
-#: includes/admin.php:292
+#: includes/admin.php:339
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
 "Kan redigere indlæg, som i øjeblikket er offentliggjort med privat "
 "synlighed."
 
-#: includes/admin.php:293
+#: includes/admin.php:340
 msgid "Can make a post publicly visible."
 msgstr "Kan gøre et indlæg offentligt synligt."
 
-#: includes/admin.php:294
+#: includes/admin.php:341
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -592,103 +597,103 @@ msgstr ""
 "Har grundlæggende sletningsmuligheder (men kan have brug for andre "
 "muligheder baseret på indlæggets status og ejerskab)."
 
-#: includes/admin.php:295
+#: includes/admin.php:342
 msgid "Can delete posts which were created by other users."
 msgstr "Kan slette indlæg, som er oprettet af andre brugere."
 
-#: includes/admin.php:296
+#: includes/admin.php:343
 msgid "Can delete posts which are currently published."
 msgstr "Kan slette indlæg, som i øjeblikket er offentliggjort."
 
-#: includes/admin.php:297
+#: includes/admin.php:344
 msgid "Can delete posts which are currently published with private visibility."
 msgstr "Kan slette indlæg, som i øjeblikket er offentliggjort med privat synlighed."
 
-#: includes/admin.php:592
-#: includes/admin.php:1107
-#: includes/admin.php:1995, fuzzy
+#: includes/admin.php:639
+#: includes/admin.php:1156
+#: includes/admin.php:2050, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:596
-#: includes/admin.php:1111
+#: includes/admin.php:643
+#: includes/admin.php:1160
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:676
-#: includes/admin.php:1545
+#: includes/admin.php:723
+#: includes/admin.php:1596
 msgid "Invalid Capabilities"
 msgstr "Ugyldige muligheder"
 
-#: includes/admin.php:681
-#: includes/admin.php:1690
+#: includes/admin.php:728
+#: includes/admin.php:1742
 msgid "Additional"
 msgstr "Yderligere"
 
-#: includes/admin.php:715
+#: includes/admin.php:762
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Term %s muligheder"
 
-#: includes/admin.php:718
+#: includes/admin.php:765
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s muligheder"
 
-#: includes/admin.php:719
+#: includes/admin.php:766
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Indlæg %s muligheder"
 
-#: includes/admin.php:722
+#: includes/admin.php:769
 msgid "Taxonomy"
 msgstr "Taxonomi"
 
-#: includes/admin.php:728
+#: includes/admin.php:775
 msgid "Filter by taxonomy"
 msgstr "Filtrer efter taxonomy"
 
-#: includes/admin.php:728
+#: includes/admin.php:775
 msgid "Filter by post type"
 msgstr "Filtrer efter post type"
 
-#: includes/admin.php:849
+#: includes/admin.php:896
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Slug'en for denne taxonomy er %s"
 
-#: includes/admin.php:851
+#: includes/admin.php:898
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Slug'en for denne post type er %s"
 
-#: includes/admin.php:927
-#: includes/admin.php:1173
-#: includes/admin.php:1466
-#: includes/admin.php:1772
-#: includes/admin.php:1773
+#: includes/admin.php:975
+#: includes/admin.php:1223
+#: includes/admin.php:1517
+#: includes/admin.php:1825
+#: includes/admin.php:1826
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: tildelt af Permission Group"
 
-#: includes/admin.php:930
-#: includes/admin.php:1175
-#: includes/admin.php:1468
-#: includes/admin.php:1593
-#: includes/admin.php:1775
+#: includes/admin.php:978
+#: includes/admin.php:1225
+#: includes/admin.php:1519
+#: includes/admin.php:1645
+#: includes/admin.php:1828
 #, php-format
 msgid "This capability is %s"
 msgstr "Denne kapabilitet er %s"
 
-#: includes/admin.php:960
+#: includes/admin.php:1009
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Denne kapabilitet styres af %s"
 
-#: includes/admin.php:963
+#: includes/admin.php:1012
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -697,18 +702,18 @@ msgstr ""
 "Denne kapabilitet styres af %s Brug indstillingerne i sidebar'en for at "
 "tillade, at dette kan styres uafhængigt."
 
-#: includes/admin.php:980
+#: includes/admin.php:1029
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
 "Brug indstillingerne i sidebar'en for at tillade, at dette kan styres "
 "uafhængigt."
 
-#: includes/admin.php:982
-#: includes/admin.php:986
+#: includes/admin.php:1031
+#: includes/admin.php:1035
 msgid "This capability is not available for this post type."
 msgstr "Denne kapabilitet er ikke tilgængelig for denne post type."
 
-#: includes/admin.php:1050
+#: includes/admin.php:1099
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -720,64 +725,64 @@ msgstr ""
 "\"Rediger\"-kapabilitet mangler. Desuden kan disse \"Liste\"-kapabiliteter "
 "give adgang, men ikke nægte adgang."
 
-#: includes/admin.php:1127
-#: includes/admin.php:1240
-#: includes/admin.php:1396
-#: includes/admin.php:1661
+#: includes/admin.php:1176
+#: includes/admin.php:1290
+#: includes/admin.php:1446
+#: includes/admin.php:1713
 msgid "Filter by capability"
 msgstr "Filtrer efter kapabilitet"
 
-#: includes/admin.php:1130
-#: includes/admin.php:1243
-#: includes/admin.php:1399
-#: includes/admin.php:1664
+#: includes/admin.php:1179
+#: includes/admin.php:1293
+#: includes/admin.php:1449
+#: includes/admin.php:1716
 msgid "No results found. Please try again with a different word."
 msgstr "Ingen resultater fundet. Prøv venligst igen med et andet ord."
 
-#: includes/admin.php:1141
-#: includes/admin.php:1220
-#: includes/admin.php:1254
-#: includes/admin.php:1260
-#: includes/admin.php:1410
-#: includes/admin.php:1530
-#: includes/admin.php:1670
-#: includes/admin.php:1847
+#: includes/admin.php:1190
+#: includes/admin.php:1270
+#: includes/admin.php:1304
+#: includes/admin.php:1310
+#: includes/admin.php:1460
+#: includes/admin.php:1581
+#: includes/admin.php:1722
+#: includes/admin.php:1900
 msgid "check / uncheck / negate all"
 msgstr "check / uncheck / negér alt"
 
-#: includes/admin.php:1141
-#: includes/admin.php:1220
-#: includes/admin.php:1254
-#: includes/admin.php:1260
-#: includes/admin.php:1410
-#: includes/admin.php:1530
-#: includes/admin.php:1670
-#: includes/admin.php:1847
+#: includes/admin.php:1190
+#: includes/admin.php:1270
+#: includes/admin.php:1304
+#: includes/admin.php:1310
+#: includes/admin.php:1460
+#: includes/admin.php:1581
+#: includes/admin.php:1722
+#: includes/admin.php:1900
 msgid "Capability Name"
 msgstr "Kapabilitetens navn"
 
-#: includes/admin.php:1237
+#: includes/admin.php:1287
 msgid "WordPress Core Capabilities"
 msgstr "WordPress Core Kapabiliteter"
 
-#: includes/admin.php:1376
-#: includes/admin.php:1430
-#: includes/features/admin-styles/admin-styles.php:1745
+#: includes/admin.php:1426
+#: includes/admin.php:1481
+#: includes/features/admin-styles/admin-styles.php:2062
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Generelt"
 
-#: includes/admin.php:1393
+#: includes/admin.php:1443
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Plugin Kapabiliteter &ndash; %s"
 
-#: includes/admin.php:1472
+#: includes/admin.php:1523
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "Brugerundersøgelsesfunktionen kræver også %1$s edit_users %2$s kapabilitet."
 
-#: includes/admin.php:1550
+#: includes/admin.php:1601
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -785,28 +790,28 @@ msgstr ""
 "De følgende poster har ingen effekt. Tildel venligst ønskede rettigheder på "
 "fanerne Redigering / Sletning / Privat."
 
-#: includes/admin.php:1658
+#: includes/admin.php:1710
 msgid "Additional Capabilities"
 msgstr "Yderligere rettigheder"
 
-#: includes/admin.php:1840
+#: includes/admin.php:1893
 msgid "You have no additional capabilities."
 msgstr "Du har ingen yderligere rettigheder."
 
-#: includes/admin.php:1861
+#: includes/admin.php:1914
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "Rettigheder giver dig mulighed for at ændre tilladelser for enhver "
 "brugerrolle."
 
-#: includes/admin.php:1862
+#: includes/admin.php:1915
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Rettighed tildelt %2$s"
 
-#: includes/admin.php:1862
-#: includes/admin.php:1863
-#: includes/admin.php:1864
+#: includes/admin.php:1915
+#: includes/admin.php:1916
+#: includes/admin.php:1917
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -820,30 +825,30 @@ msgstr "%1$s = Rettighed tildelt %2$s"
 msgid "usage key"
 msgstr "brugernøgle"
 
-#: includes/admin.php:1863
+#: includes/admin.php:1916
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Rettighed ikke tildelt %2$s"
 
-#: includes/admin.php:1864
+#: includes/admin.php:1917
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Rettighed nægtet, selvom den er tildelt af en anden rolle %2$s"
 
-#: includes/admin.php:1872
+#: includes/admin.php:1925
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Du kan også konfigurere denne rolle som en %sTilladelsesgruppe%s."
 
-#: includes/admin.php:1892
+#: includes/admin.php:1945
 msgid "How to use Capabilities"
 msgstr "Sådan bruges rettigheder"
 
-#: includes/admin.php:1930
+#: includes/admin.php:1983
 msgid "Capabilities is Safe to Use"
 msgstr "Rettigheder er sikre at bruge"
 
-#: includes/admin.php:1943
+#: includes/admin.php:1996
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -851,7 +856,7 @@ msgstr ""
 "WordPress gemmer rolle-rettigheder i din database, hvor de forbliver, "
 "selvom plugin'et deaktiveres."
 
-#: includes/admin.php:1944
+#: includes/admin.php:1997
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -860,27 +865,27 @@ msgstr ""
 "også en sikkerhedskopi, som du kan bruge til at gendanne en tidligere "
 "konfiguration."
 
-#: includes/admin.php:1947
+#: includes/admin.php:2000
 msgid "Go to the Backup feature"
 msgstr "Gå til backup-funktionen"
 
-#: includes/admin.php:1966
+#: includes/admin.php:2020
 msgid "Add a New Capability"
 msgstr "Tilføj en ny rettighed"
 
-#: includes/admin.php:1976
+#: includes/admin.php:2030
 msgid "Add to role"
 msgstr "Tilføj til rolle"
 
-#: includes/admin.php:1979
+#: includes/admin.php:2033
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Nye rettigheder styres på fanen Yderligere."
 
-#: includes/admin.php:2035
+#: includes/admin.php:2090
 msgid "PublishPress Permissions"
 msgstr "PublishPress Tilladelser"
 
-#: includes/admin.php:2037
+#: includes/admin.php:2092
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -888,11 +893,11 @@ msgstr ""
 "Automatisk definer type-specifikke rettigheder for dine brugerdefinerede "
 "posttyper og taxonomier"
 
-#: includes/admin.php:2041
+#: includes/admin.php:2096
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Tildel standard WP-roller supplerende for en specifik posttype"
 
-#: includes/admin.php:2045
+#: includes/admin.php:2100
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -900,15 +905,15 @@ msgstr ""
 "Tildel brugerdefinerede WP-roller supplerende til en specifik post type "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2049
+#: includes/admin.php:2104
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Tilpas læseadgang pr. kategori eller pr. post"
 
-#: includes/admin.php:2053
+#: includes/admin.php:2108
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "Tilpas redigeringsadgang pr. kategori eller pr. post <em>(Pro)</em>"
 
-#: includes/admin.php:2057
+#: includes/admin.php:2112
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -916,7 +921,7 @@ msgstr ""
 "Brugerdefinerede Post Synlighed statusser, fuldt implementeret i wp-admin "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2061
+#: includes/admin.php:2116
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -924,11 +929,11 @@ msgstr ""
 "Brugerdefinerede Moderation statusser for adgangskontrolleret, fler-trins "
 "publiceringsarbejdsgang <em>(Pro)</em>"
 
-#: includes/admin.php:2065
+#: includes/admin.php:2120
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Reguler adgang for Edit Flow post statusser <em>(Pro)</em>"
 
-#: includes/admin.php:2069
+#: includes/admin.php:2124
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -936,7 +941,7 @@ msgstr ""
 "Tilpas den modererede redigering af offentliggjort indhold med Revisionary "
 "eller Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2073
+#: includes/admin.php:2128
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -944,39 +949,39 @@ msgstr ""
 "Giv Spectator, Participant eller Moderator adgang til specifikke "
 "bbPress-fora <em>(Pro)</em>"
 
-#: includes/admin.php:2077
+#: includes/admin.php:2132
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "Giv supplerende indholdsrettigheder til en BuddyPress-gruppe <em>(Pro)</em>"
 
-#: includes/admin.php:2081
+#: includes/admin.php:2136
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "WPML integration til at spejle tilladelser til oversættelser <em>(Pro)</em>"
 
-#: includes/admin.php:2085
+#: includes/admin.php:2140
 msgid "Member support forum"
 msgstr "Medlems støtteforum"
 
-#: includes/admin.php:2092
+#: includes/admin.php:2147
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2092
+#: includes/admin.php:2147
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (gratis installation)"
 
-#: includes/admin.php:2094
+#: includes/admin.php:2149
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2094
+#: includes/admin.php:2149
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s info/køb"
 
-#: includes/admin.php:2126
+#: includes/admin.php:2182
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -986,33 +991,37 @@ msgstr ""
 "berettigelse til Post Author tildeling og begrænser anvendelsen af "
 "brugerredigeringsmuligheder."
 
-#: includes/admin.php:2128
+#: includes/admin.php:2184
 msgid "Level:"
 msgstr "Niveau:"
 
-#: includes/admin.php:2171
+#: includes/admin.php:2228
 msgid "Create this role definition in new (future) sites"
 msgstr "Opret denne rolledefinition i nye (fremtidige) websteder"
 
-#: includes/admin.php:2171
+#: includes/admin.php:2228
 msgid "Include in new sites."
 msgstr "Inkluder i nye websteder."
 
-#: includes/admin.php:2174
+#: includes/admin.php:2231
 msgid "Copy / update this role definition to all sites now"
 msgstr "Kopier / opdater denne rolledefinition til alle websteder nu"
 
-#: includes/admin.php:2174
+#: includes/admin.php:2231
 msgid "Sync role to all sites."
 msgstr "Synk rolle til alle sider."
 
-#: includes/admin.php:2177
+#: includes/admin.php:2234
 msgid "Copy option settings to all sites now"
 msgstr "Kopier indstillingsmuligheder til alle sider nu"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2234
 msgid "Sync options to all sites."
 msgstr "Synk indstillinger til alle sider."
+
+#: includes/application-passwords.php:220
+msgid "Unnamed application password"
+msgstr "Udenavnede applikationsadgangskode"
 
 #: includes/backup-handler.php:15
 msgid "You do not have permission to restore backup."
@@ -1090,7 +1099,7 @@ msgid "Restore"
 msgstr "Gendan"
 
 #: includes/backup.php:49
-#: includes/functions-admin.php:567, fuzzy
+#: includes/functions-admin.php:572, fuzzy
 msgid "Backup"
 msgstr "Backup"
 
@@ -1339,7 +1348,7 @@ msgid "Edit"
 msgstr "Rediger"
 
 #: includes/features/admin-features.php:345
-#: includes/functions-admin.php:420
+#: includes/functions-admin.php:425
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
@@ -1375,8 +1384,14 @@ msgid "Hide Submenus"
 msgstr "Skjul undermenuer"
 
 #: includes/features/admin-styles/admin-styles-ui.php:55
-msgid "Select a preset font family"
-msgstr "Vælg en forudindstillet skrifttypefamilie"
+#: includes/features/admin-styles/admin-styles-ui.php:627
+#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:713
+#: includes/features/admin-styles/admin-styles-ui.php:714
+#: includes/features/admin-styles/admin-styles.php:2341
+#: includes/features/admin-styles/admin-styles.php:2423
+msgid "Default"
+msgstr "Standard"
 
 #: includes/features/admin-styles/admin-styles-ui.php:105
 #, php-format
@@ -1398,8 +1413,8 @@ msgstr "Admin stilarter gemt succesfuldt."
 
 #: includes/features/admin-styles/admin-styles-ui.php:140
 #: includes/functions-admin.php:233
-#: includes/functions-admin.php:424
-#: includes/functions-admin.php:516
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:521
 msgid "Admin Styles"
 msgstr "Admin stilarter"
 
@@ -1506,7 +1521,7 @@ msgid "Remove"
 msgstr "Fjern"
 
 #: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:874
+#: includes/features/admin-styles/admin-styles.php:1191
 msgid "Custom Style Name"
 msgstr "Navn på brugerdefineret stil"
 
@@ -1551,7 +1566,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:520
 #: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:854
+#: includes/features/admin-styles/admin-styles.php:1171
 msgid "Select Image"
 msgstr "Vælg billede"
 
@@ -1597,15 +1612,6 @@ msgstr ""
 "Indstil en grundlæggende skrifttype størrelse for adminområdet. Lad stå "
 "tomt for at bruge den standard WordPress størrelse."
 
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/admin-styles/admin-styles-ui.php:628
-#: includes/features/admin-styles/admin-styles-ui.php:713
-#: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2024
-#: includes/features/admin-styles/admin-styles.php:2106
-msgid "Default"
-msgstr "Standard"
-
 #: includes/features/admin-styles/admin-styles-ui.php:630
 #: includes/features/admin-styles/admin-styles-ui.php:716
 msgid "Named Sizes"
@@ -1629,7 +1635,7 @@ msgid "Body Text"
 msgstr "Brødtekst"
 
 #: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:1771, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2088, fuzzy
 msgid "Links"
 msgstr "Links"
 
@@ -1638,12 +1644,12 @@ msgid "Headings"
 msgstr "Overskrifter"
 
 #: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:1895, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2212, fuzzy
 msgid "Admin Menu"
 msgstr "Admin Menu"
 
 #: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:1937, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2254, fuzzy
 msgid "Admin Bar"
 msgstr "Admin Bar"
 
@@ -1652,7 +1658,7 @@ msgid "Form Fields"
 msgstr "Formfelter"
 
 #: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:1865
+#: includes/features/admin-styles/admin-styles.php:2182
 msgid "Buttons"
 msgstr "Knapper"
 
@@ -1758,478 +1764,478 @@ msgstr "Erstat \"Howdy\" tekst"
 msgid "How to use Admin Styles"
 msgstr "Hvordan man bruger Admin Styles"
 
-#: includes/features/admin-styles/admin-styles.php:541
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Security check failed."
 msgstr "Sikkerhedstjek fejlede."
 
-#: includes/features/admin-styles/admin-styles.php:546
-#: includes/manager.php:743
+#: includes/features/admin-styles/admin-styles.php:860
+#: includes/manager.php:764
 msgid "You do not have permission to manage admin styles."
 msgstr "Du har ikke tilladelse til at administrere admin styles."
 
-#: includes/features/admin-styles/admin-styles.php:609
+#: includes/features/admin-styles/admin-styles.php:923
 msgid "No role specified."
 msgstr "Ingen rolle angivet."
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:1172
 msgid "Use this Image"
 msgstr "Brug dette billede"
 
-#: includes/features/admin-styles/admin-styles.php:856
+#: includes/features/admin-styles/admin-styles.php:1173
 msgid "Saving..."
 msgstr "Gemmer..."
 
-#: includes/features/admin-styles/admin-styles.php:857
+#: includes/features/admin-styles/admin-styles.php:1174
 msgid "Settings saved."
 msgstr "Indstillinger gemt."
 
-#: includes/features/admin-styles/admin-styles.php:859
+#: includes/features/admin-styles/admin-styles.php:1176
 msgid "Current logo preview"
 msgstr "Aktuel logo forhåndsvisning"
 
-#: includes/features/admin-styles/admin-styles.php:860
+#: includes/features/admin-styles/admin-styles.php:1177
 msgid "Add New Custom Style"
 msgstr "Tilføj ny brugerdefineret stil"
 
-#: includes/features/admin-styles/admin-styles.php:861
+#: includes/features/admin-styles/admin-styles.php:1178
 msgid "Edit Custom Style"
 msgstr "Rediger brugerdefineret stil"
 
-#: includes/features/admin-styles/admin-styles.php:862
+#: includes/features/admin-styles/admin-styles.php:1179
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Er du sikker på, at du vil slette \"%s\" brugerdefineret stil?"
 
-#: includes/features/admin-styles/admin-styles.php:863
+#: includes/features/admin-styles/admin-styles.php:1180
 msgid "this custom style"
 msgstr "denne brugerdefinerede stil"
 
-#: includes/features/admin-styles/admin-styles.php:864
+#: includes/features/admin-styles/admin-styles.php:1181
 msgid "Primary Button"
 msgstr "Primær knap"
 
-#: includes/features/admin-styles/admin-styles.php:865
+#: includes/features/admin-styles/admin-styles.php:1182
 msgid "Hover State"
 msgstr "Hover tilstand"
 
-#: includes/features/admin-styles/admin-styles.php:866
+#: includes/features/admin-styles/admin-styles.php:1183
 msgid "Notification"
 msgstr "Notifikation"
 
-#: includes/features/admin-styles/admin-styles.php:867
+#: includes/features/admin-styles/admin-styles.php:1184
 msgid "Live preview of your custom color scheme"
 msgstr "Live forhåndsvisning af dit tilpassede farveskema"
 
-#: includes/features/admin-styles/admin-styles.php:868
+#: includes/features/admin-styles/admin-styles.php:1185
 msgid "Custom Style Name is required."
 msgstr "Tilpasset stilnavn er påkrævet."
 
-#: includes/features/admin-styles/admin-styles.php:869
+#: includes/features/admin-styles/admin-styles.php:1186
 msgid "Main Admin Color is required."
 msgstr "Hovedadministrator farve er påkrævet."
 
-#: includes/features/admin-styles/admin-styles.php:870, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1187, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:871
+#: includes/features/admin-styles/admin-styles.php:1188
 msgid "Display Name"
 msgstr "Visningsnavn"
 
-#: includes/features/admin-styles/admin-styles.php:872
+#: includes/features/admin-styles/admin-styles.php:1189
 msgid "Change how this style is displayed"
 msgstr "Ændr hvordan denne stil vises"
 
-#: includes/features/admin-styles/admin-styles.php:873
+#: includes/features/admin-styles/admin-styles.php:1190
 msgid "Enter a name for your custom style"
 msgstr "Indtast et navn til din tilpassede stil"
 
-#: includes/features/admin-styles/admin-styles.php:887
+#: includes/features/admin-styles/admin-styles.php:1204
 msgid "Forest"
 msgstr "Skov"
 
-#: includes/features/admin-styles/admin-styles.php:904
+#: includes/features/admin-styles/admin-styles.php:1221
 msgid "Mint Breeze"
 msgstr "Mintbrise"
 
-#: includes/features/admin-styles/admin-styles.php:921
+#: includes/features/admin-styles/admin-styles.php:1238
 msgid "Cherry"
 msgstr "Kirsebær"
 
-#: includes/features/admin-styles/admin-styles.php:938
+#: includes/features/admin-styles/admin-styles.php:1255
 msgid "Graphite"
 msgstr "Grafit"
 
-#: includes/features/admin-styles/admin-styles.php:955
+#: includes/features/admin-styles/admin-styles.php:1272
 msgid "Midnight Teal"
 msgstr "Midnatsteal"
 
-#: includes/features/admin-styles/admin-styles.php:972
+#: includes/features/admin-styles/admin-styles.php:1289
 msgid "Sunrise"
 msgstr "Solopgang"
 
-#: includes/features/admin-styles/admin-styles.php:989
+#: includes/features/admin-styles/admin-styles.php:1306
 msgid "Desert Sand"
 msgstr "Ørken Sand"
 
-#: includes/features/admin-styles/admin-styles.php:1006
+#: includes/features/admin-styles/admin-styles.php:1323
 msgid "Amber Glow"
 msgstr "Amber Glød"
 
-#: includes/features/admin-styles/admin-styles.php:1023, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1340, fuzzy
 msgid "Citrus"
 msgstr "Citrus"
 
-#: includes/features/admin-styles/admin-styles.php:1040
+#: includes/features/admin-styles/admin-styles.php:1357
 msgid "Ocean Deep"
 msgstr "Ocean Dyb"
 
-#: includes/features/admin-styles/admin-styles.php:1057
+#: includes/features/admin-styles/admin-styles.php:1374
 msgid "Sage"
 msgstr "Salvie"
 
-#: includes/features/admin-styles/admin-styles.php:1074
+#: includes/features/admin-styles/admin-styles.php:1391
 msgid "Modern Slate"
 msgstr "Moderne Skifer"
 
-#: includes/features/admin-styles/admin-styles.php:1091, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1408, fuzzy
 msgid "Royal Plum"
 msgstr "Royal Plum"
 
-#: includes/features/admin-styles/admin-styles.php:1108, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1425, fuzzy
 msgid "Nordic"
 msgstr "Nordic"
 
-#: includes/features/admin-styles/admin-styles.php:1125, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1442, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1142, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1459, fuzzy
 msgid "Ink"
 msgstr "Ink"
 
-#: includes/features/admin-styles/admin-styles.php:1159, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1476, fuzzy
 msgid "Orchid"
 msgstr "Orchid"
 
-#: includes/features/admin-styles/admin-styles.php:1176, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1493, fuzzy
 msgid "Cobalt"
 msgstr "Cobalt"
 
-#: includes/features/admin-styles/admin-styles.php:1193, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1510, fuzzy
 msgid "Stone"
 msgstr "Stone"
 
-#: includes/features/admin-styles/admin-styles.php:1210, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1527, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1227, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1544, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1244, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1561, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:1746, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2063, fuzzy
 msgid "Main Admin Color settings"
 msgstr "Main Admin Color settings"
 
-#: includes/features/admin-styles/admin-styles.php:1749, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2066, fuzzy
 msgid "Main Admin Color"
 msgstr "Main Admin Color"
 
-#: includes/features/admin-styles/admin-styles.php:1750, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2067, fuzzy
 msgid "Primary brand color"
 msgstr "Primary brand color"
 
-#: includes/features/admin-styles/admin-styles.php:1753, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2070, fuzzy
 msgid "Text Color"
 msgstr "Text Color"
 
-#: includes/features/admin-styles/admin-styles.php:1754, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2071, fuzzy
 msgid "Primary text color"
 msgstr "Primary text color"
 
-#: includes/features/admin-styles/admin-styles.php:1757, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2074, fuzzy
 msgid "Highlight Color"
 msgstr "Highlight Color"
 
-#: includes/features/admin-styles/admin-styles.php:1758, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2075, fuzzy
 msgid "Used for hovers and highlights"
 msgstr "Used for hovers and highlights"
 
-#: includes/features/admin-styles/admin-styles.php:1761, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2078, fuzzy
 msgid "Notification Color"
 msgstr "Notification Color"
 
-#: includes/features/admin-styles/admin-styles.php:1762, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2079, fuzzy
 msgid "Used for alerts and notifications"
 msgstr "Used for alerts and notifications"
 
-#: includes/features/admin-styles/admin-styles.php:1765, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2082, fuzzy
 msgid "Background Color"
 msgstr "Background Color"
 
-#: includes/features/admin-styles/admin-styles.php:1766
+#: includes/features/admin-styles/admin-styles.php:2083
 msgid "Page background color"
 msgstr "Baggrundsfarve for siden"
 
-#: includes/features/admin-styles/admin-styles.php:1772
+#: includes/features/admin-styles/admin-styles.php:2089
 msgid "Link element colors"
 msgstr "Farver for linkelementer"
 
-#: includes/features/admin-styles/admin-styles.php:1775
+#: includes/features/admin-styles/admin-styles.php:2092
 msgid "Default Link Color"
 msgstr "Standard linkfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1776
+#: includes/features/admin-styles/admin-styles.php:2093
 msgid "Standard link color"
 msgstr "Standard linkfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1779
+#: includes/features/admin-styles/admin-styles.php:2096
 msgid "Link Hover Color"
 msgstr "Link hoverfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1780
+#: includes/features/admin-styles/admin-styles.php:2097
 msgid "Color on hover"
 msgstr "Farve ved hover"
 
-#: includes/features/admin-styles/admin-styles.php:1783
+#: includes/features/admin-styles/admin-styles.php:2100
 msgid "Delete Link Color"
 msgstr "Slet linkfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1784
+#: includes/features/admin-styles/admin-styles.php:2101
 msgid "Color for delete/trash actions"
 msgstr "Farve til sletning/skraldehandlinger"
 
-#: includes/features/admin-styles/admin-styles.php:1787
+#: includes/features/admin-styles/admin-styles.php:2104
 msgid "Trash Link Color"
 msgstr "Skrald linkfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1788
+#: includes/features/admin-styles/admin-styles.php:2105
 msgid "Color for trash actions"
 msgstr "Farve til skraldehandlinger"
 
-#: includes/features/admin-styles/admin-styles.php:1791
+#: includes/features/admin-styles/admin-styles.php:2108
 msgid "Spam Link Color"
 msgstr "Spam linkfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1792
+#: includes/features/admin-styles/admin-styles.php:2109
 msgid "Color for spam actions"
 msgstr "Farve til spamhandlinger"
 
-#: includes/features/admin-styles/admin-styles.php:1795
+#: includes/features/admin-styles/admin-styles.php:2112
 msgid "Inactive Link Color"
 msgstr "Inaktiv linkfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1796
+#: includes/features/admin-styles/admin-styles.php:2113
 msgid "Color for inactive items"
 msgstr "Farve for inaktive elementer"
 
-#: includes/features/admin-styles/admin-styles.php:1801
+#: includes/features/admin-styles/admin-styles.php:2118
 msgid "Tables"
 msgstr "Tabeller"
 
-#: includes/features/admin-styles/admin-styles.php:1802
+#: includes/features/admin-styles/admin-styles.php:2119
 msgid "Table element colors"
 msgstr "Farver for tabel elementer"
 
-#: includes/features/admin-styles/admin-styles.php:1805
+#: includes/features/admin-styles/admin-styles.php:2122
 msgid "Table Header Background"
 msgstr "Baggrund for tabeloverskrift"
 
-#: includes/features/admin-styles/admin-styles.php:1809
+#: includes/features/admin-styles/admin-styles.php:2126
 msgid "Table Header Text"
 msgstr "Tabeloverskrift tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1813
+#: includes/features/admin-styles/admin-styles.php:2130
 msgid "Table Row Background"
 msgstr "Baggrund for tabelrække"
 
-#: includes/features/admin-styles/admin-styles.php:1817
+#: includes/features/admin-styles/admin-styles.php:2134
 msgid "Table Row Text Color"
 msgstr "Tekstfarve for tabelrække"
 
-#: includes/features/admin-styles/admin-styles.php:1821
+#: includes/features/admin-styles/admin-styles.php:2138
 msgid "Row Hover Background"
 msgstr "Række Hover Baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1825
+#: includes/features/admin-styles/admin-styles.php:2142
 msgid "Table Border Color"
 msgstr "Tabel Kantfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1829
+#: includes/features/admin-styles/admin-styles.php:2146
 msgid "Alternate Row Background"
 msgstr "Alternativ Række Baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1833
+#: includes/features/admin-styles/admin-styles.php:2150
 msgid "Alternate Row Text Color"
 msgstr "Alternativ Række Tekstfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1839
+#: includes/features/admin-styles/admin-styles.php:2156
 msgid "Forms"
 msgstr "Formularer"
 
-#: includes/features/admin-styles/admin-styles.php:1840
+#: includes/features/admin-styles/admin-styles.php:2157
 msgid "Form input colors"
 msgstr "Formular inputfarver"
 
-#: includes/features/admin-styles/admin-styles.php:1843
+#: includes/features/admin-styles/admin-styles.php:2160
 msgid "Input Border Color"
 msgstr "Input Kantfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1847
+#: includes/features/admin-styles/admin-styles.php:2164
 msgid "Input Focus Border"
 msgstr "Input Fokus Kant"
 
-#: includes/features/admin-styles/admin-styles.php:1851
+#: includes/features/admin-styles/admin-styles.php:2168
 msgid "Input Background Color"
 msgstr "Input Baggrundsfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1855
+#: includes/features/admin-styles/admin-styles.php:2172
 msgid "Input Text Color"
 msgstr "Input Tekstfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1859
+#: includes/features/admin-styles/admin-styles.php:2176
 msgid "Placeholder Text Color"
 msgstr "Pladsholder Tekstfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1866
+#: includes/features/admin-styles/admin-styles.php:2183
 msgid "Button colors"
 msgstr "Knapfarver"
 
-#: includes/features/admin-styles/admin-styles.php:1869
+#: includes/features/admin-styles/admin-styles.php:2186
 msgid "Primary Button Background"
 msgstr "Primær Knap Baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1873
+#: includes/features/admin-styles/admin-styles.php:2190
 msgid "Primary Button Text"
 msgstr "Primær Knap Tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1877
+#: includes/features/admin-styles/admin-styles.php:2194
 msgid "Primary Button Hover"
 msgstr "Primær Knap Hover"
 
-#: includes/features/admin-styles/admin-styles.php:1881
+#: includes/features/admin-styles/admin-styles.php:2198
 msgid "Secondary Button Background"
 msgstr "Sekundær Knap Baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1885
+#: includes/features/admin-styles/admin-styles.php:2202
 msgid "Secondary Button Text"
 msgstr "Sekundær Knap Tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1889
+#: includes/features/admin-styles/admin-styles.php:2206
 msgid "Secondary Button Hover"
 msgstr "Sekundær Knap Hover"
 
-#: includes/features/admin-styles/admin-styles.php:1896
+#: includes/features/admin-styles/admin-styles.php:2213
 msgid "Admin menu colors"
 msgstr "Admin menu farver"
 
-#: includes/features/admin-styles/admin-styles.php:1899
+#: includes/features/admin-styles/admin-styles.php:2216
 msgid "Menu Background"
 msgstr "Menu Baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1903
+#: includes/features/admin-styles/admin-styles.php:2220
 msgid "Menu Text Color"
 msgstr "Menu tekstfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1907
+#: includes/features/admin-styles/admin-styles.php:2224
 msgid "Menu Icon Color"
 msgstr "Menu ikonfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1911
+#: includes/features/admin-styles/admin-styles.php:2228
 msgid "Menu Hover Background"
 msgstr "Menu hover baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1915
+#: includes/features/admin-styles/admin-styles.php:2232
 msgid "Menu Hover Text"
 msgstr "Menu hover tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1919
+#: includes/features/admin-styles/admin-styles.php:2236
 msgid "Current Menu Background"
 msgstr "Aktuel menu baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1923
+#: includes/features/admin-styles/admin-styles.php:2240
 msgid "Current Menu Text"
 msgstr "Aktuel menu tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1927
+#: includes/features/admin-styles/admin-styles.php:2244
 msgid "Submenu Background"
 msgstr "Undermenu baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1931
+#: includes/features/admin-styles/admin-styles.php:2248
 msgid "Submenu Text Color"
 msgstr "Undermenu tekstfarve"
 
-#: includes/features/admin-styles/admin-styles.php:1938
+#: includes/features/admin-styles/admin-styles.php:2255
 msgid "Admin bar colors"
 msgstr "Admin bar farver"
 
-#: includes/features/admin-styles/admin-styles.php:1941
+#: includes/features/admin-styles/admin-styles.php:2258
 msgid "Admin Bar Background"
 msgstr "Admin bar baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1945
+#: includes/features/admin-styles/admin-styles.php:2262
 msgid "Admin Bar Text"
 msgstr "Admin bar tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1949
+#: includes/features/admin-styles/admin-styles.php:2266
 msgid "Admin Bar Icon"
 msgstr "Admin bar ikon"
 
-#: includes/features/admin-styles/admin-styles.php:1953
+#: includes/features/admin-styles/admin-styles.php:2270
 msgid "Admin Bar Hover Background"
 msgstr "Admin bar hover baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1957
+#: includes/features/admin-styles/admin-styles.php:2274
 msgid "Admin Bar Hover Text"
 msgstr "Admin bar hover tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1963
+#: includes/features/admin-styles/admin-styles.php:2280
 msgid "Dashboard Widgets"
 msgstr "Dashboard widgets"
 
-#: includes/features/admin-styles/admin-styles.php:1964
+#: includes/features/admin-styles/admin-styles.php:2281
 msgid "Dashboard widget colors"
 msgstr "Dashboard widget farver"
 
-#: includes/features/admin-styles/admin-styles.php:1967
+#: includes/features/admin-styles/admin-styles.php:2284
 msgid "Widget Background"
 msgstr "Widget baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1971
+#: includes/features/admin-styles/admin-styles.php:2288
 msgid "Widget Border"
 msgstr "Widget kant"
 
-#: includes/features/admin-styles/admin-styles.php:1975
+#: includes/features/admin-styles/admin-styles.php:2292
 msgid "Widget Header Background"
 msgstr "Widget header baggrund"
 
-#: includes/features/admin-styles/admin-styles.php:1979
+#: includes/features/admin-styles/admin-styles.php:2296
 msgid "Widget Title Text"
 msgstr "Widget titel tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1983
+#: includes/features/admin-styles/admin-styles.php:2300
 msgid "Widget Body Text"
 msgstr "Widget Body Tekst"
 
-#: includes/features/admin-styles/admin-styles.php:1987, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2304, fuzzy
 msgid "Widget Link"
 msgstr "Widget Link"
 
-#: includes/features/admin-styles/admin-styles.php:1991, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2308, fuzzy
 msgid "Widget Link Hover"
 msgstr "Widget Link Hover"
 
-#: includes/features/admin-styles/admin-styles.php:1997
+#: includes/features/admin-styles/admin-styles.php:2314
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Avanceret"
 
-#: includes/features/admin-styles/admin-styles.php:1998
+#: includes/features/admin-styles/admin-styles.php:2315
 msgid "Custom selector color rules"
 msgstr "Brugerdefinerede farve regler for vælger"
 
@@ -2283,7 +2289,7 @@ msgid "show Classic Editor controls"
 msgstr "vis klassiske editor kontroller"
 
 #: includes/features/editor-features.php:240
-#: includes/functions-admin.php:415
+#: includes/functions-admin.php:420
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr ""
 "Editor Funktioner giver dig mulighed for at fjerne elementer fra "
@@ -2295,8 +2301,8 @@ msgstr "Sådan bruger du Editor Funktioner"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:695
-#: includes/manager.php:717
+#: includes/manager.php:716
+#: includes/manager.php:738
 msgid "You do not have permission to manage frontend features."
 msgstr "Du har ikke tilladelse til at administrere frontend-funktioner."
 
@@ -2342,8 +2348,8 @@ msgstr "Skjul Twenty Twenty-Three Credit Footer"
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
 #: includes/functions-admin.php:244
-#: includes/functions-admin.php:439
-#: includes/functions-admin.php:553
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:558
 msgid "Frontend Features"
 msgstr "Frontend Funktioner"
 
@@ -2496,7 +2502,7 @@ msgid "Enable Frontend Features for %1$s Role"
 msgstr "Aktivér frontend-funktioner for %1$s rollen"
 
 #: includes/features/frontend-features/frontend-features.php:249
-#: includes/functions-admin.php:440
+#: includes/functions-admin.php:445
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
@@ -2525,7 +2531,7 @@ msgstr ""
 "navigationsmenuer, bedes du tilføje menulinks."
 
 #: includes/features/nav-menus.php:301
-#: includes/functions-admin.php:445
+#: includes/functions-admin.php:450
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr ""
 "Navigationsmenuer gør det muligt at blokere adgangen til frontend-menu "
@@ -2574,7 +2580,7 @@ msgid "Refresh Profile Features"
 msgstr "Opdater profilfunktioner"
 
 #: includes/features/profile-features.php:250
-#: includes/functions-admin.php:430
+#: includes/functions-admin.php:435
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr ""
 "Profilfunktioner giver dig mulighed for at fjerne elementer fra Profil "
@@ -2812,31 +2818,31 @@ msgid "Profile features access enabled for this role."
 msgstr "Adgang til profilfunktioner aktiveret for denne rolle."
 
 #: includes/functions-admin.php:217
-#: includes/functions-admin.php:414
-#: includes/functions-admin.php:502
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:507
 #: includes/roles/class/class-pp-roles-admin.php:523
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Redigeringsfunktioner"
 
 #: includes/functions-admin.php:228
-#: includes/functions-admin.php:419
-#: includes/functions-admin.php:509
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:514
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
 msgstr "Adminfunktioner"
 
 #: includes/functions-admin.php:248
-#: includes/functions-admin.php:429
-#: includes/functions-admin.php:539
+#: includes/functions-admin.php:434
+#: includes/functions-admin.php:544
 #: includes/roles/class/class-pp-roles-admin.php:525
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Profilfunktioner"
 
 #: includes/functions-admin.php:254
-#: includes/functions-admin.php:434
-#: includes/functions-admin.php:546
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:551
 msgid "Redirects"
 msgstr "Omdirigeringer"
 
@@ -2844,7 +2850,11 @@ msgstr "Omdirigeringer"
 msgid "Nav Menu"
 msgstr "Navigationsmenu"
 
-#: includes/functions-admin.php:405
+#: includes/functions-admin.php:262
+msgid "Application Password Capabilities"
+msgstr "Muligheder for applikationsadgangskoder"
+
+#: includes/functions-admin.php:410
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
@@ -2852,19 +2862,19 @@ msgstr ""
 "Roller giver dig mulighed for at oprette, redigere og slette alle "
 "brugerroller på dit site."
 
-#: includes/functions-admin.php:410
+#: includes/functions-admin.php:415
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr ""
 "Kapaciteter giver dig mulighed for at ændre tilladelserne for enhver "
 "brugerrolle."
 
-#: includes/functions-admin.php:425
+#: includes/functions-admin.php:430
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
 "Adminstile giver dig mulighed for at tilpasse administrationsområdet med "
 "din egen branding."
 
-#: includes/functions-admin.php:435
+#: includes/functions-admin.php:440
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
@@ -2872,19 +2882,19 @@ msgstr ""
 "Redirects giver dig mulighed for at omdirigere brugere i en rolle efter "
 "registrering, login eller log ud."
 
-#: includes/functions-admin.php:444
-#: includes/functions-admin.php:560
+#: includes/functions-admin.php:449
+#: includes/functions-admin.php:565
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "Navigationsmenuer"
 
-#: includes/functions-admin.php:449
+#: includes/functions-admin.php:454
 #: includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "Brugerundersøgelse"
 
-#: includes/functions-admin.php:450
+#: includes/functions-admin.php:455
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
@@ -2892,7 +2902,7 @@ msgstr ""
 "Test din side ved straks at logge ind som en anden bruger. Tilgængelige "
 "konti inkluderer enhver, som den aktuelle bruger kan redigere."
 
-#: includes/functions-admin.php:455
+#: includes/functions-admin.php:460
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
@@ -2946,181 +2956,188 @@ msgstr "Ny rolle oprettet."
 msgid "Error: Failed creating the new role."
 msgstr "Fejl: Oprettelse af den nye rolle mislykkedes."
 
-#: includes/handler.php:61
-#: includes/handler.php:87
-#: includes/manager.php:1249
+#: includes/handler.php:71
+#: includes/handler.php:97
+#: includes/manager.php:1277
 msgid "The selected role is not editable."
 msgstr "Den valgte rolle kan ikke redigeres."
 
-#: includes/handler.php:115
+#: includes/handler.php:125
 msgid "Incorrect capability name."
 msgstr "Forkert kapabilitetsnavn."
 
-#: includes/handler.php:120
+#: includes/handler.php:130
 msgid "Type / Taxonomy settings saved."
 msgstr "Type / Taxonomiindstillinger gemt."
 
-#: includes/handler.php:123
+#: includes/handler.php:133
 msgid "Bad form received."
 msgstr "Modtaget forkert formular."
 
-#: includes/handler.php:246
+#: includes/handler.php:256
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "Du kan ikke fjerne Manage Capabilities fra Administratorer"
 
-#: includes/handler.php:300
-#: includes/manager.php:1221
-msgid "Network sync has been queued and will continue in the background."
-msgstr "Netværkssynkronisering er blevet kørt og vil fortsætte i baggrunden."
+#: includes/handler.php:337
+msgid "The selected application password is not editable."
+msgstr "Den valgte applikationsadgangskode kan ikke redigeres."
 
-#: includes/manager.php:240
+#: includes/handler.php:341
+msgid "Application password capabilities saved."
+msgstr "Muligheder for applikationsadgangskoder gemt."
+
+#: includes/manager.php:245
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr "Denne kapabilitet er eksplicit negere. Klik for at tilføje/fjerne normalt."
 
-#: includes/manager.php:248
+#: includes/manager.php:253
 msgid "Explicity negate this capability by storing as disabled"
 msgstr "Eksplicit negere denne kapabilitet ved at gemme som deaktiveret"
 
-#: includes/manager.php:249
+#: includes/manager.php:254
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr "Eksplicit negere disse kapabiliteter ved at gemme som deaktiveret"
 
-#: includes/manager.php:250
+#: includes/manager.php:255
 msgid "Post type registration does not define this capability distinctly"
 msgstr "Post type registrering definerer ikke denne kapabilitet tydeligt"
 
-#: includes/manager.php:252
+#: includes/manager.php:257
 msgid "Add or remove this capability from the WordPress role"
 msgstr "Tilføj eller fjern denne kapabilitet fra WordPress-rollen"
 
-#: includes/manager.php:253
+#: includes/manager.php:258
 msgid "Add or remove capability from the role normally"
 msgstr "Tilføj eller fjern kapabilitet fra rollen normalt"
 
-#: includes/manager.php:254
+#: includes/manager.php:259
 msgid "Are you sure you want to delete this item ?"
 msgstr "Er du sikker på, at du vil slette dette element?"
 
-#: includes/manager.php:255
+#: includes/manager.php:260
 msgid "Add or clear custom item entry before saving changes."
 msgstr "Tilføj eller ryd indtastning af brugerdefineret element før gemme ændringer."
 
-#: includes/manager.php:515
+#: includes/manager.php:536
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:175
 msgid "Role Name"
 msgstr "Rolle Navn"
 
-#: includes/manager.php:517
+#: includes/manager.php:538
 #: includes/roles/class/class-pp-roles-list-table.php:177
 msgid "Role Type"
 msgstr "Rolle Type"
 
-#: includes/manager.php:518
+#: includes/manager.php:539
 #: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Default Role"
 msgstr "Standard Rolle"
 
-#: includes/manager.php:519
+#: includes/manager.php:540
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Admin Access"
 msgstr "Admin Adgang"
 
-#: includes/manager.php:546
+#: includes/manager.php:567
 msgid "You do not have permission to manage roles."
 msgstr "Du har ikke tilladelse til at administrere roller."
 
-#: includes/manager.php:569
-#: includes/manager.php:591
+#: includes/manager.php:590
+#: includes/manager.php:612
 msgid "You do not have permission to manage editor features."
 msgstr "Du har ikke tilladelse til at administrere redaktørfunktioner."
 
-#: includes/manager.php:626
-#: includes/manager.php:680
-#: includes/manager.php:728
-#: includes/manager.php:822
-#: includes/manager.php:871
-#: includes/manager.php:953
-#: includes/manager.php:1034
+#: includes/manager.php:647
+#: includes/manager.php:701
+#: includes/manager.php:749
+#: includes/manager.php:843
+#: includes/manager.php:892
+#: includes/manager.php:974
+#: includes/manager.php:1055
 msgid "Settings updated."
 msgstr "Indstillinger opdateret."
 
-#: includes/manager.php:642
-#: includes/manager.php:664
-#: includes/manager.php:836
-#: includes/manager.php:887
-#: includes/manager.php:1051
+#: includes/manager.php:663
+#: includes/manager.php:685
+#: includes/manager.php:857
+#: includes/manager.php:908
+#: includes/manager.php:1072
 msgid "You do not have permission to manage admin features."
 msgstr "Du har ikke tilladelse til at administrere adminfunktioner."
 
-#: includes/manager.php:858
+#: includes/manager.php:879
 msgid "You do not have permission to manage navigation menus."
 msgstr "Du har ikke tilladelse til at administrere navigationsmenuer."
 
-#: includes/manager.php:909
+#: includes/manager.php:930
 msgid "You do not have permission to manage profile features."
 msgstr "Du har ikke tilladelse til at administrere profilfunktioner."
 
-#: includes/manager.php:969
+#: includes/manager.php:990
 msgid "You do not have permission to manage redirect."
 msgstr "Du har ikke tilladelse til at administrere omdirigering."
 
-#: includes/manager.php:991
+#: includes/manager.php:1012
 msgid "Invalid form. Reload this page and try again."
 msgstr "Ugyldig formular. Genindlæs denne side og prøv igen."
 
-#: includes/manager.php:1143
-#: includes/manager.php:1192
-#: includes/manager.php:1210
+#: includes/manager.php:1164
+#: includes/manager.php:1215
+#: includes/manager.php:1233
 msgid "You do not have permission to manage capabilities."
 msgstr "Du har ikke tilladelse til at administrere kapabiliteter."
 
-#: includes/manager.php:1219
+#: includes/manager.php:1242
 msgid "Network sync completed."
 msgstr "Netværkssynkronisering fuldført."
 
-#: includes/manager.php:1237
+#: includes/manager.php:1244
+msgid "Network sync has been queued and will continue in the background."
+msgstr "Netværkssynkronisering er blevet kørt og vil fortsætte i baggrunden."
+
+#: includes/manager.php:1260
 msgid "New capability added to role."
 msgstr "Ny kapabilitet tilføjet til rolle."
 
-#: includes/manager.php:1278
+#: includes/manager.php:1306
 msgid "Bad form Received"
 msgstr "Dårlig formular modtaget"
 
-#: includes/manager.php:1398
+#: includes/manager.php:1435
 msgid "You do not have permission to restore roles."
 msgstr "Du har ikke tilladelse til at gendanne roller."
 
-#: includes/manager.php:1436
+#: includes/manager.php:1473
 msgid "You do not have permission to perform this action."
 msgstr "Du har ikke tilladelse til at udføre denne handling."
 
-#: includes/manager.php:1597
+#: includes/manager.php:1634
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Hvis du kan lide %s, så giv os venligst en %s vurdering. Tak!"
 
-#: includes/manager.php:1608
+#: includes/manager.php:1645
 msgid "About PublishPress Capabilities"
 msgstr "Om PublishPress Kapabiliteter"
 
-#: includes/manager.php:1608
+#: includes/manager.php:1645
 msgid "About"
 msgstr "Om"
 
-#: includes/manager.php:1610
+#: includes/manager.php:1647
 msgid "Capabilites Documentation"
 msgstr "Kapabiliteter Dokumentation"
 
-#: includes/manager.php:1610
+#: includes/manager.php:1647
 msgid "Documentation"
 msgstr "Dokumentation"
 
-#: includes/manager.php:1612
+#: includes/manager.php:1649
 msgid "Contact the PublishPress team"
 msgstr "Kontakt PublishPress-teamet"
 
-#: includes/manager.php:1612
+#: includes/manager.php:1649
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -3829,7 +3846,7 @@ msgstr ""
 "wp_get_referer() begrænsning."
 
 #: includes/settings-ui.php:109
-#: includes/settings-ui.php:149
+#: includes/settings-ui.php:165
 msgid "Show private post types"
 msgstr "Vis private indlægstyper"
 
@@ -3853,7 +3870,19 @@ msgstr ""
 "Dette vil vise alle taksonomier på \"Kapabiliteter\" skærm, selv dem der "
 "normalt er skjult i WordPress admin område."
 
-#: includes/settings-ui.php:154
+#: includes/settings-ui.php:141
+msgid "Application password capabilities"
+msgstr "Muligheder for applikationsadgangskoder"
+
+#: includes/settings-ui.php:146
+msgid ""
+"Allow the Capabilities screen to deny selected capabilities for individual "
+"WordPress application passwords."
+msgstr ""
+"Tillad, at skærmen til muligheder nægter valgte muligheder for individuelle "
+"WordPress applikationsadgangskoder."
+
+#: includes/settings-ui.php:170
 msgid ""
 "Show all post types on the \"Editor Features\" screen, even ones normally "
 "hidden in the WordPress admin area."
@@ -3861,55 +3890,55 @@ msgstr ""
 "Vis alle indlægstyper på \"Redigeringsfunktioner\" skærm, selv dem der "
 "normalt er skjult i WordPress admin område."
 
-#: includes/settings-ui.php:165
+#: includes/settings-ui.php:181
 msgid "Enable Classic Editor tab"
 msgstr "Aktiver Classic Editor fanen"
 
-#: includes/settings-ui.php:170
+#: includes/settings-ui.php:186
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
 msgstr "Vis altid Classic Editor fanen i \"Redigeringsfunktioner\" skærm."
 
-#: includes/settings-ui.php:186
+#: includes/settings-ui.php:202
 msgid "Admin Bar modification"
 msgstr "Admin Bar ændring"
 
-#: includes/settings-ui.php:191
+#: includes/settings-ui.php:207
 msgid "When testing, display a caption and return link in the Admin Bar."
 msgstr "Når du tester, vis en overskrift og retur-link i Admin Bar."
 
-#: includes/settings-ui.php:202
+#: includes/settings-ui.php:218
 msgid "Admin Bar search"
 msgstr "Admin Bar søgning"
 
-#: includes/settings-ui.php:207
+#: includes/settings-ui.php:223
 msgid "Add option to search and user testing in the Admin Bar."
 msgstr "Tilføj mulighed for at søge og brugertest i Admin Bar."
 
-#: includes/settings-ui.php:218
+#: includes/settings-ui.php:234
 msgid "Front End footer notice"
 msgstr "Front End footer meddelelse"
 
-#: includes/settings-ui.php:223
+#: includes/settings-ui.php:239
 msgid "When testing, display a return link in the front end footer."
 msgstr "Når du tester, vis et retur-link i front end footer."
 
-#: includes/settings-ui.php:234
+#: includes/settings-ui.php:250
 msgid "Exclude role from User Testing"
 msgstr "Udeluk rolle fra brugertestning"
 
-#: includes/settings-ui.php:241
+#: includes/settings-ui.php:257
 msgid "Select roles..."
 msgstr "Vælg roller..."
 
-#: includes/settings-ui.php:255
+#: includes/settings-ui.php:271
 msgid "Exclude users in selected roles from User Testing."
 msgstr "Udeluk brugere i valgte roller fra brugertestning."
 
-#: includes/settings-ui.php:272
+#: includes/settings-ui.php:288
 msgid "Automatically refresh profile elements"
 msgstr "Opdater profil elementer automatisk"
 
-#: includes/settings-ui.php:277
+#: includes/settings-ui.php:293
 msgid ""
 "Always try to automatically find profile elements. This may cause temporary "
 "issues when updating user roles that do not have access to the WordPress "
