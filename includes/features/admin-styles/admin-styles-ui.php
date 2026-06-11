@@ -52,7 +52,7 @@ if (empty($current_user_color)) {
 $role_caption = translate_user_role($roles[$default_role]);
 
 $font_family_choices = [
-    '' => esc_html__('Select a preset font family', 'capability-manager-enhanced'),
+    '' => esc_html__('Default', 'capability-manager-enhanced'),
     'Arial, sans-serif' => 'Arial',
     'Verdana, sans-serif' => 'Verdana',
     'Tahoma, sans-serif' => 'Tahoma',

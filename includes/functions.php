@@ -1701,6 +1701,10 @@ if (!function_exists('pp_capabilities_feature_enabled')) {
     }
 }
 
+// Application password capability restrictions.
+require_once(dirname(__FILE__) . '/application-passwords.php');
+PP_Capabilities_Application_Password_Capabilities::instance();
+
 //frontend features restrict instance
 require_once(dirname(__FILE__) . '/features/frontend-features/frontend-features-restrict.php');
 \PublishPress\Capabilities\PP_Capabilities_Frontend_Features_Restrict::instance();

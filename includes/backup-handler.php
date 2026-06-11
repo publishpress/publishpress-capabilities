@@ -106,8 +106,8 @@ class Capsman_BackupHandler
                             $section_options = $backup_section['options'];
                             if(is_array($section_options) && !empty($section_options)){
                                 foreach($section_options as $section_option){
-                                    $backup_option = get_option($section_option.'_backup');
-                                    if ($backup_option) {
+                                    $backup_option = get_option($section_option.'_backup', false);
+                                    if (false !== $backup_option) {
                                         $restored_backup[] = $backup_section['label'];
                                         update_option($section_option, $backup_option);
                                     }
