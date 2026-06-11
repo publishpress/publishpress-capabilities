@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-06-11 09:41+0000\n"
+"PO-Revision-Date: 2026-06-11 10:08+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: fa_IR\n"
@@ -104,7 +104,7 @@ msgstr ""
 
 #: includes-core/CoreAdmin.php:92
 #: includes-core/CoreAdmin.php:155
-#: includes/functions-admin.php:531
+#: includes/functions-admin.php:536
 #: includes/roles/class/class-pp-roles-admin.php:526
 msgid "Admin Menus"
 msgstr "منوهای ادمین"
@@ -213,9 +213,9 @@ msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:513
 #: includes/admin-load.php:846
-#: includes/functions-admin.php:409
-#: includes/functions-admin.php:495
-#: includes/manager.php:389
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:500
+#: includes/manager.php:410
 #: includes/roles/class/class-pp-roles-admin.php:637
 #: includes/settings-ui.php:35
 msgid "Capabilities"
@@ -279,8 +279,9 @@ msgid "Dashboard"
 msgstr "داشبورد"
 
 #: includes/admin-load.php:847
-#: includes/functions-admin.php:404
-#: includes/functions-admin.php:488
+#: includes/admin.php:175
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:493
 #: includes/roles/roles.php:8
 #: includes/settings-ui.php:34
 msgid "Roles"
@@ -315,8 +316,8 @@ msgstr "نقش جاری"
 #: includes/admin-notices/admin-notices.php:217
 #: includes/admin-notices/admin-notices.php:220
 #: includes/functions-admin.php:239
-#: includes/functions-admin.php:454
-#: includes/functions-admin.php:523
+#: includes/functions-admin.php:459
+#: includes/functions-admin.php:528
 msgid "Admin Notices"
 msgstr "اعلان‌های مدیر"
 
@@ -333,7 +334,7 @@ msgstr "ذخیره برای تمام نقش‌ها"
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
 #: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:858
+#: includes/features/admin-styles/admin-styles.php:1175
 #, php-format
 msgid "Save for %s"
 msgstr "ذخیره برای %s"
@@ -403,7 +404,7 @@ msgid "Configure notice visibility by user role"
 msgstr "پیکربندی visibility اعلان بر اساس نقش کاربر"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1906
+#: includes/admin.php:1959
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -463,8 +464,8 @@ msgid "Edit the settings."
 msgstr "تنظیمات را ویرایش کنید."
 
 #: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:773
-#: includes/manager.php:797
+#: includes/manager.php:794
+#: includes/manager.php:818
 msgid "You do not have permission to manage admin notices."
 msgstr "شما اجازه مدیریت اعلان‌های ادمین را ندارید."
 
@@ -482,7 +483,7 @@ msgstr "فرم نامعتبر است."
 msgid "Admin notice status updated successfully."
 msgstr "وضعیت اعلان ادمین با موفقیت به‌روزرسانی شد."
 
-#: includes/admin.php:49
+#: includes/admin.php:72
 #, php-format
 msgid ""
 "Warning: This role cannot access the dashboard without the read capability. "
@@ -491,76 +492,80 @@ msgstr ""
 "هشدار: این نقش نمی‌تواند بدون قابلیت خواندن به داشبورد دسترسی داشته باشد. "
 "%1$sبرای حل این مشکل اکنون کلیک کنید%2$s."
 
-#: includes/admin.php:87
+#: includes/admin.php:110
 msgid "Role Capabilities"
 msgstr "قابلیت‌های نقش"
 
-#: includes/admin.php:128
+#: includes/admin.php:151
 msgid "Search capabilities..."
 msgstr "قابلیت‌ها را جستجو کنید..."
 
-#: includes/admin.php:201
-#: includes/admin.php:840
+#: includes/admin.php:166
+msgid "Application Passwords"
+msgstr "رمزهای عبور برنامه"
+
+#: includes/admin.php:248
+#: includes/admin.php:887
 msgid "Nav Menus (Block)"
 msgstr "منوهای ناوبری (بلوک)"
 
-#: includes/admin.php:203
+#: includes/admin.php:250
 msgid "Block"
 msgstr "بلوک"
 
-#: includes/admin.php:210
-#: includes/admin.php:842
+#: includes/admin.php:257
+#: includes/admin.php:889
 msgid "Nav Menus (Legacy)"
 msgstr "منوهای ناوبری (میراث)"
 
-#: includes/admin.php:212
+#: includes/admin.php:259
 msgid "Legacy"
 msgstr "میراث"
 
-#: includes/admin.php:264, fuzzy
+#: includes/admin.php:311, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:265
+#: includes/admin.php:312
 msgid "Visibility"
 msgstr "قابلیت مشاهده"
 
-#: includes/admin.php:266
+#: includes/admin.php:313
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "ویرایش"
 
-#: includes/admin.php:267
+#: includes/admin.php:314
 msgid "Deletion"
 msgstr "حذف"
 
-#: includes/admin.php:268
+#: includes/admin.php:315
 msgid "Taxonomies"
 msgstr "taxonomies"
 
-#: includes/admin.php:272
+#: includes/admin.php:319
 msgid "Listing"
 msgstr "فهرست‌گذاری"
 
-#: includes/admin.php:276
+#: includes/admin.php:323
 msgid "Create Revision"
 msgstr "ایجاد ویرایش"
 
-#: includes/admin.php:280
+#: includes/admin.php:327
 msgid "Submit Revision"
 msgstr "ارسال ویرایش"
 
-#: includes/admin.php:284
+#: includes/admin.php:331
 msgid "Approve Revision"
 msgstr "تأیید ویرایش"
 
-#: includes/admin.php:288
+#: includes/admin.php:335
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 "می‌تواند پست‌هایی را که در حال حاضر با قابلیت دید خصوصی منتشر شده‌اند، "
 "بخواند."
 
-#: includes/admin.php:289
+#: includes/admin.php:336
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -568,25 +573,25 @@ msgstr ""
 "دارای قابلیت ویرایش پایه است (اما ممکن است بسته به وضعیت و مالکیت پست به "
 "قابلیت‌های دیگری نیاز داشته باشد)."
 
-#: includes/admin.php:290
+#: includes/admin.php:337
 msgid "Can edit posts which were created by other users."
 msgstr "می‌تواند پست‌هایی را ویرایش کند که توسط کاربران دیگر ایجاد شده‌اند."
 
-#: includes/admin.php:291
+#: includes/admin.php:338
 msgid "Can edit posts which are currently published."
 msgstr "می‌تواند پست‌هایی را که در حال حاضر منتشر شده‌اند ویرایش کند."
 
-#: includes/admin.php:292
+#: includes/admin.php:339
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
 "می‌تواند پست‌هایی را که در حال حاضر با قابلیت دید خصوصی منتشر شده‌اند "
 "ویرایش کند."
 
-#: includes/admin.php:293
+#: includes/admin.php:340
 msgid "Can make a post publicly visible."
 msgstr "می‌تواند یک پست را به صورت عمومی قابل مشاهده کند."
 
-#: includes/admin.php:294
+#: includes/admin.php:341
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -594,105 +599,105 @@ msgstr ""
 "دارای قابلیت حذف پایه است (اما ممکن است بسته به وضعیت و مالکیت پست به "
 "قابلیت‌های دیگری نیاز داشته باشد)."
 
-#: includes/admin.php:295
+#: includes/admin.php:342
 msgid "Can delete posts which were created by other users."
 msgstr "می‌تواند پست‌هایی را که توسط کاربران دیگر ایجاد شده‌اند، حذف کند."
 
-#: includes/admin.php:296
+#: includes/admin.php:343
 msgid "Can delete posts which are currently published."
 msgstr "می‌تواند پست‌هایی را که در حال حاضر منتشر شده‌اند، حذف کند."
 
-#: includes/admin.php:297
+#: includes/admin.php:344
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
 "می‌تواند پست‌هایی را که در حال حاضر با قابلیت دید خصوصی منتشر شده‌اند، حذف "
 "کند."
 
-#: includes/admin.php:592
-#: includes/admin.php:1107
-#: includes/admin.php:1995
+#: includes/admin.php:639
+#: includes/admin.php:1156
+#: includes/admin.php:2050
 msgid "Multisite"
 msgstr "چند سایته"
 
-#: includes/admin.php:596
-#: includes/admin.php:1111
+#: includes/admin.php:643
+#: includes/admin.php:1160
 msgid "Admin"
 msgstr "admin"
 
-#: includes/admin.php:676
-#: includes/admin.php:1545
+#: includes/admin.php:723
+#: includes/admin.php:1596
 msgid "Invalid Capabilities"
 msgstr "قابلیت‌های نامعتبر"
 
-#: includes/admin.php:681
-#: includes/admin.php:1690
+#: includes/admin.php:728
+#: includes/admin.php:1742
 msgid "Additional"
 msgstr "اضافی"
 
-#: includes/admin.php:715
+#: includes/admin.php:762
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "قابلیت‌های %s"
 
-#: includes/admin.php:718
+#: includes/admin.php:765
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s قابلیت‌ها"
 
-#: includes/admin.php:719
+#: includes/admin.php:766
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "قابلیت‌های پست %s"
 
-#: includes/admin.php:722
+#: includes/admin.php:769
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: includes/admin.php:728
+#: includes/admin.php:775
 msgid "Filter by taxonomy"
 msgstr "فیلتر بر اساس taxonomy"
 
-#: includes/admin.php:728
+#: includes/admin.php:775
 msgid "Filter by post type"
 msgstr "فیلتر بر اساس post type"
 
-#: includes/admin.php:849
+#: includes/admin.php:896
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Slug برای این taxonomy %s است"
 
-#: includes/admin.php:851
+#: includes/admin.php:898
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Slug برای این post type %s است"
 
-#: includes/admin.php:927
-#: includes/admin.php:1173
-#: includes/admin.php:1466
-#: includes/admin.php:1772
-#: includes/admin.php:1773
+#: includes/admin.php:975
+#: includes/admin.php:1223
+#: includes/admin.php:1517
+#: includes/admin.php:1825
+#: includes/admin.php:1826
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: اختصاص داده شده توسط گروه مجوز"
 
-#: includes/admin.php:930
-#: includes/admin.php:1175
-#: includes/admin.php:1468
-#: includes/admin.php:1593
-#: includes/admin.php:1775
+#: includes/admin.php:978
+#: includes/admin.php:1225
+#: includes/admin.php:1519
+#: includes/admin.php:1645
+#: includes/admin.php:1828
 #, php-format
 msgid "This capability is %s"
 msgstr "این قابلیت %s است"
 
-#: includes/admin.php:960
+#: includes/admin.php:1009
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "این قابلیت توسط %s کنترل می‌شود"
 
-#: includes/admin.php:963
+#: includes/admin.php:1012
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -701,16 +706,16 @@ msgstr ""
 "این قابلیت توسط %s کنترل می‌شود. از تنظیمات نوار کناری استفاده کنید تا "
 "اجازه دهید این به طور مستقل کنترل شود."
 
-#: includes/admin.php:980
+#: includes/admin.php:1029
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "از تنظیمات نوار کناری استفاده کنید تا اجازه دهید این به طور مستقل کنترل شود."
 
-#: includes/admin.php:982
-#: includes/admin.php:986
+#: includes/admin.php:1031
+#: includes/admin.php:1035
 msgid "This capability is not available for this post type."
 msgstr "این قابلیت برای این post type در دسترس نیست."
 
-#: includes/admin.php:1050
+#: includes/admin.php:1099
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -722,64 +727,64 @@ msgstr ""
 "موجود نباشد. همچنین، این قابلیت‌های \"لیست\" می‌توانند دسترسی را اعطا کنند، "
 "اما نمی‌توانند دسترسی را رد کنند."
 
-#: includes/admin.php:1127
-#: includes/admin.php:1240
-#: includes/admin.php:1396
-#: includes/admin.php:1661
+#: includes/admin.php:1176
+#: includes/admin.php:1290
+#: includes/admin.php:1446
+#: includes/admin.php:1713
 msgid "Filter by capability"
 msgstr "فیلتر بر اساس قابلیت"
 
-#: includes/admin.php:1130
-#: includes/admin.php:1243
-#: includes/admin.php:1399
-#: includes/admin.php:1664
+#: includes/admin.php:1179
+#: includes/admin.php:1293
+#: includes/admin.php:1449
+#: includes/admin.php:1716
 msgid "No results found. Please try again with a different word."
 msgstr "هیچ نتیجه‌ای پیدا نشد. لطفاً دوباره با کلمه‌ای متفاوت امتحان کنید."
 
-#: includes/admin.php:1141
-#: includes/admin.php:1220
-#: includes/admin.php:1254
-#: includes/admin.php:1260
-#: includes/admin.php:1410
-#: includes/admin.php:1530
-#: includes/admin.php:1670
-#: includes/admin.php:1847
+#: includes/admin.php:1190
+#: includes/admin.php:1270
+#: includes/admin.php:1304
+#: includes/admin.php:1310
+#: includes/admin.php:1460
+#: includes/admin.php:1581
+#: includes/admin.php:1722
+#: includes/admin.php:1900
 msgid "check / uncheck / negate all"
 msgstr "انتخاب / عدم انتخاب / نفی همه"
 
-#: includes/admin.php:1141
-#: includes/admin.php:1220
-#: includes/admin.php:1254
-#: includes/admin.php:1260
-#: includes/admin.php:1410
-#: includes/admin.php:1530
-#: includes/admin.php:1670
-#: includes/admin.php:1847
+#: includes/admin.php:1190
+#: includes/admin.php:1270
+#: includes/admin.php:1304
+#: includes/admin.php:1310
+#: includes/admin.php:1460
+#: includes/admin.php:1581
+#: includes/admin.php:1722
+#: includes/admin.php:1900
 msgid "Capability Name"
 msgstr "نام قابلیت"
 
-#: includes/admin.php:1237
+#: includes/admin.php:1287
 msgid "WordPress Core Capabilities"
 msgstr "قابلیت‌های هسته WordPress"
 
-#: includes/admin.php:1376
-#: includes/admin.php:1430
-#: includes/features/admin-styles/admin-styles.php:1745
+#: includes/admin.php:1426
+#: includes/admin.php:1481
+#: includes/features/admin-styles/admin-styles.php:2062
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "عمومی"
 
-#: includes/admin.php:1393
+#: includes/admin.php:1443
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "قابلیت‌های پلاگین &ndash; %s"
 
-#: includes/admin.php:1472
+#: includes/admin.php:1523
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "ویژگی آزمون کاربر همچنین به قابلیت %1$s edit_users %2$s نیاز دارد."
 
-#: includes/admin.php:1550
+#: includes/admin.php:1601
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -787,26 +792,26 @@ msgstr ""
 "موارد زیر تأثیری ندارند. لطفاً قابلیت‌های مورد نظر را در برگه‌های ویرایش / "
 "حذف / خصوصی تعیین کنید."
 
-#: includes/admin.php:1658
+#: includes/admin.php:1710
 msgid "Additional Capabilities"
 msgstr "قابلیت‌های اضافی"
 
-#: includes/admin.php:1840
+#: includes/admin.php:1893
 msgid "You have no additional capabilities."
 msgstr "شما هیچ قابلیت اضافی ندارید."
 
-#: includes/admin.php:1861
+#: includes/admin.php:1914
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "قابلیت‌ها به شما اجازه می‌دهند که مجوزها را برای هر نقش کاربری تغییر دهید."
 
-#: includes/admin.php:1862
+#: includes/admin.php:1915
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = قابلیت اعطا شده %2$s"
 
-#: includes/admin.php:1862
-#: includes/admin.php:1863
-#: includes/admin.php:1864
+#: includes/admin.php:1915
+#: includes/admin.php:1916
+#: includes/admin.php:1917
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -820,30 +825,30 @@ msgstr "%1$s = قابلیت اعطا شده %2$s"
 msgid "usage key"
 msgstr "کلید استفاده"
 
-#: includes/admin.php:1863
+#: includes/admin.php:1916
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = قابلیت اعطا نشده %2$s"
 
-#: includes/admin.php:1864
+#: includes/admin.php:1917
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = قابلیت رد شده، حتی اگر توسط نقش دیگری اعطا شده باشد %2$s"
 
-#: includes/admin.php:1872
+#: includes/admin.php:1925
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "شما همچنین می‌توانید این نقش را به عنوان یک %sگروه مجوز%s پیکربندی کنید."
 
-#: includes/admin.php:1892
+#: includes/admin.php:1945
 msgid "How to use Capabilities"
 msgstr "نحوه استفاده از قابلیت‌ها"
 
-#: includes/admin.php:1930
+#: includes/admin.php:1983
 msgid "Capabilities is Safe to Use"
 msgstr "قابلیت‌ها ایمن برای استفاده هستند"
 
-#: includes/admin.php:1943
+#: includes/admin.php:1996
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -851,7 +856,7 @@ msgstr ""
 "WordPress قابلیت‌های نقش را در پایگاه داده شما ذخیره می‌کند، جایی که حتی "
 "اگر افزونه غیرفعال شود، باقی می‌مانند."
 
-#: includes/admin.php:1944
+#: includes/admin.php:1997
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -860,27 +865,27 @@ msgstr ""
 "همچنین یک نسخه پشتیبان ایجاد می‌کند که می‌توانید از آن برای بازیابی یک "
 "پیکربندی قبلی استفاده کنید."
 
-#: includes/admin.php:1947
+#: includes/admin.php:2000
 msgid "Go to the Backup feature"
 msgstr "به ویژگی پشتیبان‌گیری بروید"
 
-#: includes/admin.php:1966
+#: includes/admin.php:2020
 msgid "Add a New Capability"
 msgstr "یک قابلیت جدید اضافه کنید"
 
-#: includes/admin.php:1976
+#: includes/admin.php:2030
 msgid "Add to role"
 msgstr "به نقش اضافه کنید"
 
-#: includes/admin.php:1979
+#: includes/admin.php:2033
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "قابلیت‌های جدید در برگه اضافی کنترل می‌شوند."
 
-#: includes/admin.php:2035
+#: includes/admin.php:2090
 msgid "PublishPress Permissions"
 msgstr "مجوزهای PublishPress"
 
-#: includes/admin.php:2037
+#: includes/admin.php:2092
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -888,11 +893,11 @@ msgstr ""
 "به طور خودکار قابلیت‌های خاص نوع را برای نوع‌های پست سفارشی و taxonomies "
 "شما تعریف کنید"
 
-#: includes/admin.php:2041
+#: includes/admin.php:2096
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "نقش‌های استاندارد WP را به صورت مکمل برای یک نوع پست خاص اختصاص دهید"
 
-#: includes/admin.php:2045
+#: includes/admin.php:2100
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -900,15 +905,15 @@ msgstr ""
 "نقش‌های WP سفارشی را به‌طور اضافی برای نوع پست خاص اختصاص دهید "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2049
+#: includes/admin.php:2104
 msgid "Customize reading permissions per-category or per-post"
 msgstr "مجوزهای خواندن را بر اساس دسته یا بر اساس پست سفارشی کنید"
 
-#: includes/admin.php:2053
+#: includes/admin.php:2108
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "مجوزهای ویرایش را بر اساس دسته یا بر اساس پست سفارشی کنید <em>(Pro)</em>"
 
-#: includes/admin.php:2057
+#: includes/admin.php:2112
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -916,7 +921,7 @@ msgstr ""
 "وضعیت‌های دیده‌بانی پست سفارشی، به‌طور کامل در wp-admin پیاده‌سازی شده‌اند "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2061
+#: includes/admin.php:2116
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -924,11 +929,11 @@ msgstr ""
 "وضعیت‌های نظارت سفارشی برای جریان کار انتشار چند مرحله‌ای با کنترل دسترسی "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2065
+#: includes/admin.php:2120
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "مجوزها را برای وضعیت‌های پست Edit Flow تنظیم کنید <em>(Pro)</em>"
 
-#: includes/admin.php:2069
+#: includes/admin.php:2124
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -936,7 +941,7 @@ msgstr ""
 "ویرایش کنترل شده محتوای منتشر شده را با Revisionary یا Post Forking سفارشی "
 "کنید <em>(Pro)</em>"
 
-#: includes/admin.php:2073
+#: includes/admin.php:2128
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -944,39 +949,39 @@ msgstr ""
 "دسترسی به انجمن‌های خاص bbPress را به تماشاگر، شرکت‌کننده یا ناظر اعطا کنید "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2077
+#: includes/admin.php:2132
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "مجوزهای محتوای اضافی را به یک گروه BuddyPress اعطا کنید <em>(Pro)</em>"
 
-#: includes/admin.php:2081
+#: includes/admin.php:2136
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "یکپارچگی WPML برای بازتاب مجوزها به ترجمه‌ها <em>(Pro)</em>"
 
-#: includes/admin.php:2085
+#: includes/admin.php:2140
 msgid "Member support forum"
 msgstr "انجمن پشتیبانی اعضا"
 
-#: includes/admin.php:2092
+#: includes/admin.php:2147
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2092
+#: includes/admin.php:2147
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (نصب رایگان)"
 
-#: includes/admin.php:2094
+#: includes/admin.php:2149
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2094
+#: includes/admin.php:2149
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s اطلاعات/خرید"
 
-#: includes/admin.php:2126
+#: includes/admin.php:2182
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -986,33 +991,37 @@ msgstr ""
 "نویسنده پست را تعیین می‌کند و استفاده از قابلیت‌های ویرایش کاربر را محدود "
 "می‌کند."
 
-#: includes/admin.php:2128
+#: includes/admin.php:2184
 msgid "Level:"
 msgstr "سطح:"
 
-#: includes/admin.php:2171
+#: includes/admin.php:2228
 msgid "Create this role definition in new (future) sites"
 msgstr "این تعریف نقش را در سایت‌های جدید (آینده) ایجاد کنید"
 
-#: includes/admin.php:2171
+#: includes/admin.php:2228
 msgid "Include in new sites."
 msgstr "در سایت‌های جدید شامل شود."
 
-#: includes/admin.php:2174
+#: includes/admin.php:2231
 msgid "Copy / update this role definition to all sites now"
 msgstr "این تعریف نقش را اکنون به تمام سایت‌ها کپی/به‌روز کنید"
 
-#: includes/admin.php:2174
+#: includes/admin.php:2231
 msgid "Sync role to all sites."
 msgstr "نقش‌ها را به تمام سایت‌ها همگام‌سازی کنید."
 
-#: includes/admin.php:2177
+#: includes/admin.php:2234
 msgid "Copy option settings to all sites now"
 msgstr "تنظیمات گزینه‌ها را هم‌اکنون به تمام سایت‌ها کپی کنید"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2234
 msgid "Sync options to all sites."
 msgstr "گزینه‌ها را به تمام سایت‌ها همگام‌سازی کنید."
+
+#: includes/application-passwords.php:220
+msgid "Unnamed application password"
+msgstr "رمز عبور برنامه بدون نام"
 
 #: includes/backup-handler.php:15
 msgid "You do not have permission to restore backup."
@@ -1090,7 +1099,7 @@ msgid "Restore"
 msgstr "بازیابی"
 
 #: includes/backup.php:49
-#: includes/functions-admin.php:567
+#: includes/functions-admin.php:572
 msgid "Backup"
 msgstr "پشتیبان‌گیری"
 
@@ -1338,7 +1347,7 @@ msgid "Edit"
 msgstr "ویرایش"
 
 #: includes/features/admin-features.php:345
-#: includes/functions-admin.php:420
+#: includes/functions-admin.php:425
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
@@ -1374,8 +1383,14 @@ msgid "Hide Submenus"
 msgstr "زیرمنوها را پنهان کنید"
 
 #: includes/features/admin-styles/admin-styles-ui.php:55
-msgid "Select a preset font family"
-msgstr "یک خانواده فونت پیش‌فرض انتخاب کنید"
+#: includes/features/admin-styles/admin-styles-ui.php:627
+#: includes/features/admin-styles/admin-styles-ui.php:628
+#: includes/features/admin-styles/admin-styles-ui.php:713
+#: includes/features/admin-styles/admin-styles-ui.php:714
+#: includes/features/admin-styles/admin-styles.php:2341
+#: includes/features/admin-styles/admin-styles.php:2423
+msgid "Default"
+msgstr "پیش‌فرض"
 
 #: includes/features/admin-styles/admin-styles-ui.php:105
 #, php-format
@@ -1397,8 +1412,8 @@ msgstr "سبک‌های Admin با موفقیت ذخیره شد."
 
 #: includes/features/admin-styles/admin-styles-ui.php:140
 #: includes/functions-admin.php:233
-#: includes/functions-admin.php:424
-#: includes/functions-admin.php:516
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:521
 msgid "Admin Styles"
 msgstr "سبک‌های Admin"
 
@@ -1505,7 +1520,7 @@ msgid "Remove"
 msgstr "حذف"
 
 #: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:874
+#: includes/features/admin-styles/admin-styles.php:1191
 msgid "Custom Style Name"
 msgstr "نام سبک سفارشی"
 
@@ -1550,7 +1565,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:520
 #: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:854
+#: includes/features/admin-styles/admin-styles.php:1171
 msgid "Select Image"
 msgstr "انتخاب تصویر"
 
@@ -1596,15 +1611,6 @@ msgstr ""
 "یک اندازه فونت پایه برای ناحیه ادمین تنظیم کنید. برای استفاده از اندازه "
 "پیش‌فرض WordPress خالی بگذارید."
 
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/admin-styles/admin-styles-ui.php:628
-#: includes/features/admin-styles/admin-styles-ui.php:713
-#: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2024
-#: includes/features/admin-styles/admin-styles.php:2106
-msgid "Default"
-msgstr "پیش‌فرض"
-
 #: includes/features/admin-styles/admin-styles-ui.php:630
 #: includes/features/admin-styles/admin-styles-ui.php:716
 msgid "Named Sizes"
@@ -1628,7 +1634,7 @@ msgid "Body Text"
 msgstr "متن بدنه"
 
 #: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:1771
+#: includes/features/admin-styles/admin-styles.php:2088
 msgid "Links"
 msgstr "لینک‌ها"
 
@@ -1637,12 +1643,12 @@ msgid "Headings"
 msgstr "عناوین"
 
 #: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:1895
+#: includes/features/admin-styles/admin-styles.php:2212
 msgid "Admin Menu"
 msgstr "منوی مدیریت"
 
 #: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:1937
+#: includes/features/admin-styles/admin-styles.php:2254
 msgid "Admin Bar"
 msgstr "نوار مدیریت"
 
@@ -1651,7 +1657,7 @@ msgid "Form Fields"
 msgstr "فیلدهای فرم"
 
 #: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:1865
+#: includes/features/admin-styles/admin-styles.php:2182
 msgid "Buttons"
 msgstr "دکمه‌ها"
 
@@ -1756,478 +1762,478 @@ msgstr "متن \"Howdy\" را جایگزین کنید"
 msgid "How to use Admin Styles"
 msgstr "چگونه از استایل‌های Admin استفاده کنیم"
 
-#: includes/features/admin-styles/admin-styles.php:541
+#: includes/features/admin-styles/admin-styles.php:855
 msgid "Security check failed."
 msgstr "بررسی امنیت ناموفق بود."
 
-#: includes/features/admin-styles/admin-styles.php:546
-#: includes/manager.php:743
+#: includes/features/admin-styles/admin-styles.php:860
+#: includes/manager.php:764
 msgid "You do not have permission to manage admin styles."
 msgstr "شما اجازه مدیریت استایل‌های admin را ندارید."
 
-#: includes/features/admin-styles/admin-styles.php:609
+#: includes/features/admin-styles/admin-styles.php:923
 msgid "No role specified."
 msgstr "نقش مشخص نشده است."
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:1172
 msgid "Use this Image"
 msgstr "از این تصویر استفاده کنید"
 
-#: includes/features/admin-styles/admin-styles.php:856
+#: includes/features/admin-styles/admin-styles.php:1173
 msgid "Saving..."
 msgstr "ذخیره‌سازی..."
 
-#: includes/features/admin-styles/admin-styles.php:857
+#: includes/features/admin-styles/admin-styles.php:1174
 msgid "Settings saved."
 msgstr "تنظیمات ذخیره شد."
 
-#: includes/features/admin-styles/admin-styles.php:859
+#: includes/features/admin-styles/admin-styles.php:1176
 msgid "Current logo preview"
 msgstr "پیش‌نمایش لوگوی فعلی"
 
-#: includes/features/admin-styles/admin-styles.php:860
+#: includes/features/admin-styles/admin-styles.php:1177
 msgid "Add New Custom Style"
 msgstr "استایل سفارشی جدید اضافه کنید"
 
-#: includes/features/admin-styles/admin-styles.php:861
+#: includes/features/admin-styles/admin-styles.php:1178
 msgid "Edit Custom Style"
 msgstr "استایل سفارشی را ویرایش کنید"
 
-#: includes/features/admin-styles/admin-styles.php:862
+#: includes/features/admin-styles/admin-styles.php:1179
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "آیا مطمئن هستید که می‌خواهید استایل سفارشی \"%s\" را حذف کنید؟"
 
-#: includes/features/admin-styles/admin-styles.php:863
+#: includes/features/admin-styles/admin-styles.php:1180
 msgid "this custom style"
 msgstr "این استایل سفارشی"
 
-#: includes/features/admin-styles/admin-styles.php:864
+#: includes/features/admin-styles/admin-styles.php:1181
 msgid "Primary Button"
 msgstr "دکمه اصلی"
 
-#: includes/features/admin-styles/admin-styles.php:865
+#: includes/features/admin-styles/admin-styles.php:1182
 msgid "Hover State"
 msgstr "حالت هاور"
 
-#: includes/features/admin-styles/admin-styles.php:866
+#: includes/features/admin-styles/admin-styles.php:1183
 msgid "Notification"
 msgstr "اطلاعیه"
 
-#: includes/features/admin-styles/admin-styles.php:867
+#: includes/features/admin-styles/admin-styles.php:1184
 msgid "Live preview of your custom color scheme"
 msgstr "پیش‌نمایش زنده از طرح رنگ سفارشی شما"
 
-#: includes/features/admin-styles/admin-styles.php:868
+#: includes/features/admin-styles/admin-styles.php:1185
 msgid "Custom Style Name is required."
 msgstr "نام سبک سفارشی الزامی است."
 
-#: includes/features/admin-styles/admin-styles.php:869
+#: includes/features/admin-styles/admin-styles.php:1186
 msgid "Main Admin Color is required."
 msgstr "رنگ اصلی مدیر الزامی است."
 
-#: includes/features/admin-styles/admin-styles.php:870, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1187, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:871
+#: includes/features/admin-styles/admin-styles.php:1188
 msgid "Display Name"
 msgstr "نام نمایش"
 
-#: includes/features/admin-styles/admin-styles.php:872
+#: includes/features/admin-styles/admin-styles.php:1189
 msgid "Change how this style is displayed"
 msgstr "تغییر نحوه نمایش این سبک"
 
-#: includes/features/admin-styles/admin-styles.php:873
+#: includes/features/admin-styles/admin-styles.php:1190
 msgid "Enter a name for your custom style"
 msgstr "یک نام برای سبک سفارشی خود وارد کنید"
 
-#: includes/features/admin-styles/admin-styles.php:887
+#: includes/features/admin-styles/admin-styles.php:1204
 msgid "Forest"
 msgstr "جنگل"
 
-#: includes/features/admin-styles/admin-styles.php:904
+#: includes/features/admin-styles/admin-styles.php:1221
 msgid "Mint Breeze"
 msgstr "نسیم نعنا"
 
-#: includes/features/admin-styles/admin-styles.php:921
+#: includes/features/admin-styles/admin-styles.php:1238
 msgid "Cherry"
 msgstr "گیلاس"
 
-#: includes/features/admin-styles/admin-styles.php:938
+#: includes/features/admin-styles/admin-styles.php:1255
 msgid "Graphite"
 msgstr "گرافیت"
 
-#: includes/features/admin-styles/admin-styles.php:955
+#: includes/features/admin-styles/admin-styles.php:1272
 msgid "Midnight Teal"
 msgstr "فام دریایی نیمه شب"
 
-#: includes/features/admin-styles/admin-styles.php:972
+#: includes/features/admin-styles/admin-styles.php:1289
 msgid "Sunrise"
 msgstr "طلوع آفتاب"
 
-#: includes/features/admin-styles/admin-styles.php:989
+#: includes/features/admin-styles/admin-styles.php:1306
 msgid "Desert Sand"
 msgstr "شن بیابانی"
 
-#: includes/features/admin-styles/admin-styles.php:1006
+#: includes/features/admin-styles/admin-styles.php:1323
 msgid "Amber Glow"
 msgstr "درخشش کهربایی"
 
-#: includes/features/admin-styles/admin-styles.php:1023
+#: includes/features/admin-styles/admin-styles.php:1340
 msgid "Citrus"
 msgstr "سیترون"
 
-#: includes/features/admin-styles/admin-styles.php:1040
+#: includes/features/admin-styles/admin-styles.php:1357
 msgid "Ocean Deep"
 msgstr "عمق اقیانوس"
 
-#: includes/features/admin-styles/admin-styles.php:1057
+#: includes/features/admin-styles/admin-styles.php:1374
 msgid "Sage"
 msgstr "ساج"
 
-#: includes/features/admin-styles/admin-styles.php:1074
+#: includes/features/admin-styles/admin-styles.php:1391
 msgid "Modern Slate"
 msgstr "Slate مدرن"
 
-#: includes/features/admin-styles/admin-styles.php:1091
+#: includes/features/admin-styles/admin-styles.php:1408
 msgid "Royal Plum"
 msgstr "آلو سلطنتی"
 
-#: includes/features/admin-styles/admin-styles.php:1108
+#: includes/features/admin-styles/admin-styles.php:1425
 msgid "Nordic"
 msgstr "نوردیک"
 
-#: includes/features/admin-styles/admin-styles.php:1125
+#: includes/features/admin-styles/admin-styles.php:1442
 msgid "Lagoon"
 msgstr "لاگون"
 
-#: includes/features/admin-styles/admin-styles.php:1142
+#: includes/features/admin-styles/admin-styles.php:1459
 msgid "Ink"
 msgstr "جوهر"
 
-#: includes/features/admin-styles/admin-styles.php:1159
+#: includes/features/admin-styles/admin-styles.php:1476
 msgid "Orchid"
 msgstr "ارکیده"
 
-#: includes/features/admin-styles/admin-styles.php:1176
+#: includes/features/admin-styles/admin-styles.php:1493
 msgid "Cobalt"
 msgstr "کوبالت"
 
-#: includes/features/admin-styles/admin-styles.php:1193
+#: includes/features/admin-styles/admin-styles.php:1510
 msgid "Stone"
 msgstr "سنگ"
 
-#: includes/features/admin-styles/admin-styles.php:1210
+#: includes/features/admin-styles/admin-styles.php:1527
 msgid "Facebook Classic"
 msgstr "فیسبوک کلاسیک"
 
-#: includes/features/admin-styles/admin-styles.php:1227
+#: includes/features/admin-styles/admin-styles.php:1544
 msgid "Twitter Classic"
 msgstr "توئیتر کلاسیک"
 
-#: includes/features/admin-styles/admin-styles.php:1244
+#: includes/features/admin-styles/admin-styles.php:1561
 msgid "Twitter Modern"
 msgstr "توئیتر مدرن"
 
-#: includes/features/admin-styles/admin-styles.php:1746
+#: includes/features/admin-styles/admin-styles.php:2063
 msgid "Main Admin Color settings"
 msgstr "تنظیمات رنگ اصلی ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1749
+#: includes/features/admin-styles/admin-styles.php:2066
 msgid "Main Admin Color"
 msgstr "رنگ اصلی ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1750
+#: includes/features/admin-styles/admin-styles.php:2067
 msgid "Primary brand color"
 msgstr "رنگ برند اولیه"
 
-#: includes/features/admin-styles/admin-styles.php:1753
+#: includes/features/admin-styles/admin-styles.php:2070
 msgid "Text Color"
 msgstr "رنگ متن"
 
-#: includes/features/admin-styles/admin-styles.php:1754
+#: includes/features/admin-styles/admin-styles.php:2071
 msgid "Primary text color"
 msgstr "رنگ متن اصلی"
 
-#: includes/features/admin-styles/admin-styles.php:1757
+#: includes/features/admin-styles/admin-styles.php:2074
 msgid "Highlight Color"
 msgstr "رنگ هایلایت"
 
-#: includes/features/admin-styles/admin-styles.php:1758
+#: includes/features/admin-styles/admin-styles.php:2075
 msgid "Used for hovers and highlights"
 msgstr "استفاده شده برای هاور و هایلایت‌ها"
 
-#: includes/features/admin-styles/admin-styles.php:1761
+#: includes/features/admin-styles/admin-styles.php:2078
 msgid "Notification Color"
 msgstr "رنگ اعلان"
 
-#: includes/features/admin-styles/admin-styles.php:1762
+#: includes/features/admin-styles/admin-styles.php:2079
 msgid "Used for alerts and notifications"
 msgstr "استفاده شده برای هشدارها و اعلان‌ها"
 
-#: includes/features/admin-styles/admin-styles.php:1765
+#: includes/features/admin-styles/admin-styles.php:2082
 msgid "Background Color"
 msgstr "رنگ پس‌زمینه"
 
-#: includes/features/admin-styles/admin-styles.php:1766
+#: includes/features/admin-styles/admin-styles.php:2083
 msgid "Page background color"
 msgstr "رنگ پس‌زمینه صفحه"
 
-#: includes/features/admin-styles/admin-styles.php:1772
+#: includes/features/admin-styles/admin-styles.php:2089
 msgid "Link element colors"
 msgstr "رنگ‌های عنصر لینک"
 
-#: includes/features/admin-styles/admin-styles.php:1775
+#: includes/features/admin-styles/admin-styles.php:2092
 msgid "Default Link Color"
 msgstr "رنگ پیش‌فرض لینک"
 
-#: includes/features/admin-styles/admin-styles.php:1776
+#: includes/features/admin-styles/admin-styles.php:2093
 msgid "Standard link color"
 msgstr "رنگ استاندارد لینک"
 
-#: includes/features/admin-styles/admin-styles.php:1779
+#: includes/features/admin-styles/admin-styles.php:2096
 msgid "Link Hover Color"
 msgstr "رنگ هاور لینک"
 
-#: includes/features/admin-styles/admin-styles.php:1780
+#: includes/features/admin-styles/admin-styles.php:2097
 msgid "Color on hover"
 msgstr "رنگ در حالت هاور"
 
-#: includes/features/admin-styles/admin-styles.php:1783
+#: includes/features/admin-styles/admin-styles.php:2100
 msgid "Delete Link Color"
 msgstr "رنگ حذف لینک"
 
-#: includes/features/admin-styles/admin-styles.php:1784
+#: includes/features/admin-styles/admin-styles.php:2101
 msgid "Color for delete/trash actions"
 msgstr "رنگ برای اقدامات حذف/زباله"
 
-#: includes/features/admin-styles/admin-styles.php:1787
+#: includes/features/admin-styles/admin-styles.php:2104
 msgid "Trash Link Color"
 msgstr "رنگ لینک زباله"
 
-#: includes/features/admin-styles/admin-styles.php:1788
+#: includes/features/admin-styles/admin-styles.php:2105
 msgid "Color for trash actions"
 msgstr "رنگ برای اقدامات زباله"
 
-#: includes/features/admin-styles/admin-styles.php:1791
+#: includes/features/admin-styles/admin-styles.php:2108
 msgid "Spam Link Color"
 msgstr "رنگ لینک اسپم"
 
-#: includes/features/admin-styles/admin-styles.php:1792
+#: includes/features/admin-styles/admin-styles.php:2109
 msgid "Color for spam actions"
 msgstr "رنگ برای اقدامات اسپم"
 
-#: includes/features/admin-styles/admin-styles.php:1795
+#: includes/features/admin-styles/admin-styles.php:2112
 msgid "Inactive Link Color"
 msgstr "رنگ لینک غیرفعال"
 
-#: includes/features/admin-styles/admin-styles.php:1796
+#: includes/features/admin-styles/admin-styles.php:2113
 msgid "Color for inactive items"
 msgstr "رنگ برای اقلام غیرفعال"
 
-#: includes/features/admin-styles/admin-styles.php:1801
+#: includes/features/admin-styles/admin-styles.php:2118
 msgid "Tables"
 msgstr "جدول‌ها"
 
-#: includes/features/admin-styles/admin-styles.php:1802
+#: includes/features/admin-styles/admin-styles.php:2119
 msgid "Table element colors"
 msgstr "رنگ‌های عنصر جدول"
 
-#: includes/features/admin-styles/admin-styles.php:1805
+#: includes/features/admin-styles/admin-styles.php:2122
 msgid "Table Header Background"
 msgstr "پس‌زمینه سرجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1809
+#: includes/features/admin-styles/admin-styles.php:2126
 msgid "Table Header Text"
 msgstr "متن سرجدول"
 
-#: includes/features/admin-styles/admin-styles.php:1813
+#: includes/features/admin-styles/admin-styles.php:2130
 msgid "Table Row Background"
 msgstr "پس‌زمینه ردیف جدول"
 
-#: includes/features/admin-styles/admin-styles.php:1817
+#: includes/features/admin-styles/admin-styles.php:2134
 msgid "Table Row Text Color"
 msgstr "رنگ متن ردیف جدول"
 
-#: includes/features/admin-styles/admin-styles.php:1821
+#: includes/features/admin-styles/admin-styles.php:2138
 msgid "Row Hover Background"
 msgstr "پس‌زمینه‌ی شناور ردیف"
 
-#: includes/features/admin-styles/admin-styles.php:1825
+#: includes/features/admin-styles/admin-styles.php:2142
 msgid "Table Border Color"
 msgstr "رنگ مرز جدول"
 
-#: includes/features/admin-styles/admin-styles.php:1829
+#: includes/features/admin-styles/admin-styles.php:2146
 msgid "Alternate Row Background"
 msgstr "پس‌زمینه‌ی ردیف جایگزین"
 
-#: includes/features/admin-styles/admin-styles.php:1833
+#: includes/features/admin-styles/admin-styles.php:2150
 msgid "Alternate Row Text Color"
 msgstr "رنگ متن ردیف جایگزین"
 
-#: includes/features/admin-styles/admin-styles.php:1839
+#: includes/features/admin-styles/admin-styles.php:2156
 msgid "Forms"
 msgstr "فرم‌ها"
 
-#: includes/features/admin-styles/admin-styles.php:1840
+#: includes/features/admin-styles/admin-styles.php:2157
 msgid "Form input colors"
 msgstr "رنگ‌های ورودی فرم"
 
-#: includes/features/admin-styles/admin-styles.php:1843
+#: includes/features/admin-styles/admin-styles.php:2160
 msgid "Input Border Color"
 msgstr "رنگ مرز ورودی"
 
-#: includes/features/admin-styles/admin-styles.php:1847
+#: includes/features/admin-styles/admin-styles.php:2164
 msgid "Input Focus Border"
 msgstr "مرز فوکوس ورودی"
 
-#: includes/features/admin-styles/admin-styles.php:1851
+#: includes/features/admin-styles/admin-styles.php:2168
 msgid "Input Background Color"
 msgstr "رنگ پس‌زمینه ورودی"
 
-#: includes/features/admin-styles/admin-styles.php:1855
+#: includes/features/admin-styles/admin-styles.php:2172
 msgid "Input Text Color"
 msgstr "رنگ متن ورودی"
 
-#: includes/features/admin-styles/admin-styles.php:1859
+#: includes/features/admin-styles/admin-styles.php:2176
 msgid "Placeholder Text Color"
 msgstr "رنگ متن جایگزین"
 
-#: includes/features/admin-styles/admin-styles.php:1866
+#: includes/features/admin-styles/admin-styles.php:2183
 msgid "Button colors"
 msgstr "رنگ‌های دکمه"
 
-#: includes/features/admin-styles/admin-styles.php:1869
+#: includes/features/admin-styles/admin-styles.php:2186
 msgid "Primary Button Background"
 msgstr "پس‌زمینه دکمه اصلی"
 
-#: includes/features/admin-styles/admin-styles.php:1873
+#: includes/features/admin-styles/admin-styles.php:2190
 msgid "Primary Button Text"
 msgstr "متن دکمه اصلی"
 
-#: includes/features/admin-styles/admin-styles.php:1877
+#: includes/features/admin-styles/admin-styles.php:2194
 msgid "Primary Button Hover"
 msgstr "شناسایی دکمه اصلی"
 
-#: includes/features/admin-styles/admin-styles.php:1881
+#: includes/features/admin-styles/admin-styles.php:2198
 msgid "Secondary Button Background"
 msgstr "پس‌زمینه دکمه ثانویه"
 
-#: includes/features/admin-styles/admin-styles.php:1885
+#: includes/features/admin-styles/admin-styles.php:2202
 msgid "Secondary Button Text"
 msgstr "متن دکمه ثانویه"
 
-#: includes/features/admin-styles/admin-styles.php:1889
+#: includes/features/admin-styles/admin-styles.php:2206
 msgid "Secondary Button Hover"
 msgstr "شناسایی دکمه ثانویه"
 
-#: includes/features/admin-styles/admin-styles.php:1896
+#: includes/features/admin-styles/admin-styles.php:2213
 msgid "Admin menu colors"
 msgstr "رنگ‌های منوی ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1899
+#: includes/features/admin-styles/admin-styles.php:2216
 msgid "Menu Background"
 msgstr "پس‌زمینه منو"
 
-#: includes/features/admin-styles/admin-styles.php:1903
+#: includes/features/admin-styles/admin-styles.php:2220
 msgid "Menu Text Color"
 msgstr "رنگ متن منو"
 
-#: includes/features/admin-styles/admin-styles.php:1907
+#: includes/features/admin-styles/admin-styles.php:2224
 msgid "Menu Icon Color"
 msgstr "رنگ آیکون منو"
 
-#: includes/features/admin-styles/admin-styles.php:1911
+#: includes/features/admin-styles/admin-styles.php:2228
 msgid "Menu Hover Background"
 msgstr "پس‌زمینه هاور منو"
 
-#: includes/features/admin-styles/admin-styles.php:1915
+#: includes/features/admin-styles/admin-styles.php:2232
 msgid "Menu Hover Text"
 msgstr "متن هاور منو"
 
-#: includes/features/admin-styles/admin-styles.php:1919
+#: includes/features/admin-styles/admin-styles.php:2236
 msgid "Current Menu Background"
 msgstr "پس‌زمینه منوی جاری"
 
-#: includes/features/admin-styles/admin-styles.php:1923
+#: includes/features/admin-styles/admin-styles.php:2240
 msgid "Current Menu Text"
 msgstr "متن منوی جاری"
 
-#: includes/features/admin-styles/admin-styles.php:1927
+#: includes/features/admin-styles/admin-styles.php:2244
 msgid "Submenu Background"
 msgstr "پس‌زمینه زیرمنو"
 
-#: includes/features/admin-styles/admin-styles.php:1931
+#: includes/features/admin-styles/admin-styles.php:2248
 msgid "Submenu Text Color"
 msgstr "رنگ متن زیرمنو"
 
-#: includes/features/admin-styles/admin-styles.php:1938
+#: includes/features/admin-styles/admin-styles.php:2255
 msgid "Admin bar colors"
 msgstr "رنگ‌های نوار ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1941
+#: includes/features/admin-styles/admin-styles.php:2258
 msgid "Admin Bar Background"
 msgstr "پس‌زمینه نوار ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1945
+#: includes/features/admin-styles/admin-styles.php:2262
 msgid "Admin Bar Text"
 msgstr "متن نوار ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1949
+#: includes/features/admin-styles/admin-styles.php:2266
 msgid "Admin Bar Icon"
 msgstr "آیکون نوار ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1953
+#: includes/features/admin-styles/admin-styles.php:2270
 msgid "Admin Bar Hover Background"
 msgstr "پس‌زمینه هاور نوار ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1957
+#: includes/features/admin-styles/admin-styles.php:2274
 msgid "Admin Bar Hover Text"
 msgstr "متن هاور نوار ادمین"
 
-#: includes/features/admin-styles/admin-styles.php:1963
+#: includes/features/admin-styles/admin-styles.php:2280
 msgid "Dashboard Widgets"
 msgstr "ویجت‌های داشبورد"
 
-#: includes/features/admin-styles/admin-styles.php:1964
+#: includes/features/admin-styles/admin-styles.php:2281
 msgid "Dashboard widget colors"
 msgstr "رنگ‌های ویجت داشبورد"
 
-#: includes/features/admin-styles/admin-styles.php:1967
+#: includes/features/admin-styles/admin-styles.php:2284
 msgid "Widget Background"
 msgstr "پس‌زمینه ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1971
+#: includes/features/admin-styles/admin-styles.php:2288
 msgid "Widget Border"
 msgstr "حاشیه ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1975
+#: includes/features/admin-styles/admin-styles.php:2292
 msgid "Widget Header Background"
 msgstr "پس‌زمینه هدر ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1979
+#: includes/features/admin-styles/admin-styles.php:2296
 msgid "Widget Title Text"
 msgstr "متن عنوان ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1983
+#: includes/features/admin-styles/admin-styles.php:2300
 msgid "Widget Body Text"
 msgstr "متن بدنه ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1987
+#: includes/features/admin-styles/admin-styles.php:2304
 msgid "Widget Link"
 msgstr "لینک ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1991
+#: includes/features/admin-styles/admin-styles.php:2308
 msgid "Widget Link Hover"
 msgstr "عبور لینک ویجت"
 
-#: includes/features/admin-styles/admin-styles.php:1997
+#: includes/features/admin-styles/admin-styles.php:2314
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "پیشرفته"
 
-#: includes/features/admin-styles/admin-styles.php:1998
+#: includes/features/admin-styles/admin-styles.php:2315
 msgid "Custom selector color rules"
 msgstr "قوانین رنگ انتخابگر سفارشی"
 
@@ -2281,7 +2287,7 @@ msgid "show Classic Editor controls"
 msgstr "نمایش کنترل‌های ویرایشگر کلاسیک"
 
 #: includes/features/editor-features.php:240
-#: includes/functions-admin.php:415
+#: includes/functions-admin.php:420
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr ""
 "ویژگی‌های ویرایشگر به شما اجازه می‌دهند عناصر را از صفحه ویرایش پست حذف "
@@ -2293,8 +2299,8 @@ msgstr "چگونه از ویژگی‌های ویرایشگر استفاده کن
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:695
-#: includes/manager.php:717
+#: includes/manager.php:716
+#: includes/manager.php:738
 msgid "You do not have permission to manage frontend features."
 msgstr "شما اجازه مدیریت ویژگی‌های فرانت‌اند را ندارید."
 
@@ -2340,8 +2346,8 @@ msgstr "پاورقی اعتبار بیست بیست و سه را پنهان کن
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
 #: includes/functions-admin.php:244
-#: includes/functions-admin.php:439
-#: includes/functions-admin.php:553
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:558
 msgid "Frontend Features"
 msgstr "ویژگی‌های فرانت‌اند"
 
@@ -2493,7 +2499,7 @@ msgid "Enable Frontend Features for %1$s Role"
 msgstr "فعال کردن ویژگی‌های فرانت‌اند برای نقش %1$s"
 
 #: includes/features/frontend-features/frontend-features.php:249
-#: includes/functions-admin.php:440
+#: includes/functions-admin.php:445
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
@@ -2522,7 +2528,7 @@ msgstr ""
 "لطفاً لینک‌های منو را اضافه کنید."
 
 #: includes/features/nav-menus.php:301
-#: includes/functions-admin.php:445
+#: includes/functions-admin.php:450
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr ""
 "منوهای ناوبری به شما این امکان را می‌دهد که دسترسی به لینک‌های منوی رابط "
@@ -2571,7 +2577,7 @@ msgid "Refresh Profile Features"
 msgstr "به‌روزرسانی ویژگی‌های پروفایل"
 
 #: includes/features/profile-features.php:250
-#: includes/functions-admin.php:430
+#: includes/functions-admin.php:435
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr ""
 "ویژگی‌های پروفایل به شما این امکان را می‌دهد که عناصر را از صفحه پروفایل "
@@ -2809,31 +2815,31 @@ msgid "Profile features access enabled for this role."
 msgstr "دسترسی به ویژگی‌های پروفایل برای این نقش فعال شد."
 
 #: includes/functions-admin.php:217
-#: includes/functions-admin.php:414
-#: includes/functions-admin.php:502
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:507
 #: includes/roles/class/class-pp-roles-admin.php:523
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "ویژگی‌های ویرایشگر"
 
 #: includes/functions-admin.php:228
-#: includes/functions-admin.php:419
-#: includes/functions-admin.php:509
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:514
 #: includes/roles/class/class-pp-roles-admin.php:524
 msgid "Admin Features"
 msgstr "ویژگی‌های ادمین"
 
 #: includes/functions-admin.php:248
-#: includes/functions-admin.php:429
-#: includes/functions-admin.php:539
+#: includes/functions-admin.php:434
+#: includes/functions-admin.php:544
 #: includes/roles/class/class-pp-roles-admin.php:525
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "ویژگی‌های پروفایل"
 
 #: includes/functions-admin.php:254
-#: includes/functions-admin.php:434
-#: includes/functions-admin.php:546
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:551
 msgid "Redirects"
 msgstr "انتقال‌ها"
 
@@ -2841,7 +2847,11 @@ msgstr "انتقال‌ها"
 msgid "Nav Menu"
 msgstr "منوی ناوبری"
 
-#: includes/functions-admin.php:405
+#: includes/functions-admin.php:262
+msgid "Application Password Capabilities"
+msgstr "قابلیت‌های رمز عبور برنامه"
+
+#: includes/functions-admin.php:410
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
@@ -2849,17 +2859,17 @@ msgstr ""
 "نقش‌ها به شما اجازه می‌دهند تا تمام نقش‌های کاربری را در سایت خود ایجاد، "
 "ویرایش و حذف کنید."
 
-#: includes/functions-admin.php:410
+#: includes/functions-admin.php:415
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr "قابلیت‌ها به شما اجازه می‌دهند تا مجوزهای هر نقش کاربری را تغییر دهید."
 
-#: includes/functions-admin.php:425
+#: includes/functions-admin.php:430
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
 "استایل‌های ادمین به شما اجازه می‌دهند تا ناحیه ادمین را با برند خود "
 "شخصی‌سازی کنید."
 
-#: includes/functions-admin.php:435
+#: includes/functions-admin.php:440
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
@@ -2867,19 +2877,19 @@ msgstr ""
 "تنظیمات Redirection به شما این امکان را می‌دهد که کاربران را پس از ثبت‌نام، "
 "ورود یا خروج به یک نقش هدایت کنید."
 
-#: includes/functions-admin.php:444
-#: includes/functions-admin.php:560
+#: includes/functions-admin.php:449
+#: includes/functions-admin.php:565
 #: includes/roles/class/class-pp-roles-admin.php:527
 msgid "Navigation Menus"
 msgstr "منوهای ناوبری"
 
-#: includes/functions-admin.php:449
+#: includes/functions-admin.php:454
 #: includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "آزمون کاربر"
 
-#: includes/functions-admin.php:450
+#: includes/functions-admin.php:455
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
@@ -2887,7 +2897,7 @@ msgstr ""
 "سایت خود را با ورود فوری به عنوان کاربر دیگری آزمایش کنید. حساب‌های موجود "
 "شامل هر حسابی است که کاربر فعلی می‌تواند ویرایش کند."
 
-#: includes/functions-admin.php:455
+#: includes/functions-admin.php:460
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
@@ -2939,183 +2949,190 @@ msgstr "نقش جدید ایجاد شد."
 msgid "Error: Failed creating the new role."
 msgstr "خطا: ایجاد نقش جدید ناموفق بود."
 
-#: includes/handler.php:61
-#: includes/handler.php:87
-#: includes/manager.php:1249
+#: includes/handler.php:71
+#: includes/handler.php:97
+#: includes/manager.php:1277
 msgid "The selected role is not editable."
 msgstr "نقش انتخاب‌شده قابل ویرایش نیست."
 
-#: includes/handler.php:115
+#: includes/handler.php:125
 msgid "Incorrect capability name."
 msgstr "نام قابلیت اشتباه است."
 
-#: includes/handler.php:120
+#: includes/handler.php:130
 msgid "Type / Taxonomy settings saved."
 msgstr "تنظیمات نوع / طبقه‌بندی ذخیره شد."
 
-#: includes/handler.php:123
+#: includes/handler.php:133
 msgid "Bad form received."
 msgstr "فرم دریافتی نامناسب است."
 
-#: includes/handler.php:246
+#: includes/handler.php:256
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "شما نمی‌توانید توانایی‌های مدیریت را از مدیران حذف کنید"
 
-#: includes/handler.php:300
-#: includes/manager.php:1221
-msgid "Network sync has been queued and will continue in the background."
-msgstr "همگام‌سازی شبکه در صف قرار گرفته و در پس‌زمینه ادامه خواهد یافت."
+#: includes/handler.php:337
+msgid "The selected application password is not editable."
+msgstr "رمز عبور برنامه انتخاب شده قابل ویرایش نیست."
 
-#: includes/manager.php:240
+#: includes/handler.php:341
+msgid "Application password capabilities saved."
+msgstr "قابلیت‌های رمز عبور برنامه ذخیره شد."
+
+#: includes/manager.php:245
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr ""
 "این توانایی به‌طور صریح نفی شده است. برای اضافه/حذف کردن به‌طور معمول کلیک "
 "کنید."
 
-#: includes/manager.php:248
+#: includes/manager.php:253
 msgid "Explicity negate this capability by storing as disabled"
 msgstr "این توانایی را با ذخیره به‌عنوان غیرفعال به‌طور صریح نفی کنید"
 
-#: includes/manager.php:249
+#: includes/manager.php:254
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr "این توانایی‌ها را با ذخیره به‌عنوان غیرفعال به‌طور صریح نفی کنید"
 
-#: includes/manager.php:250
+#: includes/manager.php:255
 msgid "Post type registration does not define this capability distinctly"
 msgstr "ثبت نوع پست این توانایی را به‌طور متمایز تعریف نمی‌کند"
 
-#: includes/manager.php:252
+#: includes/manager.php:257
 msgid "Add or remove this capability from the WordPress role"
 msgstr "این توانایی را از نقش WordPress اضافه یا حذف کنید"
 
-#: includes/manager.php:253
+#: includes/manager.php:258
 msgid "Add or remove capability from the role normally"
 msgstr "به‌طور معمول توانایی را از نقش اضافه یا حذف کنید"
 
-#: includes/manager.php:254
+#: includes/manager.php:259
 msgid "Are you sure you want to delete this item ?"
 msgstr "آیا مطمئن هستید که می‌خواهید این مورد را حذف کنید؟"
 
-#: includes/manager.php:255
+#: includes/manager.php:260
 msgid "Add or clear custom item entry before saving changes."
 msgstr "قبل از ذخیره تغییرات، ورودی مورد سفارشی را اضافه یا پاک کنید."
 
-#: includes/manager.php:515
+#: includes/manager.php:536
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:175
 msgid "Role Name"
 msgstr "نام نقش"
 
-#: includes/manager.php:517
+#: includes/manager.php:538
 #: includes/roles/class/class-pp-roles-list-table.php:177
 msgid "Role Type"
 msgstr "نوع نقش"
 
-#: includes/manager.php:518
+#: includes/manager.php:539
 #: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Default Role"
 msgstr "نقش پیش‌فرض"
 
-#: includes/manager.php:519
+#: includes/manager.php:540
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Admin Access"
 msgstr "دسترسی مدیر"
 
-#: includes/manager.php:546
+#: includes/manager.php:567
 msgid "You do not have permission to manage roles."
 msgstr "شما اجازه مدیریت نقش‌ها را ندارید."
 
-#: includes/manager.php:569
-#: includes/manager.php:591
+#: includes/manager.php:590
+#: includes/manager.php:612
 msgid "You do not have permission to manage editor features."
 msgstr "شما اجازه مدیریت ویژگی‌های ویرایشگر را ندارید."
 
-#: includes/manager.php:626
-#: includes/manager.php:680
-#: includes/manager.php:728
-#: includes/manager.php:822
-#: includes/manager.php:871
-#: includes/manager.php:953
-#: includes/manager.php:1034
+#: includes/manager.php:647
+#: includes/manager.php:701
+#: includes/manager.php:749
+#: includes/manager.php:843
+#: includes/manager.php:892
+#: includes/manager.php:974
+#: includes/manager.php:1055
 msgid "Settings updated."
 msgstr "تنظیمات به‌روزرسانی شد."
 
-#: includes/manager.php:642
-#: includes/manager.php:664
-#: includes/manager.php:836
-#: includes/manager.php:887
-#: includes/manager.php:1051
+#: includes/manager.php:663
+#: includes/manager.php:685
+#: includes/manager.php:857
+#: includes/manager.php:908
+#: includes/manager.php:1072
 msgid "You do not have permission to manage admin features."
 msgstr "شما اجازه مدیریت ویژگی‌های مدیر را ندارید."
 
-#: includes/manager.php:858
+#: includes/manager.php:879
 msgid "You do not have permission to manage navigation menus."
 msgstr "شما اجازه مدیریت منوهای ناوبری را ندارید."
 
-#: includes/manager.php:909
+#: includes/manager.php:930
 msgid "You do not have permission to manage profile features."
 msgstr "شما اجازه مدیریت ویژگی‌های پروفایل را ندارید."
 
-#: includes/manager.php:969
+#: includes/manager.php:990
 msgid "You do not have permission to manage redirect."
 msgstr "شما اجازه مدیریت تغییر مسیر را ندارید."
 
-#: includes/manager.php:991
+#: includes/manager.php:1012
 msgid "Invalid form. Reload this page and try again."
 msgstr "فرم نامعتبر است. این صفحه را دوباره بارگذاری کنید و دوباره تلاش کنید."
 
-#: includes/manager.php:1143
-#: includes/manager.php:1192
-#: includes/manager.php:1210
+#: includes/manager.php:1164
+#: includes/manager.php:1215
+#: includes/manager.php:1233
 msgid "You do not have permission to manage capabilities."
 msgstr "شما اجازه مدیریت قابلیت‌ها را ندارید."
 
-#: includes/manager.php:1219
+#: includes/manager.php:1242
 msgid "Network sync completed."
 msgstr "همگام‌سازی شبکه کامل شد."
 
-#: includes/manager.php:1237
+#: includes/manager.php:1244
+msgid "Network sync has been queued and will continue in the background."
+msgstr "همگام‌سازی شبکه در صف قرار گرفته و در پس‌زمینه ادامه خواهد یافت."
+
+#: includes/manager.php:1260
 msgid "New capability added to role."
 msgstr "قابلیت جدیدی به نقش اضافه شد."
 
-#: includes/manager.php:1278
+#: includes/manager.php:1306
 msgid "Bad form Received"
 msgstr "فرم نامناسب دریافت شد"
 
-#: includes/manager.php:1398
+#: includes/manager.php:1435
 msgid "You do not have permission to restore roles."
 msgstr "شما اجازه بازگرداندن نقش‌ها را ندارید."
 
-#: includes/manager.php:1436
+#: includes/manager.php:1473
 msgid "You do not have permission to perform this action."
 msgstr "شما اجازه انجام این عمل را ندارید."
 
-#: includes/manager.php:1597
+#: includes/manager.php:1634
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "اگر از %s خوشتان آمد، لطفاً برای ما یک امتیاز %s بگذارید. متشکریم!"
 
-#: includes/manager.php:1608
+#: includes/manager.php:1645
 msgid "About PublishPress Capabilities"
 msgstr "درباره قابلیت‌های PublishPress"
 
-#: includes/manager.php:1608
+#: includes/manager.php:1645
 msgid "About"
 msgstr "درباره"
 
-#: includes/manager.php:1610
+#: includes/manager.php:1647
 msgid "Capabilites Documentation"
 msgstr "مستندات قابلیت‌ها"
 
-#: includes/manager.php:1610
+#: includes/manager.php:1647
 msgid "Documentation"
 msgstr "مستندات"
 
-#: includes/manager.php:1612
+#: includes/manager.php:1649
 msgid "Contact the PublishPress team"
 msgstr "با تیم PublishPress تماس بگیرید"
 
-#: includes/manager.php:1612
+#: includes/manager.php:1649
 msgid "Contact"
 msgstr "تماس"
 
@@ -3823,7 +3840,7 @@ msgstr ""
 "wp_get_referer()."
 
 #: includes/settings-ui.php:109
-#: includes/settings-ui.php:149
+#: includes/settings-ui.php:165
 msgid "Show private post types"
 msgstr "نمایش نوع‌های پست خصوصی"
 
@@ -3847,7 +3864,19 @@ msgstr ""
 "این همه taxonomies را در صفحه \"قابلیت‌ها\" نمایش می‌دهد، حتی taxonomies که "
 "معمولاً در ناحیه مدیریت WordPress پنهان هستند."
 
-#: includes/settings-ui.php:154
+#: includes/settings-ui.php:141
+msgid "Application password capabilities"
+msgstr "قابلیت‌های رمز عبور برنامه"
+
+#: includes/settings-ui.php:146
+msgid ""
+"Allow the Capabilities screen to deny selected capabilities for individual "
+"WordPress application passwords."
+msgstr ""
+"اجازه دهید صفحه قابلیت‌ها قابلیت‌های انتخاب شده را برای رمزهای عبور برنامه "
+"وردپرس فردی رد کند."
+
+#: includes/settings-ui.php:170
 msgid ""
 "Show all post types on the \"Editor Features\" screen, even ones normally "
 "hidden in the WordPress admin area."
@@ -3855,55 +3884,55 @@ msgstr ""
 "نمایش همه نوع‌های پست در صفحه \"ویژگی‌های ویرایشگر\"، حتی نوع‌هایی که "
 "معمولاً در ناحیه مدیریت WordPress پنهان هستند."
 
-#: includes/settings-ui.php:165
+#: includes/settings-ui.php:181
 msgid "Enable Classic Editor tab"
 msgstr "فعال‌سازی تب ویرایشگر کلاسیک"
 
-#: includes/settings-ui.php:170
+#: includes/settings-ui.php:186
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
 msgstr "همیشه تب ویرایشگر کلاسیک را در صفحه \"ویژگی‌های ویرایشگر\" نمایش دهید."
 
-#: includes/settings-ui.php:186
+#: includes/settings-ui.php:202
 msgid "Admin Bar modification"
 msgstr "تغییرات نوار مدیریت"
 
-#: includes/settings-ui.php:191
+#: includes/settings-ui.php:207
 msgid "When testing, display a caption and return link in the Admin Bar."
 msgstr "هنگام آزمایش، یک زیرنویس و لینک بازگشت در نوار مدیریت نمایش دهید."
 
-#: includes/settings-ui.php:202
+#: includes/settings-ui.php:218
 msgid "Admin Bar search"
 msgstr "جستجوی نوار مدیریت"
 
-#: includes/settings-ui.php:207
+#: includes/settings-ui.php:223
 msgid "Add option to search and user testing in the Admin Bar."
 msgstr "اضافه کردن گزینه‌ای برای جستجو و آزمایش کاربر در نوار مدیریت."
 
-#: includes/settings-ui.php:218
+#: includes/settings-ui.php:234
 msgid "Front End footer notice"
 msgstr "اعلان پاورقی در Front End"
 
-#: includes/settings-ui.php:223
+#: includes/settings-ui.php:239
 msgid "When testing, display a return link in the front end footer."
 msgstr "هنگام آزمایش، یک لینک بازگشت در پاورقی Front End نمایش دهید."
 
-#: includes/settings-ui.php:234
+#: includes/settings-ui.php:250
 msgid "Exclude role from User Testing"
 msgstr "نقش را از آزمایش کاربری حذف کنید"
 
-#: includes/settings-ui.php:241
+#: includes/settings-ui.php:257
 msgid "Select roles..."
 msgstr "نقش‌ها را انتخاب کنید..."
 
-#: includes/settings-ui.php:255
+#: includes/settings-ui.php:271
 msgid "Exclude users in selected roles from User Testing."
 msgstr "کاربران در نقش‌های انتخاب شده را از آزمایش کاربری حذف کنید."
 
-#: includes/settings-ui.php:272
+#: includes/settings-ui.php:288
 msgid "Automatically refresh profile elements"
 msgstr "عناصر پروفایل را به‌طور خودکار تازه‌سازی کنید"
 
-#: includes/settings-ui.php:277
+#: includes/settings-ui.php:293
 msgid ""
 "Always try to automatically find profile elements. This may cause temporary "
 "issues when updating user roles that do not have access to the WordPress "
