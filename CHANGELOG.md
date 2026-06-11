@@ -1,6 +1,19 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.45.0] - 11 June, 2026
+
+- Update : Allow admin to deny Capabilites for Application passwords (Enabled via settings), #1731
+- Fixed : Cannot sync capabilities in multisite after Version 2.44.0 update, #1744
+- Update : Generate real .css file for admin styles, #1740
+- Update : Add "Default" as first option for the admin styles font family dropdown, #1687
+- Fixed : Fix admin Menus checkbox colors in 7.0, #1733
+- Fixed : Undefined constant "LOGGED_IN_COOKIE" when calling admin-styles-css.php endpoint, #1735
+- Update : Show "Visibility Status" Capabilities checkboxes, #1736
+- Fixed : Multisite role sync fails on localhost with headers already sent (queued message + blank screen), #1737
+- Fixed : Pro: Statuses Free triggers early textdomain loading on some installs, #1738
+- Update : Pro: Update status-capabilities library, #1739
+
 [2.44.0] - 27 May, 2026
 
 - Fixed : The Additional tab showing PublishPress Permissions capabilities, #1713
