@@ -436,6 +436,10 @@ class CapabilityManager
 
         $capabilities_toplevel_page = $cap_page_slug;
 
+        if (!pp_capabilities_should_display_admin_menu()) {
+            return;
+        }
+
         if (!$cap_name) {
             return;
         }

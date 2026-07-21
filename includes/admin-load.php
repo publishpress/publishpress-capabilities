@@ -48,6 +48,7 @@ class PP_Capabilities_Admin_UI {
 
             //Add role blocked nav menu indication
             add_action('wp_nav_menu_item_custom_fields', [$this, 'add_nav_menu_indicator'], 20, 5);
+            add_action('admin_init', [$this, 'blockSubsiteCapabilitiesAccess'], 1000);
         }
 
         add_filter('cme_publishpress_capabilities_capabilities', 'cme_publishpress_capabilities_capabilities');
@@ -538,6 +539,10 @@ class PP_Capabilities_Admin_UI {
 
         $capabilities_toplevel_page = $cap_page_slug;
 
+        if (!pp_capabilities_should_display_admin_menu()) {
+            return;
+        }
+
         if (!$cap_name) {
             return;
         }
@@ -570,6 +575,22 @@ class PP_Capabilities_Admin_UI {
 
     }
 
+
+    public function blockSubsiteCapabilitiesAccess() {
+        if (pp_capabilities_should_display_admin_menu()) {
+            return;
+        }
+
+        $sub_menu_pages = pp_capabilities_sub_menu_lists(true);
+        $capability_pages = array_map(function ($page) {
+            return $page['page'];
+        }, $sub_menu_pages);
+
+        if (!empty($_GET['page']) && in_array(sanitize_key($_GET['page']), $capability_pages, true)) {
+            wp_safe_redirect(admin_url());
+            exit;
+        }
+    }
 
     public function settingsUI() {
         wp_enqueue_script('pp-capabilities-chosen-js', plugin_dir_url(CME_FILE) . 'common/libs/chosen-v1.8.7/chosen.jquery.js', ['jquery'], PUBLISHPRESS_CAPS_VERSION);
