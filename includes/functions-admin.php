@@ -589,6 +589,35 @@ if (!function_exists('pp_capabilities_sub_menu_lists')) {
     }
 }
 
+if (!function_exists('pp_capabilities_should_display_admin_menu')) {
+    function pp_capabilities_should_display_admin_menu($user = null)
+    {
+        if (!is_multisite()) {
+            return true;
+        }
+
+        if (is_super_admin()) {
+            return true;
+        }
+
+        $current_user = null;
+        if (is_object($user) && isset($user->ID)) {
+            $current_user = $user;
+        } elseif (function_exists('wp_get_current_user')) {
+            $current_user = wp_get_current_user();
+        }
+
+        $should_display = true;
+        if (defined('PP_CAPABILITIES_HIDE_MENU_ON_SUBSITES') && PP_CAPABILITIES_HIDE_MENU_ON_SUBSITES) {
+            $should_display = false;
+        } else {
+            $should_display = (bool) apply_filters('pp_capabilities_display_admin_menu_on_subsite', true, $current_user);
+        }
+
+        return $should_display;
+    }
+}
+
 if (!function_exists('pp_capabilities_user_can_caps')) {
     function pp_capabilities_user_can_caps()
     {
