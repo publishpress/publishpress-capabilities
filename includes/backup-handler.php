@@ -478,10 +478,17 @@ class Capsman_BackupHandler
             $role_key           = sanitize_key($role_key);
             $role_name          = sanitize_text_field($role_data['name']);
             $capabilities       = $role_data['capabilities'];
-            $role_capabilities  = array_combine(
-                                    array_map('sanitize_key', array_keys($capabilities)),
-                                    array_map('sanitize_text_field', array_values($capabilities))
-                                );
+            $role_capabilities  = [];
+
+            foreach ($capabilities as $capability_key => $capability_value) {
+                $sanitized_capability_key = sanitize_key($capability_key);
+
+                if (!current_user_can('administrator') && !current_user_can($sanitized_capability_key)) {
+                    continue;
+                }
+
+                $role_capabilities[$sanitized_capability_key] = sanitize_text_field($capability_value);
+            }
 
             //return sanitized data
             $sanitized_role[$role_key] = ['name' => $role_name, 'capabilities' => $role_capabilities];
