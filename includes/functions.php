@@ -761,6 +761,7 @@ if (!function_exists('pp_capabilities_admin_pages')) {
             'pp-capabilities-dashboard',
             'pp-capabilities-roles',
             'pp-capabilities-admin-menus',
+            'pp-capabilities-admin-columns',
             'pp-capabilities-nav-menus',
             'pp-capabilities-editor-features',
             'pp-capabilities-backup',
@@ -1712,4 +1713,3 @@ require_once(dirname(__FILE__) . '/features/frontend-features/frontend-features-
 // Admin styles feature
 require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/features/admin-styles/admin-styles.php');
 \PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance();
-

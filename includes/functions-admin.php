@@ -229,6 +229,10 @@ if (!function_exists('pp_capabilities_backup_sections')) {
         $backup_sections[$cms_id . '_admin_features_backup']['options'][] = "capsman_disabled_admin_features";
         $backup_sections[$cms_id . '_admin_features_backup']['options'][] = "ppc_admin_features_settings";
 
+        //Admin Columns
+        $backup_sections[$cms_id . '_admin_columns_backup']['label'] = esc_html__('Admin Columns', 'capability-manager-enhanced');
+        $backup_sections[$cms_id . '_admin_columns_backup']['options'][] = "capsman_admin_columns";
+
         //Admin Styles
         $backup_sections[$cms_id . '_admin_styles_backup']['label'] = esc_html__('Admin Styles', 'capability-manager-enhanced');
         $backup_sections[$cms_id . '_admin_styles_backup']['options'][] = "pp_capabilities_admin_styles";
@@ -374,6 +378,7 @@ if (!function_exists('cme_publishpress_capabilities_capabilities')) {
                 'manage_capabilities_admin_styles',
                 'manage_capabilities_admin_notices',
                 'manage_capabilities_admin_menus',
+                'manage_capabilities_admin_columns',
                 'manage_capabilities_frontend_features',
                 'manage_capabilities_profile_features',
                 'manage_capabilities_redirects',
@@ -423,6 +428,11 @@ if (!function_exists('pp_capabilities_dashboard_options')) {
         $features['admin-features'] = [
             'label' => esc_html__('Admin Features', 'capability-manager-enhanced'),
             'description' => esc_html__('Admin Features allows you to remove elements from the admin area and toolbar.', 'capability-manager-enhanced'),
+        ];
+
+        $features['admin-columns'] = [
+            'label' => esc_html__('Admin Columns', 'capability-manager-enhanced'),
+            'description' => esc_html__('Admin Columns allows you to hide post list columns for selected user roles.', 'capability-manager-enhanced'),
         ];
 
         $features['admin-styles'] = [
@@ -515,6 +525,13 @@ if (!function_exists('pp_capabilities_sub_menu_lists')) {
             'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_features',
             'page' => 'pp-capabilities-admin-features',
             'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminFeatures'],
+            'dashboard_control' => true,
+        ];
+        $sub_menu_pages['admin-columns'] = [
+            'title' => __('Admin Columns', 'capability-manager-enhanced'),
+            'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_columns',
+            'page' => 'pp-capabilities-admin-columns',
+            'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminColumns'],
             'dashboard_control' => true,
         ];
         $sub_menu_pages['admin-styles'] = [
