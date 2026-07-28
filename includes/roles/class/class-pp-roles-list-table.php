@@ -87,6 +87,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
             'mine'      => _n_noop('Mine %s', 'Mine %s', 'capability-manager-enhanced'),
             'active'    => _n_noop('Has Users %s', 'Has Users %s', 'capability-manager-enhanced'),
             'inactive'  => _n_noop('No Users %s', 'No Users %s', 'capability-manager-enhanced'),
+            'disabled'  => _n_noop('Disabled %s', 'Disabled %s', 'capability-manager-enhanced'),
             'editable'  => _n_noop('Editable %s', 'Editable %s', 'capability-manager-enhanced'),
             'uneditable'=> _n_noop('Uneditable %s', 'Uneditable %s', 'capability-manager-enhanced'),
             'system'    => _n_noop('System %s', 'System %s', 'capability-manager-enhanced'),
@@ -152,6 +153,9 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
     public function single_row($item)
     {
         $class = ['roles-tr'];
+        if (!empty($item['disabled'])) {
+            $class[] = 'role-disabled';
+        }
 
         echo sprintf('<tr id="%s" class="%s">', 'role-' . esc_attr(md5($item['role'])), esc_attr(implode(' ', $class)));
         $this->single_row_columns($item);
@@ -349,11 +353,19 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
             $states['mine'] = esc_html__('Your Role', 'capability-manager-enhanced');
         }
 
+        if (!empty($item['disabled'])) {
+            $states['disabled'] = esc_html__('Disabled', 'capability-manager-enhanced');
+        }
+
         // If we have states, string them together.
         if (!empty($states)) {
 
             foreach ($states as $state => $label)
-                $states[$state] = sprintf('<span class="role-state">%s</span>', $label);
+                $states[$state] = sprintf(
+                    '<span class="role-state role-state-%s">%s</span>',
+                    esc_attr($state),
+                    $label
+                );
 
             $role_states = '<span class="row-title-divider"> &ndash; </span>' . join(', ', $states);
         }
@@ -369,7 +381,11 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
                 $role_states
             );
         } else {
-            $out = esc_html(translate_user_role($item['name']));
+            $out = sprintf(
+                '<strong><span class="row-title">%s</span>%s</strong>',
+                esc_html(translate_user_role($item['name'])),
+                $role_states
+            );
         }
 
         return $out;

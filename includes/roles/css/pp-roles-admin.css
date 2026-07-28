@@ -22,6 +22,30 @@ span.pp-caps-action-note {
     color: #444;
 }
 
+.pp-capability-roles-wrapper tr.role-disabled > th,
+.pp-capability-roles-wrapper tr.role-disabled > td {
+    background-color: #fff8e5;
+}
+
+.pp-capability-roles-wrapper tr.role-disabled > th:first-child {
+    box-shadow: inset 4px 0 #dba617;
+}
+
+.pp-capability-roles-wrapper tr.role-disabled .row-title {
+    color: #646970;
+}
+
+.pp-capability-roles-wrapper .role-state-disabled {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background-color: #8a4b08;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
 .roles-capabilities-title {
     font-weight: bold !important;
     padding-left: 0 !important;
