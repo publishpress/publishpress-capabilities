@@ -17,6 +17,10 @@ class PP_Capabilities_Admin_UI {
         require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/features/admin-columns/admin-columns.php');
         \PublishPress\Capabilities\PP_Capabilities_Admin_Columns::instance();
 
+        // Non-destructive role disabling.
+        require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/roles/disabled-roles.php');
+        \PublishPress\Capabilities\PP_Capabilities_Disabled_Roles::instance();
+
         /**
          * The class responsible for handling notifications
          */
