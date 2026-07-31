@@ -295,9 +295,29 @@ class CapabilityManager
 			add_filter( 'option_' . $role_key, array( &$this, 'reinstate_db_roles' ), PHP_INT_MAX );
 		}
 
-		$action = (defined('PP_CAPABILITIES_COMPAT_MODE')) ? 'init' : 'publishpress_capabilities_loaded';
-		add_action( $action, array( &$this, 'processRoleUpdate' ) );
+		if (defined('PP_CAPABILITIES_COMPAT_MODE')) {
+			add_action('init', array(&$this, 'processRoleUpdate'), 20);
+		} else {
+			add_action('publishpress_capabilities_loaded', array(&$this, 'scheduleRoleUpdate'));
+		}
     }
+
+	/**
+	 * Defer role updates until translations and post types can safely load.
+	 *
+	 * The publishpress_capabilities_loaded action normally runs during
+	 * plugins_loaded, which is too early to translate role names on WordPress
+	 * 6.7 and newer.
+	 *
+	 * @return void
+	 */
+	function scheduleRoleUpdate() {
+		if (did_action('init')) {
+			$this->processRoleUpdate();
+		} else {
+			add_action('init', array(&$this, 'processRoleUpdate'), 20);
+		}
+	}
 
 	public function set_current_role($role_name) {
 		global $current_user;
