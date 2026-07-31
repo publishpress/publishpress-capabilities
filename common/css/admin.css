@@ -663,6 +663,29 @@ margin-bottom: 10px !important;
 	margin-top: 0;
 }
 
+.pp-capabilities-export-role-selector {
+	margin: 10px 0 15px 24px;
+	padding: 12px 14px;
+	max-width: 600px;
+	border-left: 3px solid #c3c4c7;
+	background: #f6f7f7;
+}
+
+.pp-capabilities-export-role-selector .description {
+	margin: 0 0 10px;
+}
+
+.pp-capabilities-export-role-selector > ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+	gap: 8px 20px;
+	margin: 0;
+}
+
+.pp-capabilities-export-role-selector > ul > li {
+	margin: 0;
+}
+
 /* ====================================================== Main Screen */
 
 #ppc-capabilities-wrapper {
