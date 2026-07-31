@@ -173,6 +173,10 @@ add_action('plugins_loaded', function () {
 		$handler->runNetworkSyncBatch($token);
 	}, 10, 1);
 
+	if (is_multisite()) {
+		require_once(dirname(__FILE__) . '/includes/network.php');
+	}
+
 		// Skip admin UI initialization when loaded by Pro
 		if ($pro_active) {
 			do_action('publishpress_capabilities_loaded');
@@ -180,9 +184,6 @@ add_action('plugins_loaded', function () {
 		}
 	//add_action( 'wp_loaded', '_cme_cap_helper_late_init', 99 );	// now instead adding registered_post_type, registered_taxonomy action handlers for latecomers
 	// @todo: do this in PP Core also
-
-	if (is_multisite())
-		require_once (dirname(__FILE__) . '/includes/network.php');
 
 	// Check if Permissions is installed
 	if (!cme_is_plugin_active('press-permit-core.php') && !cme_is_plugin_active('presspermit-pro.php')) {
