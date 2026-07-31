@@ -234,6 +234,14 @@ class CapsmanHandler
 		$new_caps = ( is_array($caps) ) ? array_map('boolval', $caps) : array();
 		$new_caps = array_merge($new_caps, ak_level2caps($level));
 
+		// Prevent both removal and explicit negation of the capability required to
+		// access this screen. Keep the submitted caps safe for multisite role sync too.
+		if ( 'administrator' == $role_name && empty($new_caps['manage_capabilities']) ) {
+			$new_caps['manage_capabilities'] = true;
+			$caps['manage_capabilities'] = true;
+			ak_admin_error(__('You cannot remove Manage Capabilities from Administrators', 'capability-manager-enhanced'));
+		}
+
 		// Find caps to add and remove
 		$add_caps = array_diff_key($new_caps, $old_caps);
 		$del_caps = array_diff_key(array_merge($old_caps, $stored_negative_role_caps), $new_caps);
@@ -249,11 +257,6 @@ class CapsmanHandler
 		if ( ! $is_administrator = current_user_can('administrator') ) {
 			unset($add_caps['manage_capabilities']);
 			unset($del_caps['manage_capabilities']);
-		}
-
-		if ( 'administrator' == $role_name && isset($del_caps['manage_capabilities']) ) {
-			unset($del_caps['manage_capabilities']);
-			ak_admin_error(__('You cannot remove Manage Capabilities from Administrators', 'capability-manager-enhanced'));
 		}
 
 		// additional safeguard against removal of read capability

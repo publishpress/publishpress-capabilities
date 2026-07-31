@@ -370,6 +370,57 @@ table#akmin tr td input[type=checkbox] {
 	min-height: 400px;
 }
 
+#ppc-capabilities-wrapper .ppc-global-capabilities-control {
+	grid-column: 1 / -1;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	min-height: 46px;
+	padding: 8px 14px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #c3c4c7;
+	box-sizing: border-box;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control label {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control input {
+	margin: 0 !important;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-state {
+	display: inline-block;
+	min-width: 72px;
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: #646970;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.5;
+	text-align: center;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control.is-checked .ppc-global-capabilities-state {
+	background: #008a20;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control.is-negated .ppc-global-capabilities-state {
+	background: #b32d2e;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control .description {
+	margin-left: 4px;
+	color: #50575e;
+	font-size: 13px;
+}
+
 #ppc-capabilities-wrapper .ppc-capabilities-tabs {
 	width: 200px;
 }
@@ -921,6 +972,15 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
 
 	#ppc-capabilities-wrapper {
 		display: block;
+	}
+
+	#ppc-capabilities-wrapper .ppc-global-capabilities-control {
+		flex-wrap: wrap;
+	}
+
+	#ppc-capabilities-wrapper .ppc-global-capabilities-control .description {
+		width: 100%;
+		margin-left: 32px;
 	}
 
 	#ppc-capabilities-wrapper .ppc-capabilities-tabs > ul > li,
