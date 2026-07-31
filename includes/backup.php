@@ -304,6 +304,40 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                     <label for="pp_capabilities_export_roles">
                                                         <?php esc_html_e('Roles and Capabilities', 'capability-manager-enhanced'); ?>
                                                     </label>
+                                                    <div id="pp_capabilities_export_role_selector" class="pp-capabilities-export-role-selector">
+                                                        <input type="hidden" name="pp_capabilities_export_roles_present" value="1" />
+                                                        <p class="description">
+                                                            <?php esc_html_e('Select the roles to include in this export.', 'capability-manager-enhanced'); ?>
+                                                        </p>
+                                                        <ul>
+                                                            <?php
+                                                            $export_roles = wp_roles()->roles;
+                                                            uasort($export_roles, function ($first_role, $second_role) {
+                                                                $first_name = !empty($first_role['name']) ? translate_user_role($first_role['name']) : '';
+                                                                $second_name = !empty($second_role['name']) ? translate_user_role($second_role['name']) : '';
+
+                                                                return strnatcasecmp($first_name, $second_name);
+                                                            });
+
+                                                            foreach ($export_roles as $export_role_name => $export_role) {
+                                                                $export_role_id = 'pp_capabilities_export_role_' . sanitize_html_class($export_role_name);
+                                                                $export_role_label = !empty($export_role['name']) ? translate_user_role($export_role['name']) : $export_role_name;
+                                                                ?>
+                                                                <li>
+                                                                    <input
+                                                                        id="<?php echo esc_attr($export_role_id); ?>"
+                                                                        name="pp_capabilities_export_roles[]"
+                                                                        type="checkbox"
+                                                                        value="<?php echo esc_attr($export_role_name); ?>"
+                                                                        checked
+                                                                    />
+                                                                    <label for="<?php echo esc_attr($export_role_id); ?>"><?php echo esc_html($export_role_label); ?></label>
+                                                                </li>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </ul>
+                                                    </div>
                                                 </li>
                                                 <?php
                                                     $backup_sections = pp_capabilities_backup_sections();
@@ -395,6 +429,10 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                 $('div[id^="ppcb-"]').hide();
                 $($(this).find('a').first().attr('href')).show();
             });
+
+            $('#pp_capabilities_export_roles').on('change', function () {
+                $('#pp_capabilities_export_role_selector').toggle($(this).prop('checked'));
+            }).trigger('change');
 
         });
         /* ]]> */

@@ -1593,7 +1593,35 @@ class CapabilityManager
 
             //add role
             if(in_array('user_roles', $export_option)){
-                $data['user_roles'] = get_option($wpdb->prefix . 'user_roles');
+                $all_roles = get_option($wpdb->prefix . 'user_roles');
+                $all_roles = is_array($all_roles) ? $all_roles : [];
+
+                if (!empty($_POST['pp_capabilities_export_roles_present'])) {
+                    $requested_roles = !empty($_POST['pp_capabilities_export_roles']) && is_array($_POST['pp_capabilities_export_roles'])
+                        ? array_map('sanitize_key', wp_unslash($_POST['pp_capabilities_export_roles']))
+                        : [];
+                    $selected_roles = array_intersect_key($all_roles, array_fill_keys($requested_roles, true));
+
+                    if (empty($selected_roles)) {
+                        ak_admin_error(__('Select at least one role to export.', 'capability-manager-enhanced'));
+                        return;
+                    }
+
+                    if (count($selected_roles) < count($all_roles)) {
+                        $data['user_roles'] = [
+                            'publishpress_capabilities_export' => [
+                                'type'    => 'selected_roles',
+                                'version' => 1,
+                            ],
+                            'roles' => $selected_roles,
+                        ];
+                    } else {
+                        $data['user_roles'] = $all_roles;
+                    }
+                } else {
+                    // Preserve compatibility with export requests made by older UIs.
+                    $data['user_roles'] = $all_roles;
+                }
             }
 
             //other section
