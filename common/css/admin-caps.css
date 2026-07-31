@@ -366,7 +366,7 @@ table#akmin tr td input[type=checkbox] {
 
 #ppc-capabilities-wrapper {
 	display: grid;
-	grid-template-columns: 200px 2fr;
+	grid-template-columns: 220px minmax(0, 1fr);
 	min-height: 400px;
 }
 
@@ -422,7 +422,7 @@ table#akmin tr td input[type=checkbox] {
 }
 
 #ppc-capabilities-wrapper .ppc-capabilities-tabs {
-	width: 200px;
+	width: 100%;
 }
 
 #ppc-capabilities-wrapper .ppc-capabilities-tabs > ul {
@@ -912,28 +912,6 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
 }
 
 /* end COPIED FROM PP BLOCKS */
-
-@media (max-width: 1799px) {
-  #ppc-capabilities-wrapper {
-    grid-template-columns: 1fr 7fr;
-  }
-
-  #ppc-capabilities-wrapper .ppc-capabilities-tabs {
-    width: auto;
-  }
-}
-
-@media (max-width: 1399px) {
-  #ppc-capabilities-wrapper {
-    grid-template-columns: 1fr 8fr;
-  }
-}
-
-@media (max-width: 1350px) {
-  #ppc-capabilities-wrapper {
-    grid-template-columns: 1fr 9fr;
-  }
-}
 
 @media (min-width: 1200px) {
   .pp-column-right.capabilities-sidebar {

@@ -499,7 +499,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					</span>
 				</div>
 				<div class="ppc-capabilities-tabs">
-					<ul style="min-width: 220px;">
+					<ul>
 						<?php
 						$full_width_tabs = apply_filters('pp_capabilities_full_width_tabs', []);
 
