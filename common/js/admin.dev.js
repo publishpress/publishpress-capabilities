@@ -117,8 +117,8 @@ jQuery(document).ready(function ($) {
         cell.addClass('cap-no');
       }
 
-      // Trigger change event so individual handlers can track interacted state properly
-      matching_input.trigger('change');
+      // A bulk action establishes a fresh baseline for subsequent individual clicks.
+      matching_input.removeClass('interacted');
     });
   }
 
@@ -147,14 +147,15 @@ jQuery(document).ready(function ($) {
   }
 
   function syncBulkCapabilityControls(table, state) {
-    table.find('input.cme-check-all')
+    table.find('input.cme-check-all, input[name="pp_toggle_all"]')
       .prop('checked', state === 'checked')
       .prop('indeterminate', state === 'negated')
       .data('cmeBulkState', state);
   }
 
-  $('input.cme-check-all').click(function (e) {
+  $('input.cme-check-all, input[name="pp_toggle_all"]').click(function (e) {
     e.preventDefault();
+    e.stopPropagation();
 
     var bulk_checkbox = $(this);
     var table = bulk_checkbox.closest('table');
@@ -461,11 +462,6 @@ jQuery(document).ready(function ($) {
       $('input[name="' + cap_name_attr + '"]').parent().next('a.neg-cap:visible').click();
     }
     clicked_box.addClass('interacted');
-  });
-
-
-  $(document).on('click', 'input[name="pp_toggle_all"]', function (event) {
-    $(this).closest('table.cme-typecaps').find('input[type="checkbox"]:visible').not('.excluded-input').not('.disabled').prop('checked', $(this).prop('checked'));
   });
 
   /**

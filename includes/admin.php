@@ -781,7 +781,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							echo "<table class='widefat striped cme-typecaps cme-typecaps-basic cme-typecaps-" . esc_attr($cap_type) . "'>";
 
 							echo '<thead><tr><th class="pp-header-checkall">';
-							echo '<input type="checkbox" name="pp_toggle_all" class="excluded-input" autocomplete="off"> &nbsp;';
+							echo '<input type="checkbox" name="pp_toggle_all" class="excluded-input" autocomplete="off" title="' . esc_attr__('check / uncheck / negate all', 'capability-manager-enhanced') . '"> &nbsp;';
 							echo '</th>';
 
 							// label cap properties
