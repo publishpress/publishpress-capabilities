@@ -1,6 +1,18 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.50.0] - 03 August, 2026
+
+- Feature : Admin Columns, Allow sites to hide posts admin columns for some roles, #291
+- Feature : Add "Disable Role" Feature in role's screen, #735
+- Feature : Add Global on / off / negate on Capabilities screen, #1757
+- Feature : Added filters to hide capabilities menus for subsite users on multisite, #1764
+- Update : Support for Multisite WP CLI for "include in new sites" capabilities feature #1367
+- Update : Improve export feature to export single/selected roles, #1363
+- Fixed : Limit capabilities import only to capabilities that the current user is allowed to grant, #1763
+- Fixed : Capabilities page Padding disappears on large screens, #1751
+- Fixed : Notice: Function _load_textdomain_just_in_time was called incorrectly, #1758
+
 [2.45.0] - 11 June, 2026
 
 - Update : Allow admin to deny Capabilites for Application passwords (Enabled via settings), #1731
