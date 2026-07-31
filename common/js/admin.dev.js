@@ -153,6 +153,85 @@ jQuery(document).ready(function ($) {
       .data('cmeBulkState', state);
   }
 
+  function getGlobalCapabilityInputs() {
+    return $('#ppc-capabilities-wrapper')
+      .find('input[type="checkbox"][name^="caps["]')
+      .not(':disabled')
+      .filter(function () {
+        return $(this).closest('td').length &&
+          !$(this).closest('td').hasClass('cap-unreg');
+      });
+  }
+
+  function getCapabilityCollectionState(inputs) {
+    var checked = 0;
+    var unchecked = 0;
+    var negated = 0;
+
+    inputs.each(function () {
+      if ($(this).closest('td').hasClass('cap-neg')) {
+        negated++;
+      } else if ($(this).prop('checked')) {
+        checked++;
+      } else {
+        unchecked++;
+      }
+    });
+
+    if (!inputs.length || unchecked === inputs.length) return 'unchecked';
+    if (checked === inputs.length) return 'checked';
+    if (negated === inputs.length) return 'negated';
+    return 'mixed';
+  }
+
+  function syncGlobalCapabilityControl(state) {
+    var control = $('#ppc-global-capabilities-toggle');
+    var wrapper = control.closest('.ppc-global-capabilities-control');
+    var state_label = wrapper.find('.ppc-global-capabilities-state');
+
+    if (!control.length) {
+      return;
+    }
+
+    if (!state) {
+      state = getCapabilityCollectionState(getGlobalCapabilityInputs());
+    }
+
+    control
+      .prop('checked', state === 'checked')
+      .prop('indeterminate', state === 'negated' || state === 'mixed')
+      .data('cmeBulkState', state);
+
+    wrapper
+      .removeClass('is-checked is-unchecked is-negated is-mixed')
+      .addClass('is-' + state);
+
+    state_label.text(state_label.attr('data-' + state + '-label'));
+  }
+
+  function applyGlobalCapabilityState(state) {
+    var processed_names = {};
+
+    getGlobalCapabilityInputs().each(function () {
+      var input = $(this);
+      var input_name = input.attr('name');
+
+      if (!input_name || processed_names[input_name]) {
+        return;
+      }
+
+      processed_names[input_name] = true;
+      applyCapabilityState(input, state);
+    });
+
+    $('#ppc-capabilities-wrapper table').each(function () {
+      syncBulkCapabilityControls($(this), state);
+    });
+
+    syncGlobalCapabilityControl(state);
+    $(document).trigger('pp-capabilities-state-updated');
+  }
+
   $('input.cme-check-all, input[name="pp_toggle_all"]').click(function (e) {
     e.preventDefault();
     e.stopPropagation();
@@ -168,7 +247,38 @@ jQuery(document).ready(function ($) {
     });
 
     syncBulkCapabilityControls(table, next_state);
+    syncGlobalCapabilityControl();
+    $(document).trigger('pp-capabilities-state-updated');
   });
+
+  $('#ppc-global-capabilities-toggle').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var control = $(this);
+    var current_state = control.data('cmeBulkState') || 'mixed';
+    var next_state = current_state === 'checked'
+      ? 'unchecked'
+      : (current_state === 'unchecked' ? 'negated' : 'checked');
+
+    applyGlobalCapabilityState(next_state);
+  });
+
+  $(document).on(
+    'click',
+    '#ppc-capabilities-wrapper input[name^="caps["], ' +
+    '#ppc-capabilities-wrapper span.cap-x, ' +
+    '#ppc-capabilities-wrapper .pp-row-action-rotate, ' +
+    '#ppc-capabilities-wrapper table.cme-typecaps th',
+    function () {
+      setTimeout(function () {
+        syncGlobalCapabilityControl();
+        $(document).trigger('pp-capabilities-state-updated');
+      }, 0);
+    }
+  );
+
+  syncGlobalCapabilityControl();
 
   $('table.cme-typecaps a.neg-type-caps').click(function (e) {
     $(this).closest('tr').find('td[class!="cap-neg"]').filter('td[class!="cap-unreg"]').each(function () {
