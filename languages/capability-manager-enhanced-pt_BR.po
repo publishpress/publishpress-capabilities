@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-10 14:41+0000\n"
-"PO-Revision-Date: 2026-07-31 08:57+0000\n"
+"PO-Revision-Date: 2026-07-31 11:44+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:58
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:862
+#: includes/admin-load.php:885
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Atualizar para Pro"
@@ -214,7 +214,7 @@ msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:522
-#: includes/admin-load.php:875
+#: includes/admin-load.php:898
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:510
 #: includes/manager.php:430
@@ -232,10 +232,24 @@ msgid "Invalid nonce token!"
 msgstr "Token de nonce inválido!"
 
 #: includes/admin-load.php:675
+#: includes/admin-load.php:683
 msgid "Error: wrong data"
 msgstr "Erro: Dados incorretos"
 
-#: includes/admin-load.php:697
+#: includes/admin-load.php:703
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr ""
+"Alterações salvas. A sincronização do status da funcionalidade foi colocada "
+"na fila para todos os sites da rede."
+
+#: includes/admin-load.php:709
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "Alterações salvas!"
+
+#: includes/admin-load.php:720
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -243,44 +257,44 @@ msgstr "Erro: Dados incorretos"
 msgid "An error occured!"
 msgstr "Ocorreu um erro!"
 
-#: includes/admin-load.php:702
+#: includes/admin-load.php:725
 msgid "Security check failed"
 msgstr "Falha ao verificar a segurança"
 
-#: includes/admin-load.php:704
+#: includes/admin-load.php:727
 msgid "Permission denied"
 msgstr "Permissão negada"
 
-#: includes/admin-load.php:714
+#: includes/admin-load.php:737
 msgid "Settings updated successfully."
 msgstr "Configurações atualizadas."
 
-#: includes/admin-load.php:810
+#: includes/admin-load.php:833
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Usuários conectados"
 
-#: includes/admin-load.php:811
+#: includes/admin-load.php:834
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Usuários desconectados"
 
-#: includes/admin-load.php:818
+#: includes/admin-load.php:841
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Restrição de menu do PublishPress Capabilities"
 
-#: includes/admin-load.php:819
+#: includes/admin-load.php:842
 msgid "This menu is restricted for the following roles"
 msgstr "Este menu é restrito às seguintes funções"
 
-#: includes/admin-load.php:874
+#: includes/admin-load.php:897
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Painel"
 
-#: includes/admin-load.php:876
+#: includes/admin-load.php:899
 #: includes/admin.php:175
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:503
@@ -289,7 +303,7 @@ msgstr "Painel"
 msgid "Roles"
 msgstr "Funções"
 
-#: includes/admin-load.php:877
+#: includes/admin-load.php:900
 msgid "Settings"
 msgstr "Configurações"
 
@@ -1374,6 +1388,18 @@ msgid ""
 msgstr ""
 "Antes de importar, recomendamos usar a aba “Backup” para criar um backup "
 "das suas configurações atuais."
+
+#: includes/dashboard.php:32
+msgid "Sync feature status to all sites in this network."
+msgstr "Sincronizar o status da funcionalidade para todos os sites nesta rede."
+
+#: includes/dashboard.php:35
+msgid ""
+"When selected, changing a feature below will apply its new status to every "
+"existing site in the background."
+msgstr ""
+"Quando selecionado, alterar uma funcionalidade abaixo aplicará seu novo "
+"status a todos os sites existentes em segundo plano."
 
 #: includes/features/admin-columns/admin-columns-ui.php:25
 msgid "Admin Column Restrictions"
@@ -4189,3 +4215,7 @@ msgstr "Atualizando acesso..."
 #: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "Erro ao atualizar acesso."
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "Erro: não foi possível salvar as alterações."

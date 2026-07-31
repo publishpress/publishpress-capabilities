@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-07-31 08:56+0000\n"
+"PO-Revision-Date: 2026-07-31 11:44+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: ja\n"
@@ -69,7 +69,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:58
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:862
+#: includes/admin-load.php:885
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "プロ版にアップグレード"
@@ -201,7 +201,7 @@ msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:522
-#: includes/admin-load.php:875
+#: includes/admin-load.php:898
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:510
 #: includes/manager.php:430
@@ -219,10 +219,22 @@ msgid "Invalid nonce token!"
 msgstr "無効なnonceトークン！"
 
 #: includes/admin-load.php:675
+#: includes/admin-load.php:683
 msgid "Error: wrong data"
 msgstr "エラー：不正なデータ"
 
-#: includes/admin-load.php:697
+#: includes/admin-load.php:703
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr "変更が保存されました。機能の状態の同期がすべてのネットワークサイトに対してキューに追加されました。"
+
+#: includes/admin-load.php:709
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "変更が保存されました！"
+
+#: includes/admin-load.php:720
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -230,44 +242,44 @@ msgstr "エラー：不正なデータ"
 msgid "An error occured!"
 msgstr "エラーが発生しました！"
 
-#: includes/admin-load.php:702
+#: includes/admin-load.php:725
 msgid "Security check failed"
 msgstr "セキュリティチェックに失敗しました"
 
-#: includes/admin-load.php:704
+#: includes/admin-load.php:727
 msgid "Permission denied"
 msgstr "権限が拒否されました"
 
-#: includes/admin-load.php:714
+#: includes/admin-load.php:737
 msgid "Settings updated successfully."
 msgstr "設定が正常に更新されました。"
 
-#: includes/admin-load.php:810
+#: includes/admin-load.php:833
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "ログインユーザー"
 
-#: includes/admin-load.php:811
+#: includes/admin-load.php:834
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "ログアウトユーザー"
 
-#: includes/admin-load.php:818
+#: includes/admin-load.php:841
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "PublishPress 機能メニュー制限"
 
-#: includes/admin-load.php:819
+#: includes/admin-load.php:842
 msgid "This menu is restricted for the following roles"
 msgstr "このメニューは以下の役割に制限されています"
 
-#: includes/admin-load.php:874
+#: includes/admin-load.php:897
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: includes/admin-load.php:876
+#: includes/admin-load.php:899
 #: includes/admin.php:175
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:503
@@ -276,7 +288,7 @@ msgstr "ダッシュボード"
 msgid "Roles"
 msgstr "役割"
 
-#: includes/admin-load.php:877
+#: includes/admin-load.php:900
 msgid "Settings"
 msgstr "設定"
 
@@ -1273,6 +1285,16 @@ msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
 msgstr "インポートする前に、\"バックアップ\"タブを使用して現在の設定のバックアップを作成することをお勧めします。"
+
+#: includes/dashboard.php:32
+msgid "Sync feature status to all sites in this network."
+msgstr "このネットワーク内のすべてのサイトに機能の状態を同期します。"
+
+#: includes/dashboard.php:35
+msgid ""
+"When selected, changing a feature below will apply its new status to every "
+"existing site in the background."
+msgstr "選択すると、以下の機能を変更することで、その新しい状態がバックグラウンドで既存のすべてのサイトに適用されます。"
 
 #: includes/features/admin-columns/admin-columns-ui.php:25
 msgid "Admin Column Restrictions"
@@ -3933,3 +3955,7 @@ msgstr "アクセスを更新中..."
 #: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "アクセスの更新中にエラーが発生しました。"
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "エラー：変更を保存できません。"

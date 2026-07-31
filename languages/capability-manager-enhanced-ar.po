@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-07-31 08:55+0000\n"
+"PO-Revision-Date: 2026-07-31 11:44+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "% 100 >= 3 && n % 100 <= 10 ? 3 : n % 100 >= 11 ? 4 : 5);\n"
@@ -75,7 +75,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:58
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:862
+#: includes/admin-load.php:885
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "ترقية إلى Pro"
@@ -211,7 +211,7 @@ msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:522
-#: includes/admin-load.php:875
+#: includes/admin-load.php:898
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:510
 #: includes/manager.php:430
@@ -229,10 +229,24 @@ msgid "Invalid nonce token!"
 msgstr "رمز nonce غير صالح!"
 
 #: includes/admin-load.php:675
+#: includes/admin-load.php:683
 msgid "Error: wrong data"
 msgstr "خطأ: بيانات خاطئة"
 
-#: includes/admin-load.php:697
+#: includes/admin-load.php:703
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr ""
+"تم حفظ التغييرات. تم وضع مزامنة حالة الميزة في قائمة الانتظار لجميع مواقع "
+"الشبكة."
+
+#: includes/admin-load.php:709
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "تم حفظ التغييرات!"
+
+#: includes/admin-load.php:720
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -240,44 +254,44 @@ msgstr "خطأ: بيانات خاطئة"
 msgid "An error occured!"
 msgstr "حدث خطأ!"
 
-#: includes/admin-load.php:702
+#: includes/admin-load.php:725
 msgid "Security check failed"
 msgstr "فشل فحص الأمان"
 
-#: includes/admin-load.php:704
+#: includes/admin-load.php:727
 msgid "Permission denied"
 msgstr "تم رفض الإذن"
 
-#: includes/admin-load.php:714
+#: includes/admin-load.php:737
 msgid "Settings updated successfully."
 msgstr "تم تحديث الإعدادات بنجاح."
 
-#: includes/admin-load.php:810
+#: includes/admin-load.php:833
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "المستخدمون المتصلون"
 
-#: includes/admin-load.php:811
+#: includes/admin-load.php:834
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "المستخدمون غير المتصلين"
 
-#: includes/admin-load.php:818
+#: includes/admin-load.php:841
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "تقييد قائمة قدرات PublishPress"
 
-#: includes/admin-load.php:819
+#: includes/admin-load.php:842
 msgid "This menu is restricted for the following roles"
 msgstr "هذه القائمة مقيدة للأدوار التالية"
 
-#: includes/admin-load.php:874
+#: includes/admin-load.php:897
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "لوحة التحكم"
 
-#: includes/admin-load.php:876
+#: includes/admin-load.php:899
 #: includes/admin.php:175
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:503
@@ -286,7 +300,7 @@ msgstr "لوحة التحكم"
 msgid "Roles"
 msgstr "الأدوار"
 
-#: includes/admin-load.php:877
+#: includes/admin-load.php:900
 msgid "Settings"
 msgstr "الإعدادات"
 
@@ -1331,6 +1345,18 @@ msgid ""
 msgstr ""
 "قبل الاستيراد، نوصي باستخدام علامة التبويب \"نسخة احتياطية\" لإنشاء نسخة "
 "احتياطية من إعداداتك الحالية."
+
+#: includes/dashboard.php:32
+msgid "Sync feature status to all sites in this network."
+msgstr "مزامنة حالة الميزة مع جميع المواقع في هذه الشبكة."
+
+#: includes/dashboard.php:35
+msgid ""
+"When selected, changing a feature below will apply its new status to every "
+"existing site in the background."
+msgstr ""
+"عند التحديد، سيؤدي تغيير ميزة أدناه إلى تطبيق حالتها الجديدة على كل موقع "
+"موجود في الخلفية."
 
 #: includes/features/admin-columns/admin-columns-ui.php:25
 msgid "Admin Column Restrictions"
@@ -4101,3 +4127,7 @@ msgstr "تحديث الوصول..."
 #: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "خطأ في تحديث الوصول."
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "خطأ: لا يمكن حفظ التغييرات."

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Feature : Add "Disable Role" Feature in role's screen, #735
 - Feature : Add Global on / off / negate on Capabilities screen, #1757
 - Feature : Added filters to hide capabilities menus for subsite users on multisite, #1764
+- Feature : Add network wide synchronization for Dashboard features, #1778
 - Update : Support for Multisite WP CLI for "include in new sites" capabilities feature #1367
 - Update : Improve export feature to export single/selected roles, #1363
 - Fixed : Limit capabilities import only to capabilities that the current user is allowed to grant, #1763

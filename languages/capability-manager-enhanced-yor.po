@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-07-31 08:58+0000\n"
+"PO-Revision-Date: 2026-07-31 11:45+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: yor\n"
@@ -73,7 +73,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:58
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:862
+#: includes/admin-load.php:885
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Gbadun si Pro"
@@ -210,7 +210,7 @@ msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:522
-#: includes/admin-load.php:875
+#: includes/admin-load.php:898
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:510
 #: includes/manager.php:430
@@ -228,10 +228,24 @@ msgid "Invalid nonce token!"
 msgstr "Aami nonce ti ko tọ!"
 
 #: includes/admin-load.php:675
+#: includes/admin-load.php:683
 msgid "Error: wrong data"
 msgstr "Aṣiṣe: data ti ko tọ"
 
-#: includes/admin-load.php:697
+#: includes/admin-load.php:703
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr ""
+"Awọn ayipada ti fipamọ. Ipo ẹya ìkànsí ti wa ni ìkànsí fún gbogbo awọn aaye "
+"nẹtiwọọki."
+
+#: includes/admin-load.php:709
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "Awọn ayipada ti fipamọ!"
+
+#: includes/admin-load.php:720
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -239,44 +253,44 @@ msgstr "Aṣiṣe: data ti ko tọ"
 msgid "An error occured!"
 msgstr "Aṣiṣe kan ṣẹlẹ!"
 
-#: includes/admin-load.php:702
+#: includes/admin-load.php:725
 msgid "Security check failed"
 msgstr "Ayẹwo aabo kuna"
 
-#: includes/admin-load.php:704
+#: includes/admin-load.php:727
 msgid "Permission denied"
 msgstr "Iṣẹ-iyọọda ti kọ"
 
-#: includes/admin-load.php:714
+#: includes/admin-load.php:737
 msgid "Settings updated successfully."
 msgstr "Awọn iṣeto ti ni imudojuiwọn ni aṣeyọri."
 
-#: includes/admin-load.php:810
+#: includes/admin-load.php:833
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Àwọn Olùmúlò Tí a Wọlé"
 
-#: includes/admin-load.php:811
+#: includes/admin-load.php:834
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Àwọn Olùmúlò Tí a Sọkalẹ"
 
-#: includes/admin-load.php:818
+#: includes/admin-load.php:841
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Ìdènà akojọ PublishPress"
 
-#: includes/admin-load.php:819
+#: includes/admin-load.php:842
 msgid "This menu is restricted for the following roles"
 msgstr "Àkójọ yìí ni a dènà fún awọn ipa wọnyi"
 
-#: includes/admin-load.php:874
+#: includes/admin-load.php:897
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Iboju iṣakoso"
 
-#: includes/admin-load.php:876
+#: includes/admin-load.php:899
 #: includes/admin.php:175
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:503
@@ -285,7 +299,7 @@ msgstr "Iboju iṣakoso"
 msgid "Roles"
 msgstr "Awọn Iṣẹ"
 
-#: includes/admin-load.php:877
+#: includes/admin-load.php:900
 msgid "Settings"
 msgstr "Awọn iṣeto"
 
@@ -1335,6 +1349,18 @@ msgid ""
 msgstr ""
 "Ṣaaju ki o to gbe wọle, a daba lati lo taabu \"Igbẹkẹle\" lati ṣẹda "
 "igbẹkẹle ti awọn eto rẹ lọwọlọwọ."
+
+#: includes/dashboard.php:32
+msgid "Sync feature status to all sites in this network."
+msgstr "Ṣe ìkànsí ipo ẹya si gbogbo awọn aaye ninu nẹtiwọọki yii."
+
+#: includes/dashboard.php:35
+msgid ""
+"When selected, changing a feature below will apply its new status to every "
+"existing site in the background."
+msgstr ""
+"Nigbati a ba yan, yiyipada ẹya kan ni isalẹ yoo lo ipo tuntun rẹ si gbogbo "
+"aaye ti o wa ni abẹlẹ."
 
 #: includes/features/admin-columns/admin-columns-ui.php:25
 msgid "Admin Column Restrictions"
@@ -4091,3 +4117,7 @@ msgstr "Nṣiṣẹ wiwọle..."
 #: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "Aṣiṣe nṣiṣẹ wiwọle."
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "Aṣiṣe: awọn ayipada ko le fipamọ."

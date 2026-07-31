@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-07-31 08:56+0000\n"
+"PO-Revision-Date: 2026-07-31 11:44+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "% 10 == 0) ? 2 : 3)));\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:58
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:862
+#: includes/admin-load.php:885
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "שדרג ל-Pro"
@@ -210,7 +210,7 @@ msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
 #: includes/admin-load.php:522
-#: includes/admin-load.php:875
+#: includes/admin-load.php:898
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:510
 #: includes/manager.php:430
@@ -228,10 +228,22 @@ msgid "Invalid nonce token!"
 msgstr "אסימון nonce לא חוקי!"
 
 #: includes/admin-load.php:675
+#: includes/admin-load.php:683
 msgid "Error: wrong data"
 msgstr "שגיאה: נתונים שגויים"
 
-#: includes/admin-load.php:697
+#: includes/admin-load.php:703
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr "שינויים נשמרו. סנכרון סטטוס הפיצ'ר הוזמן עבור כל אתרי הרשת."
+
+#: includes/admin-load.php:709
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "שינויים נשמרו!"
+
+#: includes/admin-load.php:720
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -239,44 +251,44 @@ msgstr "שגיאה: נתונים שגויים"
 msgid "An error occured!"
 msgstr "אירעה שגיאה!"
 
-#: includes/admin-load.php:702
+#: includes/admin-load.php:725
 msgid "Security check failed"
 msgstr "בדיקת אבטחה נכשלה"
 
-#: includes/admin-load.php:704
+#: includes/admin-load.php:727
 msgid "Permission denied"
 msgstr "גישה נדחתה"
 
-#: includes/admin-load.php:714
+#: includes/admin-load.php:737
 msgid "Settings updated successfully."
 msgstr "ההגדרות עודכנו בהצלחה."
 
-#: includes/admin-load.php:810
+#: includes/admin-load.php:833
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "משתמשים מחוברים"
 
-#: includes/admin-load.php:811
+#: includes/admin-load.php:834
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "משתמשים מנותקים"
 
-#: includes/admin-load.php:818
+#: includes/admin-load.php:841
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "הגבלות בתפריט יכולות PublishPress"
 
-#: includes/admin-load.php:819
+#: includes/admin-load.php:842
 msgid "This menu is restricted for the following roles"
 msgstr "תפריט זה מוגבל עבור התפקידים הבאים"
 
-#: includes/admin-load.php:874
+#: includes/admin-load.php:897
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "לוח בקרה"
 
-#: includes/admin-load.php:876
+#: includes/admin-load.php:899
 #: includes/admin.php:175
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:503
@@ -285,7 +297,7 @@ msgstr "לוח בקרה"
 msgid "Roles"
 msgstr "תפקידים"
 
-#: includes/admin-load.php:877
+#: includes/admin-load.php:900
 msgid "Settings"
 msgstr "הגדרות"
 
@@ -1325,6 +1337,16 @@ msgid ""
 msgstr ""
 "לפני הייבוא, אנו ממליצים להשתמש בלשונית \"גיבוי\" כדי ליצור גיבוי של "
 "ההגדרות הנוכחיות שלך."
+
+#: includes/dashboard.php:32
+msgid "Sync feature status to all sites in this network."
+msgstr "סנכרן את סטטוס הפיצ'ר לכל האתרים ברשת זו."
+
+#: includes/dashboard.php:35
+msgid ""
+"When selected, changing a feature below will apply its new status to every "
+"existing site in the background."
+msgstr "כאשר נבחר, שינוי פיצ'ר למטה יחיל את הסטטוס החדש שלו על כל אתר קיים ברקע."
 
 #: includes/features/admin-columns/admin-columns-ui.php:25
 msgid "Admin Column Restrictions"
@@ -4060,3 +4082,7 @@ msgstr "עדכון גישה..."
 #: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "שגיאה בעדכון גישה."
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "שגיאה: לא ניתן לשמור שינויים."
