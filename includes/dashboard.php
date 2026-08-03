@@ -25,17 +25,6 @@
     <div class="pp-columns-wrapper clear">
         <div class="pp-column-left">
             <form id="ppc-capabilities-dashboard-form">
-                <?php if (is_multisite() && is_super_admin() && is_main_site()) : ?>
-                    <div class="ppc-dashboard-network-sync">
-                        <label for="ppc_dashboard_network_sync">
-                            <input type="checkbox" id="ppc_dashboard_network_sync" value="1" />
-                            <strong><?php esc_html_e('Sync feature status to all sites in this network.', 'capability-manager-enhanced'); ?></strong>
-                        </label>
-                        <p class="description">
-                            <?php esc_html_e('When selected, changing a feature below will apply its new status to every existing site in the background.', 'capability-manager-enhanced'); ?>
-                        </p>
-                    </div>
-                <?php endif; ?>
                 <div class="dashboard-settings-boxes">
                     <?php foreach (pp_capabilities_dashboard_options() as $feature => $option) : ?>
                         <?php
@@ -78,6 +67,17 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
+                <?php if (is_multisite() && is_super_admin() && is_main_site()) : ?>
+                    <div class="ppc-dashboard-network-sync">
+                        <label for="ppc_dashboard_network_sync">
+                            <input type="checkbox" id="ppc_dashboard_network_sync" value="1" autocomplete="off" />
+                            <strong><?php esc_html_e('Sync feature status to all sites in this network.', 'capability-manager-enhanced'); ?></strong>
+                        </label>
+                        <p class="description">
+                            <?php esc_html_e('When selected, changing a feature above will apply its new status to every existing site in the background.', 'capability-manager-enhanced'); ?>
+                        </p>
+                    </div>
+                <?php endif; ?>
             </form>
         </div><!-- .pp-column-left -->
         <div class="pp-column-right pp-capabilities-sidebar">
