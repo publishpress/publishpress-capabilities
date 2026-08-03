@@ -761,7 +761,6 @@ if (!function_exists('pp_capabilities_admin_pages')) {
             'pp-capabilities-dashboard',
             'pp-capabilities-roles',
             'pp-capabilities-admin-menus',
-            'pp-capabilities-admin-columns',
             'pp-capabilities-nav-menus',
             'pp-capabilities-editor-features',
             'pp-capabilities-backup',

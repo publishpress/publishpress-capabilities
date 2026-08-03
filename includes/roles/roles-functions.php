@@ -212,30 +212,6 @@ function pp_capabilities_roles_admin_menus($role, $check = false)
 }
 
 /**
- * Get admin column restrictions for a role.
- *
- * @param string  $role  Role to check.
- * @param boolean $check Whether to check the database.
- * @return integer
- */
-function pp_capabilities_roles_admin_columns($role, $check = false)
-{
-    if (!$role || !$check) {
-        return 0;
-    }
-
-    $settings = (array) get_option('capsman_admin_columns', []);
-    $settings = isset($settings[$role]) && is_array($settings[$role]) ? $settings[$role] : [];
-    $disabled_items = [];
-
-    foreach ($settings as $post_type_columns) {
-        $disabled_items = array_merge($disabled_items, (array) $post_type_columns);
-    }
-
-    return count(array_filter($disabled_items));
-}
-
-/**
  * Get nav menus restriction for a role
  *
  * @param string $role role to check

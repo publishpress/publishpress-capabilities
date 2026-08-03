@@ -200,7 +200,7 @@ class CapabilityManager
 		if (empty($_REQUEST['page'])
 		|| !in_array(
 			$_REQUEST['page'],
-				['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-admin-columns', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles', 'pp-capabilities-admin-notices']
+				['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles', 'pp-capabilities-admin-notices']
 			)
 		) {
 			return;
@@ -727,115 +727,6 @@ class CapabilityManager
 		}
 
         include(dirname(CME_FILE) . '/includes/features/admin-features.php');
-    }
-
-    /**
-     * Manages role-based post list column restrictions.
-     *
-     * @return void
-     */
-    public function ManageAdminColumns()
-    {
-        if (
-            (!is_multisite() || !is_super_admin())
-            && !current_user_can('administrator')
-            && !current_user_can('manage_capabilities_admin_columns')
-        ) {
-            wp_die(
-                '<strong>'
-                . esc_html__('You do not have permission to manage admin columns.', 'capability-manager-enhanced')
-                . '</strong>'
-            );
-        }
-
-        $this->generateNames();
-        $roles = array_keys($this->roles);
-
-        if (!isset($this->current) && 'POST' !== $_SERVER['REQUEST_METHOD'] && !empty($_REQUEST['role'])) {
-            $this->set_current_role(sanitize_key($_REQUEST['role']));
-        }
-
-        if (!isset($this->current) || !get_role($this->current)) {
-            $this->current = get_option('default_role');
-        }
-
-        if (!in_array($this->current, $roles, true)) {
-            $this->current = reset($roles);
-        }
-
-        if (
-            !empty($_SERVER['REQUEST_METHOD'])
-            && 'POST' === $_SERVER['REQUEST_METHOD']
-            && isset($_POST['ppc-admin-columns-role'])
-        ) {
-            check_admin_referer('pp-capabilities-admin-columns');
-
-            $columns_role = sanitize_key($_POST['ppc-admin-columns-role']);
-            if (!in_array($columns_role, $roles, true)) {
-                wp_die(
-                    '<strong>'
-                    . esc_html__('You do not have permission to manage admin columns.', 'capability-manager-enhanced')
-                    . '</strong>'
-                );
-            }
-
-            $this->set_current_role($columns_role);
-
-            $admin_columns = \PublishPress\Capabilities\PP_Capabilities_Admin_Columns::instance();
-            $post_types = $admin_columns->getPostTypes();
-            $submitted_settings = isset($_POST['capsman_admin_columns'])
-                && is_array($_POST['capsman_admin_columns'])
-                ? wp_unslash($_POST['capsman_admin_columns'])
-                : [];
-            $settings = (array) get_option(
-                \PublishPress\Capabilities\PP_Capabilities_Admin_Columns::OPTION_NAME,
-                []
-            );
-            $settings[$columns_role] = [];
-
-            foreach ($post_types as $post_type => $post_type_object) {
-                $available_columns = array_keys($admin_columns->getColumns($post_type));
-                $hidden_columns = isset($submitted_settings[$post_type])
-                    ? \PublishPress\Capabilities\PP_Capabilities_Admin_Columns::sanitizeColumnKeys(
-                        $submitted_settings[$post_type]
-                    )
-                    : [];
-
-                $settings[$columns_role][$post_type] = array_values(
-                    array_intersect($hidden_columns, $available_columns)
-                );
-            }
-
-            update_option(
-                \PublishPress\Capabilities\PP_Capabilities_Admin_Columns::OPTION_NAME,
-                $settings,
-                false
-            );
-
-            ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
-        }
-
-        $url = plugin_dir_url(CME_FILE) . 'includes/features/admin-columns/assets/';
-        wp_enqueue_style(
-            'pp-capabilities-admin-columns',
-            $url . 'admin-columns.css',
-            [],
-            PUBLISHPRESS_CAPS_VERSION
-        );
-        wp_enqueue_script(
-            'pp-capabilities-admin-columns',
-            $url . 'admin-columns.js',
-            ['jquery'],
-            PUBLISHPRESS_CAPS_VERSION,
-            true
-        );
-        wp_localize_script(
-            'pp-capabilities-admin-columns',
-            'ppCapabilitiesAdminColumns',
-            ['pageUrl' => admin_url('admin.php?page=pp-capabilities-admin-columns')]
-        );
-
-        include(dirname(CME_FILE) . '/includes/features/admin-columns/admin-columns-ui.php');
     }
 
 	/**
