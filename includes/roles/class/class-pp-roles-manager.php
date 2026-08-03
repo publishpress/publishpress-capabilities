@@ -77,7 +77,6 @@ class Pp_Roles_Manager
                 'admin_features'  => pp_capabilities_roles_admin_features($role, $include_features),
                 'profile_features'  => pp_capabilities_roles_profile_features($role, $include_features),
                 'admin_menus'     => pp_capabilities_roles_admin_menus($role, $include_features),
-                'admin_columns'   => pp_capabilities_roles_admin_columns($role, $include_features),
                 'nav_menus'       => pp_capabilities_roles_nav_menus($role, $include_features),
                 'is_system'       => $this->is_system_role($role),
                 'disabled'        => in_array($role, $disabled_roles, true),

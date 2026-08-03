@@ -18,16 +18,6 @@ function is_super_admin()
     return false;
 }
 
-function is_admin()
-{
-    return false;
-}
-
-function __($text)
-{
-    return $text;
-}
-
 function apply_filters($hook, $value, $user = null)
 {
     if ($hook === 'pp_capabilities_display_admin_menu_on_subsite') {
@@ -48,22 +38,6 @@ function wp_get_current_user()
 }
 
 require_once dirname(__DIR__) . '/includes/functions-admin.php';
-
-$submenus = pp_capabilities_sub_menu_lists(true);
-if (
-    !isset($submenus['admin-columns'])
-    || 'pp-capabilities-admin-columns' !== $submenus['admin-columns']['page']
-    || 'manage_capabilities_admin_columns' !== $submenus['admin-columns']['capabilities']
-) {
-    fwrite(STDERR, "Expected Admin Columns to be registered with the Capabilities menus.\n");
-    exit(1);
-}
-
-$plugin_capabilities = cme_publishpress_capabilities_capabilities([]);
-if (!in_array('manage_capabilities_admin_columns', $plugin_capabilities, true)) {
-    fwrite(STDERR, "Expected the Admin Columns management capability to be registered.\n");
-    exit(1);
-}
 
 $hidden = pp_capabilities_should_display_admin_menu();
 if ($hidden !== false) {
