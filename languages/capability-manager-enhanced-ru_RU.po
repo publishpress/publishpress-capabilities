@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-07-31 11:44+0000\n"
+"PO-Revision-Date: 2026-08-03 02:15+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -74,10 +74,10 @@ msgstr ""
 
 #: includes-core/admin-features-promo.php:79
 #: includes-core/admin-menus-promo.php:62
-#: includes-core/CoreAdmin.php:58
+#: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:885
+#: includes/admin-load.php:881
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Обновить до Pro"
@@ -106,22 +106,22 @@ msgstr ""
 "Вы используете PublishPress Capabilities Free. Профессиональная версия "
 "имеет больше функций и поддержку. %sПерейти на Pro%s"
 
-#: includes-core/CoreAdmin.php:94
-#: includes-core/CoreAdmin.php:157
-#: includes/functions-admin.php:553
-#: includes/roles/class/class-pp-roles-admin.php:554
+#: includes-core/CoreAdmin.php:92
+#: includes-core/CoreAdmin.php:155
+#: includes/functions-admin.php:536
+#: includes/roles/class/class-pp-roles-admin.php:553
 msgid "Admin Menus"
 msgstr "Меню администратора"
 
-#: includes-core/CoreAdmin.php:137
+#: includes-core/CoreAdmin.php:135
 msgid "Hide CSS Elements"
 msgstr "Скрыть элементы CSS"
 
-#: includes-core/CoreAdmin.php:138
+#: includes-core/CoreAdmin.php:136
 msgid "Block by URL"
 msgstr "Блокировать по URL"
 
-#: includes-core/CoreAdmin.php:158
+#: includes-core/CoreAdmin.php:156
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -129,11 +129,11 @@ msgstr ""
 "Админские меню позволяют редактировать ссылки на меню администратора и "
 "контролировать, кто имеет доступ."
 
-#: includes-core/CoreAdmin.php:168
+#: includes-core/CoreAdmin.php:166
 msgid "Select pages..."
 msgstr "Выберите страницы..."
 
-#: includes-core/CoreAdmin.php:173
+#: includes-core/CoreAdmin.php:171
 msgid "You can select page types where this element will be added."
 msgstr "Вы можете выбрать типы страниц, на которые будет добавлен этот элемент."
 
@@ -203,42 +203,42 @@ msgstr ""
 "Это добавит метабокс на экран редактирования поста. Вы можете использовать "
 "эту функцию, чтобы добавить классы тела только для этого поста."
 
-#: includes/admin-load.php:380
+#: includes/admin-load.php:376
 msgid "Drag multiple roles selection to change roles order."
 msgstr "Перетащите выбор нескольких ролей, чтобы изменить порядок ролей."
 
-#: includes/admin-load.php:383
+#: includes/admin-load.php:379
 msgid "Page title"
 msgstr "Название страницы"
 
-#: includes/admin-load.php:384, fuzzy
+#: includes/admin-load.php:380, fuzzy
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:522
-#: includes/admin-load.php:898
-#: includes/functions-admin.php:419
-#: includes/functions-admin.php:510
+#: includes/admin-load.php:518
+#: includes/admin-load.php:894
+#: includes/functions-admin.php:414
+#: includes/functions-admin.php:500
 #: includes/manager.php:430
-#: includes/roles/class/class-pp-roles-admin.php:666
+#: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Возможности"
 
-#: includes/admin-load.php:661
+#: includes/admin-load.php:657
 msgid "No permission!"
 msgstr "Нет разрешения!"
 
-#: includes/admin-load.php:671
+#: includes/admin-load.php:667
 msgid "Invalid nonce token!"
 msgstr "Недействительный токен nonce!"
 
-#: includes/admin-load.php:675
-#: includes/admin-load.php:683
+#: includes/admin-load.php:671
+#: includes/admin-load.php:679
 msgid "Error: wrong data"
 msgstr "Ошибка: неверные данные"
 
-#: includes/admin-load.php:703
+#: includes/admin-load.php:699
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
@@ -246,12 +246,12 @@ msgstr ""
 "Изменения сохранены. Синхронизация статуса функции поставлена в очередь для "
 "всех сетевых сайтов."
 
-#: includes/admin-load.php:709
+#: includes/admin-load.php:705
 #: common/js/admin.dev.js:1237
 msgid "Changes saved!"
 msgstr "Изменения сохранены!"
 
-#: includes/admin-load.php:720
+#: includes/admin-load.php:716
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -259,53 +259,53 @@ msgstr "Изменения сохранены!"
 msgid "An error occured!"
 msgstr "Произошла ошибка!"
 
-#: includes/admin-load.php:725
+#: includes/admin-load.php:721
 msgid "Security check failed"
 msgstr "Проверка безопасности не удалась"
 
-#: includes/admin-load.php:727
+#: includes/admin-load.php:723
 msgid "Permission denied"
 msgstr "Доступ запрещен"
 
-#: includes/admin-load.php:737
+#: includes/admin-load.php:733
 msgid "Settings updated successfully."
 msgstr "Настройки успешно обновлены."
 
-#: includes/admin-load.php:833
+#: includes/admin-load.php:829
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Вошедшие пользователи"
 
-#: includes/admin-load.php:834
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Вышедшие пользователи"
 
-#: includes/admin-load.php:841
+#: includes/admin-load.php:837
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Ограничение меню PublishPress Capabilities"
 
-#: includes/admin-load.php:842
+#: includes/admin-load.php:838
 msgid "This menu is restricted for the following roles"
 msgstr "Это меню ограничено для следующих ролей"
 
-#: includes/admin-load.php:897
+#: includes/admin-load.php:893
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Панель управления"
 
-#: includes/admin-load.php:899
+#: includes/admin-load.php:895
 #: includes/admin.php:175
-#: includes/functions-admin.php:414
-#: includes/functions-admin.php:503
+#: includes/functions-admin.php:409
+#: includes/functions-admin.php:493
 #: includes/roles/roles.php:8
 #: includes/settings-ui.php:34
 msgid "Roles"
 msgstr "Роли"
 
-#: includes/admin-load.php:900
+#: includes/admin-load.php:896
 msgid "Settings"
 msgstr "Настройки"
 
@@ -333,9 +333,9 @@ msgstr "Текущая роль"
 #: includes/admin-notices/admin-notices.php:207
 #: includes/admin-notices/admin-notices.php:245
 #: includes/admin-notices/admin-notices.php:248
-#: includes/functions-admin.php:243
-#: includes/functions-admin.php:469
-#: includes/functions-admin.php:545
+#: includes/functions-admin.php:239
+#: includes/functions-admin.php:459
+#: includes/functions-admin.php:528
 msgid "Admin Notices"
 msgstr "Уведомления администратора"
 
@@ -425,7 +425,7 @@ msgid "Configure notice visibility by user role"
 msgstr "Настроить видимость уведомлений по ролям пользователей"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1989
+#: includes/admin.php:1996
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -485,8 +485,8 @@ msgid "Edit the settings."
 msgstr "Изменить настройки."
 
 #: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:927
-#: includes/manager.php:951
+#: includes/manager.php:818
+#: includes/manager.php:842
 msgid "You do not have permission to manage admin notices."
 msgstr "У вас нет разрешения для управления уведомлениями админа."
 
@@ -526,7 +526,7 @@ msgid "Application Passwords"
 msgstr "Пароли приложений"
 
 #: includes/admin.php:248
-#: includes/admin.php:917
+#: includes/admin.php:924
 msgid "Nav Menus (Block)"
 msgstr "Навигационные меню (блок)"
 
@@ -535,7 +535,7 @@ msgid "Block"
 msgstr "Блокировать"
 
 #: includes/admin.php:257
-#: includes/admin.php:919
+#: includes/admin.php:926
 msgid "Nav Menus (Legacy)"
 msgstr "Навигационные меню (наследие)"
 
@@ -659,109 +659,113 @@ msgstr "Запрещено"
 msgid "Mixed"
 msgstr "Смешано"
 
-#: includes/admin.php:498
+#: includes/admin.php:500
+msgid "Global capabilities help"
+msgstr "Помощь по глобальным возможностям"
+
+#: includes/admin.php:503
 msgid "Click to grant, clear, or deny capabilities across every tab."
 msgstr ""
 "Нажмите, чтобы предоставить, очистить или запретить возможности для каждой "
 "вкладки."
 
-#: includes/admin.php:669
-#: includes/admin.php:1186
-#: includes/admin.php:2080
+#: includes/admin.php:676
+#: includes/admin.php:1193
+#: includes/admin.php:2087
 msgid "Multisite"
 msgstr "Мультисайт"
 
-#: includes/admin.php:673
-#: includes/admin.php:1190
+#: includes/admin.php:680
+#: includes/admin.php:1197
 msgid "Admin"
 msgstr "Администратор"
 
-#: includes/admin.php:753
-#: includes/admin.php:1626
+#: includes/admin.php:760
+#: includes/admin.php:1633
 msgid "Invalid Capabilities"
 msgstr "Недействительные возможности"
 
-#: includes/admin.php:758
-#: includes/admin.php:1772
+#: includes/admin.php:765
+#: includes/admin.php:1779
 msgid "Additional"
 msgstr "Дополнительно"
 
-#: includes/admin.php:792
+#: includes/admin.php:799
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Возможности термина %s"
 
-#: includes/admin.php:795
+#: includes/admin.php:802
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s Возможности"
 
-#: includes/admin.php:796
+#: includes/admin.php:803
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Возможности поста %s"
 
-#: includes/admin.php:799
+#: includes/admin.php:806
 msgid "Taxonomy"
 msgstr "Таксономия"
 
-#: includes/admin.php:805
+#: includes/admin.php:812
 msgid "Filter by taxonomy"
 msgstr "Фильтр по таксономии"
 
-#: includes/admin.php:805
+#: includes/admin.php:812
 msgid "Filter by post type"
 msgstr "Фильтровать по типу записи"
 
-#: includes/admin.php:814
-#: includes/admin.php:1220
-#: includes/admin.php:1300
-#: includes/admin.php:1334
-#: includes/admin.php:1340
-#: includes/admin.php:1490
-#: includes/admin.php:1611
-#: includes/admin.php:1752
-#: includes/admin.php:1930
+#: includes/admin.php:821
+#: includes/admin.php:1227
+#: includes/admin.php:1307
+#: includes/admin.php:1341
+#: includes/admin.php:1347
+#: includes/admin.php:1497
+#: includes/admin.php:1618
+#: includes/admin.php:1759
+#: includes/admin.php:1937
 msgid "check / uncheck / negate all"
 msgstr "отметить / снять отметку / отменить все"
 
-#: includes/admin.php:926
+#: includes/admin.php:933
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Slug для этой таксономии - %s"
 
-#: includes/admin.php:928
+#: includes/admin.php:935
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Slug для этого типа поста - %s"
 
-#: includes/admin.php:1005
-#: includes/admin.php:1253
-#: includes/admin.php:1547
-#: includes/admin.php:1855
-#: includes/admin.php:1856
+#: includes/admin.php:1012
+#: includes/admin.php:1260
+#: includes/admin.php:1554
+#: includes/admin.php:1862
+#: includes/admin.php:1863
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: назначено группой разрешений"
 
-#: includes/admin.php:1008
-#: includes/admin.php:1255
-#: includes/admin.php:1549
-#: includes/admin.php:1675
-#: includes/admin.php:1858
+#: includes/admin.php:1015
+#: includes/admin.php:1262
+#: includes/admin.php:1556
+#: includes/admin.php:1682
+#: includes/admin.php:1865
 #, php-format
 msgid "This capability is %s"
 msgstr "Эта возможность - %s"
 
-#: includes/admin.php:1039
+#: includes/admin.php:1046
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Эта возможность контролируется %s"
 
-#: includes/admin.php:1042
+#: includes/admin.php:1049
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -770,18 +774,18 @@ msgstr ""
 "Эта возможность контролируется %s Используйте настройки боковой панели, "
 "чтобы разрешить это контролировать независимо."
 
-#: includes/admin.php:1059
+#: includes/admin.php:1066
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
 "Используйте настройки боковой панели, чтобы это можно было контролировать "
 "независимо."
 
-#: includes/admin.php:1061
-#: includes/admin.php:1065
+#: includes/admin.php:1068
+#: includes/admin.php:1072
 msgid "This capability is not available for this post type."
 msgstr "Эта возможность недоступна для данного типа записи."
 
-#: includes/admin.php:1129
+#: includes/admin.php:1136
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -793,55 +797,55 @@ msgstr ""
 "если соответствующая функция \"Редактировать\" отсутствует. Также эти "
 "функции \"Список\" могут предоставлять доступ, но не могут его отменить."
 
-#: includes/admin.php:1206
-#: includes/admin.php:1320
-#: includes/admin.php:1476
-#: includes/admin.php:1743
+#: includes/admin.php:1213
+#: includes/admin.php:1327
+#: includes/admin.php:1483
+#: includes/admin.php:1750
 msgid "Filter by capability"
 msgstr "Фильтровать по возможности"
 
-#: includes/admin.php:1209
-#: includes/admin.php:1323
-#: includes/admin.php:1479
-#: includes/admin.php:1746
+#: includes/admin.php:1216
+#: includes/admin.php:1330
+#: includes/admin.php:1486
+#: includes/admin.php:1753
 msgid "No results found. Please try again with a different word."
 msgstr "Результатов не найдено. Пожалуйста, попробуйте снова с другим словом."
 
-#: includes/admin.php:1220
-#: includes/admin.php:1300
-#: includes/admin.php:1334
-#: includes/admin.php:1340
-#: includes/admin.php:1490
-#: includes/admin.php:1611
-#: includes/admin.php:1752
-#: includes/admin.php:1930
+#: includes/admin.php:1227
+#: includes/admin.php:1307
+#: includes/admin.php:1341
+#: includes/admin.php:1347
+#: includes/admin.php:1497
+#: includes/admin.php:1618
+#: includes/admin.php:1759
+#: includes/admin.php:1937
 msgid "Capability Name"
 msgstr "Название возможности"
 
-#: includes/admin.php:1317
+#: includes/admin.php:1324
 msgid "WordPress Core Capabilities"
 msgstr "Возможности ядра WordPress"
 
-#: includes/admin.php:1456
-#: includes/admin.php:1511
+#: includes/admin.php:1463
+#: includes/admin.php:1518
 #: includes/features/admin-styles/admin-styles.php:2062
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Общие"
 
-#: includes/admin.php:1473
+#: includes/admin.php:1480
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Возможности плагина &ndash; %s"
 
-#: includes/admin.php:1553
+#: includes/admin.php:1560
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "Функция пользовательского тестирования также требует возможности %1$s "
 "edit_users %2$s."
 
-#: includes/admin.php:1631
+#: includes/admin.php:1638
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -849,26 +853,26 @@ msgstr ""
 "Следующие записи не имеют эффекта. Пожалуйста, назначьте желаемые "
 "возможности на вкладках Редактирование / Удаление / Приватные."
 
-#: includes/admin.php:1740
+#: includes/admin.php:1747
 msgid "Additional Capabilities"
 msgstr "Дополнительные возможности"
 
-#: includes/admin.php:1923
+#: includes/admin.php:1930
 msgid "You have no additional capabilities."
 msgstr "У вас нет дополнительных возможностей."
 
-#: includes/admin.php:1944
+#: includes/admin.php:1951
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "Возможности позволяют вам изменять права для любой пользовательской роли."
 
-#: includes/admin.php:1945
+#: includes/admin.php:1952
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Возможность предоставлена %2$s"
 
-#: includes/admin.php:1945
-#: includes/admin.php:1946
-#: includes/admin.php:1947
+#: includes/admin.php:1952
+#: includes/admin.php:1953
+#: includes/admin.php:1954
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -882,30 +886,30 @@ msgstr "%1$s = Возможность предоставлена %2$s"
 msgid "usage key"
 msgstr "ключ использования"
 
-#: includes/admin.php:1946
+#: includes/admin.php:1953
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Возможность не предоставлена %2$s"
 
-#: includes/admin.php:1947
+#: includes/admin.php:1954
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Возможность отклонена, даже если предоставлена другой ролью %2$s"
 
-#: includes/admin.php:1955
+#: includes/admin.php:1962
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Вы также можете настроить эту роль как группу %sРазрешений%s."
 
-#: includes/admin.php:1975
+#: includes/admin.php:1982
 msgid "How to use Capabilities"
 msgstr "Как использовать возможности"
 
-#: includes/admin.php:2013
+#: includes/admin.php:2020
 msgid "Capabilities is Safe to Use"
 msgstr "Возможности безопасны для использования"
 
-#: includes/admin.php:2026
+#: includes/admin.php:2033
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -913,7 +917,7 @@ msgstr ""
 "WordPress хранит возможности ролей в вашей базе данных, где они остаются, "
 "даже если плагин деактивирован."
 
-#: includes/admin.php:2027
+#: includes/admin.php:2034
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -922,27 +926,27 @@ msgstr ""
 "изменений, создается резервная копия, которую вы можете использовать для "
 "восстановления предыдущей конфигурации."
 
-#: includes/admin.php:2030
+#: includes/admin.php:2037
 msgid "Go to the Backup feature"
 msgstr "Перейти к функции резервного копирования"
 
-#: includes/admin.php:2050
+#: includes/admin.php:2057
 msgid "Add a New Capability"
 msgstr "Добавить новую возможность"
 
-#: includes/admin.php:2060
+#: includes/admin.php:2067
 msgid "Add to role"
 msgstr "Добавить в роль"
 
-#: includes/admin.php:2063
+#: includes/admin.php:2070
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Новые возможности контролируются на вкладке Дополнительно."
 
-#: includes/admin.php:2120
+#: includes/admin.php:2127
 msgid "PublishPress Permissions"
 msgstr "Разрешения PublishPress"
 
-#: includes/admin.php:2122
+#: includes/admin.php:2129
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -950,11 +954,11 @@ msgstr ""
 "Автоматически определяйте функции, специфичные для типов, для ваших "
 "пользовательских типов постов и таксономий"
 
-#: includes/admin.php:2126
+#: includes/admin.php:2133
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Дополнительно назначьте стандартные роли WP для конкретного типа поста"
 
-#: includes/admin.php:2130
+#: includes/admin.php:2137
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -962,17 +966,17 @@ msgstr ""
 "Дополнительно назначьте пользовательские WP роли для конкретного типа поста "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2134
+#: includes/admin.php:2141
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Настроить разрешения на чтение по категориям или по постам"
 
-#: includes/admin.php:2138
+#: includes/admin.php:2145
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "Настроить разрешения на редактирование по категориям или по постам "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2142
+#: includes/admin.php:2149
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -980,7 +984,7 @@ msgstr ""
 "Пользовательские статусы видимости постов, полностью реализованные на всех "
 "страницах wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:2146
+#: includes/admin.php:2153
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -988,11 +992,11 @@ msgstr ""
 "Пользовательские статусы модерации для контроля доступа, многошагового "
 "рабочего процесса публикации <em>(Pro)</em>"
 
-#: includes/admin.php:2150
+#: includes/admin.php:2157
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Регулировать разрешения для статусов публикаций Edit Flow <em>(Pro)</em>"
 
-#: includes/admin.php:2154
+#: includes/admin.php:2161
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -1000,7 +1004,7 @@ msgstr ""
 "Настройте модерацию редактирования опубликованного контента с помощью "
 "Revisionary или Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2158
+#: includes/admin.php:2165
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -1008,41 +1012,41 @@ msgstr ""
 "Предоставьте доступ Зрителю, Участнику или Модератору к конкретным форумам "
 "bbPress <em>(Pro)</em>"
 
-#: includes/admin.php:2162
+#: includes/admin.php:2169
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
 "Предоставить разрешения на дополнительный контент группе BuddyPress "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2166
+#: includes/admin.php:2173
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "Интеграция WPML для зеркалирования разрешений к переводам <em>(Pro)</em>"
 
-#: includes/admin.php:2170
+#: includes/admin.php:2177
 msgid "Member support forum"
 msgstr "Форум поддержки участников"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2184
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2184
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (бесплатная установка)"
 
-#: includes/admin.php:2179
+#: includes/admin.php:2186
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2179
+#: includes/admin.php:2186
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s информация/покупка"
 
-#: includes/admin.php:2212
+#: includes/admin.php:2219
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1052,31 +1056,31 @@ msgstr ""
 "на назначение автора поста и ограничивает применение возможностей "
 "редактирования пользователя."
 
-#: includes/admin.php:2214
+#: includes/admin.php:2221
 msgid "Level:"
 msgstr "Уровень:"
 
-#: includes/admin.php:2258
+#: includes/admin.php:2265
 msgid "Create this role definition in new (future) sites"
 msgstr "Создать это определение роли на новых (будущих) сайтах"
 
-#: includes/admin.php:2258
+#: includes/admin.php:2265
 msgid "Include in new sites."
 msgstr "Включить в новые сайты."
 
-#: includes/admin.php:2261
+#: includes/admin.php:2268
 msgid "Copy / update this role definition to all sites now"
 msgstr "Скопировать / обновить это определение роли на всех сайтах сейчас"
 
-#: includes/admin.php:2261
+#: includes/admin.php:2268
 msgid "Sync role to all sites."
 msgstr "Синхронизировать роль на всех сайтах."
 
-#: includes/admin.php:2264
+#: includes/admin.php:2271
 msgid "Copy option settings to all sites now"
 msgstr "Скопировать настройки опции на все сайты сейчас"
 
-#: includes/admin.php:2264
+#: includes/admin.php:2271
 msgid "Sync options to all sites."
 msgstr "Синхронизировать параметры на всех сайтах."
 
@@ -1162,7 +1166,7 @@ msgid "Restore"
 msgstr "Восстановить"
 
 #: includes/backup.php:49
-#: includes/functions-admin.php:589
+#: includes/functions-admin.php:572
 msgid "Backup"
 msgstr "Резервное копирование"
 
@@ -1386,59 +1390,17 @@ msgstr ""
 "Перед импортом мы рекомендуем использовать вкладку \"Резервная копия\", "
 "чтобы создать резервную копию ваших текущих настроек."
 
-#: includes/dashboard.php:32
+#: includes/dashboard.php:74
 msgid "Sync feature status to all sites in this network."
 msgstr "Синхронизировать статус функции для всех сайтов в этой сети."
 
-#: includes/dashboard.php:35
+#: includes/dashboard.php:77
 msgid ""
-"When selected, changing a feature below will apply its new status to every "
+"When selected, changing a feature above will apply its new status to every "
 "existing site in the background."
 msgstr ""
-"При выборе изменение функции ниже применит ее новый статус ко всем "
+"При выборе изменение функции выше применит её новый статус ко всем "
 "существующим сайтам в фоновом режиме."
-
-#: includes/features/admin-columns/admin-columns-ui.php:25
-msgid "Admin Column Restrictions"
-msgstr "Ограничения столбцов администратора"
-
-#: includes/features/admin-columns/admin-columns-ui.php:95
-#, php-format
-msgid "%s Columns"
-msgstr "%s Столбцы"
-
-#: includes/features/admin-columns/admin-columns-ui.php:106
-msgid "No optional columns were found for this post type."
-msgstr "Не найдено никаких дополнительных столбцов для этого post type."
-
-#: includes/features/admin-columns/admin-columns-ui.php:158
-msgid ""
-"Admin Columns allows you to hide columns from post list screens for users "
-"in a selected role."
-msgstr ""
-"Admin Columns позволяет скрывать столбцы из экранов списка записей для "
-"пользователей с выбранной ролью."
-
-#: includes/features/admin-columns/admin-columns-ui.php:159
-#: includes/features/admin-features.php:348
-#: includes/features/editor-features.php:243
-#: includes/features/frontend-features/frontend-features.php:252
-#: includes/features/nav-menus.php:304
-#: includes/features/profile-features.php:253
-msgid "No change"
-msgstr "Нет изменений"
-
-#: includes/features/admin-columns/admin-columns-ui.php:160
-msgid "This column is hidden"
-msgstr "Этот столбец скрыт"
-
-#: includes/features/admin-columns/admin-columns-ui.php:161
-msgid "The selection checkbox and Title column always remain visible."
-msgstr "Флажок выбора и столбец Заголовок всегда остаются видимыми."
-
-#: includes/features/admin-columns/admin-columns-ui.php:164
-msgid "How to use Admin Columns"
-msgstr "Как использовать Admin Columns"
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1471,13 +1433,21 @@ msgid "Edit"
 msgstr "Редактировать"
 
 #: includes/features/admin-features.php:345
-#: includes/functions-admin.php:430
+#: includes/functions-admin.php:425
 msgid ""
 "Admin Features allows you to remove elements from the admin area and "
 "toolbar."
 msgstr ""
 "Функции администратора позволяют удалять элементы из области администратора "
 "и панели инструментов."
+
+#: includes/features/admin-features.php:348
+#: includes/features/editor-features.php:243
+#: includes/features/frontend-features/frontend-features.php:252
+#: includes/features/nav-menus.php:304
+#: includes/features/profile-features.php:253
+msgid "No change"
+msgstr "Нет изменений"
 
 #: includes/features/admin-features.php:350
 #: includes/features/editor-features.php:245
@@ -1527,9 +1497,9 @@ msgid "Admin styles saved successfully."
 msgstr "Стили администратора успешно сохранены."
 
 #: includes/features/admin-styles/admin-styles-ui.php:140
-#: includes/functions-admin.php:237
-#: includes/functions-admin.php:439
-#: includes/functions-admin.php:538
+#: includes/functions-admin.php:233
+#: includes/functions-admin.php:429
+#: includes/functions-admin.php:521
 msgid "Admin Styles"
 msgstr "Стили администратора"
 
@@ -1885,7 +1855,7 @@ msgid "Security check failed."
 msgstr "Проверка безопасности не удалась."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:897
+#: includes/manager.php:788
 msgid "You do not have permission to manage admin styles."
 msgstr "У вас нет разрешения для управления стилями админа."
 
@@ -2405,7 +2375,7 @@ msgid "show Classic Editor controls"
 msgstr "показать элементы управления классическим редактором"
 
 #: includes/features/editor-features.php:240
-#: includes/functions-admin.php:425
+#: includes/functions-admin.php:420
 msgid "Editor Features allows you to remove elements from the post editing screen."
 msgstr "Функции редактора позволяют удалять элементы с экрана редактирования постов."
 
@@ -2415,8 +2385,8 @@ msgstr "Как использовать функции редактора"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:849
-#: includes/manager.php:871
+#: includes/manager.php:740
+#: includes/manager.php:762
 msgid "You do not have permission to manage frontend features."
 msgstr "У вас нет разрешения управлять возможностями интерфейса."
 
@@ -2463,9 +2433,9 @@ msgstr "Скрыть нижний колонтитул Twenty Twenty-Three"
 
 #: includes/features/frontend-features/frontend-features-metaboxes.php:55
 #: includes/features/frontend-features/frontend-features.php:70
-#: includes/functions-admin.php:248
-#: includes/functions-admin.php:454
-#: includes/functions-admin.php:575
+#: includes/functions-admin.php:244
+#: includes/functions-admin.php:444
+#: includes/functions-admin.php:558
 msgid "Frontend Features"
 msgstr "Функции фронтенда"
 
@@ -2618,7 +2588,7 @@ msgid "Enable Frontend Features for %1$s Role"
 msgstr "Включить функции фронтенда для роли %1$s"
 
 #: includes/features/frontend-features/frontend-features.php:249
-#: includes/functions-admin.php:455
+#: includes/functions-admin.php:445
 msgid ""
 "Frontend Features allows you to add or remove elements from the frontend of "
 "your site."
@@ -2647,7 +2617,7 @@ msgstr ""
 "меню, пожалуйста, добавьте ссылки на меню."
 
 #: includes/features/nav-menus.php:301
-#: includes/functions-admin.php:460
+#: includes/functions-admin.php:450
 msgid "Navigation Menus allows you to block access to frontend menu links."
 msgstr "Навигационные меню позволяют блокировать доступ к ссылкам на меню фронтенда."
 
@@ -2694,7 +2664,7 @@ msgid "Refresh Profile Features"
 msgstr "Обновить функции профиля"
 
 #: includes/features/profile-features.php:250
-#: includes/functions-admin.php:445
+#: includes/functions-admin.php:435
 msgid "Profile Features allows you to remove elements from the Profile screen."
 msgstr "Функции профиля позволяют удалять элементы с экрана профиля."
 
@@ -2930,50 +2900,43 @@ msgid "Profile features access enabled for this role."
 msgstr "Доступ к функциям профиля включен для этой роли."
 
 #: includes/functions-admin.php:217
-#: includes/functions-admin.php:424
-#: includes/functions-admin.php:517
-#: includes/roles/class/class-pp-roles-admin.php:551
+#: includes/functions-admin.php:419
+#: includes/functions-admin.php:507
+#: includes/roles/class/class-pp-roles-admin.php:550
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Функции редактора"
 
 #: includes/functions-admin.php:228
-#: includes/functions-admin.php:429
-#: includes/functions-admin.php:524
-#: includes/roles/class/class-pp-roles-admin.php:552
+#: includes/functions-admin.php:424
+#: includes/functions-admin.php:514
+#: includes/roles/class/class-pp-roles-admin.php:551
 msgid "Admin Features"
 msgstr "Функции администратора"
 
-#: includes/functions-admin.php:233
+#: includes/functions-admin.php:248
 #: includes/functions-admin.php:434
-#: includes/functions-admin.php:531
-#: includes/roles/class/class-pp-roles-admin.php:555, fuzzy
-msgid "Admin Columns"
-msgstr "Admin Columns"
-
-#: includes/functions-admin.php:252
-#: includes/functions-admin.php:444
-#: includes/functions-admin.php:561
-#: includes/roles/class/class-pp-roles-admin.php:553
+#: includes/functions-admin.php:544
+#: includes/roles/class/class-pp-roles-admin.php:552
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Функции профиля"
 
-#: includes/functions-admin.php:258
-#: includes/functions-admin.php:449
-#: includes/functions-admin.php:568
+#: includes/functions-admin.php:254
+#: includes/functions-admin.php:439
+#: includes/functions-admin.php:551
 msgid "Redirects"
 msgstr "Перенаправления"
 
-#: includes/functions-admin.php:262
+#: includes/functions-admin.php:258
 msgid "Nav Menu"
 msgstr "Навигационное меню"
 
-#: includes/functions-admin.php:266
+#: includes/functions-admin.php:262
 msgid "Application Password Capabilities"
 msgstr "Возможности паролей приложений"
 
-#: includes/functions-admin.php:415
+#: includes/functions-admin.php:410
 msgid ""
 "Roles allows you to create, edit, and delete all the user roles on your "
 "site."
@@ -2981,23 +2944,17 @@ msgstr ""
 "Роли позволяют вам создавать, редактировать и удалять все роли "
 "пользователей на вашем сайте."
 
-#: includes/functions-admin.php:420
+#: includes/functions-admin.php:415
 msgid "Capabilities allows you to change the permissions for any user role."
 msgstr "Возможности позволяют вам изменять права для любой пользовательской роли."
 
-#: includes/functions-admin.php:435
-msgid "Admin Columns allows you to hide post list columns for selected user roles."
-msgstr ""
-"Admin Columns позволяет скрывать столбцы списка записей для выбранных ролей "
-"пользователей."
-
-#: includes/functions-admin.php:440
+#: includes/functions-admin.php:430
 msgid "Admin Styles allows you to customize the admin area with your own branding."
 msgstr ""
 "Стили администратора позволяют настраивать область администратора с вашим "
 "собственным брендингом."
 
-#: includes/functions-admin.php:450
+#: includes/functions-admin.php:440
 msgid ""
 "Redirects allows you to redirect users in a role after Registration, Login "
 "or Logout."
@@ -3005,19 +2962,19 @@ msgstr ""
 "Перенаправления позволяют перенаправлять пользователей с ролью после "
 "регистрации, входа или выхода."
 
-#: includes/functions-admin.php:459
-#: includes/functions-admin.php:582
-#: includes/roles/class/class-pp-roles-admin.php:556
+#: includes/functions-admin.php:449
+#: includes/functions-admin.php:565
+#: includes/roles/class/class-pp-roles-admin.php:554
 msgid "Navigation Menus"
 msgstr "Навигационные меню"
 
-#: includes/functions-admin.php:464
+#: includes/functions-admin.php:454
 #: includes/settings-ui.php:39
 #: includes/test-user-ui.php:38
 msgid "User Testing"
 msgstr "Тестирование пользователей"
 
-#: includes/functions-admin.php:465
+#: includes/functions-admin.php:455
 msgid ""
 "Test your site by instantly logging in as another user. Available accounts "
 "include any which the current user can edit."
@@ -3026,7 +2983,7 @@ msgstr ""
 "Доступные аккаунты включают любые, которые текущий пользователь может "
 "редактировать."
 
-#: includes/functions-admin.php:470
+#: includes/functions-admin.php:460
 msgid ""
 "Remove Admin Notices from WordPress admin screen and organize them in to a "
 "single area."
@@ -3038,37 +2995,37 @@ msgstr ""
 msgid "Login permission denied."
 msgstr "Доступ к логину запрещён."
 
-#: includes/functions.php:806
+#: includes/functions.php:805
 msgid "You do not have permission to access this page."
 msgstr "У вас нет разрешения для доступа к этой странице."
 
-#: includes/functions.php:879
+#: includes/functions.php:878
 msgid "Need PublishPress Capabilities Support?"
 msgstr "Нужна поддержка возможностей PublishPress?"
 
-#: includes/functions.php:884
+#: includes/functions.php:883
 msgid "If you need help or have a new feature request, let us know."
 msgstr ""
 "Если вам нужна помощь или у вас есть запрос на новую функцию, дайте нам "
 "знать."
 
-#: includes/functions.php:887
+#: includes/functions.php:886
 msgid "Request Support"
 msgstr "Запросить поддержку"
 
-#: includes/functions.php:896
+#: includes/functions.php:895
 msgid "Detailed documentation is also available on the plugin website."
 msgstr "Подробная документация также доступна на сайте плагина."
 
-#: includes/functions.php:898
+#: includes/functions.php:897
 msgid "View Knowledge Base"
 msgstr "Просмотреть базу знаний"
 
-#: includes/functions.php:1130
+#: includes/functions.php:1129
 msgid "Social Links"
 msgstr "Социальные ссылки"
 
-#: includes/functions.php:1131
+#: includes/functions.php:1130
 msgid "Page Lists"
 msgstr "Списки страниц"
 
@@ -3082,7 +3039,7 @@ msgstr "Ошибка: Не удалось создать новую роль."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1410
+#: includes/manager.php:1301
 msgid "The selected role is not editable."
 msgstr "Выбранную роль нельзя редактировать."
 
@@ -3176,106 +3133,100 @@ msgstr "У вас нет разрешения для управления фун
 
 #: includes/manager.php:671
 #: includes/manager.php:725
-#: includes/manager.php:815
-#: includes/manager.php:882
-#: includes/manager.php:976
-#: includes/manager.php:1025
-#: includes/manager.php:1107
-#: includes/manager.php:1188
+#: includes/manager.php:773
+#: includes/manager.php:867
+#: includes/manager.php:916
+#: includes/manager.php:998
+#: includes/manager.php:1079
 msgid "Settings updated."
 msgstr "Настройки обновлены."
 
 #: includes/manager.php:687
 #: includes/manager.php:709
-#: includes/manager.php:990
-#: includes/manager.php:1041
-#: includes/manager.php:1205
+#: includes/manager.php:881
+#: includes/manager.php:932
+#: includes/manager.php:1096
 msgid "You do not have permission to manage admin features."
 msgstr "У вас нет разрешения для управления функциями админа."
 
-#: includes/manager.php:746
-#: includes/manager.php:777
-msgid "You do not have permission to manage admin columns."
-msgstr "У вас нет разрешения на управление столбцами администратора."
-
-#: includes/manager.php:1012
+#: includes/manager.php:903
 msgid "You do not have permission to manage navigation menus."
 msgstr "У вас нет разрешения управлять навигационными меню."
 
-#: includes/manager.php:1063
+#: includes/manager.php:954
 msgid "You do not have permission to manage profile features."
 msgstr "У вас нет разрешения управлять функциями профиля."
 
-#: includes/manager.php:1123
+#: includes/manager.php:1014
 msgid "You do not have permission to manage redirect."
 msgstr "У вас нет разрешения управлять перенаправлением."
 
-#: includes/manager.php:1145
+#: includes/manager.php:1036
 msgid "Invalid form. Reload this page and try again."
 msgstr "Недействительная форма. Перезагрузите эту страницу и попробуйте снова."
 
-#: includes/manager.php:1297
-#: includes/manager.php:1348
-#: includes/manager.php:1366
+#: includes/manager.php:1188
+#: includes/manager.php:1239
+#: includes/manager.php:1257
 msgid "You do not have permission to manage capabilities."
 msgstr "У вас нет разрешения для управления возможностями."
 
-#: includes/manager.php:1375
+#: includes/manager.php:1266
 msgid "Network sync completed."
 msgstr "Синхронизация сети завершена."
 
-#: includes/manager.php:1377
+#: includes/manager.php:1268
 msgid "Network sync has been queued and will continue in the background."
 msgstr ""
 "Синхронизация сети была поставлена в очередь и будет продолжена в фоновом "
 "режиме."
 
-#: includes/manager.php:1393
+#: includes/manager.php:1284
 msgid "New capability added to role."
 msgstr "Новая возможность добавлена к роли."
 
-#: includes/manager.php:1439
+#: includes/manager.php:1330
 msgid "Bad form Received"
 msgstr "Получена неверная форма"
 
-#: includes/manager.php:1568
+#: includes/manager.php:1459
 msgid "You do not have permission to restore roles."
 msgstr "У вас нет разрешения восстанавливать роли."
 
-#: includes/manager.php:1606
+#: includes/manager.php:1497
 msgid "You do not have permission to perform this action."
 msgstr "У вас нет разрешения выполнять это действие."
 
-#: includes/manager.php:1626
+#: includes/manager.php:1517
 msgid "Select at least one role to export."
 msgstr "Выберите хотя бы одну роль для экспорта."
 
-#: includes/manager.php:1795
+#: includes/manager.php:1686
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Если вам нравится %s, пожалуйста, оставьте нам оценку %s. Спасибо!"
 
-#: includes/manager.php:1806
+#: includes/manager.php:1697
 msgid "About PublishPress Capabilities"
 msgstr "О PublishPress Capabilities"
 
-#: includes/manager.php:1806
+#: includes/manager.php:1697
 msgid "About"
 msgstr "О программе"
 
-#: includes/manager.php:1808
+#: includes/manager.php:1699
 msgid "Capabilites Documentation"
 msgstr "Документация по возможностям"
 
-#: includes/manager.php:1808
+#: includes/manager.php:1699
 msgid "Documentation"
 msgstr "Документация"
 
-#: includes/manager.php:1810
+#: includes/manager.php:1701
 msgid "Contact the PublishPress team"
 msgstr "Связаться с командой PublishPress"
 
-#: includes/manager.php:1810
+#: includes/manager.php:1701
 msgid "Contact"
 msgstr "Контакт"
 
@@ -3628,18 +3579,18 @@ msgstr "У вас недостаточно прав для выполнения 
 
 #: includes/roles/class/class-pp-roles-actions.php:162
 #: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:397
-#: includes/roles/class/class-pp-roles-actions.php:521
+#: includes/roles/class/class-pp-roles-actions.php:390
+#: includes/roles/class/class-pp-roles-actions.php:514
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "Ваша ссылка истекла, обновите страницу и попробуйте снова."
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:247
-#: includes/roles/class/class-pp-roles-actions.php:401
-#: includes/roles/class/class-pp-roles-actions.php:545
-#: includes/roles/class/class-pp-roles-actions.php:672
-#: includes/roles/class/class-pp-roles-actions.php:733
+#: includes/roles/class/class-pp-roles-actions.php:394
+#: includes/roles/class/class-pp-roles-actions.php:538
+#: includes/roles/class/class-pp-roles-actions.php:665
+#: includes/roles/class/class-pp-roles-actions.php:726
 msgid "Missing parameters, refresh the page and try again."
 msgstr "Недостаточно параметров, обновите страницу и попробуйте снова."
 
@@ -3661,12 +3612,12 @@ msgstr ""
 "Что-то пошло не так, система не смогла создать роль, обновите страницу и "
 "попробуйте снова."
 
-#: includes/roles/class/class-pp-roles-actions.php:363
+#: includes/roles/class/class-pp-roles-actions.php:356
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "Новая роль %s была успешно создана."
 
-#: includes/roles/class/class-pp-roles-actions.php:407
+#: includes/roles/class/class-pp-roles-actions.php:400
 #: includes/roles/class/class-pp-roles-admin.php:244
 msgid ""
 "The default role cannot be disabled. Change the default role in WordPress "
@@ -3675,47 +3626,47 @@ msgstr ""
 "Стандартную роль нельзя отключить. Сначала измените стандартную роль в "
 "настройках WordPress."
 
-#: includes/roles/class/class-pp-roles-actions.php:479
+#: includes/roles/class/class-pp-roles-actions.php:472
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s роль успешно обновлена."
 
-#: includes/roles/class/class-pp-roles-actions.php:553
+#: includes/roles/class/class-pp-roles-actions.php:546
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
 "Невозможно удалить роль по умолчанию. Вам <a href=\"%s\">необходимо сначала "
 "изменить её</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:572
+#: includes/roles/class/class-pp-roles-actions.php:565
 msgid "Deleting a system role is not allowed."
 msgstr "Удаление системной роли не допускается."
 
-#: includes/roles/class/class-pp-roles-actions.php:596
+#: includes/roles/class/class-pp-roles-actions.php:589
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d пользователей перемещено в роль по умолчанию %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:601
+#: includes/roles/class/class-pp-roles-actions.php:594
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "Роль %1$s была успешно удалена. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:607
+#: includes/roles/class/class-pp-roles-actions.php:600
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "Выбранные роли %1$s были успешно удалены. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:629
+#: includes/roles/class/class-pp-roles-actions.php:622
 msgid "The role could not be deleted."
 msgstr "Роль не может быть удалена."
 
-#: includes/roles/class/class-pp-roles-actions.php:683
+#: includes/roles/class/class-pp-roles-actions.php:676
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "Роль %1$s была успешно скрыта."
 
-#: includes/roles/class/class-pp-roles-actions.php:743
+#: includes/roles/class/class-pp-roles-actions.php:736
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "Роль %1$s была успешно раскрыта."
@@ -3879,33 +3830,33 @@ msgstr ""
 "%s роль скопирована. Пожалуйста, нажмите кнопку \"Создать роль\", чтобы "
 "создать эту новую роль."
 
-#: includes/roles/class/class-pp-roles-admin.php:568
+#: includes/roles/class/class-pp-roles-admin.php:566
 #, php-format
 msgid "Edit Role: %s"
 msgstr "Редактировать роль: %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:570
+#: includes/roles/class/class-pp-roles-admin.php:568
 msgid "Copy Role"
 msgstr "Скопировать роль"
 
-#: includes/roles/class/class-pp-roles-admin.php:572
+#: includes/roles/class/class-pp-roles-admin.php:570
 msgid "Create New Role"
 msgstr "Создать новую роль"
 
-#: includes/roles/class/class-pp-roles-admin.php:576
+#: includes/roles/class/class-pp-roles-admin.php:574
 msgid "All Roles"
 msgstr "Все роли"
 
-#: includes/roles/class/class-pp-roles-admin.php:681
+#: includes/roles/class/class-pp-roles-admin.php:679
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
 msgstr "Эти настройки можно редактировать на экране %1s Возможности %2s"
 
-#: includes/roles/class/class-pp-roles-admin.php:709
+#: includes/roles/class/class-pp-roles-admin.php:707
 msgid "Load More"
 msgstr "Загрузить больше"
 
-#: includes/roles/class/class-pp-roles-admin.php:712
+#: includes/roles/class/class-pp-roles-admin.php:710
 msgid "Load Less"
 msgstr "Загрузить меньше"
 
