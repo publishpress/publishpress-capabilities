@@ -1630,10 +1630,10 @@ ul.ppc-redirects-tab li.active a {
 
 .pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync {
     margin-top: 20px;
-    padding: 14px 16px;
-    border-left: 4px solid #655897;
-    background: #fff;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .04);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
 }
 
 .pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync input {
@@ -1641,8 +1641,36 @@ ul.ppc-redirects-tab li.active a {
     margin: 0 6px 0 0;
 }
 
-.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync .description {
-    margin: 6px 0 0 25px;
+.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync-help {
+    color: #646970;
+    line-height: 1;
+}
+
+.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync-help:focus {
+    outline: 1px solid #2271b1;
+    outline-offset: 2px;
+}
+
+.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync-help:focus .tool-tip-text {
+    display: block;
+}
+
+.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync-help .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync-help .tool-tip-text {
+    right: -8px;
+    left: auto;
+    transform: translateY(-100%);
+}
+
+.pp-capability-menus-wrapper.capabilities-dashboard .ppc-dashboard-network-sync-help .tool-tip-text i {
+    right: 5px;
+    left: auto;
+    margin-left: 0;
 }
 
 .publishpress-caps-manage .dashboard-settings-boxes {

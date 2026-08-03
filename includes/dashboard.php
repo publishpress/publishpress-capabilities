@@ -73,9 +73,16 @@
                             <input type="checkbox" id="ppc_dashboard_network_sync" value="1" autocomplete="off" />
                             <strong><?php esc_html_e('Sync feature status to all sites in this network.', 'capability-manager-enhanced'); ?></strong>
                         </label>
-                        <p class="description">
-                            <?php esc_html_e('When selected, changing a feature above will apply its new status to every existing site in the background.', 'capability-manager-enhanced'); ?>
-                        </p>
+                        <span class="ppc-dashboard-network-sync-help ppc-tool-tip" tabindex="0">
+                            <span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+                            <span class="screen-reader-text">
+                                <?php esc_html_e('Network feature synchronization help', 'capability-manager-enhanced'); ?>
+                            </span>
+                            <span class="tool-tip-text" role="tooltip">
+                                <p><?php esc_html_e('Enabling or disabling a feature will apply its new status to all sites.', 'capability-manager-enhanced'); ?></p>
+                                <i></i>
+                            </span>
+                        </span>
                     </div>
                 <?php endif; ?>
             </form>
