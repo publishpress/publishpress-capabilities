@@ -48,7 +48,7 @@ class PP_Capabilities_Installer
             self::migrateAdminNoticesDashboardFeatureStatus();
         }
 
-        if (version_compare($currentVersions, '2.50.1', '<')) {
+        if (version_compare($currentVersions, '2.51.0', '<')) {
             self::addAdminColumnsCapabilities();
         }
 
