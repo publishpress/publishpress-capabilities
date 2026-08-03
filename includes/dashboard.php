@@ -67,6 +67,24 @@
                         <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
+                <?php if (is_multisite() && is_super_admin() && is_main_site()) : ?>
+                    <div class="ppc-dashboard-network-sync">
+                        <label for="ppc_dashboard_network_sync">
+                            <input type="checkbox" id="ppc_dashboard_network_sync" value="1" autocomplete="off" />
+                            <strong><?php esc_html_e('Sync feature status to all sites in this network.', 'capability-manager-enhanced'); ?></strong>
+                        </label>
+                        <span class="ppc-dashboard-network-sync-help ppc-tool-tip" tabindex="0">
+                            <span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+                            <span class="screen-reader-text">
+                                <?php esc_html_e('Network feature synchronization help', 'capability-manager-enhanced'); ?>
+                            </span>
+                            <span class="tool-tip-text" role="tooltip">
+                                <p><?php esc_html_e('Enabling or disabling a feature will apply its new status to all sites.', 'capability-manager-enhanced'); ?></p>
+                                <i></i>
+                            </span>
+                        </span>
+                    </div>
+                <?php endif; ?>
             </form>
         </div><!-- .pp-column-left -->
         <div class="pp-column-right pp-capabilities-sidebar">

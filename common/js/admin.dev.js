@@ -1198,14 +1198,15 @@ jQuery(document).ready(function ($) {
       var newState = isChecked == 1 ? 0 : 1;
       var feature = checkbox.data("feature");
       var slider = checkbox.parent().find(".slider");
+      var networkSync = $("#ppc_dashboard_network_sync").is(":checked") ? 1 : 0;
       $.ajax({
         url: cmeAdmin.ajaxurl,
         method: "POST",
-        data: { action: "save_dashboard_feature_by_ajax", feature: feature, new_state: newState, nonce: cmeAdmin.nonce },
+        data: { action: "save_dashboard_feature_by_ajax", feature: feature, new_state: newState, network_sync: networkSync, nonce: cmeAdmin.nonce },
         beforeSend: function () {
           slider.css("opacity", 0.5);
         },
-        success: function () {
+        success: function (response) {
           newState == 1 ? checkbox.prop("checked", true) : checkbox.prop("checked", false);
           slider.css("opacity", 1);
           switch (feature) {
@@ -1215,7 +1216,8 @@ jQuery(document).ready(function ($) {
             default:
               ppcDynamicSubmenu("pp-capabilities-" + feature, newState);
           }
-          statusMsgNotification = ppcTimerStatus();
+          var message = response && response.message ? response.message : "";
+          statusMsgNotification = ppcTimerStatus("success", message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
           console.error(jqXHR.responseText);
@@ -1232,7 +1234,7 @@ jQuery(document).ready(function ($) {
       var uniqueClass = "ppc-floating-msg-" + Math.round(new Date().getTime() + Math.random() * 100);
 
       if (message == '') {
-        message = type === "success" ? __("Changes saved!", "apability-manager-enhanced") : __(" Error: changes can't be saved.", "apability-manager-enhanced");
+        message = type === "success" ? __("Changes saved!", "capability-manager-enhanced") : __(" Error: changes can't be saved.", "capability-manager-enhanced");
       }
 
       var instances = $(".ppc-floating-status").length;

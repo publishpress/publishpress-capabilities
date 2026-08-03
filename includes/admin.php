@@ -494,8 +494,15 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						data-negated-label="<?php esc_attr_e('Denied', 'capability-manager-enhanced'); ?>"
 						data-mixed-label="<?php esc_attr_e('Mixed', 'capability-manager-enhanced'); ?>"
 					><?php esc_html_e('Mixed', 'capability-manager-enhanced'); ?></span>
-					<span class="description">
-						<?php esc_html_e('Click to grant, clear, or deny capabilities across every tab.', 'capability-manager-enhanced'); ?>
+					<span class="ppc-global-capabilities-help ppc-tool-tip" tabindex="0">
+						<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+						<span class="screen-reader-text">
+							<?php esc_html_e('Global capabilities help', 'capability-manager-enhanced'); ?>
+						</span>
+						<span class="tool-tip-text" role="tooltip">
+							<p><?php esc_html_e('Click to grant, clear, or deny capabilities across every tab.', 'capability-manager-enhanced'); ?></p>
+							<i></i>
+						</span>
 					</span>
 				</div>
 				<div class="ppc-capabilities-tabs">

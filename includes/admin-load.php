@@ -672,16 +672,39 @@ class PP_Capabilities_Admin_UI {
             return false;
         }
 
+        $feature = sanitize_key(wp_unslash($_POST['feature']));
+        $dashboard_options = pp_capabilities_dashboard_options();
+
+        if (!isset($dashboard_options[$feature])) {
+            wp_send_json(__('Error: wrong data', 'capability-manager-enhanced'), 400);
+            return false;
+        }
+
         $capsman_dashboard_features_status = !empty(get_option('capsman_dashboard_features_status')) ? (array)get_option('capsman_dashboard_features_status') : [];
 
-
-        $feature = sanitize_text_field( $_POST['feature'] );
-
-        $capsman_dashboard_features_status[$feature]['status'] = (bool) $_POST['new_state'] ? 'on' : 'off';
+        $feature_status = !empty($_POST['new_state']) ? 'on' : 'off';
+        $capsman_dashboard_features_status[$feature]['status'] = $feature_status;
         update_option('capsman_dashboard_features_status', $capsman_dashboard_features_status, false);
-        do_action('pp_capabilities_dashboard_feature_updated', $feature, $capsman_dashboard_features_status[$feature]['status']);
+        do_action('pp_capabilities_dashboard_feature_updated', $feature, $feature_status);
 
-        wp_send_json( true, 200 );
+        $network_sync = !empty($_POST['network_sync'])
+            && is_multisite()
+            && is_super_admin()
+            && is_main_site();
+
+        if ($network_sync && function_exists('pp_capabilities_queue_dashboard_feature_sync')) {
+            pp_capabilities_queue_dashboard_feature_sync($feature, $feature_status);
+
+            wp_send_json([
+                'message' => __('Changes saved. Feature status synchronization has been queued for all network sites.', 'capability-manager-enhanced'),
+                'network_sync' => true,
+            ], 200);
+        }
+
+        wp_send_json([
+            'message' => __('Changes saved!', 'capability-manager-enhanced'),
+            'network_sync' => false,
+        ], 200);
     }
 
     /**
