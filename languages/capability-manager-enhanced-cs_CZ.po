@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-06-11 10:08+0000\n"
+"PO-Revision-Date: 2026-08-03 02:14+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : (n >= 2 && n <= 4) ? 1 : 2;\n"
 
-#: capsman-enhanced.php:5, fuzzy
+#: capsman-enhanced.php:3, fuzzy
 #. Plugin Name of the plugin
 msgid "PublishPress Capabilities"
 msgstr "PublishPress Capabilities"
 
-#: capsman-enhanced.php:7, fuzzy
+#: capsman-enhanced.php:4, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
 
-#: capsman-enhanced.php:9
+#: capsman-enhanced.php:5
 #. Description of the plugin
 msgid ""
 "PublishPress Capabilities is the access control plugin for WordPress. You "
@@ -37,12 +37,12 @@ msgstr ""
 "Můžete spravovat všechny uživatelské role WordPressu, od administrátorů po "
 "odběratele."
 
-#: capsman-enhanced.php:13
+#: capsman-enhanced.php:7
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: capsman-enhanced.php:15, fuzzy
+#: capsman-enhanced.php:8, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -73,7 +73,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:833
+#: includes/admin-load.php:881
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Přejít na Pro"
@@ -104,7 +104,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:92
 #: includes-core/CoreAdmin.php:155
 #: includes/functions-admin.php:536
-#: includes/roles/class/class-pp-roles-admin.php:526
+#: includes/roles/class/class-pp-roles-admin.php:553
 msgid "Admin Menus"
 msgstr "Administrátorská menu"
 
@@ -198,86 +198,100 @@ msgstr ""
 "Tímto se přidá metabox na obrazovku pro úpravu příspěvku. Tuto funkci "
 "můžete použít k přidání tříd těla pouze pro tento příspěvek."
 
-#: includes/admin-load.php:371
+#: includes/admin-load.php:376
 msgid "Drag multiple roles selection to change roles order."
 msgstr "Přetáhněte výběr více rolí pro změnu pořadí rolí."
 
-#: includes/admin-load.php:374
+#: includes/admin-load.php:379
 msgid "Page title"
 msgstr "Název stránky"
 
-#: includes/admin-load.php:375, fuzzy
+#: includes/admin-load.php:380, fuzzy
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:513
-#: includes/admin-load.php:846
+#: includes/admin-load.php:518
+#: includes/admin-load.php:894
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:410
-#: includes/roles/class/class-pp-roles-admin.php:637
+#: includes/manager.php:430
+#: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Oprávnění"
 
-#: includes/admin-load.php:632
+#: includes/admin-load.php:657
 msgid "No permission!"
 msgstr "Žádné oprávnění!"
 
-#: includes/admin-load.php:642
+#: includes/admin-load.php:667
 msgid "Invalid nonce token!"
 msgstr "Neplatný nonce token!"
 
-#: includes/admin-load.php:646
+#: includes/admin-load.php:671
+#: includes/admin-load.php:679
 msgid "Error: wrong data"
 msgstr "Chyba: nesprávná data"
 
-#: includes/admin-load.php:668
-#: includes/admin-notices/admin-notices.php:232
+#: includes/admin-load.php:699
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr ""
+"Změny byly uloženy. Synchronizace stavu funkce byla zařazena do fronty pro "
+"všechny síťové stránky."
+
+#: includes/admin-load.php:705
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "Změny byly uloženy!"
+
+#: includes/admin-load.php:716
+#: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 #: includes/features/restrict-profile-features.php:29
 msgid "An error occured!"
 msgstr "Došlo k chybě!"
 
-#: includes/admin-load.php:673
+#: includes/admin-load.php:721
 msgid "Security check failed"
 msgstr "Kontrola zabezpečení selhala"
 
-#: includes/admin-load.php:675
+#: includes/admin-load.php:723
 msgid "Permission denied"
 msgstr "Přístup odepřen"
 
-#: includes/admin-load.php:685
+#: includes/admin-load.php:733
 msgid "Settings updated successfully."
 msgstr "Nastavení byla úspěšně aktualizována."
 
-#: includes/admin-load.php:781
+#: includes/admin-load.php:829
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Přihlášení uživatelé"
 
-#: includes/admin-load.php:782
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Odhlášení uživatelé"
 
-#: includes/admin-load.php:789
+#: includes/admin-load.php:837
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Omezení menu PublishPress Capabilities"
 
-#: includes/admin-load.php:790
+#: includes/admin-load.php:838
 msgid "This menu is restricted for the following roles"
 msgstr "Toto menu je omezeno pro následující role"
 
-#: includes/admin-load.php:845
+#: includes/admin-load.php:893
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: includes/admin-load.php:847
+#: includes/admin-load.php:895
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -286,7 +300,7 @@ msgstr "Dashboard"
 msgid "Roles"
 msgstr "Role"
 
-#: includes/admin-load.php:848
+#: includes/admin-load.php:896
 msgid "Settings"
 msgstr "Nastavení"
 
@@ -311,9 +325,9 @@ msgid "Current Role"
 msgstr "Aktuální role"
 
 #: includes/admin-notices/admin-notices-settings.php:33
-#: includes/admin-notices/admin-notices.php:179
-#: includes/admin-notices/admin-notices.php:217
-#: includes/admin-notices/admin-notices.php:220
+#: includes/admin-notices/admin-notices.php:207
+#: includes/admin-notices/admin-notices.php:245
+#: includes/admin-notices/admin-notices.php:248
 #: includes/functions-admin.php:239
 #: includes/functions-admin.php:459
 #: includes/functions-admin.php:528
@@ -404,7 +418,7 @@ msgid "Configure notice visibility by user role"
 msgstr "Nastavit viditelnost oznámení podle uživatelské role"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1959
+#: includes/admin.php:1996
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -419,27 +433,27 @@ msgstr "Zobrazit dokumentaci"
 msgid "How to use Admin Notices"
 msgstr "Jak používat administrátorská oznámení"
 
-#: includes/admin-notices/admin-notices.php:72
+#: includes/admin-notices/admin-notices.php:79
 msgid "Display this notice"
 msgstr "Zobrazit toto oznámení"
 
-#: includes/admin-notices/admin-notices.php:73
+#: includes/admin-notices/admin-notices.php:80
 msgid "Silence this notice"
 msgstr "Ztlumit toto oznámení"
 
-#: includes/admin-notices/admin-notices.php:74
+#: includes/admin-notices/admin-notices.php:81
 msgid "Hide this notice"
 msgstr "Skrýt toto oznámení"
 
-#: includes/admin-notices/admin-notices.php:75
+#: includes/admin-notices/admin-notices.php:82
 msgid "Move to Hidden Notices"
 msgstr "Přesunout do skrytých oznámení"
 
-#: includes/admin-notices/admin-notices.php:76
+#: includes/admin-notices/admin-notices.php:83
 msgid "Displayed notices will no longer be removed from admin pages."
 msgstr "Zobrazovaná oznámení nebudou již odstraněna z administrátorských stránek."
 
-#: includes/admin-notices/admin-notices.php:77
+#: includes/admin-notices/admin-notices.php:84
 msgid ""
 "This notice will be moved to the \"Silenced Notices\" tab and you will not "
 "receive a notification if it appears again."
@@ -447,39 +461,39 @@ msgstr ""
 "Toto oznámení bude přesunuto na kartu \"Ztlumená oznámení\" a neobdržíte "
 "upozornění, pokud se znovu objeví."
 
-#: includes/admin-notices/admin-notices.php:204
+#: includes/admin-notices/admin-notices.php:232
 msgid "Hidden Notices"
 msgstr "Skrytá oznámení"
 
-#: includes/admin-notices/admin-notices.php:208
+#: includes/admin-notices/admin-notices.php:236
 msgid "Silenced Notices"
 msgstr "Ztlumená oznámení"
 
-#: includes/admin-notices/admin-notices.php:218
+#: includes/admin-notices/admin-notices.php:246
 msgid "There are currently no admin notices."
 msgstr "Aktuálně nejsou žádná administrátorská oznámení."
 
-#: includes/admin-notices/admin-notices.php:218
+#: includes/admin-notices/admin-notices.php:246
 msgid "Edit the settings."
 msgstr "Upravte nastavení."
 
-#: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:794
+#: includes/admin-notices/admin-notices.php:269
 #: includes/manager.php:818
+#: includes/manager.php:842
 msgid "You do not have permission to manage admin notices."
 msgstr "Nemáte oprávnění spravovat administrativní oznámení."
 
-#: includes/admin-notices/admin-notices.php:243
+#: includes/admin-notices/admin-notices.php:271
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
 msgid "Invalid action. Reload this page and try again."
 msgstr "Neplatná akce. Znovu načtěte tuto stránku a zkuste to znovu."
 
-#: includes/admin-notices/admin-notices.php:245
+#: includes/admin-notices/admin-notices.php:273
 msgid "Invalid form."
 msgstr "Neplatný formulář."
 
-#: includes/admin-notices/admin-notices.php:269
+#: includes/admin-notices/admin-notices.php:297
 msgid "Admin notice status updated successfully."
 msgstr "Stav administrativního oznámení byl úspěšně aktualizován."
 
@@ -505,7 +519,7 @@ msgid "Application Passwords"
 msgstr "Hesla aplikací"
 
 #: includes/admin.php:248
-#: includes/admin.php:887
+#: includes/admin.php:924
 msgid "Nav Menus (Block)"
 msgstr "Navigační menu (Blok)"
 
@@ -514,7 +528,7 @@ msgid "Block"
 msgstr "Blok"
 
 #: includes/admin.php:257
-#: includes/admin.php:889
+#: includes/admin.php:926
 msgid "Nav Menus (Legacy)"
 msgstr "Navigační menu (Legacy)"
 
@@ -613,91 +627,136 @@ msgstr ""
 "Může mazat příspěvky, které jsou aktuálně publikovány s soukromou "
 "viditelností."
 
-#: includes/admin.php:639
-#: includes/admin.php:1156
-#: includes/admin.php:2050, fuzzy
+#: includes/admin.php:485
+msgid "grant / clear / deny all capabilities"
+msgstr "udělit / vymazat / odepřít všechny schopnosti"
+
+#: includes/admin.php:487
+msgid "All capabilities"
+msgstr "Všechny schopnosti"
+
+#: includes/admin.php:492
+msgid "Granted"
+msgstr "Uděleno"
+
+#: includes/admin.php:493
+msgid "Not granted"
+msgstr "Není uděleno"
+
+#: includes/admin.php:494
+msgid "Denied"
+msgstr "Odepřeno"
+
+#: includes/admin.php:495
+#: includes/admin.php:496
+msgid "Mixed"
+msgstr "Smíšené"
+
+#: includes/admin.php:500
+msgid "Global capabilities help"
+msgstr "Nápověda k globálním schopnostem"
+
+#: includes/admin.php:503
+msgid "Click to grant, clear, or deny capabilities across every tab."
+msgstr "Klikněte pro udělení, vymazání nebo odepření schopností na všech záložkách."
+
+#: includes/admin.php:676
+#: includes/admin.php:1193
+#: includes/admin.php:2087, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:643
-#: includes/admin.php:1160
+#: includes/admin.php:680
+#: includes/admin.php:1197
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:723
-#: includes/admin.php:1596
+#: includes/admin.php:760
+#: includes/admin.php:1633
 msgid "Invalid Capabilities"
 msgstr "Neplatné schopnosti"
 
-#: includes/admin.php:728
-#: includes/admin.php:1742
+#: includes/admin.php:765
+#: includes/admin.php:1779
 msgid "Additional"
 msgstr "Další"
 
-#: includes/admin.php:762
+#: includes/admin.php:799
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Termín %s schopnosti"
 
-#: includes/admin.php:765
+#: includes/admin.php:802
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s schopnosti"
 
-#: includes/admin.php:766
+#: includes/admin.php:803
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Příspěvek %s schopnosti"
 
-#: includes/admin.php:769
+#: includes/admin.php:806
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: includes/admin.php:775
+#: includes/admin.php:812
 msgid "Filter by taxonomy"
 msgstr "Filtrujte podle taxonomy"
 
-#: includes/admin.php:775
+#: includes/admin.php:812
 msgid "Filter by post type"
 msgstr "Filtrujte podle post type"
 
-#: includes/admin.php:896
+#: includes/admin.php:821
+#: includes/admin.php:1227
+#: includes/admin.php:1307
+#: includes/admin.php:1341
+#: includes/admin.php:1347
+#: includes/admin.php:1497
+#: includes/admin.php:1618
+#: includes/admin.php:1759
+#: includes/admin.php:1937
+msgid "check / uncheck / negate all"
+msgstr "zaškrtnout / zrušit zaškrtnutí / negovat vše"
+
+#: includes/admin.php:933
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Slug pro tuto taxonomy je %s"
 
-#: includes/admin.php:898
+#: includes/admin.php:935
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Slug pro tento post type je %s"
 
-#: includes/admin.php:975
-#: includes/admin.php:1223
-#: includes/admin.php:1517
-#: includes/admin.php:1825
-#: includes/admin.php:1826
+#: includes/admin.php:1012
+#: includes/admin.php:1260
+#: includes/admin.php:1554
+#: includes/admin.php:1862
+#: includes/admin.php:1863
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: přiřazeno skupině oprávnění"
 
-#: includes/admin.php:978
-#: includes/admin.php:1225
-#: includes/admin.php:1519
-#: includes/admin.php:1645
-#: includes/admin.php:1828
+#: includes/admin.php:1015
+#: includes/admin.php:1262
+#: includes/admin.php:1556
+#: includes/admin.php:1682
+#: includes/admin.php:1865
 #, php-format
 msgid "This capability is %s"
 msgstr "Tato schopnost je %s"
 
-#: includes/admin.php:1009
+#: includes/admin.php:1046
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Tato schopnost je řízena %s"
 
-#: includes/admin.php:1012
+#: includes/admin.php:1049
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -706,16 +765,16 @@ msgstr ""
 "Tato schopnost je řízena %s Použijte nastavení bočního panelu pro umožnění "
 "nezávislého řízení."
 
-#: includes/admin.php:1029
+#: includes/admin.php:1066
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "Použijte nastavení bočního panelu pro umožnění nezávislého řízení."
 
-#: includes/admin.php:1031
-#: includes/admin.php:1035
+#: includes/admin.php:1068
+#: includes/admin.php:1072
 msgid "This capability is not available for this post type."
 msgstr "Tato schopnost není k dispozici pro tento post type."
 
-#: includes/admin.php:1099
+#: includes/admin.php:1136
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -727,64 +786,53 @@ msgstr ""
 "případě, že chybí odpovídající schopnost \"Upravit\". Také tyto schopnosti "
 "\"Seznam\" mohou udělit přístup, ale nemohou přístup odebrat."
 
-#: includes/admin.php:1176
-#: includes/admin.php:1290
-#: includes/admin.php:1446
-#: includes/admin.php:1713
+#: includes/admin.php:1213
+#: includes/admin.php:1327
+#: includes/admin.php:1483
+#: includes/admin.php:1750
 msgid "Filter by capability"
 msgstr "Filtrujte podle schopnosti"
 
-#: includes/admin.php:1179
-#: includes/admin.php:1293
-#: includes/admin.php:1449
-#: includes/admin.php:1716
+#: includes/admin.php:1216
+#: includes/admin.php:1330
+#: includes/admin.php:1486
+#: includes/admin.php:1753
 msgid "No results found. Please try again with a different word."
 msgstr "Nebyly nalezeny žádné výsledky. Zkuste to prosím znovu s jiným slovem."
 
-#: includes/admin.php:1190
-#: includes/admin.php:1270
-#: includes/admin.php:1304
-#: includes/admin.php:1310
-#: includes/admin.php:1460
-#: includes/admin.php:1581
-#: includes/admin.php:1722
-#: includes/admin.php:1900
-msgid "check / uncheck / negate all"
-msgstr "zaškrtnout / zrušit zaškrtnutí / negovat vše"
-
-#: includes/admin.php:1190
-#: includes/admin.php:1270
-#: includes/admin.php:1304
-#: includes/admin.php:1310
-#: includes/admin.php:1460
-#: includes/admin.php:1581
-#: includes/admin.php:1722
-#: includes/admin.php:1900
+#: includes/admin.php:1227
+#: includes/admin.php:1307
+#: includes/admin.php:1341
+#: includes/admin.php:1347
+#: includes/admin.php:1497
+#: includes/admin.php:1618
+#: includes/admin.php:1759
+#: includes/admin.php:1937
 msgid "Capability Name"
 msgstr "Název schopnosti"
 
-#: includes/admin.php:1287
+#: includes/admin.php:1324
 msgid "WordPress Core Capabilities"
 msgstr "Základní schopnosti WordPressu"
 
-#: includes/admin.php:1426
-#: includes/admin.php:1481
+#: includes/admin.php:1463
+#: includes/admin.php:1518
 #: includes/features/admin-styles/admin-styles.php:2062
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Obecné"
 
-#: includes/admin.php:1443
+#: includes/admin.php:1480
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Schopnosti pluginu &ndash; %s"
 
-#: includes/admin.php:1523
+#: includes/admin.php:1560
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "Funkce testování uživatelů také vyžaduje schopnost %1$s edit_users %2$s."
 
-#: includes/admin.php:1601
+#: includes/admin.php:1638
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -792,26 +840,26 @@ msgstr ""
 "Následující položky nemají žádný účinek. Přiřaďte požadované schopnosti na "
 "kartách Úpravy / Odstranění / Soukromé."
 
-#: includes/admin.php:1710
+#: includes/admin.php:1747
 msgid "Additional Capabilities"
 msgstr "Další schopnosti"
 
-#: includes/admin.php:1893
+#: includes/admin.php:1930
 msgid "You have no additional capabilities."
 msgstr "Nemáte žádné další schopnosti."
 
-#: includes/admin.php:1914
+#: includes/admin.php:1951
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "Schopnosti vám umožňují změnit oprávnění pro jakoukoli roli uživatele."
 
-#: includes/admin.php:1915
+#: includes/admin.php:1952
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Schopnost udělena %2$s"
 
-#: includes/admin.php:1915
-#: includes/admin.php:1916
-#: includes/admin.php:1917
+#: includes/admin.php:1952
+#: includes/admin.php:1953
+#: includes/admin.php:1954
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -825,30 +873,30 @@ msgstr "%1$s = Schopnost udělena %2$s"
 msgid "usage key"
 msgstr "klíč použití"
 
-#: includes/admin.php:1916
+#: includes/admin.php:1953
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Schopnost není udělena %2$s"
 
-#: includes/admin.php:1917
+#: includes/admin.php:1954
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Schopnost zamítnuta, i když byla udělena jinou rolí %2$s"
 
-#: includes/admin.php:1925
+#: includes/admin.php:1962
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Tuto roli můžete také nakonfigurovat jako %sSkupina oprávnění%s."
 
-#: includes/admin.php:1945
+#: includes/admin.php:1982
 msgid "How to use Capabilities"
 msgstr "Jak používat schopnosti"
 
-#: includes/admin.php:1983
+#: includes/admin.php:2020
 msgid "Capabilities is Safe to Use"
 msgstr "Schopnosti jsou bezpečné k použití"
 
-#: includes/admin.php:1996
+#: includes/admin.php:2033
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -856,7 +904,7 @@ msgstr ""
 "WordPress ukládá schopnosti rolí do vaší databáze, kde zůstávají, i když je "
 "plugin deaktivován."
 
-#: includes/admin.php:1997
+#: includes/admin.php:2034
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -864,27 +912,27 @@ msgstr ""
 "Kdykoli použijete PublishPress Capabilities ke uložení změn, také vytvoří "
 "zálohu, kterou můžete použít k obnovení předchozí konfigurace."
 
-#: includes/admin.php:2000
+#: includes/admin.php:2037
 msgid "Go to the Backup feature"
 msgstr "Přejděte na funkci Zálohování"
 
-#: includes/admin.php:2020
+#: includes/admin.php:2057
 msgid "Add a New Capability"
 msgstr "Přidat novou schopnost"
 
-#: includes/admin.php:2030
+#: includes/admin.php:2067
 msgid "Add to role"
 msgstr "Přidat k roli"
 
-#: includes/admin.php:2033
+#: includes/admin.php:2070
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Nové schopnosti jsou řízeny na kartě Další."
 
-#: includes/admin.php:2090
+#: includes/admin.php:2127
 msgid "PublishPress Permissions"
 msgstr "PublishPress Oprávnění"
 
-#: includes/admin.php:2092
+#: includes/admin.php:2129
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -892,27 +940,27 @@ msgstr ""
 "Automaticky definujte schopnosti specifické pro typ pro vaše vlastní typy "
 "příspěvků a taxonomie"
 
-#: includes/admin.php:2096
+#: includes/admin.php:2133
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Doplňkově přiřaďte standardní WP role pro konkrétní typ příspěvku"
 
-#: includes/admin.php:2100
+#: includes/admin.php:2137
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr "Přiřadit vlastní WP role doplňkově pro konkrétní post type <em>(Pro)</em>"
 
-#: includes/admin.php:2104
+#: includes/admin.php:2141
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Přizpůsobit oprávnění pro čtení podle kategorie nebo příspěvku"
 
-#: includes/admin.php:2108
+#: includes/admin.php:2145
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "Přizpůsobit oprávnění pro úpravy podle kategorie nebo příspěvku "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2112
+#: includes/admin.php:2149
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -920,7 +968,7 @@ msgstr ""
 "Stavy viditelnosti vlastního příspěvku, plně implementované v wp-admin "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2116
+#: includes/admin.php:2153
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -928,11 +976,11 @@ msgstr ""
 "Vlastní stavy moderace pro řízený přístup, vícestupňový publishing workflow "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2120
+#: includes/admin.php:2157
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Regulovat oprávnění pro stavy příspěvků Edit Flow <em>(Pro)</em>"
 
-#: includes/admin.php:2124
+#: includes/admin.php:2161
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -940,7 +988,7 @@ msgstr ""
 "Přizpůsobit moderované úpravy publikovaného obsahu pomocí Revisionary nebo "
 "Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2128
+#: includes/admin.php:2165
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -948,39 +996,39 @@ msgstr ""
 "Udělte přístup Spectator, Participant nebo Moderator k konkrétním bbPress "
 "fórům <em>(Pro)</em>"
 
-#: includes/admin.php:2132
+#: includes/admin.php:2169
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "Udělte doplňková oprávnění pro obsah skupině BuddyPress <em>(Pro)</em>"
 
-#: includes/admin.php:2136
+#: includes/admin.php:2173
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "Integrace WPML pro zrcadlení oprávnění na překlady <em>(Pro)</em>"
 
-#: includes/admin.php:2140
+#: includes/admin.php:2177
 msgid "Member support forum"
 msgstr "Fórum pro podporu členů"
 
-#: includes/admin.php:2147
+#: includes/admin.php:2184
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2147
+#: includes/admin.php:2184
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (bezplatná instalace)"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2186
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2186
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s info/nákup"
 
-#: includes/admin.php:2182
+#: includes/admin.php:2219
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -990,31 +1038,31 @@ msgstr ""
 "přiřazení autora příspěvku a omezuje aplikaci uživatelských schopností "
 "úprav."
 
-#: includes/admin.php:2184
+#: includes/admin.php:2221
 msgid "Level:"
 msgstr "Úroveň:"
 
-#: includes/admin.php:2228
+#: includes/admin.php:2265
 msgid "Create this role definition in new (future) sites"
 msgstr "Vytvořit tuto definici role na nových (budoucích) webech"
 
-#: includes/admin.php:2228
+#: includes/admin.php:2265
 msgid "Include in new sites."
 msgstr "Zahrnout do nových webů."
 
-#: includes/admin.php:2231
+#: includes/admin.php:2268
 msgid "Copy / update this role definition to all sites now"
 msgstr "Kopírovat / aktualizovat tuto definici role na všechny weby nyní"
 
-#: includes/admin.php:2231
+#: includes/admin.php:2268
 msgid "Sync role to all sites."
 msgstr "Synchronizovat roli na všech webech."
 
-#: includes/admin.php:2234
+#: includes/admin.php:2271
 msgid "Copy option settings to all sites now"
 msgstr "Kopírovat nastavení možností na všechny weby nyní"
 
-#: includes/admin.php:2234
+#: includes/admin.php:2271
 msgid "Sync options to all sites."
 msgstr "Synchronizovat možnosti na všech webech."
 
@@ -1067,25 +1115,25 @@ msgstr ""
 "Chyba při importování nastavení! Prosím, zkontrolujte, že jste nahráli "
 "platný json soubor."
 
-#: includes/backup-handler.php:222
+#: includes/backup-handler.php:232
 #, php-format
 msgid "Skipped %d invalid or unsupported import entries."
 msgstr "Přeskočeno %d neplatných nebo nepodporovaných importních položek."
 
-#: includes/backup-handler.php:226
+#: includes/backup-handler.php:236
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s úspěšně importováno z nahraných dat."
 
-#: includes/backup-handler.php:228
+#: includes/backup-handler.php:238
 msgid "No valid backup data found to import."
 msgstr "Nebyla nalezena žádná platná záložní data k importu."
 
-#: includes/backup-handler.php:519
+#: includes/backup-handler.php:562
 msgid "Needed function to create default roles not found!"
 msgstr "Potřebná funkce k vytvoření výchozích rolí nebyla nalezena!"
 
-#: includes/backup-handler.php:538
+#: includes/backup-handler.php:581
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "Role a schopnosti byly resetovány na výchozí hodnoty WordPressu"
 
@@ -1226,7 +1274,7 @@ msgid "Reset WordPress Defaults"
 msgstr "Obnovit výchozí hodnoty WordPressu"
 
 #: includes/backup.php:282
-#: includes/backup.php:329
+#: includes/backup.php:363
 #: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "Upozornění:"
@@ -1283,15 +1331,19 @@ msgstr ""
 msgid "Roles and Capabilities"
 msgstr "Role a schopnosti"
 
-#: includes/backup.php:322
+#: includes/backup.php:310
+msgid "Select the roles to include in this export."
+msgstr "Vyberte role, které mají být zahrnuty do tohoto exportu."
+
+#: includes/backup.php:356
 msgid "Export"
 msgstr "Exportovat"
 
-#: includes/backup.php:328
+#: includes/backup.php:362
 msgid "Import Settings"
 msgstr "Importovat nastavení"
 
-#: includes/backup.php:329
+#: includes/backup.php:363
 msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
@@ -1299,7 +1351,7 @@ msgstr ""
 "Prosím, vytvořte 'Ruční zálohu' na kartě zálohy, abyste povolili obnovení "
 "zálohy v případě, že něco selže."
 
-#: includes/backup.php:330
+#: includes/backup.php:364
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
@@ -1307,13 +1359,25 @@ msgstr ""
 "Importujte nastavení pluginu ze souboru .json. Tento soubor lze získat "
 "exportováním nastavení na jiné stránce pomocí formuláře výše."
 
-#: includes/backup.php:331
+#: includes/backup.php:365
 msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
 msgstr ""
 "Před importováním doporučujeme použít kartu \"Záloha\" k vytvoření zálohy "
 "vašich aktuálních nastavení."
+
+#: includes/dashboard.php:74
+msgid "Sync feature status to all sites in this network."
+msgstr "Synchronizovat stav funkce na všechny stránky v této síti."
+
+#: includes/dashboard.php:77
+msgid ""
+"When selected, changing a feature above will apply its new status to every "
+"existing site in the background."
+msgstr ""
+"Pokud je vybráno, změna funkce výše se novým stavem použije na každou "
+"stávající stránku na pozadí."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1679,7 +1743,7 @@ msgid "Preset"
 msgstr "Přednastavené"
 
 #: includes/features/admin-styles/admin-styles-ui.php:691
-#: includes/roles/class/class-pp-roles-list-table.php:403
+#: includes/roles/class/class-pp-roles-list-table.php:419
 msgid "Custom"
 msgstr "Vlastní"
 
@@ -1768,7 +1832,7 @@ msgid "Security check failed."
 msgstr "Kontrola zabezpečení selhala."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:764
+#: includes/manager.php:788
 msgid "You do not have permission to manage admin styles."
 msgstr "Nemáte oprávnění spravovat styly administrace."
 
@@ -2300,8 +2364,8 @@ msgstr "Jak používat funkce editoru"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:716
-#: includes/manager.php:738
+#: includes/manager.php:740
+#: includes/manager.php:762
 msgid "You do not have permission to manage frontend features."
 msgstr "Nemáte oprávnění spravovat funkce na frontendu."
 
@@ -2814,7 +2878,7 @@ msgstr "Přístup k funkcím profilu je povolen pro tuto roli."
 #: includes/functions-admin.php:217
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:507
-#: includes/roles/class/class-pp-roles-admin.php:523
+#: includes/roles/class/class-pp-roles-admin.php:550
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Funkce editoru"
@@ -2822,14 +2886,14 @@ msgstr "Funkce editoru"
 #: includes/functions-admin.php:228
 #: includes/functions-admin.php:424
 #: includes/functions-admin.php:514
-#: includes/roles/class/class-pp-roles-admin.php:524
+#: includes/roles/class/class-pp-roles-admin.php:551
 msgid "Admin Features"
 msgstr "Funkce administrátora"
 
 #: includes/functions-admin.php:248
 #: includes/functions-admin.php:434
 #: includes/functions-admin.php:544
-#: includes/roles/class/class-pp-roles-admin.php:525
+#: includes/roles/class/class-pp-roles-admin.php:552
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Funkce profilu"
@@ -2876,7 +2940,7 @@ msgstr ""
 
 #: includes/functions-admin.php:449
 #: includes/functions-admin.php:565
-#: includes/roles/class/class-pp-roles-admin.php:527
+#: includes/roles/class/class-pp-roles-admin.php:554
 msgid "Navigation Menus"
 msgstr "Navigační menu"
 
@@ -2948,7 +3012,7 @@ msgstr "Chyba: Nepodařilo se vytvořit novou roli."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1277
+#: includes/manager.php:1301
 msgid "The selected role is not editable."
 msgstr "Vybraná role není editovatelná."
 
@@ -2964,15 +3028,15 @@ msgstr "Nastavení typu / taxonomie byla uložena."
 msgid "Bad form received."
 msgstr "Špatný formulář přijat."
 
-#: includes/handler.php:256
+#: includes/handler.php:242
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "Nelze odebrat správa oprávnění administrátorů"
 
-#: includes/handler.php:337
+#: includes/handler.php:340
 msgid "The selected application password is not editable."
 msgstr "Vybrané heslo aplikace nelze upravit."
 
-#: includes/handler.php:341
+#: includes/handler.php:344
 msgid "Application password capabilities saved."
 msgstr "Možnosti hesla aplikace byly uloženy."
 
@@ -3008,126 +3072,130 @@ msgstr "Opravdu chcete smazat tuto položku?"
 msgid "Add or clear custom item entry before saving changes."
 msgstr "Přidejte nebo vymažte vlastní položku před uložením změn."
 
-#: includes/manager.php:536
+#: includes/manager.php:560
 #: includes/roles/class/class-pp-roles-admin.php:172
-#: includes/roles/class/class-pp-roles-list-table.php:175
+#: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Název role"
 
-#: includes/manager.php:538
-#: includes/roles/class/class-pp-roles-list-table.php:177
+#: includes/manager.php:562
+#: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Typ role"
 
-#: includes/manager.php:539
-#: includes/roles/class/class-pp-roles-list-table.php:178
+#: includes/manager.php:563
+#: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Výchozí role"
 
-#: includes/manager.php:540
-#: includes/roles/class/class-pp-roles-list-table.php:179
+#: includes/manager.php:564
+#: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Přístup administrátora"
 
-#: includes/manager.php:567
+#: includes/manager.php:591
 msgid "You do not have permission to manage roles."
 msgstr "Nemáte oprávnění spravovat role."
 
-#: includes/manager.php:590
-#: includes/manager.php:612
+#: includes/manager.php:614
+#: includes/manager.php:636
 msgid "You do not have permission to manage editor features."
 msgstr "Nemáte oprávnění spravovat funkce editora."
 
-#: includes/manager.php:647
-#: includes/manager.php:701
-#: includes/manager.php:749
-#: includes/manager.php:843
-#: includes/manager.php:892
-#: includes/manager.php:974
-#: includes/manager.php:1055
+#: includes/manager.php:671
+#: includes/manager.php:725
+#: includes/manager.php:773
+#: includes/manager.php:867
+#: includes/manager.php:916
+#: includes/manager.php:998
+#: includes/manager.php:1079
 msgid "Settings updated."
 msgstr "Nastavení aktualizována."
 
-#: includes/manager.php:663
-#: includes/manager.php:685
-#: includes/manager.php:857
-#: includes/manager.php:908
-#: includes/manager.php:1072
+#: includes/manager.php:687
+#: includes/manager.php:709
+#: includes/manager.php:881
+#: includes/manager.php:932
+#: includes/manager.php:1096
 msgid "You do not have permission to manage admin features."
 msgstr "Nemáte oprávnění spravovat funkce administrátora."
 
-#: includes/manager.php:879
+#: includes/manager.php:903
 msgid "You do not have permission to manage navigation menus."
 msgstr "Nemáte oprávnění spravovat navigační menu."
 
-#: includes/manager.php:930
+#: includes/manager.php:954
 msgid "You do not have permission to manage profile features."
 msgstr "Nemáte oprávnění spravovat funkce profilu."
 
-#: includes/manager.php:990
+#: includes/manager.php:1014
 msgid "You do not have permission to manage redirect."
 msgstr "Nemáte oprávnění spravovat přesměrování."
 
-#: includes/manager.php:1012
+#: includes/manager.php:1036
 msgid "Invalid form. Reload this page and try again."
 msgstr "Neplatný formulář. Znovu načtěte tuto stránku a zkuste to znovu."
 
-#: includes/manager.php:1164
-#: includes/manager.php:1215
-#: includes/manager.php:1233
+#: includes/manager.php:1188
+#: includes/manager.php:1239
+#: includes/manager.php:1257
 msgid "You do not have permission to manage capabilities."
 msgstr "Nemáte oprávnění spravovat schopnosti."
 
-#: includes/manager.php:1242
+#: includes/manager.php:1266
 msgid "Network sync completed."
 msgstr "Synchronizace sítě byla dokončena."
 
-#: includes/manager.php:1244
+#: includes/manager.php:1268
 msgid "Network sync has been queued and will continue in the background."
 msgstr "Synchronizace sítě byla zařazena do fronty a bude pokračovat na pozadí."
 
-#: includes/manager.php:1260
+#: includes/manager.php:1284
 msgid "New capability added to role."
 msgstr "Nová schopnost byla přidána k roli."
 
-#: includes/manager.php:1306
+#: includes/manager.php:1330
 msgid "Bad form Received"
 msgstr "Chybný formulář přijat"
 
-#: includes/manager.php:1435
+#: includes/manager.php:1459
 msgid "You do not have permission to restore roles."
 msgstr "Nemáte oprávnění obnovit role."
 
-#: includes/manager.php:1473
+#: includes/manager.php:1497
 msgid "You do not have permission to perform this action."
 msgstr "Nemáte oprávnění vykonat tuto akci."
 
-#: includes/manager.php:1634
+#: includes/manager.php:1517
+msgid "Select at least one role to export."
+msgstr "Vyberte alespoň jednu roli pro export."
+
+#: includes/manager.php:1686
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Pokud se vám %s líbí, prosím, dejte nám %s hodnocení. Děkujeme!"
 
-#: includes/manager.php:1645
+#: includes/manager.php:1697
 msgid "About PublishPress Capabilities"
 msgstr "O PublishPress schopnostech"
 
-#: includes/manager.php:1645
+#: includes/manager.php:1697
 msgid "About"
 msgstr "O"
 
-#: includes/manager.php:1647
+#: includes/manager.php:1699
 msgid "Capabilites Documentation"
 msgstr "Dokumentace k schopnostem"
 
-#: includes/manager.php:1647
+#: includes/manager.php:1699
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: includes/manager.php:1649
+#: includes/manager.php:1701
 msgid "Contact the PublishPress team"
 msgstr "Kontaktujte tým PublishPress"
 
-#: includes/manager.php:1649
+#: includes/manager.php:1701
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -3433,7 +3501,7 @@ msgstr "%s Přesměrování"
 
 #: includes/redirects/redirects.php:112
 #: includes/redirects/redirects.php:316
-#: includes/roles/class/class-pp-roles-admin.php:512
+#: includes/roles/class/class-pp-roles-admin.php:539
 msgid "Save Changes"
 msgstr "Uložit změny"
 
@@ -3476,18 +3544,18 @@ msgstr "Nemáte dostatečná oprávnění k provedení této akce."
 
 #: includes/roles/class/class-pp-roles-actions.php:162
 #: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:389
-#: includes/roles/class/class-pp-roles-actions.php:505
+#: includes/roles/class/class-pp-roles-actions.php:390
+#: includes/roles/class/class-pp-roles-actions.php:514
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "Váš odkaz vypršel, obnovte stránku a zkuste to znovu."
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:247
-#: includes/roles/class/class-pp-roles-actions.php:393
-#: includes/roles/class/class-pp-roles-actions.php:529
-#: includes/roles/class/class-pp-roles-actions.php:656
-#: includes/roles/class/class-pp-roles-actions.php:717
+#: includes/roles/class/class-pp-roles-actions.php:394
+#: includes/roles/class/class-pp-roles-actions.php:538
+#: includes/roles/class/class-pp-roles-actions.php:665
+#: includes/roles/class/class-pp-roles-actions.php:726
 msgid "Missing parameters, refresh the page and try again."
 msgstr "Chybí parametry, obnovte stránku a zkuste to znovu."
 
@@ -3509,50 +3577,59 @@ msgstr ""
 "Něco se pokazilo, systém nebyl schopen vytvořit roli, obnovte stránku a "
 "zkuste to znovu."
 
-#: includes/roles/class/class-pp-roles-actions.php:355
+#: includes/roles/class/class-pp-roles-actions.php:356
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "Nová role %s byla úspěšně vytvořena."
 
-#: includes/roles/class/class-pp-roles-actions.php:463
+#: includes/roles/class/class-pp-roles-actions.php:400
+#: includes/roles/class/class-pp-roles-admin.php:244
+msgid ""
+"The default role cannot be disabled. Change the default role in WordPress "
+"settings first."
+msgstr ""
+"Výchozí roli nelze zakázat. Nejprve změňte výchozí roli v nastavení "
+"WordPressu."
+
+#: includes/roles/class/class-pp-roles-actions.php:472
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s role byla úspěšně aktualizována."
 
-#: includes/roles/class/class-pp-roles-actions.php:537
+#: includes/roles/class/class-pp-roles-actions.php:546
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr "Nelze smazat výchozí roli. Musíte <a href=\"%s\">nejprve změnit</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:556
+#: includes/roles/class/class-pp-roles-actions.php:565
 msgid "Deleting a system role is not allowed."
 msgstr "Mazání systémové role není povoleno."
 
-#: includes/roles/class/class-pp-roles-actions.php:580
+#: includes/roles/class/class-pp-roles-actions.php:589
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d uživatelů bylo přesunuto do výchozí role %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:585
+#: includes/roles/class/class-pp-roles-actions.php:594
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "Role %1$s byla úspěšně smazána. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:591
+#: includes/roles/class/class-pp-roles-actions.php:600
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "Vybrané %1$s role byly úspěšně smazány. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:613
+#: includes/roles/class/class-pp-roles-actions.php:622
 msgid "The role could not be deleted."
 msgstr "Role nemohla být smazána."
 
-#: includes/roles/class/class-pp-roles-actions.php:667
+#: includes/roles/class/class-pp-roles-actions.php:676
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "Role %1$s byla úspěšně skryta."
 
-#: includes/roles/class/class-pp-roles-actions.php:727
+#: includes/roles/class/class-pp-roles-actions.php:736
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "Role %1$s byla úspěšně odkryta."
@@ -3560,6 +3637,10 @@ msgstr "Role %1$s byla úspěšně odkryta."
 #: includes/roles/class/class-pp-roles-admin.php:117
 msgid "WooCommerce"
 msgstr "WooCommerce"
+
+#: includes/roles/class/class-pp-roles-admin.php:129
+msgid "Disable / Delete"
+msgstr "Zakázat / Smazat"
 
 #: includes/roles/class/class-pp-roles-admin.php:158
 msgid "Gutenberg editor"
@@ -3609,41 +3690,54 @@ msgstr ""
 "Každá uživatelská role má úroveň od 0 do 10. Role Předplatitele má výchozí "
 "nejnižší úroveň (0). Role Administrátora má výchozí úroveň 10."
 
-#: includes/roles/class/class-pp-roles-admin.php:239
+#: includes/roles/class/class-pp-roles-admin.php:242
+msgid "Disable Role"
+msgstr "Zakázat roli"
+
+#: includes/roles/class/class-pp-roles-admin.php:246
+#, php-format
+msgid ""
+"Disable \"%s\" role for new user assignments. Existing users will keep this "
+"role and its capabilities."
+msgstr ""
+"Zakázat \"%s\" roli pro nová uživatelská přiřazení. Stávající uživatelé si "
+"tuto roli a její schopnosti udrží."
+
+#: includes/roles/class/class-pp-roles-admin.php:259
 msgid "Delete role"
 msgstr "Smazat roli"
 
-#: includes/roles/class/class-pp-roles-admin.php:240
+#: includes/roles/class/class-pp-roles-admin.php:260
 msgid ""
 "Deleting this role will completely remove it from database and is "
 "irrecoverable."
 msgstr "Smazání této role ji úplně odstraní z databáze a je neobnovitelné."
 
-#: includes/roles/class/class-pp-roles-admin.php:249
+#: includes/roles/class/class-pp-roles-admin.php:271
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Disable Code Editor"
 msgstr "Zakázat editor kódu"
 
-#: includes/roles/class/class-pp-roles-admin.php:250
+#: includes/roles/class/class-pp-roles-admin.php:272
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
 msgstr "Zakázat možnost \"Editor kódu\" pro editor bloků Gutenberg."
 
-#: includes/roles/class/class-pp-roles-admin.php:261
+#: includes/roles/class/class-pp-roles-admin.php:283
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Control Allowed Editors"
 msgstr "Omezení povolených editorů"
 
-#: includes/roles/class/class-pp-roles-admin.php:262
+#: includes/roles/class/class-pp-roles-admin.php:284
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Select the allowed editor options for users in this role."
 msgstr "Vyberte povolené možnosti editoru pro uživatele v této roli."
 
-#: includes/roles/class/class-pp-roles-admin.php:275
+#: includes/roles/class/class-pp-roles-admin.php:297
 msgid "Disable WooCommerce admin restrictions"
 msgstr "Zakázat omezení administrace WooCommerce"
 
-#: includes/roles/class/class-pp-roles-admin.php:276
+#: includes/roles/class/class-pp-roles-admin.php:298
 #, php-format
 msgid ""
 "By default, WooCommerce prevents most users from accessing the WordPress "
@@ -3654,16 +3748,16 @@ msgstr ""
 "administrace WordPress. Když je tato možnost aktivována, odstraní tato "
 "nastavení omezení pro tuto roli. %1s Klikněte zde pro více informací. %2s"
 
-#: includes/roles/class/class-pp-roles-admin.php:335
+#: includes/roles/class/class-pp-roles-admin.php:358
 msgid "Slug already exists"
 msgstr "Slug již existuje"
 
-#: includes/roles/class/class-pp-roles-admin.php:361
+#: includes/roles/class/class-pp-roles-admin.php:384
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Select allowed editor"
 msgstr "Vyberte povoleného editora"
 
-#: includes/roles/class/class-pp-roles-admin.php:362
+#: includes/roles/class/class-pp-roles-admin.php:385
 #. Translators: "Editor" means post editor like Gutenberg
 msgid ""
 "You must select at least one editor for the role when managing allowed "
@@ -3672,21 +3766,21 @@ msgstr ""
 "Musíte vybrat alespoň jednoho editora pro roli při správě povoleného "
 "editoru."
 
-#: includes/roles/class/class-pp-roles-admin.php:391
+#: includes/roles/class/class-pp-roles-admin.php:414
 #, php-format
 msgid "Select %s"
 msgstr "Vybrat %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:414
+#: includes/roles/class/class-pp-roles-admin.php:437
 msgid "Read more on Role Level."
 msgstr "Přečtěte si více o úrovni role."
 
-#: includes/roles/class/class-pp-roles-admin.php:427
+#: includes/roles/class/class-pp-roles-admin.php:450
 #: includes/roles/roles-functions.php:33
 msgid "Are you sure you want to delete this role?"
 msgstr "Opravdu chcete tuto roli smazat?"
 
-#: includes/roles/class/class-pp-roles-admin.php:506
+#: includes/roles/class/class-pp-roles-admin.php:533
 #, php-format
 msgid ""
 "%s role copied. Please click the \"Create Role\" button to create this new "
@@ -3695,33 +3789,33 @@ msgstr ""
 "%s role zkopírována. Prosím klikněte na tlačítko \"Vytvořit roli\" pro "
 "vytvoření této nové role."
 
-#: includes/roles/class/class-pp-roles-admin.php:539
+#: includes/roles/class/class-pp-roles-admin.php:566
 #, php-format
 msgid "Edit Role: %s"
 msgstr "Upravit roli: %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:541
+#: includes/roles/class/class-pp-roles-admin.php:568
 msgid "Copy Role"
 msgstr "Zkopírovat roli"
 
-#: includes/roles/class/class-pp-roles-admin.php:543
+#: includes/roles/class/class-pp-roles-admin.php:570
 msgid "Create New Role"
 msgstr "Vytvořit novou roli"
 
-#: includes/roles/class/class-pp-roles-admin.php:547
+#: includes/roles/class/class-pp-roles-admin.php:574
 msgid "All Roles"
 msgstr "Všechny role"
 
-#: includes/roles/class/class-pp-roles-admin.php:652
+#: includes/roles/class/class-pp-roles-admin.php:679
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
 msgstr "Tyto mohou být upraveny na obrazovce %1s Možnosti %2s"
 
-#: includes/roles/class/class-pp-roles-admin.php:680
+#: includes/roles/class/class-pp-roles-admin.php:707
 msgid "Load More"
 msgstr "Načíst více"
 
-#: includes/roles/class/class-pp-roles-admin.php:683
+#: includes/roles/class/class-pp-roles-admin.php:710
 msgid "Load Less"
 msgstr "Načíst méně"
 
@@ -3759,13 +3853,21 @@ msgstr[2] "Žádní uživatelé %s"
 
 #: includes/roles/class/class-pp-roles-list-table.php:90
 #, php-format
+msgid "Disabled %s"
+msgid_plural "Disabled %s"
+msgstr[0] "Zakázáno %s"
+msgstr[1] "Zakázáno %s"
+msgstr[2] "Zakázáno %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:91
+#, php-format
 msgid "Editable %s"
 msgid_plural "Editable %s"
 msgstr[0] "Editovatelné %s"
 msgstr[1] "Editovatelné %s"
 msgstr[2] "Editovatelné %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:91
+#: includes/roles/class/class-pp-roles-list-table.php:92
 #, php-format
 msgid "Uneditable %s"
 msgid_plural "Uneditable %s"
@@ -3773,7 +3875,7 @@ msgstr[0] "Needitovatelné %s"
 msgstr[1] "Needitovatelné %s"
 msgstr[2] "Needitovatelné %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:92
+#: includes/roles/class/class-pp-roles-list-table.php:93
 #, php-format
 msgid "System %s"
 msgid_plural "System %s"
@@ -3781,27 +3883,31 @@ msgstr[0] "Systém %s"
 msgstr[1] "Systém %s"
 msgstr[2] "Systém %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:238
+#: includes/roles/class/class-pp-roles-list-table.php:242
 msgid "Copy"
 msgstr "Zkopírovat"
 
-#: includes/roles/class/class-pp-roles-list-table.php:243
+#: includes/roles/class/class-pp-roles-list-table.php:247
 msgid "(non-editable role)"
 msgstr "(role, kterou nelze upravit)"
 
-#: includes/roles/class/class-pp-roles-list-table.php:261
+#: includes/roles/class/class-pp-roles-list-table.php:265
 msgid "Unhide"
 msgstr "Odkrýt"
 
-#: includes/roles/class/class-pp-roles-list-table.php:349
+#: includes/roles/class/class-pp-roles-list-table.php:353
 msgid "Your Role"
 msgstr "Vaše role"
 
-#: includes/roles/class/class-pp-roles-list-table.php:401, fuzzy
+#: includes/roles/class/class-pp-roles-list-table.php:357
+msgid "Disabled"
+msgstr "Zakázáno"
+
+#: includes/roles/class/class-pp-roles-list-table.php:417, fuzzy
 msgid "WordPress Core"
 msgstr "WordPress Core"
 
-#: includes/roles/class/class-pp-roles-list-table.php:695
+#: includes/roles/class/class-pp-roles-list-table.php:711
 msgid "Search Roles"
 msgstr "Hledat role"
 
@@ -3985,15 +4091,19 @@ msgstr "Testování jako uživatel: %1$s. %2$sVrátit se k zobrazení administr�
 msgid "Unable to retrieve user data."
 msgstr "Nelze načíst údaje o uživateli."
 
-#: common/js/admin.dev.js:971
+#: common/js/admin.dev.js:1077
 msgid "Updating Settings..."
 msgstr "Aktualizace nastavení..."
 
-#: common/js/admin.dev.js:1007
+#: common/js/admin.dev.js:1113
 msgid "Updating access..."
 msgstr "Aktualizace přístupu..."
 
-#: common/js/admin.dev.js:1026
-#: common/js/admin.dev.js:1031
+#: common/js/admin.dev.js:1132
+#: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "Chyba při aktualizaci přístupu."
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "Chyba: změny nelze uložit."

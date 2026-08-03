@@ -117,8 +117,8 @@ jQuery(document).ready(function ($) {
         cell.addClass('cap-no');
       }
 
-      // Trigger change event so individual handlers can track interacted state properly
-      matching_input.trigger('change');
+      // A bulk action establishes a fresh baseline for subsequent individual clicks.
+      matching_input.removeClass('interacted');
     });
   }
 
@@ -147,14 +147,94 @@ jQuery(document).ready(function ($) {
   }
 
   function syncBulkCapabilityControls(table, state) {
-    table.find('input.cme-check-all')
+    table.find('input.cme-check-all, input[name="pp_toggle_all"]')
       .prop('checked', state === 'checked')
       .prop('indeterminate', state === 'negated')
       .data('cmeBulkState', state);
   }
 
-  $('input.cme-check-all').click(function (e) {
+  function getGlobalCapabilityInputs() {
+    return $('#ppc-capabilities-wrapper')
+      .find('input[type="checkbox"][name^="caps["]')
+      .not(':disabled')
+      .filter(function () {
+        return $(this).closest('td').length &&
+          !$(this).closest('td').hasClass('cap-unreg');
+      });
+  }
+
+  function getCapabilityCollectionState(inputs) {
+    var checked = 0;
+    var unchecked = 0;
+    var negated = 0;
+
+    inputs.each(function () {
+      if ($(this).closest('td').hasClass('cap-neg')) {
+        negated++;
+      } else if ($(this).prop('checked')) {
+        checked++;
+      } else {
+        unchecked++;
+      }
+    });
+
+    if (!inputs.length || unchecked === inputs.length) return 'unchecked';
+    if (checked === inputs.length) return 'checked';
+    if (negated === inputs.length) return 'negated';
+    return 'mixed';
+  }
+
+  function syncGlobalCapabilityControl(state) {
+    var control = $('#ppc-global-capabilities-toggle');
+    var wrapper = control.closest('.ppc-global-capabilities-control');
+    var state_label = wrapper.find('.ppc-global-capabilities-state');
+
+    if (!control.length) {
+      return;
+    }
+
+    if (!state) {
+      state = getCapabilityCollectionState(getGlobalCapabilityInputs());
+    }
+
+    control
+      .prop('checked', state === 'checked')
+      .prop('indeterminate', state === 'negated' || state === 'mixed')
+      .data('cmeBulkState', state);
+
+    wrapper
+      .removeClass('is-checked is-unchecked is-negated is-mixed')
+      .addClass('is-' + state);
+
+    state_label.text(state_label.attr('data-' + state + '-label'));
+  }
+
+  function applyGlobalCapabilityState(state) {
+    var processed_names = {};
+
+    getGlobalCapabilityInputs().each(function () {
+      var input = $(this);
+      var input_name = input.attr('name');
+
+      if (!input_name || processed_names[input_name]) {
+        return;
+      }
+
+      processed_names[input_name] = true;
+      applyCapabilityState(input, state);
+    });
+
+    $('#ppc-capabilities-wrapper table').each(function () {
+      syncBulkCapabilityControls($(this), state);
+    });
+
+    syncGlobalCapabilityControl(state);
+    $(document).trigger('pp-capabilities-state-updated');
+  }
+
+  $('input.cme-check-all, input[name="pp_toggle_all"]').click(function (e) {
     e.preventDefault();
+    e.stopPropagation();
 
     var bulk_checkbox = $(this);
     var table = bulk_checkbox.closest('table');
@@ -167,7 +247,38 @@ jQuery(document).ready(function ($) {
     });
 
     syncBulkCapabilityControls(table, next_state);
+    syncGlobalCapabilityControl();
+    $(document).trigger('pp-capabilities-state-updated');
   });
+
+  $('#ppc-global-capabilities-toggle').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var control = $(this);
+    var current_state = control.data('cmeBulkState') || 'mixed';
+    var next_state = current_state === 'checked'
+      ? 'unchecked'
+      : (current_state === 'unchecked' ? 'negated' : 'checked');
+
+    applyGlobalCapabilityState(next_state);
+  });
+
+  $(document).on(
+    'click',
+    '#ppc-capabilities-wrapper input[name^="caps["], ' +
+    '#ppc-capabilities-wrapper span.cap-x, ' +
+    '#ppc-capabilities-wrapper .pp-row-action-rotate, ' +
+    '#ppc-capabilities-wrapper table.cme-typecaps th',
+    function () {
+      setTimeout(function () {
+        syncGlobalCapabilityControl();
+        $(document).trigger('pp-capabilities-state-updated');
+      }, 0);
+    }
+  );
+
+  syncGlobalCapabilityControl();
 
   $('table.cme-typecaps a.neg-type-caps').click(function (e) {
     $(this).closest('tr').find('td[class!="cap-neg"]').filter('td[class!="cap-unreg"]').each(function () {
@@ -461,11 +572,6 @@ jQuery(document).ready(function ($) {
       $('input[name="' + cap_name_attr + '"]').parent().next('a.neg-cap:visible').click();
     }
     clicked_box.addClass('interacted');
-  });
-
-
-  $(document).on('click', 'input[name="pp_toggle_all"]', function (event) {
-    $(this).closest('table.cme-typecaps').find('input[type="checkbox"]:visible').not('.excluded-input').not('.disabled').prop('checked', $(this).prop('checked'));
   });
 
   /**
@@ -1092,14 +1198,15 @@ jQuery(document).ready(function ($) {
       var newState = isChecked == 1 ? 0 : 1;
       var feature = checkbox.data("feature");
       var slider = checkbox.parent().find(".slider");
+      var networkSync = $("#ppc_dashboard_network_sync").is(":checked") ? 1 : 0;
       $.ajax({
         url: cmeAdmin.ajaxurl,
         method: "POST",
-        data: { action: "save_dashboard_feature_by_ajax", feature: feature, new_state: newState, nonce: cmeAdmin.nonce },
+        data: { action: "save_dashboard_feature_by_ajax", feature: feature, new_state: newState, network_sync: networkSync, nonce: cmeAdmin.nonce },
         beforeSend: function () {
           slider.css("opacity", 0.5);
         },
-        success: function () {
+        success: function (response) {
           newState == 1 ? checkbox.prop("checked", true) : checkbox.prop("checked", false);
           slider.css("opacity", 1);
           switch (feature) {
@@ -1109,7 +1216,8 @@ jQuery(document).ready(function ($) {
             default:
               ppcDynamicSubmenu("pp-capabilities-" + feature, newState);
           }
-          statusMsgNotification = ppcTimerStatus();
+          var message = response && response.message ? response.message : "";
+          statusMsgNotification = ppcTimerStatus("success", message);
         },
         error: function (jqXHR, textStatus, errorThrown) {
           console.error(jqXHR.responseText);
@@ -1126,7 +1234,7 @@ jQuery(document).ready(function ($) {
       var uniqueClass = "ppc-floating-msg-" + Math.round(new Date().getTime() + Math.random() * 100);
 
       if (message == '') {
-        message = type === "success" ? __("Changes saved!", "apability-manager-enhanced") : __(" Error: changes can't be saved.", "apability-manager-enhanced");
+        message = type === "success" ? __("Changes saved!", "capability-manager-enhanced") : __(" Error: changes can't be saved.", "capability-manager-enhanced");
       }
 
       var instances = $(".ppc-floating-status").length;

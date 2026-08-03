@@ -1712,4 +1712,3 @@ require_once(dirname(__FILE__) . '/features/frontend-features/frontend-features-
 // Admin styles feature
 require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/features/admin-styles/admin-styles.php');
 \PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance();
-

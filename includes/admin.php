@@ -440,8 +440,14 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						var tabSlug = $tab.data('slug');
 						var $content = $('#' + $tab.data('content'));
 
-						// Count checked checkboxes in this tab's content
-						var checkedCount = $content.find('input[type="checkbox"]:checked').length;
+						// Count granted capabilities without including bulk controls.
+						var checkedCount = $content
+							.find('input[type="checkbox"][name^="caps["]:checked')
+							.not(':disabled')
+							.filter(function() {
+								return !$(this).closest('td').hasClass('cap-unreg');
+							})
+							.length;
 
 						// Remove existing count and title wrapper if present
 						$tab.find('.pp-capabilities-count-indicator').remove();
@@ -463,13 +469,44 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 				// Initialize tab capabilities counting
 				updateTabCounts();
+				$(document).on('pp-capabilities-state-updated', updateTabCounts);
 			});
 			/* ]]> */
 			</script>
 
 			<div id="ppc-capabilities-wrapper" class="postbox">
+				<div class="ppc-global-capabilities-control">
+					<label for="ppc-global-capabilities-toggle">
+						<input
+							type="checkbox"
+							id="ppc-global-capabilities-toggle"
+							class="excluded-input"
+							autocomplete="off"
+							title="<?php esc_attr_e('grant / clear / deny all capabilities', 'capability-manager-enhanced'); ?>"
+						/>
+						<span><?php esc_html_e('All capabilities', 'capability-manager-enhanced'); ?></span>
+					</label>
+					<span
+						class="ppc-global-capabilities-state"
+						aria-live="polite"
+						data-checked-label="<?php esc_attr_e('Granted', 'capability-manager-enhanced'); ?>"
+						data-unchecked-label="<?php esc_attr_e('Not granted', 'capability-manager-enhanced'); ?>"
+						data-negated-label="<?php esc_attr_e('Denied', 'capability-manager-enhanced'); ?>"
+						data-mixed-label="<?php esc_attr_e('Mixed', 'capability-manager-enhanced'); ?>"
+					><?php esc_html_e('Mixed', 'capability-manager-enhanced'); ?></span>
+					<span class="ppc-global-capabilities-help ppc-tool-tip" tabindex="0">
+						<span class="dashicons dashicons-info-outline" aria-hidden="true"></span>
+						<span class="screen-reader-text">
+							<?php esc_html_e('Global capabilities help', 'capability-manager-enhanced'); ?>
+						</span>
+						<span class="tool-tip-text" role="tooltip">
+							<p><?php esc_html_e('Click to grant, clear, or deny capabilities across every tab.', 'capability-manager-enhanced'); ?></p>
+							<i></i>
+						</span>
+					</span>
+				</div>
 				<div class="ppc-capabilities-tabs">
-					<ul style="min-width: 220px;">
+					<ul>
 						<?php
 						$full_width_tabs = apply_filters('pp_capabilities_full_width_tabs', []);
 
@@ -781,7 +818,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							echo "<table class='widefat striped cme-typecaps cme-typecaps-basic cme-typecaps-" . esc_attr($cap_type) . "'>";
 
 							echo '<thead><tr><th class="pp-header-checkall">';
-							echo '<input type="checkbox" name="pp_toggle_all" class="excluded-input" autocomplete="off"> &nbsp;';
+							echo '<input type="checkbox" name="pp_toggle_all" class="excluded-input" autocomplete="off" title="' . esc_attr__('check / uncheck / negate all', 'capability-manager-enhanced') . '"> &nbsp;';
 							echo '</th>';
 
 							// label cap properties

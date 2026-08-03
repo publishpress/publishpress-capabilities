@@ -30,6 +30,7 @@ class Pp_Roles_Manager
         $editable = function_exists('get_editable_roles') ? 
                         array_keys(get_editable_roles()) : 
                         array_keys(apply_filters('editable_roles', $roles));
+        $disabled_roles = \PublishPress\Capabilities\PP_Capabilities_Disabled_Roles::getDisabledRoles();
 
         $count = $this->ppc_role_count_users();
 
@@ -50,6 +51,11 @@ class Pp_Roles_Manager
             } elseif ($view === 'inactive'
                 && (isset($count['avail_roles'][$role])
                 && (isset($count['avail_roles'][$role]) && (int)$count['avail_roles'][$role] > 0))
+            ) {
+                continue;
+                //disabled role filter
+            } elseif ($view === 'disabled'
+                && !in_array($role, $disabled_roles, true)
             ) {
                 continue;
                 //editable role filter
@@ -73,6 +79,7 @@ class Pp_Roles_Manager
                 'admin_menus'     => pp_capabilities_roles_admin_menus($role, $include_features),
                 'nav_menus'       => pp_capabilities_roles_nav_menus($role, $include_features),
                 'is_system'       => $this->is_system_role($role),
+                'disabled'        => in_array($role, $disabled_roles, true),
                 'capabilities'    => ($capabilities) ? $detail['capabilities'] : [],
             ];
         }

@@ -13,6 +13,10 @@ class PP_Capabilities_Admin_UI {
     function __construct() {
         global $pagenow;
 
+        // Non-destructive role disabling.
+        require_once(PUBLISHPRESS_CAPS_ABSPATH . '/includes/roles/disabled-roles.php');
+        \PublishPress\Capabilities\PP_Capabilities_Disabled_Roles::instance();
+
         /**
          * The class responsible for handling notifications
          */
@@ -48,6 +52,7 @@ class PP_Capabilities_Admin_UI {
 
             //Add role blocked nav menu indication
             add_action('wp_nav_menu_item_custom_fields', [$this, 'add_nav_menu_indicator'], 20, 5);
+            add_action('admin_init', [$this, 'blockSubsiteCapabilitiesAccess'], 1000);
         }
 
         add_filter('cme_publishpress_capabilities_capabilities', 'cme_publishpress_capabilities_capabilities');
@@ -538,6 +543,10 @@ class PP_Capabilities_Admin_UI {
 
         $capabilities_toplevel_page = $cap_page_slug;
 
+        if (!pp_capabilities_should_display_admin_menu()) {
+            return;
+        }
+
         if (!$cap_name) {
             return;
         }
@@ -570,6 +579,22 @@ class PP_Capabilities_Admin_UI {
 
     }
 
+
+    public function blockSubsiteCapabilitiesAccess() {
+        if (pp_capabilities_should_display_admin_menu()) {
+            return;
+        }
+
+        $sub_menu_pages = pp_capabilities_sub_menu_lists(true);
+        $capability_pages = array_map(function ($page) {
+            return $page['page'];
+        }, $sub_menu_pages);
+
+        if (!empty($_GET['page']) && in_array(sanitize_key($_GET['page']), $capability_pages, true)) {
+            wp_safe_redirect(admin_url());
+            exit;
+        }
+    }
 
     public function settingsUI() {
         wp_enqueue_script('pp-capabilities-chosen-js', plugin_dir_url(CME_FILE) . 'common/libs/chosen-v1.8.7/chosen.jquery.js', ['jquery'], PUBLISHPRESS_CAPS_VERSION);
@@ -647,16 +672,39 @@ class PP_Capabilities_Admin_UI {
             return false;
         }
 
+        $feature = sanitize_key(wp_unslash($_POST['feature']));
+        $dashboard_options = pp_capabilities_dashboard_options();
+
+        if (!isset($dashboard_options[$feature])) {
+            wp_send_json(__('Error: wrong data', 'capability-manager-enhanced'), 400);
+            return false;
+        }
+
         $capsman_dashboard_features_status = !empty(get_option('capsman_dashboard_features_status')) ? (array)get_option('capsman_dashboard_features_status') : [];
 
-
-        $feature = sanitize_text_field( $_POST['feature'] );
-
-        $capsman_dashboard_features_status[$feature]['status'] = (bool) $_POST['new_state'] ? 'on' : 'off';
+        $feature_status = !empty($_POST['new_state']) ? 'on' : 'off';
+        $capsman_dashboard_features_status[$feature]['status'] = $feature_status;
         update_option('capsman_dashboard_features_status', $capsman_dashboard_features_status, false);
-        do_action('pp_capabilities_dashboard_feature_updated', $feature, $capsman_dashboard_features_status[$feature]['status']);
+        do_action('pp_capabilities_dashboard_feature_updated', $feature, $feature_status);
 
-        wp_send_json( true, 200 );
+        $network_sync = !empty($_POST['network_sync'])
+            && is_multisite()
+            && is_super_admin()
+            && is_main_site();
+
+        if ($network_sync && function_exists('pp_capabilities_queue_dashboard_feature_sync')) {
+            pp_capabilities_queue_dashboard_feature_sync($feature, $feature_status);
+
+            wp_send_json([
+                'message' => __('Changes saved. Feature status synchronization has been queued for all network sites.', 'capability-manager-enhanced'),
+                'network_sync' => true,
+            ], 200);
+        }
+
+        wp_send_json([
+            'message' => __('Changes saved!', 'capability-manager-enhanced'),
+            'network_sync' => false,
+        ], 200);
     }
 
     /**

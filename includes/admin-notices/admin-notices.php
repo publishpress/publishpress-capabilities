@@ -7,6 +7,13 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
          */
         private $admin_notice_data;
 
+        /**
+         * Tracks the output buffer opened for each admin notice hook.
+         *
+         * @var array
+         */
+        private $admin_notice_buffer_levels = [];
+
         public function __construct()
         {
             $this->admin_notice_data = (array) get_option('cme_admin_notice_data', []);
@@ -85,8 +92,15 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
          * @return void
          */
         public function start_hook_capture() {
-            // Wrap the whole admin notice inside our hidden div
-            echo '<div class="ppc-admin-notices-selector" style="display: none;">';
+            $hook = current_filter();
+
+            if (isset($this->admin_notice_buffer_levels[$hook])) {
+                return;
+            }
+
+            $this->admin_notice_buffer_levels[$hook] = ob_get_level() + 1;
+
+            ob_start();
         }
 
         /**
@@ -94,8 +108,22 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
          * @return void
          */
         public function end_hook_capture() {
-            // close the opened notice hidden selector
-            echo '</div>';
+            $hook = current_filter();
+
+            if (!isset($this->admin_notice_buffer_levels[$hook])) {
+                return;
+            }
+
+            $buffer_level = $this->admin_notice_buffer_levels[$hook];
+            unset($this->admin_notice_buffer_levels[$hook]);
+
+            if (ob_get_level() !== $buffer_level) {
+                return;
+            }
+
+            $admin_notices = (string) ob_get_clean();
+
+            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $admin_notices . '</div>';
         }
 
         /**

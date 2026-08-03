@@ -124,9 +124,9 @@ class Pp_Roles_Admin
             'icon'     => 'dashicons dashicons-admin-generic',
         ];
 
-        if ($role_edit && !$current['is_system']) {
+        if ($role_edit) {
             $fields_tabs['delete'] = [
-                'label'    => esc_html__('Delete'),
+                'label'    => esc_html__('Disable / Delete', 'capability-manager-enhanced'),
                 'icon'     => 'dashicons dashicons-trash',
             ];
         }
@@ -234,15 +234,37 @@ class Pp_Roles_Admin
             ],
         ];
 
-        //add delete_role
-        $fields['delete_role'] = [
-            'label'       => esc_html__('Delete role', 'capability-manager-enhanced'),
-            'description' => esc_html__('Deleting this role will completely remove it from database and is irrecoverable.', 'capability-manager-enhanced'),
-            'type'      => 'button',
-            'value_key' => '',
-            'tab'       => 'delete',
-            'editable'  => true,
-        ];
+        if ($role_edit && $current && isset($current['role'])) {
+            $is_default_role = $current['role'] === get_option('default_role');
+            $role_label = isset($current['name']) ? translate_user_role($current['name']) : $current['role'];
+
+            $fields['disable_role'] = [
+                'label'       => esc_html__('Disable Role', 'capability-manager-enhanced'),
+                'description' => $is_default_role
+                    ? esc_html__('The default role cannot be disabled. Change the default role in WordPress settings first.', 'capability-manager-enhanced')
+                    : sprintf(
+                        esc_html__('Disable "%s" role for new user assignments. Existing users will keep this role and its capabilities.', 'capability-manager-enhanced'),
+                        esc_html($role_label)
+                    ),
+                'type'        => 'checkbox',
+                'value_key'   => 'disable_role',
+                'tab'         => 'delete',
+                'editable'    => !$is_default_role,
+                'disabled'    => $is_default_role,
+                'required'    => false,
+            ];
+
+            if (empty($current['is_system'])) {
+                $fields['delete_role'] = [
+                    'label'       => esc_html__('Delete role', 'capability-manager-enhanced'),
+                    'description' => esc_html__('Deleting this role will completely remove it from database and is irrecoverable.', 'capability-manager-enhanced'),
+                    'type'        => 'button',
+                    'value_key'   => '',
+                    'tab'         => 'delete',
+                    'editable'    => true,
+                ];
+            }
+        }
 
         //add disable_code_editor
         $fields['disable_code_editor'] = [
@@ -308,6 +330,7 @@ class Pp_Roles_Admin
             'editable'    => true,
             'required'    => false,
             'multiple'    => false,
+            'disabled'    => false,
             'value'       => '',
             'options'     => [],
             'label'       => '',
@@ -438,6 +461,7 @@ class Pp_Roles_Admin
                         value="1"
                         <?php checked(1, (int)$args['value']); ?>
                         <?php echo ($args['required'] ? 'required="true"' : '');?>
+                        <?php echo ($args['disabled'] ? 'disabled="disabled"' : ''); ?>
                         <?php echo (!$args['editable'] ? 'readonly="readonly"' : ''); ?>/>
                         <?php if (isset($args['description'])) : ?>
                             <span class="description"><?php echo $args['description']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
@@ -495,6 +519,9 @@ class Pp_Roles_Admin
             if (is_array($role_option) && !empty($role_option)) {
                 $current = array_merge($role_option, $current);
             }
+            $current['disable_role'] = \PublishPress\Capabilities\PP_Capabilities_Disabled_Roles::isRoleDisabled($current_role)
+                ? 1
+                : 0;
             //add role level
             $current['role_level'] = (is_array($current) && isset($current['capabilities'])) ? ak_caps2level($current['capabilities']) : '0';
         }

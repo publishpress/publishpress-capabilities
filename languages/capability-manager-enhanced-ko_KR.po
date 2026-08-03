@@ -10,23 +10,23 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-06-11 10:09+0000\n"
+"PO-Revision-Date: 2026-08-03 02:15+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: capsman-enhanced.php:5
+#: capsman-enhanced.php:3
 #. Plugin Name of the plugin
 msgid "PublishPress Capabilities"
 msgstr "퍼블리시프레스 기능"
 
-#: capsman-enhanced.php:7, fuzzy
+#: capsman-enhanced.php:4, fuzzy
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
 
-#: capsman-enhanced.php:9
+#: capsman-enhanced.php:5
 #. Description of the plugin
 msgid ""
 "PublishPress Capabilities is the access control plugin for WordPress. You "
@@ -34,12 +34,12 @@ msgid ""
 "Subscribers."
 msgstr "퍼블리시프레스 기능은 워드프레스용 접근 제어 플러그인입니다. 관리자로부터 구독자까지 모든 워드프레스 사용자 역할을 관리할 수 있습니다."
 
-#: capsman-enhanced.php:13
+#: capsman-enhanced.php:7
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "퍼블리시프레스"
 
-#: capsman-enhanced.php:15, fuzzy
+#: capsman-enhanced.php:8, fuzzy
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -68,7 +68,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:833
+#: includes/admin-load.php:881
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "프로로 업그레이드"
@@ -98,7 +98,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:92
 #: includes-core/CoreAdmin.php:155
 #: includes/functions-admin.php:536
-#: includes/roles/class/class-pp-roles-admin.php:526
+#: includes/roles/class/class-pp-roles-admin.php:553
 msgid "Admin Menus"
 msgstr "관리자 메뉴"
 
@@ -187,86 +187,98 @@ msgid ""
 "feature to add body classes only for that post."
 msgstr "이것은 게시물 편집 화면에 메타박스를 추가합니다. 이 기능을 사용하여 해당 게시물에만 본문 클래스를 추가할 수 있습니다."
 
-#: includes/admin-load.php:371
+#: includes/admin-load.php:376
 msgid "Drag multiple roles selection to change roles order."
 msgstr "여러 역할 선택을 드래그하여 역할 순서를 변경합니다."
 
-#: includes/admin-load.php:374
+#: includes/admin-load.php:379
 msgid "Page title"
 msgstr "페이지 제목"
 
-#: includes/admin-load.php:375
+#: includes/admin-load.php:380
 msgid "Rank Math SEO"
 msgstr "랭크 매스 SEO"
 
-#: includes/admin-load.php:513
-#: includes/admin-load.php:846
+#: includes/admin-load.php:518
+#: includes/admin-load.php:894
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:410
-#: includes/roles/class/class-pp-roles-admin.php:637
+#: includes/manager.php:430
+#: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "권한"
 
-#: includes/admin-load.php:632
+#: includes/admin-load.php:657
 msgid "No permission!"
 msgstr "권한 없음!"
 
-#: includes/admin-load.php:642
+#: includes/admin-load.php:667
 msgid "Invalid nonce token!"
 msgstr "잘못된 nonce 토큰입니다!"
 
-#: includes/admin-load.php:646
+#: includes/admin-load.php:671
+#: includes/admin-load.php:679
 msgid "Error: wrong data"
 msgstr "오류: 잘못된 데이터"
 
-#: includes/admin-load.php:668
-#: includes/admin-notices/admin-notices.php:232
+#: includes/admin-load.php:699
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr "변경 사항이 저장되었습니다. 모든 네트워크 사이트에 대한 기능 상태 동기화가 대기 중입니다."
+
+#: includes/admin-load.php:705
+#: common/js/admin.dev.js:1237
+msgid "Changes saved!"
+msgstr "변경 사항이 저장되었습니다!"
+
+#: includes/admin-load.php:716
+#: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 #: includes/features/restrict-profile-features.php:29
 msgid "An error occured!"
 msgstr "오류가 발생했습니다!"
 
-#: includes/admin-load.php:673
+#: includes/admin-load.php:721
 msgid "Security check failed"
 msgstr "보안 검사 실패"
 
-#: includes/admin-load.php:675
+#: includes/admin-load.php:723
 msgid "Permission denied"
 msgstr "권한 거부"
 
-#: includes/admin-load.php:685
+#: includes/admin-load.php:733
 msgid "Settings updated successfully."
 msgstr "설정이 성공적으로 업데이트되었습니다."
 
-#: includes/admin-load.php:781
+#: includes/admin-load.php:829
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "로그인한 사용자"
 
-#: includes/admin-load.php:782
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "로그아웃한 사용자"
 
-#: includes/admin-load.php:789
+#: includes/admin-load.php:837
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "퍼블리시프레스 메뉴 제한"
 
-#: includes/admin-load.php:790
+#: includes/admin-load.php:838
 msgid "This menu is restricted for the following roles"
 msgstr "이 메뉴는 다음 역할에 대해 제한됩니다."
 
-#: includes/admin-load.php:845
+#: includes/admin-load.php:893
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "대시보드"
 
-#: includes/admin-load.php:847
+#: includes/admin-load.php:895
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -275,7 +287,7 @@ msgstr "대시보드"
 msgid "Roles"
 msgstr "역할"
 
-#: includes/admin-load.php:848
+#: includes/admin-load.php:896
 msgid "Settings"
 msgstr "설정들"
 
@@ -300,9 +312,9 @@ msgid "Current Role"
 msgstr "현재 역할"
 
 #: includes/admin-notices/admin-notices-settings.php:33
-#: includes/admin-notices/admin-notices.php:179
-#: includes/admin-notices/admin-notices.php:217
-#: includes/admin-notices/admin-notices.php:220
+#: includes/admin-notices/admin-notices.php:207
+#: includes/admin-notices/admin-notices.php:245
+#: includes/admin-notices/admin-notices.php:248
 #: includes/functions-admin.php:239
 #: includes/functions-admin.php:459
 #: includes/functions-admin.php:528
@@ -386,7 +398,7 @@ msgid "Configure notice visibility by user role"
 msgstr "사용자 역할별로 알림 가시성 구성"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1959
+#: includes/admin.php:1996
 #: includes/features/admin-features.php:352
 #: includes/features/admin-styles/admin-styles-ui.php:842
 #: includes/features/editor-features.php:247
@@ -401,65 +413,65 @@ msgstr "문서 보기"
 msgid "How to use Admin Notices"
 msgstr "Admin Notices 사용 방법"
 
-#: includes/admin-notices/admin-notices.php:72
+#: includes/admin-notices/admin-notices.php:79
 msgid "Display this notice"
 msgstr "이 알림 표시"
 
-#: includes/admin-notices/admin-notices.php:73
+#: includes/admin-notices/admin-notices.php:80
 msgid "Silence this notice"
 msgstr "이 알림 무음 처리"
 
-#: includes/admin-notices/admin-notices.php:74
+#: includes/admin-notices/admin-notices.php:81
 msgid "Hide this notice"
 msgstr "이 알림 숨기기"
 
-#: includes/admin-notices/admin-notices.php:75
+#: includes/admin-notices/admin-notices.php:82
 msgid "Move to Hidden Notices"
 msgstr "숨겨진 알림으로 이동"
 
-#: includes/admin-notices/admin-notices.php:76
+#: includes/admin-notices/admin-notices.php:83
 msgid "Displayed notices will no longer be removed from admin pages."
 msgstr "표시된 알림은 더 이상 관리자 페이지에서 제거되지 않습니다."
 
-#: includes/admin-notices/admin-notices.php:77
+#: includes/admin-notices/admin-notices.php:84
 msgid ""
 "This notice will be moved to the \"Silenced Notices\" tab and you will not "
 "receive a notification if it appears again."
 msgstr "이 알림은 \"침묵된 알림\" 탭으로 이동되며, 다시 나타나도 알림을 받지 않습니다."
 
-#: includes/admin-notices/admin-notices.php:204
+#: includes/admin-notices/admin-notices.php:232
 msgid "Hidden Notices"
 msgstr "숨겨진 공지"
 
-#: includes/admin-notices/admin-notices.php:208
+#: includes/admin-notices/admin-notices.php:236
 msgid "Silenced Notices"
 msgstr "무음 처리된 알림"
 
-#: includes/admin-notices/admin-notices.php:218
+#: includes/admin-notices/admin-notices.php:246
 msgid "There are currently no admin notices."
 msgstr "현재 관리 알림이 없습니다."
 
-#: includes/admin-notices/admin-notices.php:218
+#: includes/admin-notices/admin-notices.php:246
 msgid "Edit the settings."
 msgstr "설정을 수정하세요."
 
-#: includes/admin-notices/admin-notices.php:241
-#: includes/manager.php:794
+#: includes/admin-notices/admin-notices.php:269
 #: includes/manager.php:818
+#: includes/manager.php:842
 msgid "You do not have permission to manage admin notices."
 msgstr "관리 알림을 관리할 권한이 없습니다."
 
-#: includes/admin-notices/admin-notices.php:243
+#: includes/admin-notices/admin-notices.php:271
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
 msgid "Invalid action. Reload this page and try again."
 msgstr "잘못된 동작입니다. 이 페이지를 새로 고치고 다시 시도하세요."
 
-#: includes/admin-notices/admin-notices.php:245
+#: includes/admin-notices/admin-notices.php:273
 msgid "Invalid form."
 msgstr "잘못된 양식입니다."
 
-#: includes/admin-notices/admin-notices.php:269
+#: includes/admin-notices/admin-notices.php:297
 msgid "Admin notice status updated successfully."
 msgstr "관리자 알림 상태가 성공적으로 업데이트되었습니다."
 
@@ -483,7 +495,7 @@ msgid "Application Passwords"
 msgstr "애플리케이션 비밀번호"
 
 #: includes/admin.php:248
-#: includes/admin.php:887
+#: includes/admin.php:924
 msgid "Nav Menus (Block)"
 msgstr "내비게이션 메뉴 (블록)"
 
@@ -492,7 +504,7 @@ msgid "Block"
 msgstr "차단"
 
 #: includes/admin.php:257
-#: includes/admin.php:889
+#: includes/admin.php:926
 msgid "Nav Menus (Legacy)"
 msgstr "내비게이션 메뉴 (레거시)"
 
@@ -581,107 +593,152 @@ msgstr "현재 게시된 게시물을 삭제할 수 있습니다."
 msgid "Can delete posts which are currently published with private visibility."
 msgstr "현재 비공개 상태로 게시된 게시물을 삭제할 수 있습니다."
 
-#: includes/admin.php:639
-#: includes/admin.php:1156
-#: includes/admin.php:2050
+#: includes/admin.php:485
+msgid "grant / clear / deny all capabilities"
+msgstr "모든 권한 부여 / 삭제 / 거부"
+
+#: includes/admin.php:487
+msgid "All capabilities"
+msgstr "모든 권한"
+
+#: includes/admin.php:492
+msgid "Granted"
+msgstr "부여됨"
+
+#: includes/admin.php:493
+msgid "Not granted"
+msgstr "부여되지 않음"
+
+#: includes/admin.php:494
+msgid "Denied"
+msgstr "거부됨"
+
+#: includes/admin.php:495
+#: includes/admin.php:496
+msgid "Mixed"
+msgstr "혼합됨"
+
+#: includes/admin.php:500
+msgid "Global capabilities help"
+msgstr "전역 기능 도움말"
+
+#: includes/admin.php:503
+msgid "Click to grant, clear, or deny capabilities across every tab."
+msgstr "모든 탭에서 권한을 부여, 삭제 또는 거부하려면 클릭하십시오."
+
+#: includes/admin.php:676
+#: includes/admin.php:1193
+#: includes/admin.php:2087
 msgid "Multisite"
 msgstr "멀티사이트"
 
-#: includes/admin.php:643
-#: includes/admin.php:1160
+#: includes/admin.php:680
+#: includes/admin.php:1197
 msgid "Admin"
 msgstr "관리자"
 
-#: includes/admin.php:723
-#: includes/admin.php:1596
+#: includes/admin.php:760
+#: includes/admin.php:1633
 msgid "Invalid Capabilities"
 msgstr "잘못된 기능들"
 
-#: includes/admin.php:728
-#: includes/admin.php:1742
+#: includes/admin.php:765
+#: includes/admin.php:1779
 msgid "Additional"
 msgstr "추가"
 
-#: includes/admin.php:762
+#: includes/admin.php:799
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "용어 %s 권한"
 
-#: includes/admin.php:765
+#: includes/admin.php:802
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s 기능"
 
-#: includes/admin.php:766
+#: includes/admin.php:803
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "게시물 %s 기능"
 
-#: includes/admin.php:769
+#: includes/admin.php:806
 msgid "Taxonomy"
 msgstr "분류학"
 
-#: includes/admin.php:775
+#: includes/admin.php:812
 msgid "Filter by taxonomy"
 msgstr "분류로 필터링"
 
-#: includes/admin.php:775
+#: includes/admin.php:812
 msgid "Filter by post type"
 msgstr "게시물 유형별 필터링"
 
-#: includes/admin.php:896
+#: includes/admin.php:821
+#: includes/admin.php:1227
+#: includes/admin.php:1307
+#: includes/admin.php:1341
+#: includes/admin.php:1347
+#: includes/admin.php:1497
+#: includes/admin.php:1618
+#: includes/admin.php:1759
+#: includes/admin.php:1937
+msgid "check / uncheck / negate all"
+msgstr "모두 체크/체크 해제/부정"
+
+#: includes/admin.php:933
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "이 분류의 슬러그는 %s입니다"
 
-#: includes/admin.php:898
+#: includes/admin.php:935
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "이 게시물 유형의 슬러그는 %s입니다"
 
-#: includes/admin.php:975
-#: includes/admin.php:1223
-#: includes/admin.php:1517
-#: includes/admin.php:1825
-#: includes/admin.php:1826
+#: includes/admin.php:1012
+#: includes/admin.php:1260
+#: includes/admin.php:1554
+#: includes/admin.php:1862
+#: includes/admin.php:1863
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: 권한 그룹에 의해 할당됨"
 
-#: includes/admin.php:978
-#: includes/admin.php:1225
-#: includes/admin.php:1519
-#: includes/admin.php:1645
-#: includes/admin.php:1828
+#: includes/admin.php:1015
+#: includes/admin.php:1262
+#: includes/admin.php:1556
+#: includes/admin.php:1682
+#: includes/admin.php:1865
 #, php-format
 msgid "This capability is %s"
 msgstr "이 권한은 %s입니다"
 
-#: includes/admin.php:1009
+#: includes/admin.php:1046
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "이 기능은 %s에 의해 제어됩니다."
 
-#: includes/admin.php:1012
+#: includes/admin.php:1049
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
 "to be controlled independently."
 msgstr "이 기능은 %s에 의해 제어됩니다. 사이드바 설정을 사용하여 독립적으로 제어할 수 있도록 하세요."
 
-#: includes/admin.php:1029
+#: includes/admin.php:1066
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "사이드바 설정을 사용하여 이를 독립적으로 제어할 수 있도록 하세요."
 
-#: includes/admin.php:1031
-#: includes/admin.php:1035
+#: includes/admin.php:1068
+#: includes/admin.php:1072
 msgid "This capability is not available for this post type."
 msgstr "이 기능은 이 게시물 유형에서 사용할 수 없습니다."
 
-#: includes/admin.php:1099
+#: includes/admin.php:1136
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -691,89 +748,78 @@ msgstr ""
 "관리자 목록 접근은 일반적으로 \"편집\" 기능에 의해 제공됩니다. 이러한 \"목록\" 기능은 해당 \"편집\" 기능이 누락된 경우에만 "
 "적용됩니다. 또한, 이러한 \"목록\" 기능은 접근을 부여할 수 있지만, 접근을 거부할 수는 없습니다."
 
-#: includes/admin.php:1176
-#: includes/admin.php:1290
-#: includes/admin.php:1446
-#: includes/admin.php:1713
+#: includes/admin.php:1213
+#: includes/admin.php:1327
+#: includes/admin.php:1483
+#: includes/admin.php:1750
 msgid "Filter by capability"
 msgstr "기능별 필터링"
 
-#: includes/admin.php:1179
-#: includes/admin.php:1293
-#: includes/admin.php:1449
-#: includes/admin.php:1716
+#: includes/admin.php:1216
+#: includes/admin.php:1330
+#: includes/admin.php:1486
+#: includes/admin.php:1753
 msgid "No results found. Please try again with a different word."
 msgstr "결과가 발견되지 않았습니다. 다른 단어로 다시 시도해 주세요."
 
-#: includes/admin.php:1190
-#: includes/admin.php:1270
-#: includes/admin.php:1304
-#: includes/admin.php:1310
-#: includes/admin.php:1460
-#: includes/admin.php:1581
-#: includes/admin.php:1722
-#: includes/admin.php:1900
-msgid "check / uncheck / negate all"
-msgstr "모두 체크/체크 해제/부정"
-
-#: includes/admin.php:1190
-#: includes/admin.php:1270
-#: includes/admin.php:1304
-#: includes/admin.php:1310
-#: includes/admin.php:1460
-#: includes/admin.php:1581
-#: includes/admin.php:1722
-#: includes/admin.php:1900
+#: includes/admin.php:1227
+#: includes/admin.php:1307
+#: includes/admin.php:1341
+#: includes/admin.php:1347
+#: includes/admin.php:1497
+#: includes/admin.php:1618
+#: includes/admin.php:1759
+#: includes/admin.php:1937
 msgid "Capability Name"
 msgstr "기능 이름"
 
-#: includes/admin.php:1287
+#: includes/admin.php:1324
 msgid "WordPress Core Capabilities"
 msgstr "워드프레스 코어 기능"
 
-#: includes/admin.php:1426
-#: includes/admin.php:1481
+#: includes/admin.php:1463
+#: includes/admin.php:1518
 #: includes/features/admin-styles/admin-styles.php:2062
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "일반"
 
-#: includes/admin.php:1443
+#: includes/admin.php:1480
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "플러그인 기능 &ndash; %s"
 
-#: includes/admin.php:1523
+#: includes/admin.php:1560
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr "사용자 테스트 기능은 또한 %1$s edit_users %2$s 권한이 필요합니다."
 
-#: includes/admin.php:1601
+#: includes/admin.php:1638
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
 msgstr "다음 항목은 아무런 영향을 미치지 않습니다. 편집/삭제/비공개 탭에서 원하는 권한을 할당해 주십시오."
 
-#: includes/admin.php:1710
+#: includes/admin.php:1747
 msgid "Additional Capabilities"
 msgstr "추가 기능"
 
-#: includes/admin.php:1893
+#: includes/admin.php:1930
 msgid "You have no additional capabilities."
 msgstr "추가 기능이 없습니다."
 
-#: includes/admin.php:1914
+#: includes/admin.php:1951
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr "권한을 사용하면 모든 사용자 역할의 권한을 변경할 수 있습니다."
 
-#: includes/admin.php:1915
+#: includes/admin.php:1952
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = 기능이 부여됨 %2$s"
 
-#: includes/admin.php:1915
-#: includes/admin.php:1916
-#: includes/admin.php:1917
+#: includes/admin.php:1952
+#: includes/admin.php:1953
+#: includes/admin.php:1954
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -787,36 +833,36 @@ msgstr "%1$s = 기능이 부여됨 %2$s"
 msgid "usage key"
 msgstr "사용 키"
 
-#: includes/admin.php:1916
+#: includes/admin.php:1953
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = 기능이 부여되지 않음 %2$s"
 
-#: includes/admin.php:1917
+#: includes/admin.php:1954
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = 다른 역할 %2$s에 의해 부여되었더라도 기능이 거부됨"
 
-#: includes/admin.php:1925
+#: includes/admin.php:1962
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "이 역할을 %s권한 그룹%s으로 구성할 수도 있습니다."
 
-#: includes/admin.php:1945
+#: includes/admin.php:1982
 msgid "How to use Capabilities"
 msgstr "역량 사용 방법"
 
-#: includes/admin.php:1983
+#: includes/admin.php:2020
 msgid "Capabilities is Safe to Use"
 msgstr "기능은 안전하게 사용할 수 있습니다"
 
-#: includes/admin.php:1996
+#: includes/admin.php:2033
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
 msgstr "워드프레스는 역할 권한을 데이터베이스에 저장하며, 플러그인이 비활성화되더라도 남아 있습니다."
 
-#: includes/admin.php:1997
+#: includes/admin.php:2034
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -824,142 +870,142 @@ msgstr ""
 "PublishPress Capabilities를 사용하여 변경 사항을 저장할 때마다 이전 구성을 복원하는 데 사용할 수 있는 백업이 "
 "생성됩니다."
 
-#: includes/admin.php:2000
+#: includes/admin.php:2037
 msgid "Go to the Backup feature"
 msgstr "백업 기능으로 이동"
 
-#: includes/admin.php:2020
+#: includes/admin.php:2057
 msgid "Add a New Capability"
 msgstr "새 기능 추가"
 
-#: includes/admin.php:2030
+#: includes/admin.php:2067
 msgid "Add to role"
 msgstr "역할에 추가"
 
-#: includes/admin.php:2033
+#: includes/admin.php:2070
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "새로운 기능은 추가 탭에서 제어됩니다."
 
-#: includes/admin.php:2090
+#: includes/admin.php:2127
 msgid "PublishPress Permissions"
 msgstr "퍼블리시프레스 권한"
 
-#: includes/admin.php:2092
+#: includes/admin.php:2129
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
 msgstr "사용자 지정 게시물 유형 및 분류법에 대해 유형별 기능을 자동으로 정의합니다"
 
-#: includes/admin.php:2096
+#: includes/admin.php:2133
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "특정 게시물 유형에 대해 표준 WP 역할을 보조적으로 할당하세요"
 
-#: includes/admin.php:2100
+#: includes/admin.php:2137
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr "특정 게시물 유형에 대해 사용자 지정 WP 역할을 보조적으로 할당하세요 <em>(Pro)</em>"
 
-#: includes/admin.php:2104
+#: includes/admin.php:2141
 msgid "Customize reading permissions per-category or per-post"
 msgstr "카테고리별 또는 게시물별 읽기 권한 커스터마이즈"
 
-#: includes/admin.php:2108
+#: includes/admin.php:2145
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "카테고리별 또는 게시물별 편집 권한 커스터마이즈 <em>(Pro)</em>"
 
-#: includes/admin.php:2112
+#: includes/admin.php:2149
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
 msgstr "wp-admin 전반에 걸쳐 완전히 구현된 사용자 정의 게시물 가시성 상태 <em>(Pro)</em>"
 
-#: includes/admin.php:2116
+#: includes/admin.php:2153
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
 msgstr "접근 제어가 있는 다단계 게시 워크플로우를 위한 사용자 정의 중재 상태 <em>(Pro)</em>"
 
-#: includes/admin.php:2120
+#: includes/admin.php:2157
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "편집 흐름 게시 상태에 대한 권한 규제 <em>(프로)</em>"
 
-#: includes/admin.php:2124
+#: includes/admin.php:2161
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
 msgstr "Revisionary 또는 Post Forking을 통한 게시된 콘텐츠의 중재된 편집 커스터마이즈 <em>(Pro)</em>"
 
-#: includes/admin.php:2128
+#: includes/admin.php:2165
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
 msgstr "특정 bbPress 포럼에 관람자, 참가자 또는 중재자 접근 권한 부여 <em>(프로)</em>"
 
-#: includes/admin.php:2132
+#: includes/admin.php:2169
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "BuddyPress 그룹에 보조 콘텐츠 권한 부여 <em>(프로)</em>"
 
-#: includes/admin.php:2136
+#: includes/admin.php:2173
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "WPML 통합으로 번역에 대한 권한을 미러링합니다 <em>(전문)</em>"
 
-#: includes/admin.php:2140
+#: includes/admin.php:2177
 msgid "Member support forum"
 msgstr "회원 지원 포럼"
 
-#: includes/admin.php:2147
+#: includes/admin.php:2184
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2147
+#: includes/admin.php:2184
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (무료 설치)"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2186
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2186
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s 정보/구매"
 
-#: includes/admin.php:2182
+#: includes/admin.php:2219
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
 "capabilities."
 msgstr "역할 수준은 대부분 사용되지 않습니다. 그러나 여전히 게시물 작성자 할당 자격을 결정하고 사용자 편집 기능의 적용을 제한합니다."
 
-#: includes/admin.php:2184
+#: includes/admin.php:2221
 msgid "Level:"
 msgstr "레벨:"
 
-#: includes/admin.php:2228
+#: includes/admin.php:2265
 msgid "Create this role definition in new (future) sites"
 msgstr "이 역할 정의를 새로운(미래의) 사이트에 생성"
 
-#: includes/admin.php:2228
+#: includes/admin.php:2265
 msgid "Include in new sites."
 msgstr "새 사이트에 포함하기."
 
-#: includes/admin.php:2231
+#: includes/admin.php:2268
 msgid "Copy / update this role definition to all sites now"
 msgstr "이 역할 정의를 모든 사이트에 지금 복사 / 업데이트합니다"
 
-#: includes/admin.php:2231
+#: includes/admin.php:2268
 msgid "Sync role to all sites."
 msgstr "모든 사이트에 역할 동기화."
 
-#: includes/admin.php:2234
+#: includes/admin.php:2271
 msgid "Copy option settings to all sites now"
 msgstr "모든 사이트에 옵션 설정 복사"
 
-#: includes/admin.php:2234
+#: includes/admin.php:2271
 msgid "Sync options to all sites."
 msgstr "모든 사이트에 옵션 동기화."
 
@@ -1010,25 +1056,25 @@ msgstr "설정 가져오기 오류! 다시 시도해 주세요."
 msgid "Error importing settings! Please check that you uploaded a valid json file."
 msgstr "설정 가져오기 오류! 유효한 json 파일을 업로드했는지 확인하세요."
 
-#: includes/backup-handler.php:222
+#: includes/backup-handler.php:232
 #, php-format
 msgid "Skipped %d invalid or unsupported import entries."
 msgstr "%d개의 유효하지 않거나 지원되지 않는 가져오기 항목이 건너뛰어졌습니다."
 
-#: includes/backup-handler.php:226
+#: includes/backup-handler.php:236
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s가 업로드된 데이터에서 성공적으로 가져왔습니다."
 
-#: includes/backup-handler.php:228
+#: includes/backup-handler.php:238
 msgid "No valid backup data found to import."
 msgstr "가져올 유효한 백업 데이터가 없습니다."
 
-#: includes/backup-handler.php:519
+#: includes/backup-handler.php:562
 msgid "Needed function to create default roles not found!"
 msgstr "기본 역할을 생성하는 데 필요한 기능을 찾을 수 없습니다!"
 
-#: includes/backup-handler.php:538
+#: includes/backup-handler.php:581
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "역할 및 기능이 WordPress 기본값으로 재설정되었습니다."
 
@@ -1164,7 +1210,7 @@ msgid "Reset WordPress Defaults"
 msgstr "워드프레스 기본값 재설정"
 
 #: includes/backup.php:282
-#: includes/backup.php:329
+#: includes/backup.php:363
 #: includes/features/profile-features.php:242
 msgid "Warning:"
 msgstr "경고:"
@@ -1215,31 +1261,45 @@ msgstr "이 사이트의 플러그인 설정을 .json 파일로 내보냅니다.
 msgid "Roles and Capabilities"
 msgstr "역할 및 기능"
 
-#: includes/backup.php:322
+#: includes/backup.php:310
+msgid "Select the roles to include in this export."
+msgstr "이 내보내기에 포함할 역할을 선택하십시오."
+
+#: includes/backup.php:356
 msgid "Export"
 msgstr "내보내기"
 
-#: includes/backup.php:328
+#: includes/backup.php:362
 msgid "Import Settings"
 msgstr "설정 가져오기"
 
-#: includes/backup.php:329
+#: includes/backup.php:363
 msgid ""
 "Please make a 'Manual Backup' in the backup tab to enable backup restore in "
 "case anything goes wrong."
 msgstr "문제가 발생할 경우 백업 복원을 활성화하기 위해 백업 탭에서 '수동 백업'을 만들어 주십시오."
 
-#: includes/backup.php:330
+#: includes/backup.php:364
 msgid ""
 "Import the plugin settings from a .json file. This file can be obtained by "
 "exporting the settings on another site using the form above."
 msgstr ".json 파일에서 플러그인 설정을 가져옵니다. 이 파일은 위의 양식을 사용하여 다른 사이트에서 설정을 내보내면 얻을 수 있습니다."
 
-#: includes/backup.php:331
+#: includes/backup.php:365
 msgid ""
 "Before importing, we recommend using the \"Backup\" tab to create a backup "
 "of your current settings."
 msgstr "가져오기 전에 \"백업\" 탭을 사용하여 현재 설정의 백업을 만드는 것을 권장합니다."
+
+#: includes/dashboard.php:74
+msgid "Sync feature status to all sites in this network."
+msgstr "이 네트워크의 모든 사이트에 기능 상태를 동기화합니다."
+
+#: includes/dashboard.php:77
+msgid ""
+"When selected, changing a feature above will apply its new status to every "
+"existing site in the background."
+msgstr "선택하면 위의 기능을 변경할 때 백그라운드에서 모든 기존 사이트에 새 상태가 적용됩니다."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1585,7 +1645,7 @@ msgid "Preset"
 msgstr "프리셋"
 
 #: includes/features/admin-styles/admin-styles-ui.php:691
-#: includes/roles/class/class-pp-roles-list-table.php:403
+#: includes/roles/class/class-pp-roles-list-table.php:419
 msgid "Custom"
 msgstr "사용자 정의"
 
@@ -1666,7 +1726,7 @@ msgid "Security check failed."
 msgstr "보안 검사에 실패했습니다."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:764
+#: includes/manager.php:788
 msgid "You do not have permission to manage admin styles."
 msgstr "관리 스타일을 관리할 권한이 없습니다."
 
@@ -2196,8 +2256,8 @@ msgstr "편집기 기능 사용 방법"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:716
-#: includes/manager.php:738
+#: includes/manager.php:740
+#: includes/manager.php:762
 msgid "You do not have permission to manage frontend features."
 msgstr "프론트엔드 기능을 관리할 권한이 없습니다."
 
@@ -2698,7 +2758,7 @@ msgstr "이 역할에 대해 프로필 기능 접근이 활성화되었습니다
 #: includes/functions-admin.php:217
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:507
-#: includes/roles/class/class-pp-roles-admin.php:523
+#: includes/roles/class/class-pp-roles-admin.php:550
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "편집기 기능"
@@ -2706,14 +2766,14 @@ msgstr "편집기 기능"
 #: includes/functions-admin.php:228
 #: includes/functions-admin.php:424
 #: includes/functions-admin.php:514
-#: includes/roles/class/class-pp-roles-admin.php:524
+#: includes/roles/class/class-pp-roles-admin.php:551
 msgid "Admin Features"
 msgstr "관리자 기능"
 
 #: includes/functions-admin.php:248
 #: includes/functions-admin.php:434
 #: includes/functions-admin.php:544
-#: includes/roles/class/class-pp-roles-admin.php:525
+#: includes/roles/class/class-pp-roles-admin.php:552
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "프로필 기능"
@@ -2754,7 +2814,7 @@ msgstr "리디렉션 기능을 사용하면 등록, 로그인 또는 로그아�
 
 #: includes/functions-admin.php:449
 #: includes/functions-admin.php:565
-#: includes/roles/class/class-pp-roles-admin.php:527
+#: includes/roles/class/class-pp-roles-admin.php:554
 msgid "Navigation Menus"
 msgstr "내비게이션 메뉴들"
 
@@ -2822,7 +2882,7 @@ msgstr "오류: 새 역할 생성 실패."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1277
+#: includes/manager.php:1301
 msgid "The selected role is not editable."
 msgstr "선택한 역할은 편집할 수 없습니다."
 
@@ -2838,15 +2898,15 @@ msgstr "유형 / 분류 설정이 저장되었습니다."
 msgid "Bad form received."
 msgstr "잘못된 양식이 수신되었습니다."
 
-#: includes/handler.php:256
+#: includes/handler.php:242
 msgid "You cannot remove Manage Capabilities from Administrators"
 msgstr "관리자에서 권한 관리 기능을 제거할 수 없습니다."
 
-#: includes/handler.php:337
+#: includes/handler.php:340
 msgid "The selected application password is not editable."
 msgstr "선택한 애플리케이션 비밀번호는 편집할 수 없습니다."
 
-#: includes/handler.php:341
+#: includes/handler.php:344
 msgid "Application password capabilities saved."
 msgstr "애플리케이션 비밀번호 기능이 저장되었습니다."
 
@@ -2882,126 +2942,130 @@ msgstr "이 항목을 삭제하시겠습니까?"
 msgid "Add or clear custom item entry before saving changes."
 msgstr "변경 사항을 저장하기 전에 사용자 정의 항목 입력을 추가하거나 지웁니다."
 
-#: includes/manager.php:536
+#: includes/manager.php:560
 #: includes/roles/class/class-pp-roles-admin.php:172
-#: includes/roles/class/class-pp-roles-list-table.php:175
+#: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "역할 이름"
 
-#: includes/manager.php:538
-#: includes/roles/class/class-pp-roles-list-table.php:177
+#: includes/manager.php:562
+#: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "역할 유형"
 
-#: includes/manager.php:539
-#: includes/roles/class/class-pp-roles-list-table.php:178
+#: includes/manager.php:563
+#: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "기본 역할"
 
-#: includes/manager.php:540
-#: includes/roles/class/class-pp-roles-list-table.php:179
+#: includes/manager.php:564
+#: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "관리자 접근"
 
-#: includes/manager.php:567
+#: includes/manager.php:591
 msgid "You do not have permission to manage roles."
 msgstr "역할을 관리할 권한이 없습니다."
 
-#: includes/manager.php:590
-#: includes/manager.php:612
+#: includes/manager.php:614
+#: includes/manager.php:636
 msgid "You do not have permission to manage editor features."
 msgstr "편집기 기능을 관리할 권한이 없습니다."
 
-#: includes/manager.php:647
-#: includes/manager.php:701
-#: includes/manager.php:749
-#: includes/manager.php:843
-#: includes/manager.php:892
-#: includes/manager.php:974
-#: includes/manager.php:1055
+#: includes/manager.php:671
+#: includes/manager.php:725
+#: includes/manager.php:773
+#: includes/manager.php:867
+#: includes/manager.php:916
+#: includes/manager.php:998
+#: includes/manager.php:1079
 msgid "Settings updated."
 msgstr "설정이 업데이트되었습니다."
 
-#: includes/manager.php:663
-#: includes/manager.php:685
-#: includes/manager.php:857
-#: includes/manager.php:908
-#: includes/manager.php:1072
+#: includes/manager.php:687
+#: includes/manager.php:709
+#: includes/manager.php:881
+#: includes/manager.php:932
+#: includes/manager.php:1096
 msgid "You do not have permission to manage admin features."
 msgstr "관리 기능을 관리할 권한이 없습니다."
 
-#: includes/manager.php:879
+#: includes/manager.php:903
 msgid "You do not have permission to manage navigation menus."
 msgstr "내비게이션 메뉴를 관리할 권한이 없습니다."
 
-#: includes/manager.php:930
+#: includes/manager.php:954
 msgid "You do not have permission to manage profile features."
 msgstr "프로필 기능을 관리할 권한이 없습니다."
 
-#: includes/manager.php:990
+#: includes/manager.php:1014
 msgid "You do not have permission to manage redirect."
 msgstr "리다이렉트를 관리할 권한이 없습니다."
 
-#: includes/manager.php:1012
+#: includes/manager.php:1036
 msgid "Invalid form. Reload this page and try again."
 msgstr "잘못된 양식입니다. 이 페이지를 새로 고치고 다시 시도하세요."
 
-#: includes/manager.php:1164
-#: includes/manager.php:1215
-#: includes/manager.php:1233
+#: includes/manager.php:1188
+#: includes/manager.php:1239
+#: includes/manager.php:1257
 msgid "You do not have permission to manage capabilities."
 msgstr "권한을 관리할 권한이 없습니다."
 
-#: includes/manager.php:1242
+#: includes/manager.php:1266
 msgid "Network sync completed."
 msgstr "네트워크 동기화가 완료되었습니다."
 
-#: includes/manager.php:1244
+#: includes/manager.php:1268
 msgid "Network sync has been queued and will continue in the background."
 msgstr "네트워크 동기화가 대기 중이며 백그라운드에서 계속됩니다."
 
-#: includes/manager.php:1260
+#: includes/manager.php:1284
 msgid "New capability added to role."
 msgstr "역할에 새 기능이 추가되었습니다."
 
-#: includes/manager.php:1306
+#: includes/manager.php:1330
 msgid "Bad form Received"
 msgstr "잘못된 양식이 수신되었습니다"
 
-#: includes/manager.php:1435
+#: includes/manager.php:1459
 msgid "You do not have permission to restore roles."
 msgstr "역할을 복원할 권한이 없습니다."
 
-#: includes/manager.php:1473
+#: includes/manager.php:1497
 msgid "You do not have permission to perform this action."
 msgstr "이 작업을 수행할 권한이 없습니다."
 
-#: includes/manager.php:1634
+#: includes/manager.php:1517
+msgid "Select at least one role to export."
+msgstr "내보내기 위해 최소한 하나의 역할을 선택하십시오."
+
+#: includes/manager.php:1686
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "당신이 %s를 좋아하신다면, 저희에게 %s 평가를 남겨주세요. 감사합니다!"
 
-#: includes/manager.php:1645
+#: includes/manager.php:1697
 msgid "About PublishPress Capabilities"
 msgstr "PublishPress 기능에 대한 정보"
 
-#: includes/manager.php:1645
+#: includes/manager.php:1697
 msgid "About"
 msgstr "정보"
 
-#: includes/manager.php:1647
+#: includes/manager.php:1699
 msgid "Capabilites Documentation"
 msgstr "권한 문서"
 
-#: includes/manager.php:1647
+#: includes/manager.php:1699
 msgid "Documentation"
 msgstr "문서"
 
-#: includes/manager.php:1649
+#: includes/manager.php:1701
 msgid "Contact the PublishPress team"
 msgstr "PublishPress 팀에 문의하기"
 
-#: includes/manager.php:1649
+#: includes/manager.php:1701
 msgid "Contact"
 msgstr "연락처"
 
@@ -3286,7 +3350,7 @@ msgstr "%s 리디렉션"
 
 #: includes/redirects/redirects.php:112
 #: includes/redirects/redirects.php:316
-#: includes/roles/class/class-pp-roles-admin.php:512
+#: includes/roles/class/class-pp-roles-admin.php:539
 msgid "Save Changes"
 msgstr "변경 사항 저장"
 
@@ -3327,18 +3391,18 @@ msgstr "이 작업을 수행할 충분한 권한이 없습니다."
 
 #: includes/roles/class/class-pp-roles-actions.php:162
 #: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:389
-#: includes/roles/class/class-pp-roles-actions.php:505
+#: includes/roles/class/class-pp-roles-actions.php:390
+#: includes/roles/class/class-pp-roles-actions.php:514
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "링크가 만료되었습니다. 페이지를 새로 고치고 다시 시도하세요."
 
 #: includes/roles/class/class-pp-roles-actions.php:184
 #: includes/roles/class/class-pp-roles-actions.php:247
-#: includes/roles/class/class-pp-roles-actions.php:393
-#: includes/roles/class/class-pp-roles-actions.php:529
-#: includes/roles/class/class-pp-roles-actions.php:656
-#: includes/roles/class/class-pp-roles-actions.php:717
+#: includes/roles/class/class-pp-roles-actions.php:394
+#: includes/roles/class/class-pp-roles-actions.php:538
+#: includes/roles/class/class-pp-roles-actions.php:665
+#: includes/roles/class/class-pp-roles-actions.php:726
 msgid "Missing parameters, refresh the page and try again."
 msgstr "매개변수가 누락되었습니다. 페이지를 새로 고치고 다시 시도하세요."
 
@@ -3358,50 +3422,57 @@ msgid ""
 "the page and try again."
 msgstr "문제가 발생했습니다. 시스템이 역할을 생성할 수 없었습니다. 페이지를 새로고침하고 다시 시도하세요."
 
-#: includes/roles/class/class-pp-roles-actions.php:355
+#: includes/roles/class/class-pp-roles-actions.php:356
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "새로운 역할 %s가 성공적으로 생성되었습니다."
 
-#: includes/roles/class/class-pp-roles-actions.php:463
+#: includes/roles/class/class-pp-roles-actions.php:400
+#: includes/roles/class/class-pp-roles-admin.php:244
+msgid ""
+"The default role cannot be disabled. Change the default role in WordPress "
+"settings first."
+msgstr "기본 역할은 비활성화할 수 없습니다. 먼저 WordPress 설정에서 기본 역할을 변경하십시오."
+
+#: includes/roles/class/class-pp-roles-actions.php:472
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s 역할이 성공적으로 업데이트되었습니다."
 
-#: includes/roles/class/class-pp-roles-actions.php:537
+#: includes/roles/class/class-pp-roles-actions.php:546
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr "기본 역할을 삭제할 수 없습니다. 당신은 <a href=\"%s\">먼저 변경해야 합니다</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:556
+#: includes/roles/class/class-pp-roles-actions.php:565
 msgid "Deleting a system role is not allowed."
 msgstr "시스템 역할을 삭제하는 것은 허용되지 않습니다."
 
-#: includes/roles/class/class-pp-roles-actions.php:580
+#: includes/roles/class/class-pp-roles-actions.php:589
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d명의 사용자가 기본 역할 %2$s로 이동했습니다."
 
-#: includes/roles/class/class-pp-roles-actions.php:585
+#: includes/roles/class/class-pp-roles-actions.php:594
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "역할 %1$s가 성공적으로 삭제되었습니다. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:591
+#: includes/roles/class/class-pp-roles-actions.php:600
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "선택한 %1$s 역할이 성공적으로 삭제되었습니다. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:613
+#: includes/roles/class/class-pp-roles-actions.php:622
 msgid "The role could not be deleted."
 msgstr "역할을 삭제할 수 없습니다."
 
-#: includes/roles/class/class-pp-roles-actions.php:667
+#: includes/roles/class/class-pp-roles-actions.php:676
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "역할 %1$s가 성공적으로 숨겨졌습니다."
 
-#: includes/roles/class/class-pp-roles-actions.php:727
+#: includes/roles/class/class-pp-roles-actions.php:736
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "역할 %1$s가 성공적으로 숨김 해제되었습니다."
@@ -3409,6 +3480,10 @@ msgstr "역할 %1$s가 성공적으로 숨김 해제되었습니다."
 #: includes/roles/class/class-pp-roles-admin.php:117
 msgid "WooCommerce"
 msgstr "우커머스"
+
+#: includes/roles/class/class-pp-roles-admin.php:129
+msgid "Disable / Delete"
+msgstr "비활성화 / 삭제"
 
 #: includes/roles/class/class-pp-roles-admin.php:158
 msgid "Gutenberg editor"
@@ -3456,41 +3531,52 @@ msgstr ""
 "각 사용자 역할은 0에서 10까지의 수준을 가집니다. 구독자 역할은 기본적으로 가장 낮은 수준(0)입니다. 관리자 역할은 기본적으로 "
 "수준 10입니다."
 
-#: includes/roles/class/class-pp-roles-admin.php:239
+#: includes/roles/class/class-pp-roles-admin.php:242
+msgid "Disable Role"
+msgstr "역할 비활성화"
+
+#: includes/roles/class/class-pp-roles-admin.php:246
+#, php-format
+msgid ""
+"Disable \"%s\" role for new user assignments. Existing users will keep this "
+"role and its capabilities."
+msgstr "새 사용자 할당에 대해 \"%s\" 역할을 비활성화합니다. 기존 사용자는 이 역할과 그 기능을 유지합니다."
+
+#: includes/roles/class/class-pp-roles-admin.php:259
 msgid "Delete role"
 msgstr "역할 삭제"
 
-#: includes/roles/class/class-pp-roles-admin.php:240
+#: includes/roles/class/class-pp-roles-admin.php:260
 msgid ""
 "Deleting this role will completely remove it from database and is "
 "irrecoverable."
 msgstr "이 역할을 삭제하면 데이터베이스에서 완전히 제거되며 복구할 수 없습니다."
 
-#: includes/roles/class/class-pp-roles-admin.php:249
+#: includes/roles/class/class-pp-roles-admin.php:271
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Disable Code Editor"
 msgstr "코드 편집기 비활성화"
 
-#: includes/roles/class/class-pp-roles-admin.php:250
+#: includes/roles/class/class-pp-roles-admin.php:272
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
 msgstr "구텐베르크 블록 편집기에서 \"코드 편집기\" 옵션을 비활성화합니다."
 
-#: includes/roles/class/class-pp-roles-admin.php:261
+#: includes/roles/class/class-pp-roles-admin.php:283
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Control Allowed Editors"
 msgstr "허용된 편집기 제어"
 
-#: includes/roles/class/class-pp-roles-admin.php:262
+#: includes/roles/class/class-pp-roles-admin.php:284
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Select the allowed editor options for users in this role."
 msgstr "이 역할의 사용자에 대한 허용된 편집기 옵션을 선택하십시오."
 
-#: includes/roles/class/class-pp-roles-admin.php:275
+#: includes/roles/class/class-pp-roles-admin.php:297
 msgid "Disable WooCommerce admin restrictions"
 msgstr "WooCommerce 관리자 제한 비활성화"
 
-#: includes/roles/class/class-pp-roles-admin.php:276
+#: includes/roles/class/class-pp-roles-admin.php:298
 #, php-format
 msgid ""
 "By default, WooCommerce prevents most users from accessing the WordPress "
@@ -3500,70 +3586,70 @@ msgstr ""
 "기본적으로 WooCommerce는 대부분의 사용자가 WordPress 관리자 영역에 접근하는 것을 방지합니다. 이 설정을 활성화하면 이 "
 "역할에 대한 제한이 해제됩니다. %1s 자세한 내용은 여기를 클릭하세요. %2s"
 
-#: includes/roles/class/class-pp-roles-admin.php:335
+#: includes/roles/class/class-pp-roles-admin.php:358
 msgid "Slug already exists"
 msgstr "슬러그가 이미 존재합니다"
 
-#: includes/roles/class/class-pp-roles-admin.php:361
+#: includes/roles/class/class-pp-roles-admin.php:384
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Select allowed editor"
 msgstr "허용된 편집기 선택"
 
-#: includes/roles/class/class-pp-roles-admin.php:362
+#: includes/roles/class/class-pp-roles-admin.php:385
 #. Translators: "Editor" means post editor like Gutenberg
 msgid ""
 "You must select at least one editor for the role when managing allowed "
 "editor."
 msgstr "역할을 관리할 때 허용된 편집기를 위해 최소한 하나의 편집기를 선택해야 합니다."
 
-#: includes/roles/class/class-pp-roles-admin.php:391
+#: includes/roles/class/class-pp-roles-admin.php:414
 #, php-format
 msgid "Select %s"
 msgstr "%s 선택"
 
-#: includes/roles/class/class-pp-roles-admin.php:414
+#: includes/roles/class/class-pp-roles-admin.php:437
 msgid "Read more on Role Level."
 msgstr "역할 수준에 대한 자세한 내용은 읽어보세요."
 
-#: includes/roles/class/class-pp-roles-admin.php:427
+#: includes/roles/class/class-pp-roles-admin.php:450
 #: includes/roles/roles-functions.php:33
 msgid "Are you sure you want to delete this role?"
 msgstr "이 역할을 삭제하시겠습니까?"
 
-#: includes/roles/class/class-pp-roles-admin.php:506
+#: includes/roles/class/class-pp-roles-admin.php:533
 #, php-format
 msgid ""
 "%s role copied. Please click the \"Create Role\" button to create this new "
 "role."
 msgstr "%s 역할이 복사되었습니다. 이 새 역할을 만들려면 \"역할 만들기\" 버튼을 클릭하십시오."
 
-#: includes/roles/class/class-pp-roles-admin.php:539
+#: includes/roles/class/class-pp-roles-admin.php:566
 #, php-format
 msgid "Edit Role: %s"
 msgstr "역할 편집: %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:541
+#: includes/roles/class/class-pp-roles-admin.php:568
 msgid "Copy Role"
 msgstr "역할 복사"
 
-#: includes/roles/class/class-pp-roles-admin.php:543
+#: includes/roles/class/class-pp-roles-admin.php:570
 msgid "Create New Role"
 msgstr "새 역할 만들기"
 
-#: includes/roles/class/class-pp-roles-admin.php:547
+#: includes/roles/class/class-pp-roles-admin.php:574
 msgid "All Roles"
 msgstr "모든 역할"
 
-#: includes/roles/class/class-pp-roles-admin.php:652
+#: includes/roles/class/class-pp-roles-admin.php:679
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
 msgstr "이들은 %1s 권한 화면 %2s에서 편집할 수 있습니다."
 
-#: includes/roles/class/class-pp-roles-admin.php:680
+#: includes/roles/class/class-pp-roles-admin.php:707
 msgid "Load More"
 msgstr "더 많이 불러오기"
 
-#: includes/roles/class/class-pp-roles-admin.php:683
+#: includes/roles/class/class-pp-roles-admin.php:710
 msgid "Load Less"
 msgstr "더 적게 불러오기"
 
@@ -3593,43 +3679,53 @@ msgstr[0] "사용자 없음 %s"
 
 #: includes/roles/class/class-pp-roles-list-table.php:90
 #, php-format
+msgid "Disabled %s"
+msgid_plural "Disabled %s"
+msgstr[0] "비활성화됨 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:91
+#, php-format
 msgid "Editable %s"
 msgid_plural "Editable %s"
 msgstr[0] "편집 가능 %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:91
+#: includes/roles/class/class-pp-roles-list-table.php:92
 #, php-format
 msgid "Uneditable %s"
 msgid_plural "Uneditable %s"
 msgstr[0] "편집할 수 없는 %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:92
+#: includes/roles/class/class-pp-roles-list-table.php:93
 #, php-format
 msgid "System %s"
 msgid_plural "System %s"
 msgstr[0] "시스템 %s"
 
-#: includes/roles/class/class-pp-roles-list-table.php:238
+#: includes/roles/class/class-pp-roles-list-table.php:242
 msgid "Copy"
 msgstr "복사"
 
-#: includes/roles/class/class-pp-roles-list-table.php:243
+#: includes/roles/class/class-pp-roles-list-table.php:247
 msgid "(non-editable role)"
 msgstr "(편집할 수 없는 역할)"
 
-#: includes/roles/class/class-pp-roles-list-table.php:261
+#: includes/roles/class/class-pp-roles-list-table.php:265
 msgid "Unhide"
 msgstr "숨기기"
 
-#: includes/roles/class/class-pp-roles-list-table.php:349
+#: includes/roles/class/class-pp-roles-list-table.php:353
 msgid "Your Role"
 msgstr "당신의 역할"
 
-#: includes/roles/class/class-pp-roles-list-table.php:401
+#: includes/roles/class/class-pp-roles-list-table.php:357
+msgid "Disabled"
+msgstr "비활성화됨"
+
+#: includes/roles/class/class-pp-roles-list-table.php:417
 msgid "WordPress Core"
 msgstr "워드프레스 코어"
 
-#: includes/roles/class/class-pp-roles-list-table.php:695
+#: includes/roles/class/class-pp-roles-list-table.php:711
 msgid "Search Roles"
 msgstr "역할 검색"
 
@@ -3803,15 +3899,19 @@ msgstr "사용자 테스트 중: %1$s. %2$s관리자 보기로 돌아가기%3$s"
 msgid "Unable to retrieve user data."
 msgstr "사용자 데이터를 검색할 수 없습니다."
 
-#: common/js/admin.dev.js:971
+#: common/js/admin.dev.js:1077
 msgid "Updating Settings..."
 msgstr "설정 업데이트 중..."
 
-#: common/js/admin.dev.js:1007
+#: common/js/admin.dev.js:1113
 msgid "Updating access..."
 msgstr "접근 권한 업데이트 중..."
 
-#: common/js/admin.dev.js:1026
-#: common/js/admin.dev.js:1031
+#: common/js/admin.dev.js:1132
+#: common/js/admin.dev.js:1137
 msgid "Error updating access."
 msgstr "접근 권한 업데이트 중 오류가 발생했습니다."
+
+#: common/js/admin.dev.js:1237
+msgid " Error: changes can't be saved."
+msgstr "오류: 변경 사항을 저장할 수 없습니다."

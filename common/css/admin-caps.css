@@ -366,12 +366,90 @@ table#akmin tr td input[type=checkbox] {
 
 #ppc-capabilities-wrapper {
 	display: grid;
-	grid-template-columns: 200px 2fr;
+	grid-template-columns: 220px minmax(0, 1fr);
 	min-height: 400px;
 }
 
+#ppc-capabilities-wrapper .ppc-global-capabilities-control {
+	grid-column: 1 / -1;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 10px;
+	min-height: 46px;
+	padding: 8px 14px;
+	background: #f6f7f7;
+	border-bottom: 1px solid #c3c4c7;
+	box-sizing: border-box;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control label {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control input {
+	margin: 0 !important;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-state {
+	display: inline-block;
+	min-width: 72px;
+	padding: 2px 8px;
+	border-radius: 10px;
+	background: #646970;
+	color: #fff;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.5;
+	text-align: center;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control.is-checked .ppc-global-capabilities-state {
+	background: #008a20;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-control.is-negated .ppc-global-capabilities-state {
+	background: #b32d2e;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help {
+	color: #646970;
+	line-height: 1;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help:focus {
+	outline: 1px solid #2271b1;
+	outline-offset: 2px;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help:focus .tool-tip-text {
+	display: block;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help .tool-tip-text {
+	right: -8px;
+	left: auto;
+	transform: translateY(-100%);
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help .tool-tip-text i {
+	right: 5px;
+	left: auto;
+	margin-left: 0;
+}
+
 #ppc-capabilities-wrapper .ppc-capabilities-tabs {
-	width: 200px;
+	width: 100%;
 }
 
 #ppc-capabilities-wrapper .ppc-capabilities-tabs > ul {
@@ -862,28 +940,6 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
 
 /* end COPIED FROM PP BLOCKS */
 
-@media (max-width: 1799px) {
-  #ppc-capabilities-wrapper {
-    grid-template-columns: 1fr 7fr;
-  }
-
-  #ppc-capabilities-wrapper .ppc-capabilities-tabs {
-    width: auto;
-  }
-}
-
-@media (max-width: 1399px) {
-  #ppc-capabilities-wrapper {
-    grid-template-columns: 1fr 8fr;
-  }
-}
-
-@media (max-width: 1350px) {
-  #ppc-capabilities-wrapper {
-    grid-template-columns: 1fr 9fr;
-  }
-}
-
 @media (min-width: 1200px) {
   .pp-column-right.capabilities-sidebar {
     padding-top: 50px;
@@ -921,6 +977,10 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
 
 	#ppc-capabilities-wrapper {
 		display: block;
+	}
+
+	#ppc-capabilities-wrapper .ppc-global-capabilities-control {
+		flex-wrap: wrap;
 	}
 
 	#ppc-capabilities-wrapper .ppc-capabilities-tabs > ul > li,

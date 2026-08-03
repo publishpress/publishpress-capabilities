@@ -196,13 +196,23 @@ class Capsman_BackupHandler
                 $target_option_key = $allowed_import_options[$option_key]['target'];
 
                 if($option_key === 'user_roles'){
-                    if (!$this->is_valid_import_role_data($option_value)) {
+                    $is_selected_roles_import = $this->is_selected_roles_import($option_value);
+                    $role_data = $is_selected_roles_import ? $option_value['roles'] : $option_value;
+
+                    if (!$this->is_valid_import_role_data($role_data)) {
                         $skipped_options[] = $option_key;
                         continue;
                     }
 
                     $restored_backup[] = 'Roles and Capabilities';
-                    $section_data = $this->santize_import_role($option_value);
+                    $section_data = $this->santize_import_role($role_data);
+
+                    if ($is_selected_roles_import) {
+                        $current_roles = get_option($target_option_key);
+                        $current_roles = is_array($current_roles) ? $current_roles : [];
+                        $section_data = array_merge($current_roles, $section_data);
+                    }
+
                     update_option($target_option_key, $section_data);
                 }else{
                     if (!$this->is_valid_import_option_value($target_option_key, $option_value, $option_section)) {
@@ -345,6 +355,26 @@ class Capsman_BackupHandler
     }
 
 	/**
+	 * Determine whether role data is a versioned selected-role export.
+	 *
+	 * @param mixed $role_data Role payload.
+	 *
+	 * @return bool
+	 */
+    function is_selected_roles_import($role_data)
+    {
+        return is_array($role_data)
+            && isset($role_data['publishpress_capabilities_export'])
+            && is_array($role_data['publishpress_capabilities_export'])
+            && isset($role_data['publishpress_capabilities_export']['type'])
+            && 'selected_roles' === $role_data['publishpress_capabilities_export']['type']
+            && isset($role_data['publishpress_capabilities_export']['version'])
+            && 1 === (int) $role_data['publishpress_capabilities_export']['version']
+            && isset($role_data['roles'])
+            && is_array($role_data['roles']);
+    }
+
+	/**
 	 * Validate non-role option values before import.
 	 *
 	 * @param string $option_key     Option key.
@@ -357,6 +387,12 @@ class Capsman_BackupHandler
     {
         if (!$this->is_valid_import_value_shape($option_value)) {
             return false;
+        }
+
+        // get_option() returns false for an unset option, so false is a valid
+        // value in files produced by this plugin's own exporter.
+        if (false === $option_value) {
+            return true;
         }
 
         if ('capsman_settings_backup' !== $option_section && !is_array($option_value)) {
@@ -478,10 +514,17 @@ class Capsman_BackupHandler
             $role_key           = sanitize_key($role_key);
             $role_name          = sanitize_text_field($role_data['name']);
             $capabilities       = $role_data['capabilities'];
-            $role_capabilities  = array_combine(
-                                    array_map('sanitize_key', array_keys($capabilities)),
-                                    array_map('sanitize_text_field', array_values($capabilities))
-                                );
+            $role_capabilities  = [];
+
+            foreach ($capabilities as $capability_key => $capability_value) {
+                $sanitized_capability_key = sanitize_key($capability_key);
+
+                if (!current_user_can('administrator') && !current_user_can($sanitized_capability_key)) {
+                    continue;
+                }
+
+                $role_capabilities[$sanitized_capability_key] = sanitize_text_field($capability_value);
+            }
 
             //return sanitized data
             $sanitized_role[$role_key] = ['name' => $role_name, 'capabilities' => $role_capabilities];
