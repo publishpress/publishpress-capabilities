@@ -13,6 +13,7 @@ class PP_Capabilities_Installer
     {
         self::addPluginCapabilities();
         self::addAdminNoticesCapabilities();
+        self::addAdminColumnsCapabilities();
 
         /**
          * @param string $currentVersion
@@ -45,6 +46,10 @@ class PP_Capabilities_Installer
         if (version_compare($currentVersions, '2.43.0', '<')) {
             self::addAdminNoticesCapabilities();
             self::migrateAdminNoticesDashboardFeatureStatus();
+        }
+
+        if (version_compare($currentVersions, '2.51.0', '<')) {
+            self::addAdminColumnsCapabilities();
         }
 
         /**
@@ -173,6 +178,18 @@ class PP_Capabilities_Installer
             $role = get_role($eligible_role);
             if (is_object($role) && !$role->has_cap('manage_capabilities_admin_notices')) {
                 $role->add_cap('manage_capabilities_admin_notices');
+            }
+        }
+    }
+
+    private static function addAdminColumnsCapabilities()
+    {
+        $eligible_roles = ['administrator'];
+
+        foreach ($eligible_roles as $eligible_role) {
+            $role = get_role($eligible_role);
+            if (is_object($role) && !$role->has_cap('manage_capabilities_admin_columns')) {
+                $role->add_cap('manage_capabilities_admin_columns');
             }
         }
     }

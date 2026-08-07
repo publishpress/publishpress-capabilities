@@ -317,6 +317,13 @@ class Pp_Roles_Actions
                update_option('capsman_disabled_admin_features', $disabled_admin_items, false);
            }
 
+           //Admin Columns
+           $admin_columns = (array) get_option('capsman_admin_columns', []);
+           if (array_key_exists($copied_role, $admin_columns)) {
+               $admin_columns[$role_slug] = $admin_columns[$copied_role];
+               update_option('capsman_admin_columns', $admin_columns, false);
+           }
+
            //Profile Features
            $disabled_profile_items = !empty(get_option('capsman_disabled_profile_features')) ? (array)get_option('capsman_disabled_profile_features') : [];
            if (is_array($disabled_profile_items) && array_key_exists($copied_role, $disabled_profile_items)) {
