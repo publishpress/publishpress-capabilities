@@ -1,6 +1,10 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.50.1] - [UNRELEASED]
+
+- Fixed : Prevent automatic plugin management capability grants to Editors and revoke legacy installer grants
+
 [2.50.0] - 03 August, 2026
 
 - Feature : Admin Columns, Allow sites to hide posts admin columns for some roles, #291
