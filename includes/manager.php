@@ -257,7 +257,12 @@ class CapabilityManager
 			'chkCaption' => __( 'Add or remove this capability from the WordPress role', 'capability-manager-enhanced' ),
 			'switchableCaption' => __( 'Add or remove capability from the role normally', 'capability-manager-enhanced' ),
 			'deleteWarning' => __( 'Are you sure you want to delete this item ?', 'capability-manager-enhanced' ),
-			'saveWarning'   => __( 'Add or clear custom item entry before saving changes.', 'capability-manager-enhanced' )
+			'saveWarning'   => __( 'Add or clear custom item entry before saving changes.', 'capability-manager-enhanced' ),
+			'foundOneMatchOneTab' => __( 'Found %1$d match in %2$d tab', 'capability-manager-enhanced' ),
+			'foundOneMatchMultipleTabs' => __( 'Found %1$d match in %2$d tabs', 'capability-manager-enhanced' ),
+			'foundMultipleMatchesOneTab' => __( 'Found %1$d matches in %2$d tab', 'capability-manager-enhanced' ),
+			'foundMultipleMatchesMultipleTabs' => __( 'Found %1$d matches in %2$d tabs', 'capability-manager-enhanced' ),
+			'noMatchesFoundFor' => __( 'No matches found for "%s"', 'capability-manager-enhanced' )
 			]
 		);
     }
