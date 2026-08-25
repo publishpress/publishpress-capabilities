@@ -1424,7 +1424,7 @@ class CapabilityManager
 		    $roles = ak_get_roles(true);
     		unset($roles['administrator']);
 
-			if ( ( defined( 'CME_LEGACY_USER_EDIT_FILTER' ) && CME_LEGACY_USER_EDIT_FILTER ) || ( ! empty( $_REQUEST['page'] ) && 'pp-capabilities' == $_REQUEST['page'] ) ) {
+			       if ( ( defined( 'CME_LEGACY_USER_EDIT_FILTER' ) && CME_LEGACY_USER_EDIT_FILTER ) || is_pp_capabilities_admin_page() ) {
 				foreach ( $user->roles as $role ) {			// Unset the roles from capability list.
 					unset ( $this->capabilities[$role] );
 					unset ( $roles[$role]);					// User cannot manage his roles.
