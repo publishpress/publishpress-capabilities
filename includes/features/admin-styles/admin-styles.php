@@ -2325,21 +2325,32 @@ class PP_Capabilities_Admin_Styles
     {
         global $_wp_admin_css_colors;
 
-        $schemes = [];
+        $built_in_schemes = [];
+        $custom_schemes = [];
 
         if (!empty($_wp_admin_css_colors)) {
             foreach ($_wp_admin_css_colors as $key => $scheme) {
                 if (empty($scheme->name)) {
                     continue;
                 }
-                $schemes[$key] = $scheme->name;
+
+                if (strpos($key, 'ppc-custom-style-') === 0) {
+                    $custom_schemes[$key] = $scheme->name;
+                } else {
+                    $built_in_schemes[$key] = $scheme->name;
+                }
             }
         }
 
         // Always include the default scheme
-        if (!isset($schemes['fresh'])) {
-            $schemes['fresh'] = __('Default', 'capability-manager-enhanced');
+        if (!isset($built_in_schemes['fresh'])) {
+            $built_in_schemes['fresh'] = __('Default', 'capability-manager-enhanced');
         }
+
+        $insert_at = min(2, count($built_in_schemes));
+        $schemes = array_slice($built_in_schemes, 0, $insert_at, true);
+        $schemes += $custom_schemes;
+        $schemes += array_slice($built_in_schemes, $insert_at, null, true);
 
         return $schemes;
     }
