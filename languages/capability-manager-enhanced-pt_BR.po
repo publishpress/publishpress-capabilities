@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-10 14:41+0000\n"
-"PO-Revision-Date: 2026-08-03 02:15+0000\n"
+"PO-Revision-Date: 2026-08-25 13:55+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:881
+#: includes/admin-load.php:882
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Atualizar para Pro"
@@ -213,43 +213,48 @@ msgstr "Título da página"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:518
-#: includes/admin-load.php:894
+#: includes/admin-load.php:381
+#: includes/settings-ui.php:334
+msgid "No results match"
+msgstr "Nenhum resultado encontrado"
+
+#: includes/admin-load.php:519
+#: includes/admin-load.php:895
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:430
+#: includes/manager.php:435
 #: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Permissões"
 
-#: includes/admin-load.php:657
+#: includes/admin-load.php:658
 msgid "No permission!"
 msgstr "Sem permissão!"
 
-#: includes/admin-load.php:667
+#: includes/admin-load.php:668
 msgid "Invalid nonce token!"
 msgstr "Token de nonce inválido!"
 
-#: includes/admin-load.php:671
-#: includes/admin-load.php:679
+#: includes/admin-load.php:672
+#: includes/admin-load.php:680
 msgid "Error: wrong data"
 msgstr "Erro: Dados incorretos"
 
-#: includes/admin-load.php:699
+#: includes/admin-load.php:700
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
 msgstr ""
-"Mudanças salvas. A sincronização do status da funcionalidade foi colocada "
-"na fila para todos os sites da rede."
+"Alterações salvas. A sincronização do status dos recursos foi adicionada à "
+"fila para todos os sites da rede."
 
-#: includes/admin-load.php:705
+#: includes/admin-load.php:706
 #: common/js/admin.dev.js:1237
 msgid "Changes saved!"
-msgstr "Mudanças salvas!"
+msgstr "Alterações salvas!"
 
-#: includes/admin-load.php:716
+#: includes/admin-load.php:717
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -257,44 +262,44 @@ msgstr "Mudanças salvas!"
 msgid "An error occured!"
 msgstr "Ocorreu um erro!"
 
-#: includes/admin-load.php:721
+#: includes/admin-load.php:722
 msgid "Security check failed"
 msgstr "Falha ao verificar a segurança"
 
-#: includes/admin-load.php:723
+#: includes/admin-load.php:724
 msgid "Permission denied"
 msgstr "Permissão negada"
 
-#: includes/admin-load.php:733
+#: includes/admin-load.php:734
 msgid "Settings updated successfully."
 msgstr "Configurações atualizadas."
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Usuários conectados"
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:831
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Usuários desconectados"
 
-#: includes/admin-load.php:837
+#: includes/admin-load.php:838
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Restrição de menu do PublishPress Capabilities"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:839
 msgid "This menu is restricted for the following roles"
 msgstr "Este menu é restrito às seguintes funções"
 
-#: includes/admin-load.php:893
+#: includes/admin-load.php:894
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Painel"
 
-#: includes/admin-load.php:895
+#: includes/admin-load.php:896
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -303,7 +308,7 @@ msgstr "Painel"
 msgid "Roles"
 msgstr "Funções"
 
-#: includes/admin-load.php:896
+#: includes/admin-load.php:897
 msgid "Settings"
 msgstr "Configurações"
 
@@ -489,8 +494,8 @@ msgid "Edit the settings."
 msgstr "Editar as configurações."
 
 #: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:818
-#: includes/manager.php:842
+#: includes/manager.php:823
+#: includes/manager.php:847
 msgid "You do not have permission to manage admin notices."
 msgstr "Você não tem permissão para gerenciar notificações administrativas."
 
@@ -634,11 +639,11 @@ msgstr "Pode excluir posts que estão publicados atualmente com visibilidade pri
 
 #: includes/admin.php:485
 msgid "grant / clear / deny all capabilities"
-msgstr "conceder / limpar / negar todas as capacidades"
+msgstr "conceder/limpar/negar todas as permissões"
 
 #: includes/admin.php:487
 msgid "All capabilities"
-msgstr "Todas as capacidades"
+msgstr "Todas as permissões"
 
 #: includes/admin.php:492
 msgid "Granted"
@@ -655,15 +660,15 @@ msgstr "Negado"
 #: includes/admin.php:495
 #: includes/admin.php:496
 msgid "Mixed"
-msgstr "Misturado"
+msgstr "Misto"
 
 #: includes/admin.php:500
 msgid "Global capabilities help"
-msgstr "Ajuda sobre capacidades globais"
+msgstr "Ajuda sobre as permissões globais"
 
 #: includes/admin.php:503
 msgid "Click to grant, clear, or deny capabilities across every tab."
-msgstr "Clique para conceder, limpar ou negar capacidades em todas as abas."
+msgstr "Clique para conceder, limpar ou negar permissões em todas as abas."
 
 #: includes/admin.php:676
 #: includes/admin.php:1193
@@ -1358,7 +1363,7 @@ msgstr "Funções e permissões"
 
 #: includes/backup.php:310
 msgid "Select the roles to include in this export."
-msgstr "Selecione os papéis a serem incluídos nesta exportação."
+msgstr "Selecione as funções a serem incluídas nesta exportação."
 
 #: includes/backup.php:356
 msgid "Export"
@@ -1395,15 +1400,17 @@ msgstr ""
 
 #: includes/dashboard.php:74
 msgid "Sync feature status to all sites in this network."
-msgstr "Sincronizar o status da funcionalidade para todos os sites nesta rede."
+msgstr "Sincronize o status do recurso com todos os sites desta rede."
 
-#: includes/dashboard.php:77
-msgid ""
-"When selected, changing a feature above will apply its new status to every "
-"existing site in the background."
+#: includes/dashboard.php:79
+msgid "Network feature synchronization help"
+msgstr "Ajuda sobre sincronização de recursos de rede"
+
+#: includes/dashboard.php:82
+msgid "Enabling or disabling a feature will apply its new status to all sites."
 msgstr ""
-"Quando selecionado, alterar uma funcionalidade acima aplicará seu novo "
-"status a todos os sites existentes em segundo plano."
+"Habilitar ou desabilitar um recurso aplicará seu novo status a todos os "
+"sites."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1476,8 +1483,8 @@ msgstr "Ocultar submenus"
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2341
-#: includes/features/admin-styles/admin-styles.php:2423
+#: includes/features/admin-styles/admin-styles.php:2347
+#: includes/features/admin-styles/admin-styles.php:2434
 msgid "Default"
 msgstr "Padrão"
 
@@ -1864,7 +1871,7 @@ msgid "Security check failed."
 msgstr "Falha ao verificar a segurança."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:788
+#: includes/manager.php:793
 msgid "You do not have permission to manage admin styles."
 msgstr "Você não tem permissão para gerenciar estilos do painel administrativo."
 
@@ -2396,8 +2403,8 @@ msgstr "Como usar os recursos do editor"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:740
-#: includes/manager.php:762
+#: includes/manager.php:745
+#: includes/manager.php:767
 msgid "You do not have permission to manage frontend features."
 msgstr "Você não tem permissão para gerenciar recursos da interface."
 
@@ -3057,7 +3064,7 @@ msgstr "Erro: Falha ao criar a nova função."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1301
+#: includes/manager.php:1306
 msgid "The selected role is not editable."
 msgstr "A função selecionada não é editável."
 
@@ -3121,132 +3128,157 @@ msgstr ""
 "Adicione ou limpe a entrada de item personalizado antes de salvar as "
 "alterações."
 
-#: includes/manager.php:560
+#: includes/manager.php:261
+#, php-format
+msgid "Found %1$d match in %2$d tab"
+msgstr "Encontrado %1$d correspondência na %2$d aba"
+
+#: includes/manager.php:262
+#, php-format
+msgid "Found %1$d match in %2$d tabs"
+msgstr "Encontrado %1$d correspondências em %2$d abas"
+
+#: includes/manager.php:263
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "Encontradas %1$d correspondências na %2$d aba"
+
+#: includes/manager.php:264
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "Encontradas %1$d correspondências em %2$d abas"
+
+#: includes/manager.php:265
+#, php-format
+msgid "No matches found for \"%s\""
+msgstr "Nenhuma correspondência encontrada para \"%s\""
+
+#: includes/manager.php:565
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Nome da função"
 
-#: includes/manager.php:562
+#: includes/manager.php:567
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Tipo de função"
 
-#: includes/manager.php:563
+#: includes/manager.php:568
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Função padrão"
 
-#: includes/manager.php:564
+#: includes/manager.php:569
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Acesso administrativo"
 
-#: includes/manager.php:591
+#: includes/manager.php:596
 msgid "You do not have permission to manage roles."
 msgstr "Você não tem permissão para gerenciar funções."
 
-#: includes/manager.php:614
-#: includes/manager.php:636
+#: includes/manager.php:619
+#: includes/manager.php:641
 msgid "You do not have permission to manage editor features."
 msgstr "Você não tem permissão para gerenciar recursos do editor."
 
-#: includes/manager.php:671
-#: includes/manager.php:725
-#: includes/manager.php:773
-#: includes/manager.php:867
-#: includes/manager.php:916
-#: includes/manager.php:998
-#: includes/manager.php:1079
+#: includes/manager.php:676
+#: includes/manager.php:730
+#: includes/manager.php:778
+#: includes/manager.php:872
+#: includes/manager.php:921
+#: includes/manager.php:1003
+#: includes/manager.php:1084
 msgid "Settings updated."
 msgstr "Configurações atualizadas."
 
-#: includes/manager.php:687
-#: includes/manager.php:709
-#: includes/manager.php:881
-#: includes/manager.php:932
-#: includes/manager.php:1096
+#: includes/manager.php:692
+#: includes/manager.php:714
+#: includes/manager.php:886
+#: includes/manager.php:937
+#: includes/manager.php:1101
 msgid "You do not have permission to manage admin features."
 msgstr "Você não tem permissão para gerenciar recursos administrativos."
 
-#: includes/manager.php:903
+#: includes/manager.php:908
 msgid "You do not have permission to manage navigation menus."
 msgstr "Você não tem permissão para gerenciar menus de navegação."
 
-#: includes/manager.php:954
+#: includes/manager.php:959
 msgid "You do not have permission to manage profile features."
 msgstr "Você não tem permissão para gerenciar recursos do perfil."
 
-#: includes/manager.php:1014
+#: includes/manager.php:1019
 msgid "You do not have permission to manage redirect."
 msgstr "Você não tem permissão para gerenciar redirecionamentos."
 
-#: includes/manager.php:1036
+#: includes/manager.php:1041
 msgid "Invalid form. Reload this page and try again."
 msgstr "Formulário inválido. Recarregue esta página e tente novamente."
 
-#: includes/manager.php:1188
-#: includes/manager.php:1239
-#: includes/manager.php:1257
+#: includes/manager.php:1193
+#: includes/manager.php:1244
+#: includes/manager.php:1262
 msgid "You do not have permission to manage capabilities."
 msgstr "Você não tem permissão para gerenciar permissões."
 
-#: includes/manager.php:1266
+#: includes/manager.php:1271
 msgid "Network sync completed."
 msgstr "Sincronização de rede concluída."
 
-#: includes/manager.php:1268
+#: includes/manager.php:1273
 msgid "Network sync has been queued and will continue in the background."
 msgstr ""
 "A sincronização de rede foi colocada na fila e vai continuar em segundo "
 "plano."
 
-#: includes/manager.php:1284
+#: includes/manager.php:1289
 msgid "New capability added to role."
 msgstr "Adicionada nova permissão à função."
 
-#: includes/manager.php:1330
+#: includes/manager.php:1335
 msgid "Bad form Received"
 msgstr "O formulário recebido é inválido"
 
-#: includes/manager.php:1459
+#: includes/manager.php:1464
 msgid "You do not have permission to restore roles."
 msgstr "Você não tem permissão para restaurar funções."
 
-#: includes/manager.php:1497
+#: includes/manager.php:1502
 msgid "You do not have permission to perform this action."
 msgstr "Você não tem permissão para executar esta ação."
 
-#: includes/manager.php:1517
+#: includes/manager.php:1522
 msgid "Select at least one role to export."
-msgstr "Selecione pelo menos um papel para exportar."
+msgstr "Selecione pelo menos uma função para exportar."
 
-#: includes/manager.php:1686
+#: includes/manager.php:1691
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Se você estiver gostando do %s, nos deixe uma classificação de %s. Obrigado!"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About PublishPress Capabilities"
 msgstr "Sobre o PublishPress Capabilities"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About"
 msgstr "Sobre"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Capabilites Documentation"
 msgstr "Documentação do Capabilites"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Documentation"
 msgstr "Documentação"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact the PublishPress team"
 msgstr "Fale com a equipe do PublishPress"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact"
 msgstr "Contato"
 
@@ -3651,8 +3683,8 @@ msgid ""
 "The default role cannot be disabled. Change the default role in WordPress "
 "settings first."
 msgstr ""
-"O papel padrão não pode ser desativado. Altere o papel padrão nas "
-"configurações do WordPress primeiro."
+"Não é possível desativar a função padrão. Primeiro, altere a função padrão "
+"nas configurações do WordPress."
 
 #: includes/roles/class/class-pp-roles-actions.php:472
 #, php-format
@@ -3705,7 +3737,7 @@ msgstr "WooCommerce"
 
 #: includes/roles/class/class-pp-roles-admin.php:129
 msgid "Disable / Delete"
-msgstr "Desativar / Excluir"
+msgstr "Desativar/excluir"
 
 #: includes/roles/class/class-pp-roles-admin.php:158
 msgid "Gutenberg editor"
@@ -3758,7 +3790,7 @@ msgstr ""
 
 #: includes/roles/class/class-pp-roles-admin.php:242
 msgid "Disable Role"
-msgstr "Desativar Função"
+msgstr "Desativar função"
 
 #: includes/roles/class/class-pp-roles-admin.php:246
 #, php-format
@@ -3766,8 +3798,8 @@ msgid ""
 "Disable \"%s\" role for new user assignments. Existing users will keep this "
 "role and its capabilities."
 msgstr ""
-"Desativar a função \"%s\" para novas atribuições de usuários. Usuários "
-"existentes manterão essa função e suas capacidades."
+"Desative a função “%s” para novas atribuições de usuários. Os usuários "
+"existentes vão manter essa função e suas permissões."
 
 #: includes/roles/class/class-pp-roles-admin.php:259
 msgid "Delete role"
