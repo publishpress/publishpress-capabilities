@@ -1,9 +1,11 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.50.1] - [UNRELEASED]
+[2.50.1] - 25 August, 2026
 
-- Fixed : Prevent automatic plugin management capability grants to Editors and revoke legacy installer grants
+- Fixed : Hide current user roles from Capabilities screens dropdowns, #1783
+- Fixed : Always make "Default" Admin Styles color scheme the first option, #1786
+- Fixed : Limit internal menus capabilities grants to Administrator role, #1785
 
 [2.50.0] - 03 August, 2026
 

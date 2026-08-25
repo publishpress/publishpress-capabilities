@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-08-03 02:15+0000\n"
+"PO-Revision-Date: 2026-08-25 13:55+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: ja\n"
@@ -69,7 +69,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:881
+#: includes/admin-load.php:882
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "プロ版にアップグレード"
@@ -200,41 +200,46 @@ msgstr "ページタイトル"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:518
-#: includes/admin-load.php:894
+#: includes/admin-load.php:381
+#: includes/settings-ui.php:334
+msgid "No results match"
+msgstr "一致する結果はありません"
+
+#: includes/admin-load.php:519
+#: includes/admin-load.php:895
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:430
+#: includes/manager.php:435
 #: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "能力"
 
-#: includes/admin-load.php:657
+#: includes/admin-load.php:658
 msgid "No permission!"
 msgstr "権限がありません！"
 
-#: includes/admin-load.php:667
+#: includes/admin-load.php:668
 msgid "Invalid nonce token!"
 msgstr "無効なnonceトークン！"
 
-#: includes/admin-load.php:671
-#: includes/admin-load.php:679
+#: includes/admin-load.php:672
+#: includes/admin-load.php:680
 msgid "Error: wrong data"
 msgstr "エラー：不正なデータ"
 
-#: includes/admin-load.php:699
+#: includes/admin-load.php:700
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
 msgstr "変更が保存されました。すべてのネットワークサイトの機能ステータスの同期がキューに登録されました。"
 
-#: includes/admin-load.php:705
+#: includes/admin-load.php:706
 #: common/js/admin.dev.js:1237
 msgid "Changes saved!"
 msgstr "変更が保存されました！"
 
-#: includes/admin-load.php:716
+#: includes/admin-load.php:717
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -242,44 +247,44 @@ msgstr "変更が保存されました！"
 msgid "An error occured!"
 msgstr "エラーが発生しました！"
 
-#: includes/admin-load.php:721
+#: includes/admin-load.php:722
 msgid "Security check failed"
 msgstr "セキュリティチェックに失敗しました"
 
-#: includes/admin-load.php:723
+#: includes/admin-load.php:724
 msgid "Permission denied"
 msgstr "権限が拒否されました"
 
-#: includes/admin-load.php:733
+#: includes/admin-load.php:734
 msgid "Settings updated successfully."
 msgstr "設定が正常に更新されました。"
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "ログインユーザー"
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:831
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "ログアウトユーザー"
 
-#: includes/admin-load.php:837
+#: includes/admin-load.php:838
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "PublishPress 機能メニュー制限"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:839
 msgid "This menu is restricted for the following roles"
 msgstr "このメニューは以下の役割に制限されています"
 
-#: includes/admin-load.php:893
+#: includes/admin-load.php:894
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
-#: includes/admin-load.php:895
+#: includes/admin-load.php:896
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -288,7 +293,7 @@ msgstr "ダッシュボード"
 msgid "Roles"
 msgstr "役割"
 
-#: includes/admin-load.php:896
+#: includes/admin-load.php:897
 msgid "Settings"
 msgstr "設定"
 
@@ -457,8 +462,8 @@ msgid "Edit the settings."
 msgstr "設定を編集します。"
 
 #: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:818
-#: includes/manager.php:842
+#: includes/manager.php:823
+#: includes/manager.php:847
 msgid "You do not have permission to manage admin notices."
 msgstr "管理通知を管理する権限がありません。"
 
@@ -1294,11 +1299,13 @@ msgstr "インポートする前に、\"バックアップ\"タブを使用し�
 msgid "Sync feature status to all sites in this network."
 msgstr "このネットワーク内のすべてのサイトに機能ステータスを同期します。"
 
-#: includes/dashboard.php:77
-msgid ""
-"When selected, changing a feature above will apply its new status to every "
-"existing site in the background."
-msgstr "選択すると、上記の機能を変更すると、その新しいステータスがバックグラウンドで既存のすべてのサイトに適用されます。"
+#: includes/dashboard.php:79
+msgid "Network feature synchronization help"
+msgstr "ネットワーク機能の同期ヘルプ"
+
+#: includes/dashboard.php:82
+msgid "Enabling or disabling a feature will apply its new status to all sites."
+msgstr "機能を有効または無効にすると、その新しい状態がすべてのサイトに適用されます。"
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1369,8 +1376,8 @@ msgstr "サブメニューを隠す"
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2341
-#: includes/features/admin-styles/admin-styles.php:2423
+#: includes/features/admin-styles/admin-styles.php:2347
+#: includes/features/admin-styles/admin-styles.php:2434
 msgid "Default"
 msgstr "デフォルト"
 
@@ -1729,7 +1736,7 @@ msgid "Security check failed."
 msgstr "セキュリティチェックに失敗しました。"
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:788
+#: includes/manager.php:793
 msgid "You do not have permission to manage admin styles."
 msgstr "管理スタイルを管理する権限がありません。"
 
@@ -2259,8 +2266,8 @@ msgstr "エディタ機能の使い方"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:740
-#: includes/manager.php:762
+#: includes/manager.php:745
+#: includes/manager.php:767
 msgid "You do not have permission to manage frontend features."
 msgstr "フロントエンド機能を管理する権限がありません。"
 
@@ -2883,7 +2890,7 @@ msgstr "エラー：新しい役割の作成に失敗しました。"
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1301
+#: includes/manager.php:1306
 msgid "The selected role is not editable."
 msgstr "選択した役割は編集できません。"
 
@@ -2943,130 +2950,155 @@ msgstr "このアイテムを削除してもよろしいですか？"
 msgid "Add or clear custom item entry before saving changes."
 msgstr "変更を保存する前にカスタムアイテムエントリを追加またはクリアします。"
 
-#: includes/manager.php:560
+#: includes/manager.php:261
+#, php-format
+msgid "Found %1$d match in %2$d tab"
+msgstr "%2$d タブで %1$d 件の一致が見つかりました"
+
+#: includes/manager.php:262
+#, php-format
+msgid "Found %1$d match in %2$d tabs"
+msgstr "%2$d タブで %1$d 件の一致が見つかりました"
+
+#: includes/manager.php:263
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "%2$d タブで %1$d 件の一致が見つかりました"
+
+#: includes/manager.php:264
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "%2$d タブで %1$d 件の一致が見つかりました"
+
+#: includes/manager.php:265
+#, php-format
+msgid "No matches found for \"%s\""
+msgstr "\"%s\" に対する一致が見つかりませんでした"
+
+#: includes/manager.php:565
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "役割名"
 
-#: includes/manager.php:562
+#: includes/manager.php:567
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "役割タイプ"
 
-#: includes/manager.php:563
+#: includes/manager.php:568
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "デフォルトロール"
 
-#: includes/manager.php:564
+#: includes/manager.php:569
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "管理者アクセス"
 
-#: includes/manager.php:591
+#: includes/manager.php:596
 msgid "You do not have permission to manage roles."
 msgstr "役割を管理する権限がありません。"
 
-#: includes/manager.php:614
-#: includes/manager.php:636
+#: includes/manager.php:619
+#: includes/manager.php:641
 msgid "You do not have permission to manage editor features."
 msgstr "エディタ機能を管理する権限がありません。"
 
-#: includes/manager.php:671
-#: includes/manager.php:725
-#: includes/manager.php:773
-#: includes/manager.php:867
-#: includes/manager.php:916
-#: includes/manager.php:998
-#: includes/manager.php:1079
+#: includes/manager.php:676
+#: includes/manager.php:730
+#: includes/manager.php:778
+#: includes/manager.php:872
+#: includes/manager.php:921
+#: includes/manager.php:1003
+#: includes/manager.php:1084
 msgid "Settings updated."
 msgstr "設定が更新されました。"
 
-#: includes/manager.php:687
-#: includes/manager.php:709
-#: includes/manager.php:881
-#: includes/manager.php:932
-#: includes/manager.php:1096
+#: includes/manager.php:692
+#: includes/manager.php:714
+#: includes/manager.php:886
+#: includes/manager.php:937
+#: includes/manager.php:1101
 msgid "You do not have permission to manage admin features."
 msgstr "管理機能を管理する権限がありません。"
 
-#: includes/manager.php:903
+#: includes/manager.php:908
 msgid "You do not have permission to manage navigation menus."
 msgstr "ナビゲーションメニューを管理する権限がありません。"
 
-#: includes/manager.php:954
+#: includes/manager.php:959
 msgid "You do not have permission to manage profile features."
 msgstr "プロフィール機能を管理する権限がありません。"
 
-#: includes/manager.php:1014
+#: includes/manager.php:1019
 msgid "You do not have permission to manage redirect."
 msgstr "リダイレクトを管理する権限がありません。"
 
-#: includes/manager.php:1036
+#: includes/manager.php:1041
 msgid "Invalid form. Reload this page and try again."
 msgstr "無効なフォームです。このページを再読み込みして再試行してください。"
 
-#: includes/manager.php:1188
-#: includes/manager.php:1239
-#: includes/manager.php:1257
+#: includes/manager.php:1193
+#: includes/manager.php:1244
+#: includes/manager.php:1262
 msgid "You do not have permission to manage capabilities."
 msgstr "能力を管理する権限がありません。"
 
-#: includes/manager.php:1266
+#: includes/manager.php:1271
 msgid "Network sync completed."
 msgstr "ネットワーク同期が完了しました。"
 
-#: includes/manager.php:1268
+#: includes/manager.php:1273
 msgid "Network sync has been queued and will continue in the background."
 msgstr "ネットワーク同期がキューに追加され、バックグラウンドで続行されます。"
 
-#: includes/manager.php:1284
+#: includes/manager.php:1289
 msgid "New capability added to role."
 msgstr "役割に新しい機能が追加されました。"
 
-#: includes/manager.php:1330
+#: includes/manager.php:1335
 msgid "Bad form Received"
 msgstr "不正なフォームを受け取りました"
 
-#: includes/manager.php:1459
+#: includes/manager.php:1464
 msgid "You do not have permission to restore roles."
 msgstr "役割を復元する権限がありません。"
 
-#: includes/manager.php:1497
+#: includes/manager.php:1502
 msgid "You do not have permission to perform this action."
 msgstr "このアクションを実行する権限がありません。"
 
-#: includes/manager.php:1517
+#: includes/manager.php:1522
 msgid "Select at least one role to export."
 msgstr "エクスポートするために少なくとも1つの役割を選択してください。"
 
-#: includes/manager.php:1686
+#: includes/manager.php:1691
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "もし%sが気に入ったら、%s評価を残してください。ありがとうございます！"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About PublishPress Capabilities"
 msgstr "PublishPress Capabilitiesについて"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About"
 msgstr "情報"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Capabilites Documentation"
 msgstr "能力ドキュメント"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Documentation"
 msgstr "ドキュメント"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact the PublishPress team"
 msgstr "PublishPressチームに連絡する"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact"
 msgstr "連絡先"
 

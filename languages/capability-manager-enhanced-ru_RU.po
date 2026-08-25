@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-08-03 02:15+0000\n"
+"PO-Revision-Date: 2026-08-25 13:55+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 ">= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? 1 : 2);\n"
@@ -77,7 +77,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:881
+#: includes/admin-load.php:882
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Обновить до Pro"
@@ -215,30 +215,35 @@ msgstr "Название страницы"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:518
-#: includes/admin-load.php:894
+#: includes/admin-load.php:381
+#: includes/settings-ui.php:334
+msgid "No results match"
+msgstr "Совпадений не найдено"
+
+#: includes/admin-load.php:519
+#: includes/admin-load.php:895
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:430
+#: includes/manager.php:435
 #: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Возможности"
 
-#: includes/admin-load.php:657
+#: includes/admin-load.php:658
 msgid "No permission!"
 msgstr "Нет разрешения!"
 
-#: includes/admin-load.php:667
+#: includes/admin-load.php:668
 msgid "Invalid nonce token!"
 msgstr "Недействительный токен nonce!"
 
-#: includes/admin-load.php:671
-#: includes/admin-load.php:679
+#: includes/admin-load.php:672
+#: includes/admin-load.php:680
 msgid "Error: wrong data"
 msgstr "Ошибка: неверные данные"
 
-#: includes/admin-load.php:699
+#: includes/admin-load.php:700
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
@@ -246,12 +251,12 @@ msgstr ""
 "Изменения сохранены. Синхронизация статуса функции поставлена в очередь для "
 "всех сетевых сайтов."
 
-#: includes/admin-load.php:705
+#: includes/admin-load.php:706
 #: common/js/admin.dev.js:1237
 msgid "Changes saved!"
 msgstr "Изменения сохранены!"
 
-#: includes/admin-load.php:716
+#: includes/admin-load.php:717
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -259,44 +264,44 @@ msgstr "Изменения сохранены!"
 msgid "An error occured!"
 msgstr "Произошла ошибка!"
 
-#: includes/admin-load.php:721
+#: includes/admin-load.php:722
 msgid "Security check failed"
 msgstr "Проверка безопасности не удалась"
 
-#: includes/admin-load.php:723
+#: includes/admin-load.php:724
 msgid "Permission denied"
 msgstr "Доступ запрещен"
 
-#: includes/admin-load.php:733
+#: includes/admin-load.php:734
 msgid "Settings updated successfully."
 msgstr "Настройки успешно обновлены."
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Вошедшие пользователи"
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:831
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Вышедшие пользователи"
 
-#: includes/admin-load.php:837
+#: includes/admin-load.php:838
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Ограничение меню PublishPress Capabilities"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:839
 msgid "This menu is restricted for the following roles"
 msgstr "Это меню ограничено для следующих ролей"
 
-#: includes/admin-load.php:893
+#: includes/admin-load.php:894
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Панель управления"
 
-#: includes/admin-load.php:895
+#: includes/admin-load.php:896
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -305,7 +310,7 @@ msgstr "Панель управления"
 msgid "Roles"
 msgstr "Роли"
 
-#: includes/admin-load.php:896
+#: includes/admin-load.php:897
 msgid "Settings"
 msgstr "Настройки"
 
@@ -485,8 +490,8 @@ msgid "Edit the settings."
 msgstr "Изменить настройки."
 
 #: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:818
-#: includes/manager.php:842
+#: includes/manager.php:823
+#: includes/manager.php:847
 msgid "You do not have permission to manage admin notices."
 msgstr "У вас нет разрешения для управления уведомлениями админа."
 
@@ -1394,13 +1399,13 @@ msgstr ""
 msgid "Sync feature status to all sites in this network."
 msgstr "Синхронизировать статус функции для всех сайтов в этой сети."
 
-#: includes/dashboard.php:77
-msgid ""
-"When selected, changing a feature above will apply its new status to every "
-"existing site in the background."
-msgstr ""
-"При выборе изменение функции выше применит её новый статус ко всем "
-"существующим сайтам в фоновом режиме."
+#: includes/dashboard.php:79
+msgid "Network feature synchronization help"
+msgstr "Помощь по синхронизации сетевых функций"
+
+#: includes/dashboard.php:82
+msgid "Enabling or disabling a feature will apply its new status to all sites."
+msgstr "Включение или отключение функции применит её новый статус ко всем сайтам."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1473,8 +1478,8 @@ msgstr "Скрыть подменю"
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2341
-#: includes/features/admin-styles/admin-styles.php:2423
+#: includes/features/admin-styles/admin-styles.php:2347
+#: includes/features/admin-styles/admin-styles.php:2434
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -1855,7 +1860,7 @@ msgid "Security check failed."
 msgstr "Проверка безопасности не удалась."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:788
+#: includes/manager.php:793
 msgid "You do not have permission to manage admin styles."
 msgstr "У вас нет разрешения для управления стилями админа."
 
@@ -2385,8 +2390,8 @@ msgstr "Как использовать функции редактора"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:740
-#: includes/manager.php:762
+#: includes/manager.php:745
+#: includes/manager.php:767
 msgid "You do not have permission to manage frontend features."
 msgstr "У вас нет разрешения управлять возможностями интерфейса."
 
@@ -3039,7 +3044,7 @@ msgstr "Ошибка: Не удалось создать новую роль."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1301
+#: includes/manager.php:1306
 msgid "The selected role is not editable."
 msgstr "Выбранную роль нельзя редактировать."
 
@@ -3101,132 +3106,157 @@ msgstr ""
 "Добавить или очистить пользовательский ввод элемента перед сохранением "
 "изменений."
 
-#: includes/manager.php:560
+#: includes/manager.php:261
+#, php-format
+msgid "Found %1$d match in %2$d tab"
+msgstr "Найдено %1$d совпадение в %2$d вкладке"
+
+#: includes/manager.php:262
+#, php-format
+msgid "Found %1$d match in %2$d tabs"
+msgstr "Найдено %1$d совпадения в %2$d вкладках"
+
+#: includes/manager.php:263
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "Найдено %1$d совпадений в %2$d вкладке"
+
+#: includes/manager.php:264
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "Найдено %1$d совпадений в %2$d вкладках"
+
+#: includes/manager.php:265
+#, php-format
+msgid "No matches found for \"%s\""
+msgstr "Совпадений не найдено для \"%s\""
+
+#: includes/manager.php:565
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Название Роли"
 
-#: includes/manager.php:562
+#: includes/manager.php:567
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Тип Роли"
 
-#: includes/manager.php:563
+#: includes/manager.php:568
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Роль по умолчанию"
 
-#: includes/manager.php:564
+#: includes/manager.php:569
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Доступ администратора"
 
-#: includes/manager.php:591
+#: includes/manager.php:596
 msgid "You do not have permission to manage roles."
 msgstr "У вас нет разрешения управлять ролями."
 
-#: includes/manager.php:614
-#: includes/manager.php:636
+#: includes/manager.php:619
+#: includes/manager.php:641
 msgid "You do not have permission to manage editor features."
 msgstr "У вас нет разрешения для управления функциями редактора."
 
-#: includes/manager.php:671
-#: includes/manager.php:725
-#: includes/manager.php:773
-#: includes/manager.php:867
-#: includes/manager.php:916
-#: includes/manager.php:998
-#: includes/manager.php:1079
+#: includes/manager.php:676
+#: includes/manager.php:730
+#: includes/manager.php:778
+#: includes/manager.php:872
+#: includes/manager.php:921
+#: includes/manager.php:1003
+#: includes/manager.php:1084
 msgid "Settings updated."
 msgstr "Настройки обновлены."
 
-#: includes/manager.php:687
-#: includes/manager.php:709
-#: includes/manager.php:881
-#: includes/manager.php:932
-#: includes/manager.php:1096
+#: includes/manager.php:692
+#: includes/manager.php:714
+#: includes/manager.php:886
+#: includes/manager.php:937
+#: includes/manager.php:1101
 msgid "You do not have permission to manage admin features."
 msgstr "У вас нет разрешения для управления функциями админа."
 
-#: includes/manager.php:903
+#: includes/manager.php:908
 msgid "You do not have permission to manage navigation menus."
 msgstr "У вас нет разрешения управлять навигационными меню."
 
-#: includes/manager.php:954
+#: includes/manager.php:959
 msgid "You do not have permission to manage profile features."
 msgstr "У вас нет разрешения управлять функциями профиля."
 
-#: includes/manager.php:1014
+#: includes/manager.php:1019
 msgid "You do not have permission to manage redirect."
 msgstr "У вас нет разрешения управлять перенаправлением."
 
-#: includes/manager.php:1036
+#: includes/manager.php:1041
 msgid "Invalid form. Reload this page and try again."
 msgstr "Недействительная форма. Перезагрузите эту страницу и попробуйте снова."
 
-#: includes/manager.php:1188
-#: includes/manager.php:1239
-#: includes/manager.php:1257
+#: includes/manager.php:1193
+#: includes/manager.php:1244
+#: includes/manager.php:1262
 msgid "You do not have permission to manage capabilities."
 msgstr "У вас нет разрешения для управления возможностями."
 
-#: includes/manager.php:1266
+#: includes/manager.php:1271
 msgid "Network sync completed."
 msgstr "Синхронизация сети завершена."
 
-#: includes/manager.php:1268
+#: includes/manager.php:1273
 msgid "Network sync has been queued and will continue in the background."
 msgstr ""
 "Синхронизация сети была поставлена в очередь и будет продолжена в фоновом "
 "режиме."
 
-#: includes/manager.php:1284
+#: includes/manager.php:1289
 msgid "New capability added to role."
 msgstr "Новая возможность добавлена к роли."
 
-#: includes/manager.php:1330
+#: includes/manager.php:1335
 msgid "Bad form Received"
 msgstr "Получена неверная форма"
 
-#: includes/manager.php:1459
+#: includes/manager.php:1464
 msgid "You do not have permission to restore roles."
 msgstr "У вас нет разрешения восстанавливать роли."
 
-#: includes/manager.php:1497
+#: includes/manager.php:1502
 msgid "You do not have permission to perform this action."
 msgstr "У вас нет разрешения выполнять это действие."
 
-#: includes/manager.php:1517
+#: includes/manager.php:1522
 msgid "Select at least one role to export."
 msgstr "Выберите хотя бы одну роль для экспорта."
 
-#: includes/manager.php:1686
+#: includes/manager.php:1691
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Если вам нравится %s, пожалуйста, оставьте нам оценку %s. Спасибо!"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About PublishPress Capabilities"
 msgstr "О PublishPress Capabilities"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About"
 msgstr "О программе"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Capabilites Documentation"
 msgstr "Документация по возможностям"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Documentation"
 msgstr "Документация"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact the PublishPress team"
 msgstr "Связаться с командой PublishPress"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact"
 msgstr "Контакт"
 

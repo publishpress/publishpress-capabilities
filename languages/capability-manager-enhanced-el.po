@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-08-03 02:14+0000\n"
+"PO-Revision-Date: 2026-08-25 13:54+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -74,7 +74,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:881
+#: includes/admin-load.php:882
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Αναβάθμιση σε Pro"
@@ -214,30 +214,35 @@ msgstr "Τίτλος σελίδας"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:518
-#: includes/admin-load.php:894
+#: includes/admin-load.php:381
+#: includes/settings-ui.php:334
+msgid "No results match"
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+#: includes/admin-load.php:519
+#: includes/admin-load.php:895
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:430
+#: includes/manager.php:435
 #: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Δυνατότητες"
 
-#: includes/admin-load.php:657
+#: includes/admin-load.php:658
 msgid "No permission!"
 msgstr "Καμία άδεια!"
 
-#: includes/admin-load.php:667
+#: includes/admin-load.php:668
 msgid "Invalid nonce token!"
 msgstr "Μη έγκυρο nonce token!"
 
-#: includes/admin-load.php:671
-#: includes/admin-load.php:679
+#: includes/admin-load.php:672
+#: includes/admin-load.php:680
 msgid "Error: wrong data"
 msgstr "Σφάλμα: λανθασμένα δεδομένα"
 
-#: includes/admin-load.php:699
+#: includes/admin-load.php:700
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
@@ -245,12 +250,12 @@ msgstr ""
 "Οι αλλαγές αποθηκεύτηκαν. Η συγχρονισμένη κατάσταση χαρακτηριστικών έχει "
 "προγραμματιστεί για όλες τις τοποθεσίες δικτύου."
 
-#: includes/admin-load.php:705
+#: includes/admin-load.php:706
 #: common/js/admin.dev.js:1237
 msgid "Changes saved!"
 msgstr "Οι αλλαγές αποθηκεύτηκαν!"
 
-#: includes/admin-load.php:716
+#: includes/admin-load.php:717
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -258,44 +263,44 @@ msgstr "Οι αλλαγές αποθηκεύτηκαν!"
 msgid "An error occured!"
 msgstr "Παρουσιάστηκε σφάλμα!"
 
-#: includes/admin-load.php:721
+#: includes/admin-load.php:722
 msgid "Security check failed"
 msgstr "Η έλεγχο ασφαλείας απέτυχε"
 
-#: includes/admin-load.php:723
+#: includes/admin-load.php:724
 msgid "Permission denied"
 msgstr "Η άδεια απορρίφθηκε"
 
-#: includes/admin-load.php:733
+#: includes/admin-load.php:734
 msgid "Settings updated successfully."
 msgstr "Οι ρυθμίσεις ενημερώθηκαν με επιτυχία."
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Χρήστες που έχουν συνδεθεί"
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:831
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Χρήστες που έχουν αποσυνδεθεί"
 
-#: includes/admin-load.php:837
+#: includes/admin-load.php:838
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Περιορισμός μενού ικανοτήτων PublishPress"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:839
 msgid "This menu is restricted for the following roles"
 msgstr "Αυτό το μενού είναι περιορισμένο για τους ακόλουθους ρόλους"
 
-#: includes/admin-load.php:893
+#: includes/admin-load.php:894
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Πίνακας ελέγχου"
 
-#: includes/admin-load.php:895
+#: includes/admin-load.php:896
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -304,7 +309,7 @@ msgstr "Πίνακας ελέγχου"
 msgid "Roles"
 msgstr "Ρόλοι"
 
-#: includes/admin-load.php:896
+#: includes/admin-load.php:897
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -487,8 +492,8 @@ msgid "Edit the settings."
 msgstr "Επεξεργαστείτε τις ρυθμίσεις."
 
 #: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:818
-#: includes/manager.php:842
+#: includes/manager.php:823
+#: includes/manager.php:847
 msgid "You do not have permission to manage admin notices."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε τις ειδοποιήσεις διαχειριστή."
 
@@ -1408,13 +1413,15 @@ msgstr ""
 "Συγχρονίστε την κατάσταση χαρακτηριστικού σε όλες τις τοποθεσίες σε αυτό το "
 "δίκτυο."
 
-#: includes/dashboard.php:77
-msgid ""
-"When selected, changing a feature above will apply its new status to every "
-"existing site in the background."
+#: includes/dashboard.php:79
+msgid "Network feature synchronization help"
+msgstr "Βοήθεια συγχρονισμού χαρακτηριστικών δικτύου"
+
+#: includes/dashboard.php:82
+msgid "Enabling or disabling a feature will apply its new status to all sites."
 msgstr ""
-"Όταν επιλεγεί, η αλλαγή ενός χαρακτηριστικού παραπάνω θα εφαρμόσει την νέα "
-"του κατάσταση σε κάθε υπάρχουσα τοποθεσία στο παρασκήνιο."
+"Η ενεργοποίηση ή απενεργοποίηση ενός χαρακτηριστικού θα εφαρμόσει την νέα "
+"του κατάσταση σε όλους τους ιστότοπους."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1487,8 +1494,8 @@ msgstr "Απόκρυψη υπομενού"
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2341
-#: includes/features/admin-styles/admin-styles.php:2423
+#: includes/features/admin-styles/admin-styles.php:2347
+#: includes/features/admin-styles/admin-styles.php:2434
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -1872,7 +1879,7 @@ msgid "Security check failed."
 msgstr "Η έλεγξη ασφάλειας απέτυχε."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:788
+#: includes/manager.php:793
 msgid "You do not have permission to manage admin styles."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε τους στυλ διαχειριστή."
 
@@ -2405,8 +2412,8 @@ msgstr "Πώς να χρησιμοποιήσετε τα Χαρακτηριστι
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:740
-#: includes/manager.php:762
+#: includes/manager.php:745
+#: includes/manager.php:767
 msgid "You do not have permission to manage frontend features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε τα χαρακτηριστικά frontend."
 
@@ -3072,7 +3079,7 @@ msgstr "Σφάλμα: Αποτυχία δημιουργίας του νέου ρ
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1301
+#: includes/manager.php:1306
 msgid "The selected role is not editable."
 msgstr "Ο επιλεγμένος ρόλος δεν είναι επεξεργάσιμος."
 
@@ -3136,132 +3143,157 @@ msgstr ""
 "Προσθέστε ή καθαρίστε την καταχώριση προσαρμοσμένου στοιχείου πριν "
 "αποθηκεύσετε τις αλλαγές."
 
-#: includes/manager.php:560
+#: includes/manager.php:261
+#, php-format
+msgid "Found %1$d match in %2$d tab"
+msgstr "Βρέθηκε %1$d αντιστοιχία στην καρτέλα %2$d"
+
+#: includes/manager.php:262
+#, php-format
+msgid "Found %1$d match in %2$d tabs"
+msgstr "Βρέθηκαν %1$d αντιστοιχίες σε %2$d καρτέλες"
+
+#: includes/manager.php:263
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "Βρέθηκαν %1$d αντιστοιχίες στην καρτέλα %2$d"
+
+#: includes/manager.php:264
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "Βρέθηκαν %1$d αντιστοιχίες σε %2$d καρτέλες"
+
+#: includes/manager.php:265
+#, php-format
+msgid "No matches found for \"%s\""
+msgstr "Δεν βρέθηκαν αντιστοιχίες για \"%s\""
+
+#: includes/manager.php:565
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Όνομα Ρόλου"
 
-#: includes/manager.php:562
+#: includes/manager.php:567
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Τύπος Ρόλου"
 
-#: includes/manager.php:563
+#: includes/manager.php:568
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Προκαθορισμένος Ρόλος"
 
-#: includes/manager.php:564
+#: includes/manager.php:569
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Πρόσβαση Διαχειριστή"
 
-#: includes/manager.php:591
+#: includes/manager.php:596
 msgid "You do not have permission to manage roles."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε ρόλους."
 
-#: includes/manager.php:614
-#: includes/manager.php:636
+#: includes/manager.php:619
+#: includes/manager.php:641
 msgid "You do not have permission to manage editor features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε χαρακτηριστικά επεξεργαστή."
 
-#: includes/manager.php:671
-#: includes/manager.php:725
-#: includes/manager.php:773
-#: includes/manager.php:867
-#: includes/manager.php:916
-#: includes/manager.php:998
-#: includes/manager.php:1079
+#: includes/manager.php:676
+#: includes/manager.php:730
+#: includes/manager.php:778
+#: includes/manager.php:872
+#: includes/manager.php:921
+#: includes/manager.php:1003
+#: includes/manager.php:1084
 msgid "Settings updated."
 msgstr "Οι ρυθμίσεις ενημερώθηκαν."
 
-#: includes/manager.php:687
-#: includes/manager.php:709
-#: includes/manager.php:881
-#: includes/manager.php:932
-#: includes/manager.php:1096
+#: includes/manager.php:692
+#: includes/manager.php:714
+#: includes/manager.php:886
+#: includes/manager.php:937
+#: includes/manager.php:1101
 msgid "You do not have permission to manage admin features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε χαρακτηριστικά διαχειριστή."
 
-#: includes/manager.php:903
+#: includes/manager.php:908
 msgid "You do not have permission to manage navigation menus."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε μενού πλοήγησης."
 
-#: includes/manager.php:954
+#: includes/manager.php:959
 msgid "You do not have permission to manage profile features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε χαρακτηριστικά προφίλ."
 
-#: includes/manager.php:1014
+#: includes/manager.php:1019
 msgid "You do not have permission to manage redirect."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε ανακατευθύνσεις."
 
-#: includes/manager.php:1036
+#: includes/manager.php:1041
 msgid "Invalid form. Reload this page and try again."
 msgstr "Μη έγκυρη φόρμα. Επαναφορτώστε αυτή τη σελίδα και δοκιμάστε ξανά."
 
-#: includes/manager.php:1188
-#: includes/manager.php:1239
-#: includes/manager.php:1257
+#: includes/manager.php:1193
+#: includes/manager.php:1244
+#: includes/manager.php:1262
 msgid "You do not have permission to manage capabilities."
 msgstr "Δεν έχετε άδεια για να διαχειριστείτε τις δυνατότητες."
 
-#: includes/manager.php:1266
+#: includes/manager.php:1271
 msgid "Network sync completed."
 msgstr "Η συγχρονισμός δικτύου ολοκληρώθηκε."
 
-#: includes/manager.php:1268
+#: includes/manager.php:1273
 msgid "Network sync has been queued and will continue in the background."
 msgstr ""
 "Η συγχρονισμός δικτύου έχει προγραμματιστεί και θα συνεχιστεί στο "
 "παρασκήνιο."
 
-#: includes/manager.php:1284
+#: includes/manager.php:1289
 msgid "New capability added to role."
 msgstr "Μια νέα δυνατότητα προστέθηκε στον ρόλο."
 
-#: includes/manager.php:1330
+#: includes/manager.php:1335
 msgid "Bad form Received"
 msgstr "Κακή φόρμα λήφθηκε"
 
-#: includes/manager.php:1459
+#: includes/manager.php:1464
 msgid "You do not have permission to restore roles."
 msgstr "Δεν έχετε άδεια για να επαναφέρετε ρόλους."
 
-#: includes/manager.php:1497
+#: includes/manager.php:1502
 msgid "You do not have permission to perform this action."
 msgstr "Δεν έχετε άδεια να εκτελέσετε αυτή την ενέργεια."
 
-#: includes/manager.php:1517
+#: includes/manager.php:1522
 msgid "Select at least one role to export."
 msgstr "Επιλέξτε τουλάχιστον έναν ρόλο για εξαγωγή."
 
-#: includes/manager.php:1686
+#: includes/manager.php:1691
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Αν σας αρέσει %s, παρακαλούμε αφήστε μας μια αξιολόγηση %s. Ευχαριστούμε!"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About PublishPress Capabilities"
 msgstr "Σχετικά με τις Δυνατότητες του PublishPress"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About"
 msgstr "Σχετικά"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Capabilites Documentation"
 msgstr "Τεκμηρίωση Δυνατοτήτων"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact the PublishPress team"
 msgstr "Επικοινωνήστε με την ομάδα του PublishPress"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact"
 msgstr "Επικοινωνία"
 
