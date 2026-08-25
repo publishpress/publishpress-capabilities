@@ -378,6 +378,7 @@ class PP_Capabilities_Admin_UI {
                         'multi_roles'       => $multi_role ? 1 : 0,
                         'profile_page_title' => esc_html__('Page title', 'capability-manager-enhanced'),
                         'rankmath_title'    => esc_html__('Rank Math SEO', 'capability-manager-enhanced'),
+                        'chosen_no_results_text' => esc_html__('No results match', 'capability-manager-enhanced'),
                         'nonce'             => wp_create_nonce('ppc-profile-edit-action')
                     ]
                 );

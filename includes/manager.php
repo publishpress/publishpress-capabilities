@@ -257,7 +257,12 @@ class CapabilityManager
 			'chkCaption' => __( 'Add or remove this capability from the WordPress role', 'capability-manager-enhanced' ),
 			'switchableCaption' => __( 'Add or remove capability from the role normally', 'capability-manager-enhanced' ),
 			'deleteWarning' => __( 'Are you sure you want to delete this item ?', 'capability-manager-enhanced' ),
-			'saveWarning'   => __( 'Add or clear custom item entry before saving changes.', 'capability-manager-enhanced' )
+			'saveWarning'   => __( 'Add or clear custom item entry before saving changes.', 'capability-manager-enhanced' ),
+			'foundOneMatchOneTab' => __( 'Found %1$d match in %2$d tab', 'capability-manager-enhanced' ),
+			'foundOneMatchMultipleTabs' => __( 'Found %1$d match in %2$d tabs', 'capability-manager-enhanced' ),
+			'foundMultipleMatchesOneTab' => __( 'Found %1$d matches in %2$d tab', 'capability-manager-enhanced' ),
+			'foundMultipleMatchesMultipleTabs' => __( 'Found %1$d matches in %2$d tabs', 'capability-manager-enhanced' ),
+			'noMatchesFoundFor' => __( 'No matches found for "%s"', 'capability-manager-enhanced' )
 			]
 		);
     }
@@ -1424,7 +1429,7 @@ class CapabilityManager
 		    $roles = ak_get_roles(true);
     		unset($roles['administrator']);
 
-			if ( ( defined( 'CME_LEGACY_USER_EDIT_FILTER' ) && CME_LEGACY_USER_EDIT_FILTER ) || ( ! empty( $_REQUEST['page'] ) && 'pp-capabilities' == $_REQUEST['page'] ) ) {
+			       if ( ( defined( 'CME_LEGACY_USER_EDIT_FILTER' ) && CME_LEGACY_USER_EDIT_FILTER ) || is_pp_capabilities_admin_page() ) {
 				foreach ( $user->roles as $role ) {			// Unset the roles from capability list.
 					unset ( $this->capabilities[$role] );
 					unset ( $roles[$role]);					// User cannot manage his roles.

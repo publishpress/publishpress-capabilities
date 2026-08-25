@@ -183,10 +183,17 @@ jQuery(document).ready(function ($) {
 
         if (totalMatches > 0) {
             var tabsWithMatches = Object.keys(tabCounts).filter(key => tabCounts[key] > 0).length;
-            $summary.text('Found ' + totalMatches + ' match' + (totalMatches !== 1 ? 'es' : '') +
-                ' in ' + tabsWithMatches + ' tab' + (tabsWithMatches !== 1 ? 's' : ''));
+            var summaryKey;
+
+            if (totalMatches === 1) {
+                summaryKey = tabsWithMatches === 1 ? 'foundOneMatchOneTab' : 'foundOneMatchMultipleTabs';
+            } else {
+                summaryKey = tabsWithMatches === 1 ? 'foundMultipleMatchesOneTab' : 'foundMultipleMatchesMultipleTabs';
+            }
+
+            $summary.text(cmeAdmin[summaryKey].replace('%1$d', totalMatches).replace('%2$d', tabsWithMatches));
         } else {
-            $summary.text('No matches found for "' + searchTerm + '"');
+            $summary.text(cmeAdmin.noMatchesFoundFor.replace('%s', searchTerm));
         }
     }
 

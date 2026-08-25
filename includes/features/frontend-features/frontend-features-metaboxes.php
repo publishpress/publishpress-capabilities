@@ -89,11 +89,11 @@ class PP_Capabilities_Frontend_Features_Metaboxes
                     class="chosen-cpt-select"
                     data-placeholder="<?php printf(esc_attr__('Select %1$s...', 'capability-manager-enhanced'), esc_html__($section_title)); ?>"
                     multiple>
-                    <?php 
+                    <?php
                     foreach ($section_elements as $section_id => $section_array) :
                         if (!$section_id) {
                             continue;
-                    } 
+                    }
                     ?>
                     <option value="<?php echo esc_attr($section_id); ?>" <?php selected(in_array($section_id, $post_features), true); ?>
                         >
@@ -122,7 +122,7 @@ class PP_Capabilities_Frontend_Features_Metaboxes
         if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_frontend_features')) {
             return;
         }
-        
+
         if (empty($_POST['ppc-frontend-features-metabox-nonce'])
             || !wp_verify_nonce(sanitize_key($_POST['ppc-frontend-features-metabox-nonce']), 'ppc-frontend-features-metabox')) {
             return;
@@ -162,7 +162,8 @@ class PP_Capabilities_Frontend_Features_Metaboxes
                 $(function(){
                     if( $(".chosen-cpt-select").length ) {
                         $(".chosen-cpt-select").chosen({
-                            "width": "100%"
+                                                        "width": "100%",
+                                                        "no_results_text": <?php echo wp_json_encode(__("No results match", "capability-manager-enhanced")); ?>
                           });
                     }
                 });

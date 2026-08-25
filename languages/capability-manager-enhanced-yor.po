@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-08-03 02:15+0000\n"
+"PO-Revision-Date: 2026-08-25 13:55+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Language: yor\n"
@@ -73,7 +73,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:881
+#: includes/admin-load.php:882
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Gbadun si Pro"
@@ -209,30 +209,35 @@ msgstr "Akọle oju-iwe"
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:518
-#: includes/admin-load.php:894
+#: includes/admin-load.php:381
+#: includes/settings-ui.php:334
+msgid "No results match"
+msgstr "Ko si awọn esi ti o baamu"
+
+#: includes/admin-load.php:519
+#: includes/admin-load.php:895
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:430
+#: includes/manager.php:435
 #: includes/roles/class/class-pp-roles-admin.php:664
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Awọn agbara"
 
-#: includes/admin-load.php:657
+#: includes/admin-load.php:658
 msgid "No permission!"
 msgstr "Kò sí àṣẹ!"
 
-#: includes/admin-load.php:667
+#: includes/admin-load.php:668
 msgid "Invalid nonce token!"
 msgstr "Aami nonce ti ko tọ!"
 
-#: includes/admin-load.php:671
-#: includes/admin-load.php:679
+#: includes/admin-load.php:672
+#: includes/admin-load.php:680
 msgid "Error: wrong data"
 msgstr "Aṣiṣe: data ti ko tọ"
 
-#: includes/admin-load.php:699
+#: includes/admin-load.php:700
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
@@ -240,12 +245,12 @@ msgstr ""
 "Àtúnṣe ti fipamọ. Ipo ẹya iṣọkan ti wa ni tẹẹrẹ fun gbogbo awọn aaye "
 "nẹtiwọki."
 
-#: includes/admin-load.php:705
+#: includes/admin-load.php:706
 #: common/js/admin.dev.js:1237
 msgid "Changes saved!"
 msgstr "Àtúnṣe ti fipamọ!"
 
-#: includes/admin-load.php:716
+#: includes/admin-load.php:717
 #: includes/admin-notices/admin-notices.php:260
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
@@ -253,44 +258,44 @@ msgstr "Àtúnṣe ti fipamọ!"
 msgid "An error occured!"
 msgstr "Aṣiṣe kan ṣẹlẹ!"
 
-#: includes/admin-load.php:721
+#: includes/admin-load.php:722
 msgid "Security check failed"
 msgstr "Ayẹwo aabo kuna"
 
-#: includes/admin-load.php:723
+#: includes/admin-load.php:724
 msgid "Permission denied"
 msgstr "Iṣẹ-iyọọda ti kọ"
 
-#: includes/admin-load.php:733
+#: includes/admin-load.php:734
 msgid "Settings updated successfully."
 msgstr "Awọn iṣeto ti ni imudojuiwọn ni aṣeyọri."
 
-#: includes/admin-load.php:829
+#: includes/admin-load.php:830
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Àwọn Olùmúlò Tí a Wọlé"
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:831
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Àwọn Olùmúlò Tí a Sọkalẹ"
 
-#: includes/admin-load.php:837
+#: includes/admin-load.php:838
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Ìdènà akojọ PublishPress"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:839
 msgid "This menu is restricted for the following roles"
 msgstr "Àkójọ yìí ni a dènà fún awọn ipa wọnyi"
 
-#: includes/admin-load.php:893
+#: includes/admin-load.php:894
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Iboju iṣakoso"
 
-#: includes/admin-load.php:895
+#: includes/admin-load.php:896
 #: includes/admin.php:175
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -299,7 +304,7 @@ msgstr "Iboju iṣakoso"
 msgid "Roles"
 msgstr "Awọn Iṣẹ"
 
-#: includes/admin-load.php:896
+#: includes/admin-load.php:897
 msgid "Settings"
 msgstr "Awọn iṣeto"
 
@@ -476,8 +481,8 @@ msgid "Edit the settings."
 msgstr "Ṣatunkọ awọn eto."
 
 #: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:818
-#: includes/manager.php:842
+#: includes/manager.php:823
+#: includes/manager.php:847
 msgid "You do not have permission to manage admin notices."
 msgstr "O ko ni igbanilaaye lati ṣakoso awọn akiyesi alakoso."
 
@@ -1358,13 +1363,13 @@ msgstr ""
 msgid "Sync feature status to all sites in this network."
 msgstr "Iṣọkan ipo ẹya si gbogbo awọn aaye ni nẹtiwọki yii."
 
-#: includes/dashboard.php:77
-msgid ""
-"When selected, changing a feature above will apply its new status to every "
-"existing site in the background."
-msgstr ""
-"Nigba ti a ba yan, yiyipada ẹya ti o wa loke yoo lo ipo tuntun rẹ si gbogbo "
-"aaye ti o wa ni abẹlẹ."
+#: includes/dashboard.php:79
+msgid "Network feature synchronization help"
+msgstr "Iranlọwọ imudani iṣẹ nẹtiwọọki"
+
+#: includes/dashboard.php:82
+msgid "Enabling or disabling a feature will apply its new status to all sites."
+msgstr "Mimu tabi pa iṣẹ kan yoo lo ipo tuntun rẹ si gbogbo awọn aaye."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1437,8 +1442,8 @@ msgstr "Pa Awọn Submenus"
 #: includes/features/admin-styles/admin-styles-ui.php:628
 #: includes/features/admin-styles/admin-styles-ui.php:713
 #: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2341
-#: includes/features/admin-styles/admin-styles.php:2423
+#: includes/features/admin-styles/admin-styles.php:2347
+#: includes/features/admin-styles/admin-styles.php:2434
 msgid "Default"
 msgstr "Igbasilẹ"
 
@@ -1815,7 +1820,7 @@ msgid "Security check failed."
 msgstr "Ayẹwo aabo kuna."
 
 #: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:788
+#: includes/manager.php:793
 msgid "You do not have permission to manage admin styles."
 msgstr "O ko ni igbanilaaye lati ṣakoso awọn aṣa alakoso."
 
@@ -2347,8 +2352,8 @@ msgstr "Bawo ni lati lo Awọn ẹya Ẹrọ ìtọsọna"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:740
-#: includes/manager.php:762
+#: includes/manager.php:745
+#: includes/manager.php:767
 msgid "You do not have permission to manage frontend features."
 msgstr "Iwọ ko ni aṣẹ lati ṣakoso awọn ẹya iwaju."
 
@@ -2997,7 +3002,7 @@ msgstr "Aṣiṣe: Kò ṣaṣeyọri lati ṣẹda ipa tuntun."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1301
+#: includes/manager.php:1306
 msgid "The selected role is not editable."
 msgstr "Iṣẹ́ tí a yàn kò le ṣe àtúnṣe."
 
@@ -3057,130 +3062,155 @@ msgstr "Ṣe o dajudaju pe o fẹ pa nkan yii?"
 msgid "Add or clear custom item entry before saving changes."
 msgstr "Fi ohun kan ti a ṣe adani kun tabi pa a run ki o to fipamọ awọn ayipada."
 
-#: includes/manager.php:560
+#: includes/manager.php:261
+#, php-format
+msgid "Found %1$d match in %2$d tab"
+msgstr "Igbasilẹ %1$d ti o baamu ni %2$d taabu"
+
+#: includes/manager.php:262
+#, php-format
+msgid "Found %1$d match in %2$d tabs"
+msgstr "Igbasilẹ %1$d ti o baamu ni %2$d awọn taabu"
+
+#: includes/manager.php:263
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "Igbasilẹ %1$d ti o baamu ni %2$d taabu"
+
+#: includes/manager.php:264
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "Igbasilẹ %1$d ti o baamu ni %2$d awọn taabu"
+
+#: includes/manager.php:265
+#, php-format
+msgid "No matches found for \"%s\""
+msgstr "Ko si awọn ibamu ti a ri fun \"%s\""
+
+#: includes/manager.php:565
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Orukọ Iṣẹ"
 
-#: includes/manager.php:562
+#: includes/manager.php:567
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Iru Iṣẹ"
 
-#: includes/manager.php:563
+#: includes/manager.php:568
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Iṣẹ Aiyipada"
 
-#: includes/manager.php:564
+#: includes/manager.php:569
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Iwọle Alakoso"
 
-#: includes/manager.php:591
+#: includes/manager.php:596
 msgid "You do not have permission to manage roles."
 msgstr "Iwọ ko ni aṣẹ lati ṣakoso awọn ipa."
 
-#: includes/manager.php:614
-#: includes/manager.php:636
+#: includes/manager.php:619
+#: includes/manager.php:641
 msgid "You do not have permission to manage editor features."
 msgstr "O ko ni igbanilaaye lati ṣakoso awọn ẹya olootu."
 
-#: includes/manager.php:671
-#: includes/manager.php:725
-#: includes/manager.php:773
-#: includes/manager.php:867
-#: includes/manager.php:916
-#: includes/manager.php:998
-#: includes/manager.php:1079
+#: includes/manager.php:676
+#: includes/manager.php:730
+#: includes/manager.php:778
+#: includes/manager.php:872
+#: includes/manager.php:921
+#: includes/manager.php:1003
+#: includes/manager.php:1084
 msgid "Settings updated."
 msgstr "Awọn iṣeto ti ni imudojuiwọn."
 
-#: includes/manager.php:687
-#: includes/manager.php:709
-#: includes/manager.php:881
-#: includes/manager.php:932
-#: includes/manager.php:1096
+#: includes/manager.php:692
+#: includes/manager.php:714
+#: includes/manager.php:886
+#: includes/manager.php:937
+#: includes/manager.php:1101
 msgid "You do not have permission to manage admin features."
 msgstr "O ko ni igbanilaaye lati ṣakoso awọn ẹya alakoso."
 
-#: includes/manager.php:903
+#: includes/manager.php:908
 msgid "You do not have permission to manage navigation menus."
 msgstr "Iwọ ko ni aṣẹ lati ṣakoso awọn akojọ aṣayan lilọ."
 
-#: includes/manager.php:954
+#: includes/manager.php:959
 msgid "You do not have permission to manage profile features."
 msgstr "Iwọ ko ni aṣẹ lati ṣakoso awọn ẹya profaili."
 
-#: includes/manager.php:1014
+#: includes/manager.php:1019
 msgid "You do not have permission to manage redirect."
 msgstr "Iwọ ko ni aṣẹ lati ṣakoso atunṣe."
 
-#: includes/manager.php:1036
+#: includes/manager.php:1041
 msgid "Invalid form. Reload this page and try again."
 msgstr "Fọọmu ti ko tọ. Tun ṣe igbasilẹ oju-iwe yii ki o si gbiyanju lẹẹkansii."
 
-#: includes/manager.php:1188
-#: includes/manager.php:1239
-#: includes/manager.php:1257
+#: includes/manager.php:1193
+#: includes/manager.php:1244
+#: includes/manager.php:1262
 msgid "You do not have permission to manage capabilities."
 msgstr "O ko ni igbanilaaye lati ṣakoso awọn agbara."
 
-#: includes/manager.php:1266
+#: includes/manager.php:1271
 msgid "Network sync completed."
 msgstr "Asopọ nẹtiwọọki ti pari."
 
-#: includes/manager.php:1268
+#: includes/manager.php:1273
 msgid "Network sync has been queued and will continue in the background."
 msgstr "Asopọ nẹtiwọọki ti wa ni atokọ ati pe yoo tẹsiwaju ni abẹlẹ."
 
-#: includes/manager.php:1284
+#: includes/manager.php:1289
 msgid "New capability added to role."
 msgstr "Agbara tuntun ti a fi kun si ipa."
 
-#: includes/manager.php:1330
+#: includes/manager.php:1335
 msgid "Bad form Received"
 msgstr "Fọọmu buburu gba"
 
-#: includes/manager.php:1459
+#: includes/manager.php:1464
 msgid "You do not have permission to restore roles."
 msgstr "Iwọ ko ni aṣẹ lati tun gbe awọn ipa pada."
 
-#: includes/manager.php:1497
+#: includes/manager.php:1502
 msgid "You do not have permission to perform this action."
 msgstr "Iwọ ko ni aṣẹ lati ṣe iṣe yii."
 
-#: includes/manager.php:1517
+#: includes/manager.php:1522
 msgid "Select at least one role to export."
 msgstr "Yan o kere ju ipa kan lati ikojọpọ."
 
-#: includes/manager.php:1686
+#: includes/manager.php:1691
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Ti o ba fẹ %s, jọwọ fi %s iwọn silẹ fun wa. O ṣeun!"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About PublishPress Capabilities"
 msgstr "Nipa Awọn agbara PublishPress"
 
-#: includes/manager.php:1697
+#: includes/manager.php:1702
 msgid "About"
 msgstr "Nipa"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Capabilites Documentation"
 msgstr "Iwe Itọsọna Awọn agbara"
 
-#: includes/manager.php:1699
+#: includes/manager.php:1704
 msgid "Documentation"
 msgstr "Iwe aṣẹ"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact the PublishPress team"
 msgstr "Kan si ẹgbẹ PublishPress"
 
-#: includes/manager.php:1701
+#: includes/manager.php:1706
 msgid "Contact"
 msgstr "Kan si"
 
