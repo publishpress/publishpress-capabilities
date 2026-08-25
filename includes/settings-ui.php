@@ -330,7 +330,8 @@ class Capabilities_Settings_UI {
             });
 
             $('.pp-capabilities-settings-chosen').chosen({
-                'width': '30em'
+                'width': '30em',
+                'no_results_text': '<?php echo esc_js(__('No results match', 'capability-manager-enhanced')); ?>'
             });
 
         });

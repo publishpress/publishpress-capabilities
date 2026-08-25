@@ -361,7 +361,8 @@ class PP_Capabilities_Frontend_Features_UI
                 $(function(){
                     if( $(".chosen-cpt-select").length ) {
                         $(".chosen-cpt-select").chosen({
-                            "width": "100%"
+                                                        "width": "100%",
+                                                        "no_results_text": <?php echo wp_json_encode(__("No results match", "capability-manager-enhanced")); ?>
                           });
                     }
                 });
