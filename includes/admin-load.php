@@ -50,6 +50,13 @@ class PP_Capabilities_Admin_UI {
             );
             add_action('admin_init', [$this, 'manage_installation'], 2000);
 
+            // Add user capabilities view from the Users screen.
+            add_action('admin_menu', [$this, 'registerUserCapabilitiesPage'], 19);
+            add_action('show_user_profile', [$this, 'addUserCapabilitiesProfileAction']);
+            add_action('edit_user_profile', [$this, 'addUserCapabilitiesProfileAction']);
+            add_filter('user_row_actions', [$this, 'addUserCapabilitiesRowAction'], 11, 2);
+            add_action('admin_head-users_page_pp-capabilities-user-view', [$this, 'outputUserCapabilitiesPageStyles']);
+
             //Add role blocked nav menu indication
             add_action('wp_nav_menu_item_custom_fields', [$this, 'add_nav_menu_indicator'], 20, 5);
             add_action('admin_init', [$this, 'blockSubsiteCapabilitiesAccess'], 1000);
@@ -859,6 +866,254 @@ class PP_Capabilities_Admin_UI {
 
         <?php
 	}
+
+    private function canViewUserCapabilities($user)
+    {
+        if (!pp_capabilities_feature_enabled('capabilities') || empty($user) || empty($user->ID)) {
+            return false;
+        }
+
+        if (!current_user_can('edit_user', $user->ID)) {
+            return false;
+        }
+
+        if (is_multisite() && is_super_admin()) {
+            return true;
+        }
+
+        return current_user_can('administrator') || current_user_can('manage_capabilities');
+    }
+
+    private function getUserCapabilitiesPageUrl($user_id)
+    {
+        return add_query_arg(
+            [
+                'page' => 'pp-capabilities-user-view',
+                'user_id' => absint($user_id),
+            ],
+            admin_url('users.php')
+        );
+    }
+
+    private function getUserCapabilitiesPageData($user)
+    {
+        $user->get_role_caps();
+
+        $role_names = wp_roles()->get_names();
+        $assigned_roles = [];
+
+        foreach ((array) $user->roles as $role_name) {
+            $role_name = sanitize_key($role_name);
+
+            if ('' === $role_name) {
+                continue;
+            }
+
+            $assigned_roles[] = [
+                'slug' => $role_name,
+                'label' => !empty($role_names[$role_name]) ? translate_user_role($role_names[$role_name]) : $role_name,
+                'url' => pp_capabilities_is_editable_role($role_name)
+                    ? admin_url('admin.php?page=pp-capabilities&role=' . $role_name)
+                    : '',
+            ];
+        }
+
+        $effective_capabilities = [];
+        foreach ((array) $user->allcaps as $cap_name => $granted) {
+            $cap_name = sanitize_text_field((string) $cap_name);
+
+            if ('' === $cap_name || in_array($cap_name, $user->roles, true)) {
+                continue;
+            }
+
+            $effective_capabilities[$cap_name] = (bool) $granted;
+        }
+        uksort($effective_capabilities, 'strnatcasecmp');
+
+        $direct_capabilities = [];
+        foreach ((array) $user->caps as $cap_name => $granted) {
+            $cap_name = sanitize_text_field((string) $cap_name);
+
+            if ('' === $cap_name || in_array($cap_name, $user->roles, true)) {
+                continue;
+            }
+
+            $direct_capabilities[$cap_name] = (bool) $granted;
+        }
+        uksort($direct_capabilities, 'strnatcasecmp');
+
+        return [
+            'assigned_roles' => $assigned_roles,
+            'effective_granted_caps' => array_keys(array_filter($effective_capabilities)),
+            'effective_denied_caps' => array_keys(array_filter($effective_capabilities, static function ($granted) {
+                return !$granted;
+            })),
+            'direct_granted_caps' => array_keys(array_filter($direct_capabilities)),
+            'direct_denied_caps' => array_keys(array_filter($direct_capabilities, static function ($granted) {
+                return !$granted;
+            })),
+        ];
+    }
+
+    public function registerUserCapabilitiesPage()
+    {
+        if (!pp_capabilities_feature_enabled('capabilities')) {
+            return;
+        }
+
+        add_users_page(
+            __('User Capabilities', 'capability-manager-enhanced'),
+            __('User Capabilities', 'capability-manager-enhanced'),
+            'read',
+            'pp-capabilities-user-view',
+            [$this, 'userCapabilitiesPage']
+        );
+
+        remove_submenu_page('users.php', 'pp-capabilities-user-view');
+    }
+
+    public function addUserCapabilitiesRowAction($actions, $user)
+    {
+        if (!$this->canViewUserCapabilities($user)) {
+            return $actions;
+        }
+
+        $actions['pp_capabilities_view_user'] = sprintf(
+            '<a href="%s">%s</a>',
+            esc_url($this->getUserCapabilitiesPageUrl($user->ID)),
+            esc_html__('Capabilities', 'capability-manager-enhanced')
+        );
+
+        return $actions;
+    }
+
+    public function addUserCapabilitiesProfileAction($user)
+    {
+        if (!$this->canViewUserCapabilities($user)) {
+            return;
+        }
+        ?>
+        <tr class="user-capabilities-view-wrap">
+            <th scope="row"><?php esc_html_e('Capabilities', 'capability-manager-enhanced'); ?></th>
+            <td>
+                <a href="<?php echo esc_url($this->getUserCapabilitiesPageUrl($user->ID)); ?>" class="button">
+                    <?php esc_html_e('View Capabilities', 'capability-manager-enhanced'); ?>
+                </a>
+            </td>
+        </tr>
+        <?php
+    }
+
+    public function outputUserCapabilitiesPageStyles()
+    {
+        ?>
+        <style id="pp-capabilities-user-capabilities-page">
+            .ppc-user-capabilities-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 8px;
+            }
+
+            .ppc-user-capabilities-meta {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 12px;
+                margin: 18px 0 0;
+            }
+
+            .ppc-user-capabilities-meta-item {
+                background: #fff;
+                border: 1px solid #dcdcde;
+                border-radius: 4px;
+                padding: 12px 14px;
+            }
+
+            .ppc-user-capabilities-meta-item dt {
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+
+            .ppc-user-capabilities-meta-item dd {
+                margin: 0;
+            }
+
+            .ppc-user-capabilities-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 16px;
+                margin-top: 18px;
+            }
+
+            .ppc-user-capabilities-grid .inside {
+                padding: 16px;
+            }
+
+            .ppc-user-capabilities-grid .postbox {
+                margin: 0;
+            }
+
+            .ppc-user-cap-list {
+                columns: 2 220px;
+                column-gap: 24px;
+                margin: 0;
+            }
+
+            .ppc-user-cap-list li {
+                break-inside: avoid;
+                margin-bottom: 8px;
+            }
+
+            .ppc-user-cap-list code {
+                font-size: 12px;
+            }
+
+            .ppc-user-cap-section-title {
+                margin: 0 0 8px;
+            }
+
+            .ppc-user-cap-note {
+                color: #50575e;
+            }
+        </style>
+        <?php
+    }
+
+    public function userCapabilitiesPage()
+    {
+        if (!pp_capabilities_feature_enabled('capabilities')) {
+            wp_die(
+                esc_html__('You do not have permission to view user capabilities.', 'capability-manager-enhanced'),
+                '',
+                ['response' => 403]
+            );
+        }
+
+        $user_id = !empty($_GET['user_id']) ? absint($_GET['user_id']) : 0;
+        $selected_user = $user_id ? get_user_by('id', $user_id) : false;
+
+        if (!$selected_user || empty($selected_user->ID)) {
+            wp_die(esc_html__('Unable to retrieve user data.', 'capability-manager-enhanced'));
+        }
+
+        if (!$this->canViewUserCapabilities($selected_user)) {
+            wp_die(
+                esc_html__('You do not have permission to view user capabilities.', 'capability-manager-enhanced'),
+                '',
+                ['response' => 403]
+            );
+        }
+
+        $page_data = $this->getUserCapabilitiesPageData($selected_user);
+        $assigned_roles = $page_data['assigned_roles'];
+        $effective_granted_caps = $page_data['effective_granted_caps'];
+        $effective_denied_caps = $page_data['effective_denied_caps'];
+        $direct_granted_caps = $page_data['direct_granted_caps'];
+        $direct_denied_caps = $page_data['direct_denied_caps'];
+        $back_url = admin_url('users.php');
+
+        include dirname(CME_FILE) . '/includes/user-capabilities-view.php';
+    }
 
     /**
     * Redirect user on plugin activation
