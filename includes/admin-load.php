@@ -879,6 +879,11 @@ class PP_Capabilities_Admin_UI {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 6px 12px;
+                max-height: 240px;
+                overflow-y: auto;
+                padding: 4px;
+                border: 1px solid #dcdcde;
+                background: #fff;
             }
 
             .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-option {
@@ -888,10 +893,78 @@ class PP_Capabilities_Admin_UI {
                 margin: 0;
             }
 
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-search-label {
+                display: block;
+                margin: 0 0 4px;
+                font-weight: 600;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-search {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-role-filter-status {
+                min-height: 18px;
+                margin: 4px 0 8px;
+            }
+
             .field-pp-capabilities-nav-restrictions .ppc-nav-manage-link {
                 margin-top: 10px;
             }
         </style>
+        <script>
+            (function() {
+                function filterNavMenuRoles(searchField) {
+                    var roleList = document.getElementById(searchField.getAttribute('aria-controls'));
+
+                    if (!roleList) {
+                        return;
+                    }
+
+                    var searchTerm = searchField.value.trim().toLowerCase();
+                    var roleOptions = roleList.querySelectorAll('.ppc-nav-edit-role-option');
+                    var visibleRoles = 0;
+
+                    Array.prototype.forEach.call(roleOptions, function(roleOption) {
+                        var roleName = roleOption.getAttribute('data-role-name') || '';
+                        var roleCaption = roleOption.textContent || '';
+                        var isVisible = !searchTerm || (roleName + ' ' + roleCaption).toLowerCase().indexOf(searchTerm) !== -1;
+
+                        roleOption.hidden = !isVisible;
+
+                        if (isVisible) {
+                            visibleRoles++;
+                        }
+                    });
+
+                    var status = document.getElementById(searchField.getAttribute('data-status'));
+
+                    if (!status) {
+                        return;
+                    }
+
+                    if (!searchTerm) {
+                        status.textContent = '';
+                    } else if (!visibleRoles) {
+                        status.textContent = searchField.getAttribute('data-no-results');
+                    } else {
+                        var roleLabel = visibleRoles === 1
+                            ? searchField.getAttribute('data-one-result')
+                            : searchField.getAttribute('data-many-results');
+
+                        status.textContent = visibleRoles + ' ' + roleLabel;
+                    }
+                }
+
+                document.addEventListener('input', function(event) {
+                    if (event.target.matches('.ppc-nav-edit-role-search')) {
+                        filterNavMenuRoles(event.target);
+                    }
+                });
+            }());
+        </script>
         <?php
     }
 
@@ -925,9 +998,31 @@ class PP_Capabilities_Admin_UI {
                 <h4 style="margin-bottom: 0.6em;"><?php esc_html_e('PublishPress Capabilities Menu Restriction', 'capability-manager-enhanced'); ?></h4>
                 <p class="description description-wide ppc-nav-mode"><?php esc_html_e('Hide this menu item for the selected roles.', 'capability-manager-enhanced'); ?></p>
 
-                <div class="ppc-nav-edit-role-grid">
+                <?php
+                $role_search_id = 'pp-capabilities-nav-menu-role-search-' . (int) $item_id;
+                $role_list_id = 'pp-capabilities-nav-menu-role-list-' . (int) $item_id;
+                $role_status_id = 'pp-capabilities-nav-menu-role-status-' . (int) $item_id;
+                ?>
+                <label class="ppc-nav-edit-role-search-label" for="<?php echo esc_attr($role_search_id); ?>">
+                    <?php esc_html_e('Search roles', 'capability-manager-enhanced'); ?>
+                </label>
+                <input
+                    id="<?php echo esc_attr($role_search_id); ?>"
+                    class="ppc-nav-edit-role-search"
+                    type="search"
+                    placeholder="<?php esc_attr_e('Search by role name', 'capability-manager-enhanced'); ?>"
+                    autocomplete="off"
+                    aria-controls="<?php echo esc_attr($role_list_id); ?>"
+                    data-status="<?php echo esc_attr($role_status_id); ?>"
+                    data-no-results="<?php esc_attr_e('No roles match your search.', 'capability-manager-enhanced'); ?>"
+                    data-one-result="<?php esc_attr_e('role shown', 'capability-manager-enhanced'); ?>"
+                    data-many-results="<?php esc_attr_e('roles shown', 'capability-manager-enhanced'); ?>"
+                />
+                <p id="<?php echo esc_attr($role_status_id); ?>" class="description ppc-nav-role-filter-status" aria-live="polite"></p>
+
+                <div id="<?php echo esc_attr($role_list_id); ?>" class="ppc-nav-edit-role-grid">
                     <?php foreach ($role_options as $role_name => $role_caption) : ?>
-                        <label class="ppc-nav-edit-role-option" for="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>">
+                        <label class="ppc-nav-edit-role-option" data-role-name="<?php echo esc_attr($role_name); ?>" for="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>">
                             <input
                                 id="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>"
                                 type="checkbox"
