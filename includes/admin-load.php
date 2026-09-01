@@ -875,6 +875,10 @@ class PP_Capabilities_Admin_UI {
                 margin-bottom: 8px;
             }
 
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit > h4 {
+                margin-left: 8px;
+            }
+
             .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
