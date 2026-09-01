@@ -332,6 +332,20 @@ class PP_Capabilities_Admin_UI {
             ]
         );
 
+        if (function_exists('get_current_screen')) {
+            $screen = get_current_screen();
+
+            if ($screen && 'users_page_pp-capabilities-user-view' === $screen->id) {
+                wp_enqueue_script(
+                    'pp-capabilities-user-capabilities-js',
+                    plugin_dir_url(CME_FILE) . 'common/js/user-capabilities.js',
+                    [],
+                    PUBLISHPRESS_CAPS_VERSION,
+                    true
+                );
+            }
+        }
+
         if (function_exists('get_current_screen') && (!defined('PUBLISHPRESS_VERSION') || empty($publishpress) || empty($publishpress->modules) || empty($publishpress->modules->roles))) {
             $screen = get_current_screen();
 
@@ -1293,6 +1307,20 @@ class PP_Capabilities_Admin_UI {
 
             .ppc-user-cap-note {
                 color: #50575e;
+            }
+
+            .ppc-user-capability-search {
+                margin-bottom: 4px;
+                max-width: 360px;
+                width: 100%;
+            }
+
+            .ppc-user-capability-search-description {
+                margin-bottom: 12px;
+            }
+
+            .ppc-user-capability-search-no-results {
+                margin: 12px 0 0;
             }
 
             .ppc-user-permissions-list {
