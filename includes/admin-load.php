@@ -895,6 +895,220 @@ class PP_Capabilities_Admin_UI {
         );
     }
 
+    private function getPublishPressPermissionsEditUrl($user_id, $anchor = '')
+    {
+        $url = add_query_arg(
+            [
+                'page' => 'presspermit-edit-permissions',
+                'action' => 'edit',
+                'agent_id' => absint($user_id),
+                'agent_type' => 'user',
+            ],
+            admin_url('admin.php')
+        );
+
+        return $anchor ? $url . '#' . sanitize_key($anchor) : $url;
+    }
+
+    private function getPublishPressPermissionsRoleLabel($pp, $role_name)
+    {
+        $label = $role_name;
+
+        if (is_callable([$pp, 'admin'])) {
+            $pp_admin = $pp->admin();
+
+            if (is_object($pp_admin) && is_callable([$pp_admin, 'getRoleTitle'])) {
+                $label = $pp_admin->getRoleTitle(
+                    $role_name,
+                    [
+                        'include_warnings' => false,
+                        'echo' => false,
+                        'status_suffix' => true,
+                    ]
+                );
+            }
+        }
+
+        $label = wp_specialchars_decode(wp_strip_all_tags((string) $label), ENT_QUOTES);
+        $label = preg_replace('/\s+/u', ' ', str_replace("\xc2\xa0", ' ', $label));
+
+        return $label ? trim($label) : $role_name;
+    }
+
+    private function getPublishPressPermissionsExceptionLabel($pp, $row)
+    {
+        $operation = !empty($row->operation) ? sanitize_key($row->operation) : '';
+        $modification = !empty($row->mod_type) ? sanitize_key($row->mod_type) : '';
+        $for_item_source = !empty($row->for_item_source) ? sanitize_key($row->for_item_source) : '';
+        $for_item_type = !empty($row->for_item_type) ? sanitize_key($row->for_item_type) : '';
+        $via_item_source = !empty($row->via_item_source) ? sanitize_key($row->via_item_source) : '';
+        $via_item_type = !empty($row->via_item_type) ? sanitize_key($row->via_item_type) : '';
+        $for_item_status = !empty($row->for_item_status) ? sanitize_text_field($row->for_item_status) : '';
+        $assign_for = !empty($row->assign_for) ? sanitize_key($row->assign_for) : '';
+
+        $operation_label = $operation
+            ? ucwords(str_replace('_', ' ', $operation))
+            : __('Permission', 'capability-manager-enhanced');
+        $modification_labels = [
+            'additional' => __('Enabled', 'capability-manager-enhanced'),
+            'exclude' => __('Blocked', 'capability-manager-enhanced'),
+            'include' => __('Limited', 'capability-manager-enhanced'),
+        ];
+        $modification_label = !empty($modification_labels[$modification])
+            ? $modification_labels[$modification]
+            : ucwords(str_replace('_', ' ', $modification));
+
+        if ($operation && is_callable([$pp, 'admin'])) {
+            $pp_admin = $pp->admin();
+
+            if (is_object($pp_admin) && is_callable([$pp_admin, 'getOperationObject'])) {
+                $operation_object = $pp_admin->getOperationObject($operation, $for_item_type);
+
+                if (is_object($operation_object) && !empty($operation_object->label)) {
+                    $operation_label = wp_strip_all_tags((string) $operation_object->label);
+                }
+            }
+        }
+
+        $type_label = $for_item_type ? $for_item_type : __('All content', 'capability-manager-enhanced');
+
+        if ($for_item_source && is_callable([$pp, 'getTypeObject']) && $for_item_type) {
+            $type_object = $pp->getTypeObject($for_item_source, $for_item_type);
+
+            if (is_object($type_object) && !empty($type_object->labels->name)) {
+                $type_label = $type_object->labels->name;
+            } elseif (is_object($type_object) && !empty($type_object->labels->singular_name)) {
+                $type_label = $type_object->labels->singular_name;
+            }
+        }
+
+        $item_label = '';
+        $item_id = !empty($row->item_id) ? absint($row->item_id) : 0;
+
+        if ($item_id && 'post' === $via_item_source) {
+            $item_label = get_the_title($item_id);
+        } elseif ($item_id && 'term' === $via_item_source && $via_item_type) {
+            $term = get_term_by('term_taxonomy_id', $item_id, $via_item_type);
+            $item_label = ($term && !is_wp_error($term)) ? $term->name : '';
+        }
+
+        if ($item_id) {
+            $item_label = $item_label ? $item_label : sprintf(__('Item #%d', 'capability-manager-enhanced'), $item_id);
+            $scope_label = sprintf(
+                __('%1$s: %2$s', 'capability-manager-enhanced'),
+                $type_label,
+                $item_label
+            );
+        } else {
+            $scope_label = sprintf(
+                __('%s: all items', 'capability-manager-enhanced'),
+                $type_label
+            );
+        }
+
+        if ($for_item_status) {
+            $scope_label .= ' (' . ucwords(str_replace(['_', ':'], [' ', ':'], $for_item_status)) . ')';
+        }
+
+        if ($assign_for && 'item' !== $assign_for) {
+            $scope_label .= ' (' . ucwords(str_replace('_', ' ', $assign_for)) . ')';
+        }
+
+        return [
+            'operation' => $operation_label,
+            'modification' => $modification_label,
+            'scope' => $scope_label,
+        ];
+    }
+
+    private function getPublishPressPermissionsUserData($user_id)
+    {
+        $data = [
+            'available' => false,
+            'roles' => [],
+            'roles_total' => 0,
+            'exceptions' => [],
+            'exceptions_total' => 0,
+            'roles_edit_url' => '',
+            'exceptions_edit_url' => '',
+        ];
+
+        if (!defined('PRESSPERMIT_ACTIVE') || !PRESSPERMIT_ACTIVE || !function_exists('presspermit')) {
+            return $data;
+        }
+
+        $pp = presspermit();
+
+        if (!is_object($pp) || !method_exists($pp, 'getRoles') || !method_exists($pp, 'getExceptions')) {
+            return $data;
+        }
+
+        $data['available'] = true;
+        $role_assignments = $pp->getRoles(absint($user_id), 'user');
+
+        foreach (array_keys((array) $role_assignments) as $role_name) {
+            $role_name = sanitize_text_field((string) $role_name);
+
+            if ('' !== $role_name) {
+                $data['roles'][] = [
+                    'slug' => $role_name,
+                    'label' => $this->getPublishPressPermissionsRoleLabel($pp, $role_name),
+                ];
+            }
+        }
+
+        usort($data['roles'], static function ($left, $right) {
+            return strnatcasecmp($left['label'], $right['label']);
+        });
+        $data['roles_total'] = count($data['roles']);
+
+        $exceptions = $pp->getExceptions(
+            [
+                'agent_type' => 'user',
+                'agent_id' => absint($user_id),
+                'assign_for' => '',
+                'post_types' => true,
+                'taxonomies' => true,
+                'return_raw_results' => true,
+            ]
+        );
+
+        if (is_array($exceptions)) {
+            foreach (array_slice($exceptions, 0, 50) as $exception) {
+                if (is_array($exception)) {
+                    $exception = (object) $exception;
+                }
+
+                if (!is_object($exception) || empty($exception->operation)) {
+                    continue;
+                }
+
+                $data['exceptions'][] = $this->getPublishPressPermissionsExceptionLabel($pp, $exception);
+            }
+
+            $data['exceptions_total'] = count($exceptions);
+        }
+
+        $can_edit_permissions = current_user_can('pp_administer_content')
+            && current_user_can('list_users')
+            && (is_multisite() || current_user_can('edit_user', absint($user_id)));
+
+        if ($can_edit_permissions && is_callable([$pp, 'admin'])) {
+            $pp_admin = $pp->admin();
+
+            if (is_object($pp_admin) && is_callable([$pp_admin, 'bulkRolesEnabled'])) {
+                $can_edit_permissions = (bool) $pp_admin->bulkRolesEnabled();
+            }
+        }
+
+        if ($can_edit_permissions) {
+            $data['roles_edit_url'] = $this->getPublishPressPermissionsEditUrl($user_id, 'pp_current_roles_1');
+            $data['exceptions_edit_url'] = $this->getPublishPressPermissionsEditUrl($user_id, 'pp_current_exceptions_1');
+        }
+
+        return $data;
+    }
+
     private function getUserCapabilitiesPageData($user)
     {
         $user->get_role_caps();
@@ -952,6 +1166,7 @@ class PP_Capabilities_Admin_UI {
             'direct_denied_caps' => array_keys(array_filter($direct_capabilities, static function ($granted) {
                 return !$granted;
             })),
+            'publishpress_permissions' => $this->getPublishPressPermissionsUserData($user->ID),
         ];
     }
 
@@ -1075,6 +1290,38 @@ class PP_Capabilities_Admin_UI {
             .ppc-user-cap-note {
                 color: #50575e;
             }
+
+            .ppc-user-permissions-list {
+                margin: 0;
+            }
+
+            .ppc-user-permissions-list li {
+                border-bottom: 1px solid #dcdcde;
+                margin: 0;
+                padding: 8px 0;
+            }
+
+            .ppc-user-permissions-list li:last-child {
+                border-bottom: 0;
+            }
+
+            .ppc-user-permissions-scope {
+                color: #50575e;
+                display: block;
+                margin-top: 2px;
+            }
+
+            .ppc-user-permissions-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 12px 0 0;
+            }
+
+            .ppc-user-permissions-scroll {
+                max-height: 280px;
+                overflow-y: auto;
+            }
         </style>
         <?php
     }
@@ -1110,6 +1357,7 @@ class PP_Capabilities_Admin_UI {
         $effective_denied_caps = $page_data['effective_denied_caps'];
         $direct_granted_caps = $page_data['direct_granted_caps'];
         $direct_denied_caps = $page_data['direct_denied_caps'];
+        $publishpress_permissions = $page_data['publishpress_permissions'];
         $back_url = admin_url('users.php');
 
         include dirname(CME_FILE) . '/includes/user-capabilities-view.php';
