@@ -879,11 +879,13 @@ class PP_Capabilities_Admin_UI {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 6px 12px;
-                max-height: 240px;
+                height: 160px;
+                max-height: 160px;
                 overflow-y: auto;
                 padding: 4px;
                 border: 1px solid #dcdcde;
                 background: #fff;
+                scrollbar-gutter: stable;
             }
 
             .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-option {
