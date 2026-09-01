@@ -82,11 +82,29 @@ if (!defined('ABSPATH')) {
                 <?php if (empty($effective_granted_caps)) : ?>
                     <p><?php esc_html_e('This user has no granted capabilities.', 'capability-manager-enhanced'); ?></p>
                 <?php else : ?>
-                    <ul class="ppc-user-cap-list">
+                    <label class="screen-reader-text" for="ppc-granted-capability-search">
+                        <?php esc_html_e('Search granted capabilities', 'capability-manager-enhanced'); ?>
+                    </label>
+                    <input
+                        type="search"
+                        id="ppc-granted-capability-search"
+                        class="regular-text ppc-user-capability-search"
+                        placeholder="<?php esc_attr_e('Search granted capabilities...', 'capability-manager-enhanced'); ?>"
+                        autocomplete="off"
+                        aria-controls="ppc-granted-capability-list"
+                        aria-describedby="ppc-granted-capability-search-description"
+                    />
+                    <p id="ppc-granted-capability-search-description" class="description ppc-user-capability-search-description">
+                        <?php esc_html_e('Type to filter this capability list.', 'capability-manager-enhanced'); ?>
+                    </p>
+                    <ul id="ppc-granted-capability-list" class="ppc-user-cap-list">
                         <?php foreach ($effective_granted_caps as $capability) : ?>
-                            <li><code><?php echo esc_html($capability); ?></code></li>
+                            <li data-ppc-capability-search="<?php echo esc_attr($capability); ?>"><code><?php echo esc_html($capability); ?></code></li>
                         <?php endforeach; ?>
                     </ul>
+                    <p id="ppc-granted-capability-no-results" class="ppc-user-capability-search-no-results" role="status" aria-live="polite" hidden>
+                        <?php esc_html_e('No granted capabilities match your search.', 'capability-manager-enhanced'); ?>
+                    </p>
                 <?php endif; ?>
             </div>
         </div>
