@@ -106,16 +106,14 @@ if (!defined('ABSPATH')) {
             </div>
         <?php endif; ?>
 
-        <div class="postbox">
-            <div class="postbox-header">
-                <h2><?php esc_html_e('Direct User Overrides', 'capability-manager-enhanced'); ?></h2>
-            </div>
-            <div class="inside">
-                <p class="ppc-user-cap-note"><?php esc_html_e('These entries are stored directly on the user account instead of coming from a role.', 'capability-manager-enhanced'); ?></p>
+        <?php if (!empty($direct_granted_caps) || !empty($direct_denied_caps)) : ?>
+            <div class="postbox">
+                <div class="postbox-header">
+                    <h2><?php esc_html_e('Direct User Overrides', 'capability-manager-enhanced'); ?></h2>
+                </div>
+                <div class="inside">
+                    <p class="ppc-user-cap-note"><?php esc_html_e('These entries are stored directly on the user account instead of coming from a role.', 'capability-manager-enhanced'); ?></p>
 
-                <?php if (empty($direct_granted_caps) && empty($direct_denied_caps)) : ?>
-                    <p><?php esc_html_e('This user has no direct capability overrides.', 'capability-manager-enhanced'); ?></p>
-                <?php else : ?>
                     <?php if (!empty($direct_granted_caps)) : ?>
                         <h3 class="ppc-user-cap-section-title"><?php esc_html_e('Granted', 'capability-manager-enhanced'); ?></h3>
                         <ul class="ppc-user-cap-list">
@@ -133,9 +131,9 @@ if (!defined('ABSPATH')) {
                             <?php endforeach; ?>
                         </ul>
                     <?php endif; ?>
-                <?php endif; ?>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <?php if (!empty($publishpress_permissions['available'])) : ?>
             <div class="postbox">

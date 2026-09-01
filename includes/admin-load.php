@@ -1268,6 +1268,10 @@ class PP_Capabilities_Admin_UI {
                 margin: 0;
             }
 
+            .ppc-user-capabilities-grid .postbox-header h2 {
+                margin-left: 12px;
+            }
+
             .ppc-user-cap-list {
                 columns: 2 220px;
                 column-gap: 24px;
