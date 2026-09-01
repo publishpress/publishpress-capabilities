@@ -69,7 +69,7 @@ $set_application_password_cap = function ($cap_name) use ($is_application_passwo
 if ( !$is_application_password && ( $block_read_removal = _cme_is_read_removal_blocked( $this->current ) ) ) {
 	if ( $current = get_role($default) ) {
 		if ( empty( $current->capabilities['read'] ) ) {
-			ak_admin_error( sprintf( __( 'Warning: This role cannot access the dashboard without the read capability. %1$sClick here to fix this now%2$s.', 'capability-manager-enhanced' ), '<a href="javascript:void(0)" class="cme-fix-read-cap">', '</a>' ) );
+			ak_admin_error( sprintf( __( 'Warning: This role cannot access the dashboard without the read capability. %1$sGrant the read capability and save%2$s.', 'capability-manager-enhanced' ), '<a href="#fix-read-cap" class="cme-fix-read-cap">', '</a>' ) );
 		}
 	}
 }
@@ -144,12 +144,13 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 		<div class="pp-column-left">
             <div style="margin-bottom: 20px;">
                 <div class="pp-capabilities-submit-top" style="float:right">
-					<div class="capabilities-top-action">
-						<div class="pp-capabilities-global-search">
-							<input type="text" id="pp-global-capability-search"
-								class="regular-text"
-								placeholder="<?php esc_attr_e('Search capabilities...', 'capability-manager-enhanced'); ?>" />
-							<div id="pp-search-results-summary" style="font-size: 12px; color: #666;"></div>
+							<div class="capabilities-top-action">
+									<div class="pp-capabilities-global-search">
+										<label class="screen-reader-text" for="pp-global-capability-search"><?php esc_html_e('Search capabilities', 'capability-manager-enhanced'); ?></label>
+										<input type="text" id="pp-global-capability-search"
+											class="regular-text"
+											placeholder="<?php esc_attr_e('Search capabilities...', 'capability-manager-enhanced'); ?>" />
+										<div id="pp-search-results-summary" role="status" aria-live="polite" aria-atomic="true" style="font-size: 12px; color: #666;"></div>
 						</div>
 						<div>
 							<?php
@@ -161,7 +162,8 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                 </div>
                 <div class="clear"></div>
 
-                <select name="role">
+								<label class="screen-reader-text" for="pp-role-selector"><?php esc_html_e('Role to edit', 'capability-manager-enhanced'); ?></label>
+								<select id="pp-role-selector" name="role">
                     <?php if (!empty($application_password_subjects)) : ?>
                         <optgroup label="<?php esc_attr_e('Application Passwords', 'capability-manager-enhanced'); ?>">
                             <?php foreach ($application_password_subjects as $subject => $application_password) : ?>
@@ -807,9 +809,11 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 							echo '<h3>' .  sprintf($caption_pattern, esc_html($cap_type_name)) . '</h3>';
 
-							echo '<div class="ppc-filter-wrapper">';
-								echo '<select class="ppc-filter-select">';
+								echo '<div class="ppc-filter-wrapper">';
 									$filter_caption = ('taxonomy' == $item_type) ? __('Filter by taxonomy', 'capability-manager-enhanced') : __('Filter by post type', 'capability-manager-enhanced');
+									$filter_id = 'ppc-filter-select-' . sanitize_key($tab_id);
+									echo '<label class="screen-reader-text" for="' . esc_attr($filter_id) . '">' . esc_html($filter_caption) . '</label>';
+									echo '<select id="' . esc_attr($filter_id) . '" class="ppc-filter-select">';
 									echo '<option value="">' . esc_html($filter_caption) . '</option>';
 								echo '</select>';
 								echo ' <button class="button secondary-button ppc-filter-select-reset" type="button">' . esc_html__('Clear') . '</button>';
@@ -1210,10 +1214,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						echo '<h3 class="cme-cap-section">' . esc_html(str_replace('_', ' ', $grouped_title)) . '</h3>';
 
 						echo '<div class="ppc-filter-wrapper">';
-							echo '<input type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
+							$filter_id = 'ppc-filter-text-' . sanitize_key($tab_id);
+							echo '<label class="screen-reader-text" for="' . esc_attr($filter_id) . '">' . esc_html__('Filter capabilities in this section', 'capability-manager-enhanced') . '</label>';
+							echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . esc_html__('Clear') . '</button>';
 						echo '</div>';
-						echo '<div class="ppc-filter-no-results" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+							echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
 
 						echo '<table class="widefat fixed striped form-table cme-checklist single-checkbox-table">';
 
@@ -1324,10 +1330,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						echo '<h3>' . esc_html__( 'WordPress Core Capabilities', 'capability-manager-enhanced' ) . '</h3>';
 
 						echo '<div class="ppc-filter-wrapper">';
-							echo '<input type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
+							$filter_id = 'ppc-filter-text-' . sanitize_key($tab_id);
+							echo '<label class="screen-reader-text" for="' . esc_attr($filter_id) . '">' . esc_html__('Filter capabilities in this section', 'capability-manager-enhanced') . '</label>';
+							echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . esc_html__('Clear') . '</button>';
 						echo '</div>';
-						echo '<div class="ppc-filter-no-results" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+							echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
 
 						echo '<table class="widefat fixed striped form-table cme-checklist">';
 
@@ -1480,10 +1488,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						echo '<h3 class="cme-cap-section">' . sprintf(esc_html__( 'Plugin Capabilities &ndash; %s', 'capability-manager-enhanced' ), $tab_name) . '</h3>';
 
 						echo '<div class="ppc-filter-wrapper">';
-							echo '<input type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
+						$filter_id = 'ppc-filter-text-' . sanitize_key($tab_id);
+						echo '<label class="screen-reader-text" for="' . esc_attr($filter_id) . '">' . esc_html__('Filter capabilities in this section', 'capability-manager-enhanced') . '</label>';
+						echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . esc_html__('Clear') . '</button>';
 						echo '</div>';
-						echo '<div class="ppc-filter-no-results" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+						echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
 
 						echo '<table class="widefat fixed striped form-table cme-checklist single-checkbox-table">';
 
@@ -1747,10 +1757,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						echo '<h3 class="cme-cap-section">' . esc_html__( 'Additional Capabilities', 'capability-manager-enhanced' ) . '</h3>';
 
 						echo '<div class="ppc-filter-wrapper">';
-							echo '<input type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
+							$filter_id = 'ppc-filter-text-' . sanitize_key($tab_id);
+							echo '<label class="screen-reader-text" for="' . esc_attr($filter_id) . '">' . esc_html__('Filter capabilities in this section', 'capability-manager-enhanced') . '</label>';
+							echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . __('Clear') . '</button>';
 						echo '</div>';
-						echo '<div class="ppc-filter-no-results" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+						echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
 						?>
 						<table class="widefat fixed striped form-table cme-checklist single-checkbox-table">
 
@@ -2061,9 +2073,10 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 										</button>
 									</div>
 								</div>
-								<div class="inside" style="text-align:center;">
-									<p>
-										<input type="text" name="capability-name" class="regular-text" placeholder="<?php echo 'capability_name';?>" /><br />
+					<div class="inside" style="text-align:center;">
+						<p>
+							<label class="screen-reader-text" for="pp-capability-name"><?php esc_html_e('New capability name', 'capability-manager-enhanced'); ?></label>
+							<input id="pp-capability-name" type="text" name="capability-name" class="regular-text" placeholder="<?php echo 'capability_name';?>" /><br />
 										<input type="submit" name="AddCap" value="<?php esc_attr_e('Add to role', 'capability-manager-enhanced') ?>" class="button" />
 									</p>
 									<br />
@@ -2127,11 +2140,11 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 			<div id="pp_features" style="display:none"><div class="pp-logo"><a href="https://publishpress.com/presspermit/"><img src="<?php echo esc_url_raw($img_url);?>pp-logo.png" alt="<?php esc_attr_e('PublishPress Permissions', 'capability-manager-enhanced');?>" /></a></div><div class="features-wrap"><ul class="pp-features">
 			<li>
 			<?php esc_html_e( "Automatically define type-specific capabilities for your custom post types and taxonomies", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/regulate-post-type-access" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/regulate-post-type-access" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the post type capabilities tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Assign standard WP roles supplementally for a specific post type", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/regulate-post-type-access" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/regulate-post-type-access" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the supplemental role tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Assign custom WP roles supplementally for a specific post type <em>(Pro)</em>", 'capability-manager-enhanced' );?>
@@ -2139,27 +2152,27 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 			<li>
 			<?php esc_html_e( "Customize reading permissions per-category or per-post", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/category-exceptions" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/category-exceptions" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the category permissions tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Customize editing permissions per-category or per-post <em>(Pro)</em>", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/page-editing-exceptions" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/page-editing-exceptions" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the page editing permissions tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Custom Post Visibility statuses, fully implemented throughout wp-admin <em>(Pro)</em>", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/custom-post-visibility" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/custom-post-visibility" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the custom post visibility tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Custom Moderation statuses for access-controlled, multi-step publishing workflow <em>(Pro)</em>", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/multi-step-moderation" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/multi-step-moderation" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the multi-step moderation tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/edit-flow-integration" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/edit-flow-integration" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the Edit Flow integration tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Customize the moderated editing of published content with Revisionary or Post Forking <em>(Pro)</em>", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/published-content-revision" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/published-content-revision" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the published content revisions tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "Grant Spectator, Participant or Moderator access to specific bbPress forums <em>(Pro)</em>", 'capability-manager-enhanced' );?>
@@ -2167,7 +2180,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 			<li>
 			<?php esc_html_e( "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>", 'capability-manager-enhanced' );?>
-			<a href="https://presspermit.com/tutorial/buddypress-content-permissions" target="_blank"><img class="cme-play" alt="*" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
+			<a href="https://presspermit.com/tutorial/buddypress-content-permissions" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the BuddyPress content permissions tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>
 
 			<li>
 			<?php esc_html_e( "WPML integration to mirror permissions to translations <em>(Pro)</em>", 'capability-manager-enhanced' );?>

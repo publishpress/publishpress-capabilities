@@ -154,15 +154,15 @@ span.cap-x {
 }
 
 td.cap-yes span {
-color:#5ECD89;font-weight:bold;
+	color:#007017;font-weight:bold;
 }
 
 td.cap-no {
-color:#777;
+	color:#50575e;
 }
 
 td.cap-neg label span {
-color: red;
+	color: #b32d2e;
 }
 
 td.cap-neg input:not(.excluded-input) {
@@ -601,7 +601,8 @@ th.ppc-tool-tip {
     box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 0 56px rgb(0 0 0 / 8%);
 }
 
-.ppc-tool-tip:hover .tool-tip-text {
+.ppc-tool-tip:hover .tool-tip-text,
+.ppc-tool-tip:focus-within .tool-tip-text {
     display: block;
 }
 
