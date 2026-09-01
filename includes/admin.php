@@ -378,16 +378,46 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					$('#ppc-capabilities-wrapper .ppc-capabilities-content').css('grid-template-columns', '1fr');
 				}
 
-				// Tabs and Content display
-				$(document).on('click', '.ppc-capabilities-tabs > ul > li', function() {
-					var $pp_tab = $(this).attr('data-content');
-					var data_slug = $(this).attr('data-slug');
+					// Tabs and Content display
+					$(document).on('keydown', '.ppc-capabilities-tabs > ul > li[role="tab"]', function(event) {
+						var $tabs = $('.ppc-capabilities-tabs > ul > li[role="tab"]:visible');
+						var current_index = $tabs.index(this);
+						var target_index = current_index;
 
-					$("[name='pp_caps_tab']").val(data_slug);
+						if (event.key === 'Enter' || event.key === ' ' || event.keyCode === 13 || event.keyCode === 32) {
+							event.preventDefault();
+							$(this).trigger('click');
+							return;
+						}
 
-					// Show current Content
-					$('.ppc-capabilities-content > div').not('.capabilities-sidebar').hide();
-					$('#' + $pp_tab).show();
+						if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.keyCode === 39 || event.keyCode === 40) {
+							target_index = (current_index + 1) % $tabs.length;
+						} else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp' || event.keyCode === 37 || event.keyCode === 38) {
+							target_index = (current_index - 1 + $tabs.length) % $tabs.length;
+						} else if (event.key === 'Home' || event.keyCode === 36) {
+							target_index = 0;
+						} else if (event.key === 'End' || event.keyCode === 35) {
+							target_index = $tabs.length - 1;
+						} else {
+							return;
+						}
+
+						event.preventDefault();
+						$tabs.eq(target_index).focus().trigger('click');
+					});
+
+					$(document).on('click', '.ppc-capabilities-tabs > ul > li', function() {
+						var $pp_tab = $(this).attr('data-content');
+						var data_slug = $(this).attr('data-slug');
+						var $tabs = $('.ppc-capabilities-tabs > ul > li[role="tab"]');
+
+						$("[name='pp_caps_tab']").val(data_slug);
+						$tabs.attr('aria-selected', 'false').attr('tabindex', '-1');
+						$(this).attr('aria-selected', 'true').attr('tabindex', '0').removeAttr('aria-hidden');
+
+						// Show current Content
+						$('.ppc-capabilities-content > [role="tabpanel"]').hide().attr('aria-hidden', 'true');
+						$('#' + $pp_tab).show().attr('aria-hidden', 'false');
 
 					var post_ops = ['read', 'edit', 'delete', 'list'];
 					$('.capabilities-sidebar .ppc-post-types').toggle(post_ops.indexOf(data_slug,) != -1);
@@ -406,7 +436,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						}
 					}
 
-					$('#' + $pp_tab + '-taxonomy').show();
+						if ($('#' + $pp_tab + '-taxonomy').length) {
+							$('#' + $pp_tab + '-taxonomy').show().attr('aria-hidden', 'false');
+						}
 
 					// Active current Tab
 					$('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active');
@@ -505,8 +537,8 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						</span>
 					</span>
 				</div>
-				<div class="ppc-capabilities-tabs">
-					<ul>
+								<div class="ppc-capabilities-tabs">
+									<ul role="tablist" aria-label="<?php esc_attr_e('Capability sections', 'capability-manager-enhanced'); ?>">
 						<?php
 						$full_width_tabs = apply_filters('pp_capabilities_full_width_tabs', []);
 
@@ -535,9 +567,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 							$class = implode(' ', $classes);
 
-							echo '<li data-slug="'. esc_attr($cap_type) . '"' . ' data-content="cme-cap-type-tables-' . esc_attr($cap_type) . '" class="' . esc_attr($class) . '">'
-								. esc_html($cap_type_names[$cap_type]) .
-							'</li>';
+								$tab_dom_id = 'ppc-tab-' . sanitize_key($cap_type);
+								$tab_is_active = ($tab_id == $active_tab_id);
+
+								echo '<li id="' . esc_attr($tab_dom_id) . '" role="tab" aria-controls="cme-cap-type-tables-' . esc_attr($cap_type) . '" aria-selected="' . esc_attr($tab_is_active ? 'true' : 'false') . '" tabindex="' . esc_attr($tab_is_active ? '0' : '-1') . '" data-slug="'. esc_attr($cap_type) . '"' . ' data-content="cme-cap-type-tables-' . esc_attr($cap_type) . '" class="' . esc_attr($class) . '">'
+									. esc_html($cap_type_names[$cap_type]) .
+								'</li>';
 						}
 
 						if ($extra_tabs = apply_filters('pp_capabilities_extra_post_capability_tabs', [])) {
@@ -558,7 +593,10 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 								$class = implode(' ', $classes);
 
-								echo '<li data-slug="' . esc_attr($tab_slug) . '"' . ' data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($class) . '">'
+								$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
+								$tab_is_active = ($tab_id == $active_tab_id);
+
+								echo '<li id="' . esc_attr($tab_dom_id) . '" role="tab" aria-controls="' . esc_attr($tab_id) . '" aria-selected="' . esc_attr($tab_is_active ? 'true' : 'false') . '" tabindex="' . esc_attr($tab_is_active ? '0' : '-1') . '" data-slug="' . esc_attr($tab_slug) . '"' . ' data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($class) . '">'
 								. esc_html($tab_caption) .
 								'</li>';
 							}
@@ -687,9 +725,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							$tab_id = 'cme-cap-type-tables-' . $tab_slug;
 							$tab_active = ($tab_id == $active_tab_id) ? $ppc_tab_active : '';
 
-							echo '<li data-slug="' . esc_attr($tab_slug) . '" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '">'
+								$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
+								$tab_is_active = ($tab_id == $active_tab_id);
+
+								echo '<li id="' . esc_attr($tab_dom_id) . '" role="tab" aria-controls="' . esc_attr($tab_id) . '" aria-selected="' . esc_attr($tab_is_active ? 'true' : 'false') . '" tabindex="' . esc_attr($tab_is_active ? '0' : '-1') . '" data-slug="' . esc_attr($tab_slug) . '" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '">'
 								. esc_html(str_replace('_', ' ', $grouped_title)) .
-							'</li>';
+								'</li>';
 						}
 
 						$sort_publishpress_plugin_caps = static function ($plugin_caps) {
@@ -750,20 +791,24 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							$tab_active = ($tab_id == $active_tab_id) ? $ppc_tab_active : '';
 
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							echo '<li data-slug="' . esc_attr($tab_slug) . '" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '">'
+								$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
+								$tab_is_active = ($tab_id == $active_tab_id);
+
+								echo '<li id="' . esc_attr($tab_dom_id) . '" role="tab" aria-controls="' . esc_attr($tab_id) . '" aria-selected="' . esc_attr($tab_is_active ? 'true' : 'false') . '" tabindex="' . esc_attr($tab_is_active ? '0' : '-1') . '" data-slug="' . esc_attr($tab_slug) . '" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '">'
 								. $tab_name .
-							'</li>';
+								'</li>';
 						}
 
 						$tab_id = "cme-cap-type-tables-invalid";
 						$tab_active = ($tab_id == $active_tab_id) ? $ppc_tab_active : '';
 						$tab_caption = esc_html__( 'Invalid Capabilities', 'capability-manager-enhanced' );
-						echo '<li id="cme_tab_invalid_caps" data-slug="invalid" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '" style="display:none;">' . esc_html($tab_caption) . '</li>';
+						echo '<li id="ppc-tab-invalid" role="tab" aria-controls="' . esc_attr($tab_id) . '" aria-selected="false" aria-hidden="true" tabindex="-1" data-slug="invalid" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '" style="display:none;">' . esc_html($tab_caption) . '</li>';
 
 						$tab_id = "cme-cap-type-tables-additional";
 						$tab_active = ($tab_id == $active_tab_id) ? $ppc_tab_active : '';
+						$tab_is_active = ($tab_id == $active_tab_id);
 						$tab_caption = esc_html__( 'Additional', 'capability-manager-enhanced' );
-						echo '<li data-slug="additional" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '">' . esc_html($tab_caption) . '</li>';
+						echo '<li id="ppc-tab-additional" role="tab" aria-controls="' . esc_attr($tab_id) . '" aria-selected="' . esc_attr($tab_is_active ? 'true' : 'false') . '" tabindex="' . esc_attr($tab_is_active ? '0' : '-1') . '" data-slug="additional" data-content="' . esc_attr($tab_id) . '" class="' . esc_attr($tab_active) . '">' . esc_html($tab_caption) . '</li>';
 						?>
 					</ul>
 				</div>
@@ -782,8 +827,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							if ( ! count( $cap_properties[$cap_type][$item_type] ) )
 								continue;
 
-							$tab_id = "cme-cap-type-tables-" . pp_capabilities_convert_to_slug($cap_type);
-							$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
+								$tab_id = "cme-cap-type-tables-" . pp_capabilities_convert_to_slug($cap_type);
+								$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
+								$tab_dom_id = 'ppc-tab-' . sanitize_key($cap_type);
 
 							$any_caps = false;
 
@@ -793,7 +839,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 								ob_start();
 							}
 
-							echo "<div id='" . esc_attr($tab_id) . "' style='display:" . esc_attr($div_display) . ";'>";
+								echo "<div id='" . esc_attr($tab_id) . "' role='tabpanel' aria-labelledby='" . esc_attr($tab_dom_id) . "' aria-hidden='" . esc_attr('block' === $div_display ? 'false' : 'true') . "' style='display:" . esc_attr($div_display) . ";'>";
 
 							if ('taxonomy' == $item_type) {
 								$caption_pattern = esc_html__('Term %s Capabilities', 'capability-manager-enhanced');
@@ -818,7 +864,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							echo "<table class='widefat striped cme-typecaps cme-typecaps-basic cme-typecaps-" . esc_attr($cap_type) . "'>";
 
 							echo '<thead><tr><th class="pp-header-checkall">';
-							echo '<input type="checkbox" name="pp_toggle_all" class="excluded-input" autocomplete="off" title="' . esc_attr__('check / uncheck / negate all', 'capability-manager-enhanced') . '"> &nbsp;';
+							echo '<input type="checkbox" name="pp_toggle_all" class="excluded-input" autocomplete="off" title="' . esc_attr__('check / uncheck / negate all', 'capability-manager-enhanced') . '" aria-label="' . esc_attr__('Grant, clear, or deny all capabilities in this table', 'capability-manager-enhanced') . '"> &nbsp;';
 							echo '</th>';
 
 							// label cap properties
@@ -846,7 +892,8 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 								echo "<th style='text-align:center;' class='" . esc_attr($th_class) . "'>" . $tip_text;
 
 								if ( ( 'delete' != $prop ) || ( 'taxonomy' != $item_type ) || cme_get_detailed_taxonomies() ) {
-									echo str_replace('_', '<br />', esc_html(ucwords($prop)));
+									$property_label = str_replace('_', ' ', ucwords($prop));
+									echo '<button type="button" class="ppc-column-toggle" aria-label="' . esc_attr(sprintf(__('Toggle all %s capabilities', 'capability-manager-enhanced'), $property_label)) . '">' . str_replace('_', '<br />', esc_html(ucwords($prop))) . '</button>';
 								}
 
 								echo '</th>';
@@ -945,7 +992,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 									}
 
 									$row .= "<td>";
-									$row .= '<input type="checkbox" class="pp-row-action-rotate excluded-input"> &nbsp;';
+								$row .= '<input type="checkbox" class="pp-row-action-rotate excluded-input" aria-label="' . esc_attr(sprintf(__('Toggle all capabilities for %s', 'capability-manager-enhanced'), wp_strip_all_tags($type_label))) . '"> &nbsp;';
 									$row .= "<span class='{$type_tooltip_class}'><a class='cap_type' href='#toggle_type_caps'>" . esc_html($type_label) . '</a> '. $type_tooltip_msg .'</span>';
 									$row .= '<a style="display: none;" href="#" class="neg-type-caps">&nbsp;x&nbsp;</a>';
 									$row .= '</td>';
@@ -1017,7 +1064,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 													$chk_class = ( $chk_classes ) ? ' class="' . implode(' ', $chk_classes) . '"' : '';
 
-                                                    $checkbox = '<div class="ppc-tool-tip disabled"><input type="checkbox"' . $chk_class . ' name="caps[' . esc_attr($cap_name) . ']" autocomplete="off" value="1" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
+                                                    $checkbox = '<div class="ppc-tool-tip disabled"><input type="checkbox"' . $chk_class . ' name="caps[' . esc_attr($cap_name) . ']" data-capability-label="' . esc_attr(str_replace('_', ' ', $cap_name)) . '" autocomplete="off" value="1" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
                                                         <div class="tool-tip-text">
                                                             <p>'. $tool_tip .'</p>
                                                             <i></i>
@@ -1204,8 +1251,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						$_grouped_caps = array_fill_keys($__grouped_caps, true);
 
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
+						$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
 
-						echo '<div id="' . esc_attr($tab_id) . '" style="display:' . esc_attr($div_display) . '">';
+							echo '<div id="' . esc_attr($tab_id) . '" role="tabpanel" aria-labelledby="' . esc_attr($tab_dom_id) . '" aria-hidden="' . esc_attr('block' === $div_display ? 'false' : 'true') . '" style="display:' . esc_attr($div_display) . '">';
 
 						echo '<h3 class="cme-cap-section">' . esc_html(str_replace('_', ' ', $grouped_title)) . '</h3>';
 
@@ -1273,7 +1321,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 							?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap_name));
@@ -1318,7 +1366,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					$tab_id = "cme-cap-type-tables-other";
 					$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
 					?>
-					<div id="<?php echo esc_attr($tab_id);?>" style="display:<?php echo esc_attr($div_display);?>">
+					<div id="<?php echo esc_attr($tab_id);?>" role="tabpanel" aria-labelledby="ppc-tab-other" aria-hidden="<?php echo esc_attr('block' === $div_display ? 'false' : 'true');?>" style="display:<?php echo esc_attr($div_display);?>">
 						<?php
 
 						echo '<h3>' . esc_html__( 'WordPress Core Capabilities', 'capability-manager-enhanced' ) . '</h3>';
@@ -1474,7 +1522,8 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						$tab_name = str_replace('(CAPABILITYEXTRACTOR)', '<span class="capability-extractor-label">CE</span>', $tab_name);
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
 
-						echo '<div id="' . esc_attr($tab_id) . '" style="display:' . esc_attr($div_display) . '" class="cme-plugin-cap-table">';
+						$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
+						echo '<div id="' . esc_attr($tab_id) . '" role="tabpanel" aria-labelledby="' . esc_attr($tab_dom_id) . '" aria-hidden="' . esc_attr('block' === $div_display ? 'false' : 'true') . '" style="display:' . esc_attr($div_display) . '" class="cme-plugin-cap-table">';
 
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						echo '<h3 class="cme-cap-section">' . sprintf(esc_html__( 'Plugin Capabilities &ndash; %s', 'capability-manager-enhanced' ), $tab_name) . '</h3>';
@@ -1574,7 +1623,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 							?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap_name));
@@ -1628,8 +1677,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					if (!$is_application_password && array_intersect(array_keys(array_filter($type_metacaps)), $all_capabilities) && array_intersect_key($type_metacaps, array_filter($rcaps))) {
 						$tab_id = "cme-cap-type-tables-invalid";
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
+						$tab_dom_id = 'ppc-tab-invalid';
 
-						echo '<div id="' . esc_attr($tab_id) . '" style="display:' . esc_attr($div_display) . '">';
+						echo '<div id="' . esc_attr($tab_id) . '" role="tabpanel" aria-labelledby="' . esc_attr($tab_dom_id) . '" aria-hidden="' . esc_attr('block' === $div_display ? 'false' : 'true') . '" style="display:' . esc_attr($div_display) . '">';
 						echo '<h3 class="cme-cap-section">' . esc_html__( 'Invalid Capabilities', 'capability-manager-enhanced' ) . '</h3>';
 						?>
 
@@ -1688,7 +1738,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 						?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><label title="<?php echo esc_attr($title_text);?>"><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><label title="<?php echo esc_attr($title_text);?>"><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap ));
@@ -1727,7 +1777,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                             <script type="text/javascript">
                             /* <![CDATA[ */
                             jQuery(document).ready( function($) {
-                                $('#cme_tab_invalid_caps').show();
+                                $('#ppc-tab-invalid').show().attr('aria-hidden', 'false');
                             });
                             /* ]]> */
                             </script>
@@ -1741,7 +1791,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					$tab_id = "cme-cap-type-tables-additional";
 					$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
 					?>
-					<div id="<?php echo esc_attr($tab_id);?>" style="display:<?php echo esc_attr($div_display);?>">
+					<div id="<?php echo esc_attr($tab_id);?>" role="tabpanel" aria-labelledby="ppc-tab-additional" aria-hidden="<?php echo esc_attr('block' === $div_display ? 'false' : 'true');?>" style="display:<?php echo esc_attr($div_display);?>">
 						<?php
 						// caps: additional
 						echo '<h3 class="cme-cap-section">' . esc_html__( 'Additional Capabilities', 'capability-manager-enhanced' ) . '</h3>';
@@ -1887,7 +1937,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 						?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . ' ' . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . ' ' . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap ));
@@ -1981,12 +2031,13 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 								<div class="postbox-header">
 									<h2 class="hndle ui-sortable-handle"><?php esc_html_e('How to use Capabilities', 'capability-manager-enhanced'); ?></h2>
 									<div class="handle-actions">
-										<button type="button" class="handlediv">
-											<span class="toggle-indicator"></span>
+										<button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-how-to-use">
+											<span class="screen-reader-text"><?php esc_html_e('Toggle How to use Capabilities panel', 'capability-manager-enhanced'); ?></span>
+											<span class="toggle-indicator" aria-hidden="true"></span>
 										</button>
 									</div>
 								</div>
-								<div class="inside">
+								<div class="inside" id="ppc-panel-how-to-use">
 								<?php
 									$banners->pp_display_banner(
 										'',
@@ -2019,12 +2070,13 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 								<div class="postbox-header">
 									<h2 class="hndle ui-sortable-handle"><?php esc_html_e( 'Capabilities is Safe to Use', 'capability-manager-enhanced' ); ?></h2>
 									<div class="handle-actions">
-										<button type="button" class="handlediv">
-											<span class="toggle-indicator"></span>
+										<button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-safe-to-use">
+											<span class="screen-reader-text"><?php esc_html_e('Toggle Capabilities is Safe to Use panel', 'capability-manager-enhanced'); ?></span>
+											<span class="toggle-indicator" aria-hidden="true"></span>
 										</button>
 									</div>
 								</div>
-								<div class="inside">
+								<div class="inside" id="ppc-panel-safe-to-use">
 								<?php
 										$banners->pp_display_banner(
 											'',
@@ -2056,12 +2108,13 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 								<div class="postbox-header">
 									<h2 class="hndle ui-sortable-handle"><?php esc_html_e('Add a New Capability', 'capability-manager-enhanced'); ?></h2>
 									<div class="handle-actions">
-										<button type="button" class="handlediv">
-											<span class="toggle-indicator"></span>
+										<button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-add-capability">
+											<span class="screen-reader-text"><?php esc_html_e('Toggle Add a New Capability panel', 'capability-manager-enhanced'); ?></span>
+											<span class="toggle-indicator" aria-hidden="true"></span>
 										</button>
 									</div>
 								</div>
-								<div class="inside" style="text-align:center;">
+								<div class="inside" id="ppc-panel-add-capability" style="text-align:center;">
 									<p>
 										<input type="text" name="capability-name" class="regular-text" placeholder="<?php echo 'capability_name';?>" /><br />
 										<input type="submit" name="AddCap" value="<?php esc_attr_e('Add to role', 'capability-manager-enhanced') ?>" class="button" />
@@ -2086,13 +2139,14 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 									<div class="postbox-header">
 										<h2 class="hndle ui-sortable-handle"><?php esc_html_e('Multisite', 'capability-manager-enhanced'); ?></h2>
 										<div class="handle-actions">
-											<button type="button" class="handlediv">
-												<span class="toggle-indicator"></span>
+										<button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-multisite">
+											<span class="screen-reader-text"><?php esc_html_e('Toggle Multisite panel', 'capability-manager-enhanced'); ?></span>
+											<span class="toggle-indicator" aria-hidden="true"></span>
 											</button>
 										</div>
 									</div>
-									<div class="inside">
-										<?php cme_network_role_ui( $default ); ?>
+								<div class="inside" id="ppc-panel-multisite">
+									<?php cme_network_role_ui( $default ); ?>
 									</div>
 								</div>
 							</div>
