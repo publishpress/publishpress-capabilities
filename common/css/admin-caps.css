@@ -165,8 +165,26 @@ td.cap-neg label span {
 color: red;
 }
 
-td.cap-neg input:not(.excluded-input) {
-display:none;
+td.cap-neg input[type="checkbox"]:not(.excluded-input) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+td.cap-neg input[type="checkbox"]:not(.excluded-input):focus {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
 }
 
 td.cap-no span.cap-x, td.cap-yes span.cap-x {
@@ -491,6 +509,25 @@ table#akmin tr td input[type=checkbox] {
 	border-right-color: #fff;
 }
 
+#ppc-capabilities-wrapper .ppc-capabilities-tabs > ul > li[role="tab"]:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: -2px;
+}
+
+#ppc-capabilities-wrapper .ppc-column-toggle {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+#ppc-capabilities-wrapper .ppc-column-toggle:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
 #ppc-capabilities-wrapper .ppc-capabilities-content > div {
 	padding: 20px;
 }
@@ -806,6 +843,11 @@ th.ppc-tool-tip {
 .ppc-sidebar-panel .postbox-header .handle-actions .handlediv:hover {
     outline: 0;
     box-shadow: none;
+}
+
+.ppc-sidebar-panel .postbox-header .handle-actions .handlediv:focus-visible {
+    outline: 2px solid #2271b1 !important;
+    outline-offset: -4px;
 }
 
 .ppc-sidebar-panel .pp-sidebar-box {
