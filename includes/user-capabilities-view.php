@@ -136,5 +136,88 @@ if (!defined('ABSPATH')) {
                 <?php endif; ?>
             </div>
         </div>
+
+        <?php if (!empty($publishpress_permissions['available'])) : ?>
+            <div class="postbox">
+                <div class="postbox-header">
+                    <h2><?php esc_html_e('PublishPress Permissions', 'capability-manager-enhanced'); ?></h2>
+                </div>
+                <div class="inside">
+                    <p class="ppc-user-cap-note">
+                        <?php esc_html_e('Direct Permissions settings for this user. These are separate from WordPress role capabilities.', 'capability-manager-enhanced'); ?>
+                    </p>
+
+                    <h3 class="ppc-user-cap-section-title">
+                        <?php
+                        printf(
+                            esc_html__('Extra Roles (%d)', 'capability-manager-enhanced'),
+                            (int) $publishpress_permissions['roles_total']
+                        );
+                        ?>
+                    </h3>
+
+                    <?php if (empty($publishpress_permissions['roles'])) : ?>
+                        <p><?php esc_html_e('This user has no direct extra roles.', 'capability-manager-enhanced'); ?></p>
+                    <?php else : ?>
+                        <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
+                            <?php foreach ($publishpress_permissions['roles'] as $role_data) : ?>
+                                <li>
+                                    <?php echo esc_html($role_data['label']); ?>
+                                    <code><?php echo esc_html($role_data['slug']); ?></code>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+
+                    <h3 class="ppc-user-cap-section-title">
+                        <?php
+                        printf(
+                            esc_html__('Specific Permissions (%d)', 'capability-manager-enhanced'),
+                            (int) $publishpress_permissions['exceptions_total']
+                        );
+                        ?>
+                    </h3>
+
+                    <?php if (empty($publishpress_permissions['exceptions'])) : ?>
+                        <p><?php esc_html_e('This user has no direct specific permissions.', 'capability-manager-enhanced'); ?></p>
+                    <?php else : ?>
+                        <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
+                            <?php foreach ($publishpress_permissions['exceptions'] as $exception) : ?>
+                                <li>
+                                    <strong><?php echo esc_html($exception['operation']); ?></strong>
+                                    <?php echo esc_html($exception['modification']); ?>
+                                    <span class="ppc-user-permissions-scope"><?php echo esc_html($exception['scope']); ?></span>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                        <?php if ($publishpress_permissions['exceptions_total'] > count($publishpress_permissions['exceptions'])) : ?>
+                            <p class="ppc-user-cap-note">
+                                <?php
+                                printf(
+                                    esc_html__('Showing the first 50 of %d permissions. Use the Permissions editor to view the full list.', 'capability-manager-enhanced'),
+                                    (int) $publishpress_permissions['exceptions_total']
+                                );
+                                ?>
+                            </p>
+                        <?php endif; ?>
+                    <?php endif; ?>
+
+                    <?php if (!empty($publishpress_permissions['roles_edit_url']) || !empty($publishpress_permissions['exceptions_edit_url'])) : ?>
+                        <div class="ppc-user-permissions-actions">
+                            <?php if (!empty($publishpress_permissions['roles_edit_url'])) : ?>
+                                <a href="<?php echo esc_url($publishpress_permissions['roles_edit_url']); ?>" class="button">
+                                    <?php esc_html_e('Edit Extra Roles', 'capability-manager-enhanced'); ?>
+                                </a>
+                            <?php endif; ?>
+                            <?php if (!empty($publishpress_permissions['exceptions_edit_url'])) : ?>
+                                <a href="<?php echo esc_url($publishpress_permissions['exceptions_edit_url']); ?>" class="button">
+                                    <?php esc_html_e('Edit Specific Permissions', 'capability-manager-enhanced'); ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        <?php endif; ?>
     </div>
 </div>
