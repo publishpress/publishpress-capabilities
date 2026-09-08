@@ -1,9 +1,9 @@
-=== PublishPress Capabilities - User Role Editor, Access Permissions, User Capabilities, Admin Menus ===
+=== User Role Editor – PublishPress Capabilities: Access Control and User Roles ===
 
 Contributors: publishpress, kevinB, stevejburge, andergmartins, olatechpro
 Author: PublishPress
 Author URI: https://publishpress.com
-Tags: capabilities, permissions, admin menus, user roles, user role editor
+Tags: user role editor, user roles, capabilities, permissions, access control
 Requires at least: 5.5
 Requires PHP: 7.2.5
 Tested up to: 7.1
@@ -11,39 +11,33 @@ Stable tag: 2.50.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-PublishPress Capabilities is the access control plugin. You can manage user capabilities, permissions, user roles, admin menus and more.
+User role editor for WordPress. Edit user roles, control capabilities and permissions, and restrict admin access for any role.
 
 == Description ==
 
-PublishPress Capabilities is the access control plugin for WordPress. You can control all the capabilities and permissions on your WordPress site. We built this user role editor plugin so you have an easy and powerful way to manage user capabilities.
+PublishPress Capabilities is a **user role editor for WordPress**. You can edit user roles, create new ones, and control every capability and permission on your site &#8212; without writing code.
 
-You can use PublishPress Capabilities to **manage all your WordPress user roles**, from Administrators and Editors to Authors, Contributors, Subscribers and custom roles. Each user role can have the exact capabilities that your site needs.
+You can **manage all your WordPress user roles**, from Administrators and Editors to Authors, Contributors, Subscribers and custom roles. Each user role gets exactly the capabilities your site needs, and every change is backed up automatically so you can roll it back.
 
-PublishPress Capabilities can clean up your post editing screen, admin area, and even the Profile screen. You can decide what authors see when they're writing posts. You can **hide any feature on the Gutenberg or Classic Editor screens**. You can remove items in the WordPress dashboard and inside user accounts screens.
-
-The Pro version of PublishPress Capabilities has many extra features, including the ability to edit admin menu links, clean up the post editing screen, block admin pages by URL, and much more.
-
-## PublishPress Capabilities Pro ##
-
-> <strong>Upgrade to Capabilities Pro</strong><br />
-This plugin is the free version of PublishPress Capabilities. The Pro version of Capabilities has all the features you need to control permissions for your WordPress users. With Capabilities Pro you can manage access to posts, pages, media and custom post types. <a href="https://publishpress.com/capabilities" title="Capabilities Pro">Click here to control access to your WordPress site with Capabilities Pro!</a>
+Beyond roles, PublishPress Capabilities cleans up what each role actually sees. You can decide what authors see when they're writing posts, **hide any feature on the block editor or Classic Editor screens**, and remove items from the WordPress dashboard, toolbar and Profile screen.
 
 ## The Key Features of PublishPress Capabilities ##
 
-1. **Roles**: You can edit, create, duplicate any WordPress user role.
-2. **Capabilities**: You can control all WordPress and plugin capabilities.
-3. **Editor Features**: You decide what users see when they're writing posts in Gutenberg or the Classic Editor.
-4. **Admin Features**: You can remove items from the WordPress admin, toolbar, and even dashboard widgets.
-5. **Admin Styles**: Customize the admin area with your own branding.
-6. **Admin Menus (Pro version)**: You can edit admin menu links and control who can access them.
-7. **Profile Features**: You can hide features for users in the "Profile" screen.
-8. **Redirects**: You can hide features for users in the "Profile" screen.
-9. **Frontend Features**: This feature allows you to modify the site's frontend by hiding or adding CSS.
-10. **Navigation Menus**: You can restrict access to navigation menus by user role, or logged in status.
-12. **User Testing**: Safely test any user's account without resetting their password.
-12. **Admin Notices**: Organize all the message and advertisements in your admin area.
+1. **Roles**: Edit, create, or duplicate any WordPress user role.
+2. **Capabilities**: Control all WordPress and plugin capabilities from one screen.
+3. **Automatic Backups**: Every permissions change is backed up, so any mistake can be rolled back.
+4. **Editor Features**: Decide what users see when they're writing posts in the block editor or the Classic Editor.
+5. **Admin Features**: Remove items from the WordPress admin, toolbar, and dashboard widgets.
+6. **Admin Styles**: Customize the admin area with your own branding, per user role.
+7. **Profile Features**: Hide features for users on the "Profile" screen.
+8. **Redirects**: Control where users are sent when they log in, log out, or register.
+9. **Frontend Features**: Modify your site's frontend by hiding elements or adding CSS, targeted by role.
+10. **Navigation Menus**: Restrict access to navigation menus by user role or logged-in status.
+11. **User Testing**: Safely test any user's account without resetting their password.
+12. **Admin Notices**: Organize all the messages and advertisements in your admin area.
+13. **Admin Menus (Pro)**: Edit admin menu links and control who can access them.
 
-## Roles##
+## Roles ##
 
 PublishPress Capabilities gives you detailed control over all the permission levels on your WordPress site. You can edit user roles on your site, from Administrator and Editor to Contributor and Subscriber.
 
@@ -65,7 +59,7 @@ PublishPress Capabilities enables you to add extra permissions to the taxonomies
 
 ## Editor Features ##
 
-PublishPress Capabilities has an option called "Editor Features" allows you to clean up the post editing screen. You can decide what users see when they're writing posts. You can hide anything on the Gutenberg or Classic Editor screens. You can hide boxes inside the sidebar such Tags, Categories, or Excerpt. You can the "Publish" button. You can even hide the post title, body, or permalink. This is a great alternative to plugins such as Adminimize.
+PublishPress Capabilities has an option called "Editor Features" allows you to clean up the post editing screen. You can decide what users see when they're writing posts. You can hide anything on the Gutenberg or Classic Editor screens. You can hide boxes inside the sidebar such as Tags, Categories, or Excerpt. You can hide the "Publish" button. You can even hide the post title, body, or permalink. This is a great alternative to plugins such as Adminimize.
 
 [Click here to learn about hiding editor features](https://publishpress.com/knowledge-base/editor-features/).
 
@@ -109,7 +103,7 @@ PublishPress Capabilities has a “Redirects” screen that allows you to contro
 
 ## Frontend Features ##
 
-The "Frontend Features" screen allows you to modify the features that show on the frontend of your website. You can choose to  hide IDs or classes, add CSS styles, or add body classes. All of these changes can be targeted to specific user roles.
+The "Frontend Features" screen allows you to modify the features that show on the frontend of your website. You can choose to hide IDs or classes, add CSS styles, or add body classes. All of these changes can be targeted to specific user roles.
 
 [Click here to learn about frontend changes](https://publishpress.com/knowledge-base/frontend-features/).
 
@@ -159,6 +153,11 @@ PublishPress Capabilities allows you to control permissions on a single site or 
 
 [Click here to learn about multisite permissions](https://publishpress.com/knowledge-base/multisite-network/).
 
+## PublishPress Capabilities Pro ##
+
+> <strong>Upgrade to Capabilities Pro</strong><br />
+This plugin is the free version of PublishPress Capabilities. With Capabilities Pro you can also edit admin menu links, hide metaboxes for specific roles, block admin pages by URL, and manage access to posts, pages, media and custom post types. <a href="https://publishpress.com/capabilities" title="Capabilities Pro">Click here to control access to your WordPress site with Capabilities Pro!</a>
+
 ## Join PublishPress and get the Pro plugins ##
 
 The Pro versions of the PublishPress plugins are well worth your investment. The Pro versions have extra features and faster support. [Click here to join PublishPress](https://publishpress.com/pricing/).
@@ -170,7 +169,7 @@ Join PublishPress and you'll get access to these Pro plugins:
 * [PublishPress Capabilities Pro](https://publishpress.com/capabilities) is the plugin to manage your WordPress user roles, permissions, and capabilities.
 * [PublishPress Checklists Pro](https://publishpress.com/checklists) enables you to define tasks that must be completed before content is published.
 * [PublishPress Future Pro](https://publishpress.com/future) is the plugin for scheduling changes to your posts.
-* [PublishPress Permissions Pro](https://publishpress.com/permissions)  is the plugin for restricted content and advanced WordPress permissions.
+* [PublishPress Permissions Pro](https://publishpress.com/permissions) is the plugin for restricted content and advanced WordPress permissions.
 * [PublishPress Planner Pro](https://publishpress.com/publishpress) is the plugin for managing and scheduling WordPress content.
 * [PublishPress Revisions Pro](https://publishpress.com/revisions) allows you to update your published pages with teamwork and precision.
 * [PublishPress Series Pro](https://publishpress.com/series) enables you to group content together into a series.
@@ -184,6 +183,48 @@ Together, these plugins are a suite of powerful publishing tools for WordPress. 
 Bug reports for PublishPress Capabilities are welcomed in our [repository on GitHub](https://github.com/publishpress/publishpress-capabilities). Please note that GitHub is not a support forum, and that issues that aren't properly qualified as bugs will be closed.
 
 == Frequently Asked Questions ==
+
+= Is this a good alternative to the User Role Editor plugin? =
+
+Yes. PublishPress Capabilities does everything you expect from a user role editor &#8212; editing roles, creating and duplicating roles, and toggling capabilities for WordPress core and for plugins &#8212; and it adds three things you can't do with a role editor alone:
+
+* **Automatic backups.** Every permissions change is backed up before it is applied, so a mistake is one click away from being undone.
+* **Screen-level control.** As well as capabilities, you can hide editor features, admin screens, toolbar items, dashboard widgets, Profile fields and navigation menus, per role.
+* **Multisite sync.** Role changes can be pushed across an entire network, or scoped to a single site.
+
+It is actively maintained, tested against the current WordPress release, and free. If you are already using another role editor, your existing roles and capabilities are read directly from WordPress, so there is nothing to import &#8212; install this plugin and your roles are there.
+
+= How do I add a new user role in WordPress? =
+
+Go to **Capabilities > Roles** in your WordPress admin menu. You can create a new role from scratch, or copy an existing role and adjust it &#8212; copying is usually faster, because you start from a working set of capabilities instead of an empty one.
+
+Once the role exists, open **Capabilities** and choose it from the dropdown in the top-left corner. Check the capabilities that role should have and save. On a multisite network you can also choose whether the new role is added to one site or the whole network.
+
+[Click here to see how to manage user roles](https://publishpress.com/knowledge-base/capabilities-screen/).
+
+= How do I avoid locking myself out of the WordPress admin? =
+
+Changing permissions is the one part of WordPress where a mistake can shut you out of your own site, so PublishPress Capabilities is built to make that recoverable:
+
+* **Every change is backed up automatically**, before it is applied. Go to **Capabilities > Backup > Restore** to roll back to any of the last 20 automatic backups, including the one taken when you first installed the plugin.
+* **Your own role is protected** from changes that would remove your access to the Capabilities screens.
+* **Reset to WordPress defaults** is available as a last resort under **Capabilities > Backup > Reset Roles**.
+
+If you are about to make a large change, take a manual backup first from the **Backup** tab. You can also export roles from one site and import them into another.
+
+[Click here to see how to backup permissions](https://publishpress.com/knowledge-base/backup-restore-permissions/).
+
+= Does PublishPress Capabilities work with the block editor and the Site Editor? =
+
+Yes. The plugin is tested against the current WordPress release, and the **Editor Features** screen lets you hide features in both the block editor and the Classic Editor &#8212; sidebar panels such as Tags, Categories and Excerpt, the Publish button, and even the post title, body or permalink, per role.
+
+= How do I hide admin menu items for a user role? =
+
+Many plugins add admin menu links with no way to control who sees them. PublishPress Capabilities Pro adds an **Admin Menus** screen where you can mark any top-level or sub-menu link as blocked for a given role.
+
+In the free version, you can hide a large amount of the admin without touching menus: use **Admin Features** to remove toolbar items and dashboard widgets, **Profile Features** to strip the Profile screen, and the **Capabilities** screen to remove the capability a plugin's menu depends on &#8212; which hides the menu as a side effect.
+
+[Click to see how to block Admin menu access](https://publishpress.com/knowledge-base/admin-menus-screen/).
 
 = How do I Backup and Restore WordPress User Permissions? =
 
@@ -203,11 +244,22 @@ Whenever you choose a backup, the plugin will show all the permissions in that b
 
 = How Do I Restore Permissions to the WordPress Defaults? =
 
-If you really need to clean up and refresh your site, PublishPress Capabilities does allow you to restore the default WordPress permissions. Go to Capabilities > Backup and dlick the “Reset Roles” tab. Before you take next step, make sure to read this warning:
+If you really need to clean up and refresh your site, PublishPress Capabilities does allow you to restore the default WordPress permissions. Go to Capabilities > Backup and click the “Reset Roles” tab. Before you take next step, make sure to read this warning:
 
 “WARNING: This will delete and/or modify stored role definitions. If you have installed any plugin that adds new roles or capabilities, these will be lost. It is recommended to use this only as a last resort!”
 
 If you want to proceed, click the “Reset to WordPress defaults” link. PublishPress Capabilities will ask you if you're really sure you want to do this. Click “OK” to continue. Once the process is complete, you'll see the message, “Roles and Capabilities reset to WordPress defaults”.
+
+= What happens to my roles if I deactivate or delete the plugin? =
+
+Nothing changes back. WordPress keeps roles and capabilities in its own database option, and PublishPress Capabilities edits that option directly rather than storing a separate copy of your settings. Whatever your roles looked like when you removed the plugin is what they stay — removing it is not a way to undo a change.
+
+If you want the standard WordPress roles back, do it **before** you remove the plugin:
+
+* Go to **Capabilities > Backup > Restore** and roll back to a backup from before the change, or
+* Go to **Capabilities > Backup > Reset Roles** to return everything to the WordPress defaults.
+
+Both are in the free version. There is no automatic clean-up on uninstall, which is deliberate — deleting a plugin should not silently rewrite who can do what on your site.
 
 = How Do I Control WooCommerce Menu Link Permissions? =
 
@@ -224,7 +276,7 @@ The Pro version of PublishPress Capabilities allows you to block access to admin
 * Analytics
 * Marketing
 
-It is possible to control who can access these links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. n the top-left corner of this screen, choose the role that you want to edit. Scroll down and you can enter a red X for any menu link that you don't want users in that role to access. This is a great way to customize a WooCommerce role such as Shop Manager. This approach works for the core WooCommerce plugin and can also be used for WooCommerce add-on plugins such as WooCommerce Subscriptions, WooCommerce Shipping, and WooCommerce Bookings. PublishPress Capabilities can help you manage WooCommerce permissisons.
+It is possible to control who can access these links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. Scroll down and you can enter a red X for any menu link that you don't want users in that role to access. This is a great way to customize a WooCommerce role such as Shop Manager. This approach works for the core WooCommerce plugin and can also be used for WooCommerce add-on plugins such as WooCommerce Subscriptions, WooCommerce Shipping, and WooCommerce Bookings. PublishPress Capabilities can help you manage WooCommerce permissions.
 
 [Click here to learn about WooCommerce menu permissions](https://publishpress.com/knowledge-base/control-access-woocommerce-admin-menus/).
 
@@ -338,7 +390,7 @@ The Pro version of PublishPress Capabilities allows you to block access to admin
 
 With The Events Calendar, you can easily create and manage an events calendar on your WordPress site. The plugin supports both in-person and virtual events. There are also many ways to extend the plugin for recurring events, ticket sales, user-submitted events and more.
 
-When you first install the The Events Calendar plugin, you'll see one top-level menu link, plus at least 10 sub-menus:
+When you first install The Events Calendar plugin, you'll see one top-level menu link, plus at least 10 sub-menus:
 
 * Events
 * Add New
@@ -402,17 +454,6 @@ Here's another comparison:
 * PublishPress Capabilities allows you to control who can read all your Pages.
 * PublishPress Permissions allows you to control who can read Pages with a specific Status, Category or Tag, or even Pages with a particular parent Page.
 
-= What's the correct way to spell PublishPress Capabilities? =
-
-PublishPress is the official brandname. When writing about this user role editor plugin, please make sure to uppercase the Ps.
-
-* PublishPress Capabilities (correct)
-* Publish Press Capabilities (incorrect)
-* publishpress capabilities (incorrect)
-* publish press cpabilities (incorrect)
-
-Common and incorrect typos include Capabilitise, Cpabilities, Capabiliites, Cspabilities, Capsbilities, Caoabilities, Calabilities.
-
 = Where do I report security bugs found in this plugin? =
 
 Please report security bugs found in the source code of the PublishPress Capabilities plugin through the [Patchstack Vulnerability Disclosure  Program](https://patchstack.com/database/vdp/9e5fb68c-2e40-4533-8563-1138f4dcbad5). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
@@ -426,20 +467,12 @@ Please report security bugs found in the source code of the PublishPress Capabil
 5. Custom Statuses: With Capabilities Pro, you can decide which user roles are able to send posts to each status.
 6. Enforce Taxonomy-Specific Capabilities: You can give “Manage”, “Edit” and “Assign” permissions for all your taxonomies.
 7. Permission backups: Every time you change your permissions, the PublishPress Capabilities plugin will automatically create a backup.
-8.  Media Library Permissions: PublishPress Capabilities enables you to decide who can upload, edit and delete files from your site’s Media Library.
-9.  WooCommerce Permissions: With PublishPress Capabilities you can control permissions for WooCommerce products, orders and coupons.
+8. Media Library Permissions: PublishPress Capabilities enables you to decide who can upload, edit and delete files from your site’s Media Library.
+9. WooCommerce Permissions: With PublishPress Capabilities you can control permissions for WooCommerce products, orders and coupons.
 10. Navigation Menu Restrictions: PublishPress Capabilities enables you to restrict access to navigation menus by roles, logged in and logged out users.
 11. Admin Menu Restrictions: With PublishPress Capabilities you can restrict access to admin menu screens by user roles.
 12. Editor Feature Restriction: PublishPress Capabilities enables you to decide what users see when they're writing posts.
-13. Admin Feature Restriction: PublishPress Capabilities enables you remove items from the WordPress toolbar, plus dashboard widgets.
-
-== Upgrade Notice ==
-
-= 1.5.1 =
-Fixed : Non-administrators with user editing capabilities could add new Administrators
-
-= 2.3.1 =
-Fixed : Security issue. Please update.
+13. Admin Feature Restriction: PublishPress Capabilities enables you to remove items from the WordPress toolbar, plus dashboard widgets.
 
 == Changelog ==
 
