@@ -260,11 +260,16 @@ class CapabilityManager
 			'saveWarning'   => __( 'Add or clear custom item entry before saving changes.', 'capability-manager-enhanced' ),
 			'foundOneMatchOneTab' => __( 'Found %1$d match in %2$d tab', 'capability-manager-enhanced' ),
 			'foundOneMatchMultipleTabs' => __( 'Found %1$d match in %2$d tabs', 'capability-manager-enhanced' ),
-			'foundMultipleMatchesOneTab' => __( 'Found %1$d matches in %2$d tab', 'capability-manager-enhanced' ),
-			'foundMultipleMatchesMultipleTabs' => __( 'Found %1$d matches in %2$d tabs', 'capability-manager-enhanced' ),
-			'noMatchesFoundFor' => __( 'No matches found for "%s"', 'capability-manager-enhanced' )
-			]
-		);
+				'foundMultipleMatchesOneTab' => __( 'Found %1$d matches in %2$d tab', 'capability-manager-enhanced' ),
+				'foundMultipleMatchesMultipleTabs' => __( 'Found %1$d matches in %2$d tabs', 'capability-manager-enhanced' ),
+				'noMatchesFoundFor' => __( 'No matches found for "%s"', 'capability-manager-enhanced' ),
+				'capabilityStates' => [
+					'checked' => __( 'Granted', 'capability-manager-enhanced' ),
+					'unchecked' => __( 'Not granted', 'capability-manager-enhanced' ),
+					'negated' => __( 'Denied', 'capability-manager-enhanced' ),
+				]
+				]
+			);
     }
 
 	function adminScriptsPP() {
