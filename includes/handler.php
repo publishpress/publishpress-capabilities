@@ -118,7 +118,7 @@ class CapsmanHandler
 				$redirect_role = (!empty($_POST['role'])) ? sanitize_key($_POST['role']) : '';
 
 				$url = admin_url('admin.php?page=pp-capabilities&role=' . esc_attr($redirect_role) . '&added=1');
-				wp_redirect($url);
+				wp_safe_redirect($url);
 				exit;
 			} else {
 				add_action('all_admin_notices', function() {

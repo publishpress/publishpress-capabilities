@@ -1230,7 +1230,7 @@ class CapabilityManager
 						$redirect_args['pp_caps_tab'] = sanitize_key($_REQUEST['pp_caps_tab']);
 					}
 
-					wp_redirect(add_query_arg($redirect_args, admin_url('admin.php')));
+					wp_safe_redirect(add_query_arg($redirect_args, admin_url('admin.php')));
 					exit;
 				}
 			}

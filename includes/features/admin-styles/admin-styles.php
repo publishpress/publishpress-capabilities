@@ -864,11 +864,12 @@ class PP_Capabilities_Admin_Styles
         if ($is_custom_style_submit) {
             $this->handle_custom_style_action();
 
-            wp_redirect(add_query_arg([
+            $redirect_url = add_query_arg([
                 'page' => 'pp-capabilities-admin-styles',
                 'settings-updated' => 'true',
                 'role' => isset($_POST['ppc-admin-styles-role']) ? sanitize_text_field($_POST['ppc-admin-styles-role']) : ''
-            ], admin_url('admin.php')));
+            ], admin_url('admin.php'));
+            wp_safe_redirect($redirect_url);
             exit;
         }
 
