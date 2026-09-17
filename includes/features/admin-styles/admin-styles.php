@@ -345,7 +345,7 @@ class PP_Capabilities_Admin_Styles
 
         // Apply custom CSS
         if (!empty($css)) {
-            echo '<style id="pp-capabilities-admin-styles">' . $css . '</style>';
+            echo '<style id="pp-capabilities-admin-styles">' . esc_html($css) . '</style>';
         }
     }
 

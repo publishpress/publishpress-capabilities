@@ -91,7 +91,7 @@ $fields = [
 
     <div class="wrap publishpress-caps-manage pressshack-admin-wrapper pp-capability-menus-wrapper redirects-features">
         <div id="icon-capsman-admin" class="icon32"></div>
-        <h2><?php printf(esc_html__('%s Redirects', 'capability-manager-enhanced'), translate_user_role($roles[$default_role])); ?></h2>
+        <h2><?php printf(esc_html__('%s Redirects', 'capability-manager-enhanced'), esc_html(translate_user_role($roles[$default_role]))); ?></h2>
 
         <form method="post" action="" id="ppc-redirects-features-form" onkeydown="return event.key != 'Enter';">
             <?php wp_nonce_field('pp-capabilities-redirects-features'); ?>
@@ -132,7 +132,7 @@ $fields = [
                                                 ?>
                                             </select> &nbsp;
 
-                                            <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
+                                            <img class="loading" src="<?php echo esc_url($capsman->mod_url . '/images/wpspin_light.gif'); ?>"
                                                     style="display: none">
                                         </div>
                                         </p>

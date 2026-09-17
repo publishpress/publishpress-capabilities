@@ -477,7 +477,7 @@ if ($admin_styles_saved !== false) {
                                                                                 </button>
 
                                                                                 <div class="tool-tip-text">
-                                                                                    <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capability-manager-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capability-manager-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capability-manager-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capability-manager-enhanced') .'</a>' ); ?></p>
+                                                                                    <p><?php echo wp_kses_post(sprintf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capability-manager-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capability-manager-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capability-manager-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capability-manager-enhanced') .'</a>' )); ?></p>
                                                                                         <i></i>
                                                                                 </div>
                                                                             </div>
