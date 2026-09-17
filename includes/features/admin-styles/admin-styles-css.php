@@ -1220,6 +1220,6 @@ CSS;
 if (!$is_library) {
     // Get colors and output CSS
     $colors = ppc_get_custom_colors();
-    echo ppc_generate_custom_scheme_css($colors);
+    echo esc_html(ppc_generate_custom_scheme_css($colors));
     exit;
 }

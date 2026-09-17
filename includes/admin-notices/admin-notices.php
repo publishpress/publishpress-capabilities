@@ -123,7 +123,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
             $admin_notices = (string) ob_get_clean();
 
-            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $admin_notices . '</div>';
+            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . wp_kses_post($admin_notices) . '</div>';
         }
 
         /**
