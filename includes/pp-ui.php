@@ -66,9 +66,9 @@ class Capsman_PP_UI {
 					$parenthetical = '';
 
 				if ( defined( 'PRESSPERMIT_ACTIVE' ) )
-					printf( esc_html__( '"Posts" capabilities selected here also define type-specific role assignment for Permission Groups%s.', 'capability-manager-enhanced' ), $parenthetical ) ;
+                    printf( esc_html__( '"Posts" capabilities selected here also define type-specific role assignment for Permission Groups%s.', 'capability-manager-enhanced' ), wp_kses_post($parenthetical) ) ;
 				else
-					printf( esc_html__( '"Posts" capabilities selected here also define type-specific role assignment for Permit Groups%s.', 'capability-manager-enhanced' ), $parenthetical ) ;
+                    printf( esc_html__( '"Posts" capabilities selected here also define type-specific role assignment for Permit Groups%s.', 'capability-manager-enhanced' ), wp_kses_post($parenthetical) ) ;
 
 				echo '</li>';
 			}
@@ -169,7 +169,7 @@ class Capsman_PP_UI {
 
 						<?php
 						echo ('</label><span class="tool-tip-text">
-						<p>'. $type_tooltip .'</p>
+						<p>'. wp_kses_post($type_tooltip) .'</p>
 						<i></i>
 					</span></span></div>');
 
@@ -269,7 +269,7 @@ class Capsman_PP_UI {
 
 						<?php
 						echo ('</label><span class="tool-tip-text">
-						<p>'. $type_tooltip .'</p>
+						<p>'. wp_kses_post($type_tooltip) .'</p>
 						<i></i>
 					</span></span></div>');
 
@@ -348,7 +348,7 @@ class Capsman_PP_UI {
 
 						<?php
 						echo ('</label><span class="tool-tip-text">
-						<p>'. $type_tooltip .'</p>
+						<p>'. wp_kses_post($type_tooltip) .'</p>
 						<i></i>
 					</span></span></div>');
 
