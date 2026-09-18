@@ -83,7 +83,9 @@ class PP_Capabilities_Frontend_Features_Metaboxes
             if (is_array($section_elements) && !empty($section_elements)) :
             $section_slug  = '_ppc_' . strtolower(ppc_remove_non_alphanumeric_space_characters($section_title));
 
-            $post_features = isset($post_meta[$section_slug][0]) ? (array) $post_meta[$section_slug][0] : array();
+            $post_features = isset($post_meta[$section_slug][0])
+                ? (array) maybe_unserialize($post_meta[$section_slug][0])
+                : array();
             ?>
             <div class="frontend-feature-metabox">
                 <select name="<?php echo esc_attr($section_slug); ?>[]"
