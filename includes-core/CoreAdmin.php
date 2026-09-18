@@ -170,7 +170,7 @@ class CoreAdmin {
             <small>
                 <?php esc_html_e('You can select page types where this element will be added.', 'capability-manager-enhanced'); ?>
             </small>
-            <input type="text" style="visibility: hidden;" /> <!-- using this to balance the space needed due to field size -->
+            <input type="text" aria-label="<?php esc_attr_e('Layout spacer', 'capability-manager-enhanced'); ?>" style="visibility: hidden;" /> <!-- using this to balance the space needed due to field size -->
         </div>
         <?php
     }

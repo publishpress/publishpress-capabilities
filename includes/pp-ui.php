@@ -156,8 +156,8 @@ class Capsman_PP_UI {
 					?>
 					<div style="text-align:left">
 					<?php if ( ! empty( $hidden[$key] ) ) :?>
-						<input name="<?php echo(esc_attr($id));?>" type="hidden" id="<?php echo(esc_attr($id));?>" value="1" />
-						<input name="<?php echo(esc_attr($option_basename) . "-options[]");?>" type="hidden" value="<?php echo(esc_attr($key))?>" />
+						<input name="<?php echo(esc_attr($id));?>" type="hidden" aria-label="<?php esc_attr_e('Post type option', 'capability-manager-enhanced'); ?>" id="<?php echo(esc_attr($id));?>" value="1" />
+						<input name="<?php echo(esc_attr($option_basename) . "-options[]");?>" type="hidden" aria-label="<?php esc_attr_e('Post type option value', 'capability-manager-enhanced'); ?>" value="<?php echo(esc_attr($key))?>" />
 
 					<?php else:
 						$type_tooltip = sprintf(__( 'The slug for this post type is %s', 'capability-manager-enhanced' ), '<strong>' . esc_html($key) . '</strong>' );
@@ -256,8 +256,8 @@ class Capsman_PP_UI {
 					?>
 					<div style="text-align:left">
 					<?php if ( ! empty( $hidden[$taxonomy] ) ) :?>
-						<input name="<?php echo(esc_attr($id));?>" type="hidden" id="<?php echo(esc_attr($id));?>" value="1" />
-						<input name="<?php echo(esc_attr($option_basename) . '-options[]');?>" type="hidden" value="<?php echo(esc_attr($taxonomy))?>" />
+						<input name="<?php echo(esc_attr($id));?>" type="hidden" aria-label="<?php esc_attr_e('Taxonomy option', 'capability-manager-enhanced'); ?>" id="<?php echo(esc_attr($id));?>" value="1" />
+						<input name="<?php echo(esc_attr($option_basename) . '-options[]');?>" type="hidden" aria-label="<?php esc_attr_e('Taxonomy option value', 'capability-manager-enhanced'); ?>" value="<?php echo(esc_attr($taxonomy))?>" />
 
 					<?php else:
 						$type_tooltip = sprintf(__( 'The slug for this taxonomy is %s', 'capability-manager-enhanced' ), '<strong>' . esc_html($taxonomy) . '</strong>' );
@@ -335,8 +335,8 @@ class Capsman_PP_UI {
 					?>
 					<div style="text-align:left">
 					<?php if ( ! empty( $hidden[$taxonomy] ) ) :?>
-						<input name="<?php echo(esc_attr($id));?>" type="hidden" id="<?php echo(esc_attr($id));?>" value="1" />
-						<input name="<?php echo(esc_attr($option_basename) . '-options[]');?>" type="hidden" value="<?php echo(esc_attr($taxonomy))?>" />
+						<input name="<?php echo(esc_attr($id));?>" type="hidden" aria-label="<?php esc_attr_e('Taxonomy option', 'capability-manager-enhanced'); ?>" id="<?php echo(esc_attr($id));?>" value="1" />
+						<input name="<?php echo(esc_attr($option_basename) . '-options[]');?>" type="hidden" aria-label="<?php esc_attr_e('Taxonomy option value', 'capability-manager-enhanced'); ?>" value="<?php echo(esc_attr($taxonomy))?>" />
 
 					<?php else:
 						$type_tooltip = sprintf(__( 'The slug for this taxonomy is %s', 'capability-manager-enhanced' ), '<strong>' . esc_html($taxonomy) . '</strong>' );
@@ -369,4 +369,3 @@ class Capsman_PP_UI {
 		<?php
 	}
 }
-

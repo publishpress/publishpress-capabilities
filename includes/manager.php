@@ -561,7 +561,7 @@ class CapabilityManager
 
                 function($arr) {
                     return [
-                        'cb' 			  => '<input type="checkbox"/>',
+                        'cb' 			  => '<input type="checkbox" aria-label="' . esc_attr__('Select all roles', 'capability-manager-enhanced') . '"/>',
                         'name'            => esc_html__('Role Name', 'capability-manager-enhanced'),
 						'count'           => esc_html__('Users'),
 						'role_type'       => esc_html__('Role Type', 'capability-manager-enhanced'),

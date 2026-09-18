@@ -383,6 +383,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         <div class="ppc-advanced-rule-selector">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Selector', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
+                                                                                                                aria-label="<?php esc_attr_e('Selector', 'capability-manager-enhanced'); ?>"
                                                                                                                 class="regular-text ppc-advanced-selector"
                                                                                                                 name="custom_style_advanced_rules[{{index}}][selector]"
                                                                                                                 placeholder="<?php esc_attr_e('e.g. .publishpress-wrap h1, #my-plugin-header', 'capability-manager-enhanced'); ?>">
@@ -399,6 +400,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         <div class="ppc-advanced-rule-color">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Brand Color', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
+                                                                                                                aria-label="<?php esc_attr_e('Brand Color', 'capability-manager-enhanced'); ?>"
                                                                                                                 class="pp-capabilities-color-picker ppc-advanced-color"
                                                                                                                 data-category="advanced"
                                                                                                                 data-color-key="advanced_rule_color"
@@ -445,6 +447,7 @@ if ($admin_styles_saved !== false) {
                                                                                                     <input type="text"
                                                                                                         name="custom_style_<?php echo esc_attr($color_key); ?>"
                                                                                                         id="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                        aria-label="<?php echo esc_attr($color_config['label']); ?>"
                                                                                                         value=""
                                                                                                         class="pp-capabilities-color-picker custom-style-color color-input"
                                                                                                         data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
