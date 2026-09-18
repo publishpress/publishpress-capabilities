@@ -242,6 +242,17 @@ If you really need to clean up and refresh your site, PublishPress Capabilities 
 
 If you want to proceed, click the “Reset to WordPress defaults” link. PublishPress Capabilities will ask you if you're really sure you want to do this. Click “OK” to continue. Once the process is complete, you'll see the message, “Roles and Capabilities reset to WordPress defaults”.
 
+= What happens to my roles if I deactivate or delete the plugin? =
+
+Nothing changes back. WordPress keeps roles and capabilities in its own database option, and PublishPress Capabilities edits that option directly rather than storing a separate copy of your settings. Whatever your roles looked like when you removed the plugin is what they stay &#8212; removing it is not a way to undo a change.
+
+If you want the standard WordPress roles back, do it **before** you remove the plugin:
+
+* Go to **Capabilities > Backup > Restore** and roll back to a backup from before the change, or
+* Go to **Capabilities > Backup > Reset Roles** to return everything to the WordPress defaults.
+
+Both are in the free version. There is no automatic clean-up on uninstall, which is deliberate &#8212; deleting a plugin should not silently rewrite who can do what on your site.
+
 = How Do I Control WooCommerce Menu Link Permissions? =
 
 WooCommerce is the most popular WordPress eCommerce plugin. You can create beautiful store with themes customized to your brand and industry and you'll find 1,000's of tools and popular integrations.
@@ -371,7 +382,7 @@ The Pro version of PublishPress Capabilities allows you to block access to admin
 
 With The Events Calendar, you can easily create and manage an events calendar on your WordPress site. The plugin supports both in-person and virtual events. There are also many ways to extend the plugin for recurring events, ticket sales, user-submitted events and more.
 
-When you first install the The Events Calendar plugin, you'll see one top-level menu link, plus at least 10 sub-menus:
+When you first install The Events Calendar plugin, you'll see one top-level menu link, plus at least 10 sub-menus:
 
 * Events
 * Add New
