@@ -77,11 +77,13 @@ class PP_Capabilities_Frontend_Features_Metaboxes
             <?php esc_html_e('Choose Frontend Features that will apply to this post.', 'capability-manager-enhanced'); ?>
         </p>
         <?php
+        $post_meta = get_post_meta($post->ID);
+
         foreach ($frontend_features_elements as $section_title => $section_elements) :
             if (is_array($section_elements) && !empty($section_elements)) :
             $section_slug  = '_ppc_' . strtolower(ppc_remove_non_alphanumeric_space_characters($section_title));
 
-            $post_features = (array) get_post_meta($post->ID, $section_slug, true);
+            $post_features = isset($post_meta[$section_slug][0]) ? (array) $post_meta[$section_slug][0] : array();
             ?>
             <div class="frontend-feature-metabox">
                 <select name="<?php echo esc_attr($section_slug); ?>[]"
