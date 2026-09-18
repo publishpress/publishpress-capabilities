@@ -138,7 +138,7 @@ add_action('plugins_loaded', function () {
 	if (!empty($_REQUEST['page'])) {
 		foreach (['capsman' => 'pp-capabilities', 'capsman-tool' => 'pp-capabilities-backup'] as $find => $replace) {
 			if (isset($_REQUEST['page']) && ($find == $_REQUEST['page']) && !empty($_SERVER['REQUEST_URI'])) {
-				$location = str_replace("page=$find", "page=$replace", esc_url_raw($_SERVER['REQUEST_URI']));
+				$location = str_replace("page=$find", "page=$replace", esc_url_raw(wp_unslash($_SERVER['REQUEST_URI'])));
 				header("Location: $location", true);
 				exit;
 			}

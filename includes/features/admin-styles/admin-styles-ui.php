@@ -31,7 +31,7 @@ if (empty($current_role)) {
 }
 
 // Force reload of settings for the current role after form submission
-if (!empty($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pp-capabilities-admin-styles')) {
+if (!empty($_POST['_wpnonce']) && wp_verify_nonce(wp_unslash($_POST['_wpnonce']), 'pp-capabilities-admin-styles')) {
     $admin_styles->load_settings_for_role($current_role);
 }
 

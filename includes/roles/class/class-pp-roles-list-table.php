@@ -595,7 +595,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
         $input_id = $input_id . '-search-input';
 
         if (!empty($_REQUEST['orderby'])) {
-            echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field($_REQUEST['orderby'])) . '" />';
+            echo '<input type="hidden" name="orderby" value="' . esc_attr(sanitize_text_field(wp_unslash($_REQUEST['orderby']))) . '" />';
         }
         if (!empty($_REQUEST['order'])) {
             echo '<input type="hidden" name="order" value="' . esc_attr(sanitize_key($_REQUEST['order'])) . '" />';
@@ -643,7 +643,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
         /**
          * Handle search
          */
-        if ((!empty($_REQUEST['s'])) && $search = sanitize_text_field($_REQUEST['s'])) {
+        if ((!empty($_REQUEST['s'])) && $search = sanitize_text_field(wp_unslash($_REQUEST['s']))) {
             $data_filtered = [];
             foreach ($data as $item) {
                 if ($this->str_contains($item['role'], $search, false) || $this->str_contains(translate_user_role($item['name']), $search, false)) {
@@ -658,8 +658,8 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
          */
         function usort_reorder($a, $b)
         {
-            $orderby = (!empty($_REQUEST['orderby'])) ? sanitize_text_field($_REQUEST['orderby']) : 'role'; //If no sort, default to role
-            $order = (!empty($_REQUEST['order'])) ? sanitize_key($_REQUEST['order']) : 'asc'; //If no order, default to asc
+            $orderby = (!empty($_REQUEST['orderby'])) ? sanitize_text_field(wp_unslash($_REQUEST['orderby'])) : 'role'; //If no sort, default to role
+            $order = (!empty($_REQUEST['order'])) ? sanitize_key(wp_unslash($_REQUEST['order'])) : 'asc'; //If no order, default to asc
             $result = strnatcasecmp(is_array($a[$orderby]) ? count($a[$orderby]) : $a[$orderby], is_array($b[$orderby]) ? count($b[$orderby]) : $b[$orderby]); //Determine sort order, case insensitive, natural order
 
             return ($order === 'asc') ? $result : -$result; //Send final sort direction to usort

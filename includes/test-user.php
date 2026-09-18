@@ -49,19 +49,19 @@ class PP_Capabilities_Test_User
             return;
         }
 
-        if (!wp_verify_nonce(sanitize_key($_GET['_wpnonce']), 'ppc-test-user')) {
+        if (!wp_verify_nonce(sanitize_key(wp_unslash($_GET['_wpnonce'])), 'ppc-test-user')) {
             wp_die(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
         }
 
-        $request_user_id = isset($_GET['ppc_test_user']) ? (int) base64_decode(sanitize_text_field($_GET['ppc_test_user'])) : 0;
-        $ppc_return_back = isset($_GET['ppc_return_back']) ? (int) sanitize_text_field($_GET['ppc_return_back']) : 0;
+        $request_user_id = isset($_GET['ppc_test_user']) ? (int) base64_decode(sanitize_text_field(wp_unslash($_GET['ppc_test_user']))) : 0;
+        $ppc_return_back = isset($_GET['ppc_return_back']) ? (int) sanitize_text_field(wp_unslash($_GET['ppc_return_back'])) : 0;
         $current_user_id = get_current_user_id();
         $request_user    = get_userdata($request_user_id);
 
         if (!$request_user || (is_object($request_user) && !isset($request_user->ID))) {
             wp_die(esc_html__('Unable to retrieve user data.', 'capability-manager-enhanced'));
         } else {
-            $profile_feature_action = isset($_GET['profile_feature_action']) ? (int) sanitize_text_field($_GET['profile_feature_action']) : 0;
+            $profile_feature_action = isset($_GET['profile_feature_action']) ? (int) sanitize_text_field(wp_unslash($_GET['profile_feature_action'])) : 0;
             if ($ppc_return_back > 0) {
                 $user_auth        = wp_unslash(self::testerAuth());
                 $original_user_id = wp_validate_auth_cookie($user_auth, 'logged_in');
@@ -147,7 +147,7 @@ class PP_Capabilities_Test_User
         $auth_key = self::$cookie_name;
         if (isset($_COOKIE[$auth_key]) && !empty($_COOKIE[$auth_key])) {
             // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
-            return $_COOKIE[$auth_key];
+            return wp_unslash($_COOKIE[$auth_key]);
         } else {
             return false;
         }
