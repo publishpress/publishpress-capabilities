@@ -369,4 +369,3 @@ class Capsman_PP_UI {
 		<?php
 	}
 }
-

@@ -175,7 +175,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
          * column.
          */
         $columns = [
-            'cb'              => '<input type="checkbox"/>', //Render a checkbox instead of text
+            'cb'              => '<input type="checkbox" aria-label="' . esc_attr__('Select all roles', 'capability-manager-enhanced') . '"/>', //Render a checkbox instead of text
             'name'            => esc_html__('Role Name', 'capability-manager-enhanced'),
             'count'           => esc_html__('Users'),
             'role_type'       => esc_html__('Role Type', 'capability-manager-enhanced'),
@@ -331,7 +331,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
     protected function column_cb($item)
     {
         $disabled = ($this->manager->is_system_role($item['role']) || ($this->default_role == $item['role']) || !pp_capabilities_is_editable_role($item['role'])) ? ' disabled=disabled' : '';
-        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s"' . $disabled .  ' />', 'role', $item['role']);
+        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s" aria-label="%3$s"' . $disabled .  ' />', 'role', $item['role'], esc_attr(sprintf(esc_html__('Select role %s', 'capability-manager-enhanced'), $item['role'])));
 
         return $out;
     }

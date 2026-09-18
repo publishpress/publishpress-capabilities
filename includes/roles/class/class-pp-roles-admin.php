@@ -370,6 +370,7 @@ class Pp_Roles_Admin
                     <div class="role-editor-toggle-box">
                         <input name="<?php echo esc_attr($key.'-toggle'); ?>"
                             id="<?php echo esc_attr($key); ?>"
+                            aria-label="<?php echo esc_attr($args['label']); ?>"
                             class="allowed-editor-toggle"
                             type="checkbox"
                             value="1"
@@ -457,6 +458,7 @@ class Pp_Roles_Admin
                     ?>
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="1"
                         <?php checked(1, (int)$args['value']); ?>
@@ -469,6 +471,7 @@ class Pp_Roles_Admin
                 <?php else : ?>
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                        <?php echo ($args['required'] ? 'required="true"' : '');?>
