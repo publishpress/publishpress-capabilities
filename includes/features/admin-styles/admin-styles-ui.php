@@ -171,7 +171,7 @@ if ($admin_styles_saved !== false) {
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                    style="display: none">
+                                    alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div>
@@ -514,7 +514,7 @@ if ($admin_styles_saved !== false) {
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="logo-preview">
                                                                         <?php if (!empty($settings['admin_logo'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
+                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" alt="<?php esc_attr_e('Admin logo preview', 'capability-manager-enhanced'); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>
                                                                     <button type="button"
@@ -549,7 +549,7 @@ if ($admin_styles_saved !== false) {
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="favicon-preview">
                                                                         <?php if (!empty($settings['admin_favicon'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>"
+                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>" alt="<?php esc_attr_e('Admin favicon preview', 'capability-manager-enhanced'); ?>"
                                                                                 style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>

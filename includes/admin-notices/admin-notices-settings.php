@@ -52,7 +52,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                     <?php endforeach; ?>
                                 </select> &nbsp;
 
-                                    <img class="loading" src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'images/wpspin_light.gif'); ?>" style="display: none">
+                                    <img class="loading" src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'images/wpspin_light.gif'); ?>" alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div class="pp-capabilities-submit-top" style="display: flex;gap: 10px;float:right; margin-bottom: 20px;">

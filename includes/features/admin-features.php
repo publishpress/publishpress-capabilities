@@ -79,7 +79,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                             </select> &nbsp;
 
                                             <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                                    style="display: none">
+                                                    alt="" aria-hidden="true" style="display: none">
                                         </div>
                                         </p>
                                     </div>

@@ -1711,7 +1711,7 @@ function cme_publishpressFooter() {
 	<div class="pp-pressshack-logo">
 	<a href="https://publishpress.com" target="_blank" rel="noopener noreferrer">
 
-	<img src="<?php echo esc_url_raw(plugins_url('', CME_FILE) . '/common/img/publishpress-logo.png');?>" />
+	<img src="<?php echo esc_url_raw(plugins_url('', CME_FILE) . '/common/img/publishpress-logo.png');?>" alt="<?php esc_attr_e('PublishPress', 'capability-manager-enhanced'); ?>" />
 	</a>
 	</div>
 

@@ -95,7 +95,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
 
                                         </select> &nbsp;
 
-                                        <img class="loading" src="<?php echo esc_url($capsman->mod_url); ?>/images/wpspin_light.gif" style="display: none">
+                                        <img class="loading" src="<?php echo esc_url($capsman->mod_url); ?>/images/wpspin_light.gif" alt="" aria-hidden="true" style="display: none">
 
                                         <input type="submit" name="nav-menu-submit"
                                             value="<?php esc_attr_e('Save Changes');?>"
