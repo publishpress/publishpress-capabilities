@@ -123,7 +123,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                    style="display: none">
+                                    alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div id="pp-capability-menu-wrapper" class="postbox">

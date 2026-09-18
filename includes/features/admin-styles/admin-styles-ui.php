@@ -171,7 +171,7 @@ if ($admin_styles_saved !== false) {
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                    style="display: none">
+                                    alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div>
@@ -383,6 +383,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         <div class="ppc-advanced-rule-selector">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Selector', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
+                                                                                                                aria-label="<?php esc_attr_e('Selector', 'capability-manager-enhanced'); ?>"
                                                                                                                 class="regular-text ppc-advanced-selector"
                                                                                                                 name="custom_style_advanced_rules[{{index}}][selector]"
                                                                                                                 placeholder="<?php esc_attr_e('e.g. .publishpress-wrap h1, #my-plugin-header', 'capability-manager-enhanced'); ?>">
@@ -399,6 +400,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         <div class="ppc-advanced-rule-color">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Brand Color', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
+                                                                                                                aria-label="<?php esc_attr_e('Brand Color', 'capability-manager-enhanced'); ?>"
                                                                                                                 class="pp-capabilities-color-picker ppc-advanced-color"
                                                                                                                 data-category="advanced"
                                                                                                                 data-color-key="advanced_rule_color"
@@ -445,6 +447,7 @@ if ($admin_styles_saved !== false) {
                                                                                                     <input type="text"
                                                                                                         name="custom_style_<?php echo esc_attr($color_key); ?>"
                                                                                                         id="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                        aria-label="<?php echo esc_attr($color_config['label']); ?>"
                                                                                                         value=""
                                                                                                         class="pp-capabilities-color-picker custom-style-color color-input"
                                                                                                         data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
@@ -511,7 +514,7 @@ if ($admin_styles_saved !== false) {
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="logo-preview">
                                                                         <?php if (!empty($settings['admin_logo'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
+                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" alt="<?php esc_attr_e('Admin logo preview', 'capability-manager-enhanced'); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>
                                                                     <button type="button"
@@ -546,7 +549,7 @@ if ($admin_styles_saved !== false) {
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="favicon-preview">
                                                                         <?php if (!empty($settings['admin_favicon'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>"
+                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>" alt="<?php esc_attr_e('Admin favicon preview', 'capability-manager-enhanced'); ?>"
                                                                                 style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>

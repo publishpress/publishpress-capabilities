@@ -79,7 +79,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                             </select> &nbsp;
 
                                             <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                                    style="display: none">
+                                                    alt="" aria-hidden="true" style="display: none">
                                         </div>
                                         </p>
                                     </div>
@@ -356,7 +356,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                 <?php
                 $banner_title  = __('Admin Features Settings', 'capability-manager-enhanced');
                 $banner_messages = ['<p>'];
-                $banner_messages[] = '<input type="checkbox" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '> '
+                $banner_messages[] = '<input type="checkbox" aria-label="' . esc_attr__('Hide Submenus', 'capability-manager-enhanced') . '" class="admin-features-setting-field hide-submenu" ' . checked($hide_submenu, true, false) . '> '
                     . esc_html__('Hide Submenus', 'capability-manager-enhanced') . ' <br />';
                 $banner_messages[] = '</p>';
                 pp_capabilities_sidebox_banner($banner_title, $banner_messages);

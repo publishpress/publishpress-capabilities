@@ -133,7 +133,7 @@ $fields = [
                                             </select> &nbsp;
 
                                             <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                                    style="display: none">
+                                                    alt="" aria-hidden="true" style="display: none">
                                         </div>
                                         </p>
                                     </div>
@@ -234,6 +234,7 @@ $fields = [
                                                                                                 <div class="base-input">
                                                                                                     <input name="<?php echo esc_attr($key); ?>"
                                                                                                     id="<?php echo esc_attr($key); ?>"
+                                                                                                    aria-label="<?php echo esc_attr($args['label']); ?>"
                                                                                                     type="text"
                                                                                                     value="<?php echo esc_attr($base_url); ?>"
                                                                                                     data-original_base="<?php echo esc_attr($base_url); ?>"
@@ -267,6 +268,7 @@ $fields = [
                                                                                         <div class="base-input">
                                                                                             <input name="<?php echo esc_attr($key); ?>"
                                                                                             id="<?php echo esc_attr($key); ?>"
+                                                                                            aria-label="<?php echo esc_attr($args['label']); ?>"
                                                                                             type="text"
                                                                                             value="<?php echo esc_attr($base_url); ?>"
                                                                                             data-original_base="<?php echo esc_attr($base_url); ?>"
@@ -286,6 +288,7 @@ $fields = [
                                                                                 <?php else : ?>
                                                                                     <input name="<?php echo esc_attr($key); ?>"
                                                                                         id="<?php echo esc_attr($key); ?>"
+                                                                                        aria-label="<?php echo esc_attr($args['label']); ?>"
                                                                                         type="<?php echo esc_attr($args['type']); ?>"
                                                                                         value="<?php echo esc_attr($args['value']); ?>"
                                                                                     <?php echo ($args['required'] ? 'required="true"' : '');?>

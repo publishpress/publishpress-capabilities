@@ -949,7 +949,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 									}
 
 									$row .= "<td>";
-									$row .= '<input type="checkbox" class="pp-row-action-rotate excluded-input"> &nbsp;';
+									$row .= '<input type="checkbox" class="pp-row-action-rotate excluded-input" aria-label="' . esc_attr__('Toggle capability type', 'capability-manager-enhanced') . '"> &nbsp;';
 									$row .= "<span class='{$type_tooltip_class}'><a class='cap_type' href='#toggle_type_caps'>" . esc_html($type_label) . '</a> '. $type_tooltip_msg .'</span>';
 									$row .= '<a style="display: none;" href="#" class="neg-type-caps">&nbsp;x&nbsp;</a>';
 									$row .= '</td>';
@@ -1021,7 +1021,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 													$chk_class = ( $chk_classes ) ? ' class="' . implode(' ', $chk_classes) . '"' : '';
 
-                                                    $checkbox = '<div class="ppc-tool-tip disabled"><input type="checkbox"' . $chk_class . ' name="caps[' . esc_attr($cap_name) . ']" autocomplete="off" value="1" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
+									$checkbox = '<div class="ppc-tool-tip disabled"><input type="checkbox" aria-label="' . esc_attr($cap_name) . '"' . $chk_class . ' name="caps[' . esc_attr($cap_name) . ']" autocomplete="off" value="1" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
                                                         <div class="tool-tip-text">
                                                             <p>'. $tool_tip .'</p>
                                                             <i></i>
@@ -1053,7 +1053,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 													$tool_tip  = sprintf(__('This capability is controlled by %s Use the sidebar settings to allow this to be controlled independently.', 'capability-manager-enhanced'), '<strong>' . $cap_name . '</strong>.<br /><br />');
 												}
 
-                                                $checkbox = '<div class="ppc-tool-tip disabled"><input disabled class="disabled" type="checkbox" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
+                                                $checkbox = '<div class="ppc-tool-tip disabled"><input disabled class="disabled" type="checkbox" aria-label="' . esc_attr($cap_name) . '" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
                                                     <div class="tool-tip-text">
                                                         <p>'. $tool_tip .'</p>
                                                         <i></i>
@@ -2137,7 +2137,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 			<?php /* play.png icon by Pavel: http://kde-look.org/usermanager/search.php?username=InFeRnODeMoN */ ?>
 
-			<div id="pp_features" style="display:none"><div class="pp-logo"><a href="https://publishpress.com/presspermit/"><img src="<?php echo esc_url_raw($img_url);?>pp-logo.png" alt="<?php esc_attr_e('PublishPress Permissions', 'capability-manager-enhanced');?>" /></a></div><div class="features-wrap"><ul class="pp-features">
+			<div id="pp_features" style="display:none"><div class="pp-logo"><a href="https://publishpress.com/presspermit/"><img src="<?php echo esc_url_raw($img_url);?>pp-logo.png" alt="<?php echo esc_attr__('PublishPress Permissions', 'capability-manager-enhanced');?>" /></a></div><div class="features-wrap"><ul class="pp-features">
 			<li>
 			<?php esc_html_e( "Automatically define type-specific capabilities for your custom post types and taxonomies", 'capability-manager-enhanced' );?>
 			<a href="https://presspermit.com/tutorial/regulate-post-type-access" target="_blank"><img class="cme-play" alt="<?php esc_attr_e('Watch the post type capabilities tutorial', 'capability-manager-enhanced'); ?>" src="<?php echo esc_url_raw($img_url);?>play.png" /></a></li>

@@ -1249,6 +1249,8 @@ if (!is_admin()) {
 
                 $disabled_nav_menu_array = array_filter(explode(", ", $disabled_item_ids));
 
+                update_meta_cache('post', wp_list_pluck($items, 'ID'));
+
                 foreach ($items as $key => $item) {
 
                     $item_parent = get_post_meta($item->ID, '_menu_item_menu_item_parent', true);
