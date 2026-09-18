@@ -851,7 +851,7 @@ class PP_Capabilities_Admin_Styles
         }
 
         // Verify nonce
-        if (!wp_verify_nonce($_REQUEST['_wpnonce'], 'pp-capabilities-admin-styles')) {
+        if (!wp_verify_nonce(wp_unslash($_REQUEST['_wpnonce']), 'pp-capabilities-admin-styles')) {
             wp_die('<strong>' . esc_html__('Security check failed.', 'capability-manager-enhanced') . '</strong>');
         }
 
@@ -867,7 +867,7 @@ class PP_Capabilities_Admin_Styles
             wp_redirect(add_query_arg([
                 'page' => 'pp-capabilities-admin-styles',
                 'settings-updated' => 'true',
-                'role' => isset($_POST['ppc-admin-styles-role']) ? sanitize_text_field($_POST['ppc-admin-styles-role']) : ''
+                'role' => isset($_POST['ppc-admin-styles-role']) ? sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])) : ''
             ], admin_url('admin.php')));
             exit;
         }
@@ -879,7 +879,7 @@ class PP_Capabilities_Admin_Styles
             // Check if saving for all roles
             $save_for_all = isset($_POST['admin-styles-all-submit']);
             // Get settings from POST
-            $settings = isset($_POST['settings']) ? (array) $_POST['settings'] : [];
+            $settings = isset($_POST['settings']) ? (array) wp_unslash($_POST['settings']) : [];
             // Ensure all general and element color fields are copied from element_colors/general and element_colors/* tabs
             if (!empty($settings['element_colors'])) {
                 // Copy general tab colors
@@ -947,17 +947,17 @@ class PP_Capabilities_Admin_Styles
      */
     private function handle_custom_style_action()
     {
-        $action = sanitize_key($_POST['custom_style_action']);
+        $action = sanitize_key(wp_unslash($_POST['custom_style_action']));
 
         if ($action === 'save') {
-            $style_name = isset($_POST['custom_style_name']) ? sanitize_text_field($_POST['custom_style_name']) : '';
-            $style_slug = isset($_POST['custom_style_slug']) ? sanitize_key($_POST['custom_style_slug']) : '';
+            $style_name = isset($_POST['custom_style_name']) ? sanitize_text_field(wp_unslash($_POST['custom_style_name'])) : '';
+            $style_slug = isset($_POST['custom_style_slug']) ? sanitize_key(wp_unslash($_POST['custom_style_slug'])) : '';
 
             // Validate that name is not empty
             if (empty(trim($style_name))) {
                 $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
                 if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                    $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                    $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
                 }
 
                 // Set transient for error message
@@ -991,7 +991,7 @@ class PP_Capabilities_Admin_Styles
                 // Free user are not allowed to add more than one custom admin styles
                 $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
                 if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                    $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                        $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
                 }
 
                 wp_safe_redirect($redirect_url);
@@ -1001,11 +1001,11 @@ class PP_Capabilities_Admin_Styles
             // Get custom style colors
             $custom_style = [
                 'name' => $style_name,
-                'custom_scheme_base' => sanitize_hex_color($_POST['custom_style_custom_scheme_base'] ?? ''),
-                'custom_scheme_text' => sanitize_hex_color($_POST['custom_style_custom_scheme_text'] ?? ''),
-                'custom_scheme_highlight' => sanitize_hex_color($_POST['custom_style_custom_scheme_highlight'] ?? ''),
-                'custom_scheme_notification' => sanitize_hex_color($_POST['custom_style_custom_scheme_notification'] ?? ''),
-                'custom_scheme_background' => sanitize_hex_color($_POST['custom_style_custom_scheme_background'] ?? ''),
+                'custom_scheme_base' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_base'] ?? '')),
+                'custom_scheme_text' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_text'] ?? '')),
+                'custom_scheme_highlight' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_highlight'] ?? '')),
+                'custom_scheme_notification' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_notification'] ?? '')),
+                'custom_scheme_background' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_background'] ?? '')),
                 'element_colors' => [],
                 'advanced_rules' => [],
                 'custom_scheme_version' => time(),
@@ -1024,13 +1024,13 @@ class PP_Capabilities_Admin_Styles
 
                 foreach ($tab_data['colors'] as $color_key => $color_config) {
                     $post_key = 'custom_style_' . $color_key;
-                    $color_value = isset($_POST[$post_key]) ? sanitize_hex_color($_POST[$post_key]) : '';
+                    $color_value = isset($_POST[$post_key]) ? sanitize_hex_color(wp_unslash($_POST[$post_key])) : '';
                     $custom_style['element_colors'][$tab_key][$color_key] = $color_value;
                 }
             }
 
             $custom_style['advanced_rules'] = $this->sanitize_advanced_rules(
-                isset($_POST['custom_style_advanced_rules']) ? (array) $_POST['custom_style_advanced_rules'] : []
+                isset($_POST['custom_style_advanced_rules']) ? (array) wp_unslash($_POST['custom_style_advanced_rules']) : []
             );
 
             $custom_style = $this->generate_custom_style_css_file($style_slug, $custom_style);
@@ -1064,7 +1064,7 @@ class PP_Capabilities_Admin_Styles
             // Redirect
             $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
             if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                    $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
             }
 
             // Set transient for success message
@@ -1093,7 +1093,7 @@ class PP_Capabilities_Admin_Styles
                     // Redirect
                     $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
                     if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                        $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                    $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
                     }
 
                     set_transient('ppc_custom_style_deleted_' . get_current_user_id(), $style_name, 30);

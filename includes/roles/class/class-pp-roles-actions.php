@@ -188,7 +188,7 @@ class Pp_Roles_Actions
             $role_slug = str_replace(
                 [' ', '(', ')', '&', '#', '@', '+', ','],
                 '_',
-                strtolower(sanitize_text_field($_REQUEST['role_name']))
+                strtolower(sanitize_text_field(wp_unslash($_REQUEST['role_name'])))
             );
 
             $role_slug = preg_replace('/[^0-9a-zA-Z\-\_]/', '', $role_slug);
@@ -260,7 +260,7 @@ class Pp_Roles_Actions
         if (isset($_REQUEST['role_level'])) {
             $role_capabilities = array_merge($role_capabilities, ak_level2caps(absint($_REQUEST['role_level'])));
         }
-        $result = add_role($role['name'], sanitize_text_field($_REQUEST['role_name']), $role_capabilities);
+        $result = add_role($role['name'], sanitize_text_field(wp_unslash($_REQUEST['role_name'])), $role_capabilities);
         if (!$result instanceof WP_Role) {
             if ($this->notify(esc_html__('Something went wrong, the system wasn\'t able to create the role, refresh the page and try again.', 'capability-manager-enhanced'))) {
                 return;
@@ -270,7 +270,7 @@ class Pp_Roles_Actions
 
         //update role options
         $role_option    = [];
-        $role_option['role_editor']         = (!empty($_REQUEST['role_editor']) && is_array(($_REQUEST['role_editor']))) ? array_map('sanitize_text_field', $_REQUEST['role_editor']) : [];
+        $role_option['role_editor']         = (!empty($_REQUEST['role_editor']) && is_array(($_REQUEST['role_editor']))) ? array_map('sanitize_text_field', wp_unslash($_REQUEST['role_editor'])) : [];
         $role_option['disable_code_editor'] = !empty($_REQUEST['disable_code_editor']) ? (int) $_REQUEST['disable_code_editor'] : 0;
         $role_option['disable_role_user_login'] = !empty($_REQUEST['disable_role_user_login']) ? (int) $_REQUEST['disable_role_user_login'] : 0;
         $role_option['block_dashboard_access'] = !empty($_REQUEST['block_dashboard_access']) ? (int) $_REQUEST['block_dashboard_access'] : 0;
@@ -353,7 +353,7 @@ class Pp_Roles_Actions
         /**
          * Notify user and redirect
          */
-        $out = sprintf(esc_html__('The new role %s was created successfully.', 'capability-manager-enhanced'),  sanitize_text_field($_REQUEST['role_name']));
+        $out = sprintf(esc_html__('The new role %s was created successfully.', 'capability-manager-enhanced'),  sanitize_text_field(wp_unslash($_REQUEST['role_name'])));
 
         $redirect_url = esc_url_raw(
             add_query_arg(
@@ -413,7 +413,7 @@ class Pp_Roles_Actions
          * Update role
          */
         $current = get_role($current_role);
-		$new_title = sanitize_text_field($_REQUEST['role_name']);
+		$new_title = sanitize_text_field(wp_unslash($_REQUEST['role_name']));
 
         $old_title = $wp_roles->roles[$current->name]['name'];
 		$wp_roles->roles[$current->name]['name'] = $new_title;
@@ -449,7 +449,7 @@ class Pp_Roles_Actions
 
         //update role options
         $role_option    = [];
-        $role_option['role_editor']         = (!empty($_REQUEST['role_editor']) && is_array(($_REQUEST['role_editor']))) ? array_map('sanitize_text_field', $_REQUEST['role_editor']) : [];
+        $role_option['role_editor']         = (!empty($_REQUEST['role_editor']) && is_array(($_REQUEST['role_editor']))) ? array_map('sanitize_text_field', wp_unslash($_REQUEST['role_editor'])) : [];
         $role_option['disable_code_editor'] = !empty($_REQUEST['disable_code_editor']) ? (int) $_REQUEST['disable_code_editor'] : 0;
         $role_option['disable_role_user_login'] = !empty($_REQUEST['disable_role_user_login']) ? (int) $_REQUEST['disable_role_user_login'] : 0;
         $role_option['block_dashboard_access'] = !empty($_REQUEST['block_dashboard_access']) ? (int) $_REQUEST['block_dashboard_access'] : 0;
