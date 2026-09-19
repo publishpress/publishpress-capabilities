@@ -309,10 +309,10 @@ if ($admin_styles_saved !== false) {
                                                             <td colspan="2" class="custom-form-td value-column ppc-menu-checkbox">
                                                                 <div>
                                                                     <div class="color-editor-card">
-                                                                        <h4 class="editor-title form-promo-blur">
+                                                                        <h3 class="editor-title form-promo-blur">
                                                                             <span class="dashicons dashicons-admin-customizer"></span>
                                                                             <span class="custom-form-title"><?php esc_html_e('Edit Color Style', 'capability-manager-enhanced'); ?></span>
-                                                                        </h4>
+                                                                        </h3>
                                                                         <p class="editor-description form-promo-blur">
                                                                             <?php esc_html_e('Customize colors for different admin elements. Changes are previewed instantly.', 'capability-manager-enhanced'); ?>
                                                                         </p>
