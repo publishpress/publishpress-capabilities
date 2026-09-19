@@ -206,7 +206,9 @@ class CapabilityManager
 			return;
 		}
 
-		wp_enqueue_style('cme-admin-common', $this->mod_url . '/common/css/pressshack-admin.css', [], PUBLISHPRESS_CAPS_VERSION);
+		$asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
+		wp_enqueue_style('cme-admin-common', $this->mod_url . "/common/css/pressshack-admin{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION);
 
 		wp_register_style( $this->ID . 'framework_admin', $this->mod_url . '/framework/styles/admin.css', false, PUBLISHPRESS_CAPS_VERSION);
 		wp_enqueue_style( $this->ID . 'framework_admin');
@@ -215,7 +217,7 @@ class CapabilityManager
 			// search script and css
 			wp_enqueue_script(
 				'capabilities-search',
-				$this->mod_url . '/common/js/capabilities-search.js',
+				$this->mod_url . "/common/js/capabilities-search{$asset_suffix}.js",
 				['jquery'],
 				PUBLISHPRESS_CAPS_VERSION,
 				true
@@ -228,16 +230,16 @@ class CapabilityManager
 				PUBLISHPRESS_CAPS_VERSION
 			);
 			// cap admin css
-			wp_register_style( $this->ID . '_admin', $this->mod_url . '/common/css/admin-caps.css', false, PUBLISHPRESS_CAPS_VERSION);
+			wp_register_style( $this->ID . '_admin', $this->mod_url . "/common/css/admin-caps{$asset_suffix}.css", false, PUBLISHPRESS_CAPS_VERSION);
 		} else {
 			// @todo: remove Capabilities-specific styles from admin.css
-			wp_register_style( $this->ID . '_admin', $this->mod_url . '/common/css/admin.css', false, PUBLISHPRESS_CAPS_VERSION);
+			wp_register_style( $this->ID . '_admin', $this->mod_url . "/common/css/admin{$asset_suffix}.css", false, PUBLISHPRESS_CAPS_VERSION);
 		}
 		wp_enqueue_style( $this->ID . '_admin');
 
 		wp_enqueue_script('jquery-ui-sortable');
 
-		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '';
+		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '.dev' : '.min';
 		$url = $this->mod_url . "/common/js/admin{$suffix}.js";
 		wp_enqueue_script( 'cme_admin', $url, array('jquery', 'wp-i18n', 'jquery-ui-sortable'), PUBLISHPRESS_CAPS_VERSION, true );
 

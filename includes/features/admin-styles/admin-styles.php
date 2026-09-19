@@ -1128,10 +1128,12 @@ class PP_Capabilities_Admin_Styles
         wp_enqueue_media();
         wp_enqueue_style('wp-color-picker');
 
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
         // Enqueue CSS
         wp_enqueue_style(
             'pp-capabilities-admin-styles',
-            plugin_dir_url(__FILE__) . 'assets/css/admin-styles.css',
+            plugin_dir_url(__FILE__) . "assets/css/admin-styles{$asset_suffix}.css",
             [],
             CAPSMAN_VERSION
         );
@@ -1139,7 +1141,7 @@ class PP_Capabilities_Admin_Styles
         if (!defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {
             wp_enqueue_style(
                 'pp-capabilities-admin-core',
-                plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css',
+                plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css",
                 [],
                 PUBLISHPRESS_CAPS_VERSION,
                 'all'
@@ -1149,7 +1151,7 @@ class PP_Capabilities_Admin_Styles
         // Enqueue JavaScript
         wp_enqueue_script(
             'pp-capabilities-admin-styles',
-            plugin_dir_url(__FILE__) . 'assets/js/admin-styles.js',
+            plugin_dir_url(__FILE__) . "assets/js/admin-styles{$asset_suffix}.js",
             ['jquery', 'wp-color-picker'],
             CAPSMAN_VERSION,
             true
