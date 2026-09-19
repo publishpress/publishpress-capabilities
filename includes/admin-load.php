@@ -50,8 +50,11 @@ class PP_Capabilities_Admin_UI {
             );
             add_action('admin_init', [$this, 'manage_installation'], 2000);
 
-            //Add role blocked nav menu indication
+            // Add inline nav menu restrictions on the native Menus screen.
             add_action('wp_nav_menu_item_custom_fields', [$this, 'add_nav_menu_indicator'], 20, 5);
+            add_action('wp_update_nav_menu_item', [$this, 'saveNavMenuRestrictions'], 20, 3);
+            add_action('before_delete_post', [$this, 'cleanupDeletedNavMenuRestrictions']);
+            add_action('admin_head-nav-menus.php', [$this, 'outputNavMenuRestrictionStyles']);
             add_action('admin_init', [$this, 'blockSubsiteCapabilitiesAccess'], 1000);
         }
 
@@ -780,9 +783,200 @@ class PP_Capabilities_Admin_UI {
     }
 
 
+    private function canManageNavMenuRestrictions()
+    {
+        if (!is_admin() || !pp_capabilities_feature_enabled('nav-menus')) {
+            return false;
+        }
+
+        if (is_multisite() && is_super_admin()) {
+            return true;
+        }
+
+        return current_user_can('administrator') || current_user_can('manage_capabilities_nav_menus');
+    }
+
+    private function getNavMenuRestrictionRoles()
+    {
+        $role_options = [
+            'ppc_users' => esc_html__('Logged In Users', 'capability-manager-enhanced'),
+            'ppc_guest' => esc_html__('Logged Out Users', 'capability-manager-enhanced'),
+        ];
+
+        $editable_roles = function_exists('get_editable_roles')
+            ? get_editable_roles()
+            : apply_filters('editable_roles', wp_roles()->roles);
+
+        foreach ((array) $editable_roles as $role_name => $role_details) {
+            $role_name = sanitize_key($role_name);
+
+            if ('' === $role_name) {
+                continue;
+            }
+
+            $role_options[$role_name] = !empty($role_details['name'])
+                ? translate_user_role($role_details['name'])
+                : translate_user_role($role_name);
+        }
+
+        return $role_options;
+    }
+
+    private function getNavMenuRestrictionValue($item_id, $item = null)
+    {
+        if (empty($item)) {
+            $item = wp_setup_nav_menu_item(get_post($item_id));
+        }
+
+        if (empty($item) || empty($item->ID) || !isset($item->object_id, $item->object)) {
+            return '';
+        }
+
+        return $item->ID . '_' . sanitize_text_field((string) $item->object_id) . '_' . sanitize_key((string) $item->object);
+    }
+
+    private function getRestrictedNavMenuRoles($item_id, $nav_menu_item_option = [])
+    {
+        $item_value = $this->getNavMenuRestrictionValue($item_id);
+
+        if ('' === $item_value) {
+            return [];
+        }
+
+        if (empty($nav_menu_item_option) || !is_array($nav_menu_item_option)) {
+            $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
+        }
+
+        $restricted_roles = [];
+
+        foreach ((array) $nav_menu_item_option as $role_name => $restricted_items) {
+            if (in_array($item_value, array_filter((array) $restricted_items), true)) {
+                $restricted_roles[] = sanitize_key($role_name);
+            }
+        }
+
+        return $restricted_roles;
+    }
+
+    public function outputNavMenuRestrictionStyles()
+    {
+        if (!$this->canManageNavMenuRestrictions()) {
+            return;
+        }
+        ?>
+        <style id="pp-capabilities-nav-menu-inline-restrictions">
+            .field-pp-capabilities-nav-restrictions {
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 1px solid #dcdcde;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-mode {
+                margin-bottom: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit > h4 {
+                margin-left: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 6px 12px;
+                height: 160px;
+                max-height: 160px;
+                overflow-y: auto;
+                padding: 4px;
+                border: 1px solid #dcdcde;
+                background: #fff;
+                scrollbar-gutter: stable;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-option {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin: 0;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-search-label {
+                display: block;
+                margin: 0 0 4px;
+                font-weight: 600;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-search {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-role-filter-status {
+                min-height: 18px;
+                margin: 4px 0 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-manage-link {
+                margin-top: 10px;
+            }
+        </style>
+        <script>
+            (function() {
+                function filterNavMenuRoles(searchField) {
+                    var roleList = document.getElementById(searchField.getAttribute('aria-controls'));
+
+                    if (!roleList) {
+                        return;
+                    }
+
+                    var searchTerm = searchField.value.trim().toLowerCase();
+                    var roleOptions = roleList.querySelectorAll('.ppc-nav-edit-role-option');
+                    var visibleRoles = 0;
+
+                    Array.prototype.forEach.call(roleOptions, function(roleOption) {
+                        var roleName = roleOption.getAttribute('data-role-name') || '';
+                        var roleCaption = roleOption.textContent || '';
+                        var isVisible = !searchTerm || (roleName + ' ' + roleCaption).toLowerCase().indexOf(searchTerm) !== -1;
+
+                        roleOption.hidden = !isVisible;
+
+                        if (isVisible) {
+                            visibleRoles++;
+                        }
+                    });
+
+                    var status = document.getElementById(searchField.getAttribute('data-status'));
+
+                    if (!status) {
+                        return;
+                    }
+
+                    if (!searchTerm) {
+                        status.textContent = '';
+                    } else if (!visibleRoles) {
+                        status.textContent = searchField.getAttribute('data-no-results');
+                    } else {
+                        var roleLabel = visibleRoles === 1
+                            ? searchField.getAttribute('data-one-result')
+                            : searchField.getAttribute('data-many-results');
+
+                        status.textContent = visibleRoles + ' ' + roleLabel;
+                    }
+                }
+
+                document.addEventListener('input', function(event) {
+                    if (event.target.matches('.ppc-nav-edit-role-search')) {
+                        filterNavMenuRoles(event.target);
+                    }
+                });
+            }());
+        </script>
+        <?php
+    }
+
 	/**
 	* Fires just before the move buttons of a nav menu item in the menu editor.
-	* Add role blocked nav menu indication
+	* Add inline role controls for nav menu restrictions.
 	*
 	* @param int       $item_id Menu item ID.
 	* @param \WP_Post  $item    Menu item data object.
@@ -791,74 +985,195 @@ class PP_Capabilities_Admin_UI {
 	* @param int       $id      Nav menu ID.
 	*/
 	public function add_nav_menu_indicator( $item_id, $item, $depth, $args, $id = null ) {
-        global $capsman;
-
-        if (!is_admin() || !pp_capabilities_feature_enabled('nav-menus')) {
+        if (!$this->canManageNavMenuRestrictions()) {
             return;
         }
 
-        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array)get_option('capsman_nav_item_menus') : [];
-        if (!is_array($nav_menu_item_option)) {
+        $role_options = $this->getNavMenuRestrictionRoles();
+
+        if (empty($role_options)) {
             return;
         }
-        $nav_menu_item_option = array_filter($nav_menu_item_option);
+
+        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
+        $restricted_roles = $this->getRestrictedNavMenuRoles($item_id, $nav_menu_item_option);
+        ?>
+        <fieldset class="field-pp-capabilities-nav-restrictions description description-wide">
+            <div class="ppc-nav-edit">
+                <div class="clear"></div>
+                <h4 style="margin-bottom: 0.6em;"><?php esc_html_e('PublishPress Capabilities Menu Restriction', 'capability-manager-enhanced'); ?></h4>
+                <p class="description description-wide ppc-nav-mode"><?php esc_html_e('Hide this menu item for the selected roles.', 'capability-manager-enhanced'); ?></p>
+
+                <?php
+                $role_search_id = 'pp-capabilities-nav-menu-role-search-' . (int) $item_id;
+                $role_list_id = 'pp-capabilities-nav-menu-role-list-' . (int) $item_id;
+                $role_status_id = 'pp-capabilities-nav-menu-role-status-' . (int) $item_id;
+                ?>
+                <label class="ppc-nav-edit-role-search-label" for="<?php echo esc_attr($role_search_id); ?>">
+                    <?php esc_html_e('Search roles', 'capability-manager-enhanced'); ?>
+                </label>
+                <input
+                    id="<?php echo esc_attr($role_search_id); ?>"
+                    class="ppc-nav-edit-role-search"
+                    type="search"
+                    placeholder="<?php esc_attr_e('Search by role name', 'capability-manager-enhanced'); ?>"
+                    autocomplete="off"
+                    aria-controls="<?php echo esc_attr($role_list_id); ?>"
+                    data-status="<?php echo esc_attr($role_status_id); ?>"
+                    data-no-results="<?php esc_attr_e('No roles match your search.', 'capability-manager-enhanced'); ?>"
+                    data-one-result="<?php esc_attr_e('role shown', 'capability-manager-enhanced'); ?>"
+                    data-many-results="<?php esc_attr_e('roles shown', 'capability-manager-enhanced'); ?>"
+                />
+                <p id="<?php echo esc_attr($role_status_id); ?>" class="description ppc-nav-role-filter-status" aria-live="polite"></p>
+
+                <div id="<?php echo esc_attr($role_list_id); ?>" class="ppc-nav-edit-role-grid">
+                    <?php foreach ($role_options as $role_name => $role_caption) : ?>
+                        <label class="ppc-nav-edit-role-option" data-role-name="<?php echo esc_attr($role_name); ?>" for="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>">
+                            <input
+                                id="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>"
+                                type="checkbox"
+                                name="pp_capabilities_nav_menu_roles[<?php echo (int) $item_id; ?>][]"
+                                value="<?php echo esc_attr($role_name); ?>"
+                                <?php checked(in_array($role_name, $restricted_roles, true)); ?>
+                            />
+                            <span><?php echo esc_html($role_caption); ?></span>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+
+                <p class="description ppc-nav-manage-link">
+                    <?php
+                    printf(
+                        wp_kses(
+                            __('Need a role-by-role overview? %1$sOpen Navigation Menu Restrictions%2$s.', 'capability-manager-enhanced'),
+                            [
+                                'a' => [
+                                    'href' => [],
+                                ],
+                            ]
+                        ),
+                        '<a href="' . esc_url(admin_url('admin.php?page=pp-capabilities-nav-menus')) . '">',
+                        '</a>'
+                    );
+                    ?>
+                </p>
+            </div>
+        </fieldset>
+
+        <?php
+	}
+
+    public function saveNavMenuRestrictions($menu_id, $menu_item_db_id, $args)
+    {
+        if (!$this->canManageNavMenuRestrictions()) {
+            return;
+        }
+
+        if (
+            empty($_POST['update-nav-menu-nonce'])
+            || !wp_verify_nonce(
+                sanitize_text_field(wp_unslash($_POST['update-nav-menu-nonce'])),
+                'update-nav_menu'
+            )
+        ) {
+            return;
+        }
+
+        $item_value = $this->getNavMenuRestrictionValue($menu_item_db_id);
+
+        if ('' === $item_value) {
+            return;
+        }
+
+        $role_options = $this->getNavMenuRestrictionRoles();
+        $valid_roles = array_keys($role_options);
+        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
+
+        foreach ((array) $nav_menu_item_option as $role_name => $restricted_items) {
+            $restricted_items = array_values(
+                array_filter(
+                    array_map('sanitize_text_field', (array) $restricted_items),
+                    function ($value) use ($menu_item_db_id) {
+                        return strpos((string) $value, $menu_item_db_id . '_') !== 0;
+                    }
+                )
+            );
+
+            if (empty($restricted_items)) {
+                unset($nav_menu_item_option[$role_name]);
+            } else {
+                $nav_menu_item_option[$role_name] = $restricted_items;
+            }
+        }
+
+        $submitted_roles = [];
+
+        if (isset($_POST['pp_capabilities_nav_menu_roles'][$menu_item_db_id])) {
+            $submitted_roles = array_unique(
+                array_filter(
+                    array_map(
+                        'sanitize_key',
+                        (array) wp_unslash($_POST['pp_capabilities_nav_menu_roles'][$menu_item_db_id])
+                    )
+                )
+            );
+        }
+
+        foreach ($submitted_roles as $role_name) {
+            if (!in_array($role_name, $valid_roles, true)) {
+                continue;
+            }
+
+            if (empty($nav_menu_item_option[$role_name]) || !is_array($nav_menu_item_option[$role_name])) {
+                $nav_menu_item_option[$role_name] = [];
+            }
+
+            $nav_menu_item_option[$role_name][] = $item_value;
+            $nav_menu_item_option[$role_name] = array_values(array_unique($nav_menu_item_option[$role_name]));
+        }
+
+        update_option('capsman_nav_item_menus', $nav_menu_item_option, false);
+    }
+
+    public function cleanupDeletedNavMenuRestrictions($post_id)
+    {
+        if ('nav_menu_item' !== get_post_type($post_id)) {
+            return;
+        }
+
+        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
 
         if (empty($nav_menu_item_option)) {
             return;
         }
 
-        $searchPrefix = $item_id . '_';
+        $updated = false;
 
-        $restricted_roles = array_filter(
-            array_map(
-                function ($subArray) use ($searchPrefix) {
-                    return array_filter(
-                        $subArray,
-                        function ($value) use ($searchPrefix) {
-                            return strpos($value, $searchPrefix) === 0;
-                        }
-                    );
-                },
-                $nav_menu_item_option
-            )
-        );
-
-        if (empty($restricted_roles)) {
-            return;
-        }
-        $ppc_other_permissions = [
-            "ppc_users" => esc_html__('Logged In Users', 'capability-manager-enhanced'),
-            "ppc_guest" => esc_html__('Logged Out Users', 'capability-manager-enhanced')
-        ];
-        $wp_roles_obj = wp_roles();
-	    $roles = $wp_roles_obj->get_names();
-        ?>
-        <div class="ppc-nav-edit">
-            <div class="clear"></div>
-            <h4 style="margin-bottom: 0.6em;"><?php esc_html_e( 'PublishPress Capabilities Menu Restriction', 'capability-manager-enhanced' ) ?></h4>
-            <p class="description description-wide ppc-nav-mode"><?php esc_html_e( 'This menu is restricted for the following roles', 'capability-manager-enhanced' ) ?></p>
-            <ul>
-                <?php foreach (array_keys($restricted_roles) as $role) :
-                    $role_url = admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $role . '');
-                    if (array_key_exists($role, $ppc_other_permissions)) {
-                        $role_caption = $ppc_other_permissions[$role];
-                    } else {
-                        if (is_array($roles) && !empty($roles[$role])) {
-                            $role_caption = $roles[$role];
-                        } else {
-                            $role_caption = translate_user_role($role);
-                        }
+        foreach ((array) $nav_menu_item_option as $role_name => $restricted_items) {
+            $filtered_items = array_values(
+                array_filter(
+                    array_map('sanitize_text_field', (array) $restricted_items),
+                    function ($value) use ($post_id) {
+                        return strpos((string) $value, $post_id . '_') !== 0;
                     }
-                    ?>
-                <li style="margin-bottom: 5px;">
-                    <a target="blank" href="<?php echo esc_url($role_url); ?>"><?php echo esc_html($role_caption); ?></a>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
+                )
+            );
 
-        <?php
-	}
+            if ($filtered_items !== array_values((array) $restricted_items)) {
+                $updated = true;
+            }
+
+            if (empty($filtered_items)) {
+                unset($nav_menu_item_option[$role_name]);
+            } else {
+                $nav_menu_item_option[$role_name] = $filtered_items;
+            }
+        }
+
+        if ($updated) {
+            update_option('capsman_nav_item_menus', $nav_menu_item_option, false);
+        }
+    }
 
     /**
     * Redirect user on plugin activation
