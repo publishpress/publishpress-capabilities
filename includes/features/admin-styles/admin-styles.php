@@ -864,11 +864,12 @@ class PP_Capabilities_Admin_Styles
         if ($is_custom_style_submit) {
             $this->handle_custom_style_action();
 
-            wp_redirect(add_query_arg([
+            $redirect_url = add_query_arg([
                 'page' => 'pp-capabilities-admin-styles',
                 'settings-updated' => 'true',
-                'role' => isset($_POST['ppc-admin-styles-role']) ? sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])) : ''
-            ], admin_url('admin.php')));
+                'role' => isset($_POST['ppc-admin-styles-role']) ? sanitize_text_field($_POST['ppc-admin-styles-role']) : ''
+            ], admin_url('admin.php'));
+            wp_safe_redirect($redirect_url);
             exit;
         }
 
@@ -1127,10 +1128,12 @@ class PP_Capabilities_Admin_Styles
         wp_enqueue_media();
         wp_enqueue_style('wp-color-picker');
 
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
         // Enqueue CSS
         wp_enqueue_style(
             'pp-capabilities-admin-styles',
-            plugin_dir_url(__FILE__) . 'assets/css/admin-styles.css',
+            plugin_dir_url(__FILE__) . "assets/css/admin-styles{$asset_suffix}.css",
             [],
             CAPSMAN_VERSION
         );
@@ -1138,7 +1141,7 @@ class PP_Capabilities_Admin_Styles
         if (!defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {
             wp_enqueue_style(
                 'pp-capabilities-admin-core',
-                plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css',
+                plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css",
                 [],
                 PUBLISHPRESS_CAPS_VERSION,
                 'all'
@@ -1148,7 +1151,7 @@ class PP_Capabilities_Admin_Styles
         // Enqueue JavaScript
         wp_enqueue_script(
             'pp-capabilities-admin-styles',
-            plugin_dir_url(__FILE__) . 'assets/js/admin-styles.js',
+            plugin_dir_url(__FILE__) . "assets/js/admin-styles{$asset_suffix}.js",
             ['jquery', 'wp-color-picker'],
             CAPSMAN_VERSION,
             true

@@ -343,9 +343,11 @@ class PP_Capabilities_Admin_UI {
                 // Enqueue jQuery UI script from WordPress core
                 wp_enqueue_script('jquery-ui-core');
 
+                $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
                 wp_enqueue_script(
                     'pp-capabilities-roles-profile-js',
-                    plugin_dir_url(CME_FILE) . 'common/js/profile.js',
+                    plugin_dir_url(CME_FILE) . "common/js/profile{$asset_suffix}.js",
                     ['jquery', 'pp-capabilities-chosen-js'],
                     PUBLISHPRESS_CAPS_VERSION
                 );
@@ -358,7 +360,7 @@ class PP_Capabilities_Admin_UI {
                 );
                 wp_enqueue_style(
                     'pp-capabilities-roles-profile-css',
-                    plugin_dir_url(CME_FILE) . 'common/css/profile.css',
+                    plugin_dir_url(CME_FILE) . "common/css/profile{$asset_suffix}.css",
                     ['pp-capabilities-chosen-css'],
                     PUBLISHPRESS_CAPS_VERSION
                 );

@@ -77,8 +77,8 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                 ?>
                                             </select> &nbsp;
 
-                                            <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                                    style="display: none">
+                                        <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
+                                                    alt="" aria-hidden="true" style="display: none">
                                         </div>
                                         </p>
                                     </div>

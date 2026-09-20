@@ -50,10 +50,12 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
          */
         public function admin_scripts() {
 
+            $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
             //enqueue styles
             wp_enqueue_style(
                 'ppc-admin-notice-css',
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/css/admin-notices.css',
+                plugin_dir_url(CME_FILE) . "includes/admin-notices/assets/css/admin-notices{$asset_suffix}.css",
                 [],
                 PUBLISHPRESS_CAPS_VERSION,
                 'all'
@@ -62,7 +64,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             //enqueue scripts
             wp_enqueue_script(
                 'ppc-admin-notice-js',
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/js/admin-notices.js',
+                plugin_dir_url(CME_FILE) . "includes/admin-notices/assets/js/admin-notices{$asset_suffix}.js",
                 ['jquery'],
                 PUBLISHPRESS_CAPS_VERSION,
                 false
