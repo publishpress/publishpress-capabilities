@@ -539,7 +539,7 @@ if (!function_exists('ppc_roles_login_redirect')) {
                     && !empty($role_option['referer_redirect']) && (int) $role_option['referer_redirect'] > 0
                 ) {
                     // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
-                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? $_COOKIE['ppc_last_visited_page'] : wp_get_referer();
+                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? wp_unslash($_COOKIE['ppc_last_visited_page']) : wp_get_referer();
                     if (!empty($redirect_url)) {
                         //referer url redirect
                         $redirect_to = esc_url_raw($redirect_url);
@@ -598,7 +598,7 @@ if (!function_exists('ppc_roles_woocommerce_login_redirect')) {
                     && !empty($role_option['referer_redirect']) && (int) $role_option['referer_redirect'] > 0
                 ) {
                     // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
-                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? $_COOKIE['ppc_last_visited_page'] : wp_get_referer();
+                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? wp_unslash($_COOKIE['ppc_last_visited_page']) : wp_get_referer();
                     if (!empty($redirect_url)) {
                         //referer url redirect
                         $redirect_to = esc_url_raw($redirect_url);
@@ -1658,7 +1658,7 @@ if (!function_exists('pp_capabilities_current_url')) {
     function pp_capabilities_current_url()
     {
         if (!empty($_SERVER['HTTP_HOST']) && !empty($_SERVER['REQUEST_URI'])) {
-            return esc_url_raw((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+            return esc_url_raw((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . wp_unslash($_SERVER['HTTP_HOST']) . wp_unslash($_SERVER['REQUEST_URI']));
         } else {
             return home_url('');
         }

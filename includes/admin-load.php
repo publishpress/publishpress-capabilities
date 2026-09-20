@@ -72,8 +72,8 @@ class PP_Capabilities_Admin_UI {
         if (is_admin() && (isset($_REQUEST['page']) && (in_array($_REQUEST['page'], ['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles', 'pp-capabilities-admin-notices']))
 
         || (!empty($_REQUEST['action']) && in_array($_REQUEST['action'], ['pp-roles-add-role', 'pp-roles-delete-role', 'pp-roles-hide-role', 'pp-roles-unhide-role']))
-        || ( ! empty($_SERVER['SCRIPT_NAME']) && strpos(sanitize_text_field($_SERVER['SCRIPT_NAME']), 'p-admin/plugins.php' ) && ! empty($_REQUEST['action'] ) )
-        || ( isset($_GET['action']) && ('reset-defaults' == $_GET['action']) && isset($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'capsman-reset-defaults') )
+        || ( ! empty($_SERVER['SCRIPT_NAME']) && strpos(sanitize_text_field(wp_unslash($_SERVER['SCRIPT_NAME'])), 'p-admin/plugins.php' ) && ! empty($_REQUEST['action'] ) )
+        || ( isset($_GET['action']) && ('reset-defaults' == $_GET['action']) && isset($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce'])), 'capsman-reset-defaults') )
         || in_array( $pagenow, array( 'users.php', 'user-edit.php', 'profile.php', 'user-new.php' ) )
         ) ) {
             global $capsman;
@@ -446,8 +446,8 @@ class PP_Capabilities_Admin_UI {
     public function action_profile_update($userId, $oldUserData = [])
     {
         // Check if we need to update the user's roles, allowing to set multiple roles.
-        if ((!empty($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'update-user_' . $userId)
-            || !empty($_REQUEST['_wpnonce_create-user']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce_create-user']), 'create-user'))
+        if ((!empty($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce'])), 'update-user_' . $userId)
+            || !empty($_REQUEST['_wpnonce_create-user']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce_create-user'])), 'create-user'))
             && isset($_POST['pp_roles']) && current_user_can('promote_users')) {
             if (!current_user_can('edit_user', $userId) || !current_user_can('promote_user', $userId)) {
                 return;
@@ -663,19 +663,19 @@ class PP_Capabilities_Admin_UI {
 
         if (
             ! wp_verify_nonce(
-                sanitize_key( $_POST['nonce'] ),
+                sanitize_key( wp_unslash($_POST['nonce'])),
                 'pp-capabilities-dashboard-nonce'
             )
         ) {
             wp_send_json( __('Invalid nonce token!', 'capability-manager-enhanced'), 400 );
         }
 
-        if( empty( $_POST['feature'] ) || ! $_POST['feature'] ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $feature = sanitize_key(wp_unslash($_POST['feature'] ?? ''));
+        if (empty($feature)) {
             wp_send_json( __('Error: wrong data', 'capability-manager-enhanced'), 400 );
             return false;
         }
 
-        $feature = sanitize_key(wp_unslash($_POST['feature']));
         $dashboard_options = pp_capabilities_dashboard_options();
 
         if (!isset($dashboard_options[$feature])) {
@@ -720,12 +720,12 @@ class PP_Capabilities_Admin_UI {
         $response['content'] = '';
 
         // Verify nonce and capabilities
-        if (empty($_POST['nonce']) || !wp_verify_nonce(sanitize_key($_POST['nonce']), 'pp-capabilities-admin-features')) {
+        if (empty($_POST['nonce']) || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['nonce'])), 'pp-capabilities-admin-features')) {
             $response['message'] =  __('Security check failed', 'capability-manager-enhanced');
         } elseif (!current_user_can('manage_capabilities_admin_features')) {
             $response['message'] =  __('Permission denied', 'capability-manager-enhanced');
         } else {
-            $hide_submenu      = !empty($_POST['hide_submenu']) ? (int)($_POST['hide_submenu']) : 0;
+            $hide_submenu      = !empty($_POST['hide_submenu']) ? (int) wp_unslash($_POST['hide_submenu']) : 0;
 
             $admin_feature_settings = (array) get_option('ppc_admin_features_settings', []);
             $admin_feature_settings['hide_submenu'] = $hide_submenu;

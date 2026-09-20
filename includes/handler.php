@@ -38,7 +38,7 @@ class CapsmanHandler
 		// Create a new role.
 		if ( ! empty($_POST['CreateRole']) ) {
 			if (!empty($_POST['create-name'])) {
-				$newrole = $this->createRole(sanitize_text_field($_POST['create-name']));
+				$newrole = $this->createRole(sanitize_text_field(wp_unslash($_POST['create-name'])));
 			}
 
 			if (!empty($newrole)) {
@@ -62,7 +62,7 @@ class CapsmanHandler
 			if (function_exists('pp_capabilities_can_manage_application_password_subject') && pp_capabilities_can_manage_application_password_subject($current_subject)) {
 				$this->saveApplicationPasswordCapabilities(
 					$current_subject,
-					isset($_POST['caps']) && is_array($_POST['caps']) ? $_POST['caps'] : []
+					isset($_POST['caps']) && is_array($_POST['caps']) ? wp_unslash($_POST['caps']) : []
 				);
 				return;
 			}
@@ -101,7 +101,7 @@ class CapsmanHandler
 			$role = get_role(sanitize_key($_POST['current']));
 			$role->name = sanitize_key($_POST['current']);		// bbPress workaround
 
-			$newname = $this->createNewName(sanitize_text_field($_POST['capability-name']), ['allow_dashes' => true]);
+			$newname = $this->createNewName(sanitize_text_field(wp_unslash($_POST['capability-name'])), ['allow_dashes' => true]);
 
 			if (empty($newname['error'])) {
 				$role->add_cap($newname['name']);

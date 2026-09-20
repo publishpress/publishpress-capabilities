@@ -263,9 +263,9 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             $response['content'] = '';
 
             $nonce   = isset($_POST['nonce']) ? sanitize_key($_POST['nonce']) : '';
-            $action_type = isset($_POST['action_type']) ? sanitize_text_field($_POST['action_type']) : '';
-            $action_option = isset($_POST['action_option']) ? sanitize_text_field($_POST['action_option']) : '';
-            $notice_id = isset($_POST['notice_id']) ? sanitize_text_field($_POST['notice_id']) : '';
+            $action_type = isset($_POST['action_type']) ? sanitize_text_field(wp_unslash($_POST['action_type'])) : '';
+            $action_option = isset($_POST['action_option']) ? sanitize_text_field(wp_unslash($_POST['action_option'])) : '';
+            $notice_id = isset($_POST['notice_id']) ? sanitize_text_field(wp_unslash($_POST['notice_id'])) : '';
 
             if (!$this->canSeeAdminToolbar()) {
                 $response['message'] = esc_html__('You do not have permission to manage admin notices.', 'capability-manager-enhanced');

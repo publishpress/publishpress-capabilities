@@ -132,7 +132,7 @@ class PP_Capabilities_Frontend_Features_Metaboxes
             return;
         }
 
-        $frontend_elements = !empty($_POST['_ppc_frontendelements']) ? array_map('sanitize_text_field', $_POST['_ppc_frontendelements']) : [];
+        $frontend_elements = !empty($_POST['_ppc_frontendelements']) ? array_map('sanitize_text_field', wp_unslash($_POST['_ppc_frontendelements'])) : [];
 
         update_post_meta($post_id, '_ppc_frontendelements', $frontend_elements);
     }

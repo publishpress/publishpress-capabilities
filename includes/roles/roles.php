@@ -10,7 +10,7 @@
             <?php esc_html_e('Add New', 'capability-manager-enhanced'); ?>
         </a>
         <?php
-        if (isset($_REQUEST['s']) && $search_str = esc_attr(wp_unslash(sanitize_text_field($_REQUEST['s'])))) {
+        if (isset($_REQUEST['s']) && $search_str = esc_attr(sanitize_text_field(wp_unslash($_REQUEST['s'])))) {
             /* translators: %s: search keywords */
             printf(' <span class="subtitle">' . esc_html__('Search results for %s') . '</span>', '&#8220;' . esc_html($search_str) . '&#8221;');
         }
