@@ -107,12 +107,14 @@ class CoreAdmin {
     }
 
     function AdminMenusPromo() {
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/admin-menus-promo.php');
     }
 
     function metaboxesPromo(){
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/editor-features-promo.php');
     }
     function adminFeaturesElements($elements) {
@@ -139,12 +141,14 @@ class CoreAdmin {
     }
 
     function adminFeaturePromo(){
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/admin-features-promo.php');
     }
 
     function frontendFeaturesPromo(){
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/frontend-features-promo.php');
     }
 
