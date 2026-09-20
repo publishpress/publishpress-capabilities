@@ -807,7 +807,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 							$cap_type_name = ('taxonomies' == $cap_type) ? esc_html__('Taxonomy', 'capability-manager-enhanced') : $cap_type_names[$cap_type];
 
-							echo '<h3>' .  sprintf($caption_pattern, esc_html($cap_type_name)) . '</h3>';
+							echo '<h2>' .  sprintf($caption_pattern, esc_html($cap_type_name)) . '</h2>';
 
 								echo '<div class="ppc-filter-wrapper">';
 									$filter_caption = ('taxonomy' == $item_type) ? __('Filter by taxonomy', 'capability-manager-enhanced') : __('Filter by post type', 'capability-manager-enhanced');
