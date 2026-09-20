@@ -157,7 +157,8 @@ class Pp_Roles_Actions
      */
     protected function check_nonce($action = '-1', $query_arg = '_wpnonce')
     {
-        $checked = isset($_REQUEST[$query_arg]) && wp_verify_nonce(sanitize_key($_REQUEST[$query_arg]), $action);
+        $nonce = isset($_REQUEST[$query_arg]) ? sanitize_key($_REQUEST[$query_arg]) : '';
+        $checked = !empty($nonce) && wp_verify_nonce($nonce, $action);
         if (!$checked) {
             $this->notify(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
         }
