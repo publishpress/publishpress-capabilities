@@ -143,9 +143,10 @@ class Pp_Roles_Actions
      */
     protected function check_permissions()
     {
-
         if (!current_user_can($this->capability)) {
-            $this->notify(esc_html__('You do not have sufficient permissions to perform this action.', 'capability-manager-enhanced'));
+            $this->terminate_request(
+                esc_html__('You do not have sufficient permissions to perform this action.', 'capability-manager-enhanced')
+            );
         }
     }
 
@@ -157,11 +158,29 @@ class Pp_Roles_Actions
      */
     protected function check_nonce($action = '-1', $query_arg = '_wpnonce')
     {
-        $nonce = isset($_REQUEST[$query_arg]) ? sanitize_key($_REQUEST[$query_arg]) : '';
+        $nonce = isset($_REQUEST[$query_arg]) ? sanitize_key(wp_unslash($_REQUEST[$query_arg])) : '';
         $checked = !empty($nonce) && wp_verify_nonce($nonce, $action);
         if (!$checked) {
-            $this->notify(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
+            $this->terminate_request(
+                esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced')
+            );
         }
+    }
+
+    /**
+     * Terminate a role mutation request after a failed authorization guard.
+     *
+     * @param string $message Error message.
+     *
+     * @return void
+     */
+    protected function terminate_request($message)
+    {
+        if ($this->is_ajax()) {
+            wp_send_json_error($message, 403);
+        }
+
+        wp_die($message, '', ['response' => 403]);
     }
 
     /**
@@ -177,9 +196,7 @@ class Pp_Roles_Actions
         /**
          * Check nonce
          */
-        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'add-role')) {
-            $this->notify(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
-        }
+        $this->check_nonce('add-role');
 
         if (empty($_REQUEST['role_name'])) {
             $this->notify(esc_html__('Missing parameters, refresh the page and try again.', 'capability-manager-enhanced'));
@@ -387,9 +404,7 @@ class Pp_Roles_Actions
         /**
          * Check nonce
          */
-        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'edit-role')) {
-            $this->notify(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
-        }
+        $this->check_nonce('edit-role');
 
         if (empty($_REQUEST['current_role']) || empty($_REQUEST['role_name'])) {
             $this->notify(esc_html__('Missing parameters, refresh the page and try again.', 'capability-manager-enhanced'));
@@ -511,9 +526,7 @@ class Pp_Roles_Actions
         /**
          * Check nonce
          */
-        if (!isset($_REQUEST['_wpnonce']) || !wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), $nonce_check)) {
-            $this->notify(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
-        }
+        $this->check_nonce($nonce_check);
 
         /**
          * Validate input data
@@ -643,6 +656,11 @@ class Pp_Roles_Actions
         $this->check_permissions();
 
         /**
+         * Check nonce
+         */
+        $this->check_nonce('bulk-roles');
+
+        /**
          * Validate input data
          */
         $roles = [];
@@ -702,6 +720,11 @@ class Pp_Roles_Actions
          * Check capabilities
          */
         $this->check_permissions();
+
+        /**
+         * Check nonce
+         */
+        $this->check_nonce('bulk-roles');
 
         /**
          * Validate input data
