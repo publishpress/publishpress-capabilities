@@ -26,6 +26,18 @@ function esc_html__($text, $domain = null) {
 
 require_once __DIR__ . '/../includes/backup-handler.php';
 
+$backup_handler_source = file_get_contents(__DIR__ . '/../includes/backup-handler.php');
+
+if (false === strpos($backup_handler_source, 'new WP_Filesystem_Direct(null)')) {
+    fwrite(STDERR, "Backup imports should use direct filesystem access for completed local uploads.\n");
+    exit(1);
+}
+
+if (false !== strpos($backup_handler_source, '! WP_Filesystem()')) {
+    fwrite(STDERR, "Backup imports must not require negotiated FTP or SSH credentials.\n");
+    exit(1);
+}
+
 $handler = new Capsman_BackupHandler(new stdClass());
 $input = [
     'editor' => [

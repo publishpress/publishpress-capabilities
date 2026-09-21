@@ -161,25 +161,22 @@ class Capsman_BackupHandler
                 return;
             }
 
-            global $wp_filesystem;
-
-            if ( ! function_exists( 'WP_Filesystem' ) ) {
-                require_once( ABSPATH . 'wp-admin/includes/file.php' );
+            if ( ! class_exists( 'WP_Filesystem_Direct' ) ) {
+                require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
+                require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php' );
             }
 
-            if ( ! WP_Filesystem() || ! is_object( $wp_filesystem ) ) {
-                wp_delete_file( $file['file'] );
-                ak_admin_error(__( 'Error importing settings! Please try again.', 'capability-manager-enhanced'));
-                return;
-            }
+            // wp_handle_upload() has already placed this file on the local server.
+            // Use direct filesystem access so imports never depend on FTP/SSH credentials.
+            $upload_filesystem = new WP_Filesystem_Direct(null);
 
-            if ( ! $wp_filesystem->exists( $file['file'] ) ) {
+            if ( ! $upload_filesystem->exists( $file['file'] ) ) {
                 ak_admin_error(__( 'Error importing settings! Please try again.', 'capability-manager-enhanced'));
                 return;
             }
 
             // Get the upload data.
-            $raw  = $wp_filesystem->get_contents( $file['file'] );
+            $raw  = $upload_filesystem->get_contents( $file['file'] );
             if ( false === $raw ) {
                 wp_delete_file( $file['file'] );
                 ak_admin_error(__( 'Error importing settings! Please try again.', 'capability-manager-enhanced'));
