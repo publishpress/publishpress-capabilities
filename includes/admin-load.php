@@ -1443,6 +1443,8 @@ class PP_Capabilities_Admin_UI {
     {
         $user->get_role_caps();
 
+        $is_super_admin = is_multisite() && is_super_admin($user->ID);
+
         $role_names = wp_roles()->get_names();
         $assigned_roles = [];
 
@@ -1462,15 +1464,31 @@ class PP_Capabilities_Admin_UI {
             ];
         }
 
+        $known_capabilities = (array) $user->allcaps;
+
+        if ($is_super_admin) {
+            foreach ((array) wp_roles()->roles as $role_details) {
+                foreach (array_keys((array) ($role_details['capabilities'] ?? [])) as $cap_name) {
+                    $known_capabilities[$cap_name] = true;
+                }
+            }
+
+            foreach ((array) $user->caps as $cap_name => $granted) {
+                $known_capabilities[$cap_name] = (bool) $granted;
+            }
+        }
+
         $effective_capabilities = [];
-        foreach ((array) $user->allcaps as $cap_name => $granted) {
+        foreach ($known_capabilities as $cap_name => $granted) {
             $cap_name = sanitize_text_field((string) $cap_name);
 
             if ('' === $cap_name || in_array($cap_name, $user->roles, true)) {
                 continue;
             }
 
-            $effective_capabilities[$cap_name] = (bool) $granted;
+            $effective_capabilities[$cap_name] = $is_super_admin
+                ? user_can($user, $cap_name)
+                : (bool) $granted;
         }
         uksort($effective_capabilities, 'strnatcasecmp');
 
@@ -1487,6 +1505,7 @@ class PP_Capabilities_Admin_UI {
         uksort($direct_capabilities, 'strnatcasecmp');
 
         return [
+            'is_super_admin' => $is_super_admin,
             'assigned_roles' => $assigned_roles,
             'effective_granted_caps' => array_keys(array_filter($effective_capabilities)),
             'effective_denied_caps' => array_keys(array_filter($effective_capabilities, static function ($granted) {
@@ -1700,6 +1719,7 @@ class PP_Capabilities_Admin_UI {
         }
 
         $page_data = $this->getUserCapabilitiesPageData($selected_user);
+        $is_super_admin = $page_data['is_super_admin'];
         $assigned_roles = $page_data['assigned_roles'];
         $effective_granted_caps = $page_data['effective_granted_caps'];
         $effective_denied_caps = $page_data['effective_denied_caps'];

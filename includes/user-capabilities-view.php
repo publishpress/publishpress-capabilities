@@ -42,6 +42,13 @@ if (!defined('ABSPATH')) {
             <dd><?php echo (int) count($assigned_roles); ?></dd>
         </div>
 
+        <?php if ($is_super_admin) : ?>
+            <div class="ppc-user-capabilities-meta-item">
+                <dt><?php esc_html_e('Network Access', 'capability-manager-enhanced'); ?></dt>
+                <dd><?php esc_html_e('Super Admin', 'capability-manager-enhanced'); ?></dd>
+            </div>
+        <?php endif; ?>
+
         <div class="ppc-user-capabilities-meta-item">
             <dt><?php esc_html_e('Granted Capabilities', 'capability-manager-enhanced'); ?></dt>
             <dd><?php echo (int) count($effective_granted_caps); ?></dd>
@@ -78,7 +85,13 @@ if (!defined('ABSPATH')) {
                 <h2><?php printf(esc_html__('Granted Capabilities (%d)', 'capability-manager-enhanced'), (int) count($effective_granted_caps)); ?></h2>
             </div>
             <div class="inside">
-                <p class="ppc-user-cap-note"><?php esc_html_e('These are the capabilities WordPress resolves for this user after role assignments and any direct overrides.', 'capability-manager-enhanced'); ?></p>
+                <p class="ppc-user-cap-note">
+                    <?php if ($is_super_admin) : ?>
+                        <?php esc_html_e('These include known capabilities WordPress grants through Super Admin access, role assignments, and direct overrides.', 'capability-manager-enhanced'); ?>
+                    <?php else : ?>
+                        <?php esc_html_e('These are the capabilities WordPress resolves for this user after role assignments and any direct overrides.', 'capability-manager-enhanced'); ?>
+                    <?php endif; ?>
+                </p>
                 <?php if (empty($effective_granted_caps)) : ?>
                     <p><?php esc_html_e('This user has no granted capabilities.', 'capability-manager-enhanced'); ?></p>
                 <?php else : ?>
