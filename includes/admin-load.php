@@ -805,11 +805,11 @@ class PP_Capabilities_Admin_UI {
             'ppc_guest' => esc_html__('Logged Out Users', 'capability-manager-enhanced'),
         ];
 
-        $editable_roles = function_exists('get_editable_roles')
-            ? get_editable_roles()
-            : apply_filters('editable_roles', wp_roles()->roles);
+        // Disabled roles are intentionally omitted from get_editable_roles(), but users can
+        // retain those roles and their existing menu restrictions must remain editable.
+        $registered_roles = wp_roles()->roles;
 
-        foreach ((array) $editable_roles as $role_name => $role_details) {
+        foreach ((array) $registered_roles as $role_name => $role_details) {
             $role_name = sanitize_key($role_name);
 
             if ('' === $role_name) {
