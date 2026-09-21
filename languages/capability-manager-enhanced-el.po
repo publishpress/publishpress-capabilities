@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-04-19T15:36:09+00:00\n"
-"PO-Revision-Date: 2026-08-25 13:54+0000\n"
+"PO-Revision-Date: 2026-09-21 13:03+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "PublishPress Capabilities"
 msgstr "Δυνατότητες PublishPress"
 
-#: capsman-enhanced.php:4, fuzzy
+#: capsman-enhanced.php:4
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
@@ -38,11 +38,12 @@ msgstr ""
 "WordPress, από Διαχειριστές έως Συνδρομητές."
 
 #: capsman-enhanced.php:7
+#: includes/manager.php:1721
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: capsman-enhanced.php:8, fuzzy
+#: capsman-enhanced.php:8
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -60,6 +61,15 @@ msgstr ""
 msgid "This plugin can be deleted."
 msgstr "Αυτό το πρόσθετο μπορεί να διαγραφεί."
 
+#: includes-core/admin-features-promo.php:28
+#: includes-core/admin-features-promo.php:42
+#: includes-core/admin-features-promo.php:57
+#: includes-core/admin-features-promo.php:92
+#: includes-core/admin-features-promo.php:107
+#: includes-core/admin-features-promo.php:122
+msgid "Preview feature restriction"
+msgstr "Περιορισμός δυνατότητας προεπισκόπησης"
+
 #: includes-core/admin-features-promo.php:74
 msgid ""
 "You can block pages by URL or hide Admin elements by entering a CSS class "
@@ -74,7 +84,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:882
+#: includes/admin-load.php:1753
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Αναβάθμιση σε Pro"
@@ -82,6 +92,11 @@ msgstr "Αναβάθμιση σε Pro"
 #: includes-core/admin-menus-promo.php:29
 msgid "Admin Menu Restrictions"
 msgstr "Περιορισμοί Μενού Admin"
+
+#: includes-core/admin-menus-promo.php:54
+#: includes-core/admin-menus-promo.php:55
+msgid "Admin Menus feature preview"
+msgstr "Προεπισκόπηση δυνατότητας μενού διαχειριστή"
 
 #: includes-core/admin-menus-promo.php:58
 msgid ""
@@ -94,6 +109,10 @@ msgstr ""
 "συνδέσμους από το μενού admin του WordPress. Αυτή η δυνατότητα είναι "
 "διαθέσιμη στην έκδοση Pro των Δυνατοτήτων PublishPress."
 
+#: includes-core/admin-menus-promo.php:136
+msgid "Loading"
+msgstr "Φόρτωση"
+
 #: includes-core/CoreAdmin.php:19
 #, php-format
 msgid ""
@@ -104,21 +123,21 @@ msgstr ""
 "περισσότερες δυνατότητες και υποστήριξη. %sΑναβάθμιση σε Pro%s"
 
 #: includes-core/CoreAdmin.php:92
-#: includes-core/CoreAdmin.php:155
+#: includes-core/CoreAdmin.php:159
 #: includes/functions-admin.php:536
-#: includes/roles/class/class-pp-roles-admin.php:553
+#: includes/roles/class/class-pp-roles-admin.php:556
 msgid "Admin Menus"
 msgstr "Μενού Admin"
 
-#: includes-core/CoreAdmin.php:135
+#: includes-core/CoreAdmin.php:137
 msgid "Hide CSS Elements"
 msgstr "Κρύψτε στοιχεία CSS"
 
-#: includes-core/CoreAdmin.php:136
+#: includes-core/CoreAdmin.php:138
 msgid "Block by URL"
 msgstr "Αποκλεισμός με βάση το URL"
 
-#: includes-core/CoreAdmin.php:156
+#: includes-core/CoreAdmin.php:160
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -126,17 +145,33 @@ msgstr ""
 "Τα μενού Admin σας επιτρέπουν να επεξεργαστείτε τους συνδέσμους του μενού "
 "admin και να ελέγξετε ποιος έχει πρόσβαση."
 
-#: includes-core/CoreAdmin.php:166
+#: includes-core/CoreAdmin.php:170
 msgid "Select pages..."
 msgstr "Επιλέξτε σελίδες..."
 
-#: includes-core/CoreAdmin.php:171
+#: includes-core/CoreAdmin.php:175
 msgid "You can select page types where this element will be added."
 msgstr "Μπορείτε να επιλέξετε τύπους σελίδων όπου θα προστεθεί αυτό το στοιχείο."
+
+#: includes-core/CoreAdmin.php:177
+#: includes-core/frontend-features-promo.php:47
+#: includes-core/frontend-features-promo.php:48
+msgid "Layout spacer"
+msgstr "Διάστημα διάταξης"
 
 #: includes-core/editor-features-promo.php:24
 msgid "Metaboxes"
 msgstr "Μέσα μεταφοράς"
+
+#: includes-core/editor-features-promo.php:31
+#: includes-core/editor-features-promo.php:42
+#: includes-core/editor-features-promo.php:52
+#: includes-core/editor-features-promo.php:62
+#: includes-core/editor-features-promo.php:94
+#: includes-core/editor-features-promo.php:104
+#: includes-core/editor-features-promo.php:114
+msgid "Preview editor feature restriction"
+msgstr "Περιορισμός δυνατότητας επεξεργαστή προεπισκόπησης"
 
 #: includes-core/editor-features-promo.php:36
 msgid "Checklist"
@@ -202,47 +237,49 @@ msgstr ""
 "να χρησιμοποιήσετε αυτή τη δυνατότητα για να προσθέσετε κλάσεις σώματος "
 "μόνο για αυτή την ανάρτηση."
 
-#: includes/admin-load.php:376
+#: includes/admin-load.php:401
 msgid "Drag multiple roles selection to change roles order."
 msgstr "Σύρετε την επιλογή πολλαπλών ρόλων για να αλλάξετε τη σειρά των ρόλων."
 
-#: includes/admin-load.php:379
+#: includes/admin-load.php:404
 msgid "Page title"
 msgstr "Τίτλος σελίδας"
 
-#: includes/admin-load.php:380, fuzzy
+#: includes/admin-load.php:405, fuzzy
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:381
-#: includes/settings-ui.php:334
+#: includes/admin-load.php:406
+#: includes/settings-ui.php:298
 msgid "No results match"
 msgstr "Δεν βρέθηκαν αποτελέσματα"
 
-#: includes/admin-load.php:519
-#: includes/admin-load.php:895
+#: includes/admin-load.php:544
+#: includes/admin-load.php:1548
+#: includes/admin-load.php:1561
+#: includes/admin-load.php:1766
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:435
-#: includes/roles/class/class-pp-roles-admin.php:664
+#: includes/manager.php:442
+#: includes/roles/class/class-pp-roles-admin.php:667
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Δυνατότητες"
 
-#: includes/admin-load.php:658
+#: includes/admin-load.php:683
 msgid "No permission!"
 msgstr "Καμία άδεια!"
 
-#: includes/admin-load.php:668
+#: includes/admin-load.php:693
 msgid "Invalid nonce token!"
 msgstr "Μη έγκυρο nonce token!"
 
-#: includes/admin-load.php:672
-#: includes/admin-load.php:680
+#: includes/admin-load.php:698
+#: includes/admin-load.php:705
 msgid "Error: wrong data"
 msgstr "Σφάλμα: λανθασμένα δεδομένα"
 
-#: includes/admin-load.php:700
+#: includes/admin-load.php:725
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
@@ -250,58 +287,140 @@ msgstr ""
 "Οι αλλαγές αποθηκεύτηκαν. Η συγχρονισμένη κατάσταση χαρακτηριστικών έχει "
 "προγραμματιστεί για όλες τις τοποθεσίες δικτύου."
 
-#: includes/admin-load.php:706
-#: common/js/admin.dev.js:1237
+#: includes/admin-load.php:731
+#: common/js/admin.dev.js:1278
 msgid "Changes saved!"
 msgstr "Οι αλλαγές αποθηκεύτηκαν!"
 
-#: includes/admin-load.php:717
-#: includes/admin-notices/admin-notices.php:260
+#: includes/admin-load.php:742
+#: includes/admin-notices/admin-notices.php:262
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 #: includes/features/restrict-profile-features.php:29
 msgid "An error occured!"
 msgstr "Παρουσιάστηκε σφάλμα!"
 
-#: includes/admin-load.php:722
+#: includes/admin-load.php:747
 msgid "Security check failed"
 msgstr "Η έλεγχο ασφαλείας απέτυχε"
 
-#: includes/admin-load.php:724
+#: includes/admin-load.php:749
 msgid "Permission denied"
 msgstr "Η άδεια απορρίφθηκε"
 
-#: includes/admin-load.php:734
+#: includes/admin-load.php:759
 msgid "Settings updated successfully."
 msgstr "Οι ρυθμίσεις ενημερώθηκαν με επιτυχία."
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:824
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Χρήστες που έχουν συνδεθεί"
 
-#: includes/admin-load.php:831
+#: includes/admin-load.php:825
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Χρήστες που έχουν αποσυνδεθεί"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:1026
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "Περιορισμός μενού ικανοτήτων PublishPress"
 
-#: includes/admin-load.php:839
-msgid "This menu is restricted for the following roles"
-msgstr "Αυτό το μενού είναι περιορισμένο για τους ακόλουθους ρόλους"
+#: includes/admin-load.php:1027
+msgid "Hide this menu item for the selected roles."
+msgstr "Απόκρυψη αυτού του στοιχείου μενού για τους επιλεγμένους ρόλους."
 
-#: includes/admin-load.php:894
+#: includes/admin-load.php:1035
+msgid "Search roles"
+msgstr "Αναζήτηση ρόλων"
+
+#: includes/admin-load.php:1041
+msgid "Search by role name"
+msgstr "Αναζήτηση κατά όνομα ρόλου"
+
+#: includes/admin-load.php:1045
+msgid "No roles match your search."
+msgstr "Κανένας ρόλος δεν ταιριάζει με την αναζήτησή σας."
+
+#: includes/admin-load.php:1046
+msgid "role shown"
+msgstr "ρόλος που εμφανίζεται"
+
+#: includes/admin-load.php:1047
+msgid "roles shown"
+msgstr "ρόλοι που εμφανίζονται"
+
+#: includes/admin-load.php:1070
+#, php-format
+msgid "Need a role-by-role overview? %1$sOpen Navigation Menu Restrictions%2$s."
+msgstr ""
+"Χρειάζεστε μια επισκόπηση κατά ρόλο; %1$sΑνοίξτε τους Περιορισμούς Μενού "
+"Πλοήγησης%2$s."
+
+#: includes/admin-load.php:1281
+msgid "Permission"
+msgstr "Άδεια"
+
+#: includes/admin-load.php:1283
+msgid "Enabled"
+msgstr "Ενεργοποιημένο"
+
+#: includes/admin-load.php:1284
+msgid "Blocked"
+msgstr "Αποκλεισμένο"
+
+#: includes/admin-load.php:1285
+msgid "Limited"
+msgstr "Περιορισμένο"
+
+#: includes/admin-load.php:1303
+msgid "All content"
+msgstr "Όλο το περιεχόμενο"
+
+#: includes/admin-load.php:1326
+#, php-format
+msgid "Item #%d"
+msgstr "Στοιχείο #%d"
+
+#: includes/admin-load.php:1328
+#, fuzzy, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: includes/admin-load.php:1334
+#, php-format
+msgid "%s: all items"
+msgstr "%s: όλα τα στοιχεία"
+
+#: includes/admin-load.php:1529
+#: includes/admin-load.php:1530
+#: includes/user-capabilities-view.php:14
+msgid "User Capabilities"
+msgstr "Δυνατότητες Χρήστη"
+
+#: includes/admin-load.php:1564
+msgid "View Capabilities"
+msgstr "Δείτε Δυνατότητες"
+
+#: includes/admin-load.php:1700
+#: includes/admin-load.php:1715
+msgid "You do not have permission to view user capabilities."
+msgstr "Δεν έχετε άδεια να δείτε τις δυνατότητες του χρήστη."
+
+#: includes/admin-load.php:1710
+#: includes/test-user.php:62
+msgid "Unable to retrieve user data."
+msgstr "Αδύνατη η ανάκτηση δεδομένων χρήστη."
+
+#: includes/admin-load.php:1765
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Πίνακας ελέγχου"
 
-#: includes/admin-load.php:896
-#: includes/admin.php:175
+#: includes/admin-load.php:1767
+#: includes/admin.php:177
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
 #: includes/roles/roles.php:8
@@ -309,7 +428,7 @@ msgstr "Πίνακας ελέγχου"
 msgid "Roles"
 msgstr "Ρόλοι"
 
-#: includes/admin-load.php:897
+#: includes/admin-load.php:1768
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -334,9 +453,9 @@ msgid "Current Role"
 msgstr "Τρέχων ρόλος"
 
 #: includes/admin-notices/admin-notices-settings.php:33
-#: includes/admin-notices/admin-notices.php:207
-#: includes/admin-notices/admin-notices.php:245
-#: includes/admin-notices/admin-notices.php:248
+#: includes/admin-notices/admin-notices.php:209
+#: includes/admin-notices/admin-notices.php:247
+#: includes/admin-notices/admin-notices.php:250
 #: includes/functions-admin.php:239
 #: includes/functions-admin.php:459
 #: includes/functions-admin.php:528
@@ -346,17 +465,17 @@ msgstr "Ειδοποιήσεις διαχειριστή"
 #: includes/admin-notices/admin-notices-settings.php:60
 #: includes/admin-notices/admin-notices-settings.php:152
 #: includes/features/admin-styles/admin-styles-ui.php:180
-#: includes/features/admin-styles/admin-styles-ui.php:815
+#: includes/features/admin-styles/admin-styles-ui.php:840
 #: includes/redirects/redirects.php:117
-#: includes/redirects/redirects.php:321
+#: includes/redirects/redirects.php:324
 msgid "Save for all Roles"
 msgstr "Αποθήκευση για όλους τους ρόλους"
 
 #: includes/admin-notices/admin-notices-settings.php:64
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
-#: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:1175
+#: includes/features/admin-styles/admin-styles-ui.php:844
+#: includes/features/admin-styles/admin-styles.php:1179
 #, php-format
 msgid "Save for %s"
 msgstr "Αποθήκευση για %s"
@@ -411,7 +530,7 @@ msgstr ""
 "μία θέση."
 
 #: includes/admin-notices/admin-notices-settings.php:172
-#: includes/features/admin-styles/admin-styles-ui.php:835
+#: includes/features/admin-styles/admin-styles-ui.php:860
 msgid "Features include:"
 msgstr "Οι δυνατότητες περιλαμβάνουν:"
 
@@ -430,14 +549,14 @@ msgid "Configure notice visibility by user role"
 msgstr "Ρύθμιση ορατότητας ειδοποιήσεων κατά ρόλο χρήστη"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1996
+#: includes/admin.php:2059
 #: includes/features/admin-features.php:352
-#: includes/features/admin-styles/admin-styles-ui.php:842
+#: includes/features/admin-styles/admin-styles-ui.php:867
 #: includes/features/editor-features.php:247
 #: includes/features/frontend-features/frontend-features.php:256
 #: includes/features/nav-menus.php:308
 #: includes/features/profile-features.php:257
-#: includes/redirects/redirects.php:336
+#: includes/redirects/redirects.php:339
 msgid "View Documentation"
 msgstr "Δείτε την τεκμηρίωση"
 
@@ -445,29 +564,29 @@ msgstr "Δείτε την τεκμηρίωση"
 msgid "How to use Admin Notices"
 msgstr "Πώς να χρησιμοποιήσετε τις Ειδοποιήσεις Διαχείρισης"
 
-#: includes/admin-notices/admin-notices.php:79
+#: includes/admin-notices/admin-notices.php:81
 msgid "Display this notice"
 msgstr "Εμφάνιση αυτής της ειδοποίησης"
 
-#: includes/admin-notices/admin-notices.php:80
+#: includes/admin-notices/admin-notices.php:82
 msgid "Silence this notice"
 msgstr "Σίγαση αυτής της ειδοποίησης"
 
-#: includes/admin-notices/admin-notices.php:81
+#: includes/admin-notices/admin-notices.php:83
 msgid "Hide this notice"
 msgstr "Απόκρυψη αυτής της ειδοποίησης"
 
-#: includes/admin-notices/admin-notices.php:82
+#: includes/admin-notices/admin-notices.php:84
 msgid "Move to Hidden Notices"
 msgstr "Μετακίνηση σε Κρυφές Ειδοποιήσεις"
 
-#: includes/admin-notices/admin-notices.php:83
+#: includes/admin-notices/admin-notices.php:85
 msgid "Displayed notices will no longer be removed from admin pages."
 msgstr ""
 "Οι εμφανιζόμενες ειδοποιήσεις δεν θα αφαιρεθούν πλέον από τις σελίδες "
 "διαχείρισης."
 
-#: includes/admin-notices/admin-notices.php:84
+#: includes/admin-notices/admin-notices.php:86
 msgid ""
 "This notice will be moved to the \"Silenced Notices\" tab and you will not "
 "receive a notification if it appears again."
@@ -475,39 +594,39 @@ msgstr ""
 "Αυτή η ειδοποίηση θα μετακινηθεί στην καρτέλα \"Σιγασμένες Ειδοποιήσεις\" "
 "και δεν θα λάβετε ειδοποίηση αν εμφανιστεί ξανά."
 
-#: includes/admin-notices/admin-notices.php:232
+#: includes/admin-notices/admin-notices.php:234
 msgid "Hidden Notices"
 msgstr "Κρυφές Ειδοποιήσεις"
 
-#: includes/admin-notices/admin-notices.php:236
+#: includes/admin-notices/admin-notices.php:238
 msgid "Silenced Notices"
 msgstr "Σιγασμένες Ειδοποιήσεις"
 
-#: includes/admin-notices/admin-notices.php:246
+#: includes/admin-notices/admin-notices.php:248
 msgid "There are currently no admin notices."
 msgstr "Προς το παρόν δεν υπάρχουν ειδοποιήσεις διαχείρισης."
 
-#: includes/admin-notices/admin-notices.php:246
+#: includes/admin-notices/admin-notices.php:248
 msgid "Edit the settings."
 msgstr "Επεξεργαστείτε τις ρυθμίσεις."
 
-#: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:823
-#: includes/manager.php:847
+#: includes/admin-notices/admin-notices.php:271
+#: includes/manager.php:830
+#: includes/manager.php:854
 msgid "You do not have permission to manage admin notices."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε τις ειδοποιήσεις διαχειριστή."
 
-#: includes/admin-notices/admin-notices.php:271
+#: includes/admin-notices/admin-notices.php:273
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
 msgid "Invalid action. Reload this page and try again."
 msgstr "Μη έγκυρη ενέργεια. Επαναφορτώστε αυτή τη σελίδα και δοκιμάστε ξανά."
 
-#: includes/admin-notices/admin-notices.php:273
+#: includes/admin-notices/admin-notices.php:275
 msgid "Invalid form."
 msgstr "Μη έγκυρη φόρμα."
 
-#: includes/admin-notices/admin-notices.php:297
+#: includes/admin-notices/admin-notices.php:299
 msgid "Admin notice status updated successfully."
 msgstr "Η κατάσταση της ειδοποίησης διαχειριστή ενημερώθηκε με επιτυχία."
 
@@ -515,86 +634,94 @@ msgstr "Η κατάσταση της ειδοποίησης διαχειριστ
 #, php-format
 msgid ""
 "Warning: This role cannot access the dashboard without the read capability. "
-"%1$sClick here to fix this now%2$s."
+"%1$sGrant the read capability and save%2$s."
 msgstr ""
-"Προειδοποίηση: Αυτός ο ρόλος δεν μπορεί να έχει πρόσβαση στο dashboard "
-"χωρίς την ικανότητα ανάγνωσης. %1$sΚάντε κλικ εδώ για να το διορθώσετε "
-"τώρα%2$s."
+"Προειδοποίηση: Αυτή η ρόλος δεν μπορεί να έχει πρόσβαση στο dashboard χωρίς "
+"την δυνατότητα ανάγνωσης. %1$sΔώστε τη δυνατότητα ανάγνωσης και "
+"αποθηκεύστε%2$s."
 
 #: includes/admin.php:110
 msgid "Role Capabilities"
 msgstr "Δυνατότητες Ρόλου"
 
-#: includes/admin.php:151
+#: includes/admin.php:149
+msgid "Search capabilities"
+msgstr "Αναζήτηση δυνατοτήτων"
+
+#: includes/admin.php:152
 msgid "Search capabilities..."
 msgstr "Αναζητήστε δυνατότητες..."
 
-#: includes/admin.php:166
+#: includes/admin.php:165
+msgid "Role to edit"
+msgstr "Ρόλος προς επεξεργασία"
+
+#: includes/admin.php:168
 msgid "Application Passwords"
 msgstr "Κωδικοί πρόσβασης εφαρμογής"
 
-#: includes/admin.php:248
-#: includes/admin.php:924
+#: includes/admin.php:250
+#: includes/admin.php:975
 msgid "Nav Menus (Block)"
 msgstr "Μενού Πλοήγησης (Block)"
 
-#: includes/admin.php:250, fuzzy
+#: includes/admin.php:252, fuzzy
 msgid "Block"
 msgstr "Block"
 
-#: includes/admin.php:257
-#: includes/admin.php:926
+#: includes/admin.php:259
+#: includes/admin.php:977
 msgid "Nav Menus (Legacy)"
 msgstr "Μενού Πλοήγησης (Legacy)"
 
-#: includes/admin.php:259, fuzzy
+#: includes/admin.php:261, fuzzy
 msgid "Legacy"
 msgstr "Legacy"
 
-#: includes/admin.php:311, fuzzy
+#: includes/admin.php:313, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:312
+#: includes/admin.php:314
 msgid "Visibility"
 msgstr "Ορατότητα"
 
-#: includes/admin.php:313
+#: includes/admin.php:315
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Επεξεργασία"
 
-#: includes/admin.php:314
+#: includes/admin.php:316
 msgid "Deletion"
 msgstr "Διαγραφή"
 
-#: includes/admin.php:315
+#: includes/admin.php:317
 msgid "Taxonomies"
 msgstr "Taxonomies"
 
-#: includes/admin.php:319
+#: includes/admin.php:321
 msgid "Listing"
 msgstr "Καταχώριση"
 
-#: includes/admin.php:323
+#: includes/admin.php:325
 msgid "Create Revision"
 msgstr "Δημιουργία Αναθεώρησης"
 
-#: includes/admin.php:327
+#: includes/admin.php:329
 msgid "Submit Revision"
 msgstr "Υποβολή Αναθεώρησης"
 
-#: includes/admin.php:331
+#: includes/admin.php:333
 msgid "Approve Revision"
 msgstr "Έγκριση Αναθεώρησης"
 
-#: includes/admin.php:335
+#: includes/admin.php:337
 msgid "Can read posts which are currently published with private visibility."
 msgstr ""
 "Μπορεί να διαβάσει δημοσιεύσεις οι οποίες είναι αυτή τη στιγμή "
 "δημοσιευμένες με ιδιωτική ορατότητα."
 
-#: includes/admin.php:336
+#: includes/admin.php:338
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -602,27 +729,27 @@ msgstr ""
 "Έχει βασική ικανότητα επεξεργασίας (αλλά μπορεί να χρειαστεί άλλες "
 "ικανότητες ανάλογα με την κατάσταση και την ιδιοκτησία της δημοσίευσης)."
 
-#: includes/admin.php:337
+#: includes/admin.php:339
 msgid "Can edit posts which were created by other users."
 msgstr ""
 "Μπορεί να επεξεργαστεί δημοσιεύσεις που έχουν δημιουργηθεί από άλλους "
 "χρήστες."
 
-#: includes/admin.php:338
+#: includes/admin.php:340
 msgid "Can edit posts which are currently published."
 msgstr "Μπορεί να επεξεργαστεί δημοσιεύσεις που είναι αυτή τη στιγμή δημοσιευμένες."
 
-#: includes/admin.php:339
+#: includes/admin.php:341
 msgid "Can edit posts which are currently published with private visibility."
 msgstr ""
 "Μπορεί να επεξεργαστεί δημοσιεύσεις που είναι αυτή τη στιγμή δημοσιευμένες "
 "με ιδιωτική ορατότητα."
 
-#: includes/admin.php:340
+#: includes/admin.php:342
 msgid "Can make a post publicly visible."
 msgstr "Μπορεί να καταστήσει μια δημοσίευση δημόσια ορατή."
 
-#: includes/admin.php:341
+#: includes/admin.php:343
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -630,152 +757,175 @@ msgstr ""
 "Έχει βασική ικανότητα διαγραφής (αλλά μπορεί να χρειαστεί άλλες ικανότητες "
 "ανάλογα με την κατάσταση και την ιδιοκτησία της δημοσίευσης)."
 
-#: includes/admin.php:342
+#: includes/admin.php:344
 msgid "Can delete posts which were created by other users."
 msgstr "Μπορεί να διαγράψει δημοσιεύσεις που έχουν δημιουργηθεί από άλλους χρήστες."
 
-#: includes/admin.php:343
+#: includes/admin.php:345
 msgid "Can delete posts which are currently published."
 msgstr "Μπορεί να διαγράψει δημοσιεύσεις που είναι αυτή τη στιγμή δημοσιευμένες."
 
-#: includes/admin.php:344
+#: includes/admin.php:346
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
 "Μπορεί να διαγράψει δημοσιεύσεις που είναι αυτή τη στιγμή δημοσιευμένες με "
 "ιδιωτική ορατότητα."
 
-#: includes/admin.php:485
+#: includes/admin.php:519
 msgid "grant / clear / deny all capabilities"
 msgstr "χορήγηση / εκκαθάριση / άρνηση όλων των δικαιωμάτων"
 
-#: includes/admin.php:487
+#: includes/admin.php:521
 msgid "All capabilities"
 msgstr "Όλα τα δικαιώματα"
 
-#: includes/admin.php:492
+#: includes/admin.php:526
+#: includes/manager.php:269
+#: includes/user-capabilities-view.php:149
 msgid "Granted"
 msgstr "Χορηγήθηκε"
 
-#: includes/admin.php:493
+#: includes/admin.php:527
+#: includes/manager.php:270
 msgid "Not granted"
 msgstr "Δεν χορηγήθηκε"
 
-#: includes/admin.php:494
+#: includes/admin.php:528
+#: includes/manager.php:271
+#: includes/user-capabilities-view.php:158
 msgid "Denied"
 msgstr "Αρνηθεί"
 
-#: includes/admin.php:495
-#: includes/admin.php:496
+#: includes/admin.php:529
+#: includes/admin.php:530
 msgid "Mixed"
 msgstr "Μικτά"
 
-#: includes/admin.php:500
+#: includes/admin.php:534
 msgid "Global capabilities help"
 msgstr "Βοήθεια παγκόσμιων δυνατοτήτων"
 
-#: includes/admin.php:503
+#: includes/admin.php:537
 msgid "Click to grant, clear, or deny capabilities across every tab."
 msgstr ""
 "Κάντε κλικ για να χορηγήσετε, να εκκαθαρίσετε ή να αρνηθείτε τα δικαιώματα "
 "σε κάθε καρτέλα."
 
-#: includes/admin.php:676
-#: includes/admin.php:1193
-#: includes/admin.php:2087, fuzzy
+#: includes/admin.php:543
+msgid "Capability sections"
+msgstr "Τμήματα δυνατοτήτων"
+
+#: includes/admin.php:716
+#: includes/admin.php:1244
+#: includes/admin.php:2153, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:680
-#: includes/admin.php:1197
+#: includes/admin.php:720
+#: includes/admin.php:1248
 msgid "Admin"
 msgstr "Admin"
 
-#: includes/admin.php:760
-#: includes/admin.php:1633
+#: includes/admin.php:806
+#: includes/admin.php:1693
 msgid "Invalid Capabilities"
 msgstr "Μη έγκυρες Ικανότητες"
 
-#: includes/admin.php:765
-#: includes/admin.php:1779
+#: includes/admin.php:812
+#: includes/admin.php:1841
 msgid "Additional"
 msgstr "Επιπλέον"
 
-#: includes/admin.php:799
+#: includes/admin.php:847
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Ικανότητες Όρου %s"
 
-#: includes/admin.php:802
+#: includes/admin.php:850
 #, php-format
 msgid "%s Capabilities"
 msgstr "Ικανότητες %s"
 
-#: includes/admin.php:803
+#: includes/admin.php:851
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Ικανότητες Δημοσίευσης %s"
 
-#: includes/admin.php:806
+#: includes/admin.php:854
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: includes/admin.php:812
+#: includes/admin.php:859
 msgid "Filter by taxonomy"
 msgstr "Φίλτρο κατά taxonomy"
 
-#: includes/admin.php:812
+#: includes/admin.php:859
 msgid "Filter by post type"
 msgstr "Φίλτρο κατά post type"
 
-#: includes/admin.php:821
-#: includes/admin.php:1227
-#: includes/admin.php:1307
-#: includes/admin.php:1341
-#: includes/admin.php:1347
-#: includes/admin.php:1497
-#: includes/admin.php:1618
-#: includes/admin.php:1759
-#: includes/admin.php:1937
+#: includes/admin.php:871
+#: includes/admin.php:1281
+#: includes/admin.php:1361
+#: includes/admin.php:1397
+#: includes/admin.php:1403
+#: includes/admin.php:1556
+#: includes/admin.php:1677
+#: includes/admin.php:1821
+#: includes/admin.php:1999
 msgid "check / uncheck / negate all"
 msgstr "επιλογή / αποεπιλογή / αρνηση όλων"
 
-#: includes/admin.php:933
+#: includes/admin.php:871
+msgid "Grant, clear, or deny all capabilities in this table"
+msgstr "Δώστε, αφαιρέστε ή απορρίψτε όλες τις δυνατότητες σε αυτόν τον πίνακα"
+
+#: includes/admin.php:900
+#, php-format
+msgid "Toggle all %s capabilities"
+msgstr "Εναλλαγή όλων των %s δυνατοτήτων"
+
+#: includes/admin.php:984
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "Ο slug για αυτήν την taxonomy είναι %s"
 
-#: includes/admin.php:935
+#: includes/admin.php:986
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "Ο slug για αυτόν τον post type είναι %s"
 
-#: includes/admin.php:1012
-#: includes/admin.php:1260
-#: includes/admin.php:1554
-#: includes/admin.php:1862
-#: includes/admin.php:1863
+#: includes/admin.php:999
+#, php-format
+msgid "Toggle all capabilities for %s"
+msgstr "Εναλλαγή όλων των δυνατοτήτων για %s"
+
+#: includes/admin.php:1063
+#: includes/admin.php:1314
+#: includes/admin.php:1613
+#: includes/admin.php:1924
+#: includes/admin.php:1925
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: ανατεθεί από την ομάδα άδειας"
 
-#: includes/admin.php:1015
-#: includes/admin.php:1262
-#: includes/admin.php:1556
-#: includes/admin.php:1682
-#: includes/admin.php:1865
+#: includes/admin.php:1066
+#: includes/admin.php:1316
+#: includes/admin.php:1615
+#: includes/admin.php:1742
+#: includes/admin.php:1927
 #, php-format
 msgid "This capability is %s"
 msgstr "Αυτή η δυνατότητα είναι %s"
 
-#: includes/admin.php:1046
+#: includes/admin.php:1097
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Αυτή η δυνατότητα ελέγχεται από %s"
 
-#: includes/admin.php:1049
+#: includes/admin.php:1100
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -784,18 +934,18 @@ msgstr ""
 "Αυτή η δυνατότητα ελέγχεται από %s Χρησιμοποιήστε τις ρυθμίσεις της πλαϊνής "
 "μπάρας για να επιτρέψετε να ελέγχεται ανεξάρτητα."
 
-#: includes/admin.php:1066
+#: includes/admin.php:1117
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr ""
 "Χρησιμοποιήστε τις ρυθμίσεις της πλαϊνής μπάρας για να επιτρέψετε να "
 "ελέγχεται ανεξάρτητα."
 
-#: includes/admin.php:1068
-#: includes/admin.php:1072
+#: includes/admin.php:1119
+#: includes/admin.php:1123
 msgid "This capability is not available for this post type."
 msgstr "Αυτή η δυνατότητα δεν είναι διαθέσιμη για αυτόν τον post type."
 
-#: includes/admin.php:1136
+#: includes/admin.php:1187
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -807,55 +957,62 @@ msgstr ""
 "αντίστοιχη δυνατότητα \"Επεξεργασία\". Επίσης, αυτές οι δυνατότητες "
 "\"Λίστα\" μπορούν να παρέχουν πρόσβαση, αλλά όχι να αρνούνται πρόσβαση."
 
-#: includes/admin.php:1213
-#: includes/admin.php:1327
-#: includes/admin.php:1483
-#: includes/admin.php:1750
+#: includes/admin.php:1266
+#: includes/admin.php:1382
+#: includes/admin.php:1541
+#: includes/admin.php:1811
+msgid "Filter capabilities in this section"
+msgstr "Φιλτράρετε τις δυνατότητες σε αυτήν την ενότητα"
+
+#: includes/admin.php:1267
+#: includes/admin.php:1383
+#: includes/admin.php:1542
+#: includes/admin.php:1812
 msgid "Filter by capability"
 msgstr "Φίλτρο κατά δυνατότητα"
 
-#: includes/admin.php:1216
-#: includes/admin.php:1330
-#: includes/admin.php:1486
-#: includes/admin.php:1753
+#: includes/admin.php:1270
+#: includes/admin.php:1386
+#: includes/admin.php:1545
+#: includes/admin.php:1815
 msgid "No results found. Please try again with a different word."
 msgstr "Δεν βρέθηκαν αποτελέσματα. Παρακαλώ δοκιμάστε ξανά με μια διαφορετική λέξη."
 
-#: includes/admin.php:1227
-#: includes/admin.php:1307
-#: includes/admin.php:1341
-#: includes/admin.php:1347
-#: includes/admin.php:1497
-#: includes/admin.php:1618
-#: includes/admin.php:1759
-#: includes/admin.php:1937
+#: includes/admin.php:1281
+#: includes/admin.php:1361
+#: includes/admin.php:1397
+#: includes/admin.php:1403
+#: includes/admin.php:1556
+#: includes/admin.php:1677
+#: includes/admin.php:1821
+#: includes/admin.php:1999
 msgid "Capability Name"
 msgstr "Όνομα Δυνατότητας"
 
-#: includes/admin.php:1324
+#: includes/admin.php:1378
 msgid "WordPress Core Capabilities"
 msgstr "Δυνατότητες Πυρήνα WordPress"
 
-#: includes/admin.php:1463
-#: includes/admin.php:1518
-#: includes/features/admin-styles/admin-styles.php:2062
+#: includes/admin.php:1519
+#: includes/admin.php:1577
+#: includes/features/admin-styles/admin-styles.php:2066
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Γενικά"
 
-#: includes/admin.php:1480
+#: includes/admin.php:1537
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Δυνατότητες Προσθέτων &ndash; %s"
 
-#: includes/admin.php:1560
+#: includes/admin.php:1619
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "Η δυνατότητα Δοκιμών Χρηστών απαιτεί επίσης τη δυνατότητα %1$s edit_users "
 "%2$s."
 
-#: includes/admin.php:1638
+#: includes/admin.php:1698
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -863,28 +1020,28 @@ msgstr ""
 "Οι παρακάτω καταχωρίσεις δεν έχουν καμία επίδραση. Παρακαλώ αναθέστε τις "
 "επιθυμητές δυνατότητες στις καρτέλες Επεξεργασίας / Διαγραφής / Ιδιωτικό."
 
-#: includes/admin.php:1747
+#: includes/admin.php:1807
 msgid "Additional Capabilities"
 msgstr "Επιπλέον Δυνατότητες"
 
-#: includes/admin.php:1930
+#: includes/admin.php:1992
 msgid "You have no additional capabilities."
 msgstr "Δεν έχετε επιπλέον δυνατότητες."
 
-#: includes/admin.php:1951
+#: includes/admin.php:2013
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "Οι δυνατότητες σας επιτρέπουν να αλλάξετε τις άδειες για οποιοδήποτε ρόλο "
 "χρήστη."
 
-#: includes/admin.php:1952
+#: includes/admin.php:2014
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Δυνατότητα παραχωρηθείσα %2$s"
 
-#: includes/admin.php:1952
-#: includes/admin.php:1953
-#: includes/admin.php:1954
+#: includes/admin.php:2014
+#: includes/admin.php:2015
+#: includes/admin.php:2016
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -898,30 +1055,38 @@ msgstr "%1$s = Δυνατότητα παραχωρηθείσα %2$s"
 msgid "usage key"
 msgstr "κλειδί χρήσης"
 
-#: includes/admin.php:1953
+#: includes/admin.php:2015
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Δυνατότητα μη παραχωρηθείσα %2$s"
 
-#: includes/admin.php:1954
+#: includes/admin.php:2016
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Δυνατότητα απορριφθείσα, ακόμα και αν παραχωρήθηκε από άλλο ρόλο %2$s"
 
-#: includes/admin.php:1962
+#: includes/admin.php:2024
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Μπορείτε επίσης να διαμορφώσετε αυτόν τον ρόλο ως %sΟμάδα Αδειών%s."
 
-#: includes/admin.php:1982
+#: includes/admin.php:2044
 msgid "How to use Capabilities"
 msgstr "Πώς να χρησιμοποιήσετε τις Δυνατότητες"
 
-#: includes/admin.php:2020
+#: includes/admin.php:2047
+msgid "Toggle How to use Capabilities panel"
+msgstr "Εναλλαγή του πίνακα Πώς να χρησιμοποιήσετε τις Δυνατότητες"
+
+#: includes/admin.php:2083
 msgid "Capabilities is Safe to Use"
 msgstr "Οι Δυνατότητες είναι ασφαλείς προς χρήση"
 
-#: includes/admin.php:2033
+#: includes/admin.php:2086
+msgid "Toggle Capabilities is Safe to Use panel"
+msgstr "Εναλλαγή του πίνακα Οι Δυνατότητες είναι Ασφαλείς προς Χρήση"
+
+#: includes/admin.php:2097
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -929,7 +1094,7 @@ msgstr ""
 "Το WordPress αποθηκεύει τις δυνατότητες ρόλων στη βάση δεδομένων σας, όπου "
 "παραμένουν ακόμα και αν το πρόσθετο απενεργοποιηθεί."
 
-#: includes/admin.php:2034
+#: includes/admin.php:2098
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -939,27 +1104,40 @@ msgstr ""
 "μπορείτε να χρησιμοποιήσετε για να αποκαταστήσετε μια προηγούμενη "
 "διαμόρφωση."
 
-#: includes/admin.php:2037
+#: includes/admin.php:2101
 msgid "Go to the Backup feature"
 msgstr "Μεταβείτε στη δυνατότητα Αντίγραφου Ασφαλείας"
 
-#: includes/admin.php:2057
+#: includes/admin.php:2121
 msgid "Add a New Capability"
 msgstr "Προσθέστε μια Νέα Δυνατότητα"
 
-#: includes/admin.php:2067
+#: includes/admin.php:2124
+msgid "Toggle Add a New Capability panel"
+msgstr "Εναλλαγή του πίνακα Προσθήκη Νέας Δυνατότητας"
+
+#: includes/admin.php:2131
+msgid "New capability name"
+msgstr "Όνομα νέας δυνατότητας"
+
+#: includes/admin.php:2133
 msgid "Add to role"
 msgstr "Προσθήκη σε ρόλο"
 
-#: includes/admin.php:2070
+#: includes/admin.php:2136
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Οι νέες δυνατότητες ελέγχονται στην καρτέλα Επιπλέον."
 
-#: includes/admin.php:2127
+#: includes/admin.php:2156
+msgid "Toggle Multisite panel"
+msgstr "Εναλλαγή του πίνακα Multisite"
+
+#: includes/admin.php:2194
+#: includes/user-capabilities-view.php:172
 msgid "PublishPress Permissions"
 msgstr "Άδειες του PublishPress"
 
-#: includes/admin.php:2129
+#: includes/admin.php:2196
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -967,11 +1145,19 @@ msgstr ""
 "Ορίστε αυτόματα δυνατότητες συγκεκριμένες για τύπο για τους προσαρμοσμένους "
 "τύπους καταχώρησης και τις ταξινομίες σας"
 
-#: includes/admin.php:2133
+#: includes/admin.php:2197
+msgid "Watch the post type capabilities tutorial"
+msgstr "Δείτε το tutorial για τις δυνατότητες του post type"
+
+#: includes/admin.php:2200
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Αναθέστε τυπικούς ρόλους WP επιπλέον για έναν συγκεκριμένο τύπο καταχώρησης"
 
-#: includes/admin.php:2137
+#: includes/admin.php:2201
+msgid "Watch the supplemental role tutorial"
+msgstr "Δείτε το tutorial για τον συμπληρωματικό ρόλο"
+
+#: includes/admin.php:2204
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
@@ -979,17 +1165,25 @@ msgstr ""
 "Αναθέστε προσαρμοσμένους ρόλους WP επιπλέον για έναν συγκεκριμένο post type "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2141
+#: includes/admin.php:2208
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Προσαρμόστε τις άδειες ανάγνωσης ανά κατηγορία ή ανά ανάρτηση"
 
-#: includes/admin.php:2145
+#: includes/admin.php:2209
+msgid "Watch the category permissions tutorial"
+msgstr "Δείτε το tutorial για τις άδειες κατηγορίας"
+
+#: includes/admin.php:2212
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr ""
 "Προσαρμόστε τις άδειες επεξεργασίας ανά κατηγορία ή ανά ανάρτηση "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2213
+msgid "Watch the page editing permissions tutorial"
+msgstr "Δείτε το tutorial για τις άδειες επεξεργασίας σελίδων"
+
+#: includes/admin.php:2216
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -997,7 +1191,11 @@ msgstr ""
 "Καταστάσεις Ορατότητας Ανάρτησης προσαρμοσμένες, πλήρως υλοποιημένες σε όλο "
 "το wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:2153
+#: includes/admin.php:2217
+msgid "Watch the custom post visibility tutorial"
+msgstr "Δείτε το σεμινάριο ορατότητας προσαρμοσμένων αναρτήσεων"
+
+#: includes/admin.php:2220
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -1005,13 +1203,21 @@ msgstr ""
 "Καταστάσεις Διαχείρισης προσαρμοσμένες για ροή δημοσίευσης ελέγχου "
 "πρόσβασης, πολλαπλών βημάτων <em>(Pro)</em>"
 
-#: includes/admin.php:2157
+#: includes/admin.php:2221
+msgid "Watch the multi-step moderation tutorial"
+msgstr "Δείτε το σεμινάριο πολυβηματικής διαχείρισης"
+
+#: includes/admin.php:2224
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr ""
 "Ρυθμίστε τις άδειες για τις καταστάσεις ανάρτησης του Edit Flow "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2161
+#: includes/admin.php:2225
+msgid "Watch the Edit Flow integration tutorial"
+msgstr "Δείτε το σεμινάριο ενσωμάτωσης Edit Flow"
+
+#: includes/admin.php:2228
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -1019,7 +1225,11 @@ msgstr ""
 "Προσαρμόστε την μετρημένη επεξεργασία του δημοσιευμένου περιεχομένου με το "
 "Revisionary ή το Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2165
+#: includes/admin.php:2229
+msgid "Watch the published content revisions tutorial"
+msgstr "Δείτε το σεμινάριο αναθεωρήσεων δημοσιευμένου περιεχομένου"
+
+#: includes/admin.php:2232
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -1027,39 +1237,43 @@ msgstr ""
 "Δώστε πρόσβαση σε θεατή, συμμετέχοντα ή διαχειριστή σε συγκεκριμένα bbPress "
 "φόρουμ <em>(Pro)</em>"
 
-#: includes/admin.php:2169
+#: includes/admin.php:2236
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr "Δώστε επιπλέον άδειες περιεχομένου σε μια ομάδα BuddyPress <em>(Pro)</em>"
 
-#: includes/admin.php:2173
+#: includes/admin.php:2237
+msgid "Watch the BuddyPress content permissions tutorial"
+msgstr "Δείτε το σεμινάριο δικαιωμάτων περιεχομένου BuddyPress"
+
+#: includes/admin.php:2240
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "Ενσωμάτωση WPML για την αντιγραφή άδειας στις μεταφράσεις <em>(Pro)</em>"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2244
 msgid "Member support forum"
 msgstr "Φόρουμ υποστήριξης μελών"
 
-#: includes/admin.php:2184
+#: includes/admin.php:2251
 #, fuzzy, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$sgrab%2$s %3$s"
 
-#: includes/admin.php:2184
+#: includes/admin.php:2251
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (εγκατάσταση δωρεάν)"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2253
 #, fuzzy, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$sbuy%2$s %3$s"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2253
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s πληροφορίες/αγορά"
 
-#: includes/admin.php:2219
+#: includes/admin.php:2286
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1069,35 +1283,35 @@ msgstr ""
 "καθορίζει την επιλεξιμότητα για την ανάθεση του Συγγραφέα Ανάρτησης και "
 "περιορίζει την εφαρμογή των δυνατοτήτων επεξεργασίας χρηστών."
 
-#: includes/admin.php:2221
+#: includes/admin.php:2288
 msgid "Level:"
 msgstr "Επίπεδο:"
 
-#: includes/admin.php:2265
+#: includes/admin.php:2332
 msgid "Create this role definition in new (future) sites"
 msgstr "Δημιουργήστε αυτήν την ορισμό ρόλου σε νέες (μελλοντικές) τοποθεσίες"
 
-#: includes/admin.php:2265
+#: includes/admin.php:2332
 msgid "Include in new sites."
 msgstr "Συμπεριλάβετε σε νέες τοποθεσίες."
 
-#: includes/admin.php:2268
+#: includes/admin.php:2335
 msgid "Copy / update this role definition to all sites now"
 msgstr "Αντιγράψτε / ενημερώστε αυτήν την ορισμό ρόλου σε όλες τις τοποθεσίες τώρα"
 
-#: includes/admin.php:2268
+#: includes/admin.php:2335
 msgid "Sync role to all sites."
 msgstr "Συγχρονίστε τον ρόλο σε όλες τις τοποθεσίες."
 
-#: includes/admin.php:2271
+#: includes/admin.php:2338
 msgid "Copy option settings to all sites now"
 msgstr "Αντιγράψτε τις ρυθμίσεις επιλογών σε όλες τις τοποθεσίες τώρα"
 
-#: includes/admin.php:2271
+#: includes/admin.php:2338
 msgid "Sync options to all sites."
 msgstr "Συγχρονίστε τις επιλογές σε όλες τις τοποθεσίες."
 
-#: includes/application-passwords.php:220
+#: includes/application-passwords.php:224
 msgid "Unnamed application password"
 msgstr "Ακαθόριστος κωδικός πρόσβασης εφαρμογής"
 
@@ -1138,35 +1352,36 @@ msgstr "Παρακαλώ ανεβάστε ένα αρχείο για εισαγ�
 msgid "Please upload a valid .json file"
 msgstr "Παρακαλώ ανεβάστε ένα έγκυρο αρχείο .json"
 
-#: includes/backup-handler.php:165
+#: includes/backup-handler.php:174
+#: includes/backup-handler.php:182
 msgid "Error importing settings! Please try again."
 msgstr "Σφάλμα κατά την εισαγωγή ρυθμίσεων! Παρακαλώ προσπαθήστε ξανά."
 
-#: includes/backup-handler.php:178
+#: includes/backup-handler.php:192
 msgid "Error importing settings! Please check that you uploaded a valid json file."
 msgstr ""
 "Σφάλμα κατά την εισαγωγή ρυθμίσεων! Παρακαλώ ελέγξτε ότι ανεβάσατε ένα "
 "έγκυρο αρχείο json."
 
-#: includes/backup-handler.php:232
+#: includes/backup-handler.php:246
 #, php-format
 msgid "Skipped %d invalid or unsupported import entries."
 msgstr "Παραλείφθηκαν %d μη έγκυρες ή μη υποστηριζόμενες εγγραφές εισαγωγής."
 
-#: includes/backup-handler.php:236
+#: includes/backup-handler.php:250
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s εισήχθη με επιτυχία από τα ανεβασμένα δεδομένα."
 
-#: includes/backup-handler.php:238
+#: includes/backup-handler.php:252
 msgid "No valid backup data found to import."
 msgstr "Δεν βρέθηκαν έγκυρα δεδομένα αντιγράφου ασφαλείας προς εισαγωγή."
 
-#: includes/backup-handler.php:562
+#: includes/backup-handler.php:576
 msgid "Needed function to create default roles not found!"
 msgstr "Η απαραίτητη λειτουργία για τη δημιουργία προεπιλεγμένων ρόλων δεν βρέθηκε!"
 
-#: includes/backup-handler.php:581
+#: includes/backup-handler.php:595
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "Ρόλοι και Δυνατότητες επαναρυθμίστηκαν στις προεπιλογές του WordPress"
 
@@ -1261,6 +1476,7 @@ msgstr "όλοι οι ρόλοι"
 msgid "Manual backup of %s (%s)"
 msgstr "Χειροκίνητο αντίγραφο ασφαλείας του %s (%s)"
 
+#: includes/backup.php:128
 #: includes/backup.php:129
 #, php-format
 msgid "Auto-backup of all roles (%s)"
@@ -1407,6 +1623,10 @@ msgstr ""
 "\"Αντίγραφο Ασφαλείας\" για να δημιουργήσετε ένα αντίγραφο ασφαλείας των "
 "τρεχουσών ρυθμίσεών σας."
 
+#: includes/backup.php:367
+msgid "Import settings file"
+msgstr "Εισαγωγή αρχείου ρυθμίσεων"
+
 #: includes/dashboard.php:74
 msgid "Sync feature status to all sites in this network."
 msgstr ""
@@ -1485,17 +1705,18 @@ msgstr "Πώς να χρησιμοποιήσετε τις δυνατότητες
 msgid "Admin Features Settings"
 msgstr "Ρυθμίσεις δυνατοτήτων διαχείρισης"
 
+#: includes/features/admin-features.php:359
 #: includes/features/admin-features.php:360
 msgid "Hide Submenus"
 msgstr "Απόκρυψη υπομενού"
 
 #: includes/features/admin-styles/admin-styles-ui.php:55
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/admin-styles/admin-styles-ui.php:628
-#: includes/features/admin-styles/admin-styles-ui.php:713
-#: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2347
-#: includes/features/admin-styles/admin-styles.php:2434
+#: includes/features/admin-styles/admin-styles-ui.php:652
+#: includes/features/admin-styles/admin-styles-ui.php:653
+#: includes/features/admin-styles/admin-styles-ui.php:738
+#: includes/features/admin-styles/admin-styles-ui.php:739
+#: includes/features/admin-styles/admin-styles.php:2351
+#: includes/features/admin-styles/admin-styles.php:2438
 msgid "Default"
 msgstr "Προεπιλογή"
 
@@ -1593,76 +1814,78 @@ msgid "Add New Element"
 msgstr "Προσθήκη Νέου Στοιχείου"
 
 #: includes/features/admin-styles/admin-styles-ui.php:384
+#: includes/features/admin-styles/admin-styles-ui.php:386
 msgid "Selector"
 msgstr "Επιλογέας"
 
-#: includes/features/admin-styles/admin-styles-ui.php:388
+#: includes/features/admin-styles/admin-styles-ui.php:389
 msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
 msgstr "π.χ. .publishpress-wrap h1, #my-plugin-header"
 
-#: includes/features/admin-styles/admin-styles-ui.php:391
+#: includes/features/admin-styles/admin-styles-ui.php:392
 msgid "Variation"
 msgstr "Παραλλαγή"
 
-#: includes/features/admin-styles/admin-styles-ui.php:394
+#: includes/features/admin-styles/admin-styles-ui.php:395
 msgid "Background"
 msgstr "Φόντο"
 
-#: includes/features/admin-styles/admin-styles-ui.php:395
+#: includes/features/admin-styles/admin-styles-ui.php:396
 msgid "Text"
 msgstr "Κείμενο"
 
-#: includes/features/admin-styles/admin-styles-ui.php:396
+#: includes/features/admin-styles/admin-styles-ui.php:397
 msgid "Border"
 msgstr "Περίγραμμα"
 
-#: includes/features/admin-styles/admin-styles-ui.php:400
+#: includes/features/admin-styles/admin-styles-ui.php:401
+#: includes/features/admin-styles/admin-styles-ui.php:403
 msgid "Brand Color"
 msgstr "Χρώμα Μάρκας"
 
-#: includes/features/admin-styles/admin-styles-ui.php:410
-#: includes/features/admin-styles/admin-styles-ui.php:525
-#: includes/features/admin-styles/admin-styles-ui.php:561
+#: includes/features/admin-styles/admin-styles-ui.php:412
+#: includes/features/admin-styles/admin-styles-ui.php:550
+#: includes/features/admin-styles/admin-styles-ui.php:586
 msgid "Remove"
 msgstr "Αφαίρεση"
 
-#: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:1191
+#: includes/features/admin-styles/admin-styles-ui.php:428
+#: includes/features/admin-styles/admin-styles.php:1195
 msgid "Custom Style Name"
 msgstr "Όνομα Προσαρμοσμένου Στυλ"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:436
 msgid "e.g., Company Branding, Dark Mode"
 msgstr "π.χ., Branding Εταιρείας, Σκοτεινή Λειτουργία"
 
-#: includes/features/admin-styles/admin-styles-ui.php:470
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:473
+#: includes/features/admin-styles/admin-styles-ui.php:488
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: includes/features/admin-styles/admin-styles-ui.php:476
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:479
+#: includes/features/admin-styles/admin-styles-ui.php:487
 msgid "Delete Custom Style"
 msgstr "Διαγραφή Προσαρμοσμένου Στυλ"
 
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:485
 #, php-format
 msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr "Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το %1s; %2s %3s"
 
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:486
 msgid "Custom Style"
 msgstr "Προσαρμοσμένο Στυλ"
 
-#: includes/features/admin-styles/admin-styles-ui.php:486
+#: includes/features/admin-styles/admin-styles-ui.php:511
 msgid "Save Custom Style"
 msgstr "Αποθήκευση Προσαρμοσμένου Στυλ"
 
-#: includes/features/admin-styles/admin-styles-ui.php:500
+#: includes/features/admin-styles/admin-styles-ui.php:525
 msgid "Custom Admin Logo"
 msgstr "Προσαρμοσμένο Λογότυπο Admin"
 
-#: includes/features/admin-styles/admin-styles-ui.php:503
+#: includes/features/admin-styles/admin-styles-ui.php:528
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
@@ -1671,17 +1894,21 @@ msgstr ""
 "WordPress στη γραμμή διαχείρισης. Συνιστάται: 20px επί 20px σε μορφή SVG ή "
 "PNG."
 
-#: includes/features/admin-styles/admin-styles-ui.php:520
-#: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:1171
+#: includes/features/admin-styles/admin-styles-ui.php:539
+msgid "Admin logo preview"
+msgstr "Προεπισκόπηση λογότυπου διαχειριστή"
+
+#: includes/features/admin-styles/admin-styles-ui.php:545
+#: includes/features/admin-styles/admin-styles-ui.php:581
+#: includes/features/admin-styles/admin-styles.php:1175
 msgid "Select Image"
 msgstr "Επιλογή Εικόνας"
 
-#: includes/features/admin-styles/admin-styles-ui.php:535
+#: includes/features/admin-styles/admin-styles-ui.php:560
 msgid "Custom Favicon"
 msgstr "Προσαρμοσμένο Favicon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:538
+#: includes/features/admin-styles/admin-styles-ui.php:563
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
@@ -1689,29 +1916,33 @@ msgstr ""
 "Ανεβάστε ένα προσαρμοσμένο favicon για την περιοχή διαχείρισης. Συνιστάται: "
 "16px επί 16px ή 32px επί 32px σε μορφή SVG ή PNG."
 
-#: includes/features/admin-styles/admin-styles-ui.php:570
+#: includes/features/admin-styles/admin-styles-ui.php:574
+msgid "Admin favicon preview"
+msgstr "Προεπισκόπηση favicon διαχειριστή"
+
+#: includes/features/admin-styles/admin-styles-ui.php:595
 msgid "Admin Font Family"
 msgstr "Οικογένεια Γραμματοσειρών Admin"
 
-#: includes/features/admin-styles/admin-styles-ui.php:573
+#: includes/features/admin-styles/admin-styles-ui.php:598
 msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
 msgstr ""
 "Ορίστε μια στοίβα γραμματοσειρών για την περιοχή διαχείρισης, για "
 "παράδειγμα \"Segoe UI\", sans-serif."
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/features/admin-styles/admin-styles-ui.php:605
 msgid "Preset Fonts"
 msgstr "Προκαθορισμένες Γραμματοσειρές"
 
-#: includes/features/admin-styles/admin-styles-ui.php:581
+#: includes/features/admin-styles/admin-styles-ui.php:606
 msgid "Custom Value"
 msgstr "Προσαρμοσμένη Τιμή"
 
-#: includes/features/admin-styles/admin-styles-ui.php:607
+#: includes/features/admin-styles/admin-styles-ui.php:632
 msgid "Admin Font Size"
 msgstr "Μέγεθος Γραμματοσειράς Admin"
 
-#: includes/features/admin-styles/admin-styles-ui.php:610
+#: includes/features/admin-styles/admin-styles-ui.php:635
 msgid ""
 "Set a base font size for the admin area. Leave empty to use the default "
 "WordPress size."
@@ -1719,84 +1950,84 @@ msgstr ""
 "Ορίστε ένα βασικό μέγεθος γραμματοσειράς για την περιοχή διαχείρισης. "
 "Αφήστε κενό για να χρησιμοποιήσετε το προεπιλεγμένο μέγεθος WordPress."
 
-#: includes/features/admin-styles/admin-styles-ui.php:630
-#: includes/features/admin-styles/admin-styles-ui.php:716
+#: includes/features/admin-styles/admin-styles-ui.php:655
+#: includes/features/admin-styles/admin-styles-ui.php:741
 msgid "Named Sizes"
 msgstr "Ονομασμένα Μεγέθη"
 
-#: includes/features/admin-styles/admin-styles-ui.php:636
-#: includes/features/admin-styles/admin-styles-ui.php:722
+#: includes/features/admin-styles/admin-styles-ui.php:661
+#: includes/features/admin-styles/admin-styles-ui.php:747
 msgid "Pixel Sizes"
 msgstr "Μεγέθη Πίξελ"
 
-#: includes/features/admin-styles/admin-styles-ui.php:649
+#: includes/features/admin-styles/admin-styles-ui.php:674
 msgid "Typography Overrides"
 msgstr "Επεμβάσεις Τυπογραφίας"
 
-#: includes/features/admin-styles/admin-styles-ui.php:651
+#: includes/features/admin-styles/admin-styles-ui.php:676
 msgid "Optional target-specific typography rules for common admin elements."
 msgstr ""
 "Προαιρετικοί κανόνες τυπογραφίας συγκεκριμένοι για το στόχο για κοινά "
 "στοιχεία διαχείρισης."
 
-#: includes/features/admin-styles/admin-styles-ui.php:657
+#: includes/features/admin-styles/admin-styles-ui.php:682
 msgid "Body Text"
 msgstr "Κείμενο Σώματος"
 
-#: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:2088
+#: includes/features/admin-styles/admin-styles-ui.php:683
+#: includes/features/admin-styles/admin-styles.php:2092
 msgid "Links"
 msgstr "Συνδέσμοι"
 
-#: includes/features/admin-styles/admin-styles-ui.php:659
+#: includes/features/admin-styles/admin-styles-ui.php:684
 msgid "Headings"
 msgstr "Επικεφαλίδες"
 
-#: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:2212
+#: includes/features/admin-styles/admin-styles-ui.php:685
+#: includes/features/admin-styles/admin-styles.php:2216
 msgid "Admin Menu"
 msgstr "Μενού Διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:2254
+#: includes/features/admin-styles/admin-styles-ui.php:686
+#: includes/features/admin-styles/admin-styles.php:2258
 msgid "Admin Bar"
 msgstr "Γραμμή Διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles-ui.php:662
+#: includes/features/admin-styles/admin-styles-ui.php:687
 msgid "Form Fields"
 msgstr "Πεδία Φόρμας"
 
-#: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:2182
+#: includes/features/admin-styles/admin-styles-ui.php:688
+#: includes/features/admin-styles/admin-styles.php:2186
 msgid "Buttons"
 msgstr "Κουμπιά"
 
-#: includes/features/admin-styles/admin-styles-ui.php:669
+#: includes/features/admin-styles/admin-styles-ui.php:694
 msgid "Target"
 msgstr "Στόχος"
 
-#: includes/features/admin-styles/admin-styles-ui.php:670
+#: includes/features/admin-styles/admin-styles-ui.php:695
 msgid "Font Family"
 msgstr "Οικογένεια Γραμματοσειράς"
 
-#: includes/features/admin-styles/admin-styles-ui.php:671
+#: includes/features/admin-styles/admin-styles-ui.php:696
 msgid "Font Size"
 msgstr "Μέγεθος Γραμματοσειράς"
 
-#: includes/features/admin-styles/admin-styles-ui.php:690
+#: includes/features/admin-styles/admin-styles-ui.php:715
 msgid "Preset"
 msgstr "Προκαθορισμένο"
 
-#: includes/features/admin-styles/admin-styles-ui.php:691
-#: includes/roles/class/class-pp-roles-list-table.php:419
+#: includes/features/admin-styles/admin-styles-ui.php:716
+#: includes/roles/class/class-pp-roles-list-table.php:425
 msgid "Custom"
 msgstr "Προσαρμοσμένο"
 
-#: includes/features/admin-styles/admin-styles-ui.php:739
+#: includes/features/admin-styles/admin-styles-ui.php:764
 msgid "Admin Footer Text"
 msgstr "Κείμενο Υποσέλιδου Διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles-ui.php:742
+#: includes/features/admin-styles/admin-styles-ui.php:767
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
@@ -1804,27 +2035,27 @@ msgstr ""
 "Αντικαταστήστε το προεπιλεγμένο μήνυμα \"Ευχαριστούμε που δημιουργείτε με "
 "το WordPress\" στο υποσέλιδο διαχείρισης."
 
-#: includes/features/admin-styles/admin-styles-ui.php:756
+#: includes/features/admin-styles/admin-styles-ui.php:781
 msgid "Replace \"Howdy\""
 msgstr "Αντικαταστήστε το \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:759
+#: includes/features/admin-styles/admin-styles-ui.php:784
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "Αντικαταστήστε το \"Howdy\" στη γραμμή διαχείρισης."
 
-#: includes/features/admin-styles/admin-styles-ui.php:772
+#: includes/features/admin-styles/admin-styles-ui.php:797
 msgid "Control Settings"
 msgstr "Ρυθμίσεις Ελέγχου"
 
-#: includes/features/admin-styles/admin-styles-ui.php:774
+#: includes/features/admin-styles/admin-styles-ui.php:799
 msgid "Control how admin styles are applied to users."
 msgstr "Ελέγξτε πώς εφαρμόζονται τα στυλ διαχείρισης στους χρήστες."
 
-#: includes/features/admin-styles/admin-styles-ui.php:783
+#: includes/features/admin-styles/admin-styles-ui.php:808
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "Απόκρυψη ρυθμίσεων χρωματικού σχήματος διαχείρισης στο προφίλ χρήστη"
 
-#: includes/features/admin-styles/admin-styles-ui.php:785
+#: includes/features/admin-styles/admin-styles-ui.php:810
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
@@ -1833,11 +2064,11 @@ msgstr ""
 "ρυθμίσεις χρωματικού σχήματος στο προφίλ τους. Οι ρυθμίσεις με βάση τον "
 "ρόλο θα εφαρμοστούν."
 
-#: includes/features/admin-styles/admin-styles-ui.php:793
+#: includes/features/admin-styles/admin-styles-ui.php:818
 msgid "Force role settings (override user selection)"
 msgstr "Επιβολή ρυθμίσεων ρόλου (υπερπήδηση επιλογής χρήστη)"
 
-#: includes/features/admin-styles/admin-styles-ui.php:795
+#: includes/features/admin-styles/admin-styles-ui.php:820
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
@@ -1846,7 +2077,7 @@ msgstr ""
 "παρακάμπτοντας οποιαδήποτε επιλογή χρήστη ακόμη και αν η διεπαφή χρωμάτων "
 "είναι ορατή σε αυτούς."
 
-#: includes/features/admin-styles/admin-styles-ui.php:833
+#: includes/features/admin-styles/admin-styles-ui.php:858
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
@@ -1854,498 +2085,498 @@ msgstr ""
 "Οι Στυλ Διαχειριστή σας επιτρέπουν να προσαρμόσετε την περιοχή διαχείρισης "
 "του WordPress με το δικό σας branding."
 
-#: includes/features/admin-styles/admin-styles-ui.php:837
+#: includes/features/admin-styles/admin-styles-ui.php:862
 msgid "Custom admin color schemes"
 msgstr "Προσαρμοσμένα χρωματικά σχήματα διαχειριστή"
 
-#: includes/features/admin-styles/admin-styles-ui.php:838
+#: includes/features/admin-styles/admin-styles-ui.php:863
 msgid "Replace the WordPress logo and favicon"
 msgstr "Αντικαταστήστε το λογότυπο και το favicon του WordPress"
 
-#: includes/features/admin-styles/admin-styles-ui.php:839
+#: includes/features/admin-styles/admin-styles-ui.php:864
 msgid "Custom footer text"
 msgstr "Προσαρμοσμένο κείμενο υποσέλιδου"
 
-#: includes/features/admin-styles/admin-styles-ui.php:840
+#: includes/features/admin-styles/admin-styles-ui.php:865
 msgid "Replace \"Howdy\" text"
 msgstr "Αντικαταστήστε το κείμενο \"Howdy\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:843
+#: includes/features/admin-styles/admin-styles-ui.php:868
 msgid "How to use Admin Styles"
 msgstr "Πώς να χρησιμοποιήσετε τους Στυλ Διαχειριστή"
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:856
 msgid "Security check failed."
 msgstr "Η έλεγξη ασφάλειας απέτυχε."
 
-#: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:793
+#: includes/features/admin-styles/admin-styles.php:861
+#: includes/manager.php:800
 msgid "You do not have permission to manage admin styles."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε τους στυλ διαχειριστή."
 
-#: includes/features/admin-styles/admin-styles.php:923
+#: includes/features/admin-styles/admin-styles.php:925
 msgid "No role specified."
 msgstr "Δεν έχει καθοριστεί ρόλος."
 
-#: includes/features/admin-styles/admin-styles.php:1172
+#: includes/features/admin-styles/admin-styles.php:1176
 msgid "Use this Image"
 msgstr "Χρησιμοποιήστε αυτή την εικόνα"
 
-#: includes/features/admin-styles/admin-styles.php:1173
+#: includes/features/admin-styles/admin-styles.php:1177
 msgid "Saving..."
 msgstr "Αποθήκευση..."
 
-#: includes/features/admin-styles/admin-styles.php:1174
+#: includes/features/admin-styles/admin-styles.php:1178
 msgid "Settings saved."
 msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
 
-#: includes/features/admin-styles/admin-styles.php:1176
+#: includes/features/admin-styles/admin-styles.php:1180
 msgid "Current logo preview"
 msgstr "Προεπισκόπηση τρέχοντος λογότυπου"
 
-#: includes/features/admin-styles/admin-styles.php:1177
+#: includes/features/admin-styles/admin-styles.php:1181
 msgid "Add New Custom Style"
 msgstr "Προσθήκη νέου προσαρμοσμένου στυλ"
 
-#: includes/features/admin-styles/admin-styles.php:1178
+#: includes/features/admin-styles/admin-styles.php:1182
 msgid "Edit Custom Style"
 msgstr "Επεξεργασία προσαρμοσμένου στυλ"
 
-#: includes/features/admin-styles/admin-styles.php:1179
+#: includes/features/admin-styles/admin-styles.php:1183
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε το προσαρμοσμένο στυλ \"%s\"?"
 
-#: includes/features/admin-styles/admin-styles.php:1180
+#: includes/features/admin-styles/admin-styles.php:1184
 msgid "this custom style"
 msgstr "αυτό το προσαρμοσμένο στυλ"
 
-#: includes/features/admin-styles/admin-styles.php:1181
+#: includes/features/admin-styles/admin-styles.php:1185
 msgid "Primary Button"
 msgstr "Κύριο κουμπί"
 
-#: includes/features/admin-styles/admin-styles.php:1182
+#: includes/features/admin-styles/admin-styles.php:1186
 msgid "Hover State"
 msgstr "Κατάσταση ποντικιού"
 
-#: includes/features/admin-styles/admin-styles.php:1183
+#: includes/features/admin-styles/admin-styles.php:1187
 msgid "Notification"
 msgstr "Ειδοποίηση"
 
-#: includes/features/admin-styles/admin-styles.php:1184
+#: includes/features/admin-styles/admin-styles.php:1188
 msgid "Live preview of your custom color scheme"
 msgstr "Ζωντανή προεπισκόπηση της προσαρμοσμένης χρωματικής σας διάταξης"
 
-#: includes/features/admin-styles/admin-styles.php:1185
+#: includes/features/admin-styles/admin-styles.php:1189
 msgid "Custom Style Name is required."
 msgstr "Απαιτείται όνομα προσαρμοσμένου στυλ."
 
-#: includes/features/admin-styles/admin-styles.php:1186
+#: includes/features/admin-styles/admin-styles.php:1190
 msgid "Main Admin Color is required."
 msgstr "Απαιτείται το κύριο χρώμα διαχειριστή."
 
-#: includes/features/admin-styles/admin-styles.php:1187, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1191, fuzzy
 msgid "PublishPress Custom"
 msgstr "PublishPress Custom"
 
-#: includes/features/admin-styles/admin-styles.php:1188
+#: includes/features/admin-styles/admin-styles.php:1192
 msgid "Display Name"
 msgstr "Όνομα Εμφάνισης"
 
-#: includes/features/admin-styles/admin-styles.php:1189
+#: includes/features/admin-styles/admin-styles.php:1193
 msgid "Change how this style is displayed"
 msgstr "Αλλάξτε τον τρόπο εμφάνισης αυτού του στυλ"
 
-#: includes/features/admin-styles/admin-styles.php:1190
+#: includes/features/admin-styles/admin-styles.php:1194
 msgid "Enter a name for your custom style"
 msgstr "Εισάγετε ένα όνομα για το προσαρμοσμένο στυλ σας"
 
-#: includes/features/admin-styles/admin-styles.php:1204
+#: includes/features/admin-styles/admin-styles.php:1208
 msgid "Forest"
 msgstr "Δάσος"
 
-#: includes/features/admin-styles/admin-styles.php:1221
+#: includes/features/admin-styles/admin-styles.php:1225
 msgid "Mint Breeze"
 msgstr "Μέντα"
 
-#: includes/features/admin-styles/admin-styles.php:1238
+#: includes/features/admin-styles/admin-styles.php:1242
 msgid "Cherry"
 msgstr "Κεράσι"
 
-#: includes/features/admin-styles/admin-styles.php:1255
+#: includes/features/admin-styles/admin-styles.php:1259
 msgid "Graphite"
 msgstr "Γραφίτης"
 
-#: includes/features/admin-styles/admin-styles.php:1272
+#: includes/features/admin-styles/admin-styles.php:1276
 msgid "Midnight Teal"
 msgstr "Μεσονύκτιο Τεάλ"
 
-#: includes/features/admin-styles/admin-styles.php:1289
+#: includes/features/admin-styles/admin-styles.php:1293
 msgid "Sunrise"
 msgstr "Ανατολή"
 
-#: includes/features/admin-styles/admin-styles.php:1306
+#: includes/features/admin-styles/admin-styles.php:1310
 msgid "Desert Sand"
 msgstr "Άμμος Ερήμου"
 
-#: includes/features/admin-styles/admin-styles.php:1323
+#: includes/features/admin-styles/admin-styles.php:1327
 msgid "Amber Glow"
 msgstr "Φωτεινός Ώχρας"
 
-#: includes/features/admin-styles/admin-styles.php:1340
+#: includes/features/admin-styles/admin-styles.php:1344
 msgid "Citrus"
 msgstr "Εσπεριδοειδή"
 
-#: includes/features/admin-styles/admin-styles.php:1357
+#: includes/features/admin-styles/admin-styles.php:1361
 msgid "Ocean Deep"
 msgstr "Βάθος Ωκεανών"
 
-#: includes/features/admin-styles/admin-styles.php:1374
+#: includes/features/admin-styles/admin-styles.php:1378
 msgid "Sage"
 msgstr "Σαλάβρα"
 
-#: includes/features/admin-styles/admin-styles.php:1391
+#: includes/features/admin-styles/admin-styles.php:1395
 msgid "Modern Slate"
 msgstr "Μοντέρνος Σαπφείρος"
 
-#: includes/features/admin-styles/admin-styles.php:1408, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1412, fuzzy
 msgid "Royal Plum"
 msgstr "Royal Plum"
 
-#: includes/features/admin-styles/admin-styles.php:1425, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1429, fuzzy
 msgid "Nordic"
 msgstr "Nordic"
 
-#: includes/features/admin-styles/admin-styles.php:1442, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1446, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1459, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1463, fuzzy
 msgid "Ink"
 msgstr "Ink"
 
-#: includes/features/admin-styles/admin-styles.php:1476, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1480, fuzzy
 msgid "Orchid"
 msgstr "Orchid"
 
-#: includes/features/admin-styles/admin-styles.php:1493, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1497, fuzzy
 msgid "Cobalt"
 msgstr "Cobalt"
 
-#: includes/features/admin-styles/admin-styles.php:1510, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1514, fuzzy
 msgid "Stone"
 msgstr "Stone"
 
-#: includes/features/admin-styles/admin-styles.php:1527, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1531, fuzzy
 msgid "Facebook Classic"
 msgstr "Facebook Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1544, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1548, fuzzy
 msgid "Twitter Classic"
 msgstr "Twitter Classic"
 
-#: includes/features/admin-styles/admin-styles.php:1561, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1565, fuzzy
 msgid "Twitter Modern"
 msgstr "Twitter Modern"
 
-#: includes/features/admin-styles/admin-styles.php:2063, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2067, fuzzy
 msgid "Main Admin Color settings"
 msgstr "Main Admin Color settings"
 
-#: includes/features/admin-styles/admin-styles.php:2066, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2070, fuzzy
 msgid "Main Admin Color"
 msgstr "Main Admin Color"
 
-#: includes/features/admin-styles/admin-styles.php:2067, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2071, fuzzy
 msgid "Primary brand color"
 msgstr "Primary brand color"
 
-#: includes/features/admin-styles/admin-styles.php:2070, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2074, fuzzy
 msgid "Text Color"
 msgstr "Text Color"
 
-#: includes/features/admin-styles/admin-styles.php:2071, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2075, fuzzy
 msgid "Primary text color"
 msgstr "Primary text color"
 
-#: includes/features/admin-styles/admin-styles.php:2074, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2078, fuzzy
 msgid "Highlight Color"
 msgstr "Highlight Color"
 
-#: includes/features/admin-styles/admin-styles.php:2075, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2079, fuzzy
 msgid "Used for hovers and highlights"
 msgstr "Used for hovers and highlights"
 
-#: includes/features/admin-styles/admin-styles.php:2078, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2082, fuzzy
 msgid "Notification Color"
 msgstr "Notification Color"
 
-#: includes/features/admin-styles/admin-styles.php:2079, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2083, fuzzy
 msgid "Used for alerts and notifications"
 msgstr "Used for alerts and notifications"
 
-#: includes/features/admin-styles/admin-styles.php:2082, fuzzy
+#: includes/features/admin-styles/admin-styles.php:2086, fuzzy
 msgid "Background Color"
 msgstr "Background Color"
 
-#: includes/features/admin-styles/admin-styles.php:2083
+#: includes/features/admin-styles/admin-styles.php:2087
 msgid "Page background color"
 msgstr "Χρώμα φόντου σελίδας"
 
-#: includes/features/admin-styles/admin-styles.php:2089
+#: includes/features/admin-styles/admin-styles.php:2093
 msgid "Link element colors"
 msgstr "Χρώματα στοιχείων συνδέσμων"
 
-#: includes/features/admin-styles/admin-styles.php:2092
+#: includes/features/admin-styles/admin-styles.php:2096
 msgid "Default Link Color"
 msgstr "Προεπιλεγμένο χρώμα συνδέσμου"
 
-#: includes/features/admin-styles/admin-styles.php:2093
+#: includes/features/admin-styles/admin-styles.php:2097
 msgid "Standard link color"
 msgstr "Κανονικό χρώμα συνδέσμου"
 
-#: includes/features/admin-styles/admin-styles.php:2096
+#: includes/features/admin-styles/admin-styles.php:2100
 msgid "Link Hover Color"
 msgstr "Χρώμα συνδέσμου σε επικάλυψη"
 
-#: includes/features/admin-styles/admin-styles.php:2097
+#: includes/features/admin-styles/admin-styles.php:2101
 msgid "Color on hover"
 msgstr "Χρώμα κατά την επικάλυψη"
 
-#: includes/features/admin-styles/admin-styles.php:2100
+#: includes/features/admin-styles/admin-styles.php:2104
 msgid "Delete Link Color"
 msgstr "Χρώμα συνδέσμου διαγραφής"
 
-#: includes/features/admin-styles/admin-styles.php:2101
+#: includes/features/admin-styles/admin-styles.php:2105
 msgid "Color for delete/trash actions"
 msgstr "Χρώμα για ενέργειες διαγραφής/κάδου"
 
-#: includes/features/admin-styles/admin-styles.php:2104
+#: includes/features/admin-styles/admin-styles.php:2108
 msgid "Trash Link Color"
 msgstr "Χρώμα συνδέσμου κάδου"
 
-#: includes/features/admin-styles/admin-styles.php:2105
+#: includes/features/admin-styles/admin-styles.php:2109
 msgid "Color for trash actions"
 msgstr "Χρώμα για ενέργειες κάδου"
 
-#: includes/features/admin-styles/admin-styles.php:2108
+#: includes/features/admin-styles/admin-styles.php:2112
 msgid "Spam Link Color"
 msgstr "Χρώμα συνδέσμου ανεπιθύμητης αλληλογραφίας"
 
-#: includes/features/admin-styles/admin-styles.php:2109
+#: includes/features/admin-styles/admin-styles.php:2113
 msgid "Color for spam actions"
 msgstr "Χρώμα για ενέργειες ανεπιθύμητης αλληλογραφίας"
 
-#: includes/features/admin-styles/admin-styles.php:2112
+#: includes/features/admin-styles/admin-styles.php:2116
 msgid "Inactive Link Color"
 msgstr "Χρώμα ανενεργού συνδέσμου"
 
-#: includes/features/admin-styles/admin-styles.php:2113
+#: includes/features/admin-styles/admin-styles.php:2117
 msgid "Color for inactive items"
 msgstr "Χρώμα για ανενεργά στοιχεία"
 
-#: includes/features/admin-styles/admin-styles.php:2118
+#: includes/features/admin-styles/admin-styles.php:2122
 msgid "Tables"
 msgstr "Πίνακες"
 
-#: includes/features/admin-styles/admin-styles.php:2119
+#: includes/features/admin-styles/admin-styles.php:2123
 msgid "Table element colors"
 msgstr "Χρώματα στοιχείων πίνακα"
 
-#: includes/features/admin-styles/admin-styles.php:2122
+#: includes/features/admin-styles/admin-styles.php:2126
 msgid "Table Header Background"
 msgstr "Φόντο κεφαλίδας πίνακα"
 
-#: includes/features/admin-styles/admin-styles.php:2126
+#: includes/features/admin-styles/admin-styles.php:2130
 msgid "Table Header Text"
 msgstr "Κείμενο κεφαλίδας πίνακα"
 
-#: includes/features/admin-styles/admin-styles.php:2130
+#: includes/features/admin-styles/admin-styles.php:2134
 msgid "Table Row Background"
 msgstr "Φόντο γραμμής πίνακα"
 
-#: includes/features/admin-styles/admin-styles.php:2134
+#: includes/features/admin-styles/admin-styles.php:2138
 msgid "Table Row Text Color"
 msgstr "Χρώμα κειμένου γραμμής πίνακα"
 
-#: includes/features/admin-styles/admin-styles.php:2138
+#: includes/features/admin-styles/admin-styles.php:2142
 msgid "Row Hover Background"
 msgstr "Χρώμα φόντου για την επικάλυψη σειράς"
 
-#: includes/features/admin-styles/admin-styles.php:2142
+#: includes/features/admin-styles/admin-styles.php:2146
 msgid "Table Border Color"
 msgstr "Χρώμα περιγράμματος πίνακα"
 
-#: includes/features/admin-styles/admin-styles.php:2146
+#: includes/features/admin-styles/admin-styles.php:2150
 msgid "Alternate Row Background"
 msgstr "Χρώμα φόντου εναλλακτικής σειράς"
 
-#: includes/features/admin-styles/admin-styles.php:2150
+#: includes/features/admin-styles/admin-styles.php:2154
 msgid "Alternate Row Text Color"
 msgstr "Χρώμα κειμένου εναλλακτικής σειράς"
 
-#: includes/features/admin-styles/admin-styles.php:2156
+#: includes/features/admin-styles/admin-styles.php:2160
 msgid "Forms"
 msgstr "Φόρμες"
 
-#: includes/features/admin-styles/admin-styles.php:2157
+#: includes/features/admin-styles/admin-styles.php:2161
 msgid "Form input colors"
 msgstr "Χρώματα εισόδου φόρμας"
 
-#: includes/features/admin-styles/admin-styles.php:2160
+#: includes/features/admin-styles/admin-styles.php:2164
 msgid "Input Border Color"
 msgstr "Χρώμα περιγράμματος εισόδου"
 
-#: includes/features/admin-styles/admin-styles.php:2164
+#: includes/features/admin-styles/admin-styles.php:2168
 msgid "Input Focus Border"
 msgstr "Περίγραμμα εστίασης εισόδου"
 
-#: includes/features/admin-styles/admin-styles.php:2168
+#: includes/features/admin-styles/admin-styles.php:2172
 msgid "Input Background Color"
 msgstr "Χρώμα φόντου εισόδου"
 
-#: includes/features/admin-styles/admin-styles.php:2172
+#: includes/features/admin-styles/admin-styles.php:2176
 msgid "Input Text Color"
 msgstr "Χρώμα κειμένου εισόδου"
 
-#: includes/features/admin-styles/admin-styles.php:2176
+#: includes/features/admin-styles/admin-styles.php:2180
 msgid "Placeholder Text Color"
 msgstr "Χρώμα κειμένου υποδείξεων"
 
-#: includes/features/admin-styles/admin-styles.php:2183
+#: includes/features/admin-styles/admin-styles.php:2187
 msgid "Button colors"
 msgstr "Χρώματα κουμπιών"
 
-#: includes/features/admin-styles/admin-styles.php:2186
+#: includes/features/admin-styles/admin-styles.php:2190
 msgid "Primary Button Background"
 msgstr "Φόντο κύριου κουμπιού"
 
-#: includes/features/admin-styles/admin-styles.php:2190
+#: includes/features/admin-styles/admin-styles.php:2194
 msgid "Primary Button Text"
 msgstr "Κείμενο κύριου κουμπιού"
 
-#: includes/features/admin-styles/admin-styles.php:2194
+#: includes/features/admin-styles/admin-styles.php:2198
 msgid "Primary Button Hover"
 msgstr "Επικάλυψη κύριου κουμπιού"
 
-#: includes/features/admin-styles/admin-styles.php:2198
+#: includes/features/admin-styles/admin-styles.php:2202
 msgid "Secondary Button Background"
 msgstr "Φόντο δευτερεύοντος κουμπιού"
 
-#: includes/features/admin-styles/admin-styles.php:2202
+#: includes/features/admin-styles/admin-styles.php:2206
 msgid "Secondary Button Text"
 msgstr "Κείμενο δευτερεύοντος κουμπιού"
 
-#: includes/features/admin-styles/admin-styles.php:2206
+#: includes/features/admin-styles/admin-styles.php:2210
 msgid "Secondary Button Hover"
 msgstr "Επικάλυψη δευτερεύοντος κουμπιού"
 
-#: includes/features/admin-styles/admin-styles.php:2213
+#: includes/features/admin-styles/admin-styles.php:2217
 msgid "Admin menu colors"
 msgstr "Χρώματα μενού διαχειριστή"
 
-#: includes/features/admin-styles/admin-styles.php:2216
+#: includes/features/admin-styles/admin-styles.php:2220
 msgid "Menu Background"
 msgstr "Φόντο μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2220
+#: includes/features/admin-styles/admin-styles.php:2224
 msgid "Menu Text Color"
 msgstr "Χρώμα κειμένου μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2224
+#: includes/features/admin-styles/admin-styles.php:2228
 msgid "Menu Icon Color"
 msgstr "Χρώμα εικονιδίου μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2228
+#: includes/features/admin-styles/admin-styles.php:2232
 msgid "Menu Hover Background"
 msgstr "Φόντο αιωρούμενου μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2232
+#: includes/features/admin-styles/admin-styles.php:2236
 msgid "Menu Hover Text"
 msgstr "Κείμενο αιωρούμενου μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2236
+#: includes/features/admin-styles/admin-styles.php:2240
 msgid "Current Menu Background"
 msgstr "Φόντο τρέχοντος μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2240
+#: includes/features/admin-styles/admin-styles.php:2244
 msgid "Current Menu Text"
 msgstr "Κείμενο τρέχοντος μενού"
 
-#: includes/features/admin-styles/admin-styles.php:2244
+#: includes/features/admin-styles/admin-styles.php:2248
 msgid "Submenu Background"
 msgstr "Φόντο υπομενού"
 
-#: includes/features/admin-styles/admin-styles.php:2248
+#: includes/features/admin-styles/admin-styles.php:2252
 msgid "Submenu Text Color"
 msgstr "Χρώμα κειμένου υπομενού"
 
-#: includes/features/admin-styles/admin-styles.php:2255
+#: includes/features/admin-styles/admin-styles.php:2259
 msgid "Admin bar colors"
 msgstr "Χρώματα μπάρας διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles.php:2258
+#: includes/features/admin-styles/admin-styles.php:2262
 msgid "Admin Bar Background"
 msgstr "Φόντο μπάρας διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles.php:2262
+#: includes/features/admin-styles/admin-styles.php:2266
 msgid "Admin Bar Text"
 msgstr "Κείμενο μπάρας διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles.php:2266
+#: includes/features/admin-styles/admin-styles.php:2270
 msgid "Admin Bar Icon"
 msgstr "Εικονίδιο μπάρας διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles.php:2270
+#: includes/features/admin-styles/admin-styles.php:2274
 msgid "Admin Bar Hover Background"
 msgstr "Φόντο αιωρούμενης μπάρας διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles.php:2274
+#: includes/features/admin-styles/admin-styles.php:2278
 msgid "Admin Bar Hover Text"
 msgstr "Κείμενο αιωρούμενης μπάρας διαχείρισης"
 
-#: includes/features/admin-styles/admin-styles.php:2280
+#: includes/features/admin-styles/admin-styles.php:2284
 msgid "Dashboard Widgets"
 msgstr "Widgets πίνακα ελέγχου"
 
-#: includes/features/admin-styles/admin-styles.php:2281
+#: includes/features/admin-styles/admin-styles.php:2285
 msgid "Dashboard widget colors"
 msgstr "Χρώματα widget πίνακα ελέγχου"
 
-#: includes/features/admin-styles/admin-styles.php:2284
+#: includes/features/admin-styles/admin-styles.php:2288
 msgid "Widget Background"
 msgstr "Φόντο widget"
 
-#: includes/features/admin-styles/admin-styles.php:2288
+#: includes/features/admin-styles/admin-styles.php:2292
 msgid "Widget Border"
 msgstr "Περίγραμμα widget"
 
-#: includes/features/admin-styles/admin-styles.php:2292
+#: includes/features/admin-styles/admin-styles.php:2296
 msgid "Widget Header Background"
 msgstr "Φόντο κεφαλίδας widget"
 
-#: includes/features/admin-styles/admin-styles.php:2296
+#: includes/features/admin-styles/admin-styles.php:2300
 msgid "Widget Title Text"
 msgstr "Κείμενο τίτλου widget"
 
-#: includes/features/admin-styles/admin-styles.php:2300
+#: includes/features/admin-styles/admin-styles.php:2304
 msgid "Widget Body Text"
 msgstr "Κείμενο Σώματος Widget"
 
-#: includes/features/admin-styles/admin-styles.php:2304
+#: includes/features/admin-styles/admin-styles.php:2308
 msgid "Widget Link"
 msgstr "Σύνδεσμος Widget"
 
-#: includes/features/admin-styles/admin-styles.php:2308
+#: includes/features/admin-styles/admin-styles.php:2312
 msgid "Widget Link Hover"
 msgstr "Σύνδεσμος Widget Hover"
 
-#: includes/features/admin-styles/admin-styles.php:2314
+#: includes/features/admin-styles/admin-styles.php:2318
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Προχωρημένα"
 
-#: includes/features/admin-styles/admin-styles.php:2315
+#: includes/features/admin-styles/admin-styles.php:2319
 msgid "Custom selector color rules"
 msgstr "Κανόνες χρώματος προσαρμοσμένου επιλεγέα"
 
@@ -2412,8 +2643,8 @@ msgstr "Πώς να χρησιμοποιήσετε τα Χαρακτηριστι
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:745
-#: includes/manager.php:767
+#: includes/manager.php:752
+#: includes/manager.php:774
 msgid "You do not have permission to manage frontend features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε τα χαρακτηριστικά frontend."
 
@@ -2470,7 +2701,7 @@ msgstr "Λειτουργίες Frontend"
 msgid "Choose Frontend Features that will apply to this post."
 msgstr "Επιλέξτε Λειτουργίες Frontend που θα εφαρμοστούν σε αυτή τη δημοσίευση."
 
-#: includes/features/frontend-features/frontend-features-metaboxes.php:90
+#: includes/features/frontend-features/frontend-features-metaboxes.php:94
 #, php-format
 msgid "Select %1$s..."
 msgstr "Επιλέξτε %1$s..."
@@ -2491,6 +2722,10 @@ msgstr "Επεξεργασία:"
 #: includes/features/frontend-features/frontend-features-ui.php:53
 msgid "Title:"
 msgstr "Τίτλος:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:57
+msgid "Title"
+msgstr "Τίτλος"
 
 #: includes/features/frontend-features/frontend-features-ui.php:59
 msgid "This will only show here in the WordPress admin area."
@@ -2942,7 +3177,7 @@ msgstr "Η πρόσβαση στα χαρακτηριστικά προφίλ έ�
 #: includes/functions-admin.php:217
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:507
-#: includes/roles/class/class-pp-roles-admin.php:550
+#: includes/roles/class/class-pp-roles-admin.php:553
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Χαρακτηριστικά Συντάκτη"
@@ -2950,14 +3185,14 @@ msgstr "Χαρακτηριστικά Συντάκτη"
 #: includes/functions-admin.php:228
 #: includes/functions-admin.php:424
 #: includes/functions-admin.php:514
-#: includes/roles/class/class-pp-roles-admin.php:551
+#: includes/roles/class/class-pp-roles-admin.php:554
 msgid "Admin Features"
 msgstr "Χαρακτηριστικά Διαχειριστή"
 
 #: includes/functions-admin.php:248
 #: includes/functions-admin.php:434
 #: includes/functions-admin.php:544
-#: includes/roles/class/class-pp-roles-admin.php:552
+#: includes/roles/class/class-pp-roles-admin.php:555
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Χαρακτηριστικά Προφίλ"
@@ -3006,7 +3241,7 @@ msgstr ""
 
 #: includes/functions-admin.php:449
 #: includes/functions-admin.php:565
-#: includes/roles/class/class-pp-roles-admin.php:554
+#: includes/roles/class/class-pp-roles-admin.php:557
 msgid "Navigation Menus"
 msgstr "Μενού πλοήγησης"
 
@@ -3079,7 +3314,7 @@ msgstr "Σφάλμα: Αποτυχία δημιουργίας του νέου ρ
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1306
+#: includes/manager.php:1313
 msgid "The selected role is not editable."
 msgstr "Ο επιλεγμένος ρόλος δεν είναι επεξεργάσιμος."
 
@@ -3107,193 +3342,198 @@ msgstr "Ο επιλεγμένος κωδικός πρόσβασης εφαρμο
 msgid "Application password capabilities saved."
 msgstr "Οι δυνατότητες κωδικών πρόσβασης εφαρμογής αποθηκεύτηκαν."
 
-#: includes/manager.php:245
+#: includes/manager.php:247
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr ""
 "Αυτή η δυνατότητα αναιρείται ρητά. Κάντε κλικ για να προσθέσετε/αφαιρέσετε "
 "κανονικά."
 
-#: includes/manager.php:253
+#: includes/manager.php:255
 msgid "Explicity negate this capability by storing as disabled"
 msgstr "Αναιρέστε ρητά αυτή τη δυνατότητα αποθηκεύοντας ως απενεργοποιημένη"
 
-#: includes/manager.php:254
+#: includes/manager.php:256
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr "Αναιρέστε ρητά αυτές τις δυνατότητες αποθηκεύοντας ως απενεργοποιημένες"
 
-#: includes/manager.php:255
+#: includes/manager.php:257
 msgid "Post type registration does not define this capability distinctly"
 msgstr "Η καταχώριση τύπου ανάρτησης δεν ορίζει αυτή τη δυνατότητα διακριτά"
 
-#: includes/manager.php:257
+#: includes/manager.php:259
 msgid "Add or remove this capability from the WordPress role"
 msgstr "Προσθέστε ή αφαιρέστε αυτή τη δυνατότητα από τον ρόλο WordPress"
 
-#: includes/manager.php:258
+#: includes/manager.php:260
 msgid "Add or remove capability from the role normally"
 msgstr "Προσθέστε ή αφαιρέστε τη δυνατότητα από τον ρόλο κανονικά"
 
-#: includes/manager.php:259
+#: includes/manager.php:261
 msgid "Are you sure you want to delete this item ?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το στοιχείο;"
 
-#: includes/manager.php:260
+#: includes/manager.php:262
 msgid "Add or clear custom item entry before saving changes."
 msgstr ""
 "Προσθέστε ή καθαρίστε την καταχώριση προσαρμοσμένου στοιχείου πριν "
 "αποθηκεύσετε τις αλλαγές."
 
-#: includes/manager.php:261
+#: includes/manager.php:263
 #, php-format
 msgid "Found %1$d match in %2$d tab"
 msgstr "Βρέθηκε %1$d αντιστοιχία στην καρτέλα %2$d"
 
-#: includes/manager.php:262
+#: includes/manager.php:264
 #, php-format
 msgid "Found %1$d match in %2$d tabs"
 msgstr "Βρέθηκαν %1$d αντιστοιχίες σε %2$d καρτέλες"
 
-#: includes/manager.php:263
+#: includes/manager.php:265
 #, php-format
 msgid "Found %1$d matches in %2$d tab"
 msgstr "Βρέθηκαν %1$d αντιστοιχίες στην καρτέλα %2$d"
 
-#: includes/manager.php:264
+#: includes/manager.php:266
 #, php-format
 msgid "Found %1$d matches in %2$d tabs"
 msgstr "Βρέθηκαν %1$d αντιστοιχίες σε %2$d καρτέλες"
 
-#: includes/manager.php:265
+#: includes/manager.php:267
 #, php-format
 msgid "No matches found for \"%s\""
 msgstr "Δεν βρέθηκαν αντιστοιχίες για \"%s\""
 
-#: includes/manager.php:565
+#: includes/manager.php:571
+#: includes/roles/class/class-pp-roles-list-table.php:178
+msgid "Select all roles"
+msgstr "Επιλογή όλων των ρόλων"
+
+#: includes/manager.php:572
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Όνομα Ρόλου"
 
-#: includes/manager.php:567
+#: includes/manager.php:574
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Τύπος Ρόλου"
 
-#: includes/manager.php:568
+#: includes/manager.php:575
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Προκαθορισμένος Ρόλος"
 
-#: includes/manager.php:569
+#: includes/manager.php:576
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Πρόσβαση Διαχειριστή"
 
-#: includes/manager.php:596
+#: includes/manager.php:603
 msgid "You do not have permission to manage roles."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε ρόλους."
 
-#: includes/manager.php:619
-#: includes/manager.php:641
+#: includes/manager.php:626
+#: includes/manager.php:648
 msgid "You do not have permission to manage editor features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε χαρακτηριστικά επεξεργαστή."
 
-#: includes/manager.php:676
-#: includes/manager.php:730
-#: includes/manager.php:778
-#: includes/manager.php:872
-#: includes/manager.php:921
-#: includes/manager.php:1003
-#: includes/manager.php:1084
+#: includes/manager.php:683
+#: includes/manager.php:737
+#: includes/manager.php:785
+#: includes/manager.php:879
+#: includes/manager.php:928
+#: includes/manager.php:1010
+#: includes/manager.php:1091
 msgid "Settings updated."
 msgstr "Οι ρυθμίσεις ενημερώθηκαν."
 
-#: includes/manager.php:692
-#: includes/manager.php:714
-#: includes/manager.php:886
-#: includes/manager.php:937
-#: includes/manager.php:1101
+#: includes/manager.php:699
+#: includes/manager.php:721
+#: includes/manager.php:893
+#: includes/manager.php:944
+#: includes/manager.php:1108
 msgid "You do not have permission to manage admin features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε χαρακτηριστικά διαχειριστή."
 
-#: includes/manager.php:908
+#: includes/manager.php:915
 msgid "You do not have permission to manage navigation menus."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε μενού πλοήγησης."
 
-#: includes/manager.php:959
+#: includes/manager.php:966
 msgid "You do not have permission to manage profile features."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε χαρακτηριστικά προφίλ."
 
-#: includes/manager.php:1019
+#: includes/manager.php:1026
 msgid "You do not have permission to manage redirect."
 msgstr "Δεν έχετε άδεια να διαχειριστείτε ανακατευθύνσεις."
 
-#: includes/manager.php:1041
+#: includes/manager.php:1048
 msgid "Invalid form. Reload this page and try again."
 msgstr "Μη έγκυρη φόρμα. Επαναφορτώστε αυτή τη σελίδα και δοκιμάστε ξανά."
 
-#: includes/manager.php:1193
-#: includes/manager.php:1244
-#: includes/manager.php:1262
+#: includes/manager.php:1200
+#: includes/manager.php:1251
+#: includes/manager.php:1269
 msgid "You do not have permission to manage capabilities."
 msgstr "Δεν έχετε άδεια για να διαχειριστείτε τις δυνατότητες."
 
-#: includes/manager.php:1271
+#: includes/manager.php:1278
 msgid "Network sync completed."
 msgstr "Η συγχρονισμός δικτύου ολοκληρώθηκε."
 
-#: includes/manager.php:1273
+#: includes/manager.php:1280
 msgid "Network sync has been queued and will continue in the background."
 msgstr ""
 "Η συγχρονισμός δικτύου έχει προγραμματιστεί και θα συνεχιστεί στο "
 "παρασκήνιο."
 
-#: includes/manager.php:1289
+#: includes/manager.php:1296
 msgid "New capability added to role."
 msgstr "Μια νέα δυνατότητα προστέθηκε στον ρόλο."
 
-#: includes/manager.php:1335
+#: includes/manager.php:1342
 msgid "Bad form Received"
 msgstr "Κακή φόρμα λήφθηκε"
 
-#: includes/manager.php:1464
+#: includes/manager.php:1471
 msgid "You do not have permission to restore roles."
 msgstr "Δεν έχετε άδεια για να επαναφέρετε ρόλους."
 
-#: includes/manager.php:1502
+#: includes/manager.php:1509
 msgid "You do not have permission to perform this action."
 msgstr "Δεν έχετε άδεια να εκτελέσετε αυτή την ενέργεια."
 
-#: includes/manager.php:1522
+#: includes/manager.php:1529
 msgid "Select at least one role to export."
 msgstr "Επιλέξτε τουλάχιστον έναν ρόλο για εξαγωγή."
 
-#: includes/manager.php:1691
+#: includes/manager.php:1698
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Αν σας αρέσει %s, παρακαλούμε αφήστε μας μια αξιολόγηση %s. Ευχαριστούμε!"
 
-#: includes/manager.php:1702
+#: includes/manager.php:1709
 msgid "About PublishPress Capabilities"
 msgstr "Σχετικά με τις Δυνατότητες του PublishPress"
 
-#: includes/manager.php:1702
+#: includes/manager.php:1709
 msgid "About"
 msgstr "Σχετικά"
 
-#: includes/manager.php:1704
+#: includes/manager.php:1711
 msgid "Capabilites Documentation"
 msgstr "Τεκμηρίωση Δυνατοτήτων"
 
-#: includes/manager.php:1704
+#: includes/manager.php:1711
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: includes/manager.php:1706
+#: includes/manager.php:1713
 msgid "Contact the PublishPress team"
 msgstr "Επικοινωνήστε με την ομάδα του PublishPress"
 
-#: includes/manager.php:1706
+#: includes/manager.php:1713
 msgid "Contact"
 msgstr "Επικοινωνία"
 
@@ -3608,8 +3848,8 @@ msgid "%s Redirects"
 msgstr "%s Ανακατευθύνσεις"
 
 #: includes/redirects/redirects.php:112
-#: includes/redirects/redirects.php:316
-#: includes/roles/class/class-pp-roles-admin.php:539
+#: includes/redirects/redirects.php:319
+#: includes/roles/class/class-pp-roles-admin.php:542
 msgid "Save Changes"
 msgstr "Αποθηκεύστε τις Αλλαγές"
 
@@ -3623,23 +3863,23 @@ msgstr ""
 msgid "Redirect users to a specified URL."
 msgstr "Ανακατευθύνετε τους χρήστες σε μια καθορισμένη διεύθυνση URL."
 
-#: includes/redirects/redirects.php:243
+#: includes/redirects/redirects.php:244
 msgid "Enter the relative path only without domain for login redirect."
 msgstr ""
 "Εισάγετε μόνο το σχετικό μονοπάτι χωρίς το τομέα για την ανακατεύθυνση "
 "σύνδεσης."
 
-#: includes/redirects/redirects.php:244
+#: includes/redirects/redirects.php:245
 msgid "You must enter the Login Redirect URL."
 msgstr "Πρέπει να εισάγετε τη διεύθυνση URL Ανακατεύθυνσης Σύνδεσης."
 
-#: includes/redirects/redirects.php:276
+#: includes/redirects/redirects.php:278
 msgid "Enter the relative path only without domain for logout redirect."
 msgstr ""
 "Εισάγετε μόνο το σχετικό μονοπάτι χωρίς το τομέα για την ανακατεύθυνση "
 "αποσύνδεσης."
 
-#: includes/redirects/redirects.php:334
+#: includes/redirects/redirects.php:337
 msgid ""
 "Redirect Features allows you to redirect users in a role after "
 "Registration, Login or Logout."
@@ -3647,43 +3887,40 @@ msgstr ""
 "Οι Δυνατότητες Ανακατεύθυνσης σας επιτρέπουν να ανακατευθύνετε τους χρήστες "
 "σε έναν ρόλο μετά την Εγγραφή, Σύνδεση ή Αποσύνδεση."
 
-#: includes/redirects/redirects.php:337
+#: includes/redirects/redirects.php:340
 msgid "How to use Redirect Features"
 msgstr "Πώς να χρησιμοποιήσετε τις Δυνατότητες Ανακατεύθυνσης"
 
 #: includes/roles/class/class-pp-roles-actions.php:148
-#: includes/roles/class/class-pp-roles-actions.php:242
+#: includes/roles/class/class-pp-roles-actions.php:260
 msgid "You do not have sufficient permissions to perform this action."
 msgstr "Δεν έχετε επαρκή δικαιώματα για να εκτελέσετε αυτήν την ενέργεια."
 
-#: includes/roles/class/class-pp-roles-actions.php:162
-#: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:390
-#: includes/roles/class/class-pp-roles-actions.php:514
+#: includes/roles/class/class-pp-roles-actions.php:165
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "Ο σύνδεσμός σας έχει λήξει, ανανεώστε τη σελίδα και προσπαθήστε ξανά."
 
-#: includes/roles/class/class-pp-roles-actions.php:184
-#: includes/roles/class/class-pp-roles-actions.php:247
-#: includes/roles/class/class-pp-roles-actions.php:394
-#: includes/roles/class/class-pp-roles-actions.php:538
-#: includes/roles/class/class-pp-roles-actions.php:665
-#: includes/roles/class/class-pp-roles-actions.php:726
+#: includes/roles/class/class-pp-roles-actions.php:202
+#: includes/roles/class/class-pp-roles-actions.php:265
+#: includes/roles/class/class-pp-roles-actions.php:410
+#: includes/roles/class/class-pp-roles-actions.php:552
+#: includes/roles/class/class-pp-roles-actions.php:684
+#: includes/roles/class/class-pp-roles-actions.php:750
 msgid "Missing parameters, refresh the page and try again."
 msgstr "Λείπουν παράμετροι, ανανεώστε τη σελίδα και προσπαθήστε ξανά."
 
-#: includes/roles/class/class-pp-roles-actions.php:211
+#: includes/roles/class/class-pp-roles-actions.php:229
 #, php-format
 msgid "Invalid role name entry: %s"
 msgstr "Μη έγκυρη καταχώρηση ονόματος ρόλου: %s"
 
-#: includes/roles/class/class-pp-roles-actions.php:223
+#: includes/roles/class/class-pp-roles-actions.php:241
 #, php-format
 msgid "The role \"%s\" already exists. Please choose a different name."
 msgstr "Ο ρόλος \"%s\" υπάρχει ήδη. Παρακαλώ επιλέξτε ένα διαφορετικό όνομα."
 
-#: includes/roles/class/class-pp-roles-actions.php:265
+#: includes/roles/class/class-pp-roles-actions.php:283
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
@@ -3691,12 +3928,12 @@ msgstr ""
 "Κάτι πήγε στραβά, το σύστημα δεν μπόρεσε να δημιουργήσει τον ρόλο, "
 "ανανεώστε τη σελίδα και προσπαθήστε ξανά."
 
-#: includes/roles/class/class-pp-roles-actions.php:356
+#: includes/roles/class/class-pp-roles-actions.php:374
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "Ο νέος ρόλος %s δημιουργήθηκε με επιτυχία."
 
-#: includes/roles/class/class-pp-roles-actions.php:400
+#: includes/roles/class/class-pp-roles-actions.php:416
 #: includes/roles/class/class-pp-roles-admin.php:244
 msgid ""
 "The default role cannot be disabled. Change the default role in WordPress "
@@ -3705,47 +3942,47 @@ msgstr ""
 "Ο προεπιλεγμένος ρόλος δεν μπορεί να απενεργοποιηθεί. Αλλάξτε πρώτα τον "
 "προεπιλεγμένο ρόλο στις ρυθμίσεις του WordPress."
 
-#: includes/roles/class/class-pp-roles-actions.php:472
+#: includes/roles/class/class-pp-roles-actions.php:488
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s ρόλος ενημερώθηκε με επιτυχία."
 
-#: includes/roles/class/class-pp-roles-actions.php:546
+#: includes/roles/class/class-pp-roles-actions.php:560
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
 "Δεν μπορείτε να διαγράψετε τον προεπιλεγμένο ρόλο. Πρέπει <a href=\"%s\">να "
 "τον αλλάξετε πρώτα</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:565
+#: includes/roles/class/class-pp-roles-actions.php:579
 msgid "Deleting a system role is not allowed."
 msgstr "Η διαγραφή ενός ρόλου συστήματος δεν επιτρέπεται."
 
-#: includes/roles/class/class-pp-roles-actions.php:589
+#: includes/roles/class/class-pp-roles-actions.php:603
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d χρήστες μεταφέρθηκαν στον προεπιλεγμένο ρόλο %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:594
+#: includes/roles/class/class-pp-roles-actions.php:608
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "Ο ρόλος %1$s διαγράφηκε με επιτυχία. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:600
+#: includes/roles/class/class-pp-roles-actions.php:614
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "Οι επιλεγμένοι %1$s ρόλοι διαγράφηκαν με επιτυχία. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:622
+#: includes/roles/class/class-pp-roles-actions.php:636
 msgid "The role could not be deleted."
 msgstr "Ο ρόλος δεν μπόρεσε να διαγραφεί."
 
-#: includes/roles/class/class-pp-roles-actions.php:676
+#: includes/roles/class/class-pp-roles-actions.php:695
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "Ο ρόλος %1$s αποκρύφτηκε με επιτυχία."
 
-#: includes/roles/class/class-pp-roles-actions.php:736
+#: includes/roles/class/class-pp-roles-actions.php:760
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "Ο ρόλος %1$s αποκαλύφθηκε με επιτυχία."
@@ -3878,12 +4115,12 @@ msgstr ""
 msgid "Slug already exists"
 msgstr "Το slug υπάρχει ήδη"
 
-#: includes/roles/class/class-pp-roles-admin.php:384
+#: includes/roles/class/class-pp-roles-admin.php:385
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Select allowed editor"
 msgstr "Επιλέξτε επιτρεπόμενο επεξεργαστή"
 
-#: includes/roles/class/class-pp-roles-admin.php:385
+#: includes/roles/class/class-pp-roles-admin.php:386
 #. Translators: "Editor" means post editor like Gutenberg
 msgid ""
 "You must select at least one editor for the role when managing allowed "
@@ -3892,21 +4129,21 @@ msgstr ""
 "Πρέπει να επιλέξετε τουλάχιστον έναν επεξεργαστή για τον ρόλο κατά τη "
 "διαχείριση του επιτρεπόμενου επεξεργαστή."
 
-#: includes/roles/class/class-pp-roles-admin.php:414
+#: includes/roles/class/class-pp-roles-admin.php:415
 #, php-format
 msgid "Select %s"
 msgstr "Επιλέξτε %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:437
+#: includes/roles/class/class-pp-roles-admin.php:438
 msgid "Read more on Role Level."
 msgstr "Διαβάστε περισσότερα σχετικά με το Επίπεδο Ρόλου."
 
-#: includes/roles/class/class-pp-roles-admin.php:450
-#: includes/roles/roles-functions.php:33
+#: includes/roles/class/class-pp-roles-admin.php:451
+#: includes/roles/roles-functions.php:34
 msgid "Are you sure you want to delete this role?"
 msgstr "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτόν τον ρόλο;"
 
-#: includes/roles/class/class-pp-roles-admin.php:533
+#: includes/roles/class/class-pp-roles-admin.php:536
 #, php-format
 msgid ""
 "%s role copied. Please click the \"Create Role\" button to create this new "
@@ -3915,33 +4152,33 @@ msgstr ""
 "%s ρόλος αντιγράφηκε. Παρακαλώ κάντε κλικ στο κουμπί \"Δημιουργία Ρόλου\" "
 "για να δημιουργήσετε αυτόν τον νέο ρόλο."
 
-#: includes/roles/class/class-pp-roles-admin.php:566
+#: includes/roles/class/class-pp-roles-admin.php:569
 #, php-format
 msgid "Edit Role: %s"
 msgstr "Επεξεργασία Ρόλου: %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:568
+#: includes/roles/class/class-pp-roles-admin.php:571
 msgid "Copy Role"
 msgstr "Αντιγραφή Ρόλου"
 
-#: includes/roles/class/class-pp-roles-admin.php:570
+#: includes/roles/class/class-pp-roles-admin.php:573
 msgid "Create New Role"
 msgstr "Δημιουργία Νέου Ρόλου"
 
-#: includes/roles/class/class-pp-roles-admin.php:574
+#: includes/roles/class/class-pp-roles-admin.php:577
 msgid "All Roles"
 msgstr "Όλοι οι Ρόλοι"
 
-#: includes/roles/class/class-pp-roles-admin.php:679
+#: includes/roles/class/class-pp-roles-admin.php:682
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
 msgstr "Αυτά μπορούν να επεξεργαστούν στην οθόνη Δυνατοτήτων %1s %2s"
 
-#: includes/roles/class/class-pp-roles-admin.php:707
+#: includes/roles/class/class-pp-roles-admin.php:710
 msgid "Load More"
 msgstr "Φόρτωσε Περισσότερα"
 
-#: includes/roles/class/class-pp-roles-admin.php:710
+#: includes/roles/class/class-pp-roles-admin.php:713
 msgid "Load Less"
 msgstr "Φόρτωσε Λιγότερα"
 
@@ -4013,43 +4250,48 @@ msgstr "(ρόλος μη επεξεργάσιμος)"
 msgid "Unhide"
 msgstr "Αναδείξτε"
 
-#: includes/roles/class/class-pp-roles-list-table.php:353
+#: includes/roles/class/class-pp-roles-list-table.php:340
+#, php-format
+msgid "Select role %s"
+msgstr "Επιλογή ρόλου %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:359
 msgid "Your Role"
 msgstr "Ο Ρόλος σας"
 
-#: includes/roles/class/class-pp-roles-list-table.php:357
+#: includes/roles/class/class-pp-roles-list-table.php:363
 msgid "Disabled"
 msgstr "Απενεργοποιημένο"
 
-#: includes/roles/class/class-pp-roles-list-table.php:417, fuzzy
+#: includes/roles/class/class-pp-roles-list-table.php:423, fuzzy
 msgid "WordPress Core"
 msgstr "WordPress Core"
 
-#: includes/roles/class/class-pp-roles-list-table.php:711
+#: includes/roles/class/class-pp-roles-list-table.php:718
 msgid "Search Roles"
 msgstr "Αναζήτηση Ρόλων"
 
-#: includes/settings-ui.php:56
+#: includes/settings-ui.php:53
 msgid "Multiples roles on \"Add New User\" screen"
 msgstr "Πολλαπλοί ρόλοι στην οθόνη \"Προσθήκη Νέου Χρήστη\""
 
-#: includes/settings-ui.php:61
+#: includes/settings-ui.php:58
 msgid "This allows you to assign a new user to multiples roles."
 msgstr "Αυτό σας επιτρέπει να αναθέσετε έναν νέο χρήστη σε πολλαπλούς ρόλους."
 
-#: includes/settings-ui.php:72
+#: includes/settings-ui.php:66
 msgid "Multiples roles on \"User Edit\" screen"
 msgstr "Πολλαπλοί ρόλοι στην οθόνη \"Επεξεργασία Χρήστη\""
 
-#: includes/settings-ui.php:77
+#: includes/settings-ui.php:71
 msgid "This allows you to assign an existing user to multiple roles."
 msgstr "Αυτό σας επιτρέπει να αναθέσετε έναν υπάρχοντα χρήστη σε πολλούς ρόλους."
 
-#: includes/settings-ui.php:88
+#: includes/settings-ui.php:79
 msgid "Set login redirect cookie"
 msgstr "Ρύθμιση cookie ανακατεύθυνσης σύνδεσης"
 
-#: includes/settings-ui.php:93
+#: includes/settings-ui.php:84
 msgid ""
 "Use cookie to determine pages users were viewing before login. This is "
 "useful when login redirect is not working correctly due to wp_get_referer() "
@@ -4059,12 +4301,12 @@ msgstr ""
 "έβλεπαν πριν από τη σύνδεση. Αυτό είναι χρήσιμο όταν η ανακατεύθυνση "
 "σύνδεσης δεν λειτουργεί σωστά λόγω περιορισμού της wp_get_referer()."
 
-#: includes/settings-ui.php:109
-#: includes/settings-ui.php:165
+#: includes/settings-ui.php:97
+#: includes/settings-ui.php:144
 msgid "Show private post types"
 msgstr "Εμφάνιση ιδιωτικών τύπων αναρτήσεων"
 
-#: includes/settings-ui.php:114
+#: includes/settings-ui.php:102
 msgid ""
 "This will show all post types on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
@@ -4073,11 +4315,11 @@ msgstr ""
 "ακόμη και εκείνους που είναι κανονικά κρυμμένοι στην περιοχή διαχείρισης "
 "του WordPress."
 
-#: includes/settings-ui.php:125
+#: includes/settings-ui.php:110
 msgid "Show private taxonomies"
 msgstr "Εμφάνιση ιδιωτικών ταξινομιών"
 
-#: includes/settings-ui.php:130
+#: includes/settings-ui.php:115
 msgid ""
 "This will show all taxonomies on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
@@ -4085,11 +4327,11 @@ msgstr ""
 "Αυτό θα εμφανίσει όλες τις ταξινομίες στην οθόνη \"Δυνατότητες\", ακόμη και "
 "εκείνες που είναι κανονικά κρυμμένες στην περιοχή διαχείρισης του WordPress."
 
-#: includes/settings-ui.php:141
+#: includes/settings-ui.php:123
 msgid "Application password capabilities"
 msgstr "Δυνατότητες κωδικών πρόσβασης εφαρμογής"
 
-#: includes/settings-ui.php:146
+#: includes/settings-ui.php:128
 msgid ""
 "Allow the Capabilities screen to deny selected capabilities for individual "
 "WordPress application passwords."
@@ -4097,7 +4339,7 @@ msgstr ""
 "Επιτρέψτε στην οθόνη Δυνατοτήτων να αρνείται επιλεγμένες δυνατότητες για "
 "ατομικούς κωδικούς πρόσβασης εφαρμογής WordPress."
 
-#: includes/settings-ui.php:170
+#: includes/settings-ui.php:149
 msgid ""
 "Show all post types on the \"Editor Features\" screen, even ones normally "
 "hidden in the WordPress admin area."
@@ -4106,61 +4348,61 @@ msgstr ""
 "Επεξεργαστή\", ακόμη και εκείνων που είναι κανονικά κρυμμένες στην περιοχή "
 "διαχείρισης του WordPress."
 
-#: includes/settings-ui.php:181
+#: includes/settings-ui.php:157
 msgid "Enable Classic Editor tab"
 msgstr "Ενεργοποίηση καρτέλας Κλασικού Επεξεργαστή"
 
-#: includes/settings-ui.php:186
+#: includes/settings-ui.php:162
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
 msgstr ""
 "Πάντα να εμφανίζεται η καρτέλα Κλασικού Επεξεργαστή στην οθόνη "
 "\"Χαρακτηριστικά Επεξεργαστή\"."
 
-#: includes/settings-ui.php:202
+#: includes/settings-ui.php:175
 msgid "Admin Bar modification"
 msgstr "Τροποποίηση Γραμμής Διαχείρισης"
 
-#: includes/settings-ui.php:207
+#: includes/settings-ui.php:180
 msgid "When testing, display a caption and return link in the Admin Bar."
 msgstr ""
 "Κατά τη διάρκεια δοκιμών, εμφανίστε μια λεζάντα και έναν σύνδεσμο "
 "επιστροφής στη Γραμμή Διαχείρισης."
 
-#: includes/settings-ui.php:218
+#: includes/settings-ui.php:188
 msgid "Admin Bar search"
 msgstr "Αναζήτηση στη Γραμμή Διαχείρισης"
 
-#: includes/settings-ui.php:223
+#: includes/settings-ui.php:193
 msgid "Add option to search and user testing in the Admin Bar."
 msgstr "Προσθήκη επιλογής για αναζήτηση και δοκιμή χρηστών στη Γραμμή Διαχείρισης."
 
-#: includes/settings-ui.php:234
+#: includes/settings-ui.php:201
 msgid "Front End footer notice"
 msgstr "Ειδοποίηση υποσέλιδου Front End"
 
-#: includes/settings-ui.php:239
+#: includes/settings-ui.php:206
 msgid "When testing, display a return link in the front end footer."
 msgstr ""
 "Κατά τη διάρκεια δοκιμών, εμφανίστε έναν σύνδεσμο επιστροφής στο υποσέλιδο "
 "του front end."
 
-#: includes/settings-ui.php:250
+#: includes/settings-ui.php:217
 msgid "Exclude role from User Testing"
 msgstr "Αφαίρεση ρόλου από τη Δοκιμή Χρηστών"
 
-#: includes/settings-ui.php:257
+#: includes/settings-ui.php:224
 msgid "Select roles..."
 msgstr "Επιλέξτε ρόλους..."
 
-#: includes/settings-ui.php:271
+#: includes/settings-ui.php:238
 msgid "Exclude users in selected roles from User Testing."
 msgstr "Αφαίρεση χρηστών στους επιλεγμένους ρόλους από τη Δοκιμή Χρηστών."
 
-#: includes/settings-ui.php:288
+#: includes/settings-ui.php:252
 msgid "Automatically refresh profile elements"
 msgstr "Αυτόματη ανανέωση στοιχείων προφίλ"
 
-#: includes/settings-ui.php:293
+#: includes/settings-ui.php:257
 msgid ""
 "Always try to automatically find profile elements. This may cause temporary "
 "issues when updating user roles that do not have access to the WordPress "
@@ -4175,61 +4417,200 @@ msgid "Capabilities Settings"
 msgstr "Ρυθμίσεις Δυνατοτήτων"
 
 #: includes/test-user-ui.php:52
+msgid "Search user"
+msgstr "Αναζήτηση χρήστη"
+
+#: includes/test-user-ui.php:53
 msgid "Search user..."
 msgstr "Αναζητήστε χρήστη..."
 
-#: includes/test-user-ui.php:53
+#: includes/test-user-ui.php:54
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: includes/test-user-ui.php:70
+#: includes/test-user-ui.php:71
 msgid "No results found."
 msgstr "Δεν βρέθηκαν αποτελέσματα."
 
-#: includes/test-user-ui.php:79
+#: includes/test-user-ui.php:80
 msgid "Permission denied."
 msgstr "Απαγορεύεται η πρόσβαση."
 
-#: includes/test-user-ui.php:180
-#: includes/test-user-ui.php:204
+#: includes/test-user-ui.php:181
+#: includes/test-user-ui.php:205
 msgid "Test user"
 msgstr "Δοκιμαστικός χρήστης"
 
-#: includes/test-user-ui.php:210
+#: includes/test-user-ui.php:211
 msgid "Test this user"
 msgstr "Δοκιμάστε αυτόν τον χρήστη"
 
-#: includes/test-user-ui.php:255
+#: includes/test-user-ui.php:256
 msgid "Testing: "
 msgstr "Δοκιμή: "
 
-#: includes/test-user-ui.php:269
+#: includes/test-user-ui.php:270
 #, php-format
 msgid "%1$sReturn to Administrator view%2$s"
 msgstr "%1$sΕπιστροφή στην προβολή Διαχειριστή%2$s"
 
-#: includes/test-user-ui.php:316
+#: includes/test-user-ui.php:317
 #, php-format
 msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
 msgstr "Δοκιμή ως χρήστης: %1$s. %2$sΕπιστροφή στην προβολή Διαχειριστή%3$s"
 
-#: includes/test-user.php:62
-msgid "Unable to retrieve user data."
-msgstr "Αδύνατη η ανάκτηση δεδομένων χρήστη."
+#: includes/user-capabilities-view.php:15
+msgid "Back to Users"
+msgstr "Επιστροφή στους Χρήστες"
 
-#: common/js/admin.dev.js:1077
+#: includes/user-capabilities-view.php:21
+#, php-format
+msgid "Viewing effective capabilities for %s."
+msgstr "Προβολή αποτελεσματικών δυνατοτήτων για %s."
+
+#: includes/user-capabilities-view.php:29
+msgid "Username"
+msgstr "Όνομα χρήστη"
+
+#: includes/user-capabilities-view.php:35, fuzzy
+msgid "Email"
+msgstr "Email"
+
+#: includes/user-capabilities-view.php:41
+#: includes/user-capabilities-view.php:61
+msgid "Assigned Roles"
+msgstr "Ανατεθειμένοι Ρόλοι"
+
+#: includes/user-capabilities-view.php:47
+msgid "Network Access"
+msgstr "Πρόσβαση Δικτύου"
+
+#: includes/user-capabilities-view.php:48, fuzzy
+msgid "Super Admin"
+msgstr "Super Admin"
+
+#: includes/user-capabilities-view.php:53
+msgid "Granted Capabilities"
+msgstr "Παραχωρημένες Δυνατότητες"
+
+#: includes/user-capabilities-view.php:65
+msgid "This user has no assigned roles."
+msgstr "Αυτός ο χρήστης δεν έχει ανατεθεί ρόλους."
+
+#: includes/user-capabilities-view.php:85
+#, php-format
+msgid "Granted Capabilities (%d)"
+msgstr "Παρεχόμενες Δυνατότητες (%d)"
+
+#: includes/user-capabilities-view.php:90
+msgid ""
+"These include known capabilities WordPress grants through Super Admin "
+"access, role assignments, and direct overrides."
+msgstr ""
+"Αυτές περιλαμβάνουν γνωστές δυνατότητες που παραχωρεί το WordPress μέσω "
+"πρόσβασης Super Admin, αναθέσεων ρόλων και άμεσων παρακάμψεων."
+
+#: includes/user-capabilities-view.php:92
+msgid ""
+"These are the capabilities WordPress resolves for this user after role "
+"assignments and any direct overrides."
+msgstr ""
+"Αυτές είναι οι δυνατότητες που επιλύει το WordPress για αυτόν τον χρήστη "
+"μετά τις αναθέσεις ρόλων και οποιεσδήποτε άμεσες παρακάμψεις."
+
+#: includes/user-capabilities-view.php:96
+msgid "This user has no granted capabilities."
+msgstr "Αυτός ο χρήστης δεν έχει παρεχόμενες δυνατότητες."
+
+#: includes/user-capabilities-view.php:99
+msgid "Search granted capabilities"
+msgstr "Αναζήτηση παρεχόμενων δυνατοτήτων"
+
+#: includes/user-capabilities-view.php:105
+msgid "Search granted capabilities..."
+msgstr "Αναζήτηση παρεχόμενων δυνατοτήτων..."
+
+#: includes/user-capabilities-view.php:111
+msgid "Type to filter this capability list."
+msgstr "Πληκτρολογήστε για να φιλτράρετε αυτή τη λίστα δυνατοτήτων."
+
+#: includes/user-capabilities-view.php:119
+msgid "No granted capabilities match your search."
+msgstr "Καμία παρεχόμενη δυνατότητα δεν ταιριάζει με την αναζήτησή σας."
+
+#: includes/user-capabilities-view.php:128
+#, php-format
+msgid "Denied Capabilities (%d)"
+msgstr "Αρνηθείσες Δυνατότητες (%d)"
+
+#: includes/user-capabilities-view.php:143
+msgid "Direct User Overrides"
+msgstr "Άμεσες Παρακάμψεις Χρήστη"
+
+#: includes/user-capabilities-view.php:146
+msgid ""
+"These entries are stored directly on the user account instead of coming "
+"from a role."
+msgstr ""
+"Αυτές οι εγγραφές αποθηκεύονται απευθείας στον λογαριασμό χρήστη αντί να "
+"προέρχονται από ρόλο."
+
+#: includes/user-capabilities-view.php:176
+msgid ""
+"Direct Permissions settings for this user. These are separate from "
+"WordPress role capabilities."
+msgstr ""
+"Ρυθμίσεις Άμεσων Δικαιωμάτων για αυτόν τον χρήστη. Αυτές είναι ξεχωριστές "
+"από τις δυνατότητες ρόλων του WordPress."
+
+#: includes/user-capabilities-view.php:182
+#, php-format
+msgid "Extra Roles (%d)"
+msgstr "Επιπλέον Ρόλοι (%d)"
+
+#: includes/user-capabilities-view.php:189
+msgid "This user has no direct extra roles."
+msgstr "Αυτός ο χρήστης δεν έχει άμεσους επιπλέον ρόλους."
+
+#: includes/user-capabilities-view.php:204
+#, php-format
+msgid "Specific Permissions (%d)"
+msgstr "Συγκεκριμένα Δικαιώματα (%d)"
+
+#: includes/user-capabilities-view.php:211
+msgid "This user has no direct specific permissions."
+msgstr "Αυτός ο χρήστης δεν έχει άμεσες συγκεκριμένες άδειες."
+
+#: includes/user-capabilities-view.php:226
+#, php-format
+msgid ""
+"Showing the first 50 of %d permissions. Use the Permissions editor to view "
+"the full list."
+msgstr ""
+"Εμφάνιση των πρώτων 50 από %d δικαιώματα. Χρησιμοποιήστε τον επεξεργαστή "
+"δικαιωμάτων για να δείτε τη πλήρη λίστα."
+
+#: includes/user-capabilities-view.php:238
+msgid "Edit Extra Roles"
+msgstr "Επεξεργασία Επιπλέον Ρόλων"
+
+#: includes/user-capabilities-view.php:243
+msgid "Edit Specific Permissions"
+msgstr "Επεξεργασία Συγκεκριμένων Δικαιωμάτων"
+
+#: common/js/admin.dev.js:1118
 msgid "Updating Settings..."
 msgstr "Ενημέρωση Ρυθμίσεων..."
 
-#: common/js/admin.dev.js:1113
+#: common/js/admin.dev.js:1154
 msgid "Updating access..."
 msgstr "Ενημέρωση πρόσβασης..."
 
-#: common/js/admin.dev.js:1132
-#: common/js/admin.dev.js:1137
+#: common/js/admin.dev.js:1173
+#: common/js/admin.dev.js:1178
 msgid "Error updating access."
 msgstr "Σφάλμα κατά την ενημέρωση πρόσβασης."
 
-#: common/js/admin.dev.js:1237
+#: common/js/admin.dev.js:1278
 msgid " Error: changes can't be saved."
 msgstr "Σφάλμα: οι αλλαγές δεν μπορούν να αποθηκευτούν."
