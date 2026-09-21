@@ -1,6 +1,33 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.51.0] - 21 September, 2026
+
+- Fixed : Performance: enqueue minified admin assets, #1820
+- Update : Add button to Apply Admin Menus to all roles, #1796
+- Update : Allow Text as a menu separato, #1797
+- Fixed : Not possible to add more than one seperator in Admin Menus, #1798
+- Update : Allow users to select a color for admin menu separators, #1799
+- Update : Improve capability screen accessibility, #1800
+- Update : Make capability controls keyboard accessible, #1801
+- Fixed : Admin Menu restrictions for Customize and Background do not persist, #1808
+- Update : Add inline menu restriction controls, #1802
+- Update : readme: document uninstall behaviour, and resync with the released file, #1805
+- Fixed : Fix settings checkbox output escaping, #1810
+- Fixed : Escape dynamic admin notice and UI outpu, #1811
+- Fixed : Terminate admin styles redirect, #1812
+- Update : Use WordPress filesystem API for backup imports, #1813
+- Fixed : Use safe redirects for admin actions, #1814
+- Fixed : Fix skipped heading level, #1815
+- Fixed : Fix missing image alt text, #1816
+- Update : Add accessible labels to form inputs, #1817
+- Fixed : Avoid repeated post meta queries in loops, #1818
+- Update : Use structured application password user query, #1819
+- Fixed : Security: make role nonce validation explicit, #1821
+- Fixed : Security: unslash request data before sanitizing, #1822
+- Fixed : Terminate unauthorized role actions, #1825
+- Fixed : "Test this user" invalidates nonces in already-open editor tabs, #1823
+
 [2.50.1] - 25 August, 2026
 
 - Fixed : Hide current user roles from Capabilities screens dropdowns, #1783
