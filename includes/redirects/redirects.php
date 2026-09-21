@@ -91,7 +91,7 @@ $fields = [
 
     <div class="wrap publishpress-caps-manage pressshack-admin-wrapper pp-capability-menus-wrapper redirects-features">
         <div id="icon-capsman-admin" class="icon32"></div>
-        <h2><?php printf(esc_html__('%s Redirects', 'capability-manager-enhanced'), translate_user_role($roles[$default_role])); ?></h2>
+        <h2><?php printf(esc_html__('%s Redirects', 'capability-manager-enhanced'), esc_html(translate_user_role($roles[$default_role]))); ?></h2>
 
         <form method="post" action="" id="ppc-redirects-features-form" onkeydown="return event.key != 'Enter';">
             <?php wp_nonce_field('pp-capabilities-redirects-features'); ?>
@@ -132,8 +132,8 @@ $fields = [
                                                 ?>
                                             </select> &nbsp;
 
-                                            <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                                    style="display: none">
+                                            <img class="loading" src="<?php echo esc_url($capsman->mod_url . '/images/wpspin_light.gif'); ?>"
+                                                    alt="" aria-hidden="true" style="display: none">
                                         </div>
                                         </p>
                                     </div>
@@ -234,6 +234,7 @@ $fields = [
                                                                                                 <div class="base-input">
                                                                                                     <input name="<?php echo esc_attr($key); ?>"
                                                                                                     id="<?php echo esc_attr($key); ?>"
+                                                                                                    aria-label="<?php echo esc_attr($args['label']); ?>"
                                                                                                     type="text"
                                                                                                     value="<?php echo esc_attr($base_url); ?>"
                                                                                                     data-original_base="<?php echo esc_attr($base_url); ?>"
@@ -267,6 +268,7 @@ $fields = [
                                                                                         <div class="base-input">
                                                                                             <input name="<?php echo esc_attr($key); ?>"
                                                                                             id="<?php echo esc_attr($key); ?>"
+                                                                                            aria-label="<?php echo esc_attr($args['label']); ?>"
                                                                                             type="text"
                                                                                             value="<?php echo esc_attr($base_url); ?>"
                                                                                             data-original_base="<?php echo esc_attr($base_url); ?>"
@@ -286,6 +288,7 @@ $fields = [
                                                                                 <?php else : ?>
                                                                                     <input name="<?php echo esc_attr($key); ?>"
                                                                                         id="<?php echo esc_attr($key); ?>"
+                                                                                        aria-label="<?php echo esc_attr($args['label']); ?>"
                                                                                         type="<?php echo esc_attr($args['type']); ?>"
                                                                                         value="<?php echo esc_attr($args['value']); ?>"
                                                                                     <?php echo ($args['required'] ? 'required="true"' : '');?>

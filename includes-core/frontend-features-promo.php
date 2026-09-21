@@ -44,6 +44,6 @@
         <?php esc_html_e('This will add a metabox on the post editing screen. You can use this feature to add body classes only for that post.', 'capability-manager-enhanced'); ?>
     </small>
     <!-- using this to balance the space needed due to field size -->
-    <input type="text" style="visibility: hidden; width: 0; display: block;" />
-    <input type="text" style="visibility: hidden; width: 0; display: block;" />
+    <input type="text" aria-label="<?php esc_attr_e('Layout spacer', 'capability-manager-enhanced'); ?>" style="visibility: hidden; width: 0; display: block;" />
+    <input type="text" aria-label="<?php esc_attr_e('Layout spacer', 'capability-manager-enhanced'); ?>" style="visibility: hidden; width: 0; display: block;" />
 </div>

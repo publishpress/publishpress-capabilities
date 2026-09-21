@@ -31,7 +31,7 @@ if (empty($current_role)) {
 }
 
 // Force reload of settings for the current role after form submission
-if (!empty($_POST['_wpnonce']) && wp_verify_nonce($_POST['_wpnonce'], 'pp-capabilities-admin-styles')) {
+if (!empty($_POST['_wpnonce']) && wp_verify_nonce(wp_unslash($_POST['_wpnonce']), 'pp-capabilities-admin-styles')) {
     $admin_styles->load_settings_for_role($current_role);
 }
 
@@ -171,7 +171,7 @@ if ($admin_styles_saved !== false) {
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                    style="display: none">
+                                    alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div>
@@ -309,10 +309,10 @@ if ($admin_styles_saved !== false) {
                                                             <td colspan="2" class="custom-form-td value-column ppc-menu-checkbox">
                                                                 <div>
                                                                     <div class="color-editor-card">
-                                                                        <h4 class="editor-title form-promo-blur">
+                                                                        <h3 class="editor-title form-promo-blur">
                                                                             <span class="dashicons dashicons-admin-customizer"></span>
                                                                             <span class="custom-form-title"><?php esc_html_e('Edit Color Style', 'capability-manager-enhanced'); ?></span>
-                                                                        </h4>
+                                                                        </h3>
                                                                         <p class="editor-description form-promo-blur">
                                                                             <?php esc_html_e('Customize colors for different admin elements. Changes are previewed instantly.', 'capability-manager-enhanced'); ?>
                                                                         </p>
@@ -383,6 +383,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         <div class="ppc-advanced-rule-selector">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Selector', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
+                                                                                                                aria-label="<?php esc_attr_e('Selector', 'capability-manager-enhanced'); ?>"
                                                                                                                 class="regular-text ppc-advanced-selector"
                                                                                                                 name="custom_style_advanced_rules[{{index}}][selector]"
                                                                                                                 placeholder="<?php esc_attr_e('e.g. .publishpress-wrap h1, #my-plugin-header', 'capability-manager-enhanced'); ?>">
@@ -399,6 +400,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         <div class="ppc-advanced-rule-color">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Brand Color', 'capability-manager-enhanced'); ?></label>
                                                                                                             <input type="text"
+                                                                                                                aria-label="<?php esc_attr_e('Brand Color', 'capability-manager-enhanced'); ?>"
                                                                                                                 class="pp-capabilities-color-picker ppc-advanced-color"
                                                                                                                 data-category="advanced"
                                                                                                                 data-color-key="advanced_rule_color"
@@ -445,6 +447,7 @@ if ($admin_styles_saved !== false) {
                                                                                                     <input type="text"
                                                                                                         name="custom_style_<?php echo esc_attr($color_key); ?>"
                                                                                                         id="custom_style_<?php echo esc_attr($color_key); ?>"
+                                                                                                        aria-label="<?php echo esc_attr($color_config['label']); ?>"
                                                                                                         value=""
                                                                                                         class="pp-capabilities-color-picker custom-style-color color-input"
                                                                                                         data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
@@ -477,7 +480,29 @@ if ($admin_styles_saved !== false) {
                                                                                 </button>
 
                                                                                 <div class="tool-tip-text">
-                                                                                    <p><?php printf(__( 'Are you sure you want to delete this %1s? %2s %3s', 'capability-manager-enhanced' ), '<strong>' . esc_html__('Custom Style', 'capability-manager-enhanced') . '</strong>', '<br /><input type="submit" name="delete_custom_style" value="'. esc_attr__('Delete Custom Style', 'capability-manager-enhanced') .'" class="button-link-delete" style="background: none !important;color: #d63638 !important;">', ' | <a class="cancel-click-tooltip" href="#">'. esc_html__('Cancel', 'capability-manager-enhanced') .'</a>' ); ?></p>
+                                                                                    <p><?php echo wp_kses(
+                                                                                        sprintf(
+                                                                                            __( 'Are you sure you want to delete this %1s? %2s %3s', 'capability-manager-enhanced' ),
+                                                                                            '<strong>' . esc_html__('Custom Style', 'capability-manager-enhanced') . '</strong>',
+                                                                                            '<br /><input type="submit" name="delete_custom_style" value="' . esc_attr__('Delete Custom Style', 'capability-manager-enhanced') . '" class="button-link-delete" style="background: none !important;color: #d63638 !important;">',
+                                                                                            ' | <a class="cancel-click-tooltip" href="#">' . esc_html__('Cancel', 'capability-manager-enhanced') . '</a>'
+                                                                                        ),
+                                                                                        [
+                                                                                            'strong' => [],
+                                                                                            'br' => [],
+                                                                                            'input' => [
+                                                                                                'type' => [],
+                                                                                                'name' => [],
+                                                                                                'value' => [],
+                                                                                                'class' => [],
+                                                                                                'style' => [],
+                                                                                            ],
+                                                                                            'a' => [
+                                                                                                'class' => [],
+                                                                                                'href' => [],
+                                                                                            ],
+                                                                                        ]
+                                                                                    ); ?></p>
                                                                                         <i></i>
                                                                                 </div>
                                                                             </div>
@@ -511,7 +536,7 @@ if ($admin_styles_saved !== false) {
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="logo-preview">
                                                                         <?php if (!empty($settings['admin_logo'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
+                                                                            <img src="<?php echo esc_url($settings['admin_logo']); ?>" alt="<?php esc_attr_e('Admin logo preview', 'capability-manager-enhanced'); ?>" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>
                                                                     <button type="button"
@@ -546,7 +571,7 @@ if ($admin_styles_saved !== false) {
                                                                         class="regular-text pp-capabilities-image-url">
                                                                     <span class="favicon-preview">
                                                                         <?php if (!empty($settings['admin_favicon'])): ?>
-                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>"
+                                                                            <img src="<?php echo esc_url($settings['admin_favicon']); ?>" alt="<?php esc_attr_e('Admin favicon preview', 'capability-manager-enhanced'); ?>"
                                                                                 style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;">
                                                                         <?php endif; ?>
                                                                     </span>

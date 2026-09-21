@@ -50,8 +50,17 @@ class PP_Capabilities_Admin_UI {
             );
             add_action('admin_init', [$this, 'manage_installation'], 2000);
 
-            //Add role blocked nav menu indication
+            // Add user capabilities view from the Users screen.
+            add_action('admin_menu', [$this, 'registerUserCapabilitiesPage'], 19);
+            add_action('personal_options', [$this, 'addUserCapabilitiesProfileAction']);
+            add_filter('user_row_actions', [$this, 'addUserCapabilitiesRowAction'], 11, 2);
+            add_action('admin_head-users_page_pp-capabilities-user-view', [$this, 'outputUserCapabilitiesPageStyles']);
+
+            // Add inline nav menu restrictions on the native Menus screen.
             add_action('wp_nav_menu_item_custom_fields', [$this, 'add_nav_menu_indicator'], 20, 5);
+            add_action('wp_update_nav_menu_item', [$this, 'saveNavMenuRestrictions'], 20, 3);
+            add_action('before_delete_post', [$this, 'cleanupDeletedNavMenuRestrictions']);
+            add_action('admin_head-nav-menus.php', [$this, 'outputNavMenuRestrictionStyles']);
             add_action('admin_init', [$this, 'blockSubsiteCapabilitiesAccess'], 1000);
         }
 
@@ -72,8 +81,8 @@ class PP_Capabilities_Admin_UI {
         if (is_admin() && (isset($_REQUEST['page']) && (in_array($_REQUEST['page'], ['pp-capabilities', 'pp-capabilities-backup', 'pp-capabilities-roles', 'pp-capabilities-admin-menus', 'pp-capabilities-editor-features', 'pp-capabilities-nav-menus', 'pp-capabilities-settings', 'pp-capabilities-admin-features', 'pp-capabilities-profile-features', 'pp-capabilities-dashboard', 'pp-capabilities-frontend-features', 'pp-capabilities-redirects', 'pp-capabilities-admin-styles', 'pp-capabilities-admin-notices']))
 
         || (!empty($_REQUEST['action']) && in_array($_REQUEST['action'], ['pp-roles-add-role', 'pp-roles-delete-role', 'pp-roles-hide-role', 'pp-roles-unhide-role']))
-        || ( ! empty($_SERVER['SCRIPT_NAME']) && strpos(sanitize_text_field($_SERVER['SCRIPT_NAME']), 'p-admin/plugins.php' ) && ! empty($_REQUEST['action'] ) )
-        || ( isset($_GET['action']) && ('reset-defaults' == $_GET['action']) && isset($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'capsman-reset-defaults') )
+        || ( ! empty($_SERVER['SCRIPT_NAME']) && strpos(sanitize_text_field(wp_unslash($_SERVER['SCRIPT_NAME'])), 'p-admin/plugins.php' ) && ! empty($_REQUEST['action'] ) )
+        || ( isset($_GET['action']) && ('reset-defaults' == $_GET['action']) && isset($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce'])), 'capsman-reset-defaults') )
         || in_array( $pagenow, array( 'users.php', 'user-edit.php', 'profile.php', 'user-new.php' ) )
         ) ) {
             global $capsman;
@@ -325,6 +334,20 @@ class PP_Capabilities_Admin_UI {
             ]
         );
 
+        if (function_exists('get_current_screen')) {
+            $screen = get_current_screen();
+
+            if ($screen && 'users_page_pp-capabilities-user-view' === $screen->id) {
+                wp_enqueue_script(
+                    'pp-capabilities-user-capabilities-js',
+                    plugin_dir_url(CME_FILE) . 'common/js/user-capabilities.js',
+                    [],
+                    PUBLISHPRESS_CAPS_VERSION,
+                    true
+                );
+            }
+        }
+
         if (function_exists('get_current_screen') && (!defined('PUBLISHPRESS_VERSION') || empty($publishpress) || empty($publishpress->modules) || empty($publishpress->modules->roles))) {
             $screen = get_current_screen();
 
@@ -343,9 +366,11 @@ class PP_Capabilities_Admin_UI {
                 // Enqueue jQuery UI script from WordPress core
                 wp_enqueue_script('jquery-ui-core');
 
+                $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
                 wp_enqueue_script(
                     'pp-capabilities-roles-profile-js',
-                    plugin_dir_url(CME_FILE) . 'common/js/profile.js',
+                    plugin_dir_url(CME_FILE) . "common/js/profile{$asset_suffix}.js",
                     ['jquery', 'pp-capabilities-chosen-js'],
                     PUBLISHPRESS_CAPS_VERSION
                 );
@@ -358,7 +383,7 @@ class PP_Capabilities_Admin_UI {
                 );
                 wp_enqueue_style(
                     'pp-capabilities-roles-profile-css',
-                    plugin_dir_url(CME_FILE) . 'common/css/profile.css',
+                    plugin_dir_url(CME_FILE) . "common/css/profile{$asset_suffix}.css",
                     ['pp-capabilities-chosen-css'],
                     PUBLISHPRESS_CAPS_VERSION
                 );
@@ -444,8 +469,8 @@ class PP_Capabilities_Admin_UI {
     public function action_profile_update($userId, $oldUserData = [])
     {
         // Check if we need to update the user's roles, allowing to set multiple roles.
-        if ((!empty($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'update-user_' . $userId)
-            || !empty($_REQUEST['_wpnonce_create-user']) && wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce_create-user']), 'create-user'))
+        if ((!empty($_REQUEST['_wpnonce']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce'])), 'update-user_' . $userId)
+            || !empty($_REQUEST['_wpnonce_create-user']) && wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce_create-user'])), 'create-user'))
             && isset($_POST['pp_roles']) && current_user_can('promote_users')) {
             if (!current_user_can('edit_user', $userId) || !current_user_can('promote_user', $userId)) {
                 return;
@@ -661,19 +686,19 @@ class PP_Capabilities_Admin_UI {
 
         if (
             ! wp_verify_nonce(
-                sanitize_key( $_POST['nonce'] ),
+                sanitize_key( wp_unslash($_POST['nonce'])),
                 'pp-capabilities-dashboard-nonce'
             )
         ) {
             wp_send_json( __('Invalid nonce token!', 'capability-manager-enhanced'), 400 );
         }
 
-        if( empty( $_POST['feature'] ) || ! $_POST['feature'] ) { // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $feature = sanitize_key(wp_unslash($_POST['feature'] ?? ''));
+        if (empty($feature)) {
             wp_send_json( __('Error: wrong data', 'capability-manager-enhanced'), 400 );
             return false;
         }
 
-        $feature = sanitize_key(wp_unslash($_POST['feature']));
         $dashboard_options = pp_capabilities_dashboard_options();
 
         if (!isset($dashboard_options[$feature])) {
@@ -718,12 +743,12 @@ class PP_Capabilities_Admin_UI {
         $response['content'] = '';
 
         // Verify nonce and capabilities
-        if (empty($_POST['nonce']) || !wp_verify_nonce(sanitize_key($_POST['nonce']), 'pp-capabilities-admin-features')) {
+        if (empty($_POST['nonce']) || !wp_verify_nonce(sanitize_key(wp_unslash($_POST['nonce'])), 'pp-capabilities-admin-features')) {
             $response['message'] =  __('Security check failed', 'capability-manager-enhanced');
         } elseif (!current_user_can('manage_capabilities_admin_features')) {
             $response['message'] =  __('Permission denied', 'capability-manager-enhanced');
         } else {
-            $hide_submenu      = !empty($_POST['hide_submenu']) ? (int)($_POST['hide_submenu']) : 0;
+            $hide_submenu      = !empty($_POST['hide_submenu']) ? (int) wp_unslash($_POST['hide_submenu']) : 0;
 
             $admin_feature_settings = (array) get_option('ppc_admin_features_settings', []);
             $admin_feature_settings['hide_submenu'] = $hide_submenu;
@@ -780,9 +805,200 @@ class PP_Capabilities_Admin_UI {
     }
 
 
+    private function canManageNavMenuRestrictions()
+    {
+        if (!is_admin() || !pp_capabilities_feature_enabled('nav-menus')) {
+            return false;
+        }
+
+        if (is_multisite() && is_super_admin()) {
+            return true;
+        }
+
+        return current_user_can('administrator') || current_user_can('manage_capabilities_nav_menus');
+    }
+
+    private function getNavMenuRestrictionRoles()
+    {
+        $role_options = [
+            'ppc_users' => esc_html__('Logged In Users', 'capability-manager-enhanced'),
+            'ppc_guest' => esc_html__('Logged Out Users', 'capability-manager-enhanced'),
+        ];
+
+        // Disabled roles are intentionally omitted from get_editable_roles(), but users can
+        // retain those roles and their existing menu restrictions must remain editable.
+        $registered_roles = wp_roles()->roles;
+
+        foreach ((array) $registered_roles as $role_name => $role_details) {
+            $role_name = sanitize_key($role_name);
+
+            if ('' === $role_name) {
+                continue;
+            }
+
+            $role_options[$role_name] = !empty($role_details['name'])
+                ? translate_user_role($role_details['name'])
+                : translate_user_role($role_name);
+        }
+
+        return $role_options;
+    }
+
+    private function getNavMenuRestrictionValue($item_id, $item = null)
+    {
+        if (empty($item)) {
+            $item = wp_setup_nav_menu_item(get_post($item_id));
+        }
+
+        if (empty($item) || empty($item->ID) || !isset($item->object_id, $item->object)) {
+            return '';
+        }
+
+        return $item->ID . '_' . sanitize_text_field((string) $item->object_id) . '_' . sanitize_key((string) $item->object);
+    }
+
+    private function getRestrictedNavMenuRoles($item_id, $nav_menu_item_option = [])
+    {
+        $item_value = $this->getNavMenuRestrictionValue($item_id);
+
+        if ('' === $item_value) {
+            return [];
+        }
+
+        if (empty($nav_menu_item_option) || !is_array($nav_menu_item_option)) {
+            $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
+        }
+
+        $restricted_roles = [];
+
+        foreach ((array) $nav_menu_item_option as $role_name => $restricted_items) {
+            if (in_array($item_value, array_filter((array) $restricted_items), true)) {
+                $restricted_roles[] = sanitize_key($role_name);
+            }
+        }
+
+        return $restricted_roles;
+    }
+
+    public function outputNavMenuRestrictionStyles()
+    {
+        if (!$this->canManageNavMenuRestrictions()) {
+            return;
+        }
+        ?>
+        <style id="pp-capabilities-nav-menu-inline-restrictions">
+            .field-pp-capabilities-nav-restrictions {
+                margin-top: 12px;
+                padding-top: 12px;
+                border-top: 1px solid #dcdcde;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-mode {
+                margin-bottom: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit > h4 {
+                margin-left: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 6px 12px;
+                height: 160px;
+                max-height: 160px;
+                overflow-y: auto;
+                padding: 4px;
+                border: 1px solid #dcdcde;
+                background: #fff;
+                scrollbar-gutter: stable;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-option {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                margin: 0;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-search-label {
+                display: block;
+                margin: 0 0 4px;
+                font-weight: 600;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-edit-role-search {
+                width: 100%;
+                max-width: 400px;
+                margin-bottom: 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-role-filter-status {
+                min-height: 18px;
+                margin: 4px 0 8px;
+            }
+
+            .field-pp-capabilities-nav-restrictions .ppc-nav-manage-link {
+                margin-top: 10px;
+            }
+        </style>
+        <script>
+            (function() {
+                function filterNavMenuRoles(searchField) {
+                    var roleList = document.getElementById(searchField.getAttribute('aria-controls'));
+
+                    if (!roleList) {
+                        return;
+                    }
+
+                    var searchTerm = searchField.value.trim().toLowerCase();
+                    var roleOptions = roleList.querySelectorAll('.ppc-nav-edit-role-option');
+                    var visibleRoles = 0;
+
+                    Array.prototype.forEach.call(roleOptions, function(roleOption) {
+                        var roleName = roleOption.getAttribute('data-role-name') || '';
+                        var roleCaption = roleOption.textContent || '';
+                        var isVisible = !searchTerm || (roleName + ' ' + roleCaption).toLowerCase().indexOf(searchTerm) !== -1;
+
+                        roleOption.hidden = !isVisible;
+
+                        if (isVisible) {
+                            visibleRoles++;
+                        }
+                    });
+
+                    var status = document.getElementById(searchField.getAttribute('data-status'));
+
+                    if (!status) {
+                        return;
+                    }
+
+                    if (!searchTerm) {
+                        status.textContent = '';
+                    } else if (!visibleRoles) {
+                        status.textContent = searchField.getAttribute('data-no-results');
+                    } else {
+                        var roleLabel = visibleRoles === 1
+                            ? searchField.getAttribute('data-one-result')
+                            : searchField.getAttribute('data-many-results');
+
+                        status.textContent = visibleRoles + ' ' + roleLabel;
+                    }
+                }
+
+                document.addEventListener('input', function(event) {
+                    if (event.target.matches('.ppc-nav-edit-role-search')) {
+                        filterNavMenuRoles(event.target);
+                    }
+                });
+            }());
+        </script>
+        <?php
+    }
+
 	/**
 	* Fires just before the move buttons of a nav menu item in the menu editor.
-	* Add role blocked nav menu indication
+	* Add inline role controls for nav menu restrictions.
 	*
 	* @param int       $item_id Menu item ID.
 	* @param \WP_Post  $item    Menu item data object.
@@ -791,74 +1007,729 @@ class PP_Capabilities_Admin_UI {
 	* @param int       $id      Nav menu ID.
 	*/
 	public function add_nav_menu_indicator( $item_id, $item, $depth, $args, $id = null ) {
-        global $capsman;
-
-        if (!is_admin() || !pp_capabilities_feature_enabled('nav-menus')) {
+        if (!$this->canManageNavMenuRestrictions()) {
             return;
         }
 
-        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array)get_option('capsman_nav_item_menus') : [];
-        if (!is_array($nav_menu_item_option)) {
+        $role_options = $this->getNavMenuRestrictionRoles();
+
+        if (empty($role_options)) {
             return;
         }
-        $nav_menu_item_option = array_filter($nav_menu_item_option);
+
+        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
+        $restricted_roles = $this->getRestrictedNavMenuRoles($item_id, $nav_menu_item_option);
+        ?>
+        <fieldset class="field-pp-capabilities-nav-restrictions description description-wide">
+            <div class="ppc-nav-edit">
+                <div class="clear"></div>
+                <h4 style="margin-bottom: 0.6em;"><?php esc_html_e('PublishPress Capabilities Menu Restriction', 'capability-manager-enhanced'); ?></h4>
+                <p class="description description-wide ppc-nav-mode"><?php esc_html_e('Hide this menu item for the selected roles.', 'capability-manager-enhanced'); ?></p>
+
+                <?php
+                $role_search_id = 'pp-capabilities-nav-menu-role-search-' . (int) $item_id;
+                $role_list_id = 'pp-capabilities-nav-menu-role-list-' . (int) $item_id;
+                $role_status_id = 'pp-capabilities-nav-menu-role-status-' . (int) $item_id;
+                ?>
+                <label class="ppc-nav-edit-role-search-label" for="<?php echo esc_attr($role_search_id); ?>">
+                    <?php esc_html_e('Search roles', 'capability-manager-enhanced'); ?>
+                </label>
+                <input
+                    id="<?php echo esc_attr($role_search_id); ?>"
+                    class="ppc-nav-edit-role-search"
+                    type="search"
+                    placeholder="<?php esc_attr_e('Search by role name', 'capability-manager-enhanced'); ?>"
+                    autocomplete="off"
+                    aria-controls="<?php echo esc_attr($role_list_id); ?>"
+                    data-status="<?php echo esc_attr($role_status_id); ?>"
+                    data-no-results="<?php esc_attr_e('No roles match your search.', 'capability-manager-enhanced'); ?>"
+                    data-one-result="<?php esc_attr_e('role shown', 'capability-manager-enhanced'); ?>"
+                    data-many-results="<?php esc_attr_e('roles shown', 'capability-manager-enhanced'); ?>"
+                />
+                <p id="<?php echo esc_attr($role_status_id); ?>" class="description ppc-nav-role-filter-status" aria-live="polite"></p>
+
+                <div id="<?php echo esc_attr($role_list_id); ?>" class="ppc-nav-edit-role-grid">
+                    <?php foreach ($role_options as $role_name => $role_caption) : ?>
+                        <label class="ppc-nav-edit-role-option" data-role-name="<?php echo esc_attr($role_name); ?>" for="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>">
+                            <input
+                                id="pp-capabilities-nav-menu-role-<?php echo (int) $item_id; ?>-<?php echo esc_attr($role_name); ?>"
+                                type="checkbox"
+                                name="pp_capabilities_nav_menu_roles[<?php echo (int) $item_id; ?>][]"
+                                value="<?php echo esc_attr($role_name); ?>"
+                                <?php checked(in_array($role_name, $restricted_roles, true)); ?>
+                            />
+                            <span><?php echo esc_html($role_caption); ?></span>
+                        </label>
+                    <?php endforeach; ?>
+                </div>
+
+                <p class="description ppc-nav-manage-link">
+                    <?php
+                    printf(
+                        wp_kses(
+                            __('Need a role-by-role overview? %1$sOpen Navigation Menu Restrictions%2$s.', 'capability-manager-enhanced'),
+                            [
+                                'a' => [
+                                    'href' => [],
+                                ],
+                            ]
+                        ),
+                        '<a href="' . esc_url(admin_url('admin.php?page=pp-capabilities-nav-menus')) . '">',
+                        '</a>'
+                    );
+                    ?>
+                </p>
+            </div>
+        </fieldset>
+
+        <?php
+	}
+
+    public function saveNavMenuRestrictions($menu_id, $menu_item_db_id, $args)
+    {
+        if (!$this->canManageNavMenuRestrictions()) {
+            return;
+        }
+
+        if (
+            empty($_POST['update-nav-menu-nonce'])
+            || !wp_verify_nonce(
+                sanitize_text_field(wp_unslash($_POST['update-nav-menu-nonce'])),
+                'update-nav_menu'
+            )
+        ) {
+            return;
+        }
+
+        $item_value = $this->getNavMenuRestrictionValue($menu_item_db_id);
+
+        if ('' === $item_value) {
+            return;
+        }
+
+        $role_options = $this->getNavMenuRestrictionRoles();
+        $valid_roles = array_keys($role_options);
+        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
+
+        foreach ((array) $nav_menu_item_option as $role_name => $restricted_items) {
+            $restricted_items = array_values(
+                array_filter(
+                    array_map('sanitize_text_field', (array) $restricted_items),
+                    function ($value) use ($menu_item_db_id) {
+                        return strpos((string) $value, $menu_item_db_id . '_') !== 0;
+                    }
+                )
+            );
+
+            if (empty($restricted_items)) {
+                unset($nav_menu_item_option[$role_name]);
+            } else {
+                $nav_menu_item_option[$role_name] = $restricted_items;
+            }
+        }
+
+        $submitted_roles = [];
+
+        if (isset($_POST['pp_capabilities_nav_menu_roles'][$menu_item_db_id])) {
+            $submitted_roles = array_unique(
+                array_filter(
+                    array_map(
+                        'sanitize_key',
+                        (array) wp_unslash($_POST['pp_capabilities_nav_menu_roles'][$menu_item_db_id])
+                    )
+                )
+            );
+        }
+
+        foreach ($submitted_roles as $role_name) {
+            if (!in_array($role_name, $valid_roles, true)) {
+                continue;
+            }
+
+            if (empty($nav_menu_item_option[$role_name]) || !is_array($nav_menu_item_option[$role_name])) {
+                $nav_menu_item_option[$role_name] = [];
+            }
+
+            $nav_menu_item_option[$role_name][] = $item_value;
+            $nav_menu_item_option[$role_name] = array_values(array_unique($nav_menu_item_option[$role_name]));
+        }
+
+        update_option('capsman_nav_item_menus', $nav_menu_item_option, false);
+    }
+
+    public function cleanupDeletedNavMenuRestrictions($post_id)
+    {
+        if ('nav_menu_item' !== get_post_type($post_id)) {
+            return;
+        }
+
+        $nav_menu_item_option = !empty(get_option('capsman_nav_item_menus')) ? (array) get_option('capsman_nav_item_menus') : [];
 
         if (empty($nav_menu_item_option)) {
             return;
         }
 
-        $searchPrefix = $item_id . '_';
+        $updated = false;
 
-        $restricted_roles = array_filter(
-            array_map(
-                function ($subArray) use ($searchPrefix) {
-                    return array_filter(
-                        $subArray,
-                        function ($value) use ($searchPrefix) {
-                            return strpos($value, $searchPrefix) === 0;
-                        }
-                    );
-                },
-                $nav_menu_item_option
-            )
+        foreach ((array) $nav_menu_item_option as $role_name => $restricted_items) {
+            $filtered_items = array_values(
+                array_filter(
+                    array_map('sanitize_text_field', (array) $restricted_items),
+                    function ($value) use ($post_id) {
+                        return strpos((string) $value, $post_id . '_') !== 0;
+                    }
+                )
+            );
+
+            if ($filtered_items !== array_values((array) $restricted_items)) {
+                $updated = true;
+            }
+
+            if (empty($filtered_items)) {
+                unset($nav_menu_item_option[$role_name]);
+            } else {
+                $nav_menu_item_option[$role_name] = $filtered_items;
+            }
+        }
+
+        if ($updated) {
+            update_option('capsman_nav_item_menus', $nav_menu_item_option, false);
+        }
+    }
+
+    private function canViewUserCapabilities($user)
+    {
+        if (!pp_capabilities_feature_enabled('capabilities') || empty($user) || empty($user->ID)) {
+            return false;
+        }
+
+        if (!current_user_can('edit_user', $user->ID)) {
+            return false;
+        }
+
+        if (is_multisite() && is_super_admin()) {
+            return true;
+        }
+
+        return current_user_can('administrator') || current_user_can('manage_capabilities');
+    }
+
+    private function getUserCapabilitiesPageUrl($user_id)
+    {
+        return add_query_arg(
+            [
+                'page' => 'pp-capabilities-user-view',
+                'user_id' => absint($user_id),
+            ],
+            admin_url('users.php')
+        );
+    }
+
+    private function getPublishPressPermissionsEditUrl($user_id, $anchor = '')
+    {
+        $url = add_query_arg(
+            [
+                'page' => 'presspermit-edit-permissions',
+                'action' => 'edit',
+                'agent_id' => absint($user_id),
+                'agent_type' => 'user',
+            ],
+            admin_url('admin.php')
         );
 
-        if (empty($restricted_roles)) {
+        return $anchor ? $url . '#' . sanitize_key($anchor) : $url;
+    }
+
+    private function getPublishPressPermissionsRoleLabel($pp, $role_name)
+    {
+        $label = $role_name;
+
+        if (is_callable([$pp, 'admin'])) {
+            $pp_admin = $pp->admin();
+
+            if (is_object($pp_admin) && is_callable([$pp_admin, 'getRoleTitle'])) {
+                $label = $pp_admin->getRoleTitle(
+                    $role_name,
+                    [
+                        'include_warnings' => false,
+                        'echo' => false,
+                        'status_suffix' => true,
+                    ]
+                );
+            }
+        }
+
+        $label = wp_specialchars_decode(wp_strip_all_tags((string) $label), ENT_QUOTES);
+        $label = preg_replace('/\s+/u', ' ', str_replace("\xc2\xa0", ' ', $label));
+
+        return $label ? trim($label) : $role_name;
+    }
+
+    private function getPublishPressPermissionsExceptionLabel($pp, $row)
+    {
+        $operation = !empty($row->operation) ? sanitize_key($row->operation) : '';
+        $modification = !empty($row->mod_type) ? sanitize_key($row->mod_type) : '';
+        $for_item_source = !empty($row->for_item_source) ? sanitize_key($row->for_item_source) : '';
+        $for_item_type = !empty($row->for_item_type) ? sanitize_key($row->for_item_type) : '';
+        $via_item_source = !empty($row->via_item_source) ? sanitize_key($row->via_item_source) : '';
+        $via_item_type = !empty($row->via_item_type) ? sanitize_key($row->via_item_type) : '';
+        $for_item_status = !empty($row->for_item_status) ? sanitize_text_field($row->for_item_status) : '';
+        $assign_for = !empty($row->assign_for) ? sanitize_key($row->assign_for) : '';
+
+        $operation_label = $operation
+            ? ucwords(str_replace('_', ' ', $operation))
+            : __('Permission', 'capability-manager-enhanced');
+        $modification_labels = [
+            'additional' => __('Enabled', 'capability-manager-enhanced'),
+            'exclude' => __('Blocked', 'capability-manager-enhanced'),
+            'include' => __('Limited', 'capability-manager-enhanced'),
+        ];
+        $modification_label = !empty($modification_labels[$modification])
+            ? $modification_labels[$modification]
+            : ucwords(str_replace('_', ' ', $modification));
+
+        if ($operation && is_callable([$pp, 'admin'])) {
+            $pp_admin = $pp->admin();
+
+            if (is_object($pp_admin) && is_callable([$pp_admin, 'getOperationObject'])) {
+                $operation_object = $pp_admin->getOperationObject($operation, $for_item_type);
+
+                if (is_object($operation_object) && !empty($operation_object->label)) {
+                    $operation_label = wp_strip_all_tags((string) $operation_object->label);
+                }
+            }
+        }
+
+        $type_label = $for_item_type ? $for_item_type : __('All content', 'capability-manager-enhanced');
+
+        if ($for_item_source && is_callable([$pp, 'getTypeObject']) && $for_item_type) {
+            $type_object = $pp->getTypeObject($for_item_source, $for_item_type);
+
+            if (is_object($type_object) && !empty($type_object->labels->name)) {
+                $type_label = $type_object->labels->name;
+            } elseif (is_object($type_object) && !empty($type_object->labels->singular_name)) {
+                $type_label = $type_object->labels->singular_name;
+            }
+        }
+
+        $item_label = '';
+        $item_id = !empty($row->item_id) ? absint($row->item_id) : 0;
+
+        if ($item_id && 'post' === $via_item_source) {
+            $item_label = get_the_title($item_id);
+        } elseif ($item_id && 'term' === $via_item_source && $via_item_type) {
+            $term = get_term_by('term_taxonomy_id', $item_id, $via_item_type);
+            $item_label = ($term && !is_wp_error($term)) ? $term->name : '';
+        }
+
+        if ($item_id) {
+            $item_label = $item_label ? $item_label : sprintf(__('Item #%d', 'capability-manager-enhanced'), $item_id);
+            $scope_label = sprintf(
+                __('%1$s: %2$s', 'capability-manager-enhanced'),
+                $type_label,
+                $item_label
+            );
+        } else {
+            $scope_label = sprintf(
+                __('%s: all items', 'capability-manager-enhanced'),
+                $type_label
+            );
+        }
+
+        if ($for_item_status) {
+            $scope_label .= ' (' . ucwords(str_replace(['_', ':'], [' ', ':'], $for_item_status)) . ')';
+        }
+
+        if ($assign_for && 'item' !== $assign_for) {
+            $scope_label .= ' (' . ucwords(str_replace('_', ' ', $assign_for)) . ')';
+        }
+
+        return [
+            'operation' => $operation_label,
+            'modification' => $modification_label,
+            'scope' => $scope_label,
+        ];
+    }
+
+    private function getPublishPressPermissionsUserData($user_id)
+    {
+        $data = [
+            'available' => false,
+            'roles' => [],
+            'roles_total' => 0,
+            'exceptions' => [],
+            'exceptions_total' => 0,
+            'roles_edit_url' => '',
+            'exceptions_edit_url' => '',
+        ];
+
+        if (!defined('PRESSPERMIT_ACTIVE') || !PRESSPERMIT_ACTIVE || !function_exists('presspermit')) {
+            return $data;
+        }
+
+        $pp = presspermit();
+
+        if (!is_object($pp) || !method_exists($pp, 'getRoles') || !method_exists($pp, 'getExceptions')) {
+            return $data;
+        }
+
+        $data['available'] = true;
+        $role_assignments = $pp->getRoles(absint($user_id), 'user');
+
+        foreach (array_keys((array) $role_assignments) as $role_name) {
+            $role_name = sanitize_text_field((string) $role_name);
+
+            if ('' !== $role_name) {
+                $data['roles'][] = [
+                    'slug' => $role_name,
+                    'label' => $this->getPublishPressPermissionsRoleLabel($pp, $role_name),
+                ];
+            }
+        }
+
+        usort($data['roles'], static function ($left, $right) {
+            return strnatcasecmp($left['label'], $right['label']);
+        });
+        $data['roles_total'] = count($data['roles']);
+
+        $exceptions = $pp->getExceptions(
+            [
+                'agent_type' => 'user',
+                'agent_id' => absint($user_id),
+                'assign_for' => '',
+                'post_types' => true,
+                'taxonomies' => true,
+                'return_raw_results' => true,
+            ]
+        );
+
+        if (is_array($exceptions)) {
+            foreach (array_slice($exceptions, 0, 50) as $exception) {
+                if (is_array($exception)) {
+                    $exception = (object) $exception;
+                }
+
+                if (!is_object($exception) || empty($exception->operation)) {
+                    continue;
+                }
+
+                $data['exceptions'][] = $this->getPublishPressPermissionsExceptionLabel($pp, $exception);
+            }
+
+            $data['exceptions_total'] = count($exceptions);
+        }
+
+        $can_edit_permissions = current_user_can('pp_administer_content')
+            && current_user_can('list_users')
+            && (is_multisite() || current_user_can('edit_user', absint($user_id)));
+
+        if ($can_edit_permissions && is_callable([$pp, 'admin'])) {
+            $pp_admin = $pp->admin();
+
+            if (is_object($pp_admin) && is_callable([$pp_admin, 'bulkRolesEnabled'])) {
+                $can_edit_permissions = (bool) $pp_admin->bulkRolesEnabled();
+            }
+        }
+
+        if ($can_edit_permissions) {
+            $data['roles_edit_url'] = $this->getPublishPressPermissionsEditUrl($user_id, 'pp_current_roles_1');
+            $data['exceptions_edit_url'] = $this->getPublishPressPermissionsEditUrl($user_id, 'pp_current_exceptions_1');
+        }
+
+        return $data;
+    }
+
+    private function getUserCapabilitiesPageData($user)
+    {
+        $user->get_role_caps();
+
+        $is_super_admin = is_multisite() && is_super_admin($user->ID);
+
+        $role_names = wp_roles()->get_names();
+        $assigned_roles = [];
+
+        foreach ((array) $user->roles as $role_name) {
+            $role_name = sanitize_key($role_name);
+
+            if ('' === $role_name) {
+                continue;
+            }
+
+            $assigned_roles[] = [
+                'slug' => $role_name,
+                'label' => !empty($role_names[$role_name]) ? translate_user_role($role_names[$role_name]) : $role_name,
+                'url' => pp_capabilities_is_editable_role($role_name)
+                    ? admin_url('admin.php?page=pp-capabilities&role=' . $role_name)
+                    : '',
+            ];
+        }
+
+        $known_capabilities = (array) $user->allcaps;
+
+        if ($is_super_admin) {
+            foreach ((array) wp_roles()->roles as $role_details) {
+                foreach (array_keys((array) ($role_details['capabilities'] ?? [])) as $cap_name) {
+                    $known_capabilities[$cap_name] = true;
+                }
+            }
+
+            foreach ((array) $user->caps as $cap_name => $granted) {
+                $known_capabilities[$cap_name] = (bool) $granted;
+            }
+        }
+
+        $effective_capabilities = [];
+        foreach ($known_capabilities as $cap_name => $granted) {
+            $cap_name = sanitize_text_field((string) $cap_name);
+
+            if ('' === $cap_name || in_array($cap_name, $user->roles, true)) {
+                continue;
+            }
+
+            $effective_capabilities[$cap_name] = $is_super_admin
+                ? user_can($user, $cap_name)
+                : (bool) $granted;
+        }
+        uksort($effective_capabilities, 'strnatcasecmp');
+
+        $direct_capabilities = [];
+        foreach ((array) $user->caps as $cap_name => $granted) {
+            $cap_name = sanitize_text_field((string) $cap_name);
+
+            if ('' === $cap_name || in_array($cap_name, $user->roles, true)) {
+                continue;
+            }
+
+            $direct_capabilities[$cap_name] = (bool) $granted;
+        }
+        uksort($direct_capabilities, 'strnatcasecmp');
+
+        return [
+            'is_super_admin' => $is_super_admin,
+            'assigned_roles' => $assigned_roles,
+            'effective_granted_caps' => array_keys(array_filter($effective_capabilities)),
+            'effective_denied_caps' => array_keys(array_filter($effective_capabilities, static function ($granted) {
+                return !$granted;
+            })),
+            'direct_granted_caps' => array_keys(array_filter($direct_capabilities)),
+            'direct_denied_caps' => array_keys(array_filter($direct_capabilities, static function ($granted) {
+                return !$granted;
+            })),
+            'publishpress_permissions' => $this->getPublishPressPermissionsUserData($user->ID),
+        ];
+    }
+
+    public function registerUserCapabilitiesPage()
+    {
+        if (!pp_capabilities_feature_enabled('capabilities')) {
             return;
         }
-        $ppc_other_permissions = [
-            "ppc_users" => esc_html__('Logged In Users', 'capability-manager-enhanced'),
-            "ppc_guest" => esc_html__('Logged Out Users', 'capability-manager-enhanced')
-        ];
-        $wp_roles_obj = wp_roles();
-	    $roles = $wp_roles_obj->get_names();
-        ?>
-        <div class="ppc-nav-edit">
-            <div class="clear"></div>
-            <h4 style="margin-bottom: 0.6em;"><?php esc_html_e( 'PublishPress Capabilities Menu Restriction', 'capability-manager-enhanced' ) ?></h4>
-            <p class="description description-wide ppc-nav-mode"><?php esc_html_e( 'This menu is restricted for the following roles', 'capability-manager-enhanced' ) ?></p>
-            <ul>
-                <?php foreach (array_keys($restricted_roles) as $role) :
-                    $role_url = admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $role . '');
-                    if (array_key_exists($role, $ppc_other_permissions)) {
-                        $role_caption = $ppc_other_permissions[$role];
-                    } else {
-                        if (is_array($roles) && !empty($roles[$role])) {
-                            $role_caption = $roles[$role];
-                        } else {
-                            $role_caption = translate_user_role($role);
-                        }
-                    }
-                    ?>
-                <li style="margin-bottom: 5px;">
-                    <a target="blank" href="<?php echo esc_url($role_url); ?>"><?php echo esc_html($role_caption); ?></a>
-                </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
 
+        add_users_page(
+            __('User Capabilities', 'capability-manager-enhanced'),
+            __('User Capabilities', 'capability-manager-enhanced'),
+            'read',
+            'pp-capabilities-user-view',
+            [$this, 'userCapabilitiesPage']
+        );
+
+        remove_submenu_page('users.php', 'pp-capabilities-user-view');
+    }
+
+    public function addUserCapabilitiesRowAction($actions, $user)
+    {
+        if (!$this->canViewUserCapabilities($user)) {
+            return $actions;
+        }
+
+        $actions['pp_capabilities_view_user'] = sprintf(
+            '<a href="%s">%s</a>',
+            esc_url($this->getUserCapabilitiesPageUrl($user->ID)),
+            esc_html__('Capabilities', 'capability-manager-enhanced')
+        );
+
+        return $actions;
+    }
+
+    public function addUserCapabilitiesProfileAction($user)
+    {
+        if (!$this->canViewUserCapabilities($user)) {
+            return;
+        }
+        ?>
+        <tr class="user-capabilities-view-wrap">
+            <th scope="row"><?php esc_html_e('Capabilities', 'capability-manager-enhanced'); ?></th>
+            <td>
+                <a href="<?php echo esc_url($this->getUserCapabilitiesPageUrl($user->ID)); ?>" class="button">
+                    <?php esc_html_e('View Capabilities', 'capability-manager-enhanced'); ?>
+                </a>
+            </td>
+        </tr>
         <?php
-	}
+    }
+
+    public function outputUserCapabilitiesPageStyles()
+    {
+        ?>
+        <style id="pp-capabilities-user-capabilities-page">
+            .ppc-user-capabilities-header {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 8px;
+            }
+
+            .ppc-user-capabilities-meta {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 12px;
+                margin: 18px 0 0;
+            }
+
+            .ppc-user-capabilities-meta-item {
+                background: #fff;
+                border: 1px solid #dcdcde;
+                border-radius: 4px;
+                padding: 12px 14px;
+            }
+
+            .ppc-user-capabilities-meta-item dt {
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+
+            .ppc-user-capabilities-meta-item dd {
+                margin: 0;
+            }
+
+            .ppc-user-capabilities-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 16px;
+                margin-top: 18px;
+            }
+
+            .ppc-user-capabilities-grid .inside {
+                padding: 16px;
+            }
+
+            .ppc-user-capabilities-grid .postbox {
+                margin: 0;
+            }
+
+            .ppc-user-capabilities-grid .postbox-header h2 {
+                margin-left: 12px;
+            }
+
+            .ppc-user-cap-list {
+                columns: 2 220px;
+                column-gap: 24px;
+                margin: 0;
+            }
+
+            .ppc-user-cap-list li {
+                break-inside: avoid;
+                margin-bottom: 8px;
+            }
+
+            .ppc-user-cap-list code {
+                font-size: 12px;
+            }
+
+            .ppc-user-cap-section-title {
+                margin: 0 0 8px;
+            }
+
+            .ppc-user-cap-note {
+                color: #50575e;
+            }
+
+            .ppc-user-capability-search {
+                margin-bottom: 4px;
+                max-width: 360px;
+                width: 100%;
+            }
+
+            .ppc-user-capability-search-description {
+                margin-bottom: 12px;
+            }
+
+            .ppc-user-capability-search-no-results {
+                margin: 12px 0 0;
+            }
+
+            .ppc-user-permissions-list {
+                margin: 0;
+            }
+
+            .ppc-user-permissions-list li {
+                border-bottom: 1px solid #dcdcde;
+                margin: 0;
+                padding: 8px 0;
+            }
+
+            .ppc-user-permissions-list li:last-child {
+                border-bottom: 0;
+            }
+
+            .ppc-user-permissions-scope {
+                color: #50575e;
+                display: block;
+                margin-top: 2px;
+            }
+
+            .ppc-user-permissions-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 12px 0 0;
+            }
+
+            .ppc-user-permissions-scroll {
+                max-height: 280px;
+                overflow-y: auto;
+            }
+        </style>
+        <?php
+    }
+
+    public function userCapabilitiesPage()
+    {
+        if (!pp_capabilities_feature_enabled('capabilities')) {
+            wp_die(
+                esc_html__('You do not have permission to view user capabilities.', 'capability-manager-enhanced'),
+                '',
+                ['response' => 403]
+            );
+        }
+
+        $user_id = !empty($_GET['user_id']) ? absint($_GET['user_id']) : 0;
+        $selected_user = $user_id ? get_user_by('id', $user_id) : false;
+
+        if (!$selected_user || empty($selected_user->ID)) {
+            wp_die(esc_html__('Unable to retrieve user data.', 'capability-manager-enhanced'));
+        }
+
+        if (!$this->canViewUserCapabilities($selected_user)) {
+            wp_die(
+                esc_html__('You do not have permission to view user capabilities.', 'capability-manager-enhanced'),
+                '',
+                ['response' => 403]
+            );
+        }
+
+        $page_data = $this->getUserCapabilitiesPageData($selected_user);
+        $is_super_admin = $page_data['is_super_admin'];
+        $assigned_roles = $page_data['assigned_roles'];
+        $effective_granted_caps = $page_data['effective_granted_caps'];
+        $effective_denied_caps = $page_data['effective_denied_caps'];
+        $direct_granted_caps = $page_data['direct_granted_caps'];
+        $direct_denied_caps = $page_data['direct_denied_caps'];
+        $publishpress_permissions = $page_data['publishpress_permissions'];
+        $back_url = admin_url('users.php');
+
+        include dirname(CME_FILE) . '/includes/user-capabilities-view.php';
+    }
 
     /**
     * Redirect user on plugin activation

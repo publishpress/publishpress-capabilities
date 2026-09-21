@@ -370,6 +370,7 @@ class Pp_Roles_Admin
                     <div class="role-editor-toggle-box">
                         <input name="<?php echo esc_attr($key.'-toggle'); ?>"
                             id="<?php echo esc_attr($key); ?>"
+                            aria-label="<?php echo esc_attr($args['label']); ?>"
                             class="allowed-editor-toggle"
                             type="checkbox"
                             value="1"
@@ -457,6 +458,7 @@ class Pp_Roles_Admin
                     ?>
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="1"
                         <?php checked(1, (int)$args['value']); ?>
@@ -469,6 +471,7 @@ class Pp_Roles_Admin
                 <?php else : ?>
                     <input name="<?php echo esc_attr($key); ?>"
                         id="<?php echo esc_attr($key); ?>"
+                        aria-label="<?php echo esc_attr($args['label']); ?>"
                         type="<?php echo esc_attr($args['type']); ?>"
                         value="<?php echo esc_attr($args['value']); ?>"
                        <?php echo ($args['required'] ? 'required="true"' : '');?>
@@ -547,11 +550,11 @@ class Pp_Roles_Admin
 
         if (!empty($current['role'])) {
             $features_counts = [
-                esc_html__('Editor Features', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-editor-features&role=' . $current['role'] . '') . '">(' . $editor_features_counts . ')</a>',
-                esc_html__('Admin Features', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-admin-features&role=' . $current['role'] . '') . '">(' . $admin_features_counts . ')</a>',
-                esc_html__('Profile Features', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $current['role'] . '') . '">(' . $profile_features_counts . ')</a>',
-                esc_html__('Admin Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-admin-menus&role=' . $current['role'] . '') . '">(' . $admin_menus_counts . ')</a>',
-                esc_html__('Navigation Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $current['role'] . '') . '">(' . $nav_menus_counts . ')</a>',
+                esc_html__('Editor Features', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-editor-features&role=' . $current['role'] . '')) . '">(' . absint($editor_features_counts) . ')</a>',
+                esc_html__('Admin Features', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-admin-features&role=' . $current['role'] . '')) . '">(' . absint($admin_features_counts) . ')</a>',
+                esc_html__('Profile Features', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $current['role'] . '')) . '">(' . absint($profile_features_counts) . ')</a>',
+                esc_html__('Admin Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-admin-menus&role=' . $current['role'] . '')) . '">(' . absint($admin_menus_counts) . ')</a>',
+                esc_html__('Navigation Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $current['role'] . '')) . '">(' . absint($nav_menus_counts) . ')</a>',
             ];
         } else {
             $features_counts = [];
@@ -651,8 +654,8 @@ class Pp_Roles_Admin
                                                         <ul>
                                                             <?php foreach ($features_counts as $features_title => $features_link) : ?>
                                                                 <li>
-                                                                    <span class="title"><?php echo $features_title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
-                                                                    <span class="link"><?php echo $features_link; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>
+                                                                    <span class="title"><?php echo esc_html($features_title); ?></span>
+                                                                    <span class="link"><?php echo wp_kses_post($features_link); ?></span>
                                                                 </li>
                                                             <?php endforeach; ?>
                                                         </ul>
@@ -662,27 +665,27 @@ class Pp_Roles_Admin
                                                 </div>
                                                 <h2 class="roles-capabilities-title">
                                                 <span class="title"><?php esc_html_e('Capabilities', 'capability-manager-enhanced'); ?></span>
-                                                <span class="link">(<?php echo $capabilities_counts; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>)</span>
+                                                <span class="link">(<?php echo absint($capabilities_counts); ?>)</span>
                                                 </h2>
                                                 <p class="description">
                                                 <?php
 
                                                 if ($role_action === 'edit' && current_user_can('manage_capabilities') && pp_capabilities_feature_enabled('capabilities')) {
                                                     $edit_link = '<a href="' . esc_url(add_query_arg(['page' => 'pp-capabilities', 'role' => esc_attr($current_role)], admin_url('admin.php'))) .'">';
-                                                    $closing_tag = '</a>';
+                                                    $closing_tag = '';
                                                 } else {
                                                     $edit_link = '';
                                                     $closing_tag = '</a>';
                                                 }
 
-                                                    printf(
-                                                        esc_html__(
+                                                    echo wp_kses_post(sprintf(
+                                                        __(
                                                             'These can be edited on the %1s Capabilities screen %2s',
                                                             'capability-manager-enhanced'
                                                         ),
                                                         $edit_link,
                                                         $closing_tag
-                                                    );
+                                                    ));
                                                 ?>
                                                 </p>
                                                 <ul class="pp-roles-capabilities">

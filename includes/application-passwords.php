@@ -196,8 +196,12 @@ if (!function_exists('pp_capabilities_get_application_password_subjects')) {
 
         $subjects = [];
         $users = get_users([
-            'meta_key'     => '_application_passwords',
-            'meta_compare' => 'EXISTS',
+            'meta_query'   => [
+                [
+                    'key'     => '_application_passwords',
+                    'compare' => 'EXISTS',
+                ],
+            ],
             'fields'       => ['ID', 'user_login', 'display_name'],
         ]);
 

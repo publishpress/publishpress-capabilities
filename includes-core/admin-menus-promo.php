@@ -51,8 +51,8 @@ $default_role = $capsman->current;
                         <div id="pp-capability-menu-wrapper" class="postbox" style="box-shadow: none;">
                             <div class="pp-capability-menus-promo">
                                 <div class="pp-capability-menus-promo-inner">
-                                    <img src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'includes-core/pp-capabilities-admin-menus-desktop.jpg');?>" class="pp-capability-desktop" />
-                                    <img src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'includes-core/pp-capabilities-admin-menus-mobile.jpg');?>" class="pp-capability-mobile" />
+                                    <img src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'includes-core/pp-capabilities-admin-menus-desktop.jpg');?>" class="pp-capability-desktop" alt="<?php esc_attr_e('Admin Menus feature preview', 'capability-manager-enhanced'); ?>" />
+                                    <img src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'includes-core/pp-capabilities-admin-menus-mobile.jpg');?>" class="pp-capability-mobile" alt="<?php esc_attr_e('Admin Menus feature preview', 'capability-manager-enhanced'); ?>" />
                                     <div class="pp-capability-menus-promo-content">
                                         <p>
                                             <?php esc_html_e('You can restrict access to admin menu screens. You can also edit, change, add, or remove links from the WordPress admin menu. This feature is available in PublishPress Capabilities Pro.', 'capability-manager-enhanced'); ?>
@@ -133,7 +133,7 @@ $default_role = $capsman->current;
                 $('.pp-capability-menus-wrapper .ppc-admin-menu-submit').hide();
 
                 //show loading
-                $('#pp-capability-menu-wrapper').html('<img src="<?php echo esc_url_raw($capsman->mod_url . '/images/loader-black.gif'); ?>" alt="loading...">');
+                $('#pp-capability-menu-wrapper').html('<img src="<?php echo esc_url_raw($capsman->mod_url . '/images/loader-black.gif'); ?>" alt="<?php esc_attr_e('Loading', 'capability-manager-enhanced'); ?>">');
 
                 //go to url
                 window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + $(this).val() + '';

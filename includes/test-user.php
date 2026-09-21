@@ -49,19 +49,19 @@ class PP_Capabilities_Test_User
             return;
         }
 
-        if (!wp_verify_nonce(sanitize_key($_GET['_wpnonce']), 'ppc-test-user')) {
+        if (!wp_verify_nonce(sanitize_key(wp_unslash($_GET['_wpnonce'])), 'ppc-test-user')) {
             wp_die(esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'));
         }
 
-        $request_user_id = isset($_GET['ppc_test_user']) ? (int) base64_decode(sanitize_text_field($_GET['ppc_test_user'])) : 0;
-        $ppc_return_back = isset($_GET['ppc_return_back']) ? (int) sanitize_text_field($_GET['ppc_return_back']) : 0;
+        $request_user_id = isset($_GET['ppc_test_user']) ? (int) base64_decode(sanitize_text_field(wp_unslash($_GET['ppc_test_user']))) : 0;
+        $ppc_return_back = isset($_GET['ppc_return_back']) ? (int) sanitize_text_field(wp_unslash($_GET['ppc_return_back'])) : 0;
         $current_user_id = get_current_user_id();
         $request_user    = get_userdata($request_user_id);
 
         if (!$request_user || (is_object($request_user) && !isset($request_user->ID))) {
             wp_die(esc_html__('Unable to retrieve user data.', 'capability-manager-enhanced'));
         } else {
-            $profile_feature_action = isset($_GET['profile_feature_action']) ? (int) sanitize_text_field($_GET['profile_feature_action']) : 0;
+            $profile_feature_action = isset($_GET['profile_feature_action']) ? (int) sanitize_text_field(wp_unslash($_GET['profile_feature_action'])) : 0;
             if ($ppc_return_back > 0) {
                 $user_auth        = wp_unslash(self::testerAuth());
                 $original_user_id = wp_validate_auth_cookie($user_auth, 'logged_in');
@@ -73,7 +73,13 @@ class PP_Capabilities_Test_User
                 }
 
                 if ($original_user_id) {
-                    wp_set_auth_cookie($original_user_id, false);
+                    $original_session_token = self::getRestorableSessionToken($user_auth, $original_user_id);
+
+                    if ($original_session_token) {
+                        wp_set_auth_cookie($original_user_id, false, '', $original_session_token);
+                    } else {
+                        wp_set_auth_cookie($original_user_id, false);
+                    }
 
                     // Unset the cookie
                     $this->clearTestUserCookie();
@@ -147,10 +153,40 @@ class PP_Capabilities_Test_User
         $auth_key = self::$cookie_name;
         if (isset($_COOKIE[$auth_key]) && !empty($_COOKIE[$auth_key])) {
             // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
-            return $_COOKIE[$auth_key];
+            return wp_unslash($_COOKIE[$auth_key]);
         } else {
             return false;
         }
+    }
+
+    /**
+     * Get the original verified session token from the stored tester cookie.
+     *
+     * Reusing this token keeps nonces in other open browser tabs valid after
+     * returning from a tested account.
+     *
+     * @param string $auth_cookie      Stored original logged-in cookie.
+     * @param int    $original_user_id Original administrator user ID.
+     *
+     * @return string
+     */
+    protected static function getRestorableSessionToken($auth_cookie, $original_user_id)
+    {
+        $original_user_id = (int) $original_user_id;
+
+        if (!$original_user_id || $original_user_id !== (int) wp_validate_auth_cookie($auth_cookie, 'logged_in')) {
+            return '';
+        }
+
+        $parsed_cookie = wp_parse_auth_cookie($auth_cookie, 'logged_in');
+
+        if (empty($parsed_cookie['token'])) {
+            return '';
+        }
+
+        $session_manager = WP_Session_Tokens::get_instance($original_user_id);
+
+        return $session_manager->verify($parsed_cookie['token']) ? $parsed_cookie['token'] : '';
     }
 
     /**

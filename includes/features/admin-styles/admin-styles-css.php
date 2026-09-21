@@ -1220,6 +1220,7 @@ CSS;
 if (!$is_library) {
     // Get colors and output CSS
     $colors = ppc_get_custom_colors();
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- This endpoint returns generated text/css, not HTML.
     echo ppc_generate_custom_scheme_css($colors);
     exit;
 }

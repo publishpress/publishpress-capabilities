@@ -22,11 +22,12 @@ function pp_capabilities_roles()
 function admin_roles_page_load()
 {
     $plugin_name = 'capsman';
+    $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
     //enqueue styles
-    wp_enqueue_style($plugin_name, plugin_dir_url(CME_FILE) . 'includes/roles/css/pp-roles-admin.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+    wp_enqueue_style($plugin_name, plugin_dir_url(CME_FILE) . "includes/roles/css/pp-roles-admin{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
 
     //enqueue scripts
-    wp_enqueue_script($plugin_name . '_table_edit', plugin_dir_url(CME_FILE) . 'includes/roles/js/pp-roles-admin.js', ['jquery'], PUBLISHPRESS_CAPS_VERSION, false);
+    wp_enqueue_script($plugin_name . '_table_edit', plugin_dir_url(CME_FILE) . "includes/roles/js/pp-roles-admin{$asset_suffix}.js", ['jquery'], PUBLISHPRESS_CAPS_VERSION, false);
     wp_enqueue_script('pp-capabilities-chosen-js', plugin_dir_url(CME_FILE) . 'common/libs/chosen-v1.8.7/chosen.jquery.js', ['jquery'], PUBLISHPRESS_CAPS_VERSION);
 
     //Localize
@@ -231,5 +232,4 @@ function pp_capabilities_roles_nav_menus($role, $check = false)
         return 0;
     }
 }
-
 

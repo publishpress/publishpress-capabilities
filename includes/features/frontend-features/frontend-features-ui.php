@@ -54,7 +54,7 @@ class PP_Capabilities_Frontend_Features_UI
                             <font color="red">*</font>
                         </th>
                         <td>
-                            <input class="frontend-element-new-name frontent-form-field frontendelements-form-label" type="text" /><br />
+                            <input class="frontend-element-new-name frontent-form-field frontendelements-form-label" type="text" aria-label="<?php esc_attr_e('Title', 'capability-manager-enhanced'); ?>" /><br />
                             <span class="description">
                                 <?php esc_html_e('This will only show here in the WordPress admin area.', 'capability-manager-enhanced'); ?>
                             </span>

@@ -50,10 +50,12 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
          */
         public function admin_scripts() {
 
+            $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
             //enqueue styles
             wp_enqueue_style(
                 'ppc-admin-notice-css',
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/css/admin-notices.css',
+                plugin_dir_url(CME_FILE) . "includes/admin-notices/assets/css/admin-notices{$asset_suffix}.css",
                 [],
                 PUBLISHPRESS_CAPS_VERSION,
                 'all'
@@ -62,7 +64,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             //enqueue scripts
             wp_enqueue_script(
                 'ppc-admin-notice-js',
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/js/admin-notices.js',
+                plugin_dir_url(CME_FILE) . "includes/admin-notices/assets/js/admin-notices{$asset_suffix}.js",
                 ['jquery'],
                 PUBLISHPRESS_CAPS_VERSION,
                 false
@@ -123,7 +125,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
             $admin_notices = (string) ob_get_clean();
 
-            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $admin_notices . '</div>';
+            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . wp_kses_post($admin_notices) . '</div>';
         }
 
         /**
@@ -261,9 +263,9 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             $response['content'] = '';
 
             $nonce   = isset($_POST['nonce']) ? sanitize_key($_POST['nonce']) : '';
-            $action_type = isset($_POST['action_type']) ? sanitize_text_field($_POST['action_type']) : '';
-            $action_option = isset($_POST['action_option']) ? sanitize_text_field($_POST['action_option']) : '';
-            $notice_id = isset($_POST['notice_id']) ? sanitize_text_field($_POST['notice_id']) : '';
+            $action_type = isset($_POST['action_type']) ? sanitize_text_field(wp_unslash($_POST['action_type'])) : '';
+            $action_option = isset($_POST['action_option']) ? sanitize_text_field(wp_unslash($_POST['action_option'])) : '';
+            $notice_id = isset($_POST['notice_id']) ? sanitize_text_field(wp_unslash($_POST['notice_id'])) : '';
 
             if (!$this->canSeeAdminToolbar()) {
                 $response['message'] = esc_html__('You do not have permission to manage admin notices.', 'capability-manager-enhanced');
