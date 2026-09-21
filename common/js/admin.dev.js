@@ -5,8 +5,34 @@ jQuery(document).ready(function ($) {
   $('a.neg-type-caps').attr('title', cmeAdmin.typeCapsNegationCaption);
   //$('td.cap-unreg').attr('title',cmeAdmin.typeCapUnregistered);
   $('a.normal-cap').attr('title', cmeAdmin.switchableCaption);
-  $('span.cap-x:not([class*="pp-cap-key"])').html(cmeAdmin.capNegated);
+  $('span.cap-x:not([class*="pp-cap-key"])').html(cmeAdmin.capNegated).attr('aria-hidden', 'true');
   $('table.cme-checklist input[class!="cme-check-all"]').not(':disabled').attr('title', cmeAdmin.chkCaption);
+
+  function updateCapabilityAccessibility(input) {
+    var $input = $(input);
+    var capabilityLabel = $input.attr('data-capability-label');
+
+    if (!capabilityLabel) {
+      return;
+    }
+
+    var state = $input.closest('td').hasClass('cap-neg')
+      ? 'negated'
+      : ($input.prop('checked') ? 'checked' : 'unchecked');
+    var stateLabels = cmeAdmin.capabilityStates || {};
+
+    $input.attr('aria-checked', state === 'negated' ? 'mixed' : (state === 'checked' ? 'true' : 'false'));
+
+    if (stateLabels[state]) {
+      $input.attr('aria-label', capabilityLabel + ': ' + stateLabels[state]);
+    }
+  }
+
+  function refreshCapabilityAccessibility() {
+    $('#ppc-capabilities-wrapper input[type="checkbox"][data-capability-label]').each(function () {
+      updateCapabilityAccessibility(this);
+    });
+  }
 
   if ($('.ppc-checkboxes-documentation-link').length > 0) {
     $('.ppc-checkboxes-documentation-link').attr('target', 'blank');
@@ -24,6 +50,8 @@ jQuery(document).ready(function ($) {
       $('input[name="caps[upload_files]"]').closest('td').append('<input type="hidden" class="cme-negation-input" name="caps[upload_files]" value="" />');
       $('input[name="caps[upload_files]"]').parent().next('a.neg-cap:visible').click();
     }
+
+    refreshCapabilityAccessibility();
 
     return false;
   });
@@ -64,6 +92,7 @@ jQuery(document).ready(function ($) {
       $('input[name="caps[upload_files]"]').closest('td').removeClass('cap-neg').removeClass('cap-yes').addClass('cap-no');
       $('input[name="caps[upload_files]"]').prop('checked', true).closest('td').find('input.cme-negation-input').remove();
     }
+    refreshCapabilityAccessibility();
     return false;
   });
 
@@ -116,6 +145,8 @@ jQuery(document).ready(function ($) {
         matching_input.prop('checked', false);
         cell.addClass('cap-no');
       }
+
+      updateCapabilityAccessibility(matching_input);
 
       // A bulk action establishes a fresh baseline for subsequent individual clicks.
       matching_input.removeClass('interacted');
@@ -279,6 +310,7 @@ jQuery(document).ready(function ($) {
   );
 
   syncGlobalCapabilityControl();
+  refreshCapabilityAccessibility();
 
   $('table.cme-typecaps a.neg-type-caps').click(function (e) {
     $(this).closest('tr').find('td[class!="cap-neg"]').filter('td[class!="cap-unreg"]').each(function () {
@@ -294,12 +326,12 @@ jQuery(document).ready(function ($) {
   });
 
   //http://stackoverflow.com/users/803925/nbrooks
-  $('table.cme-typecaps th').click(function () {
-    var columnNo = $(this).index();
+  $('table.cme-typecaps th .ppc-column-toggle').click(function () {
+    var columnNo = $(this).closest('th').index();
 
     var check_val = !$(this).prop('checked_all');
 
-    if ($(this).hasClass('term-cap'))
+    if ($(this).closest('th').hasClass('term-cap'))
       var class_sel = '[class*="term-cap"]';
     else
       var class_sel = '[class*="post-cap"]';
@@ -545,12 +577,12 @@ jQuery(document).ready(function ($) {
     }
 
     if (mark_box_as_unchecked) {
-      clicked_box.prop('checked', false);
+      applyCapabilityState(clicked_box, 'unchecked');
       if (clicked_box.closest('td').hasClass('upload_files')) {
         $('tr.unfiltered_upload').find('input[name="caps[unfiltered_upload]"]').prop('checked', false);
       }
     } else if (mark_box_as_checked) {
-      clicked_box.prop('checked', true);
+      applyCapabilityState(clicked_box, 'checked');
       if (clicked_box.closest('td').hasClass('upload_files')) {
         $('tr.unfiltered_upload').find('td').removeClass('cap-neg').removeClass('cap-yes').addClass('cap-no');
         $('tr.unfiltered_upload').find('input[type="checkbox"]').prop('checked', false);
@@ -563,14 +595,9 @@ jQuery(document).ready(function ($) {
       if (clicked_box.closest('td').hasClass('upload_files')) {
         $('tr.unfiltered_upload').find('a.neg-cap').trigger('click');
       }
-      clicked_box.prop('checked', false);
-      //perform X action if state is blank
-      var box_parent = clicked_box.closest('td');
-      box_parent.addClass('cap-neg');
-      var cap_name_attr = box_parent.find('input[type="checkbox"]').attr('name');
-      box_parent.append('<input type="hidden" class="cme-negation-input" name="' + cap_name_attr + '" value="" />');
-      $('input[name="' + cap_name_attr + '"]').parent().next('a.neg-cap:visible').click();
+      applyCapabilityState(clicked_box, 'negated');
     }
+    refreshCapabilityAccessibility();
     clicked_box.addClass('interacted');
   });
 
@@ -674,6 +701,10 @@ jQuery(document).ready(function ($) {
       });
     }
 
+    var row_state = checked_fields ? 'checked' : (unchecked_fields ? 'unchecked' : 'negated');
+    clicked_box.attr('aria-checked', row_state === 'negated' ? 'mixed' : (row_state === 'checked' ? 'true' : 'false'));
+    refreshCapabilityAccessibility();
+
     clicked_box.addClass('interacted');
 
   });
@@ -727,11 +758,17 @@ jQuery(document).ready(function ($) {
     }
 
 
-    if (!checked_fields && !unchecked_fields) {
+    if (checked_fields) {
+      applyCapabilityState(clicked_input, 'checked');
+    } else if (unchecked_fields) {
+      applyCapabilityState(clicked_input, 'unchecked');
+    } else {
       //perform X action if state is blank
       event.preventDefault();
-      clicked_input.closest('td').find('a.neg-cap').click();
+      applyCapabilityState(clicked_input, 'negated');
     }
+
+    refreshCapabilityAccessibility();
 
     clicked_input.addClass('interacted');
 
@@ -764,13 +801,17 @@ jQuery(document).ready(function ($) {
    * Toggle capabilities sidebar panel
    */
   $(document).on('click', '.ppc-sidebar-panel .postbox-header', function () {
-    if ($(this).closest('.ppc-sidebar-panel').hasClass('closed')) {
-      $(this).closest('.ppc-sidebar-panel').find('.metabox-state').val('opened');
-      $(this).closest('.ppc-sidebar-panel').toggleClass('closed');
+    var panel = $(this).closest('.ppc-sidebar-panel');
+    var is_closed = panel.hasClass('closed');
+
+    if (is_closed) {
+      panel.find('.metabox-state').val('opened');
     } else {
-      $(this).closest('.ppc-sidebar-panel').find('.metabox-state').val('closed');
-      $(this).closest('.ppc-sidebar-panel').toggleClass('closed');
+      panel.find('.metabox-state').val('closed');
     }
+
+    panel.toggleClass('closed', !is_closed);
+    panel.find('.handlediv').attr('aria-expanded', is_closed ? 'true' : 'false');
   });
 
 
