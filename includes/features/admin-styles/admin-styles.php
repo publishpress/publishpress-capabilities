@@ -345,6 +345,7 @@ class PP_Capabilities_Admin_Styles
 
         // Apply custom CSS
         if (!empty($css)) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CSS values are sanitized while the stylesheet is generated.
             echo '<style id="pp-capabilities-admin-styles">' . $css . '</style>';
         }
     }

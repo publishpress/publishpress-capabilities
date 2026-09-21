@@ -127,7 +127,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
                         admin_url('admin.php')
                     )
                 ),
-                $view_label
+                wp_kses_post($view_label)
             );
         }
 
@@ -157,7 +157,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
             $class[] = 'role-disabled';
         }
 
-        echo sprintf('<tr id="%s" class="%s">', 'role-' . esc_attr(md5($item['role'])), esc_attr(implode(' ', $class)));
+        echo wp_kses_post(sprintf('<tr id="%s" class="%s">', 'role-' . esc_attr(md5($item['role'])), esc_attr(implode(' ', $class))));
         $this->single_row_columns($item);
         echo '</tr>';
     }
@@ -255,13 +255,13 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
                 if (in_array($item['role'], $pp_only)) {
                     $actions['unhide'] = sprintf(
                         '<a href="%s" class="hide-role">%s</a>',
-                        add_query_arg([
+                        esc_url(add_query_arg([
                             'page' => 'pp-capabilities-roles',
                             'action' => 'pp-roles-unhide-role',
                             'role' => esc_attr($item['role']),
                             '_wpnonce' => wp_create_nonce('bulk-roles')
                         ],
-                        admin_url('admin.php')),
+                        admin_url('admin.php'))),
                         esc_html__('Unhide', 'capability-manager-enhanced')
                     );
                 }
@@ -273,13 +273,13 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
             $actions = array_merge($actions, [
                 'delete' => sprintf(
                     '<a href="%s" class="delete-role">%s</a>',
-                    add_query_arg([
+                    esc_url(add_query_arg([
                         'page' => 'pp-capabilities-roles',
                         'action' => 'pp-roles-delete-role',
                         'role' => esc_attr($item['role']),
                         '_wpnonce' => wp_create_nonce('bulk-roles')
                     ],
-                    admin_url('admin.php')),
+                    admin_url('admin.php'))),
                     esc_html__('Delete')
                 ),
             ]);
@@ -292,13 +292,13 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
                 if (!in_array($item['role'], $pp_only)) {
                     $actions['hide'] = sprintf(
                         '<a href="%s" class="hide-role">%s</a>',
-                        add_query_arg([
+                        esc_url(add_query_arg([
                             'page' => 'pp-capabilities-roles',
                             'action' => 'pp-roles-hide-role',
                             'role' => esc_attr($item['role']),
                             '_wpnonce' => wp_create_nonce('bulk-roles')
                         ],
-                        admin_url('admin.php')),
+                        admin_url('admin.php'))),
                         esc_html__('Hide')
                     );
                 }
@@ -330,10 +330,16 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
      */
     protected function column_cb($item)
     {
-        $disabled = ($this->manager->is_system_role($item['role']) || ($this->default_role == $item['role']) || !pp_capabilities_is_editable_role($item['role'])) ? ' disabled=disabled' : '';
-        $out = sprintf('<input type="checkbox" name="%1$s[]" value="%2$s" aria-label="%3$s"' . $disabled .  ' />', 'role', $item['role'], esc_attr(sprintf(esc_html__('Select role %s', 'capability-manager-enhanced'), $item['role'])));
+        $disabled = $this->manager->is_system_role($item['role'])
+            || ($this->default_role == $item['role'])
+            || !pp_capabilities_is_editable_role($item['role']);
 
-        return $out;
+        return sprintf(
+            '<input type="checkbox" name="role[]" value="%1$s" aria-label="%2$s"%3$s />',
+            esc_attr($item['role']),
+            esc_attr(sprintf(esc_html__('Select role %s', 'capability-manager-enhanced'), $item['role'])),
+            disabled($disabled, true, false)
+        );
     }
 
     /**
@@ -373,10 +379,10 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
         if (pp_capabilities_is_editable_role($item['role'])) {
             $out = sprintf(
                 '<a href="%1$s"><strong><span class="row-title">%2$s</span>%3$s</strong></a>',
-                add_query_arg(
+                esc_url(add_query_arg(
                     ['page' => 'pp-capabilities-roles', 'add' => 'new_item', 'role_action' => 'edit', 'role' => esc_attr($item['role'])],
                     admin_url('admin.php')
-                ),
+                )),
                 esc_html(translate_user_role($item['name'])),
                 $role_states
             );
@@ -388,7 +394,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
             );
         }
 
-        return $out;
+        return wp_kses_post($out);
     }
 
     /**
@@ -401,7 +407,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
     protected function column_text($item)
     {
 
-        return !empty($item['name']) ? translate_user_role($item['name']) : '&mdash;';
+        return !empty($item['name']) ? esc_html(translate_user_role($item['name'])) : '&mdash;';
     }
 
     /**
@@ -492,7 +498,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
     protected function column_capabilities($item)
     {
 
-        return sprintf(
+        return wp_kses_post(sprintf(
             '<a href="%s">%s</a>',
             esc_url(
                 add_query_arg(
@@ -504,7 +510,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
                 )
             ),
             number_format_i18n(count((array)$item['capabilities']))
-        );
+        ));
     }
 
     /**
@@ -516,7 +522,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
      */
     protected function column_count($item)
     {
-        return sprintf('<a href="%s" class="">%s</a>', add_query_arg('role', esc_attr($item['role']), admin_url('users.php')), number_format_i18n($item['count']));
+        return wp_kses_post(sprintf('<a href="%s" class="">%s</a>', esc_url(add_query_arg('role', esc_attr($item['role']), admin_url('users.php'))), number_format_i18n($item['count'])));
     }
 
     /**
