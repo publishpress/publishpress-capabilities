@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-03-23T21:48:55+00:00\n"
-"PO-Revision-Date: 2026-08-25 13:55+0000\n"
+"PO-Revision-Date: 2026-09-21 13:21+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "PublishPress Capabilities"
 msgstr "PublishPress Capabilities"
 
-#: capsman-enhanced.php:4, fuzzy
+#: capsman-enhanced.php:4
 #. Plugin URI of the plugin
 msgid "https://publishpress.com/capability-manager/"
 msgstr "https://publishpress.com/capability-manager/"
@@ -38,11 +38,12 @@ msgstr ""
 "abonnees."
 
 #: capsman-enhanced.php:7
+#: includes/manager.php:1721
 #. Author of the plugin
 msgid "PublishPress"
 msgstr "PublishPress"
 
-#: capsman-enhanced.php:8, fuzzy
+#: capsman-enhanced.php:8
 #. Author URI of the plugin
 msgid "https://publishpress.com/"
 msgstr "https://publishpress.com/"
@@ -60,6 +61,15 @@ msgstr ""
 msgid "This plugin can be deleted."
 msgstr "Deze plugin kan worden verwijderd."
 
+#: includes-core/admin-features-promo.php:28
+#: includes-core/admin-features-promo.php:42
+#: includes-core/admin-features-promo.php:57
+#: includes-core/admin-features-promo.php:92
+#: includes-core/admin-features-promo.php:107
+#: includes-core/admin-features-promo.php:122
+msgid "Preview feature restriction"
+msgstr "Voorbeeld functiebeperking"
+
 #: includes-core/admin-features-promo.php:74
 msgid ""
 "You can block pages by URL or hide Admin elements by entering a CSS class "
@@ -74,7 +84,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:882
+#: includes/admin-load.php:1753
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Upgraden naar Pro"
@@ -82,6 +92,11 @@ msgstr "Upgraden naar Pro"
 #: includes-core/admin-menus-promo.php:29
 msgid "Admin Menu Restrictions"
 msgstr "Beheermenu beperkingen"
+
+#: includes-core/admin-menus-promo.php:54
+#: includes-core/admin-menus-promo.php:55
+msgid "Admin Menus feature preview"
+msgstr "Voorbeeld van admin menu's functie"
 
 #: includes-core/admin-menus-promo.php:58
 msgid ""
@@ -93,6 +108,10 @@ msgstr ""
 "links bewerken, wijzigen, toevoegen of verwijderen uit het WordPress "
 "beheermenu. Deze functie is beschikbaar in PublishPress Capabilities Pro."
 
+#: includes-core/admin-menus-promo.php:136
+msgid "Loading"
+msgstr "Laden"
+
 #: includes-core/CoreAdmin.php:19
 #, php-format
 msgid ""
@@ -103,21 +122,21 @@ msgstr ""
 "uitgelichte functies en ondersteuning. %sUpgrade naar pro%s"
 
 #: includes-core/CoreAdmin.php:92
-#: includes-core/CoreAdmin.php:155
+#: includes-core/CoreAdmin.php:159
 #: includes/functions-admin.php:536
-#: includes/roles/class/class-pp-roles-admin.php:553
+#: includes/roles/class/class-pp-roles-admin.php:556
 msgid "Admin Menus"
 msgstr "Beheer menu's"
 
-#: includes-core/CoreAdmin.php:135
+#: includes-core/CoreAdmin.php:137
 msgid "Hide CSS Elements"
 msgstr "CSS elementen verbergen"
 
-#: includes-core/CoreAdmin.php:136
+#: includes-core/CoreAdmin.php:138
 msgid "Block by URL"
 msgstr "Blokkeren op URL"
 
-#: includes-core/CoreAdmin.php:156
+#: includes-core/CoreAdmin.php:160
 msgid ""
 "Admin Menus allows you to edit the admin menu links and control who has "
 "access."
@@ -125,17 +144,33 @@ msgstr ""
 "Met beheermenu's kun je de links in het beheerdersmenu bewerken en bepalen "
 "wie toegang hebt."
 
-#: includes-core/CoreAdmin.php:166
+#: includes-core/CoreAdmin.php:170
 msgid "Select pages..."
 msgstr "Selecteer pagina's…"
 
-#: includes-core/CoreAdmin.php:171
+#: includes-core/CoreAdmin.php:175
 msgid "You can select page types where this element will be added."
 msgstr "Je kunt paginatypes selecteren waar dit element wordt toegevoegd."
+
+#: includes-core/CoreAdmin.php:177
+#: includes-core/frontend-features-promo.php:47
+#: includes-core/frontend-features-promo.php:48
+msgid "Layout spacer"
+msgstr "Lay-out spacer"
 
 #: includes-core/editor-features-promo.php:24
 msgid "Metaboxes"
 msgstr "Metaboxen"
+
+#: includes-core/editor-features-promo.php:31
+#: includes-core/editor-features-promo.php:42
+#: includes-core/editor-features-promo.php:52
+#: includes-core/editor-features-promo.php:62
+#: includes-core/editor-features-promo.php:94
+#: includes-core/editor-features-promo.php:104
+#: includes-core/editor-features-promo.php:114
+msgid "Preview editor feature restriction"
+msgstr "Voorbeeld bewerker functiebeperking"
 
 #: includes-core/editor-features-promo.php:36
 msgid "Checklist"
@@ -200,47 +235,49 @@ msgstr ""
 "Je kan deze functie gebruiken om alleen body klassen voor dat bericht toe "
 "te voegen."
 
-#: includes/admin-load.php:376
+#: includes/admin-load.php:401
 msgid "Drag multiple roles selection to change roles order."
 msgstr "Sleep de selectie van meerdere rollen om de volgorde te veranderen."
 
-#: includes/admin-load.php:379
+#: includes/admin-load.php:404
 msgid "Page title"
 msgstr "Paginatitel"
 
-#: includes/admin-load.php:380, fuzzy
+#: includes/admin-load.php:405, fuzzy
 msgid "Rank Math SEO"
 msgstr "Rank Math SEO"
 
-#: includes/admin-load.php:381
-#: includes/settings-ui.php:334
+#: includes/admin-load.php:406
+#: includes/settings-ui.php:298
 msgid "No results match"
-msgstr "Geen resultaten gevonden"
+msgstr "Geen resultaat"
 
-#: includes/admin-load.php:519
-#: includes/admin-load.php:895
+#: includes/admin-load.php:544
+#: includes/admin-load.php:1548
+#: includes/admin-load.php:1561
+#: includes/admin-load.php:1766
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
-#: includes/manager.php:435
-#: includes/roles/class/class-pp-roles-admin.php:664
+#: includes/manager.php:442
+#: includes/roles/class/class-pp-roles-admin.php:667
 #: includes/settings-ui.php:35
 msgid "Capabilities"
 msgstr "Rechten"
 
-#: includes/admin-load.php:658
+#: includes/admin-load.php:683
 msgid "No permission!"
 msgstr "Geen toestemming!"
 
-#: includes/admin-load.php:668
+#: includes/admin-load.php:693
 msgid "Invalid nonce token!"
 msgstr "Ongeldig nonce token!"
 
-#: includes/admin-load.php:672
-#: includes/admin-load.php:680
+#: includes/admin-load.php:698
+#: includes/admin-load.php:705
 msgid "Error: wrong data"
 msgstr "Fout, verkeerde gegevens"
 
-#: includes/admin-load.php:700
+#: includes/admin-load.php:725
 msgid ""
 "Changes saved. Feature status synchronization has been queued for all "
 "network sites."
@@ -248,58 +285,140 @@ msgstr ""
 "Wijzigingen opgeslagen. Synchronisatie van functiestatus is in de wachtrij "
 "geplaatst voor alle netwerk sites."
 
-#: includes/admin-load.php:706
-#: common/js/admin.dev.js:1237
+#: includes/admin-load.php:731
+#: common/js/admin.dev.js:1278
 msgid "Changes saved!"
 msgstr "Wijzigingen opgeslagen!"
 
-#: includes/admin-load.php:717
-#: includes/admin-notices/admin-notices.php:260
+#: includes/admin-load.php:742
+#: includes/admin-notices/admin-notices.php:262
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 #: includes/features/restrict-profile-features.php:29
 msgid "An error occured!"
 msgstr "Er is een fout opgetreden!"
 
-#: includes/admin-load.php:722
+#: includes/admin-load.php:747
 msgid "Security check failed"
 msgstr "Beveiligingscontrole mislukt"
 
-#: includes/admin-load.php:724
+#: includes/admin-load.php:749
 msgid "Permission denied"
 msgstr "Rechten geweigerd"
 
-#: includes/admin-load.php:734
+#: includes/admin-load.php:759
 msgid "Settings updated successfully."
 msgstr "Instellingen succesvol geüpdatet."
 
-#: includes/admin-load.php:830
+#: includes/admin-load.php:824
 #: includes/features/frontend-features/frontend-features.php:39
 #: includes/features/nav-menus.php:26
 msgid "Logged In Users"
 msgstr "Ingelogde gebruikers"
 
-#: includes/admin-load.php:831
+#: includes/admin-load.php:825
 #: includes/features/frontend-features/frontend-features.php:40
 #: includes/features/nav-menus.php:26
 msgid "Logged Out Users"
 msgstr "Uitgelogde gebruikers"
 
-#: includes/admin-load.php:838
+#: includes/admin-load.php:1026
 msgid "PublishPress Capabilities Menu Restriction"
 msgstr "PublishPress rechten menu beperking"
 
-#: includes/admin-load.php:839
-msgid "This menu is restricted for the following roles"
-msgstr "Dit menu is beperkt voor de volgende rollen"
+#: includes/admin-load.php:1027
+msgid "Hide this menu item for the selected roles."
+msgstr "Verberg dit menu-item voor de geselecteerde rollen."
 
-#: includes/admin-load.php:894
+#: includes/admin-load.php:1035
+msgid "Search roles"
+msgstr "Zoek rollen"
+
+#: includes/admin-load.php:1041
+msgid "Search by role name"
+msgstr "Zoek op rolnaam"
+
+#: includes/admin-load.php:1045
+msgid "No roles match your search."
+msgstr "Geen rollen passen bij uw zoekopdracht."
+
+#: includes/admin-load.php:1046
+msgid "role shown"
+msgstr "rol weergegeven"
+
+#: includes/admin-load.php:1047
+msgid "roles shown"
+msgstr "rollen weergegeven"
+
+#: includes/admin-load.php:1070
+#, php-format
+msgid "Need a role-by-role overview? %1$sOpen Navigation Menu Restrictions%2$s."
+msgstr ""
+"Heeft u een overzicht per rol nodig? %1$sOpen Beperkingen van "
+"Navigatiemenu%2$s."
+
+#: includes/admin-load.php:1281
+msgid "Permission"
+msgstr "Toestemming"
+
+#: includes/admin-load.php:1283
+msgid "Enabled"
+msgstr "Ingeschakeld"
+
+#: includes/admin-load.php:1284
+msgid "Blocked"
+msgstr "Geblokkeerd"
+
+#: includes/admin-load.php:1285
+msgid "Limited"
+msgstr "Beperkt"
+
+#: includes/admin-load.php:1303
+msgid "All content"
+msgstr "Alle inhoud"
+
+#: includes/admin-load.php:1326
+#, fuzzy, php-format
+msgid "Item #%d"
+msgstr "Item #%d"
+
+#: includes/admin-load.php:1328
+#, fuzzy, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s: %2$s"
+
+#: includes/admin-load.php:1334
+#, php-format
+msgid "%s: all items"
+msgstr "%s: alle items"
+
+#: includes/admin-load.php:1529
+#: includes/admin-load.php:1530
+#: includes/user-capabilities-view.php:14
+msgid "User Capabilities"
+msgstr "Gebruikersmogelijkheden"
+
+#: includes/admin-load.php:1564
+msgid "View Capabilities"
+msgstr "Bekijk mogelijkheden"
+
+#: includes/admin-load.php:1700
+#: includes/admin-load.php:1715
+msgid "You do not have permission to view user capabilities."
+msgstr "Je hebt geen toestemming om gebruikersmogelijkheden te bekijken."
+
+#: includes/admin-load.php:1710
+#: includes/test-user.php:62
+msgid "Unable to retrieve user data."
+msgstr "Kan gebruikersgegevens niet ophalen."
+
+#: includes/admin-load.php:1765
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: includes/admin-load.php:896
-#: includes/admin.php:175
+#: includes/admin-load.php:1767
+#: includes/admin.php:177
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
 #: includes/roles/roles.php:8
@@ -307,7 +426,7 @@ msgstr "Dashboard"
 msgid "Roles"
 msgstr "Rollen"
 
-#: includes/admin-load.php:897
+#: includes/admin-load.php:1768
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -332,9 +451,9 @@ msgid "Current Role"
 msgstr "Huidige rol"
 
 #: includes/admin-notices/admin-notices-settings.php:33
-#: includes/admin-notices/admin-notices.php:207
-#: includes/admin-notices/admin-notices.php:245
-#: includes/admin-notices/admin-notices.php:248
+#: includes/admin-notices/admin-notices.php:209
+#: includes/admin-notices/admin-notices.php:247
+#: includes/admin-notices/admin-notices.php:250
 #: includes/functions-admin.php:239
 #: includes/functions-admin.php:459
 #: includes/functions-admin.php:528
@@ -344,17 +463,17 @@ msgstr "Beheerder berichten"
 #: includes/admin-notices/admin-notices-settings.php:60
 #: includes/admin-notices/admin-notices-settings.php:152
 #: includes/features/admin-styles/admin-styles-ui.php:180
-#: includes/features/admin-styles/admin-styles-ui.php:815
+#: includes/features/admin-styles/admin-styles-ui.php:840
 #: includes/redirects/redirects.php:117
-#: includes/redirects/redirects.php:321
+#: includes/redirects/redirects.php:324
 msgid "Save for all Roles"
 msgstr "Bespaar voor alle rollen"
 
 #: includes/admin-notices/admin-notices-settings.php:64
 #: includes/admin-notices/admin-notices-settings.php:156
 #: includes/features/admin-styles/admin-styles-ui.php:184
-#: includes/features/admin-styles/admin-styles-ui.php:819
-#: includes/features/admin-styles/admin-styles.php:1175
+#: includes/features/admin-styles/admin-styles-ui.php:844
+#: includes/features/admin-styles/admin-styles.php:1179
 #, php-format
 msgid "Save for %s"
 msgstr "Bespaar voor %s"
@@ -407,7 +526,7 @@ msgstr ""
 "extra berichten en advertenties op één plaats te organiseren."
 
 #: includes/admin-notices/admin-notices-settings.php:172
-#: includes/features/admin-styles/admin-styles-ui.php:835
+#: includes/features/admin-styles/admin-styles-ui.php:860
 msgid "Features include:"
 msgstr "Functies zijn onder meer:"
 
@@ -424,14 +543,14 @@ msgid "Configure notice visibility by user role"
 msgstr "Zichtbaarheid van berichten configureren per gebruikersrol"
 
 #: includes/admin-notices/admin-notices-settings.php:178
-#: includes/admin.php:1996
+#: includes/admin.php:2059
 #: includes/features/admin-features.php:352
-#: includes/features/admin-styles/admin-styles-ui.php:842
+#: includes/features/admin-styles/admin-styles-ui.php:867
 #: includes/features/editor-features.php:247
 #: includes/features/frontend-features/frontend-features.php:256
 #: includes/features/nav-menus.php:308
 #: includes/features/profile-features.php:257
-#: includes/redirects/redirects.php:336
+#: includes/redirects/redirects.php:339
 msgid "View Documentation"
 msgstr "Bekijk documentatie"
 
@@ -439,27 +558,27 @@ msgstr "Bekijk documentatie"
 msgid "How to use Admin Notices"
 msgstr "Hoe beheerder meldingen te gebruiken"
 
-#: includes/admin-notices/admin-notices.php:79
+#: includes/admin-notices/admin-notices.php:81
 msgid "Display this notice"
 msgstr "Dit bericht weergeven"
 
-#: includes/admin-notices/admin-notices.php:80
+#: includes/admin-notices/admin-notices.php:82
 msgid "Silence this notice"
 msgstr "Dempen dit bericht"
 
-#: includes/admin-notices/admin-notices.php:81
+#: includes/admin-notices/admin-notices.php:83
 msgid "Hide this notice"
 msgstr "Verberg dit bericht"
 
-#: includes/admin-notices/admin-notices.php:82
+#: includes/admin-notices/admin-notices.php:84
 msgid "Move to Hidden Notices"
 msgstr "Verplaats naar verborgen berichten"
 
-#: includes/admin-notices/admin-notices.php:83
+#: includes/admin-notices/admin-notices.php:85
 msgid "Displayed notices will no longer be removed from admin pages."
 msgstr "Weergegeven berichten worden niet langer verwijderd van beheerpagina's."
 
-#: includes/admin-notices/admin-notices.php:84
+#: includes/admin-notices/admin-notices.php:86
 msgid ""
 "This notice will be moved to the \"Silenced Notices\" tab and you will not "
 "receive a notification if it appears again."
@@ -467,39 +586,39 @@ msgstr ""
 "Dit bericht wordt verplaatst naar de tab \"Stille berichten\" en je "
 "ontvangt geen melding als het weer verschijnt."
 
-#: includes/admin-notices/admin-notices.php:232
+#: includes/admin-notices/admin-notices.php:234
 msgid "Hidden Notices"
 msgstr "Verborgen berichten"
 
-#: includes/admin-notices/admin-notices.php:236
+#: includes/admin-notices/admin-notices.php:238
 msgid "Silenced Notices"
 msgstr "Gedempte berichten"
 
-#: includes/admin-notices/admin-notices.php:246
+#: includes/admin-notices/admin-notices.php:248
 msgid "There are currently no admin notices."
 msgstr "Er zijn nu geen beheer berichten."
 
-#: includes/admin-notices/admin-notices.php:246
+#: includes/admin-notices/admin-notices.php:248
 msgid "Edit the settings."
 msgstr "Bewerk de instellingen."
 
-#: includes/admin-notices/admin-notices.php:269
-#: includes/manager.php:823
-#: includes/manager.php:847
+#: includes/admin-notices/admin-notices.php:271
+#: includes/manager.php:830
+#: includes/manager.php:854
 msgid "You do not have permission to manage admin notices."
 msgstr "Je hebt geen toestemming om beheer berichten te beheren."
 
-#: includes/admin-notices/admin-notices.php:271
+#: includes/admin-notices/admin-notices.php:273
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
 msgid "Invalid action. Reload this page and try again."
 msgstr "Ongeldige actie. Herlaad deze pagina en probeer het opnieuw."
 
-#: includes/admin-notices/admin-notices.php:273
+#: includes/admin-notices/admin-notices.php:275
 msgid "Invalid form."
 msgstr "Ongeldig formulier."
 
-#: includes/admin-notices/admin-notices.php:297
+#: includes/admin-notices/admin-notices.php:299
 msgid "Admin notice status updated successfully."
 msgstr "Beheerder bericht status succesvol geüpdatet."
 
@@ -507,83 +626,91 @@ msgstr "Beheerder bericht status succesvol geüpdatet."
 #, php-format
 msgid ""
 "Warning: This role cannot access the dashboard without the read capability. "
-"%1$sClick here to fix this now%2$s."
+"%1$sGrant the read capability and save%2$s."
 msgstr ""
-"Waarschuwing: deze rol kan het dashboard niet openen zonder leesrechten. "
-"%1$sKlik hier om dit aan te passen%2$s."
+"Waarschuwing: Deze rol kan het dashboard niet openen zonder de "
+"leesbevoegdheid. %1$sVerleen de leesbevoegdheid en sla op%2$s."
 
 #: includes/admin.php:110
 msgid "Role Capabilities"
 msgstr "Rol rechten"
 
-#: includes/admin.php:151
+#: includes/admin.php:149
+msgid "Search capabilities"
+msgstr "Zoek mogelijkheden"
+
+#: includes/admin.php:152
 msgid "Search capabilities..."
 msgstr "Zoekopdracht rechten..."
 
-#: includes/admin.php:166
+#: includes/admin.php:165
+msgid "Role to edit"
+msgstr "Rol om te bewerken"
+
+#: includes/admin.php:168
 msgid "Application Passwords"
 msgstr "Applicatie wachtwoorden"
 
-#: includes/admin.php:248
-#: includes/admin.php:924
+#: includes/admin.php:250
+#: includes/admin.php:975
 msgid "Nav Menus (Block)"
 msgstr "Nav menu's (Blok)"
 
-#: includes/admin.php:250
+#: includes/admin.php:252
 msgid "Block"
 msgstr "Blok"
 
-#: includes/admin.php:257
-#: includes/admin.php:926
+#: includes/admin.php:259
+#: includes/admin.php:977
 msgid "Nav Menus (Legacy)"
 msgstr "Nav menu's (verouderd)"
 
-#: includes/admin.php:259
+#: includes/admin.php:261
 msgid "Legacy"
 msgstr "Verouderd"
 
-#: includes/admin.php:311, fuzzy
+#: includes/admin.php:313, fuzzy
 msgid "&nbsp;"
 msgstr "&nbsp;"
 
-#: includes/admin.php:312
+#: includes/admin.php:314
 msgid "Visibility"
 msgstr "Zichtbaarheid"
 
-#: includes/admin.php:313
+#: includes/admin.php:315
 #: includes/roles/class/class-pp-roles-admin.php:111
 msgid "Editing"
 msgstr "Bewerken"
 
-#: includes/admin.php:314
+#: includes/admin.php:316
 msgid "Deletion"
 msgstr "Verwijdering"
 
-#: includes/admin.php:315
+#: includes/admin.php:317
 msgid "Taxonomies"
 msgstr "Taxonomieën"
 
-#: includes/admin.php:319
+#: includes/admin.php:321
 msgid "Listing"
 msgstr "Vermelding"
 
-#: includes/admin.php:323
+#: includes/admin.php:325
 msgid "Create Revision"
 msgstr "Revisie maken"
 
-#: includes/admin.php:327
+#: includes/admin.php:329
 msgid "Submit Revision"
 msgstr "Revisie indienen"
 
-#: includes/admin.php:331
+#: includes/admin.php:333
 msgid "Approve Revision"
 msgstr "Revisie goedkeuren"
 
-#: includes/admin.php:335
+#: includes/admin.php:337
 msgid "Can read posts which are currently published with private visibility."
 msgstr "Kan berichten lezen die momenteel zijn gepubliceerd met privé zichtbaarheid."
 
-#: includes/admin.php:336
+#: includes/admin.php:338
 msgid ""
 "Has basic editing capability (but may need other capabilities based on post "
 "status and ownership)."
@@ -591,23 +718,23 @@ msgstr ""
 "Heeft basis rechten voor bewerken (maar kan andere rechten nodig hebben "
 "gebaseerd op bericht status en eigendom)."
 
-#: includes/admin.php:337
+#: includes/admin.php:339
 msgid "Can edit posts which were created by other users."
 msgstr "Kan berichten bewerken die gemaakt zijn door andere gebruikers."
 
-#: includes/admin.php:338
+#: includes/admin.php:340
 msgid "Can edit posts which are currently published."
 msgstr "Kan berichten bewerken die momenteel gepubliceerd zijn."
 
-#: includes/admin.php:339
+#: includes/admin.php:341
 msgid "Can edit posts which are currently published with private visibility."
 msgstr "Kan berichten bewerken die nu zijn gepubliceerd met privé zichtbaarheid."
 
-#: includes/admin.php:340
+#: includes/admin.php:342
 msgid "Can make a post publicly visible."
 msgstr "Kan een bericht publiek zichtbaar maken."
 
-#: includes/admin.php:341
+#: includes/admin.php:343
 msgid ""
 "Has basic deletion capability (but may need other capabilities based on "
 "post status and ownership)."
@@ -615,150 +742,173 @@ msgstr ""
 "Heeft basis verwijdering rechten (maar kan andere rechten nodig hebben "
 "gebaseerd op bericht status en eigendom)."
 
-#: includes/admin.php:342
+#: includes/admin.php:344
 msgid "Can delete posts which were created by other users."
 msgstr "Kan berichten verwijderen die gemaakt zijn door andere gebruikers."
 
-#: includes/admin.php:343
+#: includes/admin.php:345
 msgid "Can delete posts which are currently published."
 msgstr "Kan berichten verwijderen die momenteel gepubliceerd zijn."
 
-#: includes/admin.php:344
+#: includes/admin.php:346
 msgid "Can delete posts which are currently published with private visibility."
 msgstr ""
 "Kan berichten verwijderen die momenteel zijn gepubliceerd met privé "
 "zichtbaarheid."
 
-#: includes/admin.php:485
+#: includes/admin.php:519
 msgid "grant / clear / deny all capabilities"
 msgstr "alle rechten verlenen / wissen / weigeren"
 
-#: includes/admin.php:487
+#: includes/admin.php:521
 msgid "All capabilities"
 msgstr "Alle rechten"
 
-#: includes/admin.php:492
+#: includes/admin.php:526
+#: includes/manager.php:269
+#: includes/user-capabilities-view.php:149
 msgid "Granted"
 msgstr "Toegekend"
 
-#: includes/admin.php:493
+#: includes/admin.php:527
+#: includes/manager.php:270
 msgid "Not granted"
 msgstr "Niet verleend"
 
-#: includes/admin.php:494
+#: includes/admin.php:528
+#: includes/manager.php:271
+#: includes/user-capabilities-view.php:158
 msgid "Denied"
 msgstr "Geweigerd"
 
-#: includes/admin.php:495
-#: includes/admin.php:496
+#: includes/admin.php:529
+#: includes/admin.php:530
 msgid "Mixed"
 msgstr "Gemengd"
 
-#: includes/admin.php:500
+#: includes/admin.php:534
 msgid "Global capabilities help"
 msgstr "Hulp bij globale rechten"
 
-#: includes/admin.php:503
+#: includes/admin.php:537
 msgid "Click to grant, clear, or deny capabilities across every tab."
 msgstr "Klik om rechten op elke tab te verlenen, wissen of weigeren."
 
-#: includes/admin.php:676
-#: includes/admin.php:1193
-#: includes/admin.php:2087, fuzzy
+#: includes/admin.php:543
+msgid "Capability sections"
+msgstr "Mogelijkheidssecties"
+
+#: includes/admin.php:716
+#: includes/admin.php:1244
+#: includes/admin.php:2153, fuzzy
 msgid "Multisite"
 msgstr "Multisite"
 
-#: includes/admin.php:680
-#: includes/admin.php:1197
+#: includes/admin.php:720
+#: includes/admin.php:1248
 msgid "Admin"
 msgstr "Beheerder"
 
-#: includes/admin.php:760
-#: includes/admin.php:1633
+#: includes/admin.php:806
+#: includes/admin.php:1693
 msgid "Invalid Capabilities"
 msgstr "Ongeldige rechten"
 
-#: includes/admin.php:765
-#: includes/admin.php:1779
+#: includes/admin.php:812
+#: includes/admin.php:1841
 msgid "Additional"
 msgstr "Extra"
 
-#: includes/admin.php:799
+#: includes/admin.php:847
 #, php-format
 msgid "Term %s Capabilities"
 msgstr "Term %s rechten"
 
-#: includes/admin.php:802
+#: includes/admin.php:850
 #, php-format
 msgid "%s Capabilities"
 msgstr "%s Rechten"
 
-#: includes/admin.php:803
+#: includes/admin.php:851
 #, php-format
 msgid "Post %s Capabilities"
 msgstr "Publiceer %s rechten"
 
-#: includes/admin.php:806
+#: includes/admin.php:854
 msgid "Taxonomy"
 msgstr "Taxonomy"
 
-#: includes/admin.php:812
+#: includes/admin.php:859
 msgid "Filter by taxonomy"
 msgstr "Filteren op taxonomie"
 
-#: includes/admin.php:812
+#: includes/admin.php:859
 msgid "Filter by post type"
 msgstr "Filteren op berichttype"
 
-#: includes/admin.php:821
-#: includes/admin.php:1227
-#: includes/admin.php:1307
-#: includes/admin.php:1341
-#: includes/admin.php:1347
-#: includes/admin.php:1497
-#: includes/admin.php:1618
-#: includes/admin.php:1759
-#: includes/admin.php:1937
+#: includes/admin.php:871
+#: includes/admin.php:1281
+#: includes/admin.php:1361
+#: includes/admin.php:1397
+#: includes/admin.php:1403
+#: includes/admin.php:1556
+#: includes/admin.php:1677
+#: includes/admin.php:1821
+#: includes/admin.php:1999
 msgid "check / uncheck / negate all"
 msgstr "aanvinken / uitvinken / alles ontkennen"
 
-#: includes/admin.php:933
+#: includes/admin.php:871
+msgid "Grant, clear, or deny all capabilities in this table"
+msgstr "Verleen, wis of ontken alle mogelijkheden in deze tabel"
+
+#: includes/admin.php:900
+#, php-format
+msgid "Toggle all %s capabilities"
+msgstr "Schakel alle %s mogelijkheden in/uit"
+
+#: includes/admin.php:984
 #: includes/pp-ui.php:263
 #: includes/pp-ui.php:342
 #, php-format
 msgid "The slug for this taxonomy is %s"
 msgstr "De slug voor deze taxonomie is %s"
 
-#: includes/admin.php:935
+#: includes/admin.php:986
 #: includes/pp-ui.php:163
 #, php-format
 msgid "The slug for this post type is %s"
 msgstr "De slug voor dit berichttype is %s"
 
-#: includes/admin.php:1012
-#: includes/admin.php:1260
-#: includes/admin.php:1554
-#: includes/admin.php:1862
-#: includes/admin.php:1863
+#: includes/admin.php:999
+#, php-format
+msgid "Toggle all capabilities for %s"
+msgstr "Schakel alle mogelijkheden voor %s in/uit"
+
+#: includes/admin.php:1063
+#: includes/admin.php:1314
+#: includes/admin.php:1613
+#: includes/admin.php:1924
+#: includes/admin.php:1925
 #, php-format
 msgid "%s: assigned by Permission Group"
 msgstr "%s: toegewezen door Permissie Group"
 
-#: includes/admin.php:1015
-#: includes/admin.php:1262
-#: includes/admin.php:1556
-#: includes/admin.php:1682
-#: includes/admin.php:1865
+#: includes/admin.php:1066
+#: includes/admin.php:1316
+#: includes/admin.php:1615
+#: includes/admin.php:1742
+#: includes/admin.php:1927
 #, php-format
 msgid "This capability is %s"
 msgstr "Dit recht is %s"
 
-#: includes/admin.php:1046
+#: includes/admin.php:1097
 #, php-format
 msgid "This capability is controlled by %s"
 msgstr "Deze rechten worden beheerd door %s"
 
-#: includes/admin.php:1049
+#: includes/admin.php:1100
 #, php-format
 msgid ""
 "This capability is controlled by %s Use the sidebar settings to allow this "
@@ -767,16 +917,16 @@ msgstr ""
 "Dit recht worden geregeld door %s Gebruik de zijbalk instellingen om dit "
 "onafhankelijk te kunnen regelen."
 
-#: includes/admin.php:1066
+#: includes/admin.php:1117
 msgid "Use the sidebar settings to allow this to be controlled independently."
 msgstr "Gebruik de zijbalk instellingen om dit onafhankelijk te kunnen beheren."
 
-#: includes/admin.php:1068
-#: includes/admin.php:1072
+#: includes/admin.php:1119
+#: includes/admin.php:1123
 msgid "This capability is not available for this post type."
 msgstr "Deze rechten zijn niet beschikbaar voor dit berichttype."
 
-#: includes/admin.php:1136
+#: includes/admin.php:1187
 msgid ""
 "Admin listing access is normally provided by the \"Edit\" capabilities. "
 "These \"List\" capabilities only apply if the corresponding \"Edit\" "
@@ -788,55 +938,62 @@ msgstr ""
 "als de corresponderende \"Bewerken\" rechten ontbreken. Deze \"Lijst\" "
 "rechten kunnen ook toegang verlenen, maar niet weigeren."
 
-#: includes/admin.php:1213
-#: includes/admin.php:1327
-#: includes/admin.php:1483
-#: includes/admin.php:1750
+#: includes/admin.php:1266
+#: includes/admin.php:1382
+#: includes/admin.php:1541
+#: includes/admin.php:1811
+msgid "Filter capabilities in this section"
+msgstr "Filter mogelijkheden in deze sectie"
+
+#: includes/admin.php:1267
+#: includes/admin.php:1383
+#: includes/admin.php:1542
+#: includes/admin.php:1812
 msgid "Filter by capability"
 msgstr "Filteren op rechten"
 
-#: includes/admin.php:1216
-#: includes/admin.php:1330
-#: includes/admin.php:1486
-#: includes/admin.php:1753
+#: includes/admin.php:1270
+#: includes/admin.php:1386
+#: includes/admin.php:1545
+#: includes/admin.php:1815
 msgid "No results found. Please try again with a different word."
 msgstr "Geen resultaten gevonden. Probeer het opnieuw met een ander woord."
 
-#: includes/admin.php:1227
-#: includes/admin.php:1307
-#: includes/admin.php:1341
-#: includes/admin.php:1347
-#: includes/admin.php:1497
-#: includes/admin.php:1618
-#: includes/admin.php:1759
-#: includes/admin.php:1937
+#: includes/admin.php:1281
+#: includes/admin.php:1361
+#: includes/admin.php:1397
+#: includes/admin.php:1403
+#: includes/admin.php:1556
+#: includes/admin.php:1677
+#: includes/admin.php:1821
+#: includes/admin.php:1999
 msgid "Capability Name"
 msgstr "Rechten naam"
 
-#: includes/admin.php:1324
+#: includes/admin.php:1378
 msgid "WordPress Core Capabilities"
 msgstr "WordPress core rechten"
 
-#: includes/admin.php:1463
-#: includes/admin.php:1518
-#: includes/features/admin-styles/admin-styles.php:2062
+#: includes/admin.php:1519
+#: includes/admin.php:1577
+#: includes/features/admin-styles/admin-styles.php:2066
 #: includes/roles/class/class-pp-roles-admin.php:106
 msgid "General"
 msgstr "Algemeen"
 
-#: includes/admin.php:1480
+#: includes/admin.php:1537
 #, php-format
 msgid "Plugin Capabilities &ndash; %s"
 msgstr "Plugin rechten &ndash; %s"
 
-#: includes/admin.php:1560
+#: includes/admin.php:1619
 #, php-format
 msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
 msgstr ""
 "De functie voor gebruiker testen vereist ook de rechten %1$s edit_users "
 "%2$s."
 
-#: includes/admin.php:1638
+#: includes/admin.php:1698
 msgid ""
 "The following entries have no effect. Please assign desired capabilities on "
 "the Editing / Deletion / Private tabs."
@@ -844,28 +1001,28 @@ msgstr ""
 "De volgende invoer heeft geen effect. Wijs de gewenste rechten toe op de "
 "tabs bewerken / verwijderen / privé."
 
-#: includes/admin.php:1747
+#: includes/admin.php:1807
 msgid "Additional Capabilities"
 msgstr "Aanvullende rechten"
 
-#: includes/admin.php:1930
+#: includes/admin.php:1992
 msgid "You have no additional capabilities."
 msgstr "Je hebt geen extra rechten."
 
-#: includes/admin.php:1951
+#: includes/admin.php:2013
 msgid "Capabilities allows you change the permissions for any user role."
 msgstr ""
 "Met rechten ben je in staat om de machtigingen voor elke gebruikersrol te "
 "wijzigen."
 
-#: includes/admin.php:1952
+#: includes/admin.php:2014
 #, php-format
 msgid "%1$s = Capability granted %2$s"
 msgstr "%1$s = Rechten verleend %2$s"
 
-#: includes/admin.php:1952
-#: includes/admin.php:1953
-#: includes/admin.php:1954
+#: includes/admin.php:2014
+#: includes/admin.php:2015
+#: includes/admin.php:2016
 #: includes/features/admin-features.php:347
 #: includes/features/admin-features.php:349
 #: includes/features/editor-features.php:242
@@ -879,30 +1036,38 @@ msgstr "%1$s = Rechten verleend %2$s"
 msgid "usage key"
 msgstr "gebruikssleutel"
 
-#: includes/admin.php:1953
+#: includes/admin.php:2015
 #, php-format
 msgid "%1$s = Capability not granted %2$s"
 msgstr "%1$s = Rechten niet verleend %2$s"
 
-#: includes/admin.php:1954
+#: includes/admin.php:2016
 #, php-format
 msgid "%1$s = Capability denied, even if granted by another role %2$s"
 msgstr "%1$s = Rechten geweigerd, zelfs indien toegekend door een andere rol %2$s"
 
-#: includes/admin.php:1962
+#: includes/admin.php:2024
 #, php-format
 msgid "You can also configure this role as a %sPermission Group%s."
 msgstr "Je kunt deze rol ook configureren als een %sRechten groep%s."
 
-#: includes/admin.php:1982
+#: includes/admin.php:2044
 msgid "How to use Capabilities"
 msgstr "Hoe rechten te gebruiken"
 
-#: includes/admin.php:2020
+#: includes/admin.php:2047
+msgid "Toggle How to use Capabilities panel"
+msgstr "Schakel het paneel Hoe mogelijkheden te gebruiken in/uit"
+
+#: includes/admin.php:2083
 msgid "Capabilities is Safe to Use"
 msgstr "Rechten is veilig om te gebruiken"
 
-#: includes/admin.php:2033
+#: includes/admin.php:2086
+msgid "Toggle Capabilities is Safe to Use panel"
+msgstr "Schakel het paneel Mogelijkheden is veilig te gebruiken in/uit"
+
+#: includes/admin.php:2097
 msgid ""
 "WordPress stores role capabilities in your database, where they remain even "
 "if the plugin is deactivated."
@@ -910,7 +1075,7 @@ msgstr ""
 "WordPress slaat rolrechten op in je database, waar ze blijven, zelfs als de "
 "plugin is gedeactiveerd."
 
-#: includes/admin.php:2034
+#: includes/admin.php:2098
 msgid ""
 "Whenever you use PublishPress Capabilities to save changes, it also creates "
 "a backup which you can use to restore a previous configuration."
@@ -919,27 +1084,40 @@ msgstr ""
 "slaan, maakt het ook een back-up die je kunt gebruiken om een eerdere "
 "configuratie te herstellen."
 
-#: includes/admin.php:2037
+#: includes/admin.php:2101
 msgid "Go to the Backup feature"
 msgstr "Ga naar de Back-up functie"
 
-#: includes/admin.php:2057
+#: includes/admin.php:2121
 msgid "Add a New Capability"
 msgstr "Nieuwe rechten toevoegen"
 
-#: includes/admin.php:2067
+#: includes/admin.php:2124
+msgid "Toggle Add a New Capability panel"
+msgstr "Schakel het paneel Nieuwe mogelijkheid toevoegen in/uit"
+
+#: includes/admin.php:2131
+msgid "New capability name"
+msgstr "Naam van nieuwe mogelijkheid"
+
+#: includes/admin.php:2133
 msgid "Add to role"
 msgstr "Toevoegen aan rol"
 
-#: includes/admin.php:2070
+#: includes/admin.php:2136
 msgid "New capabilities are controlled on the Additonal tab."
 msgstr "Nieuwe rechten worden geregeld op de Extra tab."
 
-#: includes/admin.php:2127
+#: includes/admin.php:2156
+msgid "Toggle Multisite panel"
+msgstr "Schakel het multisite-paneel in/uit"
+
+#: includes/admin.php:2194
+#: includes/user-capabilities-view.php:172
 msgid "PublishPress Permissions"
 msgstr "PublishPress permissies"
 
-#: includes/admin.php:2129
+#: includes/admin.php:2196
 msgid ""
 "Automatically define type-specific capabilities for your custom post types "
 "and taxonomies"
@@ -947,25 +1125,41 @@ msgstr ""
 "Defini&euml;er automatisch type-specifieke rechten voor je eigen "
 "berichttypen en classificaties"
 
-#: includes/admin.php:2133
+#: includes/admin.php:2197
+msgid "Watch the post type capabilities tutorial"
+msgstr "Bekijk de tutorial over post type mogelijkheden"
+
+#: includes/admin.php:2200
 msgid "Assign standard WP roles supplementally for a specific post type"
 msgstr "Ken extra standaard WP rollen toe voor een specifiek berichttype"
 
-#: includes/admin.php:2137
+#: includes/admin.php:2201
+msgid "Watch the supplemental role tutorial"
+msgstr "Bekijk de tutorial over aanvullende rol"
+
+#: includes/admin.php:2204
 msgid ""
 "Assign custom WP roles supplementally for a specific post type "
 "<em>(Pro)</em>"
 msgstr "Ken eigen extra WP rollen toe voor een specifiek berichttype <em>(Pro)</em>"
 
-#: includes/admin.php:2141
+#: includes/admin.php:2208
 msgid "Customize reading permissions per-category or per-post"
 msgstr "Pas lees permissies aan per categorie of per bericht"
 
-#: includes/admin.php:2145
+#: includes/admin.php:2209
+msgid "Watch the category permissions tutorial"
+msgstr "Bekijk de tutorial over categorie machtigingen"
+
+#: includes/admin.php:2212
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
 msgstr "Pas bewerking permissies aan per categorie of per bericht <em>(Pro)</em>"
 
-#: includes/admin.php:2149
+#: includes/admin.php:2213
+msgid "Watch the page editing permissions tutorial"
+msgstr "Bekijk de tutorial over pagina bewerkingsmachtigingen"
+
+#: includes/admin.php:2216
 msgid ""
 "Custom Post Visibility statuses, fully implemented throughout wp-admin "
 "<em>(Pro)</em>"
@@ -973,7 +1167,11 @@ msgstr ""
 "Aangepaste bericht zichtbaarheid statussen, volledig ge&iuml;mplementeer "
 "via wp-admin <em>(Pro)</em>"
 
-#: includes/admin.php:2153
+#: includes/admin.php:2217
+msgid "Watch the custom post visibility tutorial"
+msgstr "Bekijk de tutorial over de zichtbaarheid van aangepaste berichten"
+
+#: includes/admin.php:2220
 msgid ""
 "Custom Moderation statuses for access-controlled, multi-step publishing "
 "workflow <em>(Pro)</em>"
@@ -981,11 +1179,19 @@ msgstr ""
 "Aangepaste moderatie statussen voor multi-step publicatie workflow met "
 "toegangscontrole <em>(Pro)</em>"
 
-#: includes/admin.php:2157
+#: includes/admin.php:2221
+msgid "Watch the multi-step moderation tutorial"
+msgstr "Bekijk de tutorial over multi-step moderatie"
+
+#: includes/admin.php:2224
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
 msgstr "Beheer permissies voor Edit Flow bericht statussen <em>(Pro)</em>"
 
-#: includes/admin.php:2161
+#: includes/admin.php:2225
+msgid "Watch the Edit Flow integration tutorial"
+msgstr "Bekijk de tutorial over de Edit Flow-integratie"
+
+#: includes/admin.php:2228
 msgid ""
 "Customize the moderated editing of published content with Revisionary or "
 "Post Forking <em>(Pro)</em>"
@@ -993,7 +1199,11 @@ msgstr ""
 "Verander de aangepaste bewerking van gepubliceerde inhoud met Revisionary "
 "of Post Forking <em>(Pro)</em>"
 
-#: includes/admin.php:2165
+#: includes/admin.php:2229
+msgid "Watch the published content revisions tutorial"
+msgstr "Bekijk de tutorial over de revisies van gepubliceerde inhoud"
+
+#: includes/admin.php:2232
 msgid ""
 "Grant Spectator, Participant or Moderator access to specific bbPress forums "
 "<em>(Pro)</em>"
@@ -1001,41 +1211,45 @@ msgstr ""
 "Verleen Toeschouwer, Deelnemer of Moderator toegang tot specifieke bbPress "
 "forums <em>(Pro)</em>"
 
-#: includes/admin.php:2169
+#: includes/admin.php:2236
 msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
 msgstr ""
 "Verleen aanvullende inhoud permissies aan een BuddyPress groep "
 "<em>(Pro)</em>"
 
-#: includes/admin.php:2173
+#: includes/admin.php:2237
+msgid "Watch the BuddyPress content permissions tutorial"
+msgstr "Bekijk de tutorial over BuddyPress-inhoudsrechten"
+
+#: includes/admin.php:2240
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
 msgstr "WPML integratie om permissies door te zetten naar vertalingen <em>(Pro)</em>"
 
-#: includes/admin.php:2177
+#: includes/admin.php:2244
 msgid "Member support forum"
 msgstr "Forum voor ledenondersteuning"
 
-#: includes/admin.php:2184
+#: includes/admin.php:2251
 #, php-format
 msgid "%1$sgrab%2$s %3$s"
 msgstr "%1$shaal op%2$s %3$s"
 
-#: includes/admin.php:2184
+#: includes/admin.php:2251
 #, php-format
 msgid "%s (free install)"
 msgstr "%s (gratis installatie)"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2253
 #, php-format
 msgid "%1$sbuy%2$s %3$s"
 msgstr "%1$skoop%2$s %3$s"
 
-#: includes/admin.php:2186
+#: includes/admin.php:2253
 #, php-format
 msgid "%s info/purchase"
 msgstr "%s info/aankoop"
 
-#: includes/admin.php:2219
+#: includes/admin.php:2286
 msgid ""
 "Role level is mostly deprecated. However, it still determines eligibility "
 "for Post Author assignment and limits the application of user editing "
@@ -1045,35 +1259,35 @@ msgstr ""
 "mogelijkheden voor bericht auteur toewijzing en beperkt de toepassing van "
 "rechten voor het aanpassen van gebruikers."
 
-#: includes/admin.php:2221
+#: includes/admin.php:2288
 msgid "Level:"
 msgstr "Niveau:"
 
-#: includes/admin.php:2265
+#: includes/admin.php:2332
 msgid "Create this role definition in new (future) sites"
 msgstr "Maak deze rol definitie aan in nieuwe (toekomstige) sites"
 
-#: includes/admin.php:2265
+#: includes/admin.php:2332
 msgid "Include in new sites."
 msgstr "Opnemen in nieuwe sites."
 
-#: includes/admin.php:2268
+#: includes/admin.php:2335
 msgid "Copy / update this role definition to all sites now"
 msgstr "Kopieer / update deze rol definities naar alle sites"
 
-#: includes/admin.php:2268
+#: includes/admin.php:2335
 msgid "Sync role to all sites."
 msgstr "Synchroniseer de rol naar alle sites."
 
-#: includes/admin.php:2271
+#: includes/admin.php:2338
 msgid "Copy option settings to all sites now"
 msgstr "Kopieer de optie instellingen nu naar alle sites"
 
-#: includes/admin.php:2271
+#: includes/admin.php:2338
 msgid "Sync options to all sites."
 msgstr "Synchroniseer opties naar alle sites."
 
-#: includes/application-passwords.php:220
+#: includes/application-passwords.php:224
 msgid "Unnamed application password"
 msgstr "Onbenoemde applicatie wachtwoord"
 
@@ -1112,35 +1326,36 @@ msgstr "Upload een bestand om te importeren"
 msgid "Please upload a valid .json file"
 msgstr "Upload een geldig .json bestand"
 
-#: includes/backup-handler.php:165
+#: includes/backup-handler.php:174
+#: includes/backup-handler.php:182
 msgid "Error importing settings! Please try again."
 msgstr "Fout bij importeren instellingen! Probeer opnieuw."
 
-#: includes/backup-handler.php:178
+#: includes/backup-handler.php:192
 msgid "Error importing settings! Please check that you uploaded a valid json file."
 msgstr ""
 "Fout bij importeren instellingen! Controleer of je een geldig json bestand "
 "hebt geüpload."
 
-#: includes/backup-handler.php:232
+#: includes/backup-handler.php:246
 #, php-format
 msgid "Skipped %d invalid or unsupported import entries."
 msgstr "%d ongeldige of niet-ondersteunde importvermeldingen zijn overgeslagen."
 
-#: includes/backup-handler.php:236
+#: includes/backup-handler.php:250
 #, php-format
 msgid "%s successfully imported from uploaded data."
 msgstr "%s succesvol geïmporteerd van geüploade gegevens."
 
-#: includes/backup-handler.php:238
+#: includes/backup-handler.php:252
 msgid "No valid backup data found to import."
 msgstr "Geen geldige back-up gegevens gevonden om te importeren."
 
-#: includes/backup-handler.php:562
+#: includes/backup-handler.php:576
 msgid "Needed function to create default roles not found!"
 msgstr "Benodigde functie om standaard rollen te cre&euml;ren is niet gevonden!"
 
-#: includes/backup-handler.php:581
+#: includes/backup-handler.php:595
 msgid "Roles and Capabilities reset to WordPress defaults"
 msgstr "Rollen en rechten zijn teruggezet naar de WordPress standaard waarden"
 
@@ -1234,6 +1449,7 @@ msgstr "alle rollen"
 msgid "Manual backup of %s (%s)"
 msgstr "Handmatige back-up van %s (%s)"
 
+#: includes/backup.php:128
 #: includes/backup.php:129
 #, php-format
 msgid "Auto-backup of all roles (%s)"
@@ -1377,19 +1593,23 @@ msgstr ""
 "Voordat je importeert, raden wij je aan om via de tab \"Back-up\" een "
 "back-up te maken van je huidige instellingen."
 
+#: includes/backup.php:367
+msgid "Import settings file"
+msgstr "Instellingenbestand importeren"
+
 #: includes/dashboard.php:74
 msgid "Sync feature status to all sites in this network."
 msgstr "Synchroniseer de functiestatus naar alle sites in dit netwerk."
 
 #: includes/dashboard.php:79
 msgid "Network feature synchronization help"
-msgstr "Hulp voor netwerkfunctie-synchronisatie"
+msgstr "Help bij synchronisatie van netwerkfuncties"
 
 #: includes/dashboard.php:82
 msgid "Enabling or disabling a feature will apply its new status to all sites."
 msgstr ""
-"Het in- of uitschakelen van een functie zal de nieuwe status op alle sites "
-"toepassen."
+"Het inschakelen of uitschakelen van een functie past de nieuwe status toe "
+"op alle sites."
 
 #: includes/features/admin-features.php:46
 msgid "Admin Feature Restrictions"
@@ -1453,17 +1673,18 @@ msgstr "Hoe beheerfuncties te gebruiken"
 msgid "Admin Features Settings"
 msgstr "Admin functies instellingen"
 
+#: includes/features/admin-features.php:359
 #: includes/features/admin-features.php:360
 msgid "Hide Submenus"
 msgstr "Submenu's verbergen"
 
 #: includes/features/admin-styles/admin-styles-ui.php:55
-#: includes/features/admin-styles/admin-styles-ui.php:627
-#: includes/features/admin-styles/admin-styles-ui.php:628
-#: includes/features/admin-styles/admin-styles-ui.php:713
-#: includes/features/admin-styles/admin-styles-ui.php:714
-#: includes/features/admin-styles/admin-styles.php:2347
-#: includes/features/admin-styles/admin-styles.php:2434
+#: includes/features/admin-styles/admin-styles-ui.php:652
+#: includes/features/admin-styles/admin-styles-ui.php:653
+#: includes/features/admin-styles/admin-styles-ui.php:738
+#: includes/features/admin-styles/admin-styles-ui.php:739
+#: includes/features/admin-styles/admin-styles.php:2351
+#: includes/features/admin-styles/admin-styles.php:2438
 msgid "Default"
 msgstr "Standaard"
 
@@ -1560,77 +1781,79 @@ msgstr ""
 msgid "Add New Element"
 msgstr "Nieuw element toevoegen"
 
-#: includes/features/admin-styles/admin-styles-ui.php:384, fuzzy
+#: includes/features/admin-styles/admin-styles-ui.php:384
+#: includes/features/admin-styles/admin-styles-ui.php:386, fuzzy
 msgid "Selector"
 msgstr "Selector"
 
-#: includes/features/admin-styles/admin-styles-ui.php:388
+#: includes/features/admin-styles/admin-styles-ui.php:389
 msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
 msgstr "bijv. .publishpress-wrap h1, #my-plugin-header"
 
-#: includes/features/admin-styles/admin-styles-ui.php:391
+#: includes/features/admin-styles/admin-styles-ui.php:392
 msgid "Variation"
 msgstr "Variatie"
 
-#: includes/features/admin-styles/admin-styles-ui.php:394
+#: includes/features/admin-styles/admin-styles-ui.php:395
 msgid "Background"
 msgstr "Achtergrond"
 
-#: includes/features/admin-styles/admin-styles-ui.php:395
+#: includes/features/admin-styles/admin-styles-ui.php:396
 msgid "Text"
 msgstr "Tekst"
 
-#: includes/features/admin-styles/admin-styles-ui.php:396
+#: includes/features/admin-styles/admin-styles-ui.php:397
 msgid "Border"
 msgstr "Rand"
 
-#: includes/features/admin-styles/admin-styles-ui.php:400
+#: includes/features/admin-styles/admin-styles-ui.php:401
+#: includes/features/admin-styles/admin-styles-ui.php:403
 msgid "Brand Color"
 msgstr "Merkkleur"
 
-#: includes/features/admin-styles/admin-styles-ui.php:410
-#: includes/features/admin-styles/admin-styles-ui.php:525
-#: includes/features/admin-styles/admin-styles-ui.php:561
+#: includes/features/admin-styles/admin-styles-ui.php:412
+#: includes/features/admin-styles/admin-styles-ui.php:550
+#: includes/features/admin-styles/admin-styles-ui.php:586
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: includes/features/admin-styles/admin-styles-ui.php:426
-#: includes/features/admin-styles/admin-styles.php:1191
+#: includes/features/admin-styles/admin-styles-ui.php:428
+#: includes/features/admin-styles/admin-styles.php:1195
 msgid "Custom Style Name"
 msgstr "Aangepaste stijl naam"
 
-#: includes/features/admin-styles/admin-styles-ui.php:434
+#: includes/features/admin-styles/admin-styles-ui.php:436
 msgid "e.g., Company Branding, Dark Mode"
 msgstr "bijv.: bedrijfsbranding, donkere modus"
 
-#: includes/features/admin-styles/admin-styles-ui.php:470
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:473
+#: includes/features/admin-styles/admin-styles-ui.php:488
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: includes/features/admin-styles/admin-styles-ui.php:476
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:479
+#: includes/features/admin-styles/admin-styles-ui.php:487
 msgid "Delete Custom Style"
 msgstr "Verwijderen aangepaste stijl"
 
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:485
 #, php-format
 msgid "Are you sure you want to delete this %1s? %2s %3s"
 msgstr "Weet je zeker dat je deze %1s wil verwijderen? %2s %3s"
 
-#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:486
 msgid "Custom Style"
 msgstr "Aangepaste stijl"
 
-#: includes/features/admin-styles/admin-styles-ui.php:486
+#: includes/features/admin-styles/admin-styles-ui.php:511
 msgid "Save Custom Style"
 msgstr "Aangepaste stijl opslaan"
 
-#: includes/features/admin-styles/admin-styles-ui.php:500
+#: includes/features/admin-styles/admin-styles-ui.php:525
 msgid "Custom Admin Logo"
 msgstr "Aangepast beheer logo"
 
-#: includes/features/admin-styles/admin-styles-ui.php:503
+#: includes/features/admin-styles/admin-styles-ui.php:528
 msgid ""
 "Upload a custom logo to replace the WordPress icon in the admin bar. "
 "Recommended: 20px by 20px in SVG or PNG format."
@@ -1638,17 +1861,21 @@ msgstr ""
 "Upload een aangepast logo om het WordPress icoon in de toolbar te "
 "vervangen. Aanbevolen: 20px bij 20px in SVG van PNG format."
 
-#: includes/features/admin-styles/admin-styles-ui.php:520
-#: includes/features/admin-styles/admin-styles-ui.php:556
-#: includes/features/admin-styles/admin-styles.php:1171
+#: includes/features/admin-styles/admin-styles-ui.php:539
+msgid "Admin logo preview"
+msgstr "Voorbeeld van het admin-logo"
+
+#: includes/features/admin-styles/admin-styles-ui.php:545
+#: includes/features/admin-styles/admin-styles-ui.php:581
+#: includes/features/admin-styles/admin-styles.php:1175
 msgid "Select Image"
 msgstr "Afbeelding selecteren"
 
-#: includes/features/admin-styles/admin-styles-ui.php:535
+#: includes/features/admin-styles/admin-styles-ui.php:560
 msgid "Custom Favicon"
 msgstr "Aangepaste favicon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:538
+#: includes/features/admin-styles/admin-styles-ui.php:563
 msgid ""
 "Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
 "32px by 32px in SVG or PNG format."
@@ -1656,29 +1883,33 @@ msgstr ""
 "Upload een aangepast favicon voor het beheer gebied. Aanbevolen: 16px bij "
 "16px van 32px bij 32px in SVG van PNG format."
 
-#: includes/features/admin-styles/admin-styles-ui.php:570
+#: includes/features/admin-styles/admin-styles-ui.php:574
+msgid "Admin favicon preview"
+msgstr "Voorbeeld van de admin-favicon"
+
+#: includes/features/admin-styles/admin-styles-ui.php:595
 msgid "Admin Font Family"
 msgstr "Beheerder lettertypefamilie"
 
-#: includes/features/admin-styles/admin-styles-ui.php:573
+#: includes/features/admin-styles/admin-styles-ui.php:598
 msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
 msgstr ""
 "Stel een lettertype in voor het beheergebied, bijvoorbeeld \"Segoe UI\", "
 "schreefloos."
 
-#: includes/features/admin-styles/admin-styles-ui.php:580
+#: includes/features/admin-styles/admin-styles-ui.php:605
 msgid "Preset Fonts"
 msgstr "Vooraf gemaakte lettertypen"
 
-#: includes/features/admin-styles/admin-styles-ui.php:581
+#: includes/features/admin-styles/admin-styles-ui.php:606
 msgid "Custom Value"
 msgstr "Aangepaste waarde"
 
-#: includes/features/admin-styles/admin-styles-ui.php:607
+#: includes/features/admin-styles/admin-styles-ui.php:632
 msgid "Admin Font Size"
 msgstr "Beheer lettertypegrootte"
 
-#: includes/features/admin-styles/admin-styles-ui.php:610
+#: includes/features/admin-styles/admin-styles-ui.php:635
 msgid ""
 "Set a base font size for the admin area. Leave empty to use the default "
 "WordPress size."
@@ -1686,82 +1917,82 @@ msgstr ""
 "Stel een basisgrootte in voor de lettertypen in het beheergebied. Laat leeg "
 "om de standaard grootte van WordPress te gebruiken."
 
-#: includes/features/admin-styles/admin-styles-ui.php:630
-#: includes/features/admin-styles/admin-styles-ui.php:716
+#: includes/features/admin-styles/admin-styles-ui.php:655
+#: includes/features/admin-styles/admin-styles-ui.php:741
 msgid "Named Sizes"
 msgstr "Genoemde groottes"
 
-#: includes/features/admin-styles/admin-styles-ui.php:636
-#: includes/features/admin-styles/admin-styles-ui.php:722
+#: includes/features/admin-styles/admin-styles-ui.php:661
+#: includes/features/admin-styles/admin-styles-ui.php:747
 msgid "Pixel Sizes"
 msgstr "Pixel groottes"
 
-#: includes/features/admin-styles/admin-styles-ui.php:649
+#: includes/features/admin-styles/admin-styles-ui.php:674
 msgid "Typography Overrides"
 msgstr "Typografie overschrijven"
 
-#: includes/features/admin-styles/admin-styles-ui.php:651
+#: includes/features/admin-styles/admin-styles-ui.php:676
 msgid "Optional target-specific typography rules for common admin elements."
 msgstr "Optionele doelspecifieke typografie regels voor algemene beheerelementen."
 
-#: includes/features/admin-styles/admin-styles-ui.php:657
+#: includes/features/admin-styles/admin-styles-ui.php:682
 msgid "Body Text"
 msgstr "Body tekst"
 
-#: includes/features/admin-styles/admin-styles-ui.php:658
-#: includes/features/admin-styles/admin-styles.php:2088, fuzzy
+#: includes/features/admin-styles/admin-styles-ui.php:683
+#: includes/features/admin-styles/admin-styles.php:2092, fuzzy
 msgid "Links"
 msgstr "Links"
 
-#: includes/features/admin-styles/admin-styles-ui.php:659
+#: includes/features/admin-styles/admin-styles-ui.php:684
 msgid "Headings"
 msgstr "Kopteksten"
 
-#: includes/features/admin-styles/admin-styles-ui.php:660
-#: includes/features/admin-styles/admin-styles.php:2212
+#: includes/features/admin-styles/admin-styles-ui.php:685
+#: includes/features/admin-styles/admin-styles.php:2216
 msgid "Admin Menu"
 msgstr "Beheermenu"
 
-#: includes/features/admin-styles/admin-styles-ui.php:661
-#: includes/features/admin-styles/admin-styles.php:2254
+#: includes/features/admin-styles/admin-styles-ui.php:686
+#: includes/features/admin-styles/admin-styles.php:2258
 msgid "Admin Bar"
 msgstr "Toolbar"
 
-#: includes/features/admin-styles/admin-styles-ui.php:662
+#: includes/features/admin-styles/admin-styles-ui.php:687
 msgid "Form Fields"
 msgstr "Formuliervelden"
 
-#: includes/features/admin-styles/admin-styles-ui.php:663
-#: includes/features/admin-styles/admin-styles.php:2182
+#: includes/features/admin-styles/admin-styles-ui.php:688
+#: includes/features/admin-styles/admin-styles.php:2186
 msgid "Buttons"
 msgstr "Knoppen"
 
-#: includes/features/admin-styles/admin-styles-ui.php:669
+#: includes/features/admin-styles/admin-styles-ui.php:694
 msgid "Target"
 msgstr "Doel"
 
-#: includes/features/admin-styles/admin-styles-ui.php:670
+#: includes/features/admin-styles/admin-styles-ui.php:695
 msgid "Font Family"
 msgstr "Lettertypefamilie"
 
-#: includes/features/admin-styles/admin-styles-ui.php:671
+#: includes/features/admin-styles/admin-styles-ui.php:696
 msgid "Font Size"
 msgstr "Lettertypegrootte"
 
-#: includes/features/admin-styles/admin-styles-ui.php:690
+#: includes/features/admin-styles/admin-styles-ui.php:715
 msgid "Preset"
 msgstr "Vooraf gemaakte instelling"
 
-#: includes/features/admin-styles/admin-styles-ui.php:691
-#: includes/roles/class/class-pp-roles-list-table.php:419
+#: includes/features/admin-styles/admin-styles-ui.php:716
+#: includes/roles/class/class-pp-roles-list-table.php:425
 msgid "Custom"
 msgstr "Aangepast"
 
-#: includes/features/admin-styles/admin-styles-ui.php:739
+#: includes/features/admin-styles/admin-styles-ui.php:764
 msgid "Admin Footer Text"
 msgstr "Beheer footer tekst"
 
-#: includes/features/admin-styles/admin-styles-ui.php:742
+#: includes/features/admin-styles/admin-styles-ui.php:767
 msgid ""
 "Replace the default \"Thanks for creating with WordPress\" message in the "
 "admin footer."
@@ -1769,27 +2000,27 @@ msgstr ""
 "Vervang de standaard \"Bedankt voor het maken met WordPress\" bericht in de "
 "beheer footer."
 
-#: includes/features/admin-styles/admin-styles-ui.php:756
+#: includes/features/admin-styles/admin-styles-ui.php:781
 msgid "Replace \"Howdy\""
 msgstr "Vervang \"Hallo\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:759
+#: includes/features/admin-styles/admin-styles-ui.php:784
 msgid "Replace \"Howdy\" in the admin bar."
 msgstr "Vervang \"Hallo\" in de toolbar."
 
-#: includes/features/admin-styles/admin-styles-ui.php:772
+#: includes/features/admin-styles/admin-styles-ui.php:797
 msgid "Control Settings"
 msgstr "Controle instellingen"
 
-#: includes/features/admin-styles/admin-styles-ui.php:774
+#: includes/features/admin-styles/admin-styles-ui.php:799
 msgid "Control how admin styles are applied to users."
 msgstr "Controleer hoe beheer stijlen worden toegepast op gebruikers."
 
-#: includes/features/admin-styles/admin-styles-ui.php:783
+#: includes/features/admin-styles/admin-styles-ui.php:808
 msgid "Hide Admin Color Scheme settings in user profile"
 msgstr "Verberg instellingen voor kleurenschema voor beheerders in gebruikersprofiel"
 
-#: includes/features/admin-styles/admin-styles-ui.php:785
+#: includes/features/admin-styles/admin-styles-ui.php:810
 msgid ""
 "When enabled, users cannot see or change color scheme settings in their "
 "profile. Role-based settings will be applied."
@@ -1797,11 +2028,11 @@ msgstr ""
 "Wanneer ingeschakeld, kunnen gebruikers de kleurthema instellingen in hun "
 "profiel niet zien of wijzigen. Rol gebaseerde instellingen worden toegepast."
 
-#: includes/features/admin-styles/admin-styles-ui.php:793
+#: includes/features/admin-styles/admin-styles-ui.php:818
 msgid "Force role settings (override user selection)"
 msgstr "Forceer rol instellingen (overschrijf gebruikers selectie)"
 
-#: includes/features/admin-styles/admin-styles-ui.php:795
+#: includes/features/admin-styles/admin-styles-ui.php:820
 msgid ""
 "When enabled, role settings will always apply, overriding any user "
 "selection even if the color scheme UI is visible to them."
@@ -1810,7 +2041,7 @@ msgstr ""
 "gebruikersselecties worden overschreven, zelfs als de kleurthema UI "
 "zichtbaar is voor hen."
 
-#: includes/features/admin-styles/admin-styles-ui.php:833
+#: includes/features/admin-styles/admin-styles-ui.php:858
 msgid ""
 "Admin Styles allows you to customize the WordPress admin area with your own "
 "branding."
@@ -1818,498 +2049,498 @@ msgstr ""
 "Beheer stijlen maakt het mogelijk om het WordPress beheergebied aan te "
 "passen met je eigen branding."
 
-#: includes/features/admin-styles/admin-styles-ui.php:837
+#: includes/features/admin-styles/admin-styles-ui.php:862
 msgid "Custom admin color schemes"
 msgstr "Aangepaste beheer kleur schema's"
 
-#: includes/features/admin-styles/admin-styles-ui.php:838
+#: includes/features/admin-styles/admin-styles-ui.php:863
 msgid "Replace the WordPress logo and favicon"
 msgstr "Vervang het WordPress logo en het favicon"
 
-#: includes/features/admin-styles/admin-styles-ui.php:839
+#: includes/features/admin-styles/admin-styles-ui.php:864
 msgid "Custom footer text"
 msgstr "Aangepast footer tekst"
 
-#: includes/features/admin-styles/admin-styles-ui.php:840
+#: includes/features/admin-styles/admin-styles-ui.php:865
 msgid "Replace \"Howdy\" text"
 msgstr "Vervang de tekst \"Hallo\""
 
-#: includes/features/admin-styles/admin-styles-ui.php:843
+#: includes/features/admin-styles/admin-styles-ui.php:868
 msgid "How to use Admin Styles"
 msgstr "Hoe beheer stijlen te gebruiken"
 
-#: includes/features/admin-styles/admin-styles.php:855
+#: includes/features/admin-styles/admin-styles.php:856
 msgid "Security check failed."
 msgstr "Beveiligingscontrole mislukt."
 
-#: includes/features/admin-styles/admin-styles.php:860
-#: includes/manager.php:793
+#: includes/features/admin-styles/admin-styles.php:861
+#: includes/manager.php:800
 msgid "You do not have permission to manage admin styles."
 msgstr "Je hebt geen toestemming om beheer stijlen te beheren."
 
-#: includes/features/admin-styles/admin-styles.php:923
+#: includes/features/admin-styles/admin-styles.php:925
 msgid "No role specified."
 msgstr "Geen rol gespecificeerd."
 
-#: includes/features/admin-styles/admin-styles.php:1172
+#: includes/features/admin-styles/admin-styles.php:1176
 msgid "Use this Image"
 msgstr "Gebruik deze afbeelding"
 
-#: includes/features/admin-styles/admin-styles.php:1173
+#: includes/features/admin-styles/admin-styles.php:1177
 msgid "Saving..."
 msgstr "Aan het opslaan..."
 
-#: includes/features/admin-styles/admin-styles.php:1174
+#: includes/features/admin-styles/admin-styles.php:1178
 msgid "Settings saved."
 msgstr "Instellingen opgeslagen."
 
-#: includes/features/admin-styles/admin-styles.php:1176
+#: includes/features/admin-styles/admin-styles.php:1180
 msgid "Current logo preview"
 msgstr "Huidig logo voorbeeld"
 
-#: includes/features/admin-styles/admin-styles.php:1177
+#: includes/features/admin-styles/admin-styles.php:1181
 msgid "Add New Custom Style"
 msgstr "Nieuwe stijl toevoegen"
 
-#: includes/features/admin-styles/admin-styles.php:1178
+#: includes/features/admin-styles/admin-styles.php:1182
 msgid "Edit Custom Style"
 msgstr "Aangepaste stijl bewerken"
 
-#: includes/features/admin-styles/admin-styles.php:1179
+#: includes/features/admin-styles/admin-styles.php:1183
 #, php-format
 msgid "Are you sure you want to delete \"%s\" custom style?"
 msgstr "Weet je zeker dat je \"%s\" aangepaste stijl wil verwijderen?"
 
-#: includes/features/admin-styles/admin-styles.php:1180
+#: includes/features/admin-styles/admin-styles.php:1184
 msgid "this custom style"
 msgstr "deze aangepaste stijl"
 
-#: includes/features/admin-styles/admin-styles.php:1181
+#: includes/features/admin-styles/admin-styles.php:1185
 msgid "Primary Button"
 msgstr "Primaire knop"
 
-#: includes/features/admin-styles/admin-styles.php:1182
+#: includes/features/admin-styles/admin-styles.php:1186
 msgid "Hover State"
 msgstr "Hoveren status"
 
-#: includes/features/admin-styles/admin-styles.php:1183
+#: includes/features/admin-styles/admin-styles.php:1187
 msgid "Notification"
 msgstr "Melding"
 
-#: includes/features/admin-styles/admin-styles.php:1184
+#: includes/features/admin-styles/admin-styles.php:1188
 msgid "Live preview of your custom color scheme"
 msgstr "Live voorbeeld van je aangepast color scheme"
 
-#: includes/features/admin-styles/admin-styles.php:1185
+#: includes/features/admin-styles/admin-styles.php:1189
 msgid "Custom Style Name is required."
 msgstr "Aangepaste stijlnaam is vereist."
 
-#: includes/features/admin-styles/admin-styles.php:1186
+#: includes/features/admin-styles/admin-styles.php:1190
 msgid "Main Admin Color is required."
 msgstr "Hoofdbeheerkleur is vereist."
 
-#: includes/features/admin-styles/admin-styles.php:1187
+#: includes/features/admin-styles/admin-styles.php:1191
 msgid "PublishPress Custom"
 msgstr "PublishPress aangepast"
 
-#: includes/features/admin-styles/admin-styles.php:1188
+#: includes/features/admin-styles/admin-styles.php:1192
 msgid "Display Name"
 msgstr "Weergavenaam"
 
-#: includes/features/admin-styles/admin-styles.php:1189
+#: includes/features/admin-styles/admin-styles.php:1193
 msgid "Change how this style is displayed"
 msgstr "Wijzig hoe deze stijl wordt getoond"
 
-#: includes/features/admin-styles/admin-styles.php:1190
+#: includes/features/admin-styles/admin-styles.php:1194
 msgid "Enter a name for your custom style"
 msgstr "Voer een naam in voor je aangepaste stijl"
 
-#: includes/features/admin-styles/admin-styles.php:1204
+#: includes/features/admin-styles/admin-styles.php:1208
 msgid "Forest"
 msgstr "Bos"
 
-#: includes/features/admin-styles/admin-styles.php:1221
+#: includes/features/admin-styles/admin-styles.php:1225
 msgid "Mint Breeze"
 msgstr "Mint breeze"
 
-#: includes/features/admin-styles/admin-styles.php:1238
+#: includes/features/admin-styles/admin-styles.php:1242
 msgid "Cherry"
 msgstr "Kers"
 
-#: includes/features/admin-styles/admin-styles.php:1255
+#: includes/features/admin-styles/admin-styles.php:1259
 msgid "Graphite"
 msgstr "Grafiet"
 
-#: includes/features/admin-styles/admin-styles.php:1272
+#: includes/features/admin-styles/admin-styles.php:1276
 msgid "Midnight Teal"
 msgstr "Wintertaling"
 
-#: includes/features/admin-styles/admin-styles.php:1289
+#: includes/features/admin-styles/admin-styles.php:1293
 msgid "Sunrise"
 msgstr "Zonsopkomst"
 
-#: includes/features/admin-styles/admin-styles.php:1306
+#: includes/features/admin-styles/admin-styles.php:1310
 msgid "Desert Sand"
 msgstr "Woestijnzand"
 
-#: includes/features/admin-styles/admin-styles.php:1323
+#: includes/features/admin-styles/admin-styles.php:1327
 msgid "Amber Glow"
 msgstr "Amber gloed"
 
-#: includes/features/admin-styles/admin-styles.php:1340, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1344, fuzzy
 msgid "Citrus"
 msgstr "Citrus"
 
-#: includes/features/admin-styles/admin-styles.php:1357
+#: includes/features/admin-styles/admin-styles.php:1361
 msgid "Ocean Deep"
 msgstr "Diepzeediep"
 
-#: includes/features/admin-styles/admin-styles.php:1374, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1378, fuzzy
 msgid "Sage"
 msgstr "Sage"
 
-#: includes/features/admin-styles/admin-styles.php:1391
+#: includes/features/admin-styles/admin-styles.php:1395
 msgid "Modern Slate"
 msgstr "Moderne leisteen"
 
-#: includes/features/admin-styles/admin-styles.php:1408, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1412, fuzzy
 msgid "Royal Plum"
 msgstr "Royal Plum"
 
-#: includes/features/admin-styles/admin-styles.php:1425, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1429, fuzzy
 msgid "Nordic"
 msgstr "Nordic"
 
-#: includes/features/admin-styles/admin-styles.php:1442, fuzzy
+#: includes/features/admin-styles/admin-styles.php:1446, fuzzy
 msgid "Lagoon"
 msgstr "Lagoon"
 
-#: includes/features/admin-styles/admin-styles.php:1459
+#: includes/features/admin-styles/admin-styles.php:1463
 msgid "Ink"
 msgstr "Inkt"
 
-#: includes/features/admin-styles/admin-styles.php:1476
+#: includes/features/admin-styles/admin-styles.php:1480
 msgid "Orchid"
 msgstr "Orchidee"
 
-#: includes/features/admin-styles/admin-styles.php:1493
+#: includes/features/admin-styles/admin-styles.php:1497
 msgid "Cobalt"
 msgstr "Kobalt"
 
-#: includes/features/admin-styles/admin-styles.php:1510
+#: includes/features/admin-styles/admin-styles.php:1514
 msgid "Stone"
 msgstr "Steen"
 
-#: includes/features/admin-styles/admin-styles.php:1527
+#: includes/features/admin-styles/admin-styles.php:1531
 msgid "Facebook Classic"
 msgstr "Facebook klassiek"
 
-#: includes/features/admin-styles/admin-styles.php:1544
+#: includes/features/admin-styles/admin-styles.php:1548
 msgid "Twitter Classic"
 msgstr "Twitter klassiek"
 
-#: includes/features/admin-styles/admin-styles.php:1561
+#: includes/features/admin-styles/admin-styles.php:1565
 msgid "Twitter Modern"
 msgstr "Twitter modern"
 
-#: includes/features/admin-styles/admin-styles.php:2063
+#: includes/features/admin-styles/admin-styles.php:2067
 msgid "Main Admin Color settings"
 msgstr "Hoofdbeheer kleurinstellingen"
 
-#: includes/features/admin-styles/admin-styles.php:2066
+#: includes/features/admin-styles/admin-styles.php:2070
 msgid "Main Admin Color"
 msgstr "Hoofd beheer kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2067
+#: includes/features/admin-styles/admin-styles.php:2071
 msgid "Primary brand color"
 msgstr "Primaire merkkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2070
+#: includes/features/admin-styles/admin-styles.php:2074
 msgid "Text Color"
 msgstr "Tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2071
+#: includes/features/admin-styles/admin-styles.php:2075
 msgid "Primary text color"
 msgstr "Primaire tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2074
+#: includes/features/admin-styles/admin-styles.php:2078
 msgid "Highlight Color"
 msgstr "Markeer kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2075
+#: includes/features/admin-styles/admin-styles.php:2079
 msgid "Used for hovers and highlights"
 msgstr "Gebruikt voor hoveren en highlights"
 
-#: includes/features/admin-styles/admin-styles.php:2078
+#: includes/features/admin-styles/admin-styles.php:2082
 msgid "Notification Color"
 msgstr "Kleur melding"
 
-#: includes/features/admin-styles/admin-styles.php:2079
+#: includes/features/admin-styles/admin-styles.php:2083
 msgid "Used for alerts and notifications"
 msgstr "Gebruikt voor waarschuwingen en meldingen"
 
-#: includes/features/admin-styles/admin-styles.php:2082
+#: includes/features/admin-styles/admin-styles.php:2086
 msgid "Background Color"
 msgstr "Achtergrondkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2083
+#: includes/features/admin-styles/admin-styles.php:2087
 msgid "Page background color"
 msgstr "Achtergrondkleur van de pagina"
 
-#: includes/features/admin-styles/admin-styles.php:2089
+#: includes/features/admin-styles/admin-styles.php:2093
 msgid "Link element colors"
 msgstr "Link element kleuren"
 
-#: includes/features/admin-styles/admin-styles.php:2092
+#: includes/features/admin-styles/admin-styles.php:2096
 msgid "Default Link Color"
 msgstr "Standaard link kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2093
+#: includes/features/admin-styles/admin-styles.php:2097
 msgid "Standard link color"
 msgstr "Standaard link kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2096
+#: includes/features/admin-styles/admin-styles.php:2100
 msgid "Link Hover Color"
 msgstr "Link hoveren kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2097
+#: includes/features/admin-styles/admin-styles.php:2101
 msgid "Color on hover"
 msgstr "Kleur bij hoveren"
 
-#: includes/features/admin-styles/admin-styles.php:2100
+#: includes/features/admin-styles/admin-styles.php:2104
 msgid "Delete Link Color"
 msgstr "Verwijderen link kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2101
+#: includes/features/admin-styles/admin-styles.php:2105
 msgid "Color for delete/trash actions"
 msgstr "Kleur voor verwijderen/prullenbak acties"
 
-#: includes/features/admin-styles/admin-styles.php:2104
+#: includes/features/admin-styles/admin-styles.php:2108
 msgid "Trash Link Color"
 msgstr "Prullenbak link kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2105
+#: includes/features/admin-styles/admin-styles.php:2109
 msgid "Color for trash actions"
 msgstr "Kleur voor prullenbak acties"
 
-#: includes/features/admin-styles/admin-styles.php:2108
+#: includes/features/admin-styles/admin-styles.php:2112
 msgid "Spam Link Color"
 msgstr "Spam link kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2109
+#: includes/features/admin-styles/admin-styles.php:2113
 msgid "Color for spam actions"
 msgstr "Kleur voor spam acties"
 
-#: includes/features/admin-styles/admin-styles.php:2112
+#: includes/features/admin-styles/admin-styles.php:2116
 msgid "Inactive Link Color"
 msgstr "Inactieve link kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2113
+#: includes/features/admin-styles/admin-styles.php:2117
 msgid "Color for inactive items"
 msgstr "Kleur voor inactieve items"
 
-#: includes/features/admin-styles/admin-styles.php:2118
+#: includes/features/admin-styles/admin-styles.php:2122
 msgid "Tables"
 msgstr "Tabellen"
 
-#: includes/features/admin-styles/admin-styles.php:2119
+#: includes/features/admin-styles/admin-styles.php:2123
 msgid "Table element colors"
 msgstr "Kleuren van tabelelementen"
 
-#: includes/features/admin-styles/admin-styles.php:2122
+#: includes/features/admin-styles/admin-styles.php:2126
 msgid "Table Header Background"
 msgstr "Tabel header achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2126
+#: includes/features/admin-styles/admin-styles.php:2130
 msgid "Table Header Text"
 msgstr "Tabel header tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2130
+#: includes/features/admin-styles/admin-styles.php:2134
 msgid "Table Row Background"
 msgstr "Tabel rij achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2134
+#: includes/features/admin-styles/admin-styles.php:2138
 msgid "Table Row Text Color"
 msgstr "Tabel rij tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2138
+#: includes/features/admin-styles/admin-styles.php:2142
 msgid "Row Hover Background"
 msgstr "Rij hoveren achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2142
+#: includes/features/admin-styles/admin-styles.php:2146
 msgid "Table Border Color"
 msgstr "Tabel randen kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2146
+#: includes/features/admin-styles/admin-styles.php:2150
 msgid "Alternate Row Background"
 msgstr "Afwisselende rij achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2150
+#: includes/features/admin-styles/admin-styles.php:2154
 msgid "Alternate Row Text Color"
 msgstr "Alternatieve rij tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2156
+#: includes/features/admin-styles/admin-styles.php:2160
 msgid "Forms"
 msgstr "Formulieren"
 
-#: includes/features/admin-styles/admin-styles.php:2157
+#: includes/features/admin-styles/admin-styles.php:2161
 msgid "Form input colors"
 msgstr "Formulier invoer kleuren"
 
-#: includes/features/admin-styles/admin-styles.php:2160
+#: includes/features/admin-styles/admin-styles.php:2164
 msgid "Input Border Color"
 msgstr "Invoer randkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2164
+#: includes/features/admin-styles/admin-styles.php:2168
 msgid "Input Focus Border"
 msgstr "Invoer focus rand"
 
-#: includes/features/admin-styles/admin-styles.php:2168
+#: includes/features/admin-styles/admin-styles.php:2172
 msgid "Input Background Color"
 msgstr "Achtergrondkleur invoer veld"
 
-#: includes/features/admin-styles/admin-styles.php:2172
+#: includes/features/admin-styles/admin-styles.php:2176
 msgid "Input Text Color"
 msgstr "Invoer tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2176
+#: includes/features/admin-styles/admin-styles.php:2180
 msgid "Placeholder Text Color"
 msgstr "Plaatshouder tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2183
+#: includes/features/admin-styles/admin-styles.php:2187
 msgid "Button colors"
 msgstr "Knopkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2186
+#: includes/features/admin-styles/admin-styles.php:2190
 msgid "Primary Button Background"
 msgstr "Primaire knop achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2190
+#: includes/features/admin-styles/admin-styles.php:2194
 msgid "Primary Button Text"
 msgstr "Primaire knoptekst"
 
-#: includes/features/admin-styles/admin-styles.php:2194
+#: includes/features/admin-styles/admin-styles.php:2198
 msgid "Primary Button Hover"
 msgstr "Primaire knop hoveren"
 
-#: includes/features/admin-styles/admin-styles.php:2198
+#: includes/features/admin-styles/admin-styles.php:2202
 msgid "Secondary Button Background"
 msgstr "Secundaire knop achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2202
+#: includes/features/admin-styles/admin-styles.php:2206
 msgid "Secondary Button Text"
 msgstr "Secundaire knop tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2206
+#: includes/features/admin-styles/admin-styles.php:2210
 msgid "Secondary Button Hover"
 msgstr "Secundaire knop hoveren"
 
-#: includes/features/admin-styles/admin-styles.php:2213
+#: includes/features/admin-styles/admin-styles.php:2217
 msgid "Admin menu colors"
 msgstr "Beheermenu kleuren"
 
-#: includes/features/admin-styles/admin-styles.php:2216
+#: includes/features/admin-styles/admin-styles.php:2220
 msgid "Menu Background"
 msgstr "Menu achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2220
+#: includes/features/admin-styles/admin-styles.php:2224
 msgid "Menu Text Color"
 msgstr "Menu tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2224
+#: includes/features/admin-styles/admin-styles.php:2228
 msgid "Menu Icon Color"
 msgstr "Menu icoon kleur"
 
-#: includes/features/admin-styles/admin-styles.php:2228
+#: includes/features/admin-styles/admin-styles.php:2232
 msgid "Menu Hover Background"
 msgstr "Menu hoveren achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2232
+#: includes/features/admin-styles/admin-styles.php:2236
 msgid "Menu Hover Text"
 msgstr "Menu hoveren tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2236
+#: includes/features/admin-styles/admin-styles.php:2240
 msgid "Current Menu Background"
 msgstr "Achtergrond huidig menu"
 
-#: includes/features/admin-styles/admin-styles.php:2240
+#: includes/features/admin-styles/admin-styles.php:2244
 msgid "Current Menu Text"
 msgstr "Huidige menu tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2244
+#: includes/features/admin-styles/admin-styles.php:2248
 msgid "Submenu Background"
 msgstr "Achtergrond submenu"
 
-#: includes/features/admin-styles/admin-styles.php:2248
+#: includes/features/admin-styles/admin-styles.php:2252
 msgid "Submenu Text Color"
 msgstr "Submenu tekstkleur"
 
-#: includes/features/admin-styles/admin-styles.php:2255
+#: includes/features/admin-styles/admin-styles.php:2259
 msgid "Admin bar colors"
 msgstr "Toolbar kleuren"
 
-#: includes/features/admin-styles/admin-styles.php:2258
+#: includes/features/admin-styles/admin-styles.php:2262
 msgid "Admin Bar Background"
 msgstr "Toolbar achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2262
+#: includes/features/admin-styles/admin-styles.php:2266
 msgid "Admin Bar Text"
 msgstr "Toolbar tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2266
+#: includes/features/admin-styles/admin-styles.php:2270
 msgid "Admin Bar Icon"
 msgstr "Toolbar icoon"
 
-#: includes/features/admin-styles/admin-styles.php:2270
+#: includes/features/admin-styles/admin-styles.php:2274
 msgid "Admin Bar Hover Background"
 msgstr "Toolbar hoveren achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2274
+#: includes/features/admin-styles/admin-styles.php:2278
 msgid "Admin Bar Hover Text"
 msgstr "Toolbar hoveren tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2280
+#: includes/features/admin-styles/admin-styles.php:2284
 msgid "Dashboard Widgets"
 msgstr "Dashboard widgets"
 
-#: includes/features/admin-styles/admin-styles.php:2281
+#: includes/features/admin-styles/admin-styles.php:2285
 msgid "Dashboard widget colors"
 msgstr "Dashboard widget kleuren"
 
-#: includes/features/admin-styles/admin-styles.php:2284
+#: includes/features/admin-styles/admin-styles.php:2288
 msgid "Widget Background"
 msgstr "Widget achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2288
+#: includes/features/admin-styles/admin-styles.php:2292
 msgid "Widget Border"
 msgstr "Widget rand"
 
-#: includes/features/admin-styles/admin-styles.php:2292
+#: includes/features/admin-styles/admin-styles.php:2296
 msgid "Widget Header Background"
 msgstr "Widget header achtergrond"
 
-#: includes/features/admin-styles/admin-styles.php:2296
+#: includes/features/admin-styles/admin-styles.php:2300
 msgid "Widget Title Text"
 msgstr "Widget titel tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2300
+#: includes/features/admin-styles/admin-styles.php:2304
 msgid "Widget Body Text"
 msgstr "Widget body tekst"
 
-#: includes/features/admin-styles/admin-styles.php:2304
+#: includes/features/admin-styles/admin-styles.php:2308
 msgid "Widget Link"
 msgstr "Widget link"
 
-#: includes/features/admin-styles/admin-styles.php:2308
+#: includes/features/admin-styles/admin-styles.php:2312
 msgid "Widget Link Hover"
 msgstr "Widget link hoveren"
 
-#: includes/features/admin-styles/admin-styles.php:2314
+#: includes/features/admin-styles/admin-styles.php:2318
 #: includes/roles/class/class-pp-roles-admin.php:123
 msgid "Advanced"
 msgstr "Geavanceerd"
 
-#: includes/features/admin-styles/admin-styles.php:2315
+#: includes/features/admin-styles/admin-styles.php:2319
 msgid "Custom selector color rules"
 msgstr "Aangepaste regels voor kleurselectie"
 
@@ -2375,8 +2606,8 @@ msgstr "Hoe editor functies te gebruiken"
 
 #: includes/features/frontend-features/frontend-features-action.php:54
 #: includes/features/frontend-features/frontend-features-action.php:117
-#: includes/manager.php:745
-#: includes/manager.php:767
+#: includes/manager.php:752
+#: includes/manager.php:774
 msgid "You do not have permission to manage frontend features."
 msgstr "Je hebt geen toestemming om front-end functies te beheren."
 
@@ -2433,7 +2664,7 @@ msgstr "Front-end functies"
 msgid "Choose Frontend Features that will apply to this post."
 msgstr "Selecteer front-end functies die van toepassing zijn op dit bericht."
 
-#: includes/features/frontend-features/frontend-features-metaboxes.php:90
+#: includes/features/frontend-features/frontend-features-metaboxes.php:94
 #, php-format
 msgid "Select %1$s..."
 msgstr "Selecteer %1$s…"
@@ -2454,6 +2685,10 @@ msgstr "Bewerken:"
 #: includes/features/frontend-features/frontend-features-ui.php:53
 msgid "Title:"
 msgstr "Titel:"
+
+#: includes/features/frontend-features/frontend-features-ui.php:57
+msgid "Title"
+msgstr "Titel"
 
 #: includes/features/frontend-features/frontend-features-ui.php:59
 msgid "This will only show here in the WordPress admin area."
@@ -2899,7 +3134,7 @@ msgstr "Toegang tot profielkenmerken ingeschakeld voor deze rol."
 #: includes/functions-admin.php:217
 #: includes/functions-admin.php:419
 #: includes/functions-admin.php:507
-#: includes/roles/class/class-pp-roles-admin.php:550
+#: includes/roles/class/class-pp-roles-admin.php:553
 #: includes/settings-ui.php:36
 msgid "Editor Features"
 msgstr "Editor functies"
@@ -2907,14 +3142,14 @@ msgstr "Editor functies"
 #: includes/functions-admin.php:228
 #: includes/functions-admin.php:424
 #: includes/functions-admin.php:514
-#: includes/roles/class/class-pp-roles-admin.php:551
+#: includes/roles/class/class-pp-roles-admin.php:554
 msgid "Admin Features"
 msgstr "Beheerdersfuncties"
 
 #: includes/functions-admin.php:248
 #: includes/functions-admin.php:434
 #: includes/functions-admin.php:544
-#: includes/roles/class/class-pp-roles-admin.php:552
+#: includes/roles/class/class-pp-roles-admin.php:555
 #: includes/settings-ui.php:37
 msgid "Profile Features"
 msgstr "Profiel functies"
@@ -2961,7 +3196,7 @@ msgstr ""
 
 #: includes/functions-admin.php:449
 #: includes/functions-admin.php:565
-#: includes/roles/class/class-pp-roles-admin.php:554
+#: includes/roles/class/class-pp-roles-admin.php:557
 msgid "Navigation Menus"
 msgstr "Navigatie menu's"
 
@@ -3035,7 +3270,7 @@ msgstr "Fout: Het aanmaken van de nieuwe rol is mislukt."
 
 #: includes/handler.php:71
 #: includes/handler.php:97
-#: includes/manager.php:1306
+#: includes/manager.php:1313
 msgid "The selected role is not editable."
 msgstr "De geselecteerde rol kan niet worden bewerkt."
 
@@ -3063,193 +3298,198 @@ msgstr "Het geselecteerde applicatiewachtwoord is niet bewerkbaar."
 msgid "Application password capabilities saved."
 msgstr "Mogelijkheden van applicatiewachtwoord opgeslagen."
 
-#: includes/manager.php:245
+#: includes/manager.php:247
 msgid "This capability is explicitly negated. Click to add/remove normally."
 msgstr ""
 "Dit recht is expliciet uitgeschakeld. Klik om op de normale manier toe te "
 "voegen/te verwijderen."
 
-#: includes/manager.php:253
+#: includes/manager.php:255
 msgid "Explicity negate this capability by storing as disabled"
 msgstr "Expliciteit ontkracht deze mogelijkheid door op te slaan als uitgeschakeld"
 
-#: includes/manager.php:254
+#: includes/manager.php:256
 msgid "Explicitly negate these capabilities by storing as disabled"
 msgstr ""
 "Schakel deze mogelijkheden expliciet uit door ze op te slaan als "
 "uitgeschakeld"
 
-#: includes/manager.php:255
+#: includes/manager.php:257
 msgid "Post type registration does not define this capability distinctly"
 msgstr "Berichttype registratie bepaalt dit recht niet duidelijk"
 
-#: includes/manager.php:257
+#: includes/manager.php:259
 msgid "Add or remove this capability from the WordPress role"
 msgstr "Voeg toe of verwijder dit recht van de WordPress rol"
 
-#: includes/manager.php:258
+#: includes/manager.php:260
 msgid "Add or remove capability from the role normally"
 msgstr "Rechten van de rol normaal toevoegen/verwijderen"
 
-#: includes/manager.php:259
+#: includes/manager.php:261
 msgid "Are you sure you want to delete this item ?"
 msgstr "Weet je zeker dat je dit item wilt verwijderen?"
 
-#: includes/manager.php:260
+#: includes/manager.php:262
 msgid "Add or clear custom item entry before saving changes."
 msgstr "Aangepaste item invoer toevoegen of wissen voordat je wijzigingen opslaat."
 
-#: includes/manager.php:261
-#, php-format
-msgid "Found %1$d match in %2$d tab"
-msgstr "Gevonden %1$d overeenkomsten in %2$d tabblad"
-
-#: includes/manager.php:262
-#, php-format
-msgid "Found %1$d match in %2$d tabs"
-msgstr "Gevonden %1$d overeenkomsten in %2$d tabbladen"
-
 #: includes/manager.php:263
 #, php-format
-msgid "Found %1$d matches in %2$d tab"
-msgstr "Gevonden %1$d overeenkomsten in %2$d tabblad"
+msgid "Found %1$d match in %2$d tab"
+msgstr "Gevonden %1$d overeenkomst in %2$d tab"
 
 #: includes/manager.php:264
 #, php-format
-msgid "Found %1$d matches in %2$d tabs"
-msgstr "Gevonden %1$d overeenkomsten in %2$d tabbladen"
+msgid "Found %1$d match in %2$d tabs"
+msgstr "Gevonden %1$d overeenkomst in %2$d tabs"
 
 #: includes/manager.php:265
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "Gevonden %1$d overeenkomsten in %2$d tab"
+
+#: includes/manager.php:266
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "Gevonden %1$d overeenkomsten in %2$d tabs"
+
+#: includes/manager.php:267
 #, php-format
 msgid "No matches found for \"%s\""
 msgstr "Geen overeenkomsten gevonden voor \"%s\""
 
-#: includes/manager.php:565
+#: includes/manager.php:571
+#: includes/roles/class/class-pp-roles-list-table.php:178
+msgid "Select all roles"
+msgstr "Selecteer alle rollen"
+
+#: includes/manager.php:572
 #: includes/roles/class/class-pp-roles-admin.php:172
 #: includes/roles/class/class-pp-roles-list-table.php:179
 msgid "Role Name"
 msgstr "Rol naam"
 
-#: includes/manager.php:567
+#: includes/manager.php:574
 #: includes/roles/class/class-pp-roles-list-table.php:181
 msgid "Role Type"
 msgstr "Type rol"
 
-#: includes/manager.php:568
+#: includes/manager.php:575
 #: includes/roles/class/class-pp-roles-list-table.php:182
 msgid "Default Role"
 msgstr "Standaard rol"
 
-#: includes/manager.php:569
+#: includes/manager.php:576
 #: includes/roles/class/class-pp-roles-list-table.php:183
 msgid "Admin Access"
 msgstr "Beheerderstoegang"
 
-#: includes/manager.php:596
+#: includes/manager.php:603
 msgid "You do not have permission to manage roles."
 msgstr "Je hebt geen toestemming om rollen te beheren."
 
-#: includes/manager.php:619
-#: includes/manager.php:641
+#: includes/manager.php:626
+#: includes/manager.php:648
 msgid "You do not have permission to manage editor features."
 msgstr "Je bent niet gemachtigd om editor functies te beheren."
 
-#: includes/manager.php:676
-#: includes/manager.php:730
-#: includes/manager.php:778
-#: includes/manager.php:872
-#: includes/manager.php:921
-#: includes/manager.php:1003
-#: includes/manager.php:1084
+#: includes/manager.php:683
+#: includes/manager.php:737
+#: includes/manager.php:785
+#: includes/manager.php:879
+#: includes/manager.php:928
+#: includes/manager.php:1010
+#: includes/manager.php:1091
 msgid "Settings updated."
 msgstr "Instellingen geüpdatet."
 
-#: includes/manager.php:692
-#: includes/manager.php:714
-#: includes/manager.php:886
-#: includes/manager.php:937
-#: includes/manager.php:1101
+#: includes/manager.php:699
+#: includes/manager.php:721
+#: includes/manager.php:893
+#: includes/manager.php:944
+#: includes/manager.php:1108
 msgid "You do not have permission to manage admin features."
 msgstr "Je hebt geen rechten om beheerdersfuncties te beheren."
 
-#: includes/manager.php:908
+#: includes/manager.php:915
 msgid "You do not have permission to manage navigation menus."
 msgstr "Je hebt geen rechten om navigatie menu's te beheren."
 
-#: includes/manager.php:959
+#: includes/manager.php:966
 msgid "You do not have permission to manage profile features."
 msgstr "Je hebt geen rechten om profiel functies te beheren."
 
-#: includes/manager.php:1019
+#: includes/manager.php:1026
 msgid "You do not have permission to manage redirect."
 msgstr "Je hebt geen toestemming om omleidingen te beheren."
 
-#: includes/manager.php:1041
+#: includes/manager.php:1048
 msgid "Invalid form. Reload this page and try again."
 msgstr "Ongeldig formulier. Herlaad deze pagina en probeer het opnieuw."
 
-#: includes/manager.php:1193
-#: includes/manager.php:1244
-#: includes/manager.php:1262
+#: includes/manager.php:1200
+#: includes/manager.php:1251
+#: includes/manager.php:1269
 msgid "You do not have permission to manage capabilities."
 msgstr "Je bent niet gemachtigd om mogelijkheden te beheren."
 
-#: includes/manager.php:1271
+#: includes/manager.php:1278
 msgid "Network sync completed."
 msgstr "Netwerksynchronisatie is afgerond."
 
-#: includes/manager.php:1273
+#: includes/manager.php:1280
 msgid "Network sync has been queued and will continue in the background."
 msgstr ""
 "Netwerksynchronisatie is in de wachtrij geplaatst en zal op de achtergrond "
 "worden voortgezet."
 
-#: includes/manager.php:1289
+#: includes/manager.php:1296
 msgid "New capability added to role."
 msgstr "Nieuw recht toegevoegd aan de rol."
 
-#: includes/manager.php:1335
+#: includes/manager.php:1342
 msgid "Bad form Received"
 msgstr "Verkeerd formulier ontvangen"
 
-#: includes/manager.php:1464
+#: includes/manager.php:1471
 msgid "You do not have permission to restore roles."
 msgstr "Je hebt geen permissie om rollen terug te zetten."
 
-#: includes/manager.php:1502
+#: includes/manager.php:1509
 msgid "You do not have permission to perform this action."
 msgstr "Je hebt geen toestemming om deze actie uit te voeren."
 
-#: includes/manager.php:1522
+#: includes/manager.php:1529
 msgid "Select at least one role to export."
 msgstr "Ten minste één rol selecteren om te exporteren."
 
-#: includes/manager.php:1691
+#: includes/manager.php:1698
 #, php-format
 msgid "If you like %s, please leave us a %s rating. Thank you!"
 msgstr "Als %s Je bevalt, wil je ons dan, dan een %s waardering geven? Bedankt!"
 
-#: includes/manager.php:1702
+#: includes/manager.php:1709
 msgid "About PublishPress Capabilities"
 msgstr "Over PublishPress Capabilities"
 
-#: includes/manager.php:1702
+#: includes/manager.php:1709
 msgid "About"
 msgstr "Over"
 
-#: includes/manager.php:1704
+#: includes/manager.php:1711
 msgid "Capabilites Documentation"
 msgstr "Capabilities documentatie"
 
-#: includes/manager.php:1704
+#: includes/manager.php:1711
 msgid "Documentation"
 msgstr "Documentatie"
 
-#: includes/manager.php:1706
+#: includes/manager.php:1713
 msgid "Contact the PublishPress team"
 msgstr "Neem contact op met het PublishPress team"
 
-#: includes/manager.php:1706, fuzzy
+#: includes/manager.php:1713, fuzzy
 msgid "Contact"
 msgstr "Contact"
 
@@ -3559,8 +3799,8 @@ msgid "%s Redirects"
 msgstr "%s omleidingen"
 
 #: includes/redirects/redirects.php:112
-#: includes/redirects/redirects.php:316
-#: includes/roles/class/class-pp-roles-admin.php:539
+#: includes/redirects/redirects.php:319
+#: includes/roles/class/class-pp-roles-admin.php:542
 msgid "Save Changes"
 msgstr "Wijzigingen opslaan"
 
@@ -3572,19 +3812,19 @@ msgstr "Stuur gebruikers terug naar de URL die ze bekeken voor ze inlogden."
 msgid "Redirect users to a specified URL."
 msgstr "Stuur gebruikers door naar een gespecificeerde URL."
 
-#: includes/redirects/redirects.php:243
+#: includes/redirects/redirects.php:244
 msgid "Enter the relative path only without domain for login redirect."
 msgstr "Voer alleen het relatieve pad in zonder domein voor login omleiding."
 
-#: includes/redirects/redirects.php:244
+#: includes/redirects/redirects.php:245
 msgid "You must enter the Login Redirect URL."
 msgstr "Je moet de login omleiding URL invoeren."
 
-#: includes/redirects/redirects.php:276
+#: includes/redirects/redirects.php:278
 msgid "Enter the relative path only without domain for logout redirect."
 msgstr "Voer alleen het relatieve pad in zonder domein voor de uitloggen omleiding."
 
-#: includes/redirects/redirects.php:334
+#: includes/redirects/redirects.php:337
 msgid ""
 "Redirect Features allows you to redirect users in a role after "
 "Registration, Login or Logout."
@@ -3592,43 +3832,40 @@ msgstr ""
 "Omleiding functies stellen je in staat om gebruikers in een rol om te "
 "leiden na registratie, login of uitloggen."
 
-#: includes/redirects/redirects.php:337
+#: includes/redirects/redirects.php:340
 msgid "How to use Redirect Features"
 msgstr "Hoe omleiding functies te gebruiken"
 
 #: includes/roles/class/class-pp-roles-actions.php:148
-#: includes/roles/class/class-pp-roles-actions.php:242
+#: includes/roles/class/class-pp-roles-actions.php:260
 msgid "You do not have sufficient permissions to perform this action."
 msgstr "Je hebt niet voldoende rechten om deze actie uit te voeren."
 
-#: includes/roles/class/class-pp-roles-actions.php:162
-#: includes/roles/class/class-pp-roles-actions.php:180
-#: includes/roles/class/class-pp-roles-actions.php:390
-#: includes/roles/class/class-pp-roles-actions.php:514
+#: includes/roles/class/class-pp-roles-actions.php:165
 #: includes/test-user.php:53
 msgid "Your link has expired, refresh the page and try again."
 msgstr "Je link is verlopen, ververs de pagina en probeer het opnieuw."
 
-#: includes/roles/class/class-pp-roles-actions.php:184
-#: includes/roles/class/class-pp-roles-actions.php:247
-#: includes/roles/class/class-pp-roles-actions.php:394
-#: includes/roles/class/class-pp-roles-actions.php:538
-#: includes/roles/class/class-pp-roles-actions.php:665
-#: includes/roles/class/class-pp-roles-actions.php:726
+#: includes/roles/class/class-pp-roles-actions.php:202
+#: includes/roles/class/class-pp-roles-actions.php:265
+#: includes/roles/class/class-pp-roles-actions.php:410
+#: includes/roles/class/class-pp-roles-actions.php:552
+#: includes/roles/class/class-pp-roles-actions.php:684
+#: includes/roles/class/class-pp-roles-actions.php:750
 msgid "Missing parameters, refresh the page and try again."
 msgstr "Ontbrekende parameters, ververs de pagina en probeer het opnieuw."
 
-#: includes/roles/class/class-pp-roles-actions.php:211
+#: includes/roles/class/class-pp-roles-actions.php:229
 #, php-format
 msgid "Invalid role name entry: %s"
 msgstr "Ongeldige invoer van rolnaam: %s"
 
-#: includes/roles/class/class-pp-roles-actions.php:223
+#: includes/roles/class/class-pp-roles-actions.php:241
 #, php-format
 msgid "The role \"%s\" already exists. Please choose a different name."
 msgstr "De rol \"%s\" bestaat al. Kies een andere naam."
 
-#: includes/roles/class/class-pp-roles-actions.php:265
+#: includes/roles/class/class-pp-roles-actions.php:283
 msgid ""
 "Something went wrong, the system wasn't able to create the role, refresh "
 "the page and try again."
@@ -3636,12 +3873,12 @@ msgstr ""
 "Er is iets misgegaan, het systeem kon de rol niet maken, de pagina "
 "verversen en het opnieuw proberen."
 
-#: includes/roles/class/class-pp-roles-actions.php:356
+#: includes/roles/class/class-pp-roles-actions.php:374
 #, php-format
 msgid "The new role %s was created successfully."
 msgstr "De nieuwe rol %s is succesvol aangemaakt."
 
-#: includes/roles/class/class-pp-roles-actions.php:400
+#: includes/roles/class/class-pp-roles-actions.php:416
 #: includes/roles/class/class-pp-roles-admin.php:244
 msgid ""
 "The default role cannot be disabled. Change the default role in WordPress "
@@ -3650,47 +3887,47 @@ msgstr ""
 "De standaardrol kan niet worden uitgeschakeld. Wijzig eerst de standaardrol "
 "in de WordPress instellingen."
 
-#: includes/roles/class/class-pp-roles-actions.php:472
+#: includes/roles/class/class-pp-roles-actions.php:488
 #, php-format
 msgid "%s role updated successfully."
 msgstr "%s rol succesvol geüpdatet."
 
-#: includes/roles/class/class-pp-roles-actions.php:546
+#: includes/roles/class/class-pp-roles-actions.php:560
 #, php-format
 msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
 msgstr ""
 "De standaard rol kan niet verwijderd worden. Je <a href=\"%s\">dient dit "
 "eerst aan te passen</a>."
 
-#: includes/roles/class/class-pp-roles-actions.php:565
+#: includes/roles/class/class-pp-roles-actions.php:579
 msgid "Deleting a system role is not allowed."
 msgstr "Het verwijderen van een systeem rol is niet toegestaan."
 
-#: includes/roles/class/class-pp-roles-actions.php:589
+#: includes/roles/class/class-pp-roles-actions.php:603
 #, php-format
 msgid "%1$d users moved to default role %2$s."
 msgstr "%1$d gebruikers verplaatst naar standaard rol %2$s."
 
-#: includes/roles/class/class-pp-roles-actions.php:594
+#: includes/roles/class/class-pp-roles-actions.php:608
 #, php-format
 msgid "The role %1$s was successfully deleted. %2$s"
 msgstr "De rol %1$s is succesvol verwijderd. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:600
+#: includes/roles/class/class-pp-roles-actions.php:614
 #, php-format
 msgid "The selected %1$s roles were successfully deleted. %2$s"
 msgstr "De geselecteerde %1$s rollen zijn verwijderd. %2$s"
 
-#: includes/roles/class/class-pp-roles-actions.php:622
+#: includes/roles/class/class-pp-roles-actions.php:636
 msgid "The role could not be deleted."
 msgstr "De rol kon niet worden verwijderd."
 
-#: includes/roles/class/class-pp-roles-actions.php:676
+#: includes/roles/class/class-pp-roles-actions.php:695
 #, php-format
 msgid "The role %1$s was successfully hidden."
 msgstr "De rol %1$s is met succes verborgen."
 
-#: includes/roles/class/class-pp-roles-actions.php:736
+#: includes/roles/class/class-pp-roles-actions.php:760
 #, php-format
 msgid "The role %1$s was successfully unhidden."
 msgstr "De rol %1$s is met succes ongedaan gemaakt."
@@ -3817,12 +4054,12 @@ msgstr ""
 msgid "Slug already exists"
 msgstr "Slug bestaat al"
 
-#: includes/roles/class/class-pp-roles-admin.php:384
+#: includes/roles/class/class-pp-roles-admin.php:385
 #. Translators: "Editor" means post editor like Gutenberg
 msgid "Select allowed editor"
 msgstr "Selecteer toegestane editor"
 
-#: includes/roles/class/class-pp-roles-admin.php:385
+#: includes/roles/class/class-pp-roles-admin.php:386
 #. Translators: "Editor" means post editor like Gutenberg
 msgid ""
 "You must select at least one editor for the role when managing allowed "
@@ -3831,21 +4068,21 @@ msgstr ""
 "Je moet minstens één redacteur selecteren voor de rol bij het beheer van "
 "toegestane editor."
 
-#: includes/roles/class/class-pp-roles-admin.php:414
+#: includes/roles/class/class-pp-roles-admin.php:415
 #, php-format
 msgid "Select %s"
 msgstr "Selecteer %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:437
+#: includes/roles/class/class-pp-roles-admin.php:438
 msgid "Read more on Role Level."
 msgstr "Lees meer op Rol niveau."
 
-#: includes/roles/class/class-pp-roles-admin.php:450
-#: includes/roles/roles-functions.php:33
+#: includes/roles/class/class-pp-roles-admin.php:451
+#: includes/roles/roles-functions.php:34
 msgid "Are you sure you want to delete this role?"
 msgstr "Weet je zeker dat je deze rol wilt verwijderen?"
 
-#: includes/roles/class/class-pp-roles-admin.php:533
+#: includes/roles/class/class-pp-roles-admin.php:536
 #, php-format
 msgid ""
 "%s role copied. Please click the \"Create Role\" button to create this new "
@@ -3854,33 +4091,33 @@ msgstr ""
 "%s rol gekopieerd. Klik op de knop \"Rol aanmaken\" om deze nieuwe rol aan "
 "te maken."
 
-#: includes/roles/class/class-pp-roles-admin.php:566
+#: includes/roles/class/class-pp-roles-admin.php:569
 #, php-format
 msgid "Edit Role: %s"
 msgstr "Bewerk rol: %s"
 
-#: includes/roles/class/class-pp-roles-admin.php:568
+#: includes/roles/class/class-pp-roles-admin.php:571
 msgid "Copy Role"
 msgstr "Kopieer rol"
 
-#: includes/roles/class/class-pp-roles-admin.php:570
+#: includes/roles/class/class-pp-roles-admin.php:573
 msgid "Create New Role"
 msgstr "Maak nieuwe rol"
 
-#: includes/roles/class/class-pp-roles-admin.php:574
+#: includes/roles/class/class-pp-roles-admin.php:577
 msgid "All Roles"
 msgstr "Alle rollen"
 
-#: includes/roles/class/class-pp-roles-admin.php:679
+#: includes/roles/class/class-pp-roles-admin.php:682
 #, php-format
 msgid "These can be edited on the %1s Capabilities screen %2s"
 msgstr "Deze kunnen worden bewerkt in het %1s Rechten scherm %2s"
 
-#: includes/roles/class/class-pp-roles-admin.php:707
+#: includes/roles/class/class-pp-roles-admin.php:710
 msgid "Load More"
 msgstr "Meer laden"
 
-#: includes/roles/class/class-pp-roles-admin.php:710
+#: includes/roles/class/class-pp-roles-admin.php:713
 msgid "Load Less"
 msgstr "Minder laden"
 
@@ -3952,43 +4189,48 @@ msgstr "(niet-bewerkbare rol)"
 msgid "Unhide"
 msgstr "Zichtbaar maken"
 
-#: includes/roles/class/class-pp-roles-list-table.php:353
+#: includes/roles/class/class-pp-roles-list-table.php:340
+#, php-format
+msgid "Select role %s"
+msgstr "Selecteer rol %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:359
 msgid "Your Role"
 msgstr "Je rol"
 
-#: includes/roles/class/class-pp-roles-list-table.php:357
+#: includes/roles/class/class-pp-roles-list-table.php:363
 msgid "Disabled"
 msgstr "Uitgeschakeld"
 
-#: includes/roles/class/class-pp-roles-list-table.php:417
+#: includes/roles/class/class-pp-roles-list-table.php:423
 msgid "WordPress Core"
 msgstr "WordPress core"
 
-#: includes/roles/class/class-pp-roles-list-table.php:711
+#: includes/roles/class/class-pp-roles-list-table.php:718
 msgid "Search Roles"
 msgstr "Zoek rollen"
 
-#: includes/settings-ui.php:56
+#: includes/settings-ui.php:53
 msgid "Multiples roles on \"Add New User\" screen"
 msgstr "Meerdere rollen op het scherm \"Nieuwe gebruiker toevoegen\""
 
-#: includes/settings-ui.php:61
+#: includes/settings-ui.php:58
 msgid "This allows you to assign a new user to multiples roles."
 msgstr "Hierdoor kun je een nieuwe gebruiker toewijzen aan meerdere rollen."
 
-#: includes/settings-ui.php:72
+#: includes/settings-ui.php:66
 msgid "Multiples roles on \"User Edit\" screen"
 msgstr "Meerdere rollen op het scherm \"Gebruiker bewerken\""
 
-#: includes/settings-ui.php:77
+#: includes/settings-ui.php:71
 msgid "This allows you to assign an existing user to multiple roles."
 msgstr "Hierdoor kun je een bestaande gebruiker aan meerdere rollen toewijzen."
 
-#: includes/settings-ui.php:88
+#: includes/settings-ui.php:79
 msgid "Set login redirect cookie"
 msgstr "Login omleiden cookie instellen"
 
-#: includes/settings-ui.php:93
+#: includes/settings-ui.php:84
 msgid ""
 "Use cookie to determine pages users were viewing before login. This is "
 "useful when login redirect is not working correctly due to wp_get_referer() "
@@ -3998,12 +4240,12 @@ msgstr ""
 "ze inlogden. Dit is handig als het omleiden bij de login niet goed werkt "
 "door de beperking van wp_get_referer()."
 
-#: includes/settings-ui.php:109
-#: includes/settings-ui.php:165
+#: includes/settings-ui.php:97
+#: includes/settings-ui.php:144
 msgid "Show private post types"
 msgstr "Toon privébericht typen"
 
-#: includes/settings-ui.php:114
+#: includes/settings-ui.php:102
 msgid ""
 "This will show all post types on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
@@ -4011,11 +4253,11 @@ msgstr ""
 "Dit zal alle berichttypen weergeven op het scherm \"Rechten\", zelfs als ze "
 "normaal verborgen zijn in het WordPress beheergebied."
 
-#: includes/settings-ui.php:125
+#: includes/settings-ui.php:110
 msgid "Show private taxonomies"
 msgstr "Toon privé taxonomieën"
 
-#: includes/settings-ui.php:130
+#: includes/settings-ui.php:115
 msgid ""
 "This will show all taxonomies on the \"Capabilities\" screen, even ones "
 "normally hidden in the WordPress admin area."
@@ -4023,11 +4265,11 @@ msgstr ""
 "Dit toont alle taxonomieën op het scherm \"Rechten\", zelfs degene die "
 "normaal verborgen zijn in het WordPress beheergebied."
 
-#: includes/settings-ui.php:141
+#: includes/settings-ui.php:123
 msgid "Application password capabilities"
 msgstr "Mogelijkheden van applicatiewachtwoord"
 
-#: includes/settings-ui.php:146
+#: includes/settings-ui.php:128
 msgid ""
 "Allow the Capabilities screen to deny selected capabilities for individual "
 "WordPress application passwords."
@@ -4035,7 +4277,7 @@ msgstr ""
 "Sta het scherm rechten toe om geselecteerde rechten te weigeren voor "
 "individuele WordPress applicatiewachtwoorden."
 
-#: includes/settings-ui.php:170
+#: includes/settings-ui.php:149
 msgid ""
 "Show all post types on the \"Editor Features\" screen, even ones normally "
 "hidden in the WordPress admin area."
@@ -4043,57 +4285,57 @@ msgstr ""
 "Toon alle berichttypes op het scherm \"Editor functies\", zelfs degenen die "
 "normaal verborgen zijn in het WordPress beheergebied."
 
-#: includes/settings-ui.php:181
+#: includes/settings-ui.php:157
 msgid "Enable Classic Editor tab"
 msgstr "Klassieke editor tab inschakelen"
 
-#: includes/settings-ui.php:186
+#: includes/settings-ui.php:162
 msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
 msgstr "Geef altijd de tab Klassieke editor weer in het scherm \"Editor functies\"."
 
-#: includes/settings-ui.php:202
+#: includes/settings-ui.php:175
 msgid "Admin Bar modification"
 msgstr "Aanpassing toolbar"
 
-#: includes/settings-ui.php:207
+#: includes/settings-ui.php:180
 msgid "When testing, display a caption and return link in the Admin Bar."
 msgstr ""
 "Geef tijdens het testen een bijschrift en een retour link weer in de "
 "toolbar."
 
-#: includes/settings-ui.php:218
+#: includes/settings-ui.php:188
 msgid "Admin Bar search"
 msgstr "Toolbar zoeken"
 
-#: includes/settings-ui.php:223
+#: includes/settings-ui.php:193
 msgid "Add option to search and user testing in the Admin Bar."
 msgstr "Optie toevoegen om te zoeken en gebruikers te testen in de toolbar."
 
-#: includes/settings-ui.php:234
+#: includes/settings-ui.php:201
 msgid "Front End footer notice"
 msgstr "Front-end footer bericht"
 
-#: includes/settings-ui.php:239
+#: includes/settings-ui.php:206
 msgid "When testing, display a return link in the front end footer."
 msgstr "Geef tijdens het testen een retourlink weer in de footer aan de front-end."
 
-#: includes/settings-ui.php:250
+#: includes/settings-ui.php:217
 msgid "Exclude role from User Testing"
 msgstr "Sluit rol uit van gebruiker testen"
 
-#: includes/settings-ui.php:257
+#: includes/settings-ui.php:224
 msgid "Select roles..."
 msgstr "Selecteer rollen..."
 
-#: includes/settings-ui.php:271
+#: includes/settings-ui.php:238
 msgid "Exclude users in selected roles from User Testing."
 msgstr "Sluit gebruiker in geselecteerde rollen uit van gebruiker testen."
 
-#: includes/settings-ui.php:288
+#: includes/settings-ui.php:252
 msgid "Automatically refresh profile elements"
 msgstr "Automatisch verversen van profiel elementen"
 
-#: includes/settings-ui.php:293
+#: includes/settings-ui.php:257
 msgid ""
 "Always try to automatically find profile elements. This may cause temporary "
 "issues when updating user roles that do not have access to the WordPress "
@@ -4108,61 +4350,200 @@ msgid "Capabilities Settings"
 msgstr "Rechten instellingen"
 
 #: includes/test-user-ui.php:52
+msgid "Search user"
+msgstr "Zoek gebruiker"
+
+#: includes/test-user-ui.php:53
 msgid "Search user..."
 msgstr "Zoek gebruiker..."
 
-#: includes/test-user-ui.php:53
+#: includes/test-user-ui.php:54
 msgid "Search"
 msgstr "Zoeken"
 
-#: includes/test-user-ui.php:70
+#: includes/test-user-ui.php:71
 msgid "No results found."
 msgstr "Niets gevonden."
 
-#: includes/test-user-ui.php:79
+#: includes/test-user-ui.php:80
 msgid "Permission denied."
 msgstr "Toestemming geweigerd."
 
-#: includes/test-user-ui.php:180
-#: includes/test-user-ui.php:204
+#: includes/test-user-ui.php:181
+#: includes/test-user-ui.php:205
 msgid "Test user"
 msgstr "Testgebruiker"
 
-#: includes/test-user-ui.php:210
+#: includes/test-user-ui.php:211
 msgid "Test this user"
 msgstr "Test deze gebruiker"
 
-#: includes/test-user-ui.php:255
+#: includes/test-user-ui.php:256
 msgid "Testing: "
 msgstr "Aan het testen: "
 
-#: includes/test-user-ui.php:269
+#: includes/test-user-ui.php:270
 #, php-format
 msgid "%1$sReturn to Administrator view%2$s"
 msgstr "%1$sTerug naar beheerdersweergave%2$s"
 
-#: includes/test-user-ui.php:316
+#: includes/test-user-ui.php:317
 #, php-format
 msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
 msgstr "Aan het testen als gebruiker: %1$s. %2$sTerug naar beheerdersweergave%3$s"
 
-#: includes/test-user.php:62
-msgid "Unable to retrieve user data."
-msgstr "Kan gebruikersgegevens niet ophalen."
+#: includes/user-capabilities-view.php:15
+msgid "Back to Users"
+msgstr "Terug naar Gebruikers"
 
-#: common/js/admin.dev.js:1077
+#: includes/user-capabilities-view.php:21
+#, php-format
+msgid "Viewing effective capabilities for %s."
+msgstr "Effectieve mogelijkheden voor %s bekijken."
+
+#: includes/user-capabilities-view.php:29
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: includes/user-capabilities-view.php:35
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/user-capabilities-view.php:41
+#: includes/user-capabilities-view.php:61
+msgid "Assigned Roles"
+msgstr "Toegewezen Rollen"
+
+#: includes/user-capabilities-view.php:47
+msgid "Network Access"
+msgstr "Netwerktoegang"
+
+#: includes/user-capabilities-view.php:48, fuzzy
+msgid "Super Admin"
+msgstr "Super Admin"
+
+#: includes/user-capabilities-view.php:53
+msgid "Granted Capabilities"
+msgstr "Toegekende Mogelijkheden"
+
+#: includes/user-capabilities-view.php:65
+msgid "This user has no assigned roles."
+msgstr "Deze gebruiker heeft geen toegewezen rollen."
+
+#: includes/user-capabilities-view.php:85
+#, php-format
+msgid "Granted Capabilities (%d)"
+msgstr "Toegekende mogelijkheden (%d)"
+
+#: includes/user-capabilities-view.php:90
+msgid ""
+"These include known capabilities WordPress grants through Super Admin "
+"access, role assignments, and direct overrides."
+msgstr ""
+"Dit omvat bekende mogelijkheden die WordPress verleent via Super "
+"Admin-toegang, roltoewijzingen en directe overschrijvingen."
+
+#: includes/user-capabilities-view.php:92
+msgid ""
+"These are the capabilities WordPress resolves for this user after role "
+"assignments and any direct overrides."
+msgstr ""
+"Dit zijn de mogelijkheden die WordPress voor deze gebruiker vaststelt na "
+"roltoewijzingen en eventuele directe overschrijvingen."
+
+#: includes/user-capabilities-view.php:96
+msgid "This user has no granted capabilities."
+msgstr "Deze gebruiker heeft geen toegewezen mogelijkheden."
+
+#: includes/user-capabilities-view.php:99
+msgid "Search granted capabilities"
+msgstr "Zoek toegekende mogelijkheden"
+
+#: includes/user-capabilities-view.php:105
+msgid "Search granted capabilities..."
+msgstr "Zoek toegekende mogelijkheden..."
+
+#: includes/user-capabilities-view.php:111
+msgid "Type to filter this capability list."
+msgstr "Typ om deze mogelijkhedenlijst te filteren."
+
+#: includes/user-capabilities-view.php:119
+msgid "No granted capabilities match your search."
+msgstr "Geen toegekende mogelijkheden komen overeen met uw zoekopdracht."
+
+#: includes/user-capabilities-view.php:128
+#, php-format
+msgid "Denied Capabilities (%d)"
+msgstr "Geweigerde mogelijkheden (%d)"
+
+#: includes/user-capabilities-view.php:143
+msgid "Direct User Overrides"
+msgstr "Directe gebruikersoverschrijvingen"
+
+#: includes/user-capabilities-view.php:146
+msgid ""
+"These entries are stored directly on the user account instead of coming "
+"from a role."
+msgstr ""
+"Deze vermeldingen worden rechtstreeks op het gebruikersaccount opgeslagen "
+"in plaats van afkomstig te zijn van een rol."
+
+#: includes/user-capabilities-view.php:176
+msgid ""
+"Direct Permissions settings for this user. These are separate from "
+"WordPress role capabilities."
+msgstr ""
+"Directe permissie-instellingen voor deze gebruiker. Deze zijn afzonderlijk "
+"van de WordPress rolmogelijkheden."
+
+#: includes/user-capabilities-view.php:182
+#, php-format
+msgid "Extra Roles (%d)"
+msgstr "Extra rollen (%d)"
+
+#: includes/user-capabilities-view.php:189
+msgid "This user has no direct extra roles."
+msgstr "Deze gebruiker heeft geen directe extra rollen."
+
+#: includes/user-capabilities-view.php:204
+#, php-format
+msgid "Specific Permissions (%d)"
+msgstr "Specifieke permissies (%d)"
+
+#: includes/user-capabilities-view.php:211
+msgid "This user has no direct specific permissions."
+msgstr "Deze gebruiker heeft geen directe specifieke permissies."
+
+#: includes/user-capabilities-view.php:226
+#, php-format
+msgid ""
+"Showing the first 50 of %d permissions. Use the Permissions editor to view "
+"the full list."
+msgstr ""
+"De eerste 50 van %d permissies worden weergegeven. Gebruik de "
+"permissie-editor om de volledige lijst te bekijken."
+
+#: includes/user-capabilities-view.php:238
+msgid "Edit Extra Roles"
+msgstr "Extra rollen bewerken"
+
+#: includes/user-capabilities-view.php:243
+msgid "Edit Specific Permissions"
+msgstr "Specifieke permissies bewerken"
+
+#: common/js/admin.dev.js:1118
 msgid "Updating Settings..."
 msgstr "Instellingen bijwerken..."
 
-#: common/js/admin.dev.js:1113
+#: common/js/admin.dev.js:1154
 msgid "Updating access..."
 msgstr "Toegang bijwerken..."
 
-#: common/js/admin.dev.js:1132
-#: common/js/admin.dev.js:1137
+#: common/js/admin.dev.js:1173
+#: common/js/admin.dev.js:1178
 msgid "Error updating access."
 msgstr "Fout bij het bijwerken van toegang."
 
-#: common/js/admin.dev.js:1237
+#: common/js/admin.dev.js:1278
 msgid " Error: changes can't be saved."
 msgstr "Fout: wijzigingen kunnen niet worden opgeslagen."
