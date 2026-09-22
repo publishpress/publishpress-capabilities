@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-02-10 14:41+0000\n"
-"PO-Revision-Date: 2026-09-21 13:22+0000\n"
+"PO-Revision-Date: 2026-09-22 14:15+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: capability-manager-enhanced\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -68,7 +68,7 @@ msgstr "Este plugin pode ser excluído."
 #: includes-core/admin-features-promo.php:107
 #: includes-core/admin-features-promo.php:122
 msgid "Preview feature restriction"
-msgstr "Restrição de recurso de visualização"
+msgstr "Restrição do recurso de pré-visualização"
 
 #: includes-core/admin-features-promo.php:74
 msgid ""
@@ -84,7 +84,7 @@ msgstr ""
 #: includes-core/CoreAdmin.php:56
 #: includes-core/editor-features-promo.php:79
 #: includes-core/frontend-features-promo.php:32
-#: includes/admin-load.php:1753
+#: includes/admin-load.php:1773
 #: includes/features/admin-styles/admin-styles-ui.php:353
 msgid "Upgrade to Pro"
 msgstr "Atualizar para Pro"
@@ -96,7 +96,7 @@ msgstr "Restrições do menu administrativo"
 #: includes-core/admin-menus-promo.php:54
 #: includes-core/admin-menus-promo.php:55
 msgid "Admin Menus feature preview"
-msgstr "Visualização de recurso de Menus de Admin"
+msgstr "Pré-visualização do recurso de menus administrativos"
 
 #: includes-core/admin-menus-promo.php:58
 msgid ""
@@ -172,7 +172,7 @@ msgstr "Metaboxes"
 #: includes-core/editor-features-promo.php:104
 #: includes-core/editor-features-promo.php:114
 msgid "Preview editor feature restriction"
-msgstr "Restrição de recurso de editor de visualização"
+msgstr "Restrição do recurso de pré-visualização do editor"
 
 #: includes-core/editor-features-promo.php:36
 msgid "Checklist"
@@ -254,9 +254,9 @@ msgid "No results match"
 msgstr "Nenhum resultado encontrado"
 
 #: includes/admin-load.php:544
-#: includes/admin-load.php:1548
-#: includes/admin-load.php:1561
-#: includes/admin-load.php:1766
+#: includes/admin-load.php:1568
+#: includes/admin-load.php:1581
+#: includes/admin-load.php:1786
 #: includes/functions-admin.php:414
 #: includes/functions-admin.php:500
 #: includes/manager.php:442
@@ -292,7 +292,7 @@ msgid "Changes saved!"
 msgstr "Alterações salvas!"
 
 #: includes/admin-load.php:742
-#: includes/admin-notices/admin-notices.php:262
+#: includes/admin-notices/admin-notices.php:265
 #: includes/features/frontend-features/frontend-features-action.php:41
 #: includes/features/frontend-features/frontend-features-action.php:110
 #: includes/features/restrict-profile-features.php:29
@@ -329,34 +329,34 @@ msgstr "Restrição de menu do PublishPress Capabilities"
 
 #: includes/admin-load.php:1027
 msgid "Hide this menu item for the selected roles."
-msgstr "Oculte este item de menu para os papéis selecionados."
+msgstr "Ocultar este item do menu, para as funções selecionadas."
 
 #: includes/admin-load.php:1035
 msgid "Search roles"
-msgstr "Pesquisar papéis"
+msgstr "Pesquisar funções"
 
 #: includes/admin-load.php:1041
 msgid "Search by role name"
-msgstr "Pesquisar por nome de papel"
+msgstr "Pesquisar pelo nome da função"
 
 #: includes/admin-load.php:1045
 msgid "No roles match your search."
-msgstr "Nenhum papel corresponde à sua pesquisa."
+msgstr "Nenhuma função corresponde à sua pesquisa."
 
 #: includes/admin-load.php:1046
 msgid "role shown"
-msgstr "papel mostrado"
+msgstr "função exibida"
 
 #: includes/admin-load.php:1047
 msgid "roles shown"
-msgstr "papéis mostrados"
+msgstr "funções exibidas"
 
 #: includes/admin-load.php:1070
 #, php-format
 msgid "Need a role-by-role overview? %1$sOpen Navigation Menu Restrictions%2$s."
 msgstr ""
-"Precisa de uma visão geral papel por papel? %1$sAbra as Restrições do Menu "
-"de Navegação%2$s."
+"Precisa de uma visão geral função por função? %1$sAbrir restrições do menu "
+"de navegação%2$s."
 
 #: includes/admin-load.php:1281
 msgid "Permission"
@@ -364,7 +364,7 @@ msgstr "Permissão"
 
 #: includes/admin-load.php:1283
 msgid "Enabled"
-msgstr "Habilitado"
+msgstr "Ativado"
 
 #: includes/admin-load.php:1284
 msgid "Blocked"
@@ -379,9 +379,9 @@ msgid "All content"
 msgstr "Todo o conteúdo"
 
 #: includes/admin-load.php:1326
-#, fuzzy, php-format
+#, php-format
 msgid "Item #%d"
-msgstr "Item #%d"
+msgstr "Item nº %d"
 
 #: includes/admin-load.php:1328
 #, fuzzy, php-format
@@ -395,30 +395,31 @@ msgstr "%s: todos os itens"
 
 #: includes/admin-load.php:1529
 #: includes/admin-load.php:1530
+#: includes/admin-load.php:1556
 #: includes/user-capabilities-view.php:14
 msgid "User Capabilities"
-msgstr "Capacidades do Usuário"
+msgstr "Permissões do usuário"
 
-#: includes/admin-load.php:1564
+#: includes/admin-load.php:1584
 msgid "View Capabilities"
-msgstr "Ver Capacidades"
+msgstr "Ver permissões"
 
-#: includes/admin-load.php:1700
-#: includes/admin-load.php:1715
+#: includes/admin-load.php:1720
+#: includes/admin-load.php:1735
 msgid "You do not have permission to view user capabilities."
-msgstr "Você não tem permissão para ver as capacidades do usuário."
+msgstr "Você não tem permissão para visualizar as permissões do usuário."
 
-#: includes/admin-load.php:1710
+#: includes/admin-load.php:1730
 #: includes/test-user.php:62
 msgid "Unable to retrieve user data."
 msgstr "Não foi possível recuperar os dados do usuário."
 
-#: includes/admin-load.php:1765
+#: includes/admin-load.php:1785
 #: includes/dashboard.php:23
 msgid "Dashboard"
 msgstr "Painel"
 
-#: includes/admin-load.php:1767
+#: includes/admin-load.php:1787
 #: includes/admin.php:177
 #: includes/functions-admin.php:409
 #: includes/functions-admin.php:493
@@ -427,7 +428,7 @@ msgstr "Painel"
 msgid "Roles"
 msgstr "Funções"
 
-#: includes/admin-load.php:1768
+#: includes/admin-load.php:1788
 msgid "Settings"
 msgstr "Configurações"
 
@@ -452,9 +453,9 @@ msgid "Current Role"
 msgstr "Função atual"
 
 #: includes/admin-notices/admin-notices-settings.php:33
-#: includes/admin-notices/admin-notices.php:209
-#: includes/admin-notices/admin-notices.php:247
+#: includes/admin-notices/admin-notices.php:212
 #: includes/admin-notices/admin-notices.php:250
+#: includes/admin-notices/admin-notices.php:253
 #: includes/functions-admin.php:239
 #: includes/functions-admin.php:459
 #: includes/functions-admin.php:528
@@ -596,39 +597,39 @@ msgstr ""
 "Esta notificação será movida para a aba “Notificações silenciadas” e você "
 "não irá receber uma notificação se ela aparecer novamente."
 
-#: includes/admin-notices/admin-notices.php:234
+#: includes/admin-notices/admin-notices.php:237
 msgid "Hidden Notices"
 msgstr "Notificações ocultas"
 
-#: includes/admin-notices/admin-notices.php:238
+#: includes/admin-notices/admin-notices.php:241
 msgid "Silenced Notices"
 msgstr "Notificações silenciadas"
 
-#: includes/admin-notices/admin-notices.php:248
+#: includes/admin-notices/admin-notices.php:251
 msgid "There are currently no admin notices."
 msgstr "No momento, não há notificações administrativas."
 
-#: includes/admin-notices/admin-notices.php:248
+#: includes/admin-notices/admin-notices.php:251
 msgid "Edit the settings."
 msgstr "Editar as configurações."
 
-#: includes/admin-notices/admin-notices.php:271
+#: includes/admin-notices/admin-notices.php:274
 #: includes/manager.php:830
 #: includes/manager.php:854
 msgid "You do not have permission to manage admin notices."
 msgstr "Você não tem permissão para gerenciar notificações administrativas."
 
-#: includes/admin-notices/admin-notices.php:273
+#: includes/admin-notices/admin-notices.php:276
 #: includes/features/frontend-features/frontend-features-action.php:56
 #: includes/features/frontend-features/frontend-features-action.php:119
 msgid "Invalid action. Reload this page and try again."
 msgstr "Ação inválida. Recarregue esta página e tente novamente."
 
-#: includes/admin-notices/admin-notices.php:275
+#: includes/admin-notices/admin-notices.php:278
 msgid "Invalid form."
 msgstr "Formulário inválido."
 
-#: includes/admin-notices/admin-notices.php:299
+#: includes/admin-notices/admin-notices.php:302
 msgid "Admin notice status updated successfully."
 msgstr "Status da notificação administrativa atualizado."
 
@@ -638,8 +639,8 @@ msgid ""
 "Warning: This role cannot access the dashboard without the read capability. "
 "%1$sGrant the read capability and save%2$s."
 msgstr ""
-"Aviso: Este papel não pode acessar o dashboard sem a capacidade de leitura. "
-"%1$sConceda a capacidade de leitura e salve%2$s."
+"Atenção: esta função não pode acessar o painel sem a permissão de leitura. "
+"%1$sConceda a permissão de leitura e salve%2$s."
 
 #: includes/admin.php:110
 msgid "Role Capabilities"
@@ -647,7 +648,7 @@ msgstr "Permissões da função"
 
 #: includes/admin.php:149
 msgid "Search capabilities"
-msgstr "Pesquisar capacidades"
+msgstr "Pesquisar permissões"
 
 #: includes/admin.php:152
 msgid "Search capabilities..."
@@ -655,7 +656,7 @@ msgstr "Pesquisar permissões…"
 
 #: includes/admin.php:165
 msgid "Role to edit"
-msgstr "Papel para editar"
+msgstr "Função a ser editada"
 
 #: includes/admin.php:168
 msgid "Application Passwords"
@@ -804,7 +805,7 @@ msgstr "Clique para conceder, limpar ou negar permissões em todas as abas."
 
 #: includes/admin.php:543
 msgid "Capability sections"
-msgstr "Seções de capacidades"
+msgstr "Seções de permissões"
 
 #: includes/admin.php:716
 #: includes/admin.php:1244
@@ -868,12 +869,12 @@ msgstr "marcar / desmarcar / negar tudo"
 
 #: includes/admin.php:871
 msgid "Grant, clear, or deny all capabilities in this table"
-msgstr "Conceder, limpar ou negar todas as capacidades nesta tabela"
+msgstr "Conceder, limpar ou negar todas as permissões nesta tabela"
 
 #: includes/admin.php:900
 #, php-format
 msgid "Toggle all %s capabilities"
-msgstr "Alternar todas as %s capacidades"
+msgstr "Alternar todas as permissões de %s"
 
 #: includes/admin.php:984
 #: includes/pp-ui.php:263
@@ -891,7 +892,7 @@ msgstr "O slug para este tipo de post é %s"
 #: includes/admin.php:999
 #, php-format
 msgid "Toggle all capabilities for %s"
-msgstr "Alternar todas as capacidades para %s"
+msgstr "Alternar todas as permissões de %s"
 
 #: includes/admin.php:1063
 #: includes/admin.php:1314
@@ -953,7 +954,7 @@ msgstr ""
 #: includes/admin.php:1541
 #: includes/admin.php:1811
 msgid "Filter capabilities in this section"
-msgstr "Filtrar capacidades nesta seção"
+msgstr "Filtrar as permissões nesta seção"
 
 #: includes/admin.php:1267
 #: includes/admin.php:1383
@@ -1067,7 +1068,7 @@ msgstr "Como usar o plugin Capabilities"
 
 #: includes/admin.php:2047
 msgid "Toggle How to use Capabilities panel"
-msgstr "Alternar painel Como usar Capacidades"
+msgstr "Alternar o painel “Como usar o plugin Capabilities”"
 
 #: includes/admin.php:2083
 msgid "Capabilities is Safe to Use"
@@ -1075,7 +1076,7 @@ msgstr "O Capabilities é seguro para uso"
 
 #: includes/admin.php:2086
 msgid "Toggle Capabilities is Safe to Use panel"
-msgstr "Alternar painel Capacidades é Seguro Usar"
+msgstr "Alternar o painel “O Capabilities é seguro para uso”"
 
 #: includes/admin.php:2097
 msgid ""
@@ -1104,11 +1105,11 @@ msgstr "Adicionar uma nova permissão"
 
 #: includes/admin.php:2124
 msgid "Toggle Add a New Capability panel"
-msgstr "Alternar painel Adicionar uma Nova Capacidade"
+msgstr "Alternar o painel “Adicionar uma nova permissão”"
 
 #: includes/admin.php:2131
 msgid "New capability name"
-msgstr "Nome da nova capacidade"
+msgstr "Nome da nova permissão"
 
 #: includes/admin.php:2133
 msgid "Add to role"
@@ -1120,7 +1121,7 @@ msgstr "Novas permissões são controladas na aba \"Adicional\"."
 
 #: includes/admin.php:2156
 msgid "Toggle Multisite panel"
-msgstr "Alternar painel Multisite"
+msgstr "Alternar o painel Multisite"
 
 #: includes/admin.php:2194
 #: includes/user-capabilities-view.php:172
@@ -1137,7 +1138,7 @@ msgstr ""
 
 #: includes/admin.php:2197
 msgid "Watch the post type capabilities tutorial"
-msgstr "Assista ao tutorial de capacidades do post type"
+msgstr "Assista ao tutorial sobre permissões dos tipos de posts"
 
 #: includes/admin.php:2200
 msgid "Assign standard WP roles supplementally for a specific post type"
@@ -1147,7 +1148,7 @@ msgstr ""
 
 #: includes/admin.php:2201
 msgid "Watch the supplemental role tutorial"
-msgstr "Assista ao tutorial de papel suplementar"
+msgstr "Assista ao tutorial sobre funções complementares"
 
 #: includes/admin.php:2204
 msgid ""
@@ -1163,7 +1164,7 @@ msgstr "Personalizar as permissões de leitura por categoria ou por post"
 
 #: includes/admin.php:2209
 msgid "Watch the category permissions tutorial"
-msgstr "Assista ao tutorial de permissões de categoria"
+msgstr "Assista ao tutorial sobre permissões de categorias"
 
 #: includes/admin.php:2212
 msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
@@ -1173,7 +1174,7 @@ msgstr ""
 
 #: includes/admin.php:2213
 msgid "Watch the page editing permissions tutorial"
-msgstr "Assista ao tutorial de permissões de edição de página"
+msgstr "Assista ao tutorial sobre permissões de edição de páginas"
 
 #: includes/admin.php:2216
 msgid ""
@@ -1185,7 +1186,7 @@ msgstr ""
 
 #: includes/admin.php:2217
 msgid "Watch the custom post visibility tutorial"
-msgstr "Assista ao tutorial de visibilidade de postagens personalizadas"
+msgstr "Assista ao tutorial sobre visibilidade de posts personalizados"
 
 #: includes/admin.php:2220
 msgid ""
@@ -1197,7 +1198,7 @@ msgstr ""
 
 #: includes/admin.php:2221
 msgid "Watch the multi-step moderation tutorial"
-msgstr "Assista ao tutorial de moderação em múltiplas etapas"
+msgstr "Assista ao tutorial sobre moderação em várias etapas"
 
 #: includes/admin.php:2224
 msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
@@ -1219,7 +1220,7 @@ msgstr ""
 
 #: includes/admin.php:2229
 msgid "Watch the published content revisions tutorial"
-msgstr "Assista ao tutorial de revisões de conteúdo publicado"
+msgstr "Assista ao tutorial sobre revisões de conteúdo publicado"
 
 #: includes/admin.php:2232
 msgid ""
@@ -1237,7 +1238,7 @@ msgstr ""
 
 #: includes/admin.php:2237
 msgid "Watch the BuddyPress content permissions tutorial"
-msgstr "Assista ao tutorial de permissões de conteúdo do BuddyPress"
+msgstr "Assista ao tutorial sobre permissões de conteúdo do BuddyPress"
 
 #: includes/admin.php:2240
 msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
@@ -1884,7 +1885,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:539
 msgid "Admin logo preview"
-msgstr "Pré-visualização do logo do admin"
+msgstr "Pré-visualização do logo do administrador"
 
 #: includes/features/admin-styles/admin-styles-ui.php:545
 #: includes/features/admin-styles/admin-styles-ui.php:581
@@ -1906,7 +1907,7 @@ msgstr ""
 
 #: includes/features/admin-styles/admin-styles-ui.php:574
 msgid "Admin favicon preview"
-msgstr "Pré-visualização do favicon do admin"
+msgstr "Pré-visualização do favicon do administrador"
 
 #: includes/features/admin-styles/admin-styles-ui.php:595
 msgid "Admin Font Family"
@@ -3391,7 +3392,7 @@ msgstr "Nenhuma correspondência encontrada para “%s”"
 #: includes/manager.php:571
 #: includes/roles/class/class-pp-roles-list-table.php:178
 msgid "Select all roles"
-msgstr "Selecionar todos os papéis"
+msgstr "Selecionar todas as funções"
 
 #: includes/manager.php:572
 #: includes/roles/class/class-pp-roles-admin.php:172
@@ -4227,7 +4228,7 @@ msgstr "Mostrar"
 #: includes/roles/class/class-pp-roles-list-table.php:340
 #, php-format
 msgid "Select role %s"
-msgstr "Selecionar papel %s"
+msgstr "Selecione a função %s"
 
 #: includes/roles/class/class-pp-roles-list-table.php:359
 msgid "Your Role"
@@ -4430,37 +4431,37 @@ msgstr ""
 
 #: includes/user-capabilities-view.php:15
 msgid "Back to Users"
-msgstr "Voltar para Usuários"
+msgstr "Voltar aos usuários"
 
 #: includes/user-capabilities-view.php:21
 #, php-format
 msgid "Viewing effective capabilities for %s."
-msgstr "Visualizando capacidades efetivas para %s."
+msgstr "Visualizando as permissões efetivas para %s."
 
 #: includes/user-capabilities-view.php:29
 msgid "Username"
 msgstr "Nome de usuário"
 
-#: includes/user-capabilities-view.php:35, fuzzy
+#: includes/user-capabilities-view.php:35
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 #: includes/user-capabilities-view.php:41
 #: includes/user-capabilities-view.php:61
 msgid "Assigned Roles"
-msgstr "Papéis Atribuídos"
+msgstr "Funções atribuídas"
 
 #: includes/user-capabilities-view.php:47
 msgid "Network Access"
-msgstr "Acesso à Rede"
+msgstr "Acesso à rede"
 
-#: includes/user-capabilities-view.php:48, fuzzy
+#: includes/user-capabilities-view.php:48
 msgid "Super Admin"
-msgstr "Super Admin"
+msgstr "Super administrador"
 
 #: includes/user-capabilities-view.php:53
 msgid "Granted Capabilities"
-msgstr "Capacidades Concedidas"
+msgstr "Permissões concedidas"
 
 #: includes/user-capabilities-view.php:65
 msgid "This user has no assigned roles."
@@ -4469,82 +4470,83 @@ msgstr "Este usuário não tem funções atribuídas."
 #: includes/user-capabilities-view.php:85
 #, php-format
 msgid "Granted Capabilities (%d)"
-msgstr "Capacidades concedidas (%d)"
+msgstr "Permissões concedidas (%d)"
 
 #: includes/user-capabilities-view.php:90
 msgid ""
 "These include known capabilities WordPress grants through Super Admin "
 "access, role assignments, and direct overrides."
 msgstr ""
-"Estas incluem capacidades conhecidas que o WordPress concede através do "
-"acesso de Super Admin, atribuições de funções e substituições diretas."
+"Isso inclui as permissões conhecidas do WordPress concedidas através do "
+"acesso de super administrador, atribuições de funções e substituições "
+"diretas."
 
 #: includes/user-capabilities-view.php:92
 msgid ""
 "These are the capabilities WordPress resolves for this user after role "
 "assignments and any direct overrides."
 msgstr ""
-"Estas são as capacidades que o WordPress resolve para este usuário após as "
-"atribuições de funções e quaisquer substituições diretas."
+"Estas são as permissões que o WordPress atribui a este usuário, após a "
+"atribuição de funções e quaisquer substituições diretas."
 
 #: includes/user-capabilities-view.php:96
 msgid "This user has no granted capabilities."
-msgstr "Este usuário não tem capacidades concedidas."
+msgstr "Este usuário não tem permissões concedidas."
 
 #: includes/user-capabilities-view.php:99
 msgid "Search granted capabilities"
-msgstr "Buscar capacidades concedidas"
+msgstr "Pesquisar permissões concedidas"
 
 #: includes/user-capabilities-view.php:105
 msgid "Search granted capabilities..."
-msgstr "Buscar capacidades concedidas..."
+msgstr "Pesquisar permissões concedidas…"
 
 #: includes/user-capabilities-view.php:111
 msgid "Type to filter this capability list."
-msgstr "Digite para filtrar esta lista de capacidades."
+msgstr "Digite para filtrar esta lista de permissões."
 
 #: includes/user-capabilities-view.php:119
 msgid "No granted capabilities match your search."
-msgstr "Nenhuma capacidade concedida corresponde à sua busca."
+msgstr "Nenhuma permissão concedida corresponde à sua pesquisa."
 
 #: includes/user-capabilities-view.php:128
 #, php-format
 msgid "Denied Capabilities (%d)"
-msgstr "Capacidades negadas (%d)"
+msgstr "Permissões negadas (%d)"
 
 #: includes/user-capabilities-view.php:143
 msgid "Direct User Overrides"
-msgstr "Substituições Diretas do Usuário"
+msgstr "Substituições diretas do usuário"
 
 #: includes/user-capabilities-view.php:146
 msgid ""
 "These entries are stored directly on the user account instead of coming "
 "from a role."
 msgstr ""
-"Estas entradas são armazenadas diretamente na conta do usuário em vez de "
-"virem de uma função."
+"Estas entradas são armazenadas diretamente na conta do usuário, em vez de "
+"serem atribuídas por uma função."
 
 #: includes/user-capabilities-view.php:176
 msgid ""
 "Direct Permissions settings for this user. These are separate from "
 "WordPress role capabilities."
 msgstr ""
-"Configurações de Permissões Diretas para este usuário. Estas são separadas "
-"das capacidades de função do WordPress."
+"Configurações de permissões diretas para este usuário. Elas são separadas "
+"das permissões das funções do WordPress."
 
 #: includes/user-capabilities-view.php:182
 #, php-format
 msgid "Extra Roles (%d)"
-msgstr "Funções Extras (%d)"
+msgstr "Funções adicionais (%d)"
 
 #: includes/user-capabilities-view.php:189
 msgid "This user has no direct extra roles."
-msgstr "Este usuário não tem funções extras diretas."
+msgstr "Este usuário não tem funções adicionais diretas."
 
 #: includes/user-capabilities-view.php:204
 #, php-format
 msgid "Specific Permissions (%d)"
-msgstr "Permissões Específicas (%d)"
+msgstr "Permissões específicas (%d)"
 
 #: includes/user-capabilities-view.php:211
 msgid "This user has no direct specific permissions."
@@ -4556,16 +4558,16 @@ msgid ""
 "Showing the first 50 of %d permissions. Use the Permissions editor to view "
 "the full list."
 msgstr ""
-"Exibindo os primeiros 50 de %d permissões. Use o editor de Permissões para "
-"ver a lista completa."
+"Exibindo as primeiras 50 de %d permissões. Use o editor de permissões para "
+"visualizar a lista completa."
 
 #: includes/user-capabilities-view.php:238
 msgid "Edit Extra Roles"
-msgstr "Editar Funções Extras"
+msgstr "Editar funções adicionais"
 
 #: includes/user-capabilities-view.php:243
 msgid "Edit Specific Permissions"
-msgstr "Editar Permissões Específicas"
+msgstr "Editar permissões específicas"
 
 #: common/js/admin.dev.js:1118
 msgid "Updating Settings..."
