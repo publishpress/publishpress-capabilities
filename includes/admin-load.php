@@ -1525,7 +1525,7 @@ class PP_Capabilities_Admin_UI {
             return;
         }
 
-        add_users_page(
+        $hook_suffix = add_users_page(
             __('User Capabilities', 'capability-manager-enhanced'),
             __('User Capabilities', 'capability-manager-enhanced'),
             'read',
@@ -1533,7 +1533,27 @@ class PP_Capabilities_Admin_UI {
             [$this, 'userCapabilitiesPage']
         );
 
+        if ($hook_suffix) {
+            add_action('load-' . $hook_suffix, [$this, 'setUserCapabilitiesPageTitle']);
+        }
+
         remove_submenu_page('users.php', 'pp-capabilities-user-view');
+    }
+
+    /**
+     * Set the title for the hidden user capabilities page.
+     *
+     * Removing the submenu entry prevents WordPress from resolving the page title from
+     * the submenu globals, so the title must be set before admin-header.php is loaded.
+     *
+     * @return void
+     */
+    public function setUserCapabilitiesPageTitle()
+    {
+        global $title;
+
+        // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- WordPress expects plugin pages to set this global before loading the admin header.
+        $title = __('User Capabilities', 'capability-manager-enhanced');
     }
 
     public function addUserCapabilitiesRowAction($actions, $user)

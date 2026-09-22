@@ -125,7 +125,10 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
             $admin_notices = (string) ob_get_clean();
 
-            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . wp_kses_post($admin_notices) . '</div>';
+            // Admin notice hooks are a trusted plugin-code boundary. Preserve their output so
+            // third-party notice scripts, styles, and action buttons keep working as registered.
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output comes directly from registered admin notice callbacks.
+            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $admin_notices . '</div>';
         }
 
         /**

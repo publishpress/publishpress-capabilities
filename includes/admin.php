@@ -483,8 +483,8 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							})
 							.length;
 
-						// Remove existing count and title wrapper if present
-						$tab.find('.pp-capabilities-count-indicator').remove();
+						// Remove the existing count container so repeated updates do not leave empty wrappers.
+						$tab.children('.pp-capabilities-count-container').remove();
 						$tab.find('.tab-title').contents().unwrap();
 
 						// Wrap existing text in title span
