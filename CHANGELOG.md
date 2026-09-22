@@ -1,6 +1,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.52.0] - 22 September, 2026
+
+- Fixed : Issue with search for capabilities on the Capabilities screen, #1833
+- Fixed : Deprecated: strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated, #1830
+- Fixed : Capabilities Screen buttons, #1832
+- Fixed : Preserve scripts and styles in admin notices, #1838
+
 [2.51.0] - 21 September, 2026
 
 - Fixed : Performance: enqueue minified admin assets, #1820
