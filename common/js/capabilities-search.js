@@ -166,14 +166,12 @@ jQuery(document).ready(function ($) {
     }
 
     function updateTabWithCount($tab, count) {
-        var originalText = $tab.text().replace(/\s*\(\d+\)$/, '').replace(/\s*\d+$/, '');
-
         // Remove any existing count
-        $tab.find('.search-count').remove();
+        $tab.children('.pp-capabilities-count-container').find('.search-count').remove();
 
         if (count > 0) {
             // Add colored count badge
-            $tab.find('.pp-capabilities-count-container').append('<span class="search-count">' + count + '</span>');
+            $tab.children('.pp-capabilities-count-container').append('<span class="search-count">' + count + '</span>');
         }
     }
 
