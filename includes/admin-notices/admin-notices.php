@@ -125,28 +125,10 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
             $admin_notices = (string) ob_get_clean();
 
-            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- sanitize_admin_notices() applies wp_kses_post().
-            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $this->sanitize_admin_notices($admin_notices) . '</div>';
-        }
-
-        /**
-         * Sanitize captured admin notice markup without exposing stripped code as text.
-         *
-         * wp_kses_post() removes script and style tags but preserves their contents. Remove
-         * those complete elements first so inline code cannot appear visibly in wp-admin.
-         *
-         * @param string $admin_notices Captured admin notice markup.
-         * @return string
-         */
-        private function sanitize_admin_notices($admin_notices)
-        {
-            $admin_notices = preg_replace(
-                '#<(script|style)\b[^>]*>.*?</\1\s*>#is',
-                '',
-                (string) $admin_notices
-            );
-
-            return wp_kses_post($admin_notices);
+            // Admin notice hooks are a trusted plugin-code boundary. Preserve their output so
+            // third-party notice scripts, styles, and action buttons keep working as registered.
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output comes directly from registered admin notice callbacks.
+            echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $admin_notices . '</div>';
         }
 
         /**
