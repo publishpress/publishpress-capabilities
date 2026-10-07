@@ -9,13 +9,21 @@
     z-index: 99999;
     overflow-y: auto;
     padding: 10px;
-    transition: right 0.3s ease-in-out;
+    visibility: hidden;
+    transition: right 0.3s ease-in-out, visibility 0s linear 0.3s;
     scrollbar-color: rgb(51, 51, 51, 0.3) rgb(255, 255, 255);
     scrollbar-width: thin;
 }
 
 #ppc-admin-notices-panel.open {
     right: 0;
+    visibility: visible;
+    transition: right 0.3s ease-in-out, visibility 0s linear 0s;
+}
+
+#ppc-admin-notices-panel:focus {
+    outline: 2px solid #72aee6;
+    outline-offset: -2px;
 }
 
 .ppc-admin-notices-toolbar-item.hidden {
@@ -42,7 +50,7 @@
 #wpadminbar .ppc-admin-notices-count .warning-counter,
 #wpadminbar .ppc-admin-notices-count .info-counter {
     border-radius: 9px;
-    background-color: #00a32a;
+    background-color: #008a20;
     color: #fff;
     font-size: 11px;
     padding: 4px 7px 4px 6px;
@@ -56,10 +64,11 @@
 
 #wpadminbar .ppc-admin-notices-count .warning-counter {
     background-color: #dba617;
+    color: #1d2327;
 }
 
 #wpadminbar .ppc-admin-notices-count .info-counter {
-    background-color: #72aee6;
+    background-color: #2271b1;
 }
 
 .ppc-admin-notices-panel-content {
@@ -155,9 +164,30 @@
     box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 0 56px rgb(0 0 0 / 8%);
 }
 
+.ppc-tool-tip .ppc-tool-tip-button {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.ppc-tool-tip .ppc-tool-tip-button:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: 1px;
+    box-shadow: none;
+}
+
 .ppc-tool-tip:not(.click-tooltip):hover .tool-tip-text,
+.ppc-tool-tip:not(.click-tooltip):focus-within .tool-tip-text,
 .ppc-tool-tip.is-active .tool-tip-text {
     display: block;
+}
+
+.ppc-tool-tip.is-dismissed .tool-tip-text {
+    display: none !important;
 }
 
 .ppc-tool-tip .tool-tip-text i {
@@ -226,8 +256,8 @@
 }
 
 #ppc-admin-notices-panel .admin-notices-button-group label.selected {
-    border-color: #00d084;
-    background: #00d084;
+    border-color: #007a3d;
+    background: #007a3d;
     color: #fff;
     font-weight: bold;
     z-index: 2;
@@ -238,7 +268,21 @@
 }
 
 #ppc-admin-notices-panel .admin-notices-button-group input {
-    display: none !important;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    opacity: 0;
+}
+
+#ppc-admin-notices-panel .admin-notices-button-group label:focus-within {
+    outline: 2px solid #72aee6;
+    outline-offset: 2px;
+    z-index: 3;
 }
 
 #ppc-admin-notices-panel .hidden-element {

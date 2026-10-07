@@ -84,6 +84,14 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
                     'remove_blacklist_label' => esc_html__('Move to Hidden Notices', 'capability-manager-enhanced'),
                     'whitelist_note' => esc_html__('Displayed notices will no longer be removed from admin pages.', 'capability-manager-enhanced'),
                     'blacklist_note' => esc_html__('This notice will be moved to the "Silenced Notices" tab and you will not receive a notification if it appears again.', 'capability-manager-enhanced'),
+                    'help_label' => esc_html__('Help', 'capability-manager-enhanced'),
+                    'success_label' => esc_html_x('success', 'admin notice type', 'capability-manager-enhanced'),
+                    'error_label' => esc_html_x('error', 'admin notice type', 'capability-manager-enhanced'),
+                    'warning_label' => esc_html_x('warning', 'admin notice type', 'capability-manager-enhanced'),
+                    'info_label' => esc_html_x('info', 'admin notice type', 'capability-manager-enhanced'),
+                    'whitelist_status' => esc_html__('Notice will be displayed on admin pages.', 'capability-manager-enhanced'),
+                    'blacklist_status' => esc_html__('Notice moved to Silenced Notices.', 'capability-manager-enhanced'),
+                    'hidden_status' => esc_html__('Notice moved to Hidden Notices.', 'capability-manager-enhanced'),
                 ]
             );
 
@@ -229,7 +237,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
                 return;
             }
             ?>
-            <div id="ppc-admin-notices-panel">
+            <div id="ppc-admin-notices-panel" role="dialog" aria-label="<?php esc_attr_e('Admin Notices', 'capability-manager-enhanced'); ?>" tabindex="-1">
                 <div class="admin-notices-tab" style="display: none;">
                     <div class="admin-notices-button-group" data-hide-selector=".ppc-panel-notice-item">
                         <label class="active-notices selected" style="display: none;">
@@ -252,6 +260,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
                 </div>
                 <div class="ppc-admin-notices-panel-content"><?php esc_html_e('Admin Notices', 'capability-manager-enhanced'); ?></div>
             </div>
+            <div class="screen-reader-text ppc-admin-notices-status" role="status" aria-live="polite"></div>
             <?php
         }
 
