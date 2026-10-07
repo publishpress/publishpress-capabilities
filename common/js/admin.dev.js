@@ -277,9 +277,12 @@ jQuery(document).ready(function ($) {
       applyCapabilityState($(this), next_state);
     });
 
-    syncBulkCapabilityControls(table, next_state);
-    syncGlobalCapabilityControl();
-    $(document).trigger('pp-capabilities-state-updated');
+    // Defer: the browser restores the canceled checkbox's checked state after this handler.
+    setTimeout(function () {
+      syncBulkCapabilityControls(table, next_state);
+      syncGlobalCapabilityControl();
+      $(document).trigger('pp-capabilities-state-updated');
+    }, 0);
   });
 
   $('#ppc-global-capabilities-toggle').click(function (e) {
@@ -292,7 +295,10 @@ jQuery(document).ready(function ($) {
       ? 'unchecked'
       : (current_state === 'unchecked' ? 'negated' : 'checked');
 
-    applyGlobalCapabilityState(next_state);
+    // Defer: the browser restores the canceled checkbox's checked state after this handler.
+    setTimeout(function () {
+      applyGlobalCapabilityState(next_state);
+    }, 0);
   });
 
   $(document).on(
@@ -311,6 +317,12 @@ jQuery(document).ready(function ($) {
 
   syncGlobalCapabilityControl();
   refreshCapabilityAccessibility();
+
+  // Lets scripts outside this closure (e.g. the inline type-caps toggle) refresh accessible state.
+  $(document).on('pp-capabilities-refresh-accessibility', function () {
+    refreshCapabilityAccessibility();
+    syncGlobalCapabilityControl();
+  });
 
   $('table.cme-typecaps a.neg-type-caps').click(function (e) {
     $(this).closest('tr').find('td[class!="cap-neg"]').filter('td[class!="cap-unreg"]').each(function () {
@@ -339,8 +351,9 @@ jQuery(document).ready(function ($) {
     var chks = $(this).closest("table")
       .find("tr td" + class_sel + ":nth-child(" + (columnNo + 1) + ') input[type="checkbox"]:visible');
 
+    // applyCapabilityState also clears negation and refreshes each checkbox's accessible state.
     $(chks).each(function (i, e) {
-      $('input[name="' + $(this).attr('name') + '"]').prop('checked', check_val);
+      applyCapabilityState($(this), check_val ? 'checked' : 'unchecked');
     });
 
     $(this).prop('checked_all', check_val);
@@ -395,10 +408,22 @@ jQuery(document).ready(function ($) {
   // Reset text filters on load
   $('.ppc-filter-text').val('');
 
+  // The no-results live region stays in the DOM; only its text changes so it is announced.
+  function setFilterNoResults(region, show) {
+    region.each(function () {
+      var $region = $(this);
+      var message = show ? ($region.attr('data-message') || '') : '';
+
+      if ($region.text() !== message) {
+        $region.text(message);
+      }
+    });
+  }
+
   $('.ppc-filter-text-reset').click(function () {
     $(this).prev('.ppc-filter-text').val('');
     $(this).parent().siblings('table').find('tr').show(); // Show all the table rows
-    $(this).parent().siblings('.ppc-filter-no-results').hide(); // Hide "no results" message
+    setFilterNoResults($(this).parent().siblings('.ppc-filter-no-results'), false); // Clear "no results" message
   });
 
   $('.ppc-filter-text').keyup(function () {
@@ -412,10 +437,27 @@ jQuery(document).ready(function ($) {
     }
     // Show / Hide the no-results message
     if ($(this).parent().siblings('table').find('tr:visible').length === 0) {
-      $(this).parent().siblings('.ppc-filter-no-results').show(); // Show "no results" message
+      setFilterNoResults($(this).parent().siblings('.ppc-filter-no-results'), true); // Show "no results" message
     } else {
-      $(this).parent().siblings('.ppc-filter-no-results').hide(); // Hide "no results" message
+      setFilterNoResults($(this).parent().siblings('.ppc-filter-no-results'), false); // Clear "no results" message
     }
+  });
+
+  /**
+     * Tooltip Escape dismiss (WCAG 1.4.13): hide hovered/focused tooltips until pointer/focus leaves.
+     */
+  $(document).on('keydown', function (event) {
+    if (event.key !== 'Escape' && event.keyCode !== 27) {
+      return;
+    }
+
+    $('.ppc-tool-tip').filter(function () {
+      return this.matches(':hover') || this.contains(document.activeElement);
+    }).addClass('is-dismissed');
+  });
+
+  $(document).on('mouseleave focusout', '.ppc-tool-tip', function () {
+    $(this).removeClass('is-dismissed');
   });
 
   /**
@@ -702,7 +744,13 @@ jQuery(document).ready(function ($) {
     }
 
     var row_state = checked_fields ? 'checked' : (unchecked_fields ? 'unchecked' : 'negated');
-    clicked_box.attr('aria-checked', row_state === 'negated' ? 'mixed' : (row_state === 'checked' ? 'true' : 'false'));
+    // Native checkbox: reflect the row state via checked/indeterminate. Deferred because
+    // the browser restores the canceled checkbox's checked state after this handler.
+    setTimeout(function () {
+      clicked_box
+        .prop('checked', row_state === 'checked')
+        .prop('indeterminate', row_state === 'negated');
+    }, 0);
     refreshCapabilityAccessibility();
 
     clicked_box.addClass('interacted');
@@ -1279,7 +1327,8 @@ jQuery(document).ready(function ($) {
       }
 
       var instances = $(".ppc-floating-status").length;
-      $("#wpbody-content").after('<span class="ppc-floating-status ppc-floating-status--' + type + " " + uniqueClass + '">' + message + "</span>");
+      var role = type === "error" ? "alert" : "status";
+      $("#wpbody-content").after('<span role="' + role + '" class="ppc-floating-status ppc-floating-status--' + type + " " + uniqueClass + '">' + message + "</span>");
       $("." + uniqueClass)
         .css("bottom", instances * 45)
         .fadeIn(1e3)
