@@ -1697,7 +1697,7 @@ function cme_publishpressFooter() {
 	<?php printf(
 		esc_html__('If you like %s, please leave us a %s rating. Thank you!', 'capability-manager-enhanced'),
 		'<strong>PublishPress Capabilities</strong>',
-		'<span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span>'
+		'<span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="dashicons dashicons-star-filled" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('five-star', 'capability-manager-enhanced') . '</span>'
 		);
 	?>
 	</a>

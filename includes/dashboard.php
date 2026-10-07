@@ -35,20 +35,24 @@
                             $promo_feature = !empty($option['promo']);
                             $additional_class = $promo_feature ? ' dashboard-settings-box--disabled' : '';
                             if ($promo_feature || current_user_can($feature_capability)) : ?>
+                            <?php $feature_dom_id = 'ppc-dashboard-feature-' . sanitize_html_class($feature); ?>
                             <div class="dashboard-settings-box <?php echo esc_attr($additional_class); ?>">
-                                <h3>
+                                <h3 id="<?php echo esc_attr($feature_dom_id . '-label'); ?>">
                                     <?php
                                         echo esc_html($option['label']);
                                         echo $promo_feature ? ' <span>Pro</span>' : '';
                                     ?>
                                 </h3>
-                                <div class="dashboard-settings-description"><?php echo esc_html($option['description']); ?></div>
+                                <div class="dashboard-settings-description" id="<?php echo esc_attr($feature_dom_id . '-description'); ?>"><?php echo esc_html($option['description']); ?></div>
                                 <div class="dashboard-settings-control">
                                     <div class="ppc-switch-button">
                                         <label class="switch">
                                             <input
                                                 type="checkbox"
                                                 value="1"
+                                                id="<?php echo esc_attr($feature_dom_id); ?>"
+                                                aria-labelledby="<?php echo esc_attr($feature_dom_id . '-label'); ?>"
+                                                aria-describedby="<?php echo esc_attr($feature_dom_id . '-description'); ?>"
                                                 <?php
                                                 if ($promo_feature) {
                                                     echo ' disabled';
@@ -59,7 +63,7 @@
                                                 ?>
                                             />
                                             <span class="slider<?php
-                                            echo ( $promo_feature ? ' slider--disabled' : '' ); ?>"></span>
+                                            echo ( $promo_feature ? ' slider--disabled' : '' ); ?>" aria-hidden="true"></span>
                                         </label>
                                     </div>
                                 </div>

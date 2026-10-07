@@ -1228,15 +1228,11 @@ jQuery(document).ready(function ($) {
     window.open('https://publishpress.com/links/capabilities-menu');
   });
 
-  $(".dashboard-settings-control .slider").bind("click", function (e) {
+  // Bound to the checkbox change (fired by mouse via the wrapping label and by keyboard) so the switch works without a pointer.
+  $(".dashboard-settings-control input[type=checkbox][data-feature]").bind("change", function (e) {
     try {
-      e.preventDefault();
-      if ($(this).hasClass("slider--disabled")) {
-        return false;
-      }
-      var checkbox = $(this).parent().find("input");
-      var isChecked = checkbox.is(":checked") ? 1 : 0;
-      var newState = isChecked == 1 ? 0 : 1;
+      var checkbox = $(this);
+      var newState = checkbox.is(":checked") ? 1 : 0;
       var feature = checkbox.data("feature");
       var slider = checkbox.parent().find(".slider");
       var networkSync = $("#ppc_dashboard_network_sync").is(":checked") ? 1 : 0;
@@ -1248,7 +1244,6 @@ jQuery(document).ready(function ($) {
           slider.css("opacity", 0.5);
         },
         success: function (response) {
-          newState == 1 ? checkbox.prop("checked", true) : checkbox.prop("checked", false);
           slider.css("opacity", 1);
           switch (feature) {
             case "capabilities":
@@ -1262,6 +1257,9 @@ jQuery(document).ready(function ($) {
         },
         error: function (jqXHR, textStatus, errorThrown) {
           console.error(jqXHR.responseText);
+          // Save failed: restore the previous state, as the old click handler never changed it.
+          checkbox.prop("checked", newState != 1);
+          slider.css("opacity", 1);
           statusMsgNotification = ppcTimerStatus("error");
         },
       });
