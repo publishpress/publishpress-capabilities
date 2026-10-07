@@ -307,6 +307,13 @@ jQuery(function ($) {
     $field.after($newField);
     $field.hide();
 
+    // Point the "Role" label at the visible multi-role field instead of the hidden original.
+    var $roleLabel = $('label[for="role"]');
+    $roleLabel.attr('for', 'pp_roles');
+    if (!$roleLabel.attr('id')) {
+      $roleLabel.attr('id', 'pp_roles_label');
+    }
+
     // Convert the roles field into multiselect
     $newField.prop('multiple', true);
     $newField.after('<p class="description">' + ppCapabilitiesProfileData.role_description + '</p>');
@@ -341,6 +348,11 @@ jQuery(function ($) {
       'width': '25em',
       'no_results_text': ppCapabilitiesProfileData.chosen_no_results_text
     });
+
+    // Chosen hides the select, so also name the Chosen search input that receives focus.
+    if ($roleLabel.length) {
+      $newField.next('.chosen-container').find('input.chosen-search-input').attr('aria-labelledby', $roleLabel.first().attr('id'));
+    }
 
     /**
      * Make role sortable

@@ -15,9 +15,11 @@ jQuery(function ($) {
       event.preventDefault();
       var button = $(this);
 
-      button.prop('disabled', true);
+      button.prop('disabled', true).attr('aria-busy', 'true');
       button.find('.ppc-test-user-search-spinner').addClass('is-active').show();
       button.find('.search-text').hide();
+      // Keep the button named for screen readers while the visible label is replaced by the spinner.
+      button.find('.ppc-test-user-searching-text').show();
       $('.ppc-test-user-admin-bar-form .ppc-test-user-search-response').html('');
 
       var data = {
@@ -26,8 +28,9 @@ jQuery(function ($) {
         'security': ppCapabilitiesGlobalData.nonce,
       };
       $.post(ajaxurl, data, function (response) {
-        button.prop('disabled', false);
+        button.prop('disabled', false).removeAttr('aria-busy');
         button.find('.ppc-test-user-search-spinner').removeClass('is-active').hide();
+        button.find('.ppc-test-user-searching-text').hide();
         button.find('.search-text').show();
         if (response.content !== '') {
           $('.ppc-test-user-admin-bar-form .ppc-test-user-search-response').html(response.content);

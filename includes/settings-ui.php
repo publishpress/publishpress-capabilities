@@ -29,7 +29,7 @@ class Capabilities_Settings_UI {
 
         <div class="pp-columns-wrapper <?php echo ($sidebar_enabled) ? 'pp-enable-sidebar' : ''; ?> clear">
             <div class="pp-column-left">
-                <ul id="publishpress-capability-settings-tabs" class="nav-tab-wrapper">
+                <ul id="publishpress-capability-settings-tabs" class="nav-tab-wrapper" role="tablist">
                     <?php do_action('pp_capabilities_settings_before_menu_list'); ?>
                     <li class="nav-tab <?php if ('roles' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-roles"><?php esc_html_e('Roles', 'capability-manager-enhanced');?></a></li>
                     <li class="nav-tab <?php if ('capabilities' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-capabilities"><?php esc_html_e('Capabilities', 'capability-manager-enhanced');?></a></li>
@@ -50,7 +50,7 @@ class Capabilities_Settings_UI {
                                 <tbody>
 
                                     <tr>
-                                    <th scope="row"><?php esc_html_e('Multiples roles on "Add New User" screen', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_capabilities_add_user_multi_roles"><?php esc_html_e('Multiples roles on "Add New User" screen', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_capabilities_add_user_multi_roles" id="cme_capabilities_add_user_multi_roles" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_capabilities_add_user_multi_roles', 0)), true); ?>>
@@ -63,7 +63,7 @@ class Capabilities_Settings_UI {
                                 </tr>
 
                                     <tr>
-                                    <th scope="row"><?php esc_html_e('Multiples roles on "User Edit" screen', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_capabilities_edit_user_multi_roles"><?php esc_html_e('Multiples roles on "User Edit" screen', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_capabilities_edit_user_multi_roles" id="cme_capabilities_edit_user_multi_roles" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_capabilities_edit_user_multi_roles', 0)), true); ?>>
@@ -76,7 +76,7 @@ class Capabilities_Settings_UI {
                                 </tr>
 
                                     <tr>
-                                    <th scope="row"><?php esc_html_e('Set login redirect cookie', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_role_same_page_redirect_cookie"><?php esc_html_e('Set login redirect cookie', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_role_same_page_redirect_cookie" id="cme_role_same_page_redirect_cookie" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_role_same_page_redirect_cookie', 0)), true); ?>>
@@ -94,7 +94,7 @@ class Capabilities_Settings_UI {
                                 <tbody>
 
                                 <tr>
-                                    <th scope="row"><?php esc_html_e('Show private post types', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_capabilities_show_private_post_types"><?php esc_html_e('Show private post types', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_capabilities_show_private_post_types" id="cme_capabilities_show_private_post_types" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_capabilities_show_private_post_types', 0)), true); ?>>
@@ -107,7 +107,7 @@ class Capabilities_Settings_UI {
                                 </tr>
 
                                 <tr>
-                                    <th scope="row"> <?php esc_html_e('Show private taxonomies', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_capabilities_show_private_taxonomies"><?php esc_html_e('Show private taxonomies', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_capabilities_show_private_taxonomies" id="cme_capabilities_show_private_taxonomies" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_capabilities_show_private_taxonomies', 0)), true); ?>>
@@ -120,7 +120,7 @@ class Capabilities_Settings_UI {
                                 </tr>
 
                                 <tr>
-                                    <th scope="row"> <?php esc_html_e('Application password capabilities', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_capabilities_application_password_capabilities"><?php esc_html_e('Application password capabilities', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_capabilities_application_password_capabilities" id="cme_capabilities_application_password_capabilities" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_capabilities_application_password_capabilities', 0)), true); ?>>
@@ -141,7 +141,7 @@ class Capabilities_Settings_UI {
                                 <tbody>
 
                                     <tr>
-                                    <th scope="row"> <?php esc_html_e('Show private post types', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_editor_features_private_post_type"><?php esc_html_e('Show private post types', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_editor_features_private_post_type" id="cme_editor_features_private_post_type" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_editor_features_private_post_type', 0)), true); ?>>
@@ -154,7 +154,7 @@ class Capabilities_Settings_UI {
                                 </tr>
 
                                     <tr>
-                                    <th scope="row"> <?php esc_html_e('Enable Classic Editor tab', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_editor_features_classic_editor_tab"><?php esc_html_e('Enable Classic Editor tab', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_editor_features_classic_editor_tab" id="cme_editor_features_classic_editor_tab" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_editor_features_classic_editor_tab', 0)), true); ?>>
@@ -172,7 +172,7 @@ class Capabilities_Settings_UI {
                             <table class="form-table" role="presentation" id="ppcs-tab-test-user" style="<?php if ('test-user' != $default_tab) echo 'display: none'?>">
                                 <tbody>
                                     <tr>
-                                    <th scope="row"> <?php esc_html_e('Admin Bar modification', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_test_user_admin_bar"><?php esc_html_e('Admin Bar modification', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_test_user_admin_bar" id="cme_test_user_admin_bar" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_test_user_admin_bar', 1)), true); ?>>
@@ -185,7 +185,7 @@ class Capabilities_Settings_UI {
                                     </tr>
 
                                     <tr>
-                                    <th scope="row"> <?php esc_html_e('Admin Bar search', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_test_user_admin_bar_search"><?php esc_html_e('Admin Bar search', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_test_user_admin_bar_search" id="cme_test_user_admin_bar_search" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_test_user_admin_bar_search', 1)), true); ?>>
@@ -198,7 +198,7 @@ class Capabilities_Settings_UI {
                                     </tr>
 
                                     <tr>
-                                    <th scope="row"> <?php esc_html_e('Front End footer notice', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_test_user_footer_notice"><?php esc_html_e('Front End footer notice', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_test_user_footer_notice" id="cme_test_user_footer_notice" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_test_user_footer_notice', 1)), true); ?>>
@@ -249,7 +249,7 @@ class Capabilities_Settings_UI {
                                 <tbody>
 
                                     <tr>
-                                    <th scope="row"> <?php esc_html_e('Automatically refresh profile elements', 'capability-manager-enhanced'); ?></th>
+                                    <th scope="row"><label for="cme_profile_features_auto_redirect"><?php esc_html_e('Automatically refresh profile elements', 'capability-manager-enhanced'); ?></label></th>
                                     <td>
                                         <label>
                                         <input type="checkbox" name="cme_profile_features_auto_redirect" id="cme_profile_features_auto_redirect" autocomplete="off" value="1" <?php checked(!empty(get_option('cme_profile_features_auto_redirect', 0)), true); ?>>
@@ -279,6 +279,26 @@ class Capabilities_Settings_UI {
         <script>
         jQuery(document).ready(function ($) {
 
+            // Expose the in-page tabs as an ARIA tab list. Done here so tabs and panels added by hooks are covered too.
+            $('#publishpress-capability-settings-tabs').children('li').each(function () {
+                let tab_link = $(this).find('a').first();
+                let panel_id = (tab_link.attr('href') || '').replace('#', '');
+
+                if (!panel_id) {
+                    return;
+                }
+
+                // Tab id must not start with "ppcs-": the click handler hides every [id^="ppcs-"] element.
+                $(this).attr('role', 'presentation');
+                tab_link.attr({
+                    'id': 'tab-' + panel_id,
+                    'role': 'tab',
+                    'aria-controls': panel_id,
+                    'aria-selected': $(this).hasClass('nav-tab-active') ? 'true' : 'false'
+                });
+                $('#' + panel_id).attr({'role': 'tabpanel', 'aria-labelledby': 'tab-' + panel_id});
+            });
+
             $('#publishpress-capability-settings-tabs').find('li').click(function (e) {
                 e.preventDefault();
                 let active_tab_value = $(this).find('a').attr('href');
@@ -288,6 +308,9 @@ class Capabilities_Settings_UI {
 
                 $('#publishpress-capability-settings-tabs').children('li').filter('.nav-tab-active').removeClass('nav-tab-active');
                 $(this).addClass('nav-tab-active');
+
+                $('#publishpress-capability-settings-tabs').find('[role="tab"]').attr('aria-selected', 'false');
+                $(this).find('[role="tab"]').attr('aria-selected', 'true');
 
                 $('[id^="ppcs-"]').hide();
                 $($(this).find('a').first().attr('href')).show();

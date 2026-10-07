@@ -44,11 +44,11 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 
         <div class="pp-columns-wrapper <?php echo ($sidebar_enabled) ? 'pp-enable-sidebar' : ''; ?> clear">
             <div class="pp-column-left">
-                <ul id="publishpress-capability-backup-tabs" class="nav-tab-wrapper">
-                    <li class="nav-tab nav-tab-active"><a href="#ppcb-tab-restore"><?php esc_html_e('Restore', 'capability-manager-enhanced');?></a></li>
-                    <li class="nav-tab"><a href="#ppcb-tab-backup"><?php esc_html_e('Backup', 'capability-manager-enhanced');?></a></li>
-                    <li class="nav-tab"><a href="#ppcb-tab-reset"><?php esc_html_e('Reset Roles', 'capability-manager-enhanced');?></a></li>
-                    <li class="nav-tab"><a href="#ppcb-tab-import-export"><?php esc_html_e('Export / Import', 'capability-manager-enhanced');?></a></li>
+                <ul id="publishpress-capability-backup-tabs" class="nav-tab-wrapper" role="tablist">
+                    <li class="nav-tab nav-tab-active" role="presentation"><a href="#ppcb-tab-restore" id="ppcb-tab-restore-tab" role="tab" aria-controls="ppcb-tab-restore" aria-selected="true"><?php esc_html_e('Restore', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab" role="presentation"><a href="#ppcb-tab-backup" id="ppcb-tab-backup-tab" role="tab" aria-controls="ppcb-tab-backup" aria-selected="false"><?php esc_html_e('Backup', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab" role="presentation"><a href="#ppcb-tab-reset" id="ppcb-tab-reset-tab" role="tab" aria-controls="ppcb-tab-reset" aria-selected="false"><?php esc_html_e('Reset Roles', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab" role="presentation"><a href="#ppcb-tab-import-export" id="ppcb-tab-import-export-tab" role="tab" aria-controls="ppcb-tab-import-export" aria-selected="false"><?php esc_html_e('Export / Import', 'capability-manager-enhanced');?></a></li>
                 </ul>
 
                 <fieldset>
@@ -56,7 +56,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                         <tr>
                             <td class="content">
 
-                                <div id="ppcb-tab-backup" class="postbox ppc-postbox" style="display:none;">
+                                <div id="ppcb-tab-backup" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-backup-tab" style="display:none;">
                                     <h2><?php esc_html_e('Backup Roles and Capabilities', 'capability-manager-enhanced'); ?></h2>
                                     <div>
                                         <p class="description">
@@ -82,7 +82,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 $last_caption = ($backup_datestamp) ? sprintf(esc_html__('Last Manual Backup - %s', 'capability-manager-enhanced'), date('j M Y, g:i a', $backup_datestamp)) : esc_html__('Last Backup', 'capability-manager-enhanced');
                                 ?>
 
-                                <div id="ppcb-tab-restore" class="postbox ppc-postbox">
+                                <div id="ppcb-tab-restore" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-restore-tab">
                                     <h2><?php esc_html_e('Restore Previous Roles and Capabilities', 'capability-manager-enhanced'); ?></h2>
                                     <div>
                                         <p class="description">
@@ -90,13 +90,13 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                         <?php esc_html_e('On this screen, you can restore an earlier version of your roles and capabilities.', 'capability-manager-enhanced');?>
                                         </p>
 
-                                        <p style="margin-top:15px;"><strong><?php esc_html_e('Available Backups:', 'capability-manager-enhanced'); ?></strong></p>
+                                        <p style="margin-top:15px;" id="cme_select_restore_label"><strong><?php esc_html_e('Available Backups:', 'capability-manager-enhanced'); ?></strong></p>
 
                                         <table width='100%' class="form-table">
                                             <tr>
                                                 <td class="cme-backup-list">
                                                     <div id="cme_select_restore_div">
-                                                    <ul id="cme_select_restore">
+                                                    <ul id="cme_select_restore" role="radiogroup" aria-labelledby="cme_select_restore_label">
                                                         <?php foreach ($auto_backups as $option_name):
                                                             $arr = explode('_', str_replace('cme_backup_auto_', '', $option_name));
                                                             $arr[1] = str_replace('-', ':', $arr[1]);
@@ -221,7 +221,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                                     $role_class = (empty($wp_roles->role_objects[$role_name])) ? 'cme-change cme-plus' : '';
                                                                     ?>
 
-                                                                    <h4 class="<?php echo esc_attr($role_class);?>"><?php printf(esc_html__('%s (level %s)', 'capability-manager-enhanced'), esc_html(translate_user_role($role_caption)), esc_html($level)); ?></h4>
+                                                                    <h4 class="<?php echo esc_attr($role_class);?>"><?php printf(esc_html__('%s (level %s)', 'capability-manager-enhanced'), esc_html(translate_user_role($role_caption)), esc_html($level)); ?><?php if ($role_class) : ?> <span class="screen-reader-text"><?php esc_html_e('(will be added)', 'capability-manager-enhanced'); ?></span><?php endif; ?></h4>
 
                                                                     <?php
                                                                     $items = [];
@@ -251,10 +251,17 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                                         ?>
                                                                     <?php endforeach; ?>
 
-                                                                    <?php if ($items) :?>
+                                                                    <?php if ($items) :
+                                                                        // Text equivalents of the add / remove / deny styling, for screen readers.
+                                                                        $change_captions = [
+                                                                            'cme-change cme-plus'   => __('(will be added)', 'capability-manager-enhanced'),
+                                                                            'cme-change cme-minus'  => __('(will be removed)', 'capability-manager-enhanced'),
+                                                                            'cme-change cme-negate' => __('(will be denied)', 'capability-manager-enhanced'),
+                                                                        ];
+                                                                        ?>
                                                                         <ul class="pp-restore-caps">
                                                                         <?php foreach($items as $cap_name => $class) :?>
-                                                                            <li class="<?php echo esc_attr($class);?>"><?php echo esc_html($cap_name);?></li>
+                                                                            <li class="<?php echo esc_attr($class);?>"><?php echo esc_html($cap_name);?><?php if (!empty($change_captions[$class])) : ?> <span class="screen-reader-text"><?php echo esc_html($change_captions[$class]); ?></span><?php endif; ?></li>
                                                                         <?php endforeach; ?>
                                                                         </ul>
                                                                     <?php endif;?>
@@ -276,7 +283,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 </div>
 
 
-                                <div id="ppcb-tab-reset" class="postbox ppc-postbox" style="display:none;">
+                                <div id="ppcb-tab-reset" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-reset-tab" style="display:none;">
                                     <h2><?php if (!in_array(get_locale(), ['en_EN', 'en_US'])) esc_html_e('Reset WordPress Defaults', 'capability-manager-enhanced'); else echo 'Reset Roles to WordPress Defaults'; ?></h2>
                                     <div>
                                         <p><span class="pp-caps-warning"><?php esc_html_e('Warning:', 'capability-manager-enhanced'); ?></span> <?php if (!in_array(get_locale(), ['en_EN', 'en_US'])) esc_html_e('Reseting default Roles and Capabilities will set them to the WordPress install defaults.', 'capability-manager-enhanced'); else echo 'This will delete and/or modify stored role definitions.'; ?>
@@ -293,7 +300,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 </div>
 
 
-                                <div id="ppcb-tab-import-export" style="display:none;">
+                                <div id="ppcb-tab-import-export" role="tabpanel" aria-labelledby="ppcb-tab-import-export-tab" style="display:none;">
                                     <div class="postbox ppc-postbox">
                                         <h2><?php esc_html_e('Export Settings', 'capability-manager-enhanced'); ?></h2>
                                         <div>
@@ -306,10 +313,10 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                     </label>
                                                     <div id="pp_capabilities_export_role_selector" class="pp-capabilities-export-role-selector">
                                                         <input type="hidden" name="pp_capabilities_export_roles_present" value="1" />
-                                                        <p class="description">
+                                                        <p class="description" id="pp_capabilities_export_role_selector_label">
                                                             <?php esc_html_e('Select the roles to include in this export.', 'capability-manager-enhanced'); ?>
                                                         </p>
-                                                        <ul>
+                                                        <ul role="group" aria-labelledby="pp_capabilities_export_role_selector_label">
                                                             <?php
                                                             $export_roles = wp_roles()->roles;
                                                             uasort($export_roles, function ($first_role, $second_role) {
@@ -425,6 +432,9 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                 e.preventDefault();
                 $('#publishpress-capability-backup-tabs').children('li').filter('.nav-tab-active').removeClass('nav-tab-active');
                 $(this).addClass('nav-tab-active');
+
+                $('#publishpress-capability-backup-tabs').find('[role="tab"]').attr('aria-selected', 'false');
+                $(this).find('[role="tab"]').attr('aria-selected', 'true');
 
                 $('div[id^="ppcb-"]').hide();
                 $($(this).find('a').first().attr('href')).show();
