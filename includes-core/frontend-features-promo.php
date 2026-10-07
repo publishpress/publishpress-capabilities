@@ -36,7 +36,7 @@
 
 </div>
 <div class="pp-promo-overlay-row div-pp-promo-blur">
-    <select class="chosen-cpt-select frontendelements-form-post-types" data-placeholder="<?php esc_attr_e('Select post types...', 'capability-manager-enhanced'); ?>" multiple>
+    <select class="chosen-cpt-select frontendelements-form-post-types" aria-label="<?php esc_attr_e('Post types', 'capability-manager-enhanced'); ?>" data-placeholder="<?php esc_attr_e('Select post types...', 'capability-manager-enhanced'); ?>" multiple>
         <option value=""></option>
     </select>
     <br />

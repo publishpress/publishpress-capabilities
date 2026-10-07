@@ -158,7 +158,7 @@ if ($admin_styles_saved !== false) {
                         <td class="content">
 
                             <div class="publishpress-filters">
-                                <select name="ppc-admin-styles-role" class="ppc-admin-styles-role">
+                                <select name="ppc-admin-styles-role" class="ppc-admin-styles-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <?php
                                     foreach ($roles as $role_name => $name):
                                         $name = translate_user_role($name);
@@ -390,7 +390,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         </div>
                                                                                                         <div class="ppc-advanced-rule-color">
                                                                                                             <label class="color-label-text"><?php esc_html_e('Variation', 'capability-manager-enhanced'); ?></label>
-                                                                                                            <select class="ppc-advanced-variation"
+                                                                                                            <select class="ppc-advanced-variation" aria-label="<?php esc_attr_e('Variation', 'capability-manager-enhanced'); ?>"
                                                                                                                 name="custom_style_advanced_rules[{{index}}][variation]">
                                                                                                                 <option value="background"><?php esc_html_e('Background', 'capability-manager-enhanced'); ?></option>
                                                                                                                 <option value="text"><?php esc_html_e('Text', 'capability-manager-enhanced'); ?></option>
@@ -607,7 +607,7 @@ if ($admin_styles_saved !== false) {
                                                                     </nav>
 
                                                                     <div class="ppc-font-family-panel ppc-font-family-panel-select is-active">
-                                                                        <select class="ppc-font-family-select regular-text" style="max-width: 400px;">
+                                                                        <select class="ppc-font-family-select regular-text" aria-label="<?php esc_attr_e('Admin font family preset', 'capability-manager-enhanced'); ?>" style="max-width: 400px;">
                                                                             <?php foreach ($font_family_choices as $font_value => $font_label) : ?>
                                                                                 <option value="<?php echo esc_attr($font_value); ?>" <?php selected($current_admin_font_family, $font_value); ?>><?php echo esc_html($font_label); ?></option>
                                                                             <?php endforeach; ?>
@@ -618,6 +618,7 @@ if ($admin_styles_saved !== false) {
                                                                         <textarea
                                                                             name="settings[admin_font_family]"
                                                                             id="admin_font_family"
+                                                                            aria-label="<?php esc_attr_e('Custom admin font family', 'capability-manager-enhanced'); ?>"
                                                                             rows="2"
                                                                             placeholder='"Segoe UI", sans-serif'
                                                                             class="regular-text ppc-font-family-textarea"><?php echo esc_textarea($current_admin_font_family); ?></textarea>
@@ -717,7 +718,7 @@ if ($admin_styles_saved !== false) {
                                                                                         </nav>
 
                                                                                         <div class="ppc-font-family-panel ppc-font-family-panel-select is-active">
-                                                                                            <select class="ppc-font-family-select regular-text" style="width: 100%; max-width: 200px;">
+                                                                                            <select class="ppc-font-family-select regular-text" aria-label="<?php printf(esc_attr__('Font family for %s', 'capability-manager-enhanced'), esc_html($target_label)); ?>" style="width: 100%; max-width: 200px;">
                                                                                                 <?php foreach ($font_family_choices as $font_value => $font_label) : ?>
                                                                                                     <option value="<?php echo esc_attr($font_value); ?>" <?php selected($target_font_family, $font_value); ?>><?php echo esc_html($font_label); ?></option>
                                                                                                 <?php endforeach; ?>
@@ -727,6 +728,7 @@ if ($admin_styles_saved !== false) {
                                                                                         <div class="ppc-font-family-panel ppc-font-family-panel-custom" style="display: none;">
                                                                                             <textarea
                                                                                                 name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_family]"
+                                                                                                aria-label="<?php printf(esc_attr__('Custom font family for %s', 'capability-manager-enhanced'), esc_html($target_label)); ?>"
                                                                                                 rows="2"
                                                                                                 placeholder='"Segoe UI", sans-serif'
                                                                                                 class="regular-text ppc-font-family-textarea"><?php echo esc_textarea($target_font_family); ?></textarea>
@@ -734,7 +736,7 @@ if ($admin_styles_saved !== false) {
                                                                                     </div>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <select name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size]" class="regular-text" style="width: 100%;max-width: 200px;">
+                                                                                    <select name="settings[admin_typography][<?php echo esc_attr($target_key); ?>][font_size]" class="regular-text" aria-label="<?php printf(esc_attr__('Font size for %s', 'capability-manager-enhanced'), esc_html($target_label)); ?>" style="width: 100%;max-width: 200px;">
                  <optgroup label="<?php echo esc_attr__('Default', 'capability-manager-enhanced'); ?>">
                     <option value=""><?php esc_html_e('Default', 'capability-manager-enhanced'); ?></option>
                 </optgroup></optgroup>

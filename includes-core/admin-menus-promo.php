@@ -34,7 +34,7 @@ $default_role = $capsman->current;
                 <tr>
                     <td class="content">
                         <div class="publishpress-filters">
-                            <select name="ppc-admin-menu-role" class="ppc-admin-menu-role">
+                            <select name="ppc-admin-menu-role" class="ppc-admin-menu-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                 <?php
                                 foreach ($roles as $role_name => $name) :
                                     $name = translate_user_role($name);

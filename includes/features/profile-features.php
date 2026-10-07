@@ -65,7 +65,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                             </div>
                                             <div class="clear"></div>
 
-                                            <select name="ppc-profile-features-role" class="ppc-profile-features-role">
+                                            <select name="ppc-profile-features-role" class="ppc-profile-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                                 <?php
                                                 foreach ($roles as $role_name => $name) :
                                                     $name = translate_user_role($name);

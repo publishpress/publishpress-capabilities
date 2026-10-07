@@ -87,7 +87,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                 </div>
                                 <div class="clear"></div>
 
-                                <select name="ppc-frontend-features-role" class="ppc-frontend-features-role">
+                                <select name="ppc-frontend-features-role" class="ppc-frontend-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <optgroup label="<?php esc_attr_e('Users');?>">
                                         <?php
                                             foreach ($ppc_other_permissions as $p_value => $p_title) {
