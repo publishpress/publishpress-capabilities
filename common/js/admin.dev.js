@@ -455,8 +455,10 @@ jQuery(document).ready(function ($) {
 
     //remove active class from all tabs
     $('.ppc-redirects-tab li').removeClass('active');
+    $('.ppc-redirects-tab li a').attr('aria-current', 'false');
     //add active class to current tab
     $(this).addClass('active');
+    $(this).find('a').attr('aria-current', 'true');
 
     //hide all tabs contents
     $('.pp-redirects-tab-tr').hide();
@@ -860,7 +862,6 @@ jQuery(document).ready(function ($) {
 
     if (custom_label == '' || (custom_element_selector == '' && custom_element_styles == '' && custom_element_bodyclass == '')) {
       button.closest('tr').find('.ppc-post-features-note').html('<div class="ppc-feature-submit-form-error updated notice error"><p>' + button.attr('data-required') + '</p></div>');
-      $(".ppc-feature-submit-form-error").delay(2000).fadeOut('slow');
       return;
     }
 
@@ -884,7 +885,6 @@ jQuery(document).ready(function ($) {
 
       if (response.status == 'error') {
         button.closest('tr').find('.ppc-post-features-note').html('<div class="ppc-feature-submit-form-error updated notice error"><p>' + response.message + '</p></div>');
-        $(".ppc-feature-submit-form-error").delay(2000).fadeOut('slow');
       } else {
         var parent_table = $('table.frontendelements-table');
 
@@ -936,6 +936,7 @@ jQuery(document).ready(function ($) {
       var item_id = item.attr('data-id');
       var security = item.attr('data-delete-nonce');
       var item_section = item.attr('data-section');
+      var item_label = item.closest('.ppc-menu-row').find('.edit-custom-item').attr('data-label') || '';
 
       item.closest('.ppc-menu-row').fadeOut(300);
 
@@ -951,6 +952,10 @@ jQuery(document).ready(function ($) {
           alert(response.message);
         } else {
           item.closest('.ppc-menu-row').remove();
+          var delete_note = $('.ppc-post-features-note');
+          if (delete_note.length && delete_note.attr('data-deleted')) {
+            delete_note.html($('<div class="updated notice notice-success"></div>').append($('<p></p>').text(delete_note.attr('data-deleted').replace('%s', item_label))));
+          }
           if ($('table.' + item_section + '-table table.custom-items-table tr.custom-item-row').length > 1) {
             $('table.' + item_section + '-table .custom-item-toggle-row').removeClass('hidden-element');
           } else {
