@@ -164,12 +164,12 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                             <<?php echo esc_attr($tag_name);?>>
                                                                                 <tr class="ppc-menu-row parent-menu">
                                                                                     <th class="restrict-column ppc-menu-checkbox">
-                                                                                        <input id="check-all-item"
+                                                                                        <input id="<?php echo esc_attr('check-all-item-' . $section_slug . '-' . $tag_name); ?>"
                                                                                             class="check-item check-all-menu-item"
                                                                                             type="checkbox"  data-pp_type="<?php echo esc_attr($section_slug);?>"/>
                                                                                     </th>
                                                                                     <th class="menu-column ppc-menu-item">
-                                                                                        <label for="check-all-item">
+                                                                                        <label for="<?php echo esc_attr('check-all-item-' . $section_slug . '-' . $tag_name); ?>">
                                                                                             <span class="menu-item-link check-all-menu-link">
                                                                                                 <strong>
                                                                                                 <?php esc_html_e('Toggle all', 'capability-manager-enhanced'); ?>

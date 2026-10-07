@@ -51,10 +51,10 @@ class PP_Capabilities_Frontend_Features_UI
                     <tr class="field-row">
                         <th scope="row">
                             <?php esc_html_e('Title:', 'capability-manager-enhanced'); ?>
-                            <font color="red">*</font>
+                            <span class="required" aria-hidden="true">*</span>
                         </th>
                         <td>
-                            <input class="frontend-element-new-name frontent-form-field frontendelements-form-label" type="text" aria-label="<?php esc_attr_e('Title', 'capability-manager-enhanced'); ?>" /><br />
+                            <input class="frontend-element-new-name frontent-form-field frontendelements-form-label" type="text" aria-required="true" aria-label="<?php esc_attr_e('Title', 'capability-manager-enhanced'); ?>" /><br />
                             <span class="description">
                                 <?php esc_html_e('This will only show here in the WordPress admin area.', 'capability-manager-enhanced'); ?>
                             </span>
@@ -64,7 +64,7 @@ class PP_Capabilities_Frontend_Features_UI
                     <tr class="field-row">
                         <th scope="row">
                             <?php esc_html_e('Features:', 'capability-manager-enhanced'); ?>
-                            <font color="red">*</font>
+                            <span class="required" aria-hidden="true">*</span>
                         </th>
                         <td>
                             <div class="frontend-element-toggle">
@@ -107,7 +107,7 @@ class PP_Capabilities_Frontend_Features_UI
                     <tr class="field-row">
                         <th scope="row">
                             <?php esc_html_e('Load on page types:', 'capability-manager-enhanced'); ?>
-                            <font color="red">*</font>
+                            <span class="required" aria-hidden="true">*</span>
                         </th>
                         <td>
                             <div class="frontend-element-toggle">
@@ -155,7 +155,7 @@ class PP_Capabilities_Frontend_Features_UI
                                     <?php esc_html_e('Add New', 'capability-manager-enhanced'); ?></button>
                             </div>
                             <span class="ppc-feature-post-loader spinner"></span>
-                            <div class="ppc-post-features-note"></div>
+                            <div class="ppc-post-features-note" role="status" aria-live="polite" data-deleted="<?php /* translators: %s: frontend feature title */ esc_attr_e('%s deleted.', 'capability-manager-enhanced'); ?>"></div>
                             </th>
                     </tr>
 

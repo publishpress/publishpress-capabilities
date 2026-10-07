@@ -125,10 +125,10 @@ $active_tab_text = is_object($active_tab_type_obj)
                             <?php if ($classic_editor) : ?>
                                 <ul class="nav-tab-wrapper">
                                     <li class="editor-features-tab gutenberg-tab nav-tab <?php if (empty($_REQUEST['ppc-tab']) || ('gutenberg' == $_REQUEST['ppc-tab'])) echo 'nav-tab-active';?>"
-                                        data-tab=".editor-features-gutenberg"><a href="#"><?php esc_html_e('Gutenberg', 'capability-manager-enhanced') ?></a></li>
+                                        data-tab=".editor-features-gutenberg"><a href="#" aria-current="<?php echo (empty($_REQUEST['ppc-tab']) || ('gutenberg' == $_REQUEST['ppc-tab'])) ? 'true' : 'false'; ?>"><?php esc_html_e('Gutenberg', 'capability-manager-enhanced') ?></a></li>
 
                                     <li class="editor-features-tab classic-tab nav-tab <?php if (!empty($_REQUEST['ppc-tab']) && ('classic' == $_REQUEST['ppc-tab'])) echo 'nav-tab-active';?>"
-                                        data-tab=".editor-features-classic"><a href="#"><?php esc_html_e('Classic', 'capability-manager-enhanced') ?></a></li>
+                                        data-tab=".editor-features-classic"><a href="#" aria-current="<?php echo (!empty($_REQUEST['ppc-tab']) && ('classic' == $_REQUEST['ppc-tab'])) ? 'true' : 'false'; ?>"><?php esc_html_e('Classic', 'capability-manager-enhanced') ?></a></li>
                                 </ul>
                             <?php else: ?>
                                 <div class="ppc-editor-features-classic-toggle" style="visibility: hidden;">
@@ -410,7 +410,9 @@ $active_tab_text = is_object($active_tab_type_obj)
         $('.editor-features-tab').click(function (e) {
             e.preventDefault();
             $('.editor-features-tab').removeClass('nav-tab-active');
+            $('.editor-features-tab a').attr('aria-current', 'false');
             $(this).addClass('nav-tab-active');
+            $(this).find('a').attr('aria-current', 'true');
             $('.pp-capability-menus-select').hide();
             $('.editor-features-classic-show').hide();
             $('.editor-features-gutenberg-show').hide();

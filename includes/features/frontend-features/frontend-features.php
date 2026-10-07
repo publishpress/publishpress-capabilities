@@ -167,7 +167,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                                                                     <td class="menu-column ppc-menu-item" colspan="4">
                                                                                         <label for="check-all-item">
                                                                                     <span class="menu-item-link check-all-menu-link">
-                                                                                        <strong></strong>
+                                                                                        <strong><span class="screen-reader-text"><?php esc_html_e('Toggle all', 'capability-manager-enhanced'); ?></span></strong>
                                                                                     </span></label>
                                                                                     </td>
 
@@ -184,7 +184,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                                                                     <td class="menu-column ppc-menu-item" colspan="4">
                                                                                         <label for="check-all-item-2">
                                                                                         <span class="menu-item-link check-all-menu-link">
-                                                                                        <strong></strong>
+                                                                                        <strong><span class="screen-reader-text"><?php esc_html_e('Toggle all', 'capability-manager-enhanced'); ?></span></strong>
                                                                                         </span>
                                                                                         </label>
                                                                                     </td>

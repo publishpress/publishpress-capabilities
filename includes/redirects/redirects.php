@@ -157,8 +157,8 @@ $fields = [
                                                                         <li class="<?php echo esc_attr($active_tab); ?>"
                                                                             data-tab="<?php echo esc_attr($key); ?>"
                                                                             >
-                                                                            <a href="#">
-                                                                                <span class="<?php echo esc_attr($args['icon']); ?>"></span>
+                                                                            <a href="#" aria-current="<?php echo ($key === $default_tab) ? 'true' : 'false'; ?>">
+                                                                                <span class="<?php echo esc_attr($args['icon']); ?>" aria-hidden="true"></span>
                                                                                 <span><?php echo esc_html($args['label']); ?></span>
                                                                             </a>
                                                                         </li>

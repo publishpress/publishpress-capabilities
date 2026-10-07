@@ -95,6 +95,7 @@
                 <tr class="ppc-menu-row parent-menu <?php echo esc_attr($additional_class); ?>">
                     <td class="restrict-column ppc-menu-checkbox">
                         <input id="cb_<?php echo esc_attr($type_obj->name) . '-' . esc_attr(str_replace(['#', '.'], '_', $feature_slug));?>" class="check-item" type="checkbox"
+                                aria-label="<?php echo esc_attr(wp_strip_all_tags($arr_feature['label'])); ?>"
                                 name="capsman_feature_restrict_classic_<?php echo esc_attr($type_obj->name);?>[]"
                                 value="<?php echo esc_attr($feature_slug); ?>" <?php checked(in_array($feature_slug, $ce_post_disabled[$type_obj->name]));?> />
                     </td>
@@ -136,6 +137,7 @@
                 <tr class="ppc-menu-row parent-menu">
                     <td class="restrict-column ppc-menu-checkbox">
                         <input id="cb_<?php echo esc_attr($type_obj->name) . '-' . esc_attr(str_replace(['#', '.'], '_', $feature_slug));?>" class="check-item" type="checkbox"
+                                aria-label="<?php echo esc_attr(wp_strip_all_tags($arr_feature['label'])); ?>"
                                 name="capsman_feature_restrict_classic_<?php echo esc_attr($type_obj->name);?>[]"
                                 value="<?php echo esc_attr($feature_slug); ?>" <?php checked(in_array($feature_slug, $ce_post_disabled[$type_obj->name]));?> />
                     </td>
