@@ -112,7 +112,7 @@
 
       if (!customStyle && !scheme) return;
 
-      $('#custom-style-error').hide().html('');
+      PP_Admin_Styles.clearCustomStyleError();
 
       $('#custom_style_name').val(styleName);
       $('#custom_style_slug').val(styleSlug);
@@ -272,6 +272,15 @@
     bindEvents: function () {
       // Custom style form tab navigation
       $(document).on('click', '.custom-style-tab', this.handleCustomStyleTabClick);
+      $(document).on('keydown', '.custom-style-tab, .ppc-font-family-tab', this.handleTabKeydown);
+
+      // Delete confirmation popover: sync aria-expanded after the shared tooltip toggle runs.
+      $(document).on('click', '#custom-style-delete-button', function () {
+        var $wrap = $(this);
+        setTimeout(function () {
+          $wrap.find('.ppc-button-delete').attr('aria-expanded', $wrap.hasClass('is-active') ? 'true' : 'false');
+        }, 0);
+      });
 
       // Image upload
       $(document).on('click', '.pp-capabilities-upload-button', this.handleImageUpload);
@@ -361,8 +370,10 @@
      * Initialize font family pickers with textarea as the source of truth.
      */
     initFontFamilyPickers: function () {
-      $('.ppc-font-family-picker').each(function () {
+      $('.ppc-font-family-picker').each(function (pickerIndex) {
         var $picker = $(this);
+        PP_Admin_Styles.initFontFamilyTabsAria($picker, pickerIndex);
+
         var $textarea = $picker.find('.ppc-font-family-textarea');
         var $select = $picker.find('.ppc-font-family-select');
 
@@ -395,7 +406,127 @@
           $picker.find('.ppc-font-family-panel').removeClass('is-active').hide();
           $picker.find('.ppc-font-family-panel-custom').addClass('is-active').show();
         }
+
+        PP_Admin_Styles.syncFontFamilyTabsAria($picker);
       });
+    },
+
+    /**
+     * Expose font family Preset/Custom tabs as an ARIA tab set.
+     */
+    initFontFamilyTabsAria: function ($picker, pickerIndex) {
+      var idPrefix = 'ppc-font-family-picker-' + pickerIndex;
+
+      $picker.find('.ppc-font-family-tabs').attr('role', 'tablist');
+
+      $picker.find('.ppc-font-family-tab').each(function () {
+        var $tab = $(this);
+        var panel = $tab.data('panel');
+        var tabId = idPrefix + '-tab-' + panel;
+        var panelId = idPrefix + '-panel-' + panel;
+
+        $tab.attr({
+          id: tabId,
+          role: 'tab',
+          'aria-controls': panelId
+        });
+
+        $picker.find('.ppc-font-family-panel-' + panel).attr({
+          id: panelId,
+          role: 'tabpanel',
+          'aria-labelledby': tabId
+        });
+      });
+    },
+
+    /**
+     * Sync aria-selected on font family tabs with the active tab class.
+     */
+    syncFontFamilyTabsAria: function ($picker) {
+      $picker.find('.ppc-font-family-tab').each(function () {
+        $(this).attr('aria-selected', $(this).hasClass('nav-tab-active') ? 'true' : 'false');
+      });
+    },
+
+    /**
+     * Keyboard support for tabs: Space activates, Left/Right arrows move between tabs.
+     */
+    handleTabKeydown: function (e) {
+      var $tab = $(this);
+      var key = e.key || e.keyCode;
+
+      if (key === ' ' || key === 'Spacebar' || key === 32) {
+        e.preventDefault();
+        $tab.trigger('click');
+        return;
+      }
+
+      var isNext = (key === 'ArrowRight' || key === 'Right' || key === 39);
+      var isPrev = (key === 'ArrowLeft' || key === 'Left' || key === 37);
+
+      if (!isNext && !isPrev) {
+        return;
+      }
+
+      var $tabs = $tab.closest('[role="tablist"]').find('[role="tab"]:visible');
+      var index = $tabs.index($tab);
+
+      if (index < 0 || !$tabs.length) {
+        return;
+      }
+
+      e.preventDefault();
+      var nextIndex = isNext ? (index + 1) % $tabs.length : (index - 1 + $tabs.length) % $tabs.length;
+      $tabs.eq(nextIndex).trigger('focus').trigger('click');
+    },
+
+    /**
+     * Keep the "Add Custom Style" disclosure button state in sync with the form.
+     */
+    setCustomStyleFormExpanded: function (expanded) {
+      $('.custom-styles-button').attr('aria-expanded', expanded ? 'true' : 'false');
+    },
+
+    /**
+     * Show a custom style form validation error and flag the offending field.
+     */
+    showCustomStyleError: function (message, $field) {
+      PP_Admin_Styles.clearCustomStyleError();
+      $('#custom-style-error').html(message).show();
+
+      if (!$field || !$field.length) {
+        return;
+      }
+
+      // Make sure the tab containing the field is visible.
+      var $pane = $field.closest('.custom-style-tab-content');
+      if ($pane.length && !$pane.hasClass('active')) {
+        $('.custom-style-tab[data-tab="' + $pane.attr('id') + '"]').trigger('click');
+      }
+
+      $field.attr({
+        'aria-invalid': 'true',
+        'aria-describedby': 'custom-style-error'
+      });
+
+      // Color inputs stay hidden until the picker opens, so focus the picker button instead.
+      var $focusTarget = $field;
+      var $pickerButton = $field.closest('.wp-picker-container').find('.wp-color-result');
+      if ($pickerButton.length) {
+        $pickerButton.attr('aria-describedby', 'custom-style-error');
+        $focusTarget = $pickerButton;
+      }
+
+      $focusTarget.trigger('focus');
+    },
+
+    /**
+     * Clear the custom style form validation error and field error state.
+     */
+    clearCustomStyleError: function () {
+      $('#custom-style-error').hide().html('');
+      $('#custom-style-form [aria-invalid="true"]').removeAttr('aria-invalid');
+      $('#custom-style-form [aria-describedby="custom-style-error"]').removeAttr('aria-describedby');
     },
 
     handleFontFamilyTabClick: function (e) {
@@ -411,6 +542,7 @@
 
       $picker.find('.ppc-font-family-tab').removeClass('nav-tab-active');
       $tab.addClass('nav-tab-active');
+      PP_Admin_Styles.syncFontFamilyTabsAria($picker);
 
       $picker.find('.ppc-font-family-panel').removeClass('is-active').hide();
       $picker.find('.ppc-font-family-panel-' + targetPanel).addClass('is-active').show();
@@ -664,8 +796,8 @@
       var tabTarget = $tab.data('tab');
 
       // Update active tab
-      $('.custom-style-tab').removeClass('nav-tab-active');
-      $tab.addClass('nav-tab-active');
+      $('.custom-style-tab').removeClass('nav-tab-active').attr('aria-selected', 'false');
+      $tab.addClass('nav-tab-active').attr('aria-selected', 'true');
 
       // Show target content, hide others
       $('.custom-style-tab-content').removeClass('active').hide();
@@ -767,7 +899,7 @@
       }
 
       // Clear error message
-      $('#custom-style-error').hide().html('');
+      PP_Admin_Styles.clearCustomStyleError();
 
       // Reset form for new style
       $('#custom_style_name').val('');
@@ -1044,9 +1176,10 @@
 
       // Hide form
       $('#custom-style-form').slideUp();
+      PP_Admin_Styles.setCustomStyleFormExpanded(false);
 
       // Clear error message
-      $('#custom-style-error').hide().html('');
+      PP_Admin_Styles.clearCustomStyleError();
 
       // Reset form
       $('#custom_style_name').val('');
@@ -1070,11 +1203,11 @@
         var tabTarget = $firstTab.data('tab');
 
         // Remove active from all tabs and content
-        $('.custom-style-tab').removeClass('nav-tab-active');
+        $('.custom-style-tab').removeClass('nav-tab-active').attr('aria-selected', 'false');
         $('.custom-style-tab-content').removeClass('active').hide();
 
         // Add active to first tab and show its content
-        $firstTab.addClass('nav-tab-active');
+        $firstTab.addClass('nav-tab-active').attr('aria-selected', 'true');
         if (tabTarget) {
           $('#' + tabTarget).addClass('active').show();
         }
@@ -1103,6 +1236,7 @@
 
       // Show form
       $('#custom-style-form').slideDown();
+      PP_Admin_Styles.setCustomStyleFormExpanded(true);
 
       // Update form title
       var $formTitle = $('#custom-style-form h4');
@@ -1254,25 +1388,22 @@
 
       var styleName = $('#custom_style_name').val().trim();
       var styleSlug = $('#custom_style_slug').val();
-      var $errorDiv = $('#custom-style-error');
       var baseColor = $('#custom_style_custom_scheme_base').val().trim();
 
       // Validate style name
       if (!styleName) {
-        $errorDiv.html(ppCapabilitiesAdminStyles.labels.styleNameRequired).show();
-        $('#custom_style_name').focus();
+        PP_Admin_Styles.showCustomStyleError(ppCapabilitiesAdminStyles.labels.styleNameRequired, $('#custom_style_name'));
         return false;
       }
 
       // Validate Main Admin Color (required)
       if (!baseColor) {
-        $errorDiv.html(ppCapabilitiesAdminStyles.labels.mainAdminColorRequired).show();
-        $('#custom_style_custom_scheme_base').focus();
+        PP_Admin_Styles.showCustomStyleError(ppCapabilitiesAdminStyles.labels.mainAdminColorRequired, $('#custom_style_custom_scheme_base'));
         return false;
       }
 
       // Clear error message if validation passes
-      $errorDiv.hide().html('');
+      PP_Admin_Styles.clearCustomStyleError();
 
       // Set the color scheme to this custom style if it's new
       if (styleSlug === 'new' || !styleSlug) {
@@ -1332,6 +1463,7 @@
       // Hide custom style form if showing and selecting non-custom style
       if ($('#custom-style-form').is(':visible') && !isUserCustomStyle) {
         $('#custom-style-form').slideUp();
+        PP_Admin_Styles.setCustomStyleFormExpanded(false);
       }
 
       // If already selected, do nothing (except show form for custom styles)
@@ -1403,6 +1535,7 @@
         // Hide editor for non-custom styles
         if ($('#custom-style-form').is(':visible')) {
           $('#custom-style-form').slideUp();
+          PP_Admin_Styles.setCustomStyleFormExpanded(false);
         }
       }
 

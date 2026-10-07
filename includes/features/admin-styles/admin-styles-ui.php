@@ -211,9 +211,9 @@ if ($admin_styles_saved !== false) {
 
                                                         <tr class="ppc-menu-row parent-menu">
                                                             <td class="menu-column ppc-menu-item">
-                                                                <label>
+                                                                <span class="ppc-admin-color-scheme-heading">
                                                                     <strong><?php esc_html_e('Admin Color Scheme', 'capability-manager-enhanced'); ?></strong>
-                                                                </label>
+                                                                </span>
                                                                 <p class="cme-subtext">
                                                                     <?php esc_html_e('Sets the admin color scheme for all users. Click a scheme to preview it instantly.', 'capability-manager-enhanced'); ?>
                                                                 </p>
@@ -232,13 +232,16 @@ if ($admin_styles_saved !== false) {
                                                                         <?php endforeach; ?>
                                                                     </select>
                                                                     <button type="button"
-                                                                        class="button button-secondary custom-styles-button">
+                                                                        class="button button-secondary custom-styles-button"
+                                                                        aria-expanded="false"
+                                                                        aria-controls="custom-style-form">
                                                                         <?php esc_html_e('Add Custom Style', 'capability-manager-enhanced'); ?>
                                                                     </button>
                                                                 </div>
                                                             </td>
                                                             <td class="value-column ppc-menu-checkbox">
                                                                 <fieldset class="ppc-admin-color-schemes">
+                                                                    <legend class="screen-reader-text"><?php esc_html_e('Admin Color Scheme', 'capability-manager-enhanced'); ?></legend>
                                                                     <input type="hidden"
                                                                         name="settings[admin_color_scheme]"
                                                                         id="admin_color_scheme"
@@ -316,13 +319,16 @@ if ($admin_styles_saved !== false) {
                                                                         <p class="editor-description form-promo-blur">
                                                                             <?php esc_html_e('Customize colors for different admin elements. Changes are previewed instantly.', 'capability-manager-enhanced'); ?>
                                                                         </p>
+                                                                        <p class="editor-description form-promo-blur ppc-required-note">
+                                                                            <?php esc_html_e('Fields marked * are required.', 'capability-manager-enhanced'); ?>
+                                                                        </p>
 
                                                                         <input type="hidden" name="custom_style_action" value="">
                                                                         <input type="hidden" name="custom_style_slug" id="custom_style_slug" value="new">
                                                                         <input type="hidden" name="custom_style_is_builtin" id="custom_style_is_builtin" value="0">
 
                                                                         <div class="custom-style-tabs editor-tabs">
-                                                                            <nav class="nav-tab-wrapper editor-nav-tabs form-promo-blur">
+                                                                            <nav class="nav-tab-wrapper editor-nav-tabs form-promo-blur" role="tablist" aria-label="<?php esc_attr_e('Color style sections', 'capability-manager-enhanced'); ?>">
                                                                             <?php
                                                                             $color_tabs = $admin_styles->get_element_color_tabs();
                                                                             $tab_index = 0;
@@ -330,7 +336,11 @@ if ($admin_styles_saved !== false) {
                                                                                 $is_active = ($tab_index === 0) ? 'nav-tab-active' : '';
                                                                                 ?>
                                                                                 <a href="#custom-style-tab-<?php echo esc_attr($tab_key); ?>"
+                                                                                   id="custom-style-tab-link-<?php echo esc_attr($tab_key); ?>"
                                                                                    class="nav-tab  editor-tab-link custom-style-tab <?php echo esc_attr($is_active); ?>"
+                                                                                   role="tab"
+                                                                                   aria-selected="<?php echo ($tab_index === 0) ? 'true' : 'false'; ?>"
+                                                                                   aria-controls="custom-style-tab-<?php echo esc_attr($tab_key); ?>"
                                                                                    data-tab="custom-style-tab-<?php echo esc_attr($tab_key); ?>">
                                                                                     <?php echo esc_html($tab_data['label']); ?>
                                                                                 </a>
@@ -364,7 +374,9 @@ if ($admin_styles_saved !== false) {
                                                                                     $is_active = ($tab_index === 0) ? 'active' : '';
                                                                                     ?>
                                                                                     <div id="custom-style-tab-<?php echo esc_attr($tab_key); ?>"
-                                                                                         class="editor-tab-pane custom-style-tab-content <?php echo esc_attr($is_active); ?>">
+                                                                                         class="editor-tab-pane custom-style-tab-content <?php echo esc_attr($is_active); ?>"
+                                                                                         role="tabpanel"
+                                                                                         aria-labelledby="custom-style-tab-link-<?php echo esc_attr($tab_key); ?>">
 
                                                                                         <?php if ($tab_key === 'advanced') : ?>
                                                                                             <div class="ppc-advanced-rules-wrap">
@@ -433,6 +445,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         name="custom_style_name"
                                                                                                         id="custom_style_name" value=""
                                                                                                         class="regular-text"
+                                                                                                        aria-required="true"
                                                                                                         placeholder="<?php esc_attr_e('e.g., Company Branding, Dark Mode', 'capability-manager-enhanced'); ?>">
                                                                                                 </td>
                                                                                             </tr>
@@ -441,6 +454,9 @@ if ($admin_styles_saved !== false) {
                                                                                                 <td class="color-label">
                                                                                                     <label for="custom_style_<?php echo esc_attr($color_key); ?>" class="color-label-text">
                                                                                                         <?php echo esc_html($color_config['label']); ?>
+                                                                                                        <?php if ($color_key === 'custom_scheme_base') : ?>
+                                                                                                            <span class="required">*</span>
+                                                                                                        <?php endif; ?>
                                                                                                     </label>
                                                                                                 </td>
                                                                                                 <td class="color-input-cell">
@@ -448,6 +464,7 @@ if ($admin_styles_saved !== false) {
                                                                                                         name="custom_style_<?php echo esc_attr($color_key); ?>"
                                                                                                         id="custom_style_<?php echo esc_attr($color_key); ?>"
                                                                                                         aria-label="<?php echo esc_attr($color_config['label']); ?>"
+                                                                                                        <?php if ($color_key === 'custom_scheme_base') : ?>aria-required="true"<?php endif; ?>
                                                                                                         value=""
                                                                                                         class="pp-capabilities-color-picker custom-style-color color-input"
                                                                                                         data-category="<?php echo $tab_key === 'general' ? 'general' : 'element_colors'; ?>"
@@ -475,7 +492,8 @@ if ($admin_styles_saved !== false) {
                                                                             <div class="custom-link-delete ppc-tool-tip click-tooltip" id="custom-style-delete-button" style="display: none; margin-left: auto;">
                                                                                 <button type="button"
                                                                                     class="button button-secondary ppc-button-delete"
-                                                                                    style="border-color: #d63638 !important;color: #d63638 !important;">
+                                                                                    aria-expanded="false"
+                                                                                    style="border-color: #b32d2e !important;color: #b32d2e !important;">
                                                                                     <?php esc_attr_e('Delete Custom Style', 'capability-manager-enhanced'); ?>
                                                                                 </button>
 
@@ -512,7 +530,7 @@ if ($admin_styles_saved !== false) {
                                                                             class="button-primary">
                                                                     </div>
 
-                                                                    <div id="custom-style-error" class="editor-error">
+                                                                    <div id="custom-style-error" class="editor-error" role="alert">
                                                                     </div>
                                                                         </div>
                                                                     </div>
