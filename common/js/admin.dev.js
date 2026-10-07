@@ -818,8 +818,7 @@ jQuery(document).ready(function ($) {
   // -------------------------------------------------------------
   //   Custom styles new entry
   // -------------------------------------------------------------
-  $(document).on("click", ".ppc-button-group label", function () {
-    var current_button = $(this);
+  function ppcSelectButtonGroupLabel(current_button) {
     var target_value = current_button.find('input').val();
     var button_group = current_button.closest('.ppc-button-group');
     var hide_selector = button_group.attr('data-hide-selector');
@@ -834,6 +833,18 @@ jQuery(document).ready(function ($) {
     current_button.addClass('selected');
     if (target_value === '.frontend-element-styles') {
       $(".ppc-code-editor-refresh-editor").trigger("click");
+    }
+  }
+
+  $(document).on("click", ".ppc-button-group label", function () {
+    ppcSelectButtonGroupLabel($(this));
+  });
+
+  // Keyboard selection (arrow keys) changes the radio without a label click
+  $(document).on("change", ".ppc-button-group input[type='radio']", function () {
+    var current_button = $(this).closest('label');
+    if ($(this).is(':checked') && !current_button.hasClass('selected')) {
+      ppcSelectButtonGroupLabel(current_button);
     }
   });
 
@@ -968,7 +979,9 @@ jQuery(document).ready(function ($) {
   // -------------------------------------------------------------
   $(document).on("click", ".view-custom-item", function (event) {
     event.preventDefault();
-    $(this).closest('.custom-item-row').find('.custom-item-output').toggleClass('show');
+    var item_output = $(this).closest('.custom-item-row').find('.custom-item-output');
+    item_output.toggleClass('show');
+    $(this).attr('aria-expanded', item_output.hasClass('show') ? 'true' : 'false');
   });
 
   // -------------------------------------------------------------

@@ -171,16 +171,24 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
 
                                                                     <td class="menu-column ppc-menu-item parent features-section-header restrict-column ppc-menu-checkbox" style="text-align: left;">
 
+                                                                        <?php if ($fse_theme) : ?>
+                                                                        <button type="button" class="ppc-nav-menu-toggle ppc-nav-section-toggle" aria-expanded="true">
+                                                                        <?php else : ?>
                                                                         <label for="check-item-<?php echo (int) $sn; ?>">
+                                                                        <?php endif; ?>
                                                                         <span class="menu-item-link">
                                                                         <strong>
-                                                                        <i class="dashicons dashicons-open-folder"></i>
+                                                                        <i class="dashicons dashicons-open-folder" aria-hidden="true"></i>
                                                                             <?php if (!$fse_theme) : ?>
                                                                                 <i class="dashicons dashicons-arrow-right"></i>
                                                                             <?php endif; ?>
                                                                             <span class="ppc-nav-item-title"><?php echo esc_html(wp_strip_all_tags($menu_name)); ?></span>
                                                                         </strong></span>
+                                                                        <?php if ($fse_theme) : ?>
+                                                                        </button>
+                                                                        <?php else : ?>
                                                                         </label>
+                                                                        <?php endif; ?>
                                                                     </td>
 
                                                                 </tr>
@@ -242,13 +250,17 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                                                         </td>
                                                                         <td class="menu-column ppc-menu-item">
 
+                                                                            <?php
+                                                                            $is_fse_parent_item = ($fse_theme && isset($menu_item->is_parent_page) && $menu_item->is_parent_page === 1);
+                                                                            if ($is_fse_parent_item) : ?>
+                                                                                <span class="ppc-nav-menu-depth"><?php echo $depth_space; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span><button type="button" class="ppc-nav-menu-toggle ppc-nav-subsection-toggle" aria-expanded="true" aria-label="<?php echo esc_attr(sprintf(__('Toggle %s submenu', 'capability-manager-enhanced'), wp_strip_all_tags($menu_item->title))); ?>"><span class="ppc-nav-menu-expand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M10.8622 8.04053L14.2805 12.0286L10.8622 16.0167L9.72327 15.0405L12.3049 12.0286L9.72327 9.01672L10.8622 8.04053Z"></path></svg></span></button>
+                                                                            <?php endif; ?>
                                                                             <label for="check-item-<?php echo (int) $sn; ?>">
                                                                             <span class="menu-item-link<?php echo (in_array($sub_menu_value, $nav_menu_item_option)) ? ' restricted' : ''; ?>">
                                                                             <strong>
-                                                                                <?php if ($fse_theme && isset($menu_item->is_parent_page) && $menu_item->is_parent_page === 1) {
-                                                                                    $depth_space .= '<span class="ppc-nav-menu-expand"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path d="M10.8622 8.04053L14.2805 12.0286L10.8622 16.0167L9.72327 15.0405L12.3049 12.0286L9.72327 9.01672L10.8622 8.04053Z"></path></svg></span>';
-                                                                                } ?>
+                                                                                <?php if (!$is_fse_parent_item) : ?>
                                                                                 <?php echo $depth_space; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                                                                <?php endif; ?>
                                                                                 <?php if ($fse_theme) : ?>
                                                                                     <span class="ppc-nav-item-title">
                                                                                         <?php echo esc_html(wp_strip_all_tags($menu_item->title)); ?>
@@ -390,18 +402,19 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                 // -------------------------------------------------------------
                 //   Fse menu section click
                 // -------------------------------------------------------------
-                $(document).on('click', '.pp-capability-menus-wrapper .fse-nav-menu .ppc-menu-row.section-menu label', function () {
+                $(document).on('click', '.pp-capability-menus-wrapper .fse-nav-menu .ppc-menu-row.section-menu .ppc-nav-section-toggle', function () {
                     let clicked_menu = $(this);
                     let menu_tr      = clicked_menu.closest('tr');
                     let menu_id      = menu_tr.attr('data-menu-id');
                     $('tr[data-section-menu-id="' + menu_id + '"]').toggleClass('section-closed');
                     menu_tr.toggleClass('opened');
+                    clicked_menu.attr('aria-expanded', menu_tr.hasClass('opened') ? 'true' : 'false');
                 });
 
                 // -------------------------------------------------------------
                 //   Fse menu perent menu click
                 // -------------------------------------------------------------
-                $(document).on('click', '.pp-capability-menus-wrapper .fse-nav-menu .ppc-menu-row.subsection-menu label', function (event) {
+                $(document).on('click', '.pp-capability-menus-wrapper .fse-nav-menu .ppc-menu-row.subsection-menu label, .pp-capability-menus-wrapper .fse-nav-menu .ppc-menu-row.subsection-menu .ppc-nav-subsection-toggle', function (event) {
                     event.preventDefault();
                     event.stopPropagation();
 
@@ -414,6 +427,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                         $('tr[data-parent-menu-id="' + menu_id + '"], tr.ancestor-' + menu_id.replace('+', '') + '').removeClass('menu-closed');
                     }
                     menu_tr.toggleClass('opened');
+                    menu_tr.find('.ppc-nav-subsection-toggle').attr('aria-expanded', menu_tr.hasClass('opened') ? 'true' : 'false');
                 });
 
             });

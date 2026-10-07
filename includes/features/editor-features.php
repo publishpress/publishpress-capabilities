@@ -150,19 +150,28 @@ $active_tab_text = is_object($active_tab_type_obj)
                                                 <div id="ppc-capabilities-wrapper" class="postbox">
 
                                                 <div class="ppc-capabilities-tabs">
-                                                    <ul style="min-width: 200px;">
+                                                    <ul style="min-width: 200px;" role="tablist" aria-orientation="vertical" aria-label="<?php esc_attr_e('Post types', 'capability-manager-enhanced'); ?>">
                                                         <?php
+                                                            $has_active_tab = in_array($active_tab_slug, $def_post_types, true);
+                                                            $tab_sn = 0;
 
                                                             foreach($def_post_types as $type_name) {
+                                                                $tab_sn++;
                                                                 $type_obj = get_post_type_object($type_name);
                                                                 $active_class = ($type_name === $active_tab_slug) ? 'ppc-capabilities-tab-active' : '';
+                                                                $tab_focusable = ($type_name === $active_tab_slug) || (!$has_active_tab && $tab_sn === 1);
 
                                                                 $disabled_count  = 0;
                                                                 $disabled_count += (is_array($gutenberg_post_disabled) && isset($gutenberg_post_disabled[$type_name])) ? count($gutenberg_post_disabled[$type_name]) : 0;
                                                                 $disabled_count += (is_array($ce_post_disabled) && isset($ce_post_disabled[$type_name])) ? count($ce_post_disabled[$type_name]) : 0;
 
                                                                 ?>
-                                                                <li data-slug="<?php echo esc_attr($type_name); ?>"
+                                                                <li id="ppc-tab-<?php echo esc_attr($type_name); ?>"
+                                                                    role="tab"
+                                                                    aria-controls="cme-cap-type-tables-<?php echo esc_attr($type_name); ?>"
+                                                                    aria-selected="<?php echo ($type_name === $active_tab_slug) ? 'true' : 'false'; ?>"
+                                                                    tabindex="<?php echo $tab_focusable ? '0' : '-1'; ?>"
+                                                                    data-slug="<?php echo esc_attr($type_name); ?>"
                                                                     data-content="cme-cap-type-tables-<?php echo esc_attr($type_name); ?>"
                                                                     data-name="<?php echo esc_attr($type_obj->labels->singular_name); ?>"
                                                                     class="<?php echo esc_attr($active_class); ?>"
@@ -191,7 +200,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                                                             $type_obj = get_post_type_object($type_name);
                                                             $active_style = ($type_name === $active_tab_slug) ? '' : 'display:none;';
                                                             ?>
-                                                            <div id="cme-cap-type-tables-<?php echo esc_attr($type_name); ?>" style="<?php echo esc_attr($active_style); ?>">
+                                                            <div id="cme-cap-type-tables-<?php echo esc_attr($type_name); ?>" role="tabpanel" aria-labelledby="ppc-tab-<?php echo esc_attr($type_name); ?>" style="<?php echo esc_attr($active_style); ?>">
                                                                 <?php
                                                                 include(dirname(__FILE__) . '/editor-features-gutenberg.php');
 
@@ -326,12 +335,40 @@ $active_tab_text = is_object($active_tab_type_obj)
             $('#' + $pp_tab).show();
 
             // Active current Tab
-            $('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active');
-            $(this).addClass('ppc-capabilities-tab-active');
+            $('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active').attr('aria-selected', 'false').attr('tabindex', '-1');
+            $(this).addClass('ppc-capabilities-tab-active').attr('aria-selected', 'true').attr('tabindex', '0');
 
             //Update button text
             $('input[name="editor-features-submit"]').val($button_text);
 
+        });
+
+        // Keyboard support for tabs
+        $('.ppc-capabilities-tabs > ul > li[role="tab"]').on('keydown', function(event) {
+            var $tabs = $('.ppc-capabilities-tabs > ul > li[role="tab"]:visible');
+            var current_index = $tabs.index(this);
+            var target_index;
+
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                $(this).trigger('click');
+                return;
+            }
+
+            if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+                target_index = (current_index + 1) % $tabs.length;
+            } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+                target_index = (current_index - 1 + $tabs.length) % $tabs.length;
+            } else if (event.key === 'Home') {
+                target_index = 0;
+            } else if (event.key === 'End') {
+                target_index = $tabs.length - 1;
+            } else {
+                return;
+            }
+
+            event.preventDefault();
+            $tabs.eq(target_index).trigger('focus').trigger('click');
         });
 
         // -------------------------------------------------------------

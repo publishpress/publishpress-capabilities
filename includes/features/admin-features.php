@@ -92,8 +92,16 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
 
                                                     <div id="ppc-capabilities-wrapper" class="postbox">
                                                         <div class="ppc-capabilities-tabs">
-                                                            <ul style="min-width: 220px;">
+                                                            <ul style="min-width: 220px;" role="tablist" aria-orientation="vertical" aria-label="<?php esc_attr_e('Admin Feature sections', 'capability-manager-enhanced'); ?>">
                                                                 <?php
+                                                                    $has_active_tab = false;
+                                                                    foreach (array_keys($admin_features_elements) as $section_title) {
+                                                                        if (strtolower(ppc_remove_non_alphanumeric_space_characters($section_title)) === $active_tab_slug) {
+                                                                            $has_active_tab = true;
+                                                                            break;
+                                                                        }
+                                                                    }
+
                                                                     $sn = 0;
                                                                     foreach ($admin_features_elements as $section_title => $section_elements) {
                                                                         $sn++;
@@ -108,6 +116,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                         $section_slug = strtolower(ppc_remove_non_alphanumeric_space_characters($section_title));
 
                                                                         $active_class = ($section_slug === $active_tab_slug) ? 'ppc-capabilities-tab-active' : '';
+                                                                        $tab_focusable = ($section_slug === $active_tab_slug) || (!$has_active_tab && $sn === 1);
 
                                                                         $disabled_count  = count(PP_Capabilities_Admin_Features::adminFeaturesRestrictedElements($disabled_admin_items, $feature_action));
 
@@ -119,7 +128,12 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
 
                                                                         }
                                                                         ?>
-                                                                        <li data-slug="<?php echo esc_attr($section_slug); ?>"
+                                                                        <li id="ppc-tab-<?php echo esc_attr($section_slug); ?>"
+                                                                            role="tab"
+                                                                            aria-controls="cme-cap-type-tables-<?php echo esc_attr($section_slug); ?>"
+                                                                            aria-selected="<?php echo ($section_slug === $active_tab_slug) ? 'true' : 'false'; ?>"
+                                                                            tabindex="<?php echo $tab_focusable ? '0' : '-1'; ?>"
+                                                                            data-slug="<?php echo esc_attr($section_slug); ?>"
                                                                             data-content="cme-cap-type-tables-<?php echo esc_attr($section_slug); ?>"
                                                                             data-name="<?php echo esc_attr($translated_title); ?>"
                                                                             class="<?php echo esc_attr($active_class); ?>"
@@ -153,7 +167,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
 
                                                                 $active_style = ($section_slug === $active_tab_slug) ? '' : 'display:none;';
                                                                 ?>
-                                                                <div id="cme-cap-type-tables-<?php echo esc_attr($section_slug); ?>" style="<?php echo esc_attr($active_style); ?>">
+                                                                <div id="cme-cap-type-tables-<?php echo esc_attr($section_slug); ?>" role="tabpanel" aria-labelledby="ppc-tab-<?php echo esc_attr($section_slug); ?>" style="<?php echo esc_attr($active_style); ?>">
 
                                                                     <h3 class="admin-features-title">
                                                                         <?php echo esc_html($translated_title);?>
@@ -265,8 +279,8 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                                                     </div>
                                                                                                 </div>
                                                                                                 <div class="ppc-flex-item" style="max-width: unset;">
-                                                                                                    <div class="button view-custom-item"><?php esc_html_e('View'); ?></div>
-                                                                                                        <div class="button edit-features-custom-item <?php echo esc_attr($section_array['edit_class']); ?>"
+                                                                                                    <button type="button" class="button view-custom-item" aria-expanded="false"><?php esc_html_e('View'); ?></button>
+                                                                                                        <button type="button" class="button edit-features-custom-item <?php echo esc_attr($section_array['edit_class']); ?>"
                                                                                                             data-section="<?php echo esc_attr($section_slug); ?>"
                                                                                                             data-label="<?php echo esc_attr($section_array['label']); ?>"
                                                                                                             data-element="<?php echo esc_attr($section_array['element_items']); ?>"
@@ -275,12 +289,13 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                                                                                             data-url-wildcard="<?php echo !empty($section_array['url_wildcard']) ? '1' : '0'; ?>"
                                                                                                             data-id="<?php echo esc_attr($section_array['button_data_id']); ?>">
                                                                                                             <?php esc_html_e('Edit', 'capability-manager-enhanced'); ?>
-                                                                                                        </div>
-                                                                                                        <div
+                                                                                                        </button>
+                                                                                                        <button type="button"
                                                                                                             class="button <?php echo esc_attr($section_array['button_class']); ?> feature-red"
+                                                                                                            aria-label="<?php echo esc_attr(sprintf(__('Delete %s', 'capability-manager-enhanced'), $section_array['element_label'])); ?>"
                                                                                                             data-id="<?php echo esc_attr($section_array['button_data_id']); ?>">
                                                                                                             <?php esc_html_e('Delete'); ?>
-                                                                                                        </div>
+                                                                                                        </button>
                                                                                                     </div>
                                                                                                 </div>
                                                                                         </td>
@@ -422,8 +437,36 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                     $('#' + $pp_tab).show();
 
                     // Active current Tab
-                    $('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active');
-                    $(this).addClass('ppc-capabilities-tab-active');
+                    $('.ppc-capabilities-tabs > ul > li').removeClass('ppc-capabilities-tab-active').attr('aria-selected', 'false').attr('tabindex', '-1');
+                    $(this).addClass('ppc-capabilities-tab-active').attr('aria-selected', 'true').attr('tabindex', '0');
+                });
+
+                // Keyboard support for tabs
+                $('.ppc-capabilities-tabs > ul > li[role="tab"]').on('keydown', function(event) {
+                    var $tabs = $('.ppc-capabilities-tabs > ul > li[role="tab"]:visible');
+                    var current_index = $tabs.index(this);
+                    var target_index;
+
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        $(this).trigger('click');
+                        return;
+                    }
+
+                    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+                        target_index = (current_index + 1) % $tabs.length;
+                    } else if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+                        target_index = (current_index - 1 + $tabs.length) % $tabs.length;
+                    } else if (event.key === 'Home') {
+                        target_index = 0;
+                    } else if (event.key === 'End') {
+                        target_index = $tabs.length - 1;
+                    } else {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    $tabs.eq(target_index).trigger('focus').trigger('click');
                 });
 
                 // -------------------------------------------------------------

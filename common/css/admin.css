@@ -726,6 +726,11 @@ margin-bottom: 10px !important;
 	border-right-color: #fff;
 }
 
+#ppc-capabilities-wrapper .ppc-capabilities-tabs > ul > li[role="tab"]:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: -2px;
+}
+
 #ppc-capabilities-wrapper .ppc-capabilities-content > div {
 	padding: 20px;
 }
@@ -1177,6 +1182,23 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
     outline: none;
 }
 
+.pp-capability-menus-wrapper .fse-nav-menu .ppc-nav-menu-toggle {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.pp-capability-menus-wrapper .fse-nav-menu .ppc-nav-menu-toggle:focus-visible {
+    outline: 2px solid #2271b1;
+    outline-offset: 1px;
+}
+
 tr.opened .ppc-nav-menu-expand svg {
     transform: rotate(90deg);
     transition: transform .2s ease;
@@ -1344,8 +1366,26 @@ ul.pp-capabilities-description {
   border-radius: 3px 0 0 0;
 }
 
-.ppc-button-group input {
-  display: none !important;
+.ppc-button-group input,
+.ppc-button-group input[type="radio"] {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 1px;
+  min-width: 0;
+  height: 1px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ppc-button-group label:focus-within {
+  outline: 2px solid #2271b1;
+  outline-offset: 1px;
+  z-index: 3;
 }
 
 .frontend-element-new-element,
@@ -1425,8 +1465,8 @@ ul.pp-capabilities-description {
 }
 
 .pp-capability-menus-wrapper.frontend-features .restrict-column input[type=checkbox]:checked:focus {
-  border-color: inherit;
-  box-shadow: inherit;
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
 }
 
 .pp-capability-menus-wrapper.frontend-features .restrict-column input[type=checkbox]:checked::before {
@@ -1549,6 +1589,11 @@ ul.ppc-redirects-tab li a {
   text-decoration: none;
   line-height: 20px!important;
   border-bottom: 1px solid #eee;
+}
+
+ul.ppc-redirects-tab li a:focus {
+  box-shadow: 0 0 0 2px #2271b1;
+  outline: 2px solid transparent;
 }
 
 ul.ppc-redirects-tab li a span {
