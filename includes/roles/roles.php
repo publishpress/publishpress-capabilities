@@ -5,7 +5,7 @@
         pp_capabilities_roles()->admin->get_roles_edit_ui();
      }else{ ?>
     <div class="wrap">
-        <h1 class="wp-heading-inline"><?php esc_html_e('Roles', 'capability-manager-enhanced') ?> </h1>
+        <h1 class="wp-heading-inline" tabindex="-1"><?php esc_html_e('Roles', 'capability-manager-enhanced') ?> </h1>
         <a href="<?php echo esc_url(admin_url('admin.php?page=pp-capabilities-roles&add=new_item')); ?>" class="page-title-action">
             <?php esc_html_e('Add New', 'capability-manager-enhanced'); ?>
         </a>
@@ -22,7 +22,7 @@
         ?>
         <form action="" method="post">
             <hr class="wp-header-end">
-            <div id="ajax-response"></div>
+            <div id="ajax-response" role="status" aria-live="polite"></div>
 
             <div id="col-container" class="wp-clearfix">
                 <div class="col-wrap">

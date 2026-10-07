@@ -438,7 +438,7 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
     protected function column_default_role($item)
     {
         if ($item['role'] == get_option('default_role')) {
-            $out = '<span class="dashicons dashicons-yes-alt green-check"></span>';
+            $out = '<span class="dashicons dashicons-yes-alt green-check" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('Yes', 'capability-manager-enhanced') . '</span>';
         } else {
             $out = '';
         }
@@ -480,9 +480,9 @@ class PP_Capabilities_Roles_List_Table extends WP_List_Table
 
 
         if ($admin_access) {
-            $out = '<span class="dashicons dashicons-yes-alt green-check"></span>';
+            $out = '<span class="dashicons dashicons-yes-alt green-check" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('Yes', 'capability-manager-enhanced') . '</span>';
         } else {
-            $out = '<span class="dashicons dashicons-no red-check"></span>';
+            $out = '<span class="dashicons dashicons-no red-check" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('No', 'capability-manager-enhanced') . '</span>';
         }
 
         return $out;

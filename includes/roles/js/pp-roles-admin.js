@@ -52,6 +52,11 @@ jQuery(document).ready(function ($) {
                         $('#ajax-response').empty();
                         tr.fadeOut('normal', function () {
                             tr.remove();
+                            // Announce the deletion and move focus off the removed row.
+                            if (r.data) {
+                                $('#ajax-response').html('<div class="notice notice-success"><p>' + r.data + '</p></div>');
+                            }
+                            $('.pp-capability-roles-wrapper h1.wp-heading-inline').trigger('focus');
                         });
                     } else {
                         $('#ajax-response').empty().append(r.data);
@@ -148,6 +153,11 @@ jQuery(document).ready(function ($) {
      $('.roles-capabilities-load-less').hide();
     
      $('.roles-capabilities-load-more').show();
+
+     var load_more = $('.roles-capabilities-load-more').get(0);
+     if (load_more) {
+       load_more.focus({ preventScroll: true });
+     }
    
      $('ul.pp-roles-capabilities li').hide();
 
@@ -198,10 +208,13 @@ jQuery(document).ready(function ($) {
       var slugexists = $('#pp-role-slug-exists')
       var all_roles = $('.ppc-roles-all-roles').val();
       var role_array = all_roles.split(',');
+      var slug_input = $('.ppc-roles-tab-content input[name="role_slug"]');
       if (role_array.includes(value)) {
         slugexists.show();
+        slug_input.attr('aria-invalid', 'true').attr('aria-describedby', 'pp-role-slug-exists');
       } else {
         slugexists.hide();
+        slug_input.removeAttr('aria-invalid').removeAttr('aria-describedby');
       }
     }
   }
