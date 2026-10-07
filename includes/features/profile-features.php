@@ -178,6 +178,17 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                                                 <?php echo esc_html($item_name); ?>
                                                                             </strong>
                                                                         </label>
+                                                                        <?php $ppc_move_label = wp_strip_all_tags($item_name); ?>
+                                                                        <span class="ppc-reorder-buttons">
+                                                                            <button type="button" class="button-link ppc-move-row ppc-move-up" data-direction="up"
+                                                                                aria-label="<?php /* translators: %s: profile item name */ echo esc_attr(sprintf(__('Move %s up', 'capability-manager-enhanced'), $ppc_move_label)); ?>">
+                                                                                <span class="dashicons dashicons-arrow-up-alt2" aria-hidden="true"></span>
+                                                                            </button>
+                                                                            <button type="button" class="button-link ppc-move-row ppc-move-down" data-direction="down"
+                                                                                aria-label="<?php /* translators: %s: profile item name */ echo esc_attr(sprintf(__('Move %s down', 'capability-manager-enhanced'), $ppc_move_label)); ?>">
+                                                                                <span class="dashicons dashicons-arrow-down-alt2" aria-hidden="true"></span>
+                                                                            </button>
+                                                                        </span>
                                                                     </td>
                                                                 </tr>
                                                                 <?php else : ?>
@@ -201,6 +212,17 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                                                 <?php echo esc_html($item_name); ?>
                                                                             </strong></span>
                                                                         </label>
+                                                                        <?php $ppc_move_label = wp_strip_all_tags($item_name); ?>
+                                                                        <span class="ppc-reorder-buttons">
+                                                                            <button type="button" class="button-link ppc-move-row ppc-move-up" data-direction="up"
+                                                                                aria-label="<?php /* translators: %s: profile item name */ echo esc_attr(sprintf(__('Move %s up', 'capability-manager-enhanced'), $ppc_move_label)); ?>">
+                                                                                <span class="dashicons dashicons-arrow-up-alt2" aria-hidden="true"></span>
+                                                                            </button>
+                                                                            <button type="button" class="button-link ppc-move-row ppc-move-down" data-direction="down"
+                                                                                aria-label="<?php /* translators: %s: profile item name */ echo esc_attr(sprintf(__('Move %s down', 'capability-manager-enhanced'), $ppc_move_label)); ?>">
+                                                                                <span class="dashicons dashicons-arrow-down-alt2" aria-hidden="true"></span>
+                                                                            </button>
+                                                                        </span>
                                                                     </td>
                                                                 </tr>
                                                                 <?php
@@ -218,6 +240,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                         </div>
                                     </div>
                                     <input type="hidden" name="capsman_profile_features_elements_order" class="capsman_profile_features_elements_order" value=""/>
+                                    <div class="screen-reader-text ppc-profile-features-reorder-status" role="status" aria-live="polite"></div>
                                     <input type="submit" name="profile-features-submit"
                                            value="<?php esc_attr_e('Save Changes');?>"
                                             style="float: right; margin-top: 10px;"

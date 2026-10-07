@@ -782,18 +782,60 @@ jQuery(document).ready(function ($) {
     /**
      * Make profile features sortable
      */
+    function ppcUpdateProfileFeaturesOrder() {
+      var fields_order = [];
+      $('.pp-capability-menus-wrapper.profile-features table.pp-capability-menus-select tbody tr.ppc-sortable-row').each(function () {
+        var element_key = $(this).attr('data-element_key');
+        if (element_key) {
+          fields_order.push(element_key);
+        }
+      });
+      $('.capsman_profile_features_elements_order').val(fields_order.join(","));
+    }
+
     $(".pp-capability-menus-wrapper.profile-features table.pp-capability-menus-select tbody").sortable({
       axis: "y",
       update: function (e, ui) {
-        var fields_order = [];
-        $('.pp-capability-menus-wrapper.profile-features table.pp-capability-menus-select tbody tr.ppc-sortable-row').each(function () {
-          var element_key = $(this).attr('data-element_key');
-          if (element_key) {
-            fields_order.push(element_key);
-          }
-        });
-        $('.capsman_profile_features_elements_order').val(fields_order.join(","));
+        ppcUpdateProfileFeaturesOrder();
       }
+    });
+
+    /**
+     * Keyboard alternative to dragging: move row up / down buttons
+     */
+    $(document).on('click', '.pp-capability-menus-wrapper.profile-features .ppc-move-row', function (e) {
+      e.preventDefault();
+      var button = $(this);
+      var row = button.closest('tr.ppc-sortable-row');
+      var direction = button.attr('data-direction');
+      var target = direction === 'up' ? row.prevAll('tr.ppc-sortable-row').first() : row.nextAll('tr.ppc-sortable-row').first();
+
+      if (!target.length) {
+        return;
+      }
+
+      if (direction === 'up') {
+        row.insertBefore(target);
+      } else {
+        row.insertAfter(target);
+      }
+
+      ppcUpdateProfileFeaturesOrder();
+
+      // Moving the row detaches the focused button, so restore focus.
+      button.trigger('focus');
+
+      var rows = row.parent().children('tr.ppc-sortable-row');
+      var item_label = row.find('td.ppc-menu-item label').text().trim();
+      $('.ppc-profile-features-reorder-status').text(
+        wp.i18n.sprintf(
+          /* translators: 1: item name, 2: new position, 3: total number of items */
+          __('%1$s moved to position %2$d of %3$d', 'capability-manager-enhanced'),
+          item_label,
+          rows.index(row) + 1,
+          rows.length
+        )
+      );
     });
   }
 
