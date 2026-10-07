@@ -729,12 +729,12 @@
     showLogoPreview: function (url, target) {
       if (target === 'admin_logo') {
         // Add new preview
-        var $preview = $('<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
+        var $preview = $('<img src="' + url + '" alt="' + ppCapabilitiesAdminStyles.labels.adminLogoPreview + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
         $('.logo-preview').empty();
         $('.logo-preview').append($preview);
       } else if (target === 'admin_favicon') {
         // Add new preview
-        var $preview = $('<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
+        var $preview = $('<img src="' + url + '" alt="' + ppCapabilitiesAdminStyles.labels.adminFaviconPreview + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
         $('.favicon-preview').empty();
         $('.favicon-preview').append($preview);
       }
