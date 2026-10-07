@@ -1059,16 +1059,21 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 													$chk_classes = [];
 
                                                     $cap_title = '';
+													$via_pp_text = '';
 													if (! empty($pp_metagroup_caps[$cap_name]) ) {
 																$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 														$chk_classes []= 'cm-has-via-pp';
+														$via_pp_text = __('(via Permission Group)', 'capability-manager-enhanced');
 													} else {
 																$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 													}
 
 													$chk_class = ( $chk_classes ) ? ' class="' . implode(' ', $chk_classes) . '"' : '';
 
-												$checkbox = '<div class="ppc-tool-tip disabled"><input type="checkbox" aria-label="' . esc_attr(str_replace('_', ' ', $cap_name)) . '"' . $chk_class . ' name="caps[' . esc_attr($cap_name) . ']" data-capability-label="' . esc_attr(str_replace('_', ' ', $cap_name)) . '" autocomplete="off" value="1" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
+													$cap_label = str_replace('_', ' ', $cap_name) . ($via_pp_text ? ' ' . $via_pp_text : '');
+
+												$checkbox = '<div class="ppc-tool-tip disabled"><input type="checkbox" aria-label="' . esc_attr($cap_label) . '"' . $chk_class . ' name="caps[' . esc_attr($cap_name) . ']" data-capability-label="' . esc_attr($cap_label) . '" autocomplete="off" value="1" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />'
+                                                        . ($via_pp_text ? '<span class="ppc-via-pp-label">' . esc_html($via_pp_text) . '</span>' : '') . '
                                                         <div class="tool-tip-text">
                                                             <p>'. $tool_tip .'</p>
                                                             <i></i>
@@ -1100,8 +1105,9 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 																$tool_tip  = sprintf(__('This capability is controlled by %s Use the sidebar settings to allow this to be controlled independently.', 'capability-manager-enhanced'), '<strong>' . esc_html($cap_name) . '</strong>.<br /><br />');
 												}
 
-                                                $checkbox = '<div class="ppc-tool-tip disabled"><input disabled class="disabled" type="checkbox" aria-label="' . esc_attr($cap_name) . '" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
-                                                    <div class="tool-tip-text">
+                                                $tool_tip_id = wp_unique_id('ppc-cap-tooltip-');
+                                                $checkbox = '<div class="ppc-tool-tip disabled"><input disabled class="disabled" type="checkbox" aria-label="' . esc_attr($cap_name) . '" aria-describedby="' . esc_attr($tool_tip_id) . '" ' . checked(1, ! empty($rcaps[$cap_name]), false ) . ' />
+                                                    <div class="tool-tip-text" id="' . esc_attr($tool_tip_id) . '">
                                                         <p>'. $tool_tip .'</p>
                                                         <i></i>
                                                     </div>
@@ -1122,7 +1128,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                             } else {
                                                 $tool_tip  =__('This capability is not available for this post type.', 'capability-manager-enhanced');
                                             }
-                                            $checkbox = '<div class="ppc-tool-tip disabled">&nbsp; &nbsp; &nbsp; &nbsp;
+                                            $checkbox = '<div class="ppc-tool-tip disabled">&nbsp; &nbsp; &nbsp; &nbsp;<span class="screen-reader-text">' . esc_html__('Not available', 'capability-manager-enhanced') . '</span>
                                                 <div class="tool-tip-text">
                                                     <p>'. $tool_tip .'</p>
                                                     <i></i>
@@ -1255,7 +1261,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						$_grouped_caps = array_fill_keys($__grouped_caps, true);
 
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
-						$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
+						$tab_dom_id = 'ppc-tab-' . sanitize_key(substr($tab_id, strlen('cme-cap-type-tables-')));
 
 							echo '<div id="' . esc_attr($tab_id) . '" role="tabpanel" aria-labelledby="' . esc_attr($tab_dom_id) . '" aria-hidden="' . esc_attr('block' === $div_display ? 'false' : 'true') . '" style="display:' . esc_attr($div_display) . '">';
 
@@ -1267,7 +1273,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . esc_html__('Clear') . '</button>';
 						echo '</div>';
-							echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+							echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" data-message="' . esc_attr__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '"></div>';
 
 						echo '<table class="widefat fixed striped form-table cme-checklist single-checkbox-table">';
 
@@ -1309,8 +1315,11 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							else
 								$class = ( $rcaps[$cap_name] ) ? 'cap-yes' : 'cap-neg';
 
+							$via_pp_text = '';
+
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
+								$via_pp_text = __('(via Permission Group)', 'capability-manager-enhanced');
 								$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 							} else {
 								$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
@@ -1327,11 +1336,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 							?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name) . ($via_pp_text ? ' ' . $via_pp_text : '')); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap_name));
 							?>
+							<?php if ($via_pp_text) : ?><span class="ppc-via-pp-label"><?php echo esc_html($via_pp_text); ?></span><?php endif; ?>
 							</span></label>
 								<?php echo wp_kses_post($tooltip_html); ?>
 							</span><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
@@ -1372,10 +1382,10 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					$tab_id = "cme-cap-type-tables-other";
 					$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
 					?>
-					<div id="<?php echo esc_attr($tab_id);?>" role="tabpanel" aria-labelledby="ppc-tab-other" aria-hidden="<?php echo esc_attr('block' === $div_display ? 'false' : 'true');?>" style="display:<?php echo esc_attr($div_display);?>">
+					<div id="<?php echo esc_attr($tab_id);?>" role="tabpanel" aria-labelledby="ppc-panel-heading-other" aria-hidden="<?php echo esc_attr('block' === $div_display ? 'false' : 'true');?>" style="display:<?php echo esc_attr($div_display);?>">
 						<?php
 
-						echo '<h3>' . esc_html__( 'WordPress Core Capabilities', 'capability-manager-enhanced' ) . '</h3>';
+						echo '<h3 id="ppc-panel-heading-other">' . esc_html__( 'WordPress Core Capabilities', 'capability-manager-enhanced' ) . '</h3>';
 
 						echo '<div class="ppc-filter-wrapper">';
 							$filter_id = 'ppc-filter-text-' . sanitize_key($tab_id);
@@ -1383,7 +1393,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . esc_html__('Clear') . '</button>';
 						echo '</div>';
-							echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+							echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" data-message="' . esc_attr__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '"></div>';
 
 						echo '<table class="widefat fixed striped form-table cme-checklist">';
 
@@ -1530,7 +1540,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						$tab_name = str_replace('(CAPABILITYEXTRACTOR)', '<span class="capability-extractor-label">CE</span>', $tab_name);
 						$div_display = ($tab_id == $active_tab_id) ? 'block' : 'none';
 
-						$tab_dom_id = 'ppc-tab-' . sanitize_key($tab_slug);
+						$tab_dom_id = 'ppc-tab-' . sanitize_key(substr($tab_id, strlen('cme-cap-type-tables-')));
 						echo '<div id="' . esc_attr($tab_id) . '" role="tabpanel" aria-labelledby="' . esc_attr($tab_dom_id) . '" aria-hidden="' . esc_attr('block' === $div_display ? 'false' : 'true') . '" style="display:' . esc_attr($div_display) . '" class="cme-plugin-cap-table">';
 
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1542,7 +1552,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 						echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . esc_html__('Clear') . '</button>';
 						echo '</div>';
-						echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+						echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" data-message="' . esc_attr__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '"></div>';
 
 						echo '<table class="widefat fixed striped form-table cme-checklist single-checkbox-table">';
 
@@ -1608,15 +1618,18 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							else
 								$class = ( $rcaps[$cap_name] ) ? 'cap-yes' : 'cap-neg';
 
+							$via_pp_text = '';
+
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
+								$via_pp_text = __('(via Permission Group)', 'capability-manager-enhanced');
 								$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 							} else {
 								$tool_tip = sprintf(__( 'This capability is %s', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 							}
 
                             if ($cap_name === 'manage_capabilities_user_testing') {
-                                $warning_message = '&nbsp; <span class="ppc-tool-tip"><span class="dashicons dashicons-info-outline"></span><span class="tool-tip-text"><p>'. sprintf(esc_html__('The User Testing feature also requires the %1$s edit_users %2$s capability.', 'capability-manager-enhanced'), '<strong>', '</strong>') .'</p><i></i></span></span>';
+                                $warning_message = '&nbsp; <span class="ppc-tool-tip" tabindex="0"><span class="dashicons dashicons-info-outline" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('More information', 'capability-manager-enhanced') . '</span><span class="tool-tip-text"><p>'. sprintf(esc_html__('The User Testing feature also requires the %1$s edit_users %2$s capability.', 'capability-manager-enhanced'), '<strong>', '</strong>') .'</p><i></i></span></span>';
                             } else {
                                 $warning_message = '';
                             }
@@ -1633,11 +1646,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 							?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name) . ($via_pp_text ? ' ' . $via_pp_text : '')); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap_name));
 							?>
+							<?php if ($via_pp_text) : ?><span class="ppc-via-pp-label"><?php echo esc_html($via_pp_text); ?></span><?php endif; ?>
 							</span></label>
 								<?php echo wp_kses_post($tooltip_html); ?>
 							</span><?php echo $warning_message; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><a href="#" class="neg-cap" style="visibility: hidden;">&nbsp;x&nbsp;</a>
@@ -1812,7 +1826,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 							echo '<input id="' . esc_attr($filter_id) . '" type="text" class="regular-text ppc-filter-text" placeholder="' . esc_attr__('Filter by capability', 'capability-manager-enhanced') . '">';
 							echo ' <button class="button secondary-button ppc-filter-text-reset" type="button">' . __('Clear') . '</button>';
 						echo '</div>';
-						echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" style="display:none;">' . esc_html__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '</div>';
+						echo '<div class="ppc-filter-no-results" role="status" aria-live="polite" aria-atomic="true" data-message="' . esc_attr__( 'No results found. Please try again with a different word.', 'capability-manager-enhanced' ) . '"></div>';
 						?>
 						<table class="widefat fixed striped form-table cme-checklist single-checkbox-table">
 
@@ -1919,8 +1933,11 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 
 							$title_text = '';
 
+							$via_pp_text = '';
+
 							if ( ! empty($pp_metagroup_caps[$cap_name]) ) {
 								$class .= ' cap-metagroup';
+								$via_pp_text = __('(via Permission Group)', 'capability-manager-enhanced');
 								$title_text = sprintf( esc_html__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 								$tool_tip = sprintf(__( '%s: assigned by Permission Group', 'capability-manager-enhanced' ), '<strong>' . esc_html($cap_name) . '</strong>' );
 							} else {
@@ -1949,11 +1966,12 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                                 </div>
                             ';
 						?>
-							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name)); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . ' ' . esc_attr($disabled);?> />
+							<td class="<?php echo esc_attr($class); ?>"><span class="ppc-tool-tip disabled cap-x">X</span><span class="ppc-tool-tip disabled"><label><input type="checkbox" name="caps[<?php echo esc_attr($cap_name); ?>]" data-capability-label="<?php echo esc_attr(str_replace('_', ' ', $cap_name) . ($via_pp_text ? ' ' . $via_pp_text : '')); ?>" class="pp-single-action-rotate" autocomplete="off" value="1" <?php echo esc_attr($checked) . ' ' . esc_attr($disabled);?> />
 							<span>
 							<?php
 							echo esc_html(str_replace( '_', ' ', $cap ));
 							?>
+							<?php if ($via_pp_text) : ?><span class="ppc-via-pp-label"><?php echo esc_html($via_pp_text); ?></span><?php endif; ?>
 								<?php echo wp_kses_post($tooltip_html); ?>
 							</span></label><?php if ( ! empty($title_text) ) :?><span class="tool-tip-text" style="text-align: center;">
 								<p><?php echo $title_text; ?></p>
@@ -2265,8 +2283,14 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 					var set_checked = ! $(chks).first().is(':checked');
 
 					$(chks).each(function(i,e) {
-						$('input[name="' + $(this).attr('name') + '"]').prop('checked', set_checked);
+						var same_name = $('input[name="' + $(this).attr('name') + '"]').filter('[type="checkbox"]');
+						same_name.prop('checked', set_checked);
+						same_name.closest('td').removeClass('cap-neg cap-yes cap-no').addClass(set_checked ? 'cap-yes' : 'cap-no')
+							.find('input.cme-negation-input').remove();
 					});
+
+					$(document).trigger('pp-capabilities-refresh-accessibility');
+					$(document).trigger('pp-capabilities-state-updated');
 
 					return false;
 				});

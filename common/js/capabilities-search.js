@@ -103,11 +103,13 @@ jQuery(document).ready(function ($) {
 
                 // Show/hide no results message
                 var noResultsDiv = tabContent.siblings('.ppc-filter-no-results');
-                if (matchCount === 0) {
-                    noResultsDiv.show();
-                } else {
-                    noResultsDiv.hide();
-                }
+                // Keep the live region rendered; toggle only its text so it is announced.
+                noResultsDiv.each(function () {
+                    var message = matchCount === 0 ? ($(this).attr('data-message') || '') : '';
+                    if ($(this).text() !== message) {
+                        $(this).text(message);
+                    }
+                });
             }
 
             tabCounts[tabSlug] = matchCount;
@@ -216,7 +218,7 @@ jQuery(document).ready(function ($) {
 
         // Show all rows in all tabs
         $('.ppc-capabilities-content table tr').show();
-        $('.ppc-filter-no-results').hide();
+        $('.ppc-filter-no-results').text('');
 
         // Clear all filters
         $('.ppc-filter-text').val('').trigger('input');

@@ -107,12 +107,13 @@ class Capsman_PP_UI {
                 <div class="postbox-header">
                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Unique Post Type Capabilities', 'capability-manager-enhanced'); ?></h2>
                     <div class="handle-actions">
-                        <button type="button" class="handlediv">
-                            <span class="toggle-indicator"></span>
+                        <button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-unique-post-types">
+                            <span class="screen-reader-text"><?php esc_html_e('Toggle Unique Post Type Capabilities panel', 'capability-manager-enhanced'); ?></span>
+                            <span class="toggle-indicator" aria-hidden="true"></span>
                         </button>
                     </div>
                 </div>
-                <div class="inside" style="text-align:center;">
+                <div class="inside" id="ppc-panel-unique-post-types" style="text-align:center;">
                 <?php
 				$learn_more_url = 'https://publishpress.com/knowledge-base/type-specific-capabilities/';
 				echo "<p class='cme-hint'>" . sprintf(
@@ -220,12 +221,13 @@ class Capsman_PP_UI {
                 <div class="postbox-header">
                     <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Unique Taxonomy Capabilities', 'capability-manager-enhanced'); ?></h2>
                     <div class="handle-actions">
-                        <button type="button" class="handlediv">
-                            <span class="toggle-indicator"></span>
+                        <button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-unique-taxonomies">
+                            <span class="screen-reader-text"><?php esc_html_e('Toggle Unique Taxonomy Capabilities panel', 'capability-manager-enhanced'); ?></span>
+                            <span class="toggle-indicator" aria-hidden="true"></span>
                         </button>
                     </div>
                 </div>
-                <div class="inside" style="text-align:center;">
+                <div class="inside" id="ppc-panel-unique-taxonomies" style="text-align:center;">
 				<?php
 				echo "<p class='cme-hint'>" . esc_html__( 'Allow taxonomy permissions to be controlled separately from other areas of WordPress.', 'capability-manager-enhanced' ) . "</p>";
 
@@ -300,12 +302,13 @@ class Capsman_PP_UI {
                     <div class="postbox-header">
                         <h2 class="hndle ui-sortable-handle"><?php esc_html_e('Detailed Taxonomy Capabilities', 'capability-manager-enhanced'); ?></h2>
                         <div class="handle-actions">
-                            <button type="button" class="handlediv">
-                                <span class="toggle-indicator"></span>
+                            <button type="button" class="handlediv" aria-expanded="<?php echo esc_attr('closed' !== $meta_box_state ? 'true' : 'false'); ?>" aria-controls="ppc-panel-detailed-taxonomies">
+                                <span class="screen-reader-text"><?php esc_html_e('Toggle Detailed Taxonomy Capabilities panel', 'capability-manager-enhanced'); ?></span>
+                                <span class="toggle-indicator" aria-hidden="true"></span>
                             </button>
                         </div>
                     </div>
-                    <div class="inside" style="text-align:center;">
+                    <div class="inside" id="ppc-panel-detailed-taxonomies" style="text-align:center;">
 
 				<?php
 				echo "<p class='cme-hint'>" . esc_html__( 'Allow "Edit", "Delete" and "Assign" capabilities separately from the "Manage" capability.', 'capability-manager-enhanced' ) . "</p>";

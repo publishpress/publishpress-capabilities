@@ -200,7 +200,13 @@ display:none;
 }
 
 td.cap-metagroup label span {
-color: #080 !important;
+color: #006b0f !important;
+}
+
+.ppc-via-pp-label {
+margin-left: 4px;
+font-size: 12px;
+color: #006b0f;
 }
 
 td.cap-locked a.neg-cap {
@@ -377,6 +383,10 @@ table#akmin tr td input[type=checkbox] {
 
 .ppc-filter-no-results {
 	margin-top: 20px;
+}
+
+.ppc-filter-no-results:empty {
+	margin-top: 0;
 }
 
 
@@ -615,7 +625,7 @@ table.pp-capabilities-cb-key td.pp-cap-x {
     display: inline-block;
     position: relative;
     cursor: pointer;
-    opacity: 90%;
+    opacity: 1;
 }
 
 th.ppc-tool-tip {
@@ -634,7 +644,7 @@ th.ppc-tool-tip {
     z-index: 99999999;
     box-sizing: border-box;
     transition: all .65s cubic-bezier(.84,-0.18,.31,1.26);
-    color: #6f6f6f;
+    color: #50575e;
     font-size: 13px;
     padding: 16px;
     text-align: left;
@@ -646,6 +656,20 @@ th.ppc-tool-tip {
 .ppc-tool-tip:hover .tool-tip-text,
 .ppc-tool-tip:focus-within .tool-tip-text {
     display: block;
+}
+
+/* Bridge the gap between trigger and bubble so the pointer can move onto the tooltip. */
+.ppc-tool-tip .tool-tip-text::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 22px;
+}
+
+.ppc-tool-tip.is-dismissed .tool-tip-text {
+    display: none !important;
 }
 
 .ppc-tool-tip .tool-tip-text i {
@@ -852,7 +876,7 @@ th.ppc-tool-tip {
 }
 
 .ppc-sidebar-panel .postbox-header .handle-actions .handlediv:focus-visible {
-    outline: 2px solid #2271b1 !important;
+    outline: 2px solid #ffffff !important;
     outline-offset: -4px;
 }
 
@@ -932,7 +956,7 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
   min-width: 18px;
   height: 18px;
   border-radius: 9px;
-  background-color: darkcyan;
+  background-color: #006b6b;
   color: #fff;
   font-size: 11px;
   line-height: 1.6;
@@ -960,7 +984,7 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
     color: #00d084;
 }
 .ppc-floating-status.ppc-floating-status--error {
-    color: #d63638;
+    color: #ff8085;
 }
 
 .ppc-hide-menu-item {
