@@ -50,7 +50,8 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                             <?php echo esc_html(translate_user_role($detail['name'])); ?>
                                         </option>
                                     <?php endforeach; ?>
-                                </select> &nbsp;
+                                </select>
+                                <button type="button" class="button ppc-switch-role ppc-admin-notices-role-switch"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button> &nbsp;
 
                                     <img class="loading" src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'images/wpspin_light.gif'); ?>" alt="" aria-hidden="true" style="display: none">
                             </div>
@@ -186,14 +187,24 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
 
     <script>
     jQuery(document).ready(function ($) {
-        $(document).on('change', '.pp-capability-menus-wrapper .ppc-admin-notices-role', function () {
+        $(document).on('click', '.pp-capability-menus-wrapper .ppc-admin-notices-role-switch', function () {
+            var role = $('.pp-capability-menus-wrapper .ppc-admin-notices-role').val();
+
+            $(this).attr('disabled', true);
             $('.pp-capability-menus-wrapper .ppc-admin-notices-role').attr('disabled', true);
             $('.pp-capabilities-submit-top').hide();
             $('.editor-features-footer-meta').hide();
             $('#pp-capability-menu-wrapper').hide();
             $('div.publishpress-caps-manage img.loading').show();
 
-            window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-notices&role=')); ?>' + $(this).val();
+            window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-notices&role=')); ?>' + role;
+        });
+
+        // Save always applies to the loaded role, even if the role selector was changed without switching.
+        $(document).on('submit', 'form', function () {
+            $(this).find('select.ppc-admin-notices-role option').prop('selected', function () {
+                return this.defaultSelected;
+            });
         });
     });
     </script>

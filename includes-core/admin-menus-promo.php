@@ -43,7 +43,8 @@ $default_role = $capsman->current;
                                 <?php
                                 endforeach;
                                 ?>
-                            </select> &nbsp;
+                            </select>
+                            <button type="button" class="button ppc-switch-role ppc-admin-menu-role-switch"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button> &nbsp;
                             <input type="submit" name="admin-menu-submit"
                                 value="<?php esc_attr_e('Save Changes');?>"
                                 class="button-primary ppc-admin-menu-submit" style="float:right" />
@@ -124,7 +125,10 @@ $default_role = $capsman->current;
             // -------------------------------------------------------------
             //   Load selected roles menu
             // -------------------------------------------------------------
-            $(document).on('change', '.pp-capability-menus-wrapper .ppc-admin-menu-role', function () {
+            $(document).on('click', '.pp-capability-menus-wrapper .ppc-admin-menu-role-switch', function () {
+                var role = $('.pp-capability-menus-wrapper .ppc-admin-menu-role').val();
+
+                $(this).attr('disabled', true);
 
                 //disable select
                 $('.pp-capability-menus-wrapper .ppc-admin-menu-role').attr('disabled', true);
@@ -136,7 +140,14 @@ $default_role = $capsman->current;
                 $('#pp-capability-menu-wrapper').html('<img src="<?php echo esc_url_raw($capsman->mod_url . '/images/loader-black.gif'); ?>" alt="<?php esc_attr_e('Loading', 'capability-manager-enhanced'); ?>">');
 
                 //go to url
-                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + $(this).val() + '';
+                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + role + '';
+            });
+
+            // Save always applies to the loaded role, even if the role selector was changed without switching.
+            $(document).on('submit', 'form', function () {
+                $(this).find('select.ppc-admin-menu-role option').prop('selected', function () {
+                    return this.defaultSelected;
+                });
             });
         });
         /* ]]> */
