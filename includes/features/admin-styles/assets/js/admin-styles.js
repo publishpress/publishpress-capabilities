@@ -279,8 +279,8 @@
       // Remove image
       $(document).on('click', '.pp-capabilities-remove-button', this.handleRemoveImage);
 
-      // Role change
-      $(document).on('change', '.ppc-admin-styles-role', this.handleRoleChange);
+      // Role switch
+      $(document).on('click', '.ppc-admin-styles-role-switch', this.handleRoleChange);
 
       // Color scheme selection
       $(document).on('click', '.color-option', this.handleSchemeSelection);
@@ -350,6 +350,11 @@
       });
 
       $(document).on('submit', '#ppc-admin-styles-form', function () {
+        // Save always applies to the loaded role, even if the role selector was changed without switching.
+        $(this).find('select.ppc-admin-styles-role option').prop('selected', function () {
+          return this.defaultSelected;
+        });
+
         var $overlay = $('#ppc-admin-styles-overlay');
         if ($overlay.length) {
           $overlay.addClass('is-active').attr('aria-hidden', 'false');
@@ -1299,15 +1304,16 @@
      * Handle role change
      */
     handleRoleChange: function () {
-      var $select = $(this);
+      var $select = $('.ppc-admin-styles-role');
       var selectedRole = $select.val();
 
       if (!selectedRole) {
         return;
       }
 
-      // Disable select during navigation
+      // Disable select and button during navigation
       $select.prop('disabled', true);
+      $(this).prop('disabled', true);
 
       // Show loading
       $('#pp-capability-menu-wrapper').hide();

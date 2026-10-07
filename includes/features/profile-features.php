@@ -75,7 +75,8 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                 <?php
                                                 endforeach;
                                                 ?>
-                                            </select> &nbsp;
+                                            </select>
+                                            <button type="button" class="button ppc-switch-role ppc-profile-features-role-switch"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button> &nbsp;
 
                                         <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
                                                     alt="" aria-hidden="true" style="display: none">
@@ -311,7 +312,10 @@ if (get_option('cme_profile_features_auto_redirect')) {
                 // -------------------------------------------------------------
                 //   Load selected roles menu
                 // -------------------------------------------------------------
-                $(document).on('change', '.pp-capability-menus-wrapper .ppc-profile-features-role', function() {
+                $(document).on('click', '.pp-capability-menus-wrapper .ppc-profile-features-role-switch', function () {
+                    var role = $('.pp-capability-menus-wrapper .ppc-profile-features-role').val();
+
+                    $(this).attr('disabled', true)
 
                     //disable select
                     $('.pp-capability-menus-wrapper .ppc-profile-features-role').attr('disabled', true)
@@ -324,8 +328,15 @@ if (get_option('cme_profile_features_auto_redirect')) {
                     $('div.publishpress-caps-manage img.loading').show()
 
                     //go to url
-                    window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-profile-features&role=')); ?>' + $(this).val() + ''
+                    window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-profile-features&role=')); ?>' + role + ''
 
+                })
+
+                // Save always applies to the loaded role, even if the role selector was changed without switching.
+                $(document).on('submit', 'form', function () {
+                    $(this).find('select.ppc-profile-features-role option').prop('selected', function () {
+                        return this.defaultSelected;
+                    });
                 })
 
             })
