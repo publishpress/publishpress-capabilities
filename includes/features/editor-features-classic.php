@@ -114,20 +114,21 @@
                             </div>
                         </div>
                         <div class="ppc-flex-item">
-                            <div class="button view-custom-item"><?php esc_html_e('View'); ?></div>
-                                <div class="button edit-features-custom-item"
+                            <button type="button" class="button view-custom-item" aria-expanded="false"><?php esc_html_e('View'); ?></button>
+                                <button type="button" class="button edit-features-custom-item"
                                     data-section="<?php echo esc_attr($section_slug); ?>"
                                     data-label="<?php echo esc_attr($arr_feature['label']); ?>"
                                     data-element="<?php echo esc_attr($arr_feature['element_items']); ?>"
                                     data-id="<?php echo esc_attr($arr_feature['button_data_id']); ?>">
                                     <?php esc_html_e('Edit', 'capability-manager-enhanced'); ?>
-                                </div>
-                                <div
+                                </button>
+                                <button type="button"
                                     class="button <?php echo esc_attr($arr_feature['button_class']); ?> feature-red"
+                                    aria-label="<?php echo esc_attr(sprintf(__('Delete %s', 'capability-manager-enhanced'), wp_strip_all_tags($arr_feature['label']))); ?>"
                                     data-parent="<?php echo esc_attr($arr_feature['button_data_parent']); ?>"
                                     data-id="<?php echo esc_attr($arr_feature['button_data_id']); ?>">
                                     <?php esc_html_e('Delete'); ?>
-                                </div>
+                                </button>
                             </div>
                         </div>
                     </td>

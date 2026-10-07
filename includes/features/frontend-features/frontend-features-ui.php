@@ -62,13 +62,14 @@ class PP_Capabilities_Frontend_Features_UI
                     </tr>
 
                     <tr class="field-row">
-                        <th scope="row">
+                        <th scope="row" id="ppc-frontend-feature-active-label">
                             <?php esc_html_e('Features:', 'capability-manager-enhanced'); ?>
                             <font color="red">*</font>
                         </th>
                         <td>
                             <div class="frontend-element-toggle">
                                 <div class="ppc-button-group"
+                                    role="radiogroup" aria-labelledby="ppc-frontend-feature-active-label"
                                     data-hide-selector=".frontend-features-toggle">
                                     <label class="element-classes selected"><input type="radio" name="frontend_feature_active" value=".frontend-element-classes" checked><?php esc_html_e('Hide IDs or Classes', 'capability-manager-enhanced'); ?></label>
                                     <label class="custom-css"><input type="radio" name="frontend_feature_active" value=".frontend-element-styles"> <?php esc_html_e('Add Custom CSS', 'capability-manager-enhanced'); ?></label>
@@ -105,13 +106,14 @@ class PP_Capabilities_Frontend_Features_UI
                     </tr>
 
                     <tr class="field-row">
-                        <th scope="row">
+                        <th scope="row" id="ppc-frontend-feature-pages-label">
                             <?php esc_html_e('Load on page types:', 'capability-manager-enhanced'); ?>
                             <font color="red">*</font>
                         </th>
                         <td>
                             <div class="frontend-element-toggle">
                                 <div class="ppc-button-group"
+                                    role="radiogroup" aria-labelledby="ppc-frontend-feature-pages-label"
                                     data-hide-selector=".frontend-features-pages">
                                     <label class="whole-site selected"><input type="radio" name="frontend_feature_pages" value=".frontend-element-whole-site" checked><?php esc_html_e('Whole Site', 'capability-manager-enhanced'); ?></label>
                                     <label class="other-pages"><input type="radio" name="frontend_feature_pages" value=".frontend-element-other-pages"> <?php echo $pro_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?><?php esc_html_e('Selected Pages', 'capability-manager-enhanced'); ?></label>
@@ -143,9 +145,9 @@ class PP_Capabilities_Frontend_Features_UI
                             <input class="frontend-element-form-nonce" type="hidden"
                                 value="<?php echo esc_attr(wp_create_nonce('frontend-element-nonce')); ?>" />
                             <div class="custom-item-submit-buttons">
-                                <div class="cancel-custom-item-edit button button-secondary"
+                                <button type="button" class="cancel-custom-item-edit button button-secondary"
                                     data-section="frontendelements">
-                                    <?php esc_html_e('Cancel Edit', 'capability-manager-enhanced'); ?></div>
+                                    <?php esc_html_e('Cancel Edit', 'capability-manager-enhanced'); ?></button>
 
                                 <button type="button" class="submit-button frontend-element-form-submit button button-secondary"
                                     data-required="<?php esc_attr_e('All fields are required.', 'capability-manager-enhanced'); ?>"
@@ -253,10 +255,10 @@ class PP_Capabilities_Frontend_Features_UI
                 </div>
             </td>
             <td>
-                <div class="button view-custom-item"><?php esc_html_e('View'); ?></div>
+                <button type="button" class="button view-custom-item" aria-expanded="false"><?php esc_html_e('View'); ?></button>
             </td>
             <td>
-                <div class="button edit-custom-item"
+                <button type="button" class="button edit-custom-item"
                     data-section="<?php echo esc_attr($section_slug); ?>"
                     data-label="<?php echo esc_attr($section_array['label']); ?>"
                     data-selector="<?php echo esc_attr($element_selector); ?>"
@@ -265,16 +267,17 @@ class PP_Capabilities_Frontend_Features_UI
                     data-post-types="<?php echo esc_attr(join(', ', (array) $section_array['post_types'])); ?>"
                     data-id="<?php echo esc_attr($section_id); ?>">
                 <?php esc_html_e('Edit'); ?>
-                </div>
+                </button>
             </td>
             <td>
-                <div
+                <button type="button"
                     class="button frontend-features-delete-item frontend-feature-red"
+                    aria-label="<?php echo esc_attr(sprintf(__('Delete %s', 'capability-manager-enhanced'), $section_array['label'])); ?>"
                     data-section="<?php echo esc_attr($section_slug); ?>"
                     data-id="<?php echo esc_attr($section_id); ?>"
                     data-delete-nonce="<?php echo esc_attr(wp_create_nonce('frontend-delete' . $section_id .'-nonce')); ?>">
                     <?php esc_html_e('Delete'); ?>
-                </div>
+                </button>
             </td>
         </tr>
         <?php
