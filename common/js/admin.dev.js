@@ -436,8 +436,10 @@ jQuery(document).ready(function ($) {
 
     //remove active class from all tabs
     $('.ppc-roles-tab li').removeClass('active');
+    $('.ppc-roles-tab li a[role="tab"]').attr('aria-selected', 'false');
     //add active class to current tab
     $(this).addClass('active');
+    $(this).find('a[role="tab"]').attr('aria-selected', 'true');
 
     //hide all tabs contents
     $('.pp-roles-tab-tr').hide();
@@ -549,7 +551,7 @@ jQuery(document).ready(function ($) {
 
     $('.roles-capabilities-load-more').hide();
 
-    $('.roles-capabilities-load-less').show();
+    $('.roles-capabilities-load-less').show().trigger('focus');
 
     $('ul.pp-roles-capabilities li').show();
   });

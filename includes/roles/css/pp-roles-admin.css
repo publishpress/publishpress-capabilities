@@ -56,8 +56,8 @@ span.pp-caps-action-note {
 }
 
 .pp-roles-delete-botton {
-    color: red !important;
-    border-color: red !important;
+    color: #b32d2e !important;
+    border-color: #b32d2e !important;
 }
 
 .ppc-roles-section {
@@ -123,10 +123,19 @@ ul.ppc-roles-tab li a span.dashicons {
     margin-left: 0;
     font-size: 15px;
 }
+ul.ppc-roles-tab li a:focus {
+    box-shadow: 0 0 0 2px #2271b1;
+    outline: 2px solid transparent;
+}
 ul.ppc-roles-tab li.active a {
     color: #555;
     position: relative;
     background-color: #eee;
+    box-shadow: inset 3px 0 0 #2271b1;
+    font-weight: 600;
+}
+ul.ppc-roles-tab li.active a:focus {
+    box-shadow: inset 3px 0 0 #2271b1, 0 0 0 2px #2271b1;
 }
 
 .ppc-roles-sidebar ul.pp-roles-capabilities li {
@@ -152,12 +161,12 @@ ul.ppc-roles-tab li.active a {
 }
 
 .ppc-roles-section .red-warning {
-    color: red;
+    color: #d63638;
     font-weight: bold;
 }
 
 .role-submit-response {
-    color: red;
+    color: #d63638;
 }
 
 .ppc-roles-tab-content .login-redirect-option {

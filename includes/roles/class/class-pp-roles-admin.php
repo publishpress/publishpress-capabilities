@@ -354,9 +354,9 @@ class Pp_Roles_Admin
                     <?php } ?>
                 <?php endif; ?>
                  <?php if ($key === 'role_slug') { ?>
-                    <p id="pp-role-slug-exists" class="red-warning" style="display:none;">
+                    <p id="pp-role-slug-exists" class="red-warning" role="alert" style="display:none;">
                         <?php esc_html_e('Slug already exists', 'capability-manager-enhanced'); ?>
-                        <span class="dashicons dashicons-warning"></span>
+                        <span class="dashicons dashicons-warning" aria-hidden="true"></span>
                     </p>
                 <?php } ?>
             </th>
@@ -451,7 +451,7 @@ class Pp_Roles_Admin
                         onclick="return confirm('<?php esc_attr_e('Are you sure you want to delete this role?',  'capability-manager-enhanced'); ?>');"
                          />
                         <?php if (isset($args['description'])) : ?>
-                            <p class="description" style="color: red;"><?php echo esc_html($args['description']); ?></p>
+                            <p class="description" style="color: #d63638;"><?php echo esc_html($args['description']); ?></p>
                         <?php endif; ?>
                         <?php
                 elseif ($args['type'] === 'checkbox') :
@@ -579,7 +579,7 @@ class Pp_Roles_Admin
             </h1>
             <div class="wp-clearfix"></div>
 
-            <form method="post" action="" onkeydown="return event.key != 'Enter';">
+            <form method="post" action="" onkeydown="return !(event.key === 'Enter' && event.target.matches('input[type=text],input[type=number],input[type=search],input[type=url],input:not([type])'));">
                 <input type="hidden" name="active_tab" class="ppc-roles-active-tab" value="<?php echo esc_attr($default_tab); ?>">
                 <input type="hidden" name="role_action" value="<?php echo esc_attr($role_action); ?>">
                 <input type="hidden" name="action" value="<?php echo ($role_action === 'edit' ? 'pp-roles-edit-role' : 'pp-roles-add-role'); ?>">
@@ -596,16 +596,20 @@ class Pp_Roles_Admin
                                 <div class="inside">
                                     <div class="main">
 
-                                        <ul class="ppc-roles-tab">
+                                        <ul class="ppc-roles-tab" role="tablist" aria-orientation="vertical">
                                             <?php
                                             foreach ($fields_tabs as $key => $args) {
                                                 $active_tab = ($key === $default_tab) ? ' active' : '';
                                                 ?>
                                                 <li class="<?php echo esc_attr($active_tab); ?>"
                                                     data-tab="<?php echo esc_attr($key); ?>"
+                                                    role="presentation"
                                                     >
-                                                    <a href="#">
-                                                        <span class="<?php echo esc_attr($args['icon']); ?>"></span>
+                                                    <a href="#"
+                                                        role="tab"
+                                                        id="<?php echo esc_attr('ppc-roles-tab-' . $key); ?>"
+                                                        aria-selected="<?php echo ($key === $default_tab) ? 'true' : 'false'; ?>">
+                                                        <span class="<?php echo esc_attr($args['icon']); ?>" aria-hidden="true"></span>
                                                         <span><?php echo esc_html($args['label']); ?></span>
                                                     </a>
                                                 </li>
@@ -642,7 +646,7 @@ class Pp_Roles_Admin
                                                     <input type="submit"
                                                         value="<?php echo esc_attr($save_button_text); ?>" class="submit-role-form button-primary" id="publish" name="publish">
                                                 </p>
-                                                <p class="role-submit-response"></p>
+                                                <p class="role-submit-response" role="alert"></p>
                                             </div>
                                         </div>
 
@@ -688,7 +692,7 @@ class Pp_Roles_Admin
                                                     ));
                                                 ?>
                                                 </p>
-                                                <ul class="pp-roles-capabilities">
+                                                <ul class="pp-roles-capabilities" id="pp-roles-capabilities-list">
                                                 <?php
                                                 if($current &&  isset($current['capabilities']) && is_array($current['capabilities'])) :
                                                     ksort($current['capabilities']);
@@ -705,17 +709,16 @@ class Pp_Roles_Admin
                                                         </li>
                                                     <?php endforeach; ?>
 
-                                                    <?php if ($sn > 6) :?>
-                                                    <div class="roles-capabilities-load-more">
-                                                        <?php echo esc_html__('Load More', 'capability-manager-enhanced'); ?>
-                                                    </div>
-                                                    <div class="roles-capabilities-load-less" style="display:none;">
-                                                        <?php echo esc_html__('Load Less', 'capability-manager-enhanced'); ?>
-                                                    </div>
-                                                    <?php endif;?>
-
                                                 <?php endif; ?>
                                                 </ul>
+                                                <?php if (!empty($sn) && $sn > 6) :?>
+                                                <button type="button" class="button-link roles-capabilities-load-more" aria-controls="pp-roles-capabilities-list" aria-expanded="false">
+                                                    <?php echo esc_html__('Load More', 'capability-manager-enhanced'); ?>
+                                                </button>
+                                                <button type="button" class="button-link roles-capabilities-load-less" aria-controls="pp-roles-capabilities-list" aria-expanded="true" style="display:none;">
+                                                    <?php echo esc_html__('Load Less', 'capability-manager-enhanced'); ?>
+                                                </button>
+                                                <?php endif;?>
                                             </div>
                                             <div class="clear"></div>
                                         </div>
