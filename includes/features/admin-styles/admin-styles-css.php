@@ -410,6 +410,9 @@ function ppc_generate_element_colors_css($element_colors) {
         if (!empty($adminbar['adminbar_hover_bg'])) {
             $css .= "#wpadminbar li:hover > .ab-item, #wpadminbar li.hover > .ab-item { background-color: {$adminbar['adminbar_hover_bg']}; }\n";
         }
+        if (!empty($adminbar['adminbar_hover_text'])) {
+            $css .= "#wpadminbar li:hover > .ab-item, #wpadminbar li.hover > .ab-item, #wpadminbar > #wp-toolbar li:hover > .ab-item, #wpadminbar > #wp-toolbar li.hover > .ab-item, #wpadminbar > #wp-toolbar li:hover > .ab-item span, #wpadminbar > #wp-toolbar li.hover > .ab-item span, #wpadminbar li:hover > .ab-item .ab-icon:before, #wpadminbar li.hover > .ab-item .ab-icon:before, #wpadminbar li:hover > .ab-item:before, #wpadminbar li.hover > .ab-item:before { color: {$adminbar['adminbar_hover_text']} !important; }\n";
+        }
     }
 
     // Dashboard widgets styling
