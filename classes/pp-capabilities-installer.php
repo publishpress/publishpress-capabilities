@@ -52,11 +52,8 @@ class PP_Capabilities_Installer
             self::removeLegacyEditorCapabilities();
         }
 
-        if (version_compare($currentVersions, '2.51.0', '<')) {
-            self::addAdminColumnsCapabilities();
-        }
-
         if (version_compare($currentVersions, '2.53.0', '<')) {
+            self::addAdminColumnsCapabilities();
             self::migrateAdminStylesTemplateColors();
         }
 
