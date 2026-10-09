@@ -192,7 +192,7 @@ class PP_Capabilities_Test_User
     /**
      * Check if current user can test user
      */
-    protected static function canTestUser($user)
+    public static function canTestUser($user)
     {
         $excluded_roles = (array) get_option('cme_test_user_excluded_roles', []);
 
