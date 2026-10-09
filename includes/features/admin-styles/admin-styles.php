@@ -192,7 +192,7 @@ class PP_Capabilities_Admin_Styles
      */
     private function get_user_settings($user_roles)
     {
-        $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+        $all_role_settings = $this->getRoleSettings();
 
         // Start with global settings
         $user_settings = $this->defaults;
@@ -410,12 +410,32 @@ class PP_Capabilities_Admin_Styles
     }
 
     /**
+     * Read role settings as arrays so invalid stored data cannot break style saves.
+     *
+     * @since 2.53.0
+     */
+    private function getRoleSettings(): array
+    {
+        $roleSettings = get_option('pp_capabilities_admin_styles_roles', []);
+
+        if (is_string($roleSettings)) {
+            $roleSettings = maybe_unserialize($roleSettings);
+        }
+
+        if (!is_array($roleSettings)) {
+            return [];
+        }
+
+        return array_filter($roleSettings, 'is_array');
+    }
+
+    /**
      * Load settings for a specific role
      */
     public function load_settings_for_role($role)
     {
         // Get all role settings
-        $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+        $all_role_settings = $this->getRoleSettings();
 
         // Get settings for this specific role
         if (isset($all_role_settings[$role])) {
@@ -915,7 +935,7 @@ class PP_Capabilities_Admin_Styles
 
             if ($save_for_all) {
                 $all_roles = wp_roles()->role_names;
-                $role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+                $role_settings = $this->getRoleSettings();
                 foreach (array_keys($all_roles) as $role_name) {
                     $role_settings[$role_name] = $settings;
                 }
@@ -924,7 +944,7 @@ class PP_Capabilities_Admin_Styles
                 if (empty($target_role)) {
                     wp_die('<strong>' . esc_html__('No role specified.', 'capability-manager-enhanced') . '</strong>');
                 }
-                $role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+                $role_settings = $this->getRoleSettings();
                 $role_settings[$target_role] = $settings;
                 update_option('pp_capabilities_admin_styles_roles', $role_settings);
                 if ($target_role === $this->current_role) {
@@ -1052,7 +1072,7 @@ class PP_Capabilities_Admin_Styles
             // Ensure the new custom style is active for the selected role
             $target_role = isset($_POST['ppc-admin-styles-role']) ? sanitize_key($_POST['ppc-admin-styles-role']) : '';
             if (!empty($target_role)) {
-                $role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+                $role_settings = $this->getRoleSettings();
                 $role_settings[$target_role] = isset($role_settings[$target_role]) && is_array($role_settings[$target_role])
                     ? $role_settings[$target_role]
                     : [];
