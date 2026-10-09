@@ -51,10 +51,29 @@ class PP_Capabilities_Installer
             self::removeLegacyEditorCapabilities();
         }
 
+        if (version_compare($currentVersions, '2.53.0', '<')) {
+            self::migrateAdminStylesTemplateColors();
+        }
+
         /**
          * @param string $previousVersion
          */
         do_action('pp_capabilities_upgraded', $currentVersions);
+    }
+
+    /**
+     * Upgrade existing template styles even when the Admin Styles feature is disabled.
+     *
+     * @since 2.53.0
+     */
+    private static function migrateAdminStylesTemplateColors(): void
+    {
+        if (empty(get_option('pp_capabilities_custom_admin_styles', []))) {
+            return;
+        }
+
+        require_once dirname(__DIR__) . '/includes/features/admin-styles/admin-styles.php';
+        \PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance()->migrateTemplateColors();
     }
 
     private static function addPluginCapabilities()

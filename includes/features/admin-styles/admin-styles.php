@@ -726,7 +726,7 @@ class PP_Capabilities_Admin_Styles
             $file_path = trailingslashit($upload_dir['path']) . $file_name;
             $normalized_path = wp_normalize_path($file_path);
 
-            if (strpos($normalized_path, $base_path) === 0) {
+            if (strpos($normalized_path, $base_path) === 0 && is_file($file_path)) {
                 wp_delete_file($file_path);
             }
         }
@@ -1031,6 +1031,7 @@ class PP_Capabilities_Admin_Styles
                 'element_colors' => [],
                 'advanced_rules' => [],
                 'custom_scheme_version' => time(),
+                'template_color_version' => 1,
                 'created' => current_time('mysql')
             ];
 
@@ -2388,19 +2389,170 @@ class PP_Capabilities_Admin_Styles
     public function get_custom_styles()
     {
         $custom_styles = get_option('pp_capabilities_custom_admin_styles', []);
-
-        if (is_array($custom_styles)) {
-            return $custom_styles;
+        if (is_string($custom_styles)) {
+            $custom_styles = maybe_unserialize($custom_styles);
+        }
+        if (!is_array($custom_styles)) {
+            return [];
         }
 
-        if (is_string($custom_styles) && function_exists('maybe_unserialize')) {
-            $custom_styles = maybe_unserialize($custom_styles);
-            if (is_array($custom_styles)) {
-                return $custom_styles;
+        return $custom_styles;
+    }
+
+    /**
+     * Repair saved template colors during the 2.53.0 installer upgrade.
+     *
+     * @since 2.53.0
+     */
+    public function migrateTemplateColors(): void
+    {
+        $custom_styles = $this->get_custom_styles();
+        $updated_styles = $this->repairTemplateColors($custom_styles);
+        if ($updated_styles !== $custom_styles) {
+            $this->save_custom_styles($updated_styles);
+        }
+    }
+
+    /**
+     * Repair legacy template surface colors without overwriting customized values.
+     *
+     * @since 2.53.0
+     */
+    private function repairTemplateColors(array $styles): array
+    {
+        foreach ($styles as &$style) {
+            if (!is_array($style) || !empty($style['template_color_version'])) {
+                continue;
+            }
+            foreach ($this->get_style_templates() as $template) {
+                $palette = $template['palette'];
+                foreach (['base', 'text', 'highlight', 'notification', 'background'] as $key) {
+                    if (($style['custom_scheme_' . $key] ?? '') !== $palette[$key]) {
+                        continue 2;
+                    }
+                }
+
+                $hover = '#' . implode('', array_map(function ($offset) use ($palette) {
+                    return sprintf('%02x', max(0, hexdec(substr($palette['highlight'], $offset, 2)) - 26));
+                }, [1, 3, 5]));
+                $primaryText = $this->getReadableTemplateText($palette['highlight'], $hover);
+                $legacyLuminance = (0.299 * hexdec(substr($palette['highlight'], 1, 2))
+                    + 0.587 * hexdec(substr($palette['highlight'], 3, 2))
+                    + 0.114 * hexdec(substr($palette['highlight'], 5, 2))) / 255;
+                $legacyPrimaryText = $legacyLuminance > 0.6 ? '#111827' : '#f9fafb';
+                if (empty($style['element_colors']) || !is_array($style['element_colors'])) {
+                    $style['element_colors'] = [];
+                }
+                $elements = $style['element_colors'];
+                $primaryBackground = $elements['buttons']['button_primary_bg'] ?? $palette['highlight'];
+                $primaryHover = $elements['buttons']['button_primary_hover_bg'] ?? $hover;
+                $primaryText = $this->getReadableTemplateText($primaryBackground ?: $palette['highlight'], $primaryHover);
+                $defaults = [
+                    'tables' => [
+                        'table_header_bg' => $palette['surface'],
+                        'table_header_text' => $this->getReadableTemplateText($elements['tables']['table_header_bg'] ?? $palette['surface']),
+                        'table_row_bg' => $palette['surface'],
+                        'table_row_color' => $this->getReadableTemplateText($elements['tables']['table_row_bg'] ?? $palette['surface']),
+                        'table_alt_row_bg' => $palette['surface_alt'],
+                        'table_alt_row_color' => $this->getReadableTemplateText($elements['tables']['table_alt_row_bg'] ?? $palette['surface_alt']),
+                        'table_row_hover_bg' => $palette['surface_alt'],
+                        'table_border' => $palette['border'],
+                    ],
+                    'buttons' => [
+                        'button_primary_bg' => $palette['highlight'],
+                        'button_primary_text' => $primaryText,
+                        'button_primary_hover_bg' => $hover,
+                        'button_secondary_bg' => $palette['surface'],
+                        'button_secondary_text' => $this->getReadableTemplateText(
+                            $elements['buttons']['button_secondary_bg'] ?? $palette['surface'],
+                            $elements['buttons']['button_secondary_hover_bg'] ?? $palette['surface_alt']
+                        ),
+                        'button_secondary_hover_bg' => $palette['surface_alt'],
+                    ],
+                    'forms' => [
+                        'input_background' => $palette['surface'],
+                        'input_text' => $this->getReadableTemplateText($elements['forms']['input_background'] ?? $palette['surface']),
+                        'input_border' => $palette['border'],
+                        'input_focus_border' => $palette['highlight'],
+                        'input_placeholder' => '#6b7280',
+                    ],
+                    'dashboard_widgets' => [
+                        'widget_bg' => $palette['surface'],
+                        'widget_border' => $palette['border'],
+                        'widget_header_bg' => $palette['surface_alt'],
+                        'widget_title_text' => $this->getReadableTemplateText(
+                            ($elements['dashboard_widgets']['widget_header_bg'] ?? '') ?: $palette['surface_alt']
+                        ),
+                        'widget_body_text' => $this->getReadableTemplateText(
+                            ($elements['dashboard_widgets']['widget_bg'] ?? '') ?: $palette['surface']
+                        ),
+                        'widget_link' => $palette['accent'],
+                        'widget_link_hover' => $palette['highlight'],
+                    ],
+                ];
+                foreach ($defaults as $tab => $colors) {
+                    foreach ($colors as $key => $value) {
+                        $existing = $style['element_colors'][$tab][$key] ?? null;
+                        $legacyText = in_array($key, ['table_row_color', 'table_alt_row_color'], true)
+                            && $existing === $palette['text'];
+                        $legacyButtonText = $key === 'button_primary_text'
+                            && ($style['element_colors']['buttons']['button_primary_bg'] ?? '') === $palette['highlight']
+                            && $existing === $legacyPrimaryText;
+                        // Widget fields were left empty by the original template builder.
+                        if ($existing === null || $legacyText || $legacyButtonText
+                            || ($tab === 'dashboard_widgets' && $existing === '')
+                        ) {
+                            if ($legacyText) {
+                                $backgroundKey = $key === 'table_alt_row_color' ? 'table_alt_row_bg' : 'table_row_bg';
+                                $value = $this->getReadableTemplateText(
+                                    $style['element_colors'][$tab][$backgroundKey] ?? $palette['surface']
+                                );
+                            }
+                            $style['element_colors'][$tab][$key] = $value;
+                        }
+                    }
+                }
+                $style['template_color_version'] = 1;
+                break;
             }
         }
+        unset($style);
+        return $styles;
+    }
 
-        return [];
+    /**
+     * Choose text with the strongest minimum contrast across button states.
+     *
+     * @since 2.53.0
+     */
+    private function getReadableTemplateText(string $background, string $alternate = ''): string
+    {
+        $luminance = static function (string $hex): float {
+            if (!preg_match('/^#[0-9a-f]{6}$/i', $hex)) {
+                return 1.0;
+            }
+            $channels = [];
+            foreach ([1, 3, 5] as $offset) {
+                $value = hexdec(substr($hex, $offset, 2)) / 255;
+                $channels[] = $value <= 0.04045 ? $value / 12.92 : pow(($value + 0.055) / 1.055, 2.4);
+            }
+            return 0.2126 * $channels[0] + 0.7152 * $channels[1] + 0.0722 * $channels[2];
+        };
+        // Empty saved fields are valid: treat an unspecified surface like the light admin canvas.
+        $backgrounds = [$background ?: '#ffffff'];
+        if ($alternate !== '') {
+            $backgrounds[] = $alternate;
+        }
+        $contrast = static function (string $text) use ($backgrounds, $luminance): float {
+            $foreground = $luminance($text);
+            $ratios = [];
+            foreach ($backgrounds as $color) {
+                $surface = $luminance($color);
+                $ratios[] = (max($foreground, $surface) + 0.05) / (min($foreground, $surface) + 0.05);
+            }
+            return min($ratios);
+        };
+        return $contrast('#111827') >= $contrast('#f9fafb') ? '#111827' : '#f9fafb';
     }
 
     /**
