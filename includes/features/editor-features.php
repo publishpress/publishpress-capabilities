@@ -79,7 +79,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                         <td class="content">
 
                             <div class="publishpress-filters">
-                                <select name="ppc-editor-features-role" class="ppc-editor-features-role">
+                                <select name="ppc-editor-features-role" class="ppc-editor-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <?php
                                     foreach ($roles as $role_name => $name) :
                                         $name = translate_user_role($name);

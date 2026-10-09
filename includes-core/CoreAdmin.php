@@ -167,6 +167,7 @@ class CoreAdmin {
         ?>
         <div class="pp-promo-overlay-row div-pp-promo-blur">
             <select class="chosen-cpt-select frontendelements-form-pages"
+                aria-label="<?php esc_attr_e('Pages', 'capability-manager-enhanced'); ?>"
                 data-placeholder="<?php esc_attr_e('Select pages...', 'capability-manager-enhanced'); ?>" multiple>
                 <option value=""></option>
             </select>
