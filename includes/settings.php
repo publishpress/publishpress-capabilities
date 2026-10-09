@@ -20,7 +20,7 @@ global $wpdb;
         <?php do_action('pp-capabilities-settings-ui');?>
 
         <?php if (!defined('PUBLISHPRESS_CAPS_PRO_VERSION')) : /*?>
-        <h3><?php esc_html_e('Related Permissions Plugins', 'capability-manager-enhanced');?></h3>
+        <h2><?php esc_html_e('Related Permissions Plugins', 'capability-manager-enhanced');?></h2>
         <ul>
             <?php $_url = "plugin-install.php?tab=plugin-information&plugin=publishpress&TB_iframe=true&width=640&height=678";
             $url = ( is_multisite() ) ? network_admin_url($_url) : admin_url($_url);

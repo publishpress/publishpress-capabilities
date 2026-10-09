@@ -31,7 +31,7 @@ class PP_Capabilities_Profile_Features
         $redirect_url = admin_url('admin.php?page=pp-capabilities-profile-features');
 
         $security       = isset($_POST['security']) ? sanitize_key($_POST['security']) : false;
-        $page_elements  = isset($_POST['page_elements']) ? $_POST['page_elements'] : [];// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+        $page_elements  = isset($_POST['page_elements']) ? wp_unslash($_POST['page_elements']) : [];
 
         if (!$security || !wp_verify_nonce($security, 'ppc-profile-edit-action') || !pp_capabilities_feature_enabled('profile-features')) {
             $response['redirect'] = $redirect_url;

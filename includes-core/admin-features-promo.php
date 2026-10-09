@@ -25,7 +25,7 @@
 </tr>
 <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur hidecsselement">
    <td class="restrict-column ppc-menu-checkbox">
-      <input type="checkbox">
+      <input type="checkbox" aria-label="<?php esc_attr_e('Preview feature restriction', 'capability-manager-enhanced'); ?>">
    </td>
    <td class="menu-column ppc-menu-item">
       <label>
@@ -39,7 +39,7 @@
 </tr>
 <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur hidecsselement">
    <td class="restrict-column ppc-menu-checkbox">
-   <input type="checkbox">
+   <input type="checkbox" aria-label="<?php esc_attr_e('Preview feature restriction', 'capability-manager-enhanced'); ?>">
    </td>
    <td class="menu-column ppc-menu-item">
       <label>
@@ -54,7 +54,7 @@
 </tr>
 <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur hidecsselement">
    <td class="restrict-column ppc-menu-checkbox">
-   <input type="checkbox">
+   <input type="checkbox" aria-label="<?php esc_attr_e('Preview feature restriction', 'capability-manager-enhanced'); ?>">
    </td>
    <td class="menu-column ppc-menu-item">
       <label>
@@ -89,7 +89,7 @@
 </tr>
 <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur blockedbyurl">
    <td class="restrict-column ppc-menu-checkbox">
-   <input type="checkbox">
+   <input type="checkbox" aria-label="<?php esc_attr_e('Preview feature restriction', 'capability-manager-enhanced'); ?>">
    </td>
    <td class="menu-column ppc-menu-item">
       <label>
@@ -104,7 +104,7 @@
 </tr>
 <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur blockedbyurl">
    <td class="restrict-column ppc-menu-checkbox">
-   <input type="checkbox">
+   <input type="checkbox" aria-label="<?php esc_attr_e('Preview feature restriction', 'capability-manager-enhanced'); ?>">
    </td>
    <td class="menu-column ppc-menu-item">
       <label>
@@ -119,7 +119,7 @@
 </tr>
 <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur blockedbyurl">
    <td class="restrict-column ppc-menu-checkbox">
-   <input type="checkbox">
+   <input type="checkbox" aria-label="<?php esc_attr_e('Preview feature restriction', 'capability-manager-enhanced'); ?>">
    </td>
    <td class="menu-column ppc-menu-item">
       <label>

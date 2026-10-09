@@ -54,7 +54,7 @@ class PP_Capabilities_Frontend_Features_UI
                             <font color="red">*</font>
                         </th>
                         <td>
-                            <input class="frontend-element-new-name frontent-form-field frontendelements-form-label" type="text" /><br />
+                            <input class="frontend-element-new-name frontent-form-field frontendelements-form-label" type="text" aria-label="<?php esc_attr_e('Title', 'capability-manager-enhanced'); ?>" /><br />
                             <span class="description">
                                 <?php esc_html_e('This will only show here in the WordPress admin area.', 'capability-manager-enhanced'); ?>
                             </span>
@@ -76,7 +76,7 @@ class PP_Capabilities_Frontend_Features_UI
                                 </div>
                             </div>
                             <div class="frontend-element-classes frontend-features-toggle">
-                                <textarea class="frontend-element-new-element frontent-form-field frontendelements-form-element"></textarea><br />
+                                <textarea class="frontend-element-new-element frontent-form-field frontendelements-form-element" aria-label="<?php esc_attr_e('IDs or classes to hide', 'capability-manager-enhanced'); ?>"></textarea><br />
                                 <span class="description">
                                     <?php esc_html_e('Enter IDs or classes to hide. Separate multiple values with a comma (.custom-item-one, .custom-item-two, #new-item-id).', 'capability-manager-enhanced'); ?>
                                 </span>
@@ -84,7 +84,7 @@ class PP_Capabilities_Frontend_Features_UI
                             <div class="frontend-element-styles frontend-features-toggle hidden-element">
 
                                 <div class="code-mirror-before"><div><?php echo htmlentities('<style type="text/css">'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div></div>
-                                <textarea class="frontend-element-new-styles ppc-code-editor-page-css frontendelements-form-styles"></textarea>
+                                <textarea class="frontend-element-new-styles ppc-code-editor-page-css frontendelements-form-styles" aria-label="<?php esc_attr_e('Custom CSS', 'capability-manager-enhanced'); ?>"></textarea>
                                 <div class="code-mirror-after"><div><?php echo htmlentities('</style>'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div></div>
                                 <br />
                                 <div class="css-new-element-clear"></div>
@@ -93,7 +93,7 @@ class PP_Capabilities_Frontend_Features_UI
                                 </span>
                             </div>
                             <div class="frontend-element-bodyclass frontend-features-toggle hidden-element">
-                                <textarea class="frontend-new-element-class frontendelements-form-field frontendelements-form-bodyclass"></textarea><br />
+                                <textarea class="frontend-new-element-class frontendelements-form-field frontendelements-form-bodyclass" aria-label="<?php esc_attr_e('Body classes', 'capability-manager-enhanced'); ?>"></textarea><br />
                                 <ul class="pp-capabilities-description description">
                                     <li><?php esc_html_e('Enter classes to add the body HTML. Do not include the . before the HTML.', 'capability-manager-enhanced'); ?></li>
                                     <li><?php esc_html_e('Separate multiple values with a space (custom-style-one custom-style-two).', 'capability-manager-enhanced'); ?></li>
@@ -361,7 +361,8 @@ class PP_Capabilities_Frontend_Features_UI
                 $(function(){
                     if( $(".chosen-cpt-select").length ) {
                         $(".chosen-cpt-select").chosen({
-                            "width": "100%"
+                                                        "width": "100%",
+                                                        "no_results_text": <?php echo wp_json_encode(__("No results match", "capability-manager-enhanced")); ?>
                           });
                     }
                 });

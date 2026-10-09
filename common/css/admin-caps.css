@@ -154,19 +154,37 @@ span.cap-x {
 }
 
 td.cap-yes span {
-color:#5ECD89;font-weight:bold;
+	color:#007017;font-weight:bold;
 }
 
 td.cap-no {
-color:#777;
+	color:#50575e;
 }
 
 td.cap-neg label span {
-color: red;
+	color: #b32d2e;
 }
 
-td.cap-neg input:not(.excluded-input) {
-display:none;
+td.cap-neg input[type="checkbox"]:not(.excluded-input) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+td.cap-neg input[type="checkbox"]:not(.excluded-input):focus {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
 }
 
 td.cap-no span.cap-x, td.cap-yes span.cap-x {
@@ -374,6 +392,7 @@ table#akmin tr td input[type=checkbox] {
 	grid-column: 1 / -1;
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
 	gap: 10px;
 	min-height: 46px;
 	padding: 8px 14px;
@@ -415,10 +434,36 @@ table#akmin tr td input[type=checkbox] {
 	background: #b32d2e;
 }
 
-#ppc-capabilities-wrapper .ppc-global-capabilities-control .description {
-	margin-left: 4px;
-	color: #50575e;
-	font-size: 13px;
+#ppc-capabilities-wrapper .ppc-global-capabilities-help {
+	color: #646970;
+	line-height: 1;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help:focus {
+	outline: 1px solid #2271b1;
+	outline-offset: 2px;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help:focus .tool-tip-text {
+	display: block;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help .dashicons {
+	width: 18px;
+	height: 18px;
+	font-size: 18px;
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help .tool-tip-text {
+	right: -8px;
+	left: auto;
+	transform: translateY(-100%);
+}
+
+#ppc-capabilities-wrapper .ppc-global-capabilities-help .tool-tip-text i {
+	right: 5px;
+	left: auto;
+	margin-left: 0;
 }
 
 #ppc-capabilities-wrapper .ppc-capabilities-tabs {
@@ -464,16 +509,35 @@ table#akmin tr td input[type=checkbox] {
 	border-right-color: #fff;
 }
 
+#ppc-capabilities-wrapper .ppc-capabilities-tabs > ul > li[role="tab"]:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: -2px;
+}
+
+#ppc-capabilities-wrapper .ppc-column-toggle {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+#ppc-capabilities-wrapper .ppc-column-toggle:focus-visible {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
 #ppc-capabilities-wrapper .ppc-capabilities-content > div {
 	padding: 20px;
 }
 
-#ppc-capabilities-wrapper .ppc-capabilities-content > div > h3 {
+#ppc-capabilities-wrapper .ppc-capabilities-content > div > h2 {
 	margin-top: 0;
 	display: inline-block;
 }
 
-#ppc-capabilities-wrapper .ppc-capabilities-content > div > h3 a {
+#ppc-capabilities-wrapper .ppc-capabilities-content > div > h2 a {
 	color: inherit;
 }
 
@@ -530,6 +594,11 @@ table.pp-capabilities-cb-key td.pp-cap-x {
     border: 1px solid #8c8f94 !important;
 }
 
+.pp-column-right.capabilities-sidebar .pp-sidebar-box:first-of-type ul input:disabled:checked {
+    background: #2271b1 !important;
+    border-color: #2271b1 !important;
+}
+
 .pp-column-right.capabilities-sidebar .pp-sidebar-box:first-of-type ul span.cap-x {
     font-size: 1.3em !important;
 }
@@ -574,7 +643,8 @@ th.ppc-tool-tip {
     box-shadow: 0 2px 5px rgb(0 0 0 / 10%), 0 0 56px rgb(0 0 0 / 8%);
 }
 
-.ppc-tool-tip:hover .tool-tip-text {
+.ppc-tool-tip:hover .tool-tip-text,
+.ppc-tool-tip:focus-within .tool-tip-text {
     display: block;
 }
 
@@ -781,6 +851,11 @@ th.ppc-tool-tip {
     box-shadow: none;
 }
 
+.ppc-sidebar-panel .postbox-header .handle-actions .handlediv:focus-visible {
+    outline: 2px solid #2271b1 !important;
+    outline-offset: -4px;
+}
+
 .ppc-sidebar-panel .pp-sidebar-box {
     padding: 0;
     border: none;
@@ -954,11 +1029,6 @@ body.toplevel_page_pp-capabilitie .pp-columns-wrapper.pp-enable-sidebar .pp-colu
 
 	#ppc-capabilities-wrapper .ppc-global-capabilities-control {
 		flex-wrap: wrap;
-	}
-
-	#ppc-capabilities-wrapper .ppc-global-capabilities-control .description {
-		width: 100%;
-		margin-left: 32px;
 	}
 
 	#ppc-capabilities-wrapper .ppc-capabilities-tabs > ul > li,

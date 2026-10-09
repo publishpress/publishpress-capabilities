@@ -20,7 +20,7 @@
 
 require_once(dirname(CME_FILE) . '/includes/features/restrict-profile-features.php');
 
-global $capsman, $role_has_user;
+global $capsman, $role_has_user, $profile_capture_error;
 
 $roles             = $capsman->roles;
 $default_role      = $capsman->get_last_role();
@@ -45,6 +45,9 @@ if (get_option('cme_profile_features_auto_redirect')) {
         <div id="icon-capsman-admin" class="icon32"></div>
         <h2><?php esc_html_e('Profile Feature Restrictions', 'capability-manager-enhanced'); ?></h2>
 
+        <?php if (!empty($profile_capture_error)) : ?>
+            <div class="notice notice-warning inline"><p><?php echo esc_html($profile_capture_error); ?></p></div>
+        <?php endif; ?>
         <form method="post" id="ppc-profile-features-form" action="admin.php?page=pp-capabilities-profile-features">
             <?php wp_nonce_field('pp-capabilities-profile-features'); ?>
 
@@ -65,7 +68,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                             </div>
                                             <div class="clear"></div>
 
-                                            <select name="ppc-profile-features-role" class="ppc-profile-features-role">
+                                            <select name="ppc-profile-features-role" class="ppc-profile-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                                 <?php
                                                 foreach ($roles as $role_name => $name) :
                                                     $name = translate_user_role($name);
@@ -77,8 +80,8 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                 ?>
                                             </select> &nbsp;
 
-                                            <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                                    style="display: none">
+                                        <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
+                                                    alt="" aria-hidden="true" style="display: none">
                                         </div>
                                         </p>
                                     </div>

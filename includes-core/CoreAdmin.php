@@ -109,12 +109,14 @@ class CoreAdmin {
     }
 
     function AdminMenusPromo() {
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/admin-menus-promo.php');
     }
 
     function metaboxesPromo(){
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/editor-features-promo.php');
     }
     function adminFeaturesElements($elements) {
@@ -141,12 +143,14 @@ class CoreAdmin {
     }
 
     function adminFeaturePromo(){
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/admin-features-promo.php');
     }
 
     function frontendFeaturesPromo(){
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css', [], PUBLISHPRESS_CAPS_VERSION, 'all');
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
         include (dirname(__FILE__) . '/frontend-features-promo.php');
     }
 
@@ -165,6 +169,7 @@ class CoreAdmin {
         ?>
         <div class="pp-promo-overlay-row div-pp-promo-blur">
             <select class="chosen-cpt-select frontendelements-form-pages"
+                aria-label="<?php esc_attr_e('Pages', 'capability-manager-enhanced'); ?>"
                 data-placeholder="<?php esc_attr_e('Select pages...', 'capability-manager-enhanced'); ?>" multiple>
                 <option value=""></option>
             </select>
@@ -172,7 +177,7 @@ class CoreAdmin {
             <small>
                 <?php esc_html_e('You can select page types where this element will be added.', 'capability-manager-enhanced'); ?>
             </small>
-            <input type="text" style="visibility: hidden;" /> <!-- using this to balance the space needed due to field size -->
+            <input type="text" aria-label="<?php esc_attr_e('Layout spacer', 'capability-manager-enhanced'); ?>" style="visibility: hidden;" /> <!-- using this to balance the space needed due to field size -->
         </div>
         <?php
     }

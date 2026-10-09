@@ -41,14 +41,14 @@ class PP_Capabilities_Frontend_Features_Action
         $response['message'] = esc_html__('An error occured!', 'capability-manager-enhanced');
         $response['content'] = '';
 
-        $custom_label   = isset($_POST['custom_label']) ? sanitize_text_field($_POST['custom_label']) : '';
-        $custom_element_selector = isset($_POST['custom_element_selector']) ? stripslashes_deep(sanitize_textarea_field($_POST['custom_element_selector'])) : '';
-        $custom_element_styles = isset($_POST['custom_element_styles']) ? stripslashes_deep(sanitize_textarea_field($_POST['custom_element_styles'])) : '';
-        $custom_element_bodyclass = isset($_POST['custom_element_bodyclass']) ? sanitize_textarea_field($_POST['custom_element_bodyclass']) : '';
-        $element_pages  = (isset($_POST['element_pages']) && is_array($_POST['element_pages'])) ? array_map('sanitize_text_field', $_POST['element_pages']) : [];
-        $element_post_types  = (isset($_POST['element_post_types']) && is_array($_POST['element_post_types'])) ? array_map('sanitize_text_field', $_POST['element_post_types']) : [];
-        $security       = isset($_POST['security']) ? sanitize_key($_POST['security']) : '';
-        $item_id        = isset($_POST['item_id']) ? sanitize_key($_POST['item_id']) : '';
+        $custom_label   = isset($_POST['custom_label']) ? sanitize_text_field(wp_unslash($_POST['custom_label'])) : '';
+        $custom_element_selector = isset($_POST['custom_element_selector']) ? sanitize_textarea_field(wp_unslash($_POST['custom_element_selector'])) : '';
+        $custom_element_styles = isset($_POST['custom_element_styles']) ? sanitize_textarea_field(wp_unslash($_POST['custom_element_styles'])) : '';
+        $custom_element_bodyclass = isset($_POST['custom_element_bodyclass']) ? sanitize_textarea_field(wp_unslash($_POST['custom_element_bodyclass'])) : '';
+        $element_pages  = (isset($_POST['element_pages']) && is_array($_POST['element_pages'])) ? array_map('sanitize_text_field', wp_unslash($_POST['element_pages'])) : [];
+        $element_post_types  = (isset($_POST['element_post_types']) && is_array($_POST['element_post_types'])) ? array_map('sanitize_text_field', wp_unslash($_POST['element_post_types'])) : [];
+        $security       = isset($_POST['security']) ? sanitize_key(wp_unslash($_POST['security'])) : '';
+        $item_id        = isset($_POST['item_id']) ? sanitize_key(wp_unslash($_POST['item_id'])) : '';
 
         if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_frontend_features')) {
             $response['message'] = esc_html__('You do not have permission to manage frontend features.', 'capability-manager-enhanced');

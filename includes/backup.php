@@ -125,7 +125,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                             ?>
 
                                                             <li>
-                                                            <input type="radio" name="select_restore" value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>">
+                                                            <input type="radio" name="select_restore" value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>" aria-label="<?php printf(esc_attr__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_attr($date_caption)); ?>">
                                                             <label for="<?php echo esc_attr($option_name);?>"><?php printf(esc_html__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_html($date_caption)); ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
@@ -152,7 +152,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 
                                                 <td class="cme-backup-info">
                                                     <div class="cme_backup_info_changes_only" style="display:none">
-                                                    <input type="checkbox" class="cme_backup_info_changes_only" autocomplete="off" checked="checked"> <?php esc_html_e('Show changes from current roles only', 'capability-manager-enhanced');?>
+                                                    <input type="checkbox" class="cme_backup_info_changes_only" aria-label="<?php esc_attr_e('Show changes from current roles only', 'capability-manager-enhanced'); ?>" autocomplete="off" checked="checked"> <?php esc_html_e('Show changes from current roles only', 'capability-manager-enhanced');?>
                                                     </div>
 
                                                 <?php
@@ -364,7 +364,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                         <?php esc_html_e('Import the plugin settings from a .json file. This file can be obtained by exporting the settings on another site using the form above.', 'capability-manager-enhanced'); ?>
                                         <?php esc_html_e('Before importing, we recommend using the "Backup" tab to create a backup of your current settings.', 'capability-manager-enhanced'); ?></p>
                                         <p>
-                                                <input type="file" name="import_file"/>
+                                                <input type="file" name="import_file" aria-label="<?php esc_attr_e('Import settings file', 'capability-manager-enhanced'); ?>"/>
                                         </p>
                                         <p>
                                             <input type="submit" name="import_backup"

@@ -539,7 +539,7 @@ if (!function_exists('ppc_roles_login_redirect')) {
                     && !empty($role_option['referer_redirect']) && (int) $role_option['referer_redirect'] > 0
                 ) {
                     // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
-                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? $_COOKIE['ppc_last_visited_page'] : wp_get_referer();
+                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? wp_unslash($_COOKIE['ppc_last_visited_page']) : wp_get_referer();
                     if (!empty($redirect_url)) {
                         //referer url redirect
                         $redirect_to = esc_url_raw($redirect_url);
@@ -598,7 +598,7 @@ if (!function_exists('ppc_roles_woocommerce_login_redirect')) {
                     && !empty($role_option['referer_redirect']) && (int) $role_option['referer_redirect'] > 0
                 ) {
                     // phpcs:ignore WordPressVIPMinimum.Variables.RestrictedVariables.cache_constraints___COOKIE
-                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? $_COOKIE['ppc_last_visited_page'] : wp_get_referer();
+                    $redirect_url = (!empty(get_option('cme_role_same_page_redirect_cookie')) && !empty($_COOKIE['ppc_last_visited_page'])) ? wp_unslash($_COOKIE['ppc_last_visited_page']) : wp_get_referer();
                     if (!empty($redirect_url)) {
                         //referer url redirect
                         $redirect_to = esc_url_raw($redirect_url);
@@ -885,7 +885,7 @@ if (!function_exists('pp_capabilities_pro_sidebox')) {
                         <a class="advert-link" href="https://wordpress.org/plugins/capability-manager-enhanced/"
                             target="_blank">
                             <?php echo esc_html__('Request Support', 'capability-manager-enhanced'); ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon" aria-hidden="true" focusable="false">
                                 <path
                                     d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z">
                                 </path>
@@ -896,7 +896,7 @@ if (!function_exists('pp_capabilities_pro_sidebox')) {
                         <?php echo esc_html__('Detailed documentation is also available on the plugin website.', 'capability-manager-enhanced'); ?>
                         <a class="advert-link" href="https://publishpress.com/docs-category/cme/" target="_blank">
                             <?php echo esc_html__('View Knowledge Base', 'capability-manager-enhanced'); ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon" aria-hidden="true" focusable="false">
                                 <path
                                     d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z">
                                 </path>
@@ -1249,6 +1249,8 @@ if (!is_admin()) {
                 $disabled_item_ids = preg_replace('!(0|[1-9][0-9]*)_([a-zA-Z0-9_.-]*),!s', '$1,', $disabled_nav_menu);
 
                 $disabled_nav_menu_array = array_filter(explode(", ", $disabled_item_ids));
+
+                update_meta_cache('post', wp_list_pluck($items, 'ID'));
 
                 foreach ($items as $key => $item) {
 
@@ -1657,7 +1659,7 @@ if (!function_exists('pp_capabilities_current_url')) {
     function pp_capabilities_current_url()
     {
         if (!empty($_SERVER['HTTP_HOST']) && !empty($_SERVER['REQUEST_URI'])) {
-            return esc_url_raw((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+            return esc_url_raw((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . wp_unslash($_SERVER['HTTP_HOST']) . wp_unslash($_SERVER['REQUEST_URI']));
         } else {
             return home_url('');
         }

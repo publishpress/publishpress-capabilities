@@ -50,10 +50,12 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
          */
         public function admin_scripts() {
 
+            $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
             //enqueue styles
             wp_enqueue_style(
                 'ppc-admin-notice-css',
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/css/admin-notices.css',
+                plugin_dir_url(CME_FILE) . "includes/admin-notices/assets/css/admin-notices{$asset_suffix}.css",
                 [],
                 PUBLISHPRESS_CAPS_VERSION,
                 'all'
@@ -62,7 +64,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             //enqueue scripts
             wp_enqueue_script(
                 'ppc-admin-notice-js',
-                plugin_dir_url(CME_FILE) . 'includes/admin-notices/assets/js/admin-notices.js',
+                plugin_dir_url(CME_FILE) . "includes/admin-notices/assets/js/admin-notices{$asset_suffix}.js",
                 ['jquery'],
                 PUBLISHPRESS_CAPS_VERSION,
                 false
@@ -123,6 +125,9 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
 
             $admin_notices = (string) ob_get_clean();
 
+            // Admin notice hooks are a trusted plugin-code boundary. Preserve their output so
+            // third-party notice scripts, styles, and action buttons keep working as registered.
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Output comes directly from registered admin notice callbacks.
             echo '<div class="ppc-admin-notices-selector" style="display: none;">' . $admin_notices . '</div>';
         }
 
@@ -238,7 +243,7 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
                     </div>
                 </div>
                 <div class="ppc-admin-notices-panel-none empty-notices-message" style="display: none;">
-                    <svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="170" height="170" viewBox="0 0 170 170" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                         <circle cx="85" cy="85" r="85" fill="#a8a8a8"></circle>
                         <path d="M97.6667 78.6665H72.3333C70.5917 78.6665 69.1667 80.0915 69.1667 81.8332C69.1667 83.5748 70.5917 84.9998 72.3333 84.9998H97.6667C99.4083 84.9998 100.833 83.5748 100.833 81.8332C100.833 80.0915 99.4083 78.6665 97.6667 78.6665ZM107.167 56.4998H104V53.3332C104 51.5915 102.575 50.1665 100.833 50.1665C99.0917 50.1665 97.6667 51.5915 97.6667 53.3332V56.4998H72.3333V53.3332C72.3333 51.5915 70.9083 50.1665 69.1667 50.1665C67.425 50.1665 66 51.5915 66 53.3332V56.4998H62.8333C61.1536 56.4998 59.5427 57.1671 58.355 58.3548C57.1673 59.5426 56.5 61.1535 56.5 62.8332V107.167C56.5 108.846 57.1673 110.457 58.355 111.645C59.5427 112.833 61.1536 113.5 62.8333 113.5H107.167C110.65 113.5 113.5 110.65 113.5 107.167V62.8332C113.5 59.3498 110.65 56.4998 107.167 56.4998ZM104 107.167H66C64.2583 107.167 62.8333 105.742 62.8333 104V72.3332H107.167V104C107.167 105.742 105.742 107.167 104 107.167ZM88.1667 91.3332H72.3333C70.5917 91.3332 69.1667 92.7582 69.1667 94.4998C69.1667 96.2415 70.5917 97.6665 72.3333 97.6665H88.1667C89.9083 97.6665 91.3333 96.2415 91.3333 94.4998C91.3333 92.7582 89.9083 91.3332 88.1667 91.3332Z" fill="#8E8E8E"></path>
                     </svg>
@@ -261,9 +266,9 @@ if (!class_exists('PP_Capabilities_Admin_Notices')) {
             $response['content'] = '';
 
             $nonce   = isset($_POST['nonce']) ? sanitize_key($_POST['nonce']) : '';
-            $action_type = isset($_POST['action_type']) ? sanitize_text_field($_POST['action_type']) : '';
-            $action_option = isset($_POST['action_option']) ? sanitize_text_field($_POST['action_option']) : '';
-            $notice_id = isset($_POST['notice_id']) ? sanitize_text_field($_POST['notice_id']) : '';
+            $action_type = isset($_POST['action_type']) ? sanitize_text_field(wp_unslash($_POST['action_type'])) : '';
+            $action_option = isset($_POST['action_option']) ? sanitize_text_field(wp_unslash($_POST['action_option'])) : '';
+            $notice_id = isset($_POST['notice_id']) ? sanitize_text_field(wp_unslash($_POST['notice_id'])) : '';
 
             if (!$this->canSeeAdminToolbar()) {
                 $response['message'] = esc_html__('You do not have permission to manage admin notices.', 'capability-manager-enhanced');

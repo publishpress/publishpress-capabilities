@@ -87,7 +87,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                 </div>
                                 <div class="clear"></div>
 
-                                <select name="ppc-frontend-features-role" class="ppc-frontend-features-role">
+                                <select name="ppc-frontend-features-role" class="ppc-frontend-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <optgroup label="<?php esc_attr_e('Users');?>">
                                         <?php
                                             foreach ($ppc_other_permissions as $p_value => $p_title) {
@@ -123,7 +123,7 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
-                                    style="display: none">
+                                    alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div id="pp-capability-menu-wrapper" class="postbox">

@@ -48,14 +48,37 @@ class PP_Capabilities_Installer
             self::migrateAdminNoticesDashboardFeatureStatus();
         }
 
+        if (version_compare($currentVersions, '2.50.1', '<')) {
+            self::removeLegacyEditorCapabilities();
+        }
+
         if (version_compare($currentVersions, '2.51.0', '<')) {
             self::addAdminColumnsCapabilities();
+        }
+
+        if (version_compare($currentVersions, '2.53.0', '<')) {
+            self::migrateAdminStylesTemplateColors();
         }
 
         /**
          * @param string $previousVersion
          */
         do_action('pp_capabilities_upgraded', $currentVersions);
+    }
+
+    /**
+     * Upgrade existing template styles even when the Admin Styles feature is disabled.
+     *
+     * @since 2.53.0
+     */
+    private static function migrateAdminStylesTemplateColors(): void
+    {
+        if (empty(get_option('pp_capabilities_custom_admin_styles', []))) {
+            return;
+        }
+
+        require_once dirname(__DIR__) . '/includes/features/admin-styles/admin-styles.php';
+        \PublishPress\Capabilities\PP_Capabilities_Admin_Styles::instance()->migrateTemplateColors();
     }
 
     private static function addPluginCapabilities()
@@ -76,11 +99,12 @@ class PP_Capabilities_Installer
         }
 
         /**
-         * If it's a fresh installation, we're giving 'administrator' and 'editor'
-         * all capabilities
+         * On a fresh installation, grant plugin management capabilities only to
+         * administrators. Other roles can still be delegated the
+         * manage_capabilities capability explicitly.
          */
         if (empty($eligible_roles)) {
-            $eligible_roles = ['administrator', 'editor'];
+            $eligible_roles = ['administrator'];
         }
 
         /**
@@ -96,13 +120,32 @@ class PP_Capabilities_Installer
         }
     }
 
+    /**
+     * Remove plugin management capabilities previously granted to Editors by
+     * the installer. Administrators can explicitly delegate them again.
+     */
+    private static function removeLegacyEditorCapabilities()
+    {
+        $role = get_role('editor');
+        if (!is_object($role)) {
+            return;
+        }
+
+        $pp_capabilities = apply_filters('cme_publishpress_capabilities_capabilities', []);
+        foreach ($pp_capabilities as $cap) {
+            if ($role->has_cap($cap)) {
+                $role->remove_cap($cap);
+            }
+        }
+    }
+
     private static function addFrontendFeaturesCapabilities()
     {
 
-        $eligible_roles = ['administrator', 'editor'];
+        $eligible_roles = ['administrator'];
 
         /**
-         * Add frontend features capabilities to admin and editor roles
+         * Add frontend features capabilities to administrator roles.
          */
         foreach ($eligible_roles as $eligible_role) {
             $role = get_role($eligible_role);
@@ -115,10 +158,10 @@ class PP_Capabilities_Installer
     private static function addRedirectsCapabilities()
     {
 
-        $eligible_roles = ['administrator', 'editor'];
+        $eligible_roles = ['administrator'];
 
         /**
-         * Add redirect capabilities to admin and editor roles
+         * Add redirect capabilities to administrator roles.
          */
         foreach ($eligible_roles as $eligible_role) {
             $role = get_role($eligible_role);
@@ -157,10 +200,10 @@ class PP_Capabilities_Installer
 
     private static function addAdminStylesCapabilities()
     {
-        $eligible_roles = ['administrator', 'editor'];
+        $eligible_roles = ['administrator'];
 
         /**
-         * Add admin styles capabilities to admin and editor roles
+         * Add admin styles capabilities to administrator roles.
          */
         foreach ($eligible_roles as $eligible_role) {
             $role = get_role($eligible_role);

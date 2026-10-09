@@ -192,7 +192,7 @@ class PP_Capabilities_Admin_Styles
      */
     private function get_user_settings($user_roles)
     {
-        $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+        $all_role_settings = $this->getRoleSettings();
 
         // Start with global settings
         $user_settings = $this->defaults;
@@ -345,6 +345,7 @@ class PP_Capabilities_Admin_Styles
 
         // Apply custom CSS
         if (!empty($css)) {
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CSS values are sanitized while the stylesheet is generated.
             echo '<style id="pp-capabilities-admin-styles">' . $css . '</style>';
         }
     }
@@ -409,12 +410,32 @@ class PP_Capabilities_Admin_Styles
     }
 
     /**
+     * Read role settings as arrays so invalid stored data cannot break style saves.
+     *
+     * @since 2.53.0
+     */
+    private function getRoleSettings(): array
+    {
+        $roleSettings = get_option('pp_capabilities_admin_styles_roles', []);
+
+        if (is_string($roleSettings)) {
+            $roleSettings = maybe_unserialize($roleSettings);
+        }
+
+        if (!is_array($roleSettings)) {
+            return [];
+        }
+
+        return array_filter($roleSettings, 'is_array');
+    }
+
+    /**
      * Load settings for a specific role
      */
     public function load_settings_for_role($role)
     {
         // Get all role settings
-        $all_role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+        $all_role_settings = $this->getRoleSettings();
 
         // Get settings for this specific role
         if (isset($all_role_settings[$role])) {
@@ -705,7 +726,7 @@ class PP_Capabilities_Admin_Styles
             $file_path = trailingslashit($upload_dir['path']) . $file_name;
             $normalized_path = wp_normalize_path($file_path);
 
-            if (strpos($normalized_path, $base_path) === 0) {
+            if (strpos($normalized_path, $base_path) === 0 && is_file($file_path)) {
                 wp_delete_file($file_path);
             }
         }
@@ -851,7 +872,7 @@ class PP_Capabilities_Admin_Styles
         }
 
         // Verify nonce
-        if (!wp_verify_nonce($_REQUEST['_wpnonce'], 'pp-capabilities-admin-styles')) {
+        if (!wp_verify_nonce(wp_unslash($_REQUEST['_wpnonce']), 'pp-capabilities-admin-styles')) {
             wp_die('<strong>' . esc_html__('Security check failed.', 'capability-manager-enhanced') . '</strong>');
         }
 
@@ -864,11 +885,12 @@ class PP_Capabilities_Admin_Styles
         if ($is_custom_style_submit) {
             $this->handle_custom_style_action();
 
-            wp_redirect(add_query_arg([
+            $redirect_url = add_query_arg([
                 'page' => 'pp-capabilities-admin-styles',
                 'settings-updated' => 'true',
                 'role' => isset($_POST['ppc-admin-styles-role']) ? sanitize_text_field($_POST['ppc-admin-styles-role']) : ''
-            ], admin_url('admin.php')));
+            ], admin_url('admin.php'));
+            wp_safe_redirect($redirect_url);
             exit;
         }
 
@@ -879,7 +901,7 @@ class PP_Capabilities_Admin_Styles
             // Check if saving for all roles
             $save_for_all = isset($_POST['admin-styles-all-submit']);
             // Get settings from POST
-            $settings = isset($_POST['settings']) ? (array) $_POST['settings'] : [];
+            $settings = isset($_POST['settings']) ? (array) wp_unslash($_POST['settings']) : [];
             // Ensure all general and element color fields are copied from element_colors/general and element_colors/* tabs
             if (!empty($settings['element_colors'])) {
                 // Copy general tab colors
@@ -913,7 +935,7 @@ class PP_Capabilities_Admin_Styles
 
             if ($save_for_all) {
                 $all_roles = wp_roles()->role_names;
-                $role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+                $role_settings = $this->getRoleSettings();
                 foreach (array_keys($all_roles) as $role_name) {
                     $role_settings[$role_name] = $settings;
                 }
@@ -922,7 +944,7 @@ class PP_Capabilities_Admin_Styles
                 if (empty($target_role)) {
                     wp_die('<strong>' . esc_html__('No role specified.', 'capability-manager-enhanced') . '</strong>');
                 }
-                $role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+                $role_settings = $this->getRoleSettings();
                 $role_settings[$target_role] = $settings;
                 update_option('pp_capabilities_admin_styles_roles', $role_settings);
                 if ($target_role === $this->current_role) {
@@ -947,17 +969,17 @@ class PP_Capabilities_Admin_Styles
      */
     private function handle_custom_style_action()
     {
-        $action = sanitize_key($_POST['custom_style_action']);
+        $action = sanitize_key(wp_unslash($_POST['custom_style_action']));
 
         if ($action === 'save') {
-            $style_name = isset($_POST['custom_style_name']) ? sanitize_text_field($_POST['custom_style_name']) : '';
-            $style_slug = isset($_POST['custom_style_slug']) ? sanitize_key($_POST['custom_style_slug']) : '';
+            $style_name = isset($_POST['custom_style_name']) ? sanitize_text_field(wp_unslash($_POST['custom_style_name'])) : '';
+            $style_slug = isset($_POST['custom_style_slug']) ? sanitize_key(wp_unslash($_POST['custom_style_slug'])) : '';
 
             // Validate that name is not empty
             if (empty(trim($style_name))) {
                 $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
                 if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                    $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                    $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
                 }
 
                 // Set transient for error message
@@ -991,7 +1013,7 @@ class PP_Capabilities_Admin_Styles
                 // Free user are not allowed to add more than one custom admin styles
                 $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
                 if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                    $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                        $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
                 }
 
                 wp_safe_redirect($redirect_url);
@@ -1001,14 +1023,15 @@ class PP_Capabilities_Admin_Styles
             // Get custom style colors
             $custom_style = [
                 'name' => $style_name,
-                'custom_scheme_base' => sanitize_hex_color($_POST['custom_style_custom_scheme_base'] ?? ''),
-                'custom_scheme_text' => sanitize_hex_color($_POST['custom_style_custom_scheme_text'] ?? ''),
-                'custom_scheme_highlight' => sanitize_hex_color($_POST['custom_style_custom_scheme_highlight'] ?? ''),
-                'custom_scheme_notification' => sanitize_hex_color($_POST['custom_style_custom_scheme_notification'] ?? ''),
-                'custom_scheme_background' => sanitize_hex_color($_POST['custom_style_custom_scheme_background'] ?? ''),
+                'custom_scheme_base' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_base'] ?? '')),
+                'custom_scheme_text' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_text'] ?? '')),
+                'custom_scheme_highlight' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_highlight'] ?? '')),
+                'custom_scheme_notification' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_notification'] ?? '')),
+                'custom_scheme_background' => sanitize_hex_color(wp_unslash($_POST['custom_style_custom_scheme_background'] ?? '')),
                 'element_colors' => [],
                 'advanced_rules' => [],
                 'custom_scheme_version' => time(),
+                'template_color_version' => 1,
                 'created' => current_time('mysql')
             ];
 
@@ -1024,13 +1047,13 @@ class PP_Capabilities_Admin_Styles
 
                 foreach ($tab_data['colors'] as $color_key => $color_config) {
                     $post_key = 'custom_style_' . $color_key;
-                    $color_value = isset($_POST[$post_key]) ? sanitize_hex_color($_POST[$post_key]) : '';
+                    $color_value = isset($_POST[$post_key]) ? sanitize_hex_color(wp_unslash($_POST[$post_key])) : '';
                     $custom_style['element_colors'][$tab_key][$color_key] = $color_value;
                 }
             }
 
             $custom_style['advanced_rules'] = $this->sanitize_advanced_rules(
-                isset($_POST['custom_style_advanced_rules']) ? (array) $_POST['custom_style_advanced_rules'] : []
+                isset($_POST['custom_style_advanced_rules']) ? (array) wp_unslash($_POST['custom_style_advanced_rules']) : []
             );
 
             $custom_style = $this->generate_custom_style_css_file($style_slug, $custom_style);
@@ -1050,7 +1073,7 @@ class PP_Capabilities_Admin_Styles
             // Ensure the new custom style is active for the selected role
             $target_role = isset($_POST['ppc-admin-styles-role']) ? sanitize_key($_POST['ppc-admin-styles-role']) : '';
             if (!empty($target_role)) {
-                $role_settings = get_option('pp_capabilities_admin_styles_roles', []);
+                $role_settings = $this->getRoleSettings();
                 $role_settings[$target_role] = isset($role_settings[$target_role]) && is_array($role_settings[$target_role])
                     ? $role_settings[$target_role]
                     : [];
@@ -1064,7 +1087,7 @@ class PP_Capabilities_Admin_Styles
             // Redirect
             $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
             if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                    $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
             }
 
             // Set transient for success message
@@ -1093,7 +1116,7 @@ class PP_Capabilities_Admin_Styles
                     // Redirect
                     $redirect_url = admin_url('admin.php?page=pp-capabilities-admin-styles');
                     if (isset($_POST['ppc-admin-styles-role']) && !empty($_POST['ppc-admin-styles-role'])) {
-                        $redirect_url = add_query_arg('role', sanitize_text_field($_POST['ppc-admin-styles-role']), $redirect_url);
+                    $redirect_url = add_query_arg('role', sanitize_text_field(wp_unslash($_POST['ppc-admin-styles-role'])), $redirect_url);
                     }
 
                     set_transient('ppc_custom_style_deleted_' . get_current_user_id(), $style_name, 30);
@@ -1127,10 +1150,12 @@ class PP_Capabilities_Admin_Styles
         wp_enqueue_media();
         wp_enqueue_style('wp-color-picker');
 
+        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+
         // Enqueue CSS
         wp_enqueue_style(
             'pp-capabilities-admin-styles',
-            plugin_dir_url(__FILE__) . 'assets/css/admin-styles.css',
+            plugin_dir_url(__FILE__) . "assets/css/admin-styles{$asset_suffix}.css",
             [],
             CAPSMAN_VERSION
         );
@@ -1138,7 +1163,7 @@ class PP_Capabilities_Admin_Styles
         if (!defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {
             wp_enqueue_style(
                 'pp-capabilities-admin-core',
-                plugin_dir_url(CME_FILE) . 'includes-core/admin-core.css',
+                plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css",
                 [],
                 PUBLISHPRESS_CAPS_VERSION,
                 'all'
@@ -1148,7 +1173,7 @@ class PP_Capabilities_Admin_Styles
         // Enqueue JavaScript
         wp_enqueue_script(
             'pp-capabilities-admin-styles',
-            plugin_dir_url(__FILE__) . 'assets/js/admin-styles.js',
+            plugin_dir_url(__FILE__) . "assets/js/admin-styles{$asset_suffix}.js",
             ['jquery', 'wp-color-picker'],
             CAPSMAN_VERSION,
             true
@@ -1174,6 +1199,8 @@ class PP_Capabilities_Admin_Styles
                 'saved' => __('Settings saved.', 'capability-manager-enhanced'),
                 'saveForRole' => __('Save for %s', 'capability-manager-enhanced'),
                 'currentLogoPreview' => __('Current logo preview', 'capability-manager-enhanced'),
+                'adminLogoPreview' => __('Admin logo preview', 'capability-manager-enhanced'),
+                'adminFaviconPreview' => __('Admin favicon preview', 'capability-manager-enhanced'),
                 'addCustomStyle' => __('Add New Custom Style', 'capability-manager-enhanced'),
                 'editCustomStyle' => __('Edit Custom Style', 'capability-manager-enhanced'),
                 'confirmDeleteCustomStyle' => __('Are you sure you want to delete "%s" custom style?', 'capability-manager-enhanced'),
@@ -2325,21 +2352,32 @@ class PP_Capabilities_Admin_Styles
     {
         global $_wp_admin_css_colors;
 
-        $schemes = [];
+        $built_in_schemes = [];
+        $custom_schemes = [];
 
         if (!empty($_wp_admin_css_colors)) {
             foreach ($_wp_admin_css_colors as $key => $scheme) {
                 if (empty($scheme->name)) {
                     continue;
                 }
-                $schemes[$key] = $scheme->name;
+
+                if (strpos($key, 'ppc-custom-style-') === 0) {
+                    $custom_schemes[$key] = $scheme->name;
+                } else {
+                    $built_in_schemes[$key] = $scheme->name;
+                }
             }
         }
 
         // Always include the default scheme
-        if (!isset($schemes['fresh'])) {
-            $schemes['fresh'] = __('Default', 'capability-manager-enhanced');
+        if (!isset($built_in_schemes['fresh'])) {
+            $built_in_schemes['fresh'] = __('Default', 'capability-manager-enhanced');
         }
+
+        $insert_at = min(2, count($built_in_schemes));
+        $schemes = array_slice($built_in_schemes, 0, $insert_at, true);
+        $schemes += $custom_schemes;
+        $schemes += array_slice($built_in_schemes, $insert_at, null, true);
 
         return $schemes;
     }
@@ -2351,19 +2389,170 @@ class PP_Capabilities_Admin_Styles
     public function get_custom_styles()
     {
         $custom_styles = get_option('pp_capabilities_custom_admin_styles', []);
-
-        if (is_array($custom_styles)) {
-            return $custom_styles;
+        if (is_string($custom_styles)) {
+            $custom_styles = maybe_unserialize($custom_styles);
+        }
+        if (!is_array($custom_styles)) {
+            return [];
         }
 
-        if (is_string($custom_styles) && function_exists('maybe_unserialize')) {
-            $custom_styles = maybe_unserialize($custom_styles);
-            if (is_array($custom_styles)) {
-                return $custom_styles;
+        return $custom_styles;
+    }
+
+    /**
+     * Repair saved template colors during the 2.53.0 installer upgrade.
+     *
+     * @since 2.53.0
+     */
+    public function migrateTemplateColors(): void
+    {
+        $custom_styles = $this->get_custom_styles();
+        $updated_styles = $this->repairTemplateColors($custom_styles);
+        if ($updated_styles !== $custom_styles) {
+            $this->save_custom_styles($updated_styles);
+        }
+    }
+
+    /**
+     * Repair legacy template surface colors without overwriting customized values.
+     *
+     * @since 2.53.0
+     */
+    private function repairTemplateColors(array $styles): array
+    {
+        foreach ($styles as &$style) {
+            if (!is_array($style) || !empty($style['template_color_version'])) {
+                continue;
+            }
+            foreach ($this->get_style_templates() as $template) {
+                $palette = $template['palette'];
+                foreach (['base', 'text', 'highlight', 'notification', 'background'] as $key) {
+                    if (($style['custom_scheme_' . $key] ?? '') !== $palette[$key]) {
+                        continue 2;
+                    }
+                }
+
+                $hover = '#' . implode('', array_map(function ($offset) use ($palette) {
+                    return sprintf('%02x', max(0, hexdec(substr($palette['highlight'], $offset, 2)) - 26));
+                }, [1, 3, 5]));
+                $primaryText = $this->getReadableTemplateText($palette['highlight'], $hover);
+                $legacyLuminance = (0.299 * hexdec(substr($palette['highlight'], 1, 2))
+                    + 0.587 * hexdec(substr($palette['highlight'], 3, 2))
+                    + 0.114 * hexdec(substr($palette['highlight'], 5, 2))) / 255;
+                $legacyPrimaryText = $legacyLuminance > 0.6 ? '#111827' : '#f9fafb';
+                if (empty($style['element_colors']) || !is_array($style['element_colors'])) {
+                    $style['element_colors'] = [];
+                }
+                $elements = $style['element_colors'];
+                $primaryBackground = $elements['buttons']['button_primary_bg'] ?? $palette['highlight'];
+                $primaryHover = $elements['buttons']['button_primary_hover_bg'] ?? $hover;
+                $primaryText = $this->getReadableTemplateText($primaryBackground ?: $palette['highlight'], $primaryHover);
+                $defaults = [
+                    'tables' => [
+                        'table_header_bg' => $palette['surface'],
+                        'table_header_text' => $this->getReadableTemplateText($elements['tables']['table_header_bg'] ?? $palette['surface']),
+                        'table_row_bg' => $palette['surface'],
+                        'table_row_color' => $this->getReadableTemplateText($elements['tables']['table_row_bg'] ?? $palette['surface']),
+                        'table_alt_row_bg' => $palette['surface_alt'],
+                        'table_alt_row_color' => $this->getReadableTemplateText($elements['tables']['table_alt_row_bg'] ?? $palette['surface_alt']),
+                        'table_row_hover_bg' => $palette['surface_alt'],
+                        'table_border' => $palette['border'],
+                    ],
+                    'buttons' => [
+                        'button_primary_bg' => $palette['highlight'],
+                        'button_primary_text' => $primaryText,
+                        'button_primary_hover_bg' => $hover,
+                        'button_secondary_bg' => $palette['surface'],
+                        'button_secondary_text' => $this->getReadableTemplateText(
+                            $elements['buttons']['button_secondary_bg'] ?? $palette['surface'],
+                            $elements['buttons']['button_secondary_hover_bg'] ?? $palette['surface_alt']
+                        ),
+                        'button_secondary_hover_bg' => $palette['surface_alt'],
+                    ],
+                    'forms' => [
+                        'input_background' => $palette['surface'],
+                        'input_text' => $this->getReadableTemplateText($elements['forms']['input_background'] ?? $palette['surface']),
+                        'input_border' => $palette['border'],
+                        'input_focus_border' => $palette['highlight'],
+                        'input_placeholder' => '#6b7280',
+                    ],
+                    'dashboard_widgets' => [
+                        'widget_bg' => $palette['surface'],
+                        'widget_border' => $palette['border'],
+                        'widget_header_bg' => $palette['surface_alt'],
+                        'widget_title_text' => $this->getReadableTemplateText(
+                            ($elements['dashboard_widgets']['widget_header_bg'] ?? '') ?: $palette['surface_alt']
+                        ),
+                        'widget_body_text' => $this->getReadableTemplateText(
+                            ($elements['dashboard_widgets']['widget_bg'] ?? '') ?: $palette['surface']
+                        ),
+                        'widget_link' => $palette['accent'],
+                        'widget_link_hover' => $palette['highlight'],
+                    ],
+                ];
+                foreach ($defaults as $tab => $colors) {
+                    foreach ($colors as $key => $value) {
+                        $existing = $style['element_colors'][$tab][$key] ?? null;
+                        $legacyText = in_array($key, ['table_row_color', 'table_alt_row_color'], true)
+                            && $existing === $palette['text'];
+                        $legacyButtonText = $key === 'button_primary_text'
+                            && ($style['element_colors']['buttons']['button_primary_bg'] ?? '') === $palette['highlight']
+                            && $existing === $legacyPrimaryText;
+                        // Widget fields were left empty by the original template builder.
+                        if ($existing === null || $legacyText || $legacyButtonText
+                            || ($tab === 'dashboard_widgets' && $existing === '')
+                        ) {
+                            if ($legacyText) {
+                                $backgroundKey = $key === 'table_alt_row_color' ? 'table_alt_row_bg' : 'table_row_bg';
+                                $value = $this->getReadableTemplateText(
+                                    $style['element_colors'][$tab][$backgroundKey] ?? $palette['surface']
+                                );
+                            }
+                            $style['element_colors'][$tab][$key] = $value;
+                        }
+                    }
+                }
+                $style['template_color_version'] = 1;
+                break;
             }
         }
+        unset($style);
+        return $styles;
+    }
 
-        return [];
+    /**
+     * Choose text with the strongest minimum contrast across button states.
+     *
+     * @since 2.53.0
+     */
+    private function getReadableTemplateText(string $background, string $alternate = ''): string
+    {
+        $luminance = static function (string $hex): float {
+            if (!preg_match('/^#[0-9a-f]{6}$/i', $hex)) {
+                return 1.0;
+            }
+            $channels = [];
+            foreach ([1, 3, 5] as $offset) {
+                $value = hexdec(substr($hex, $offset, 2)) / 255;
+                $channels[] = $value <= 0.04045 ? $value / 12.92 : pow(($value + 0.055) / 1.055, 2.4);
+            }
+            return 0.2126 * $channels[0] + 0.7152 * $channels[1] + 0.0722 * $channels[2];
+        };
+        // Empty saved fields are valid: treat an unspecified surface like the light admin canvas.
+        $backgrounds = [$background ?: '#ffffff'];
+        if ($alternate !== '') {
+            $backgrounds[] = $alternate;
+        }
+        $contrast = static function (string $text) use ($backgrounds, $luminance): float {
+            $foreground = $luminance($text);
+            $ratios = [];
+            foreach ($backgrounds as $color) {
+                $surface = $luminance($color);
+                $ratios[] = (max($foreground, $surface) + 0.05) / (min($foreground, $surface) + 0.05);
+            }
+            return min($ratios);
+        };
+        return $contrast('#111827') >= $contrast('#f9fafb') ? '#111827' : '#f9fafb';
     }
 
     /**

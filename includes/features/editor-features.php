@@ -79,7 +79,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                         <td class="content">
 
                             <div class="publishpress-filters">
-                                <select name="ppc-editor-features-role" class="ppc-editor-features-role">
+                                <select name="ppc-editor-features-role" class="ppc-editor-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <?php
                                     foreach ($roles as $role_name => $name) :
                                         $name = translate_user_role($name);
@@ -90,7 +90,7 @@ $active_tab_text = is_object($active_tab_type_obj)
                                     ?>
                                 </select> &nbsp;
 
-                                <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif" style="display: none">
+                                <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif" alt="" aria-hidden="true" style="display: none">
 
                                 <input type="hidden" name="ppc-tab" value="<?php echo (!empty($_REQUEST['ppc-tab'])) ? sanitize_key($_REQUEST['ppc-tab']) : 'gutenberg';?>" />
                             </div>

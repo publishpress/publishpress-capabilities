@@ -353,7 +353,7 @@ class PP_Capabilities_Admin_Features
     {
         //strip span and div content
         $title = preg_replace('#(<span.*?>).*?(</span>)#', '', $title);
-        $title = preg_replace('#(<img.*?>)#', '', $title);
+        $title = preg_replace('#(<' . 'img.*?>)#', '', $title);
 
         //strip other html tags
         $title = wp_strip_all_tags($title);

@@ -28,7 +28,7 @@
 
 
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
 
@@ -39,7 +39,7 @@
     <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur">
 
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
                 <span class="gutenberg menu-item-link restricted">
@@ -49,7 +49,7 @@
     <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur">
 
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
                 <span class="gutenberg menu-item-link">
@@ -59,7 +59,7 @@
     <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur">
 
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
                 <span class="gutenberg menu-item-link">
@@ -91,7 +91,7 @@
     </tr>
     <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur">
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
                 <span class="gutenberg menu-item-link">
@@ -101,7 +101,7 @@
     </tr>
     <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur">
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
                 <span class="gutenberg menu-item-link restricted">
@@ -111,7 +111,7 @@
     </tr>
     <tr class="ppc-menu-row parent-menu pp-promo-overlay-row pp-promo-blur">
         <td class="restrict-column ppc-menu-checkbox">
-            <input type="checkbox">
+            <input type="checkbox" aria-label="<?php esc_attr_e('Preview editor feature restriction', 'capability-manager-enhanced'); ?>">
         </td>
         <td class="menu-column ppc-menu-item">
                 <span class="gutenberg menu-item-link">

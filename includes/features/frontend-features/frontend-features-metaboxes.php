@@ -77,23 +77,28 @@ class PP_Capabilities_Frontend_Features_Metaboxes
             <?php esc_html_e('Choose Frontend Features that will apply to this post.', 'capability-manager-enhanced'); ?>
         </p>
         <?php
+        $post_meta = get_post_meta($post->ID);
+
         foreach ($frontend_features_elements as $section_title => $section_elements) :
             if (is_array($section_elements) && !empty($section_elements)) :
             $section_slug  = '_ppc_' . strtolower(ppc_remove_non_alphanumeric_space_characters($section_title));
 
-            $post_features = (array) get_post_meta($post->ID, $section_slug, true);
+            $post_features = isset($post_meta[$section_slug][0])
+                ? (array) maybe_unserialize($post_meta[$section_slug][0])
+                : array();
             ?>
             <div class="frontend-feature-metabox">
                 <select name="<?php echo esc_attr($section_slug); ?>[]"
                     id="<?php echo esc_attr($section_slug); ?>"
                     class="chosen-cpt-select"
+                    aria-label="<?php printf(esc_attr__('Select %1$s', 'capability-manager-enhanced'), esc_html__($section_title)); ?>"
                     data-placeholder="<?php printf(esc_attr__('Select %1$s...', 'capability-manager-enhanced'), esc_html__($section_title)); ?>"
                     multiple>
-                    <?php 
+                    <?php
                     foreach ($section_elements as $section_id => $section_array) :
                         if (!$section_id) {
                             continue;
-                    } 
+                    }
                     ?>
                     <option value="<?php echo esc_attr($section_id); ?>" <?php selected(in_array($section_id, $post_features), true); ?>
                         >
@@ -122,13 +127,13 @@ class PP_Capabilities_Frontend_Features_Metaboxes
         if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_frontend_features')) {
             return;
         }
-        
+
         if (empty($_POST['ppc-frontend-features-metabox-nonce'])
             || !wp_verify_nonce(sanitize_key($_POST['ppc-frontend-features-metabox-nonce']), 'ppc-frontend-features-metabox')) {
             return;
         }
 
-        $frontend_elements = !empty($_POST['_ppc_frontendelements']) ? array_map('sanitize_text_field', $_POST['_ppc_frontendelements']) : [];
+        $frontend_elements = !empty($_POST['_ppc_frontendelements']) ? array_map('sanitize_text_field', wp_unslash($_POST['_ppc_frontendelements'])) : [];
 
         update_post_meta($post_id, '_ppc_frontendelements', $frontend_elements);
     }
@@ -162,7 +167,8 @@ class PP_Capabilities_Frontend_Features_Metaboxes
                 $(function(){
                     if( $(".chosen-cpt-select").length ) {
                         $(".chosen-cpt-select").chosen({
-                            "width": "100%"
+                                                        "width": "100%",
+                                                        "no_results_text": <?php echo wp_json_encode(__("No results match", "capability-manager-enhanced")); ?>
                           });
                     }
                 });

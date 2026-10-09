@@ -44,7 +44,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                         <td class="content">
 
                             <div class="publishpress-filters">
-                                <select name="ppc-admin-notices-role" class="ppc-admin-notices-role">
+                                <select name="ppc-admin-notices-role" class="ppc-admin-notices-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <?php foreach ($roles as $role => $detail) : ?>
                                         <option value="<?php echo esc_attr($role); ?>" <?php selected($selected_role, $role); ?>>
                                             <?php echo esc_html(translate_user_role($detail['name'])); ?>
@@ -52,7 +52,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                     <?php endforeach; ?>
                                 </select> &nbsp;
 
-                                    <img class="loading" src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'images/wpspin_light.gif'); ?>" style="display: none">
+                                    <img class="loading" src="<?php echo esc_url_raw(plugin_dir_url(CME_FILE) . 'images/wpspin_light.gif'); ?>" alt="" aria-hidden="true" style="display: none">
                             </div>
 
                             <div class="pp-capabilities-submit-top" style="display: flex;gap: 10px;float:right; margin-bottom: 20px;">

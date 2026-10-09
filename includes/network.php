@@ -13,6 +13,130 @@
  * Priority 200 ensures WordPress has created the new site's role tables first.
  */
 add_action('wp_initialize_site', '_cme_initialize_site_roles', 200, 2);
+add_action('cme_dashboard_feature_sync_batch', 'pp_capabilities_sync_dashboard_feature_batch', 10, 1);
+
+/**
+ * Queue a Dashboard feature status update for all existing sites in a network.
+ *
+ * @param string $feature Feature key.
+ * @param string $status  Feature status, on or off.
+ * @return string|false Synchronization token on success, false for invalid data.
+ */
+function pp_capabilities_queue_dashboard_feature_sync($feature, $status)
+{
+    $feature = sanitize_key($feature);
+    $status = sanitize_key($status);
+
+    if (!$feature || !in_array($status, ['on', 'off'], true)) {
+        return false;
+    }
+
+    $network_id = (int) get_current_network_id();
+    $token = function_exists('wp_generate_uuid4')
+        ? wp_generate_uuid4()
+        : strtolower(wp_generate_password(32, false, false));
+    $state = [
+        'feature' => $feature,
+        'status' => $status,
+        'network_id' => $network_id,
+        'main_site_id' => (int) get_main_site_id($network_id),
+        'offset' => 0,
+        'token' => $token,
+    ];
+    $latest_token_key = 'cme_dashboard_feature_sync_latest_' . md5($feature);
+
+    set_site_transient('cme_dashboard_feature_sync_' . $token, $state, DAY_IN_SECONDS);
+    set_site_transient($latest_token_key, $token, DAY_IN_SECONDS);
+
+    if (!wp_next_scheduled('cme_dashboard_feature_sync_batch', [$token])) {
+        wp_schedule_single_event(time() + 1, 'cme_dashboard_feature_sync_batch', [$token]);
+    }
+
+    return $token;
+}
+
+/**
+ * Apply a queued Dashboard feature status update in batches.
+ *
+ * @param string $token Synchronization token.
+ * @return void
+ */
+function pp_capabilities_sync_dashboard_feature_batch($token)
+{
+    $token = sanitize_key($token);
+    $state = get_site_transient('cme_dashboard_feature_sync_' . $token);
+
+    if (empty($state) || !is_array($state)) {
+        return;
+    }
+
+    $feature = !empty($state['feature']) ? sanitize_key($state['feature']) : '';
+    $status = !empty($state['status']) ? sanitize_key($state['status']) : '';
+    $network_id = !empty($state['network_id']) ? (int) $state['network_id'] : 0;
+    $main_site_id = !empty($state['main_site_id']) ? (int) $state['main_site_id'] : 0;
+    $offset = !empty($state['offset']) ? absint($state['offset']) : 0;
+    $latest_token_key = 'cme_dashboard_feature_sync_latest_' . md5($feature);
+
+    if (!$feature || !in_array($status, ['on', 'off'], true) || !$network_id) {
+        delete_site_transient('cme_dashboard_feature_sync_' . $token);
+        return;
+    }
+
+    // Stop an older queued status from overwriting a more recent toggle.
+    if ($token !== get_site_transient($latest_token_key)) {
+        delete_site_transient('cme_dashboard_feature_sync_' . $token);
+        return;
+    }
+
+    $batch_size = (int) apply_filters('cme_dashboard_feature_sync_batch_size', 50, $feature, $status, $network_id);
+    if ($batch_size < 1) {
+        $batch_size = 50;
+    }
+
+    $site_ids = get_sites([
+        'fields' => 'ids',
+        'network_id' => $network_id,
+        'site__not_in' => [$main_site_id],
+        'number' => $batch_size,
+        'offset' => $offset,
+        'orderby' => 'ID',
+        'order' => 'ASC',
+    ]);
+
+    $original_feature_status = isset($GLOBALS['capsman_dashboard_features_status'])
+        ? $GLOBALS['capsman_dashboard_features_status']
+        : null;
+
+    foreach ($site_ids as $site_id) {
+        switch_to_blog((int) $site_id);
+
+        try {
+            $features_status = get_option('capsman_dashboard_features_status', []);
+            $features_status = is_array($features_status) ? $features_status : [];
+            $features_status[$feature]['status'] = $status;
+
+            update_option('capsman_dashboard_features_status', $features_status, false);
+            $GLOBALS['capsman_dashboard_features_status'] = $features_status;
+            do_action('pp_capabilities_dashboard_feature_updated', $feature, $status);
+        } finally {
+            restore_current_blog();
+        }
+    }
+
+    $GLOBALS['capsman_dashboard_features_status'] = $original_feature_status;
+
+    if (count($site_ids) === $batch_size) {
+        $state['offset'] = $offset + $batch_size;
+        set_site_transient('cme_dashboard_feature_sync_' . $token, $state, DAY_IN_SECONDS);
+        wp_schedule_single_event(time() + 1, 'cme_dashboard_feature_sync_batch', [$token]);
+        return;
+    }
+
+    delete_site_transient('cme_dashboard_feature_sync_' . $token);
+    if ($token === get_site_transient($latest_token_key)) {
+        delete_site_transient($latest_token_key);
+    }
+}
 
 /**
  * Handles the modern WordPress new-site hook.

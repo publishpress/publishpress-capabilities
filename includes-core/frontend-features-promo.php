@@ -36,7 +36,7 @@
 
 </div>
 <div class="pp-promo-overlay-row div-pp-promo-blur">
-    <select class="chosen-cpt-select frontendelements-form-post-types" data-placeholder="<?php esc_attr_e('Select post types...', 'capability-manager-enhanced'); ?>" multiple>
+    <select class="chosen-cpt-select frontendelements-form-post-types" aria-label="<?php esc_attr_e('Post types', 'capability-manager-enhanced'); ?>" data-placeholder="<?php esc_attr_e('Select post types...', 'capability-manager-enhanced'); ?>" multiple>
         <option value=""></option>
     </select>
     <br />
@@ -44,6 +44,6 @@
         <?php esc_html_e('This will add a metabox on the post editing screen. You can use this feature to add body classes only for that post.', 'capability-manager-enhanced'); ?>
     </small>
     <!-- using this to balance the space needed due to field size -->
-    <input type="text" style="visibility: hidden; width: 0; display: block;" />
-    <input type="text" style="visibility: hidden; width: 0; display: block;" />
+    <input type="text" aria-label="<?php esc_attr_e('Layout spacer', 'capability-manager-enhanced'); ?>" style="visibility: hidden; width: 0; display: block;" />
+    <input type="text" aria-label="<?php esc_attr_e('Layout spacer', 'capability-manager-enhanced'); ?>" style="visibility: hidden; width: 0; display: block;" />
 </div>

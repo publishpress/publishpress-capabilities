@@ -338,7 +338,8 @@ jQuery(function ($) {
 
     //init chosen.js
     $newField.chosen({
-      'width': '25em'
+      'width': '25em',
+      'no_results_text': ppCapabilitiesProfileData.chosen_no_results_text
     });
 
     /**
