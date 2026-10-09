@@ -1178,6 +1178,8 @@ class PP_Capabilities_Admin_Styles
                 'saved' => __('Settings saved.', 'capability-manager-enhanced'),
                 'saveForRole' => __('Save for %s', 'capability-manager-enhanced'),
                 'currentLogoPreview' => __('Current logo preview', 'capability-manager-enhanced'),
+                'adminLogoPreview' => __('Admin logo preview', 'capability-manager-enhanced'),
+                'adminFaviconPreview' => __('Admin favicon preview', 'capability-manager-enhanced'),
                 'addCustomStyle' => __('Add New Custom Style', 'capability-manager-enhanced'),
                 'editCustomStyle' => __('Edit Custom Style', 'capability-manager-enhanced'),
                 'confirmDeleteCustomStyle' => __('Are you sure you want to delete "%s" custom style?', 'capability-manager-enhanced'),
