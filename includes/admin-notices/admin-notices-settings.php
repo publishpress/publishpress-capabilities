@@ -95,6 +95,8 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                                     <tr>
                                                         <th scope="row"><?php esc_html_e('Notifications to remove from WordPress admin pages', 'capability-manager-enhanced'); ?></th>
                                                         <td>
+                                                            <fieldset>
+                                                            <legend class="screen-reader-text"><?php esc_html_e('Notifications to remove from WordPress admin pages', 'capability-manager-enhanced'); ?></legend>
                                                             <?php foreach ($notice_type_options as $option_key => $option_label) : ?>
                                                                 <label>
                                                                     <input
@@ -108,6 +110,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                                                 </label>
                                                                 <br><br>
                                                             <?php endforeach; ?>
+                                                            </fieldset>
 
                                                             <span class="description">
                                                                 <?php printf(esc_html__('Select the notification types that should be hidden when a user in the %1$s role is viewing WordPress admin screens.', 'capability-manager-enhanced'), esc_html($selected_role_name)); ?> <a target="_blank" href="https://publishpress.com/knowledge-base/notice-types"><?php esc_html_e('Click here for more on notice types.', 'capability-manager-enhanced'); ?></a>
@@ -118,6 +121,8 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                                     <tr>
                                                         <th scope="row"><?php esc_html_e('Notifications to display in the Admin Notices area.', 'capability-manager-enhanced'); ?></th>
                                                         <td>
+                                                            <fieldset>
+                                                            <legend class="screen-reader-text"><?php esc_html_e('Notifications to display in the Admin Notices area.', 'capability-manager-enhanced'); ?></legend>
                                                             <?php foreach ($notice_type_options as $option_key => $option_label) : ?>
                                                                 <label>
                                                                     <input
@@ -131,6 +136,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                                                                 </label>
                                                                 <br><br>
                                                             <?php endforeach; ?>
+                                                            </fieldset>
 
                                                             <span class="description">
                                                                 <?php esc_html_e('Select the notification types that should be displayed in the Admin Notices area after been removed from the WordPress admin screens.', 'capability-manager-enhanced'); ?> <a target="_blank" href="https://publishpress.com/knowledge-base/notice-types"><?php esc_html_e('Click here for more on notice types.', 'capability-manager-enhanced'); ?></a>
