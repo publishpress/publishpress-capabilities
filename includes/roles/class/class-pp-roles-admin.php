@@ -546,6 +546,7 @@ class Pp_Roles_Admin
         $admin_features_counts = (!empty($current['admin_features'])) ? (int) $current['admin_features'] : 0;
         $profile_features_counts = (!empty($current['profile_features'])) ? (int) $current['profile_features'] : 0;
         $admin_menus_counts = (!empty($current['admin_menus'])) ? (int) $current['admin_menus'] : 0;
+        $admin_columns_counts = (!empty($current['admin_columns'])) ? (int) $current['admin_columns'] : 0;
         $nav_menus_counts = (!empty($current['nav_menus'])) ? (int) $current['nav_menus'] : 0;
 
         if (!empty($current['role'])) {
@@ -554,6 +555,7 @@ class Pp_Roles_Admin
                 esc_html__('Admin Features', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-admin-features&role=' . $current['role'] . '')) . '">(' . absint($admin_features_counts) . ')</a>',
                 esc_html__('Profile Features', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-profile-features&role=' . $current['role'] . '')) . '">(' . absint($profile_features_counts) . ')</a>',
                 esc_html__('Admin Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-admin-menus&role=' . $current['role'] . '')) . '">(' . absint($admin_menus_counts) . ')</a>',
+                esc_html__('Admin Columns', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-admin-columns&role=' . $current['role'] . '')) . '">(' . absint($admin_columns_counts) . ')</a>',
                 esc_html__('Navigation Menus', 'capability-manager-enhanced') => '<a target="blank" href="' . esc_url(admin_url('admin.php?page=pp-capabilities-nav-menus&role=' . $current['role'] . '')) . '">(' . absint($nav_menus_counts) . ')</a>',
             ];
         } else {
