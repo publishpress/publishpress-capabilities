@@ -40,7 +40,21 @@ jQuery(document).ready(function ($) {
    * Toggle admin menu form
    */
   $(document).on('click', '.ppc-menu-action .add-new-menu', function (e) {
-    $('.ppc-new-menu-form .new-menu-fields').slideToggle();
+    e.preventDefault();
+    var formFields = $('.ppc-new-menu-form .new-menu-fields');
+    formFields.stop(true, true);
+
+    function toggleForm() {
+      formFields.addClass('is-sliding').slideToggle(200, function () {
+        $(this).removeClass('is-sliding');
+      });
+    }
+
+    // Closing and the disabled Free preview do not need to rebuild form options.
+    if (formFields.is(':visible') || formFields.hasClass('ppc-new-menu-promo')) {
+      toggleForm();
+      return;
+    }
 
     var addMenuAfter = $('.add-menu-after');
 
@@ -88,6 +102,7 @@ jQuery(document).ready(function ($) {
     $('.menu-form-table .menu-url').val('admin.php?page=pp-capabilities-admin-menus&menu_id=' + generateRandomCharacters(4));
     $('.menu-form-table .separator-color').val('#ffffff');
     updateNewMenuFormFields($('.menu-form-table'));
+    toggleForm();
 
   });
 
