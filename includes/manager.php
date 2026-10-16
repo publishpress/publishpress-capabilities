@@ -1661,8 +1661,13 @@ class CapabilityManager
                     || !user_can($role_user[0]->ID, 'read')
                     || !PP_Capabilities_Test_User::canTestUser($role_user[0]))
             ) {
-                $profile_capture_error = __('Profile items could not be detected because User Testing is disabled, you cannot test the user in this role, or the user cannot access the Profile screen.', 'capability-manager-enhanced');
-                return;
+                if (!$can_capture_current_user) {
+                    $profile_capture_error = __('Profile items could not be detected because User Testing is disabled, you cannot test the user in this role, or the user cannot access the Profile screen.', 'capability-manager-enhanced');
+                    return;
+                }
+
+                // Capture from the current administrator's own Profile screen instead
+                $role_user = [];
             }
 
             if (empty($role_user) && $default_role !== 'administrator') {
