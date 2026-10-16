@@ -1655,6 +1655,28 @@ class CapabilityManager
                 return;
             }
 
+            // The first user found may not be testable, so look for one that is
+            if (!empty($role_user)
+                && pp_capabilities_feature_enabled('user-testing')
+                && class_exists('PP_Capabilities_Test_User')
+            ) {
+                $candidate_users = get_users(
+                    [
+                        'blog_id'      => get_current_blog_id(),
+                        'role'         => $default_role,
+                        'role__not_in' => (array) get_option('cme_test_user_excluded_roles', []),
+                        'exclude'      => [get_current_user_id()],
+                        'number'       => 10,
+                    ]
+                );
+                foreach ($candidate_users as $candidate_user) {
+                    if (user_can($candidate_user->ID, 'read') && PP_Capabilities_Test_User::canTestUser($candidate_user)) {
+                        $role_user = [$candidate_user];
+                        break;
+                    }
+                }
+            }
+
             if (!empty($role_user)
                 && (!pp_capabilities_feature_enabled('user-testing')
                     || !class_exists('PP_Capabilities_Test_User')
