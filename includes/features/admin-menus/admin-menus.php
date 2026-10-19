@@ -22,8 +22,10 @@ global $capsman, $menu, $submenu, $admin_global_menu, $admin_global_submenu;
 
 $can_add_menu = (bool) apply_filters('pp_capabilities_admin_menus_new_menu_enabled', false);
 
-$ppc_global_menu     = (array)get_option('ppc_admin_menus_menu');
-$ppc_global_submenu  = (array)get_option('ppc_admin_menus_submenu');
+$ppc_global_menu     = get_option('ppc_admin_menus_menu', []);
+$ppc_global_menu     = is_array($ppc_global_menu) ? $ppc_global_menu : [];
+$ppc_global_submenu  = get_option('ppc_admin_menus_submenu', []);
+$ppc_global_submenu  = is_array($ppc_global_submenu) ? $ppc_global_submenu : [];
 $custom_menus        = (array)get_option('ppc_admin_menus_custom_menus', []);
 $all_custom_menus    = !empty($custom_menus['menus']) ? $custom_menus['menus'] : [];
 $all_custom_submenus = !empty($custom_menus['submenus']) ? $custom_menus['submenus'] : [];
@@ -40,22 +42,15 @@ if (is_array($admin_global_menu) && count($admin_global_menu) > count($menu)) {
     $ppc_global_menu   = $admin_global_menu;
 }
 
-if (is_array($admin_global_submenu) && count($admin_global_submenu) > count($submenu)) {
-    // for submenu, we need to remove any group not in menu before count for fair count
-    $menu_index = array_column($menu, 2);
-
-    $filtered_submenu = array_intersect_key($submenu,
-        array_flip($menu_index)
-    );
-
-    $filtered_admin_global_submenu = array_intersect_key($admin_global_submenu,
-        array_flip($menu_index)
-    );
-    if (count($filtered_admin_global_submenu) > count($filtered_submenu)) {
-        $submenu   = $admin_global_submenu;
-        $ppc_global_submenu   = $admin_global_submenu;
-    }
-}
+// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Restore complete submenu discovery for the restrictions editor.
+$submenu = PublishPress\Capabilities\Admin_Menus_Filters::mergeSubmenuSnapshots(
+    (array) $admin_global_submenu,
+    (array) $submenu
+);
+$ppc_global_submenu = PublishPress\Capabilities\Admin_Menus_Filters::mergeSubmenuSnapshots(
+    $ppc_global_submenu,
+    $submenu
+);
 
 // grouping original menu by their slug to get original position key
 $grouped_menu       = [];
