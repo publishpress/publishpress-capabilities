@@ -278,7 +278,7 @@ class CME_Cap_Helper {
 
 			$tx_caps = (array) $wp_taxonomies[$taxonomy]->cap;
 
-			if ( ( ! in_array($taxonomy, $use_taxonomies) || empty( $wp_taxonomies[$taxonomy]->public ) ) && ( 'nav_menu' != $taxonomy ) )
+			if ( ( ! in_array($taxonomy, $use_taxonomies) || ( empty( $wp_taxonomies[$taxonomy]->public ) && empty( $wp_taxonomies[$taxonomy]->show_ui ) ) ) && ( 'nav_menu' != $taxonomy ) )
 				continue;
 
 			if ( ! in_array( $taxonomy, $core_taxonomies ) ) {
