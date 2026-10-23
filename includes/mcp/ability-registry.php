@@ -198,7 +198,7 @@ class AbilityRegistry
         self::register(
             'get-feature-choices',
             __('Get feature choices', 'capability-manager-enhanced'),
-            __('Discover existing editor/admin elements, captured profile/frontend elements, menu snapshots, navigation items or admin style templates. Does not capture new browser UI.', 'capability-manager-enhanced'),
+            __('Discover existing editor/admin elements, captured profile/frontend elements, menu snapshots with exact restriction_value identifiers, navigation items or admin style templates. Does not capture new browser UI.', 'capability-manager-enhanced'),
             self::object($selector, ['feature']),
             ['feature' => $string, 'choices' => $object],
             [FeatureOperations::class, 'choices'],
@@ -222,7 +222,7 @@ class AbilityRegistry
         self::register(
             'update-feature-settings',
             __('Update feature settings', 'capability-manager-enhanced'),
-            __('Patch feature settings for one role. List fields replace their lists; unmentioned fields and other roles remain unchanged. dry_run validates and returns proposed values without saving. Discover fields with list-features.', 'capability-manager-enhanced'),
+            __('Patch feature settings for one role. List fields replace their lists; unmentioned fields and other roles remain unchanged. dry_run validates and returns proposed values without saving. Discover fields with list-features. For admin-menus, first get-feature-choices and use discovery restriction_value identifiers. New unknown menu identifiers are rejected.', 'capability-manager-enhanced'),
             self::object($selector, ['feature', 'role', 'settings']),
             $output,
             [FeatureOperations::class, 'update'],

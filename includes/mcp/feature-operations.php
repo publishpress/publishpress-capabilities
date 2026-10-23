@@ -163,6 +163,12 @@ class FeatureOperations
                 return end($parts) !== 'pp-capabilities-admin-menus';
             }));
         }
+        if ($input['feature'] === 'admin-menus') {
+            $valid = MenuDiscovery::validate($settings, (array) $old['settings']);
+            if (is_wp_error($valid)) {
+                return $valid;
+            }
+        }
         if (!empty($input['dry_run'])) {
             return ['feature' => $input['feature'], 'role' => $role, 'settings' => (object) $settings];
         }
@@ -267,11 +273,15 @@ class FeatureOperations
     }
 
     /** @since 2.54.0 */
-    public static function choices(array $input): array
+    public static function choices(array $input)
     {
         $feature = $input['feature'];
         $choices = [];
         if ($feature === 'editor-features') {
+            $option = self::option($input);
+            if (is_wp_error($option)) {
+                return $option;
+            }
             require_once dirname(__DIR__) . '/features/restrict-editor-features.php';
             $choices = ($input['editor'] ?? 'block') === 'classic'
                 ? \PP_Capabilities_Post_Features::elementsLayoutClassic()
@@ -287,13 +297,29 @@ class FeatureOperations
                 ]),
             ];
         } elseif ($feature === 'profile-features') {
-            $choices = get_option('capsman_profile_features_elements', [])[$input['role'] ?? ''] ?? [];
+            $role = $input['role'] ?? '';
+            if (!get_role($role)) {
+                return RoleOperations::error('role_required', __('Choose an existing role to discover Profile Features.', 'capability-manager-enhanced'));
+            }
+            require_once dirname(__DIR__) . '/features/restrict-profile-features.php';
+            $elements = \PublishPress\Capabilities\PP_Capabilities_Profile_Features::elementsLayout();
+            $choices = $elements[$role] ?? [];
+            foreach ($choices as &$item) {
+                $item['restriction_value'] = $item['elements'] ?? '';
+            }
+            unset($item);
         } elseif ($feature === 'frontend-features') {
-            $choices = get_option('capsman_frontend_features_elements', []);
+            $choices = (array) get_option('capsman_frontend_features_elements', []);
+            foreach ($choices as $id => &$item) {
+                $item['restriction_value'] = (string) $id;
+            }
+            unset($item);
         } elseif ($feature === 'admin-menus') {
+            $discovery = MenuDiscovery::choices();
             $choices = [
-                'menus' => get_option('ppc_admin_menus_menu', []),
-                'submenus' => get_option('ppc_admin_menus_submenu', []),
+                'discovery' => (object) $discovery,
+                'menus' => $discovery['menus'],
+                'submenus' => $discovery['submenus'],
                 'custom' => get_option('ppc_admin_menus_custom_menus', []),
                 'names' => get_option('ppc_admin_menus_names', []),
                 'order' => get_option('ppc_admin_menus_order', []),
@@ -319,6 +345,21 @@ class FeatureOperations
             }
             unset($section);
         }
+        if ($feature === 'editor-features') {
+            foreach ($choices as &$section) {
+                foreach ($section as $id => &$item) {
+                    $item['restriction_value'] = (string) $id;
+                }
+                unset($item);
+            }
+            unset($section);
+        }
+        if ($feature === 'admin-features' && defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {
+            $choices['custom_rules'] = [
+                'css' => CustomRuleOperations::listing(['kind' => 'admin-css'])['rules'],
+                'urls' => CustomRuleOperations::listing(['kind' => 'admin-url'])['rules'],
+            ];
+        }
         if ($feature === 'editor-features' && defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {
             $kind = ($input['editor'] ?? 'block') === 'classic' ? 'editor-classic' : 'editor-block';
             $choices['custom_rules'] = CustomRuleOperations::listing(['kind' => $kind])['rules'];
@@ -329,7 +370,33 @@ class FeatureOperations
             $option = $feature === 'admin-features' ? 'ppc_admin_features_settings' : 'ppc_admin_menus_settings';
             $choices['ui_settings'] = (object) get_option($option, []);
         }
+        $choices['discovery_context'] = self::discoveryContext($input, $choices);
         return ['feature' => $feature, 'choices' => (object) $choices];
+    }
+
+    /** @since 2.54.0 */
+    private static function discoveryContext(array $input, array $choices): array
+    {
+        $feature = $input['feature'];
+        $messages = [
+            'editor-features' => __('Use restriction_value from the selected editor layout. Custom selectors and metaboxes require Pro and previously saved or captured data.', 'capability-manager-enhanced'),
+            'admin-features' => __('Use restriction_value for toolbar, header/footer and dashboard items. Visit the WordPress dashboard as an authorized administrator to refresh captured widgets and toolbar nodes.', 'capability-manager-enhanced'),
+            'profile-features' => __('Profile choices belong to the selected role. If empty or incomplete, use prepare-profile-capture for that role and complete capture in the browser. Use each element restriction_value when saving disabled items.', 'capability-manager-enhanced'),
+            'frontend-features' => __('These are saved frontend selectors, styles and body-class elements with their page and post-type scopes. Use restriction_value to select them. Use save-interface-element to create a missing element. Reading choices does not install demo elements.', 'capability-manager-enhanced'),
+            'admin-notices' => __('Notice types and toolbar access are configured with the fields below. Read actual per-role settings with get-feature-settings.', 'capability-manager-enhanced'),
+            'redirects' => __('Read actual per-role redirect targets with get-feature-settings. Use WordPress content lookup to resolve a destination rather than guessing a post ID.', 'capability-manager-enhanced'),
+            'nav-menus' => __('These are existing navigation menus and their items. Use their actual menu-item IDs when saving restrictions.', 'capability-manager-enhanced'),
+            'admin-styles' => __('These are available templates, saved custom styles and color schemes. Read actual per-role style settings with get-feature-settings.', 'capability-manager-enhanced'),
+        ];
+        $context = [
+            'required_capability' => 'manage_capabilities_' . str_replace('-', '_', $feature),
+            'settings_fields' => (object) self::definitions()[$feature]['fields'],
+            'instructions' => $messages[$feature] ?? __('Use the menu discovery restriction values and refresh instructions.', 'capability-manager-enhanced'),
+        ];
+        if (in_array($feature, ['profile-features', 'frontend-features', 'nav-menus'], true)) {
+            $context['has_saved_choices'] = (bool) $choices;
+        }
+        return $context;
     }
 
     /** @since 2.54.0 */

@@ -22,6 +22,7 @@ require_once __DIR__ . '/mcp/pro-settings-operations.php';
 require_once __DIR__ . '/mcp/feature-operations.php';
 require_once __DIR__ . '/mcp/interface-operations.php';
 require_once __DIR__ . '/mcp/interface-capture.php';
+require_once __DIR__ . '/mcp/menu-discovery.php';
 require_once __DIR__ . '/mcp/backup-operations.php';
 require_once __DIR__ . '/mcp/user-operations.php';
 require_once __DIR__ . '/mcp/advanced-operations.php';

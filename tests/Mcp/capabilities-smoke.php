@@ -171,8 +171,81 @@ try {
         $result = $call('get-feature-choices', ['feature' => $feature, 'role' => 'mcp_test_role']);
         $check(!is_wp_error($result), 'Discover feature choices: ' . $feature . (is_wp_error($result) ? ' ' . $result->get_error_message() : ''));
     }
+    foreach (array_keys(FeatureOperations::definitions()) as $feature) {
+        $capability = 'manage_capabilities_' . str_replace('-', '_', $feature);
+        $actor->allcaps[$capability] = false;
+        $check(is_wp_error($call('get-feature-choices', ['feature' => $feature, 'role' => 'mcp_test_role'])), 'Discovery requires the screen capability: ' . $feature);
+        $check(is_wp_error($call('get-feature-settings', ['feature' => $feature, 'role' => 'mcp_test_role'])), 'Saved data requires the screen capability: ' . $feature);
+        $actor->allcaps[$capability] = true;
+        $call('set-feature-enabled', ['feature' => $feature, 'enabled' => false]);
+        $check(is_wp_error($call('get-feature-choices', ['feature' => $feature, 'role' => 'mcp_test_role'])), 'Disabled screen data cannot be discovered: ' . $feature);
+        $call('set-feature-enabled', ['feature' => $feature, 'enabled' => true]);
+    }
+    $check(is_wp_error($call('get-feature-choices', ['feature' => 'profile-features'])), 'Profile discovery requires an explicit existing role');
+    $check(is_wp_error($call('get-feature-choices', ['feature' => 'editor-features', 'post_type' => 'missing-type'])), 'Editor discovery rejects unsupported post types');
+    $editorChoices = $call('get-feature-choices', ['feature' => 'editor-features']);
+    $check($editorChoices['choices']->{__('Top Bar - Right', 'capability-manager-enhanced')}['publish']['restriction_value'] === 'publish', 'Editor choices expose the native saved restriction keys');
+    $redirectChoices = $call('get-feature-choices', ['feature' => 'redirects']);
+    $check(isset($redirectChoices['choices']->discovery_context['settings_fields']->login_redirect), 'Settings-only screens expose their supported fields');
     $notices = $call('update-feature-settings', ['feature' => 'admin-notices', 'role' => 'mcp_test_role', 'settings' => ['notice_type_remove' => ['info'], 'enable_toolbar_access' => true]]);
     $check(!is_wp_error($notices) && get_option('cme_admin_notice_options')['mcp_test_role']['notice_type_remove'] === ['info'], 'Admin notices use their existing saved format');
+    delete_option('ppc_admin_menus_menu');
+    delete_option('ppc_admin_menus_submenu');
+    $missingMenus = $call('get-feature-choices', ['feature' => 'admin-menus']);
+    $check(!$missingMenus['choices']->discovery->available && !empty($missingMenus['choices']->discovery->refresh_url), 'Missing menu snapshot provides recovery instructions');
+    $menuBefore = get_option('capsman_admin_menus');
+    $check(is_wp_error($call('update-feature-settings', ['feature' => 'admin-menus', 'role' => 'mcp_test_role', 'settings' => ['disabled_menus' => ['menu-posts']]])) && get_option('capsman_admin_menus') === $menuBefore, 'Guessed menu identifiers fail without changing settings');
+    require_once ABSPATH . 'wp-admin/includes/class-wp-screen.php';
+    require_once ABSPATH . 'wp-admin/includes/screen.php';
+    $oldScreen = $GLOBALS['current_screen'] ?? null;
+    $oldMenu = $GLOBALS['menu'] ?? null;
+    $oldSubmenu = $GLOBALS['submenu'] ?? null;
+    set_current_screen('dashboard');
+    $GLOBALS['menu'] = [
+        5 => ['<span>Posts</span>', 'edit_posts', 'edit.php', '', 'menu-top', 'menu-posts'],
+        6 => ['Tools', 'edit_posts', 'tools.php'],
+        7 => ['', 'read', 'separator1'],
+        8 => ['Customizer', 'edit_theme_options', 'customize.php?return=private-value'],
+        9 => ['Sensitive action', 'read', 'action.php?_wpnonce=secret'],
+    ];
+    $GLOBALS['submenu'] = [
+        'edit.php' => [['Categories', 'manage_categories', 'edit-tags.php?taxonomy=category']],
+        'tools.php' => [['Categories tool', 'manage_options', 'edit-tags.php?taxonomy=category']],
+        'themes.php' => [['Customizer', 'edit_theme_options', 'customize.php?return=private-value']],
+    ];
+    $capturePriority = has_action('admin_menu', [\PublishPress\Capabilities\Mcp\MenuDiscovery::class, 'capture']);
+    $check($capturePriority === PHP_INT_MAX - 99, 'Capture runs after custom menus and before menu restrictions');
+    $check(has_action('wp_dashboard_setup', [\PublishPress\Capabilities\Mcp\InterfaceCapture::class, 'dashboard']) === 98, 'Dashboard capture runs before widget restrictions');
+    \PublishPress\Capabilities\Mcp\MenuDiscovery::capture();
+    $choices = $call('get-feature-choices', ['feature' => 'admin-menus'])['choices'];
+    $ids = array_column($choices->discovery->menus, 'restriction_value');
+    $check(in_array('edit.php', $ids, true) && !in_array('menu-posts', $ids, true), 'Discovery returns actual menu slugs rather than DOM identifiers');
+    $check($choices->discovery->menus[0]['label'] === 'Posts', 'Menu labels omit HTML');
+    $check(!in_array('customize.php', $ids, true) && strpos(wp_json_encode($choices), 'secret') === false && strpos(wp_json_encode($choices), 'private-value') === false, 'Discovery excludes nonce links and transient Customizer return URLs');
+    $childIds = array_column($choices->discovery->submenus, 'restriction_value');
+    $check(in_array('themes.php|customize.php', $childIds, true), 'Customizer submenu uses the native normalized restriction identifier');
+    $check(in_array('edit.php|edit-tags.php?taxonomy=category', $childIds, true) && in_array('tools.php|edit-tags.php?taxonomy=category', $childIds, true), 'Submenu identifiers preserve their actual parent');
+    unset($actor->allcaps['manage_capabilities_admin_menus']);
+    $GLOBALS['menu'] = [5 => ['Changed', 'read', 'changed.php']];
+    \PublishPress\Capabilities\Mcp\MenuDiscovery::capture();
+    $check(get_option('ppc_admin_menus_menu')[5][2] === 'edit.php', 'Unauthorized visits cannot replace menu snapshots');
+    $actor->allcaps['manage_capabilities_admin_menus'] = true;
+    $GLOBALS['current_screen'] = $oldScreen;
+    $GLOBALS['menu'] = $oldMenu;
+    $GLOBALS['submenu'] = $oldSubmenu;
+    $preview = $call('update-feature-settings', ['feature' => 'admin-menus', 'role' => 'mcp_test_role', 'dry_run' => true, 'settings' => ['disabled_submenus' => ['edit.php|edit-tags.php?taxonomy=category']]]);
+    $check(!is_wp_error($preview), 'Discovered submenu identifiers validate in dry runs');
+    $check(is_wp_error($call('update-feature-settings', ['feature' => 'admin-menus', 'role' => 'mcp_test_role', 'dry_run' => true, 'settings' => ['disabled_submenus' => ['edit.php|missing.php']]])), 'Dry runs reject unknown submenu identifiers');
+    $savedMenus = (array) get_option('capsman_admin_menus', []);
+    $savedMenus['mcp_test_role'] = ['legacy-removed-plugin'];
+    update_option('capsman_admin_menus', $savedMenus);
+    $keep = $call('update-feature-settings', ['feature' => 'admin-menus', 'role' => 'mcp_test_role', 'settings' => ['disabled_submenus' => []]]);
+    $check(!is_wp_error($keep), 'Existing undiscovered restrictions can be retained');
+    $remove = $call('update-feature-settings', ['feature' => 'admin-menus', 'role' => 'mcp_test_role', 'settings' => ['disabled_menus' => []]]);
+    $check(!is_wp_error($remove), 'Existing undiscovered restrictions can be removed');
+    $beforeMenuBulk = get_option('capsman_admin_menus');
+    $badMenuBulk = $call('bulk-update-feature-settings', ['feature' => 'admin-menus', 'roles' => ['mcp_test_role', 'subscriber'], 'settings' => ['disabled_menus' => ['not-discovered.php']]]);
+    $check(is_wp_error($badMenuBulk) && get_option('capsman_admin_menus') === $beforeMenuBulk, 'Unknown bulk menu identifiers fail before any role changes');
     $menus = $call('update-feature-settings', ['feature' => 'admin-menus', 'role' => 'mcp_test_role', 'settings' => ['disabled_menus' => ['edit.php'], 'disabled_submenus' => []]]);
     $check(!is_wp_error($menus) && get_option('capsman_admin_menus')['mcp_test_role'] === ['edit.php'], 'Admin menu restrictions persist');
     $redirect = $call('update-feature-settings', ['feature' => 'redirects', 'role' => 'mcp_test_role', 'settings' => ['custom_redirect' => true, 'login_redirect' => '/welcome']]);
@@ -185,9 +258,15 @@ try {
 
     $element = $call('save-interface-element', ['feature' => 'profile-features', 'role' => 'mcp_test_role', 'label' => 'Contact section', 'selector' => '#contact-info']);
     $check(!is_wp_error($element), 'Create a profile element');
+    $profileChoices = $call('get-feature-choices', ['feature' => 'profile-features', 'role' => 'mcp_test_role']);
+    $check($profileChoices['choices']->{$element['id']}['restriction_value'] === '#contact-info', 'Profile discovery returns the selector used by role restrictions');
+    $otherProfile = $call('get-feature-choices', ['feature' => 'profile-features', 'role' => 'subscriber']);
+    $check(!isset($otherProfile['choices']->{$element['id']}), 'Profile discovery stays within the selected role');
     $check(!is_wp_error($call('delete-interface-element', ['feature' => 'profile-features', 'role' => 'mcp_test_role', 'id' => $element['id']])), 'Delete a profile element');
     $frontend = $call('save-interface-element', ['feature' => 'frontend-features', 'label' => 'Footer', 'selector' => 'footer', 'pages' => ['whole_site']]);
     $check(!is_wp_error($frontend), 'Create a frontend element');
+    $frontendChoices = $call('get-feature-choices', ['feature' => 'frontend-features']);
+    $check($frontendChoices['choices']->{$frontend['id']}['restriction_value'] === $frontend['id'] && !empty($frontendChoices['choices']->{$frontend['id']}['pages']), 'Frontend discovery returns saved IDs and page scopes');
     $check(!is_wp_error($call('delete-interface-element', ['feature' => 'frontend-features', 'id' => $frontend['id']])), 'Delete a frontend element');
     $check(!is_wp_error($call('update-admin-menu-presentation', ['action' => 'rename', 'role' => 'mcp_test_role', 'menu' => 'edit.php', 'title' => 'Articles'])), 'Rename an admin menu');
     $style = $call('update-feature-settings', ['feature' => 'admin-styles', 'role' => 'mcp_test_role', 'settings' => ['admin_replace_howdy' => 'Hello', 'hide_color_scheme_ui' => true]]);
@@ -234,6 +313,10 @@ try {
             if ($kind === 'editor-block' || $kind === 'editor-classic') {
                 $editorChoices = $call('get-feature-choices', ['feature' => 'editor-features', 'post_type' => 'post', 'editor' => $kind === 'editor-classic' ? 'classic' : 'block']);
                 $check(!is_wp_error($editorChoices) && in_array($rule['id'], array_column($editorChoices['choices']->custom_rules, 'id'), true), 'Editor discovery includes saved custom selectors: ' . $kind);
+            } else {
+                $adminChoices = $call('get-feature-choices', ['feature' => 'admin-features']);
+                $group = $kind === 'admin-css' ? 'css' : 'urls';
+                $check(!is_wp_error($adminChoices) && in_array($rule['restriction_value'], array_column($adminChoices['choices']->custom_rules[$group], 'restriction_value'), true), 'Admin discovery includes saved custom rules: ' . $kind);
             }
 
             $check(!is_wp_error($call('delete-custom-rule', ['kind' => $kind, 'id' => $rule['id']])), 'Delete Pro custom restriction: ' . $kind);
@@ -273,6 +356,13 @@ try {
         . (is_wp_error($scope) ? ': ' . $scope->get_error_message() : ''));
     do_action('application_password_did_authenticate', get_userdata(1), $password[1]);
     $check(is_wp_error($call('list-roles')), 'Real application-password capability filter denies a restricted administrator');
+    update_option(pp_capabilities_application_password_option_name(), []);
+    foreach (array_keys(FeatureOperations::definitions()) as $feature) {
+        $capability = 'manage_capabilities_' . str_replace('-', '_', $feature);
+        $scope = $call('update-application-password-scope', ['subject' => $subject, 'denied' => [$capability]]);
+        $check(!is_wp_error($scope) && is_wp_error($call('get-feature-choices', ['feature' => $feature, 'role' => 'mcp_test_role']))
+            && is_wp_error($call('get-feature-settings', ['feature' => $feature, 'role' => 'mcp_test_role'])), 'Application-password scope protects feature data: ' . $feature);
+    }
     update_option(pp_capabilities_application_password_option_name(), []);
 
     if (defined('PUBLISHPRESS_CAPS_PRO_VERSION')) {

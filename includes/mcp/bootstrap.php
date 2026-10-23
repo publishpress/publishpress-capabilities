@@ -46,7 +46,8 @@ class Bootstrap
     {
         add_action('wp_abilities_api_categories_init', [$this, 'registerCategory']);
         add_action('wp_abilities_api_init', [$this, 'registerAbilities']);
-        add_action('wp_dashboard_setup', [InterfaceCapture::class, 'dashboard'], PHP_INT_MAX);
+        add_action('admin_menu', [MenuDiscovery::class, 'capture'], PHP_INT_MAX - 99);
+        add_action('wp_dashboard_setup', [InterfaceCapture::class, 'dashboard'], 98);
         add_action('admin_bar_menu', [InterfaceCapture::class, 'toolbar'], PHP_INT_MAX);
     }
 
