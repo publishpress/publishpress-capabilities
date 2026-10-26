@@ -246,7 +246,7 @@ class AbilityRegistry
         self::register(
             'get-plugin-settings',
             __('Get plugin settings', 'capability-manager-enhanced'),
-            __('Read the plugin settings and their supported input schema, including multiple roles, visibility, user testing and menu restriction priority.', 'capability-manager-enhanced'),
+            __('Read Capabilities > Settings and the supported setting descriptions. Includes Roles > Multiples roles on Add New User and User Edit (Edit User), Editor Features > Show private post types, Capabilities visibility, User Testing, Admin Menus and Pro settings.', 'capability-manager-enhanced'),
             self::object([]),
             ['settings' => $object, 'schema' => $object],
             [FeatureOperations::class, 'settings'],
@@ -255,7 +255,7 @@ class AbilityRegistry
         self::register(
             'update-plugin-settings',
             __('Update plugin settings', 'capability-manager-enhanced'),
-            __('Patch the explicitly supported plugin settings. Does not accept arbitrary WordPress option names.', 'capability-manager-enhanced'),
+            __('Enable, disable or update Capabilities > Settings options. Supports multiple roles on Add New User or User Edit (Edit User), Show private post types under Editor Features or Capabilities, User Testing and Admin Menus settings. Read get-plugin-settings to identify the exact field. Change only the requested field. This saves individual settings, unlike set-feature-enabled which toggles whole screens.', 'capability-manager-enhanced'),
             self::object(['settings' => self::object(FeatureOperations::settingFields())], ['settings']),
             ['settings' => $object, 'schema' => $object],
             [FeatureOperations::class, 'updateSettings'],

@@ -281,6 +281,23 @@ try {
     $check(!is_wp_error($level) && get_role('mcp_test_role')->has_cap('level_2'), 'Legacy role levels use capability patch validation');
     $check(is_wp_error($call('set-feature-enabled', ['feature' => 'roles', 'enabled' => true, 'network_sync' => true])), 'Single-site requests cannot queue network-wide changes');
     $check(!wp_has_ability('publishpress-capabilities/sync-role-network'), 'Network-only action is absent on single-site installations');
+    $settingsCases = [
+        'Enable Multiples roles on User Edit screen under Capabilities Settings Roles' => 'cme_capabilities_edit_user_multi_roles',
+        'Enable multiple roles on Add New User' => 'cme_capabilities_add_user_multi_roles',
+        'Enable Show private post types under Capabilities Settings Editor Features' => 'cme_editor_features_private_post_type',
+    ];
+    foreach ($settingsCases as $prompt => $field) {
+        $beforeSettings = $call('get-plugin-settings')['settings'];
+        $savedSetting = $call('update-plugin-settings', ['settings' => [$field => true]]);
+        $afterSettings = $call('get-plugin-settings');
+        $check(!is_wp_error($savedSetting) && $afterSettings['settings']->$field, 'Prompt setting can be saved and read back: ' . $prompt);
+        $check(!empty($afterSettings['schema']->$field['description']), 'Prompt setting has a discoverable field description: ' . $field);
+        foreach ((array) $beforeSettings as $other => $value) {
+            if ($other !== $field && $afterSettings['settings']->$other !== $value) {
+                throw new RuntimeException('Updating a prompt setting changed an unrelated field.');
+            }
+        }
+    }
     $profileOptions = $call('update-role-options', ['role' => 'mcp_test_role', 'settings' => ['role_editor' => ['block_editor']]]);
     $check(!is_wp_error($profileOptions) && get_option('pp_capabilities_mcp_test_role_role_option')['role_editor'] === ['block_editor'], 'Editor preferences match the existing UI keys');
     $user = $call('get-user-capabilities', ['user_id' => 1]);

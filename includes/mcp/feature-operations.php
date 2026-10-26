@@ -427,7 +427,33 @@ class FeatureOperations
             $fields[$name] = ['type' => 'boolean'];
         }
         $fields['cme_test_user_excluded_roles'] = ['type' => 'array', 'items' => ['type' => 'string'], 'uniqueItems' => true];
-        return array_merge($fields, ProSettingsOperations::fields());
+        $fields = array_merge($fields, ProSettingsOperations::fields());
+        $descriptions = [
+            'cme_editor_features_private_post_type' => __('Editor Features > Show private post types. Display non-public post types in Editor Features. This does not change the Capabilities screen visibility setting.', 'capability-manager-enhanced'),
+            'cme_capabilities_show_private_taxonomies' => __('Capabilities > Show private taxonomies. Include non-public taxonomies when editing role capabilities.', 'capability-manager-enhanced'),
+            'cme_capabilities_show_private_post_types' => __('Capabilities > Show private post types. Include non-public post types when editing role capabilities, not the Editor Features setting.', 'capability-manager-enhanced'),
+            'cme_capabilities_application_password_capabilities' => __('Capabilities > Application password capabilities. Enable per-application-password capability restrictions.', 'capability-manager-enhanced'),
+            'cme_capabilities_add_user_multi_roles' => __('Roles > Multiples roles on "Add New User" screen. Allow assigning multiple roles when creating a new user. This is separate from editing existing users.', 'capability-manager-enhanced'),
+            'cme_capabilities_edit_user_multi_roles' => __('Roles > Multiples roles on "User Edit" screen. Enable multiple-role editing for existing users on Edit User. This is separate from Add New User.', 'capability-manager-enhanced'),
+            'cme_editor_features_classic_editor_tab' => __('Editor Features > Classic Editor tab. Show controls for Classic Editor restrictions.', 'capability-manager-enhanced'),
+            'cme_test_user_admin_bar' => __('User Testing > Admin Bar. Add the user-testing link to the admin toolbar.', 'capability-manager-enhanced'),
+            'cme_test_user_admin_bar_search' => __('User Testing > Admin Bar search. Allow searching for a user to test from the toolbar.', 'capability-manager-enhanced'),
+            'cme_test_user_footer_notice' => __('User Testing > Front End footer notice. Show a return link while testing a user.', 'capability-manager-enhanced'),
+            'cme_admin_menus_restriction_priority' => __('Admin Menus > Treatment of multiple roles. True selects most restrictive, false selects most permissive.', 'capability-manager-enhanced'),
+            'cme_profile_features_auto_redirect' => __('Profile Features > Automatic redirection. Control automatic redirection during profile feature capture.', 'capability-manager-enhanced'),
+            'cme_role_same_page_redirect_cookie' => __('Redirects > Return to the same page. Track the last visited page for applicable login redirects.', 'capability-manager-enhanced'),
+            'cme_test_user_excluded_roles' => __('User Testing > Exclude role from User Testing. List role slugs whose users cannot be tested.', 'capability-manager-enhanced'),
+            'cme_display_branding' => __('Pro > Display PublishPress branding. Show or hide plugin branding.', 'capability-manager-enhanced'),
+            'cme_custom_status_control' => __('Pro > Custom status control. Enable supported custom status capability handling when the status integration is available.', 'capability-manager-enhanced'),
+            'cme_custom_status_postmeta_caps' => __('Pro > Custom status post permissions. Enable post-specific status capabilities. Requires custom status control.', 'capability-manager-enhanced'),
+            'presspermit_privacy_statuses_enabled' => __('Pro > Privacy statuses. Enable privacy status integration when its dependencies are available.', 'capability-manager-enhanced'),
+            'presspermit_custom_privacy_edit_caps' => __('Pro > Custom privacy editing capabilities. Use the available privacy integration editing rules.', 'capability-manager-enhanced'),
+        ];
+        foreach ($fields as $name => &$schema) {
+            $schema['description'] = $descriptions[$name];
+        }
+        unset($schema);
+        return $fields;
     }
 
     /** @since 2.54.0 */
