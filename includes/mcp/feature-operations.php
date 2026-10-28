@@ -115,6 +115,21 @@ class FeatureOperations
             $submenus = (array) get_option('capsman_admin_child_menus', []);
             $settings = ['disabled_menus' => array_values((array) $settings), 'disabled_submenus' => array_values($submenus[$role] ?? [])];
         }
+        // Native forms persist checkbox values as strings/integers; discovery exposes JSON booleans.
+        foreach (self::definitions()[$input['feature']]['fields'] as $name => $field) {
+            if (!array_key_exists($name, $settings)) {
+                continue;
+            }
+            if ($field['type'] === 'boolean') {
+                $settings[$name] = $input['feature'] === 'redirects' ? (int) $settings[$name] > 0 : !empty($settings[$name]);
+            } elseif ($field['type'] === 'array') {
+                $settings[$name] = array_values((array) $settings[$name]);
+            } elseif ($field['type'] === 'object') {
+                $settings[$name] = (object) $settings[$name];
+            } elseif ($field['type'] === 'string' && is_scalar($settings[$name])) {
+                $settings[$name] = (string) $settings[$name];
+            }
+        }
         return ['feature' => $input['feature'], 'role' => $role, 'settings' => (object) $settings];
     }
 
@@ -131,7 +146,7 @@ class FeatureOperations
         }
         $fields = self::definitions()[$input['feature']]['fields'];
         $schema = ['type' => 'object', 'properties' => $fields, 'additionalProperties' => false, 'minProperties' => 1];
-        $valid = rest_validate_value_from_schema($input['settings'], $schema, 'settings');
+        $valid = self::validateSettings($input['settings'], $schema);
         if (is_wp_error($valid)) {
             return $valid;
         }
@@ -456,12 +471,21 @@ class FeatureOperations
         return $fields;
     }
 
+    /** Validate JSON types before WordPress can accept scalar coercion. @since 2.54.0 */
+    private static function validateSettings($settings, array $schema)
+    {
+        if (!AbilityRegistry::matchesType($settings, $schema)) {
+            return RoleOperations::error('settings_type', __('Use the exact setting types shown in discovery. Lists must contain values of the declared type.', 'capability-manager-enhanced'));
+        }
+        return rest_validate_value_from_schema($settings, $schema, 'settings');
+    }
+
     /** @since 2.54.0 */
     public static function updateSettings(array $input)
     {
-        $valid = rest_validate_value_from_schema($input['settings'], [
-            'type' => 'object', 'properties' => self::settingFields(), 'additionalProperties' => false,
-        ], 'settings');
+        $valid = self::validateSettings($input['settings'], [
+            'type' => 'object', 'properties' => self::settingFields(), 'additionalProperties' => false, 'minProperties' => 1,
+        ]);
         if (is_wp_error($valid)) {
             return $valid;
         }

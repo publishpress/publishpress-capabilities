@@ -30,10 +30,18 @@ class AbilityRegistry
             'label' => $label,
             'description' => $description, 'category' => 'publishpress',
             'input_schema' => $input, 'output_schema' => self::object($output, array_keys($output)),
-            'permission_callback' => is_callable($permission) ? $permission : static function () use ($permission) {
-                return RoleOperations::canManage($permission);
+            'permission_callback' => static function ($values = []) use ($input, $permission) {
+                if (!self::matchesType($values, $input)) {
+                    return false;
+                }
+                return is_callable($permission) ? $permission($values) : RoleOperations::canManage($permission);
             },
-            'execute_callback' => $callback,
+            'execute_callback' => static function ($values = []) use ($input, $callback) {
+                if (!self::matchesType($values, $input)) {
+                    return RoleOperations::error('input_type', __('Use the exact input types shown in discovery.', 'capability-manager-enhanced'));
+                }
+                return $callback($values);
+            },
             'meta' => [
                 'public' => false, 'show_in_rest' => false, 'mcp' => ['public' => false, 'type' => 'tool'],
                 'annotations' => ['readonly' => $readonly, 'destructive' => !$readonly, 'idempotent' => $readonly || $idempotent],
@@ -484,4 +492,41 @@ class AbilityRegistry
             $permission
         );
     }
+    /** Reject scalar coercion and malformed nested lists before permission or write callbacks. @since 2.54.0 */
+    public static function matchesType($value, array $schema, int $depth = 0): bool
+    {
+        if ($depth > 40) {
+            return false;
+        }
+        foreach (['oneOf', 'anyOf'] as $keyword) {
+            if (isset($schema[$keyword])) {
+                foreach ($schema[$keyword] as $alternative) {
+                    if (!is_wp_error(rest_validate_value_from_schema($value, $alternative))
+                        && self::matchesType($value, $alternative, $depth + 1)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        $types = (array) ($schema['type'] ?? []);
+        $actual = is_bool($value) ? 'boolean' : (is_int($value) ? 'integer' : (is_float($value) ? 'number'
+            : (is_string($value) ? 'string' : ($value === null ? 'null' : (is_array($value) || is_object($value) ? 'object' : 'invalid')))));
+        if (is_array($value) && in_array('array', $types, true) && (!$value || array_keys($value) === range(0, count($value) - 1))) {
+            $actual = 'array';
+        }
+        if ($types && !in_array($actual, $types, true) && !($actual === 'integer' && in_array('number', $types, true))) {
+            return false;
+        }
+        if (is_array($value) || is_object($value)) {
+            foreach ((array) $value as $key => $child) {
+                $field = $actual === 'array' ? ($schema['items'] ?? []) : ($schema['properties'][$key] ?? ($schema['additionalProperties'] ?? []));
+                if ($field === false || !self::matchesType($child, is_array($field) ? $field : [], $depth + 1)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 }

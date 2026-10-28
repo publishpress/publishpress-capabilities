@@ -86,6 +86,7 @@ try {
     get_role('administrator')->add_cap('manage_capabilities', true);
     require_once dirname($argv[3]) . '/functions-admin.php';
     $check(!array_diff(pp_capabilities_settings_options(), array_keys(FeatureOperations::settingFields())), 'Every built-in settings option has a typed MCP field');
+    require __DIR__ . '/settings-format-cases.php';
     $catalog = $call('list-features');
     $check(!is_wp_error($catalog) && count($catalog['features']) >= 14, 'Every registered menu is discoverable');
     $check(!array_diff(array_keys(pp_capabilities_sub_menu_lists(true)), array_column($catalog['features'], 'feature')), 'Feature discovery includes every menu slug from the plugin registry');
@@ -93,6 +94,7 @@ try {
     foreach (['editor-features', 'admin-features', 'admin-styles', 'admin-notices', 'admin-menus', 'profile-features', 'redirects', 'frontend-features', 'nav-menus'] as $feature) {
         $check(!is_wp_error($call('set-feature-enabled', ['feature' => $feature, 'enabled' => true])), 'Enable feature: ' . $feature);
     }
+    require __DIR__ . '/feature-format-cases.php';
     $create = $call('create-role', ['slug' => 'mcp_test_role', 'name' => 'MCP Test Role', 'source_role' => 'subscriber']);
     $check(!is_wp_error($create) && get_role('mcp_test_role')->has_cap('read'), 'Create role from an existing source');
     $check(is_wp_error($call('create-role', ['slug' => 'mcp_test_role', 'name' => 'Duplicate'])), 'Duplicate role creation is rejected');
