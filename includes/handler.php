@@ -344,6 +344,20 @@ class CapsmanHandler
 		$this->cm->message = __('Application password capabilities saved.', 'capability-manager-enhanced');
 	}
 
+    /** Queue existing network synchronization without an admin form. @since 2.54.0 */
+    public function queueRoleSync($role, $sync_roles = true, $sync_options = false)
+    {
+        if (!is_multisite() || !is_super_admin() || !is_main_site() || !current_user_can('manage_capabilities')) {
+            return new \WP_Error('publishpress_network_forbidden', __('Network synchronization requires a main-site network administrator.', 'capability-manager-enhanced'));
+        }
+        $object = get_role($role);
+        if (!$object || (!$sync_roles && !$sync_options)) {
+            return new \WP_Error('publishpress_network_role', __('Choose an existing role and a synchronization operation.', 'capability-manager-enhanced'));
+        }
+        require_once dirname(__DIR__) . '/framework/lib/users.php';
+        return $this->processNetworkSyncBatch($role, $object->capabilities, ak_caps2level($object->capabilities), $sync_roles, $sync_options);
+    }
+
 	public function continueNetworkSync($token)
 	{
 		return $this->runNetworkSyncBatch($token);
