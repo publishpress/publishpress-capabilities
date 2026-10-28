@@ -132,6 +132,15 @@ class BackupOperations
                     return RoleOperations::error('invalid_roles', __('Invalid role definitions.', 'capability-manager-enhanced'));
                 }
                 $roles = $handler->santize_import_role($roles);
+                foreach ($roles as $slug => $definition) {
+                    if (!isset(wp_roles()->roles[$slug]) && GrantPolicy::isProtected($slug)) {
+                        return GrantPolicy::error();
+                    }
+                    $policy = GrantPolicy::validateCapabilities(wp_roles()->roles[$slug]['capabilities'] ?? [], $definition['capabilities']);
+                    if (is_wp_error($policy)) {
+                        return $policy;
+                    }
+                }
                 if ($selected) {
                     $roles = array_merge(wp_roles()->roles, $roles);
                 }

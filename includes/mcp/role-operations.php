@@ -132,6 +132,9 @@ class RoleOperations
     public static function create(array $input)
     {
         $slug = $input['slug'];
+        if (GrantPolicy::isProtected($slug)) {
+            return GrantPolicy::error();
+        }
         if (!preg_match('/^[a-z][a-z0-9_]{1,39}$/D', $slug) || get_role($slug)) {
             return self::error('invalid_role', __('Use an unused role slug, 2–40 lowercase letters, numbers or underscores, starting with a letter.', 'capability-manager-enhanced'));
         }
@@ -149,6 +152,10 @@ class RoleOperations
                     unset($caps[$cap]);
                 }
             }
+        }
+        $policy = GrantPolicy::validateCapabilities([], $caps);
+        if (is_wp_error($policy)) {
+            return $policy;
         }
         $name = sanitize_text_field($input['name']);
         if ($name === '') {
@@ -217,6 +224,9 @@ class RoleOperations
             $cap = $change['capability'];
             if (!current_user_can('administrator') && (!current_user_can($cap) || $cap === 'manage_capabilities')) {
                 return self::error('capability_forbidden', __('You cannot change that capability.', 'capability-manager-enhanced'));
+            }
+            if ($change['action'] === 'grant' && empty($before[$cap]) && GrantPolicy::isProtected($cap)) {
+                return GrantPolicy::error();
             }
             if ($change['action'] === 'remove') {
                 unset($after[$cap]);

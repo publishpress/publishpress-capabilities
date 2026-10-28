@@ -85,7 +85,7 @@ class AbilityRegistry
         self::register(
             'create-role',
             __('Create role', 'capability-manager-enhanced'),
-            __('Create an empty role or copy capabilities from source_role. Does not overwrite an existing role. Use update-role-capabilities for grants.', 'capability-manager-enhanced'),
+            __('Create an empty role or copy capabilities from source_role. Does not overwrite an existing role. Use update-role-capabilities for grants. MCP refuses copying administrator-level capabilities.', 'capability-manager-enhanced'),
             self::object(['slug' => ['type' => 'string', 'pattern' => '^[a-z][a-z0-9_]{1,39}$'], 'name' => $name, 'source_role' => $role], ['slug', 'name']),
             $roleOutput,
             [RoleOperations::class, 'create'],
@@ -117,7 +117,7 @@ class AbilityRegistry
         self::register(
             'update-role-capabilities',
             __('Update role capabilities', 'capability-manager-enhanced'),
-            __('Patch capabilities: grant=true, deny=false, remove=unset. Unmentioned capabilities remain unchanged. Use dry_run to inspect before/after without saving. Changes are validated before writes.', 'capability-manager-enhanced'),
+            __('Patch capabilities: grant=true, deny=false, remove=unset. Unmentioned capabilities remain unchanged. Use dry_run to inspect before/after without saving. Changes are validated before writes. MCP refuses new administrator-level grants, including in dry runs.', 'capability-manager-enhanced'),
             self::object(
                 [
                 'role' => $role, 'dry_run' => ['type' => 'boolean', 'default' => false],
@@ -313,7 +313,7 @@ class AbilityRegistry
         self::register(
             'import-configuration',
             __('Import configuration', 'capability-manager-enhanced'),
-            __('Validate and import a configuration export using the existing backup validators. Reject unsupported entries before writing; dry_run validates without saving.', 'capability-manager-enhanced'),
+            __('Validate and import a configuration export using the existing backup validators. Reject unsupported entries before writing; dry_run validates without saving. MCP rejects new administrator-level grants.', 'capability-manager-enhanced'),
             self::object(['configuration' => $object, 'dry_run' => ['type' => 'boolean']], ['configuration']),
             ['applied' => ['type' => 'boolean'], 'settings' => $list],
             [BackupOperations::class, 'import'],
@@ -442,7 +442,7 @@ class AbilityRegistry
         self::register(
             'update-user-roles',
             __('Update user roles', 'capability-manager-enhanced'),
-            __('Replace an existing site user\'s assigned roles using the profile form rules. Requires multiple-role editing to be enabled, preserves forum roles, and supports dry_run.', 'capability-manager-enhanced'),
+            __('Replace an existing site user\'s assigned roles using the profile form rules. Requires multiple-role editing to be enabled, preserves forum roles, and supports dry_run. Newly assigned administrator-level roles are refused by MCP.', 'capability-manager-enhanced'),
             self::object([
                 'user_id' => ['type' => 'integer', 'minimum' => 1],
                 'roles' => ['type' => 'array', 'minItems' => 1, 'maxItems' => 100,

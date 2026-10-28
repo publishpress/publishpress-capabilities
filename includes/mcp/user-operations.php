@@ -57,10 +57,15 @@ class UserOperations
             return RoleOperations::error('multiple_roles_disabled', __('Enable multiple-role editing in the plugin settings first.', 'capability-manager-enhanced'));
         }
         require_once dirname(__DIR__) . '/user-role-assignment.php';
-        return \PublishPress\Capabilities\UserRoleAssignment::update(
-            $input['user_id'],
-            $input['roles'],
-            $input['dry_run'] ?? false
-        );
+        $preview = \PublishPress\Capabilities\UserRoleAssignment::update($input['user_id'], $input['roles'], true);
+        if (is_wp_error($preview)) {
+            return $preview;
+        }
+        foreach (array_diff($preview['after'], $preview['before']) as $role) {
+            if (GrantPolicy::restrictedRole($role)) {
+                return GrantPolicy::error();
+            }
+        }
+        return !empty($input['dry_run']) ? $preview : \PublishPress\Capabilities\UserRoleAssignment::update($input['user_id'], $input['roles']);
     }
 }

@@ -20,7 +20,7 @@ The Free single-site integration registers 40 actions. Additional actions regist
 | Redirects | Login/logout/registration/first-login targets, custom/referrer flags, single-role and bulk updates; valid site-local URLs |
 | Frontend Features | Create/update/delete selector/CSS/body-class elements and page/post-type scope; role/guest/logged-in restrictions; Pro per-post overrides with edit-post authorization |
 | Navigation Menus | Discover menus/items and read/patch/bulk role/guest/logged-in restrictions |
-| Backup | List/create/restore, export/import with existing validators/allowlist, selected export sections/roles, dry-run and recovery/reset |
+| Backup | List/create/restore, export/import with existing validators/allowlist, selected export sections/roles, dry-run and MCP grant-policy validation; role reset uses the native Backup screen |
 | Settings | Typed settings for private post types/taxonomies, multiple roles, application-password scopes, user testing and menu restriction priority; Pro branding and dependency/lock-aware custom status and privacy controls |
 | User Capabilities | Inspect effective user capabilities and object-specific permission checks; `update-user-roles` shares profile assignment rules, validates editable/disabled roles, preserves forum roles and supports dry-run |
 | User Testing | `test-user-access` checks eligibility/excluded roles without changing the authenticated MCP identity |
@@ -48,3 +48,11 @@ Browser-dependent operations retain their native interfaces: discovering newly r
 Admin menu choices include `discovery.menus` and `discovery.submenus`, with labels, required capabilities and exact `restriction_value` identifiers. Submenu values use `parent|submenu`. Snapshots refresh during authorized site-admin visits before Capabilities applies its restrictions. Missing snapshots return a link to the Admin Menus screen. New restrictions must match discovery, including in dry runs and bulk updates. Existing restrictions can still be retained or removed when their menus are no longer present. Snapshots describe registered menus, not the effective menu visibility of a target role.
 
 Feature choice and saved-setting reads require the same dedicated capability as that feature screen and reject disabled features. Choices include the supported settings fields and instructions for missing data. Editor, profile and frontend elements expose their native restriction values. Profile discovery requires an explicit role and honors the profile element filter. Frontend discovery returns saved elements and their scopes without installing demo data. Profile DOM capture still requires an authorized browser visit. Admin Features includes captured toolbar/widgets and Pro custom CSS/URL rules when available.
+
+## MCP grant policy
+
+MCP refuses new administrator-level capability grants, privileged role cloning and new privileged user-role assignments, even for an administrator or super-admin session. Imports and backup restores use the same policy before any configuration write. Existing grants may remain; removing or denying them remains subject to native lockout protection. Role slugs that themselves name protected capabilities are also restricted.
+
+Protected grants include manage_options, user administration, plugin/theme/file/core administration, network administration, unfiltered_html, unfiltered_upload and every manage_capabilities-prefixed capability. This also restricts default roles such as Editor when their stored capabilities include unfiltered_html; the role name alone does not determine whether it is safe.
+
+Recovery hooks can introduce grants during a reset, so MCP refuses role reset and directs users to wp-admin. Network synchronization refuses copies of privileged role definitions before queueing; options-only synchronization retains its native authorization. These rules apply only to MCP operations. Native profile assignment, role management, imports and recovery retain their existing behavior and permissions.

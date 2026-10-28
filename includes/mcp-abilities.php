@@ -17,6 +17,7 @@ defined('ABSPATH') || exit;
 
 require_once __DIR__ . '/mcp/bootstrap.php';
 require_once __DIR__ . '/mcp/role-read-abilities.php';
+require_once __DIR__ . '/mcp/grant-policy.php';
 require_once __DIR__ . '/mcp/role-operations.php';
 require_once __DIR__ . '/mcp/pro-settings-operations.php';
 require_once __DIR__ . '/mcp/feature-operations.php';

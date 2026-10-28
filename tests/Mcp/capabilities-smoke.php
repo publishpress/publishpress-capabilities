@@ -120,7 +120,7 @@ try {
     ]);
     $check(!is_wp_error($newUser), 'Create a disposable target user for role assignment');
     $temporaryUserIds[] = (int) $newUser;
-    $roleRequest = ['user_id' => (int) $newUser, 'roles' => ['editor'], 'dry_run' => true];
+    $roleRequest = ['user_id' => (int) $newUser, 'roles' => ['author'], 'dry_run' => true];
     $check(is_wp_error($call('update-user-roles', $roleRequest)), 'User-role assignment requires promotion permission');
     $actor->allcaps['promote_users'] = true;
     update_option('cme_capabilities_edit_user_multi_roles', '');
@@ -132,8 +132,8 @@ try {
     add_role('bbp_participant', 'Forum participant', ['read' => true]);
     $forumUser = new WP_User($newUser);
     $forumUser->add_role('bbp_participant');
-    $assigned = $call('update-user-roles', ['user_id' => (int) $newUser, 'roles' => ['editor']]);
-    $check(!is_wp_error($assigned) && in_array('editor', get_userdata($newUser)->roles, true) && in_array('bbp_participant', get_userdata($newUser)->roles, true), 'User-role assignment preserves forum roles');
+    $assigned = $call('update-user-roles', ['user_id' => (int) $newUser, 'roles' => ['author']]);
+    $check(!is_wp_error($assigned) && in_array('author', get_userdata($newUser)->roles, true) && in_array('bbp_participant', get_userdata($newUser)->roles, true), 'User-role assignment preserves forum roles');
     $check($assigned['after'] === array_values(get_userdata($newUser)->roles), 'Role assignment returns the saved role order');
     update_option('pp_capabilities_mcp_test_role_role_option', ['disable_role' => 1]);
     $check(is_wp_error($call('update-user-roles', ['user_id' => (int) $newUser, 'roles' => ['mcp_test_role']])), 'Disabled roles cannot be newly assigned');
@@ -157,6 +157,7 @@ try {
 
 
     $check(is_wp_error($call('update-user-roles', ['user_id' => 1, 'roles' => ['subscriber']])), 'Self-demotion is rejected');
+    require __DIR__ . '/grant-policy-cases.php';
     $options = $call('update-role-options', ['role' => 'mcp_test_role', 'settings' => ['disable_code_editor' => true]]);
     $check(!is_wp_error($options) && !empty(get_option('pp_capabilities_mcp_test_role_role_option')['disable_code_editor']), 'Role options are persisted');
     $check(is_wp_error($call('update-role-options', ['role' => 'subscriber', 'settings' => ['disable_role' => true]])), 'Default-role disabling is rejected');
@@ -415,7 +416,7 @@ try {
     $check(!is_wp_error($restored) && $restored['applied'], 'Restore a validated full plugin backup');
     $check(!is_wp_error($call('delete-role', ['role' => 'mcp_test_role'])) && !get_role('mcp_test_role'), 'Delete custom role through the plugin role manager');
     $reset = $call('reset-roles');
-    $check(!is_wp_error($reset) && get_role('administrator')->has_cap('manage_capabilities'), 'Role reset reuses recovery and preserves plugin access');
+    $check(is_wp_error($reset) && get_role('administrator')->has_cap('manage_capabilities'), 'MCP reset cannot bypass the grant policy; native recovery remains available');
     $check(!$capturedErrors, 'Feature execution produces no PHP notices or warnings: ' . implode('; ', $capturedErrors));
     echo "Completed $checks feature integration checks with WordPress $wp_version.\n";
 } finally {

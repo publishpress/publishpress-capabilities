@@ -85,7 +85,7 @@ class AdvancedRegistry
         $register(
             'reset-roles',
             __('Reset roles', 'capability-manager-enhanced'),
-            __('Reset ALL roles to WordPress defaults using the existing recovery service, removing custom roles. Creates an automatic backup first.', 'capability-manager-enhanced'),
+            __('Role reset requires the native Backup screen. MCP refuses recovery hooks that could introduce administrator-level grants.', 'capability-manager-enhanced'),
             $objectSchema([]),
             ['reset' => $boolean],
             [AdvancedOperations::class, 'resetRoles'],
@@ -111,7 +111,7 @@ class AdvancedRegistry
             $register(
                 'sync-role-network',
                 __('Sync role network', 'capability-manager-enhanced'),
-                __('Queue the existing role/capability and option synchronization across network sites. Requires a main-site network administrator.', 'capability-manager-enhanced'),
+                __('Queue the existing role/capability and option synchronization across network sites. Requires a main-site network administrator. MCP refuses synchronization of roles with administrator-level capabilities.', 'capability-manager-enhanced'),
                 $objectSchema(['role' => $string, 'sync_roles' => $boolean, 'sync_options' => $boolean], ['role']),
                 ['token' => $string],
                 [AdvancedOperations::class, 'networkSync'],

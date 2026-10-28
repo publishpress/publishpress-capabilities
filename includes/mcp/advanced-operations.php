@@ -107,22 +107,16 @@ class AdvancedOperations
     /** @since 2.54.0 */
     public static function resetRoles(array $input)
     {
-        require_once dirname(__DIR__) . '/functions-admin.php';
-        require_once dirname(__DIR__) . '/recovery.php';
-        RoleOperations::snapshot();
-        add_filter('cme_publishpress_capabilities_capabilities', 'cme_publishpress_capabilities_capabilities');
-        try {
-            \PublishPress\Capabilities\Recovery::resetRoles();
-        } catch (\RuntimeException $error) {
-            return RoleOperations::error('reset_failed', $error->getMessage());
-        }
-        RoleOperations::saved('', 'reset');
-        return ['reset' => true];
+        // Recovery hooks can grant capabilities while rebuilding roles; keep that workflow in wp-admin.
+        return GrantPolicy::error();
     }
 
     /** @since 2.54.0 */
     public static function networkSync(array $input)
     {
+        if (($input['sync_roles'] ?? true) && GrantPolicy::restrictedRole($input['role'])) {
+            return GrantPolicy::error();
+        }
         require_once dirname(__DIR__) . '/handler.php';
         $handler = new \CapsmanHandler();
         $result = $handler->queueRoleSync($input['role'], $input['sync_roles'] ?? true, $input['sync_options'] ?? false);
