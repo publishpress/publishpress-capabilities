@@ -33,7 +33,15 @@ class PP_Capabilities_Profile_Features
         $security       = isset($_POST['security']) ? sanitize_key($_POST['security']) : false;
         $page_elements  = isset($_POST['page_elements']) ? wp_unslash($_POST['page_elements']) : [];
 
-        if (!$security || !wp_verify_nonce($security, 'ppc-profile-edit-action') || !pp_capabilities_feature_enabled('profile-features')) {
+        // Capture runs as the tested user; verify the original manager's session.
+        $can_capture = current_user_can('manage_capabilities_profile_features');
+        if (!$can_capture) {
+            $tester_cookie = defined('PPC_TEST_USER_COOKIE_NAME') ? PPC_TEST_USER_COOKIE_NAME : 'ppc_test_user_tester_' . COOKIEHASH;
+            $tester_id = isset($_COOKIE[$tester_cookie]) && is_string($_COOKIE[$tester_cookie])
+                ? wp_validate_auth_cookie(wp_unslash($_COOKIE[$tester_cookie]), 'logged_in') : false;
+            $can_capture = $tester_id && user_can($tester_id, 'manage_capabilities_profile_features');
+        }
+        if (!$can_capture || !$security || !wp_verify_nonce($security, 'ppc-profile-edit-action') || !pp_capabilities_feature_enabled('profile-features')) {
             $response['redirect'] = $redirect_url;
         } else {
             // Check if the current role is enabled for profile features editing
@@ -229,9 +237,10 @@ class PP_Capabilities_Profile_Features
                 //add inline styles
                 ppc_add_inline_style($inline_styles, 'ppc-profile-dummy-css-handle');
                 //add inline script to update inline css
+                $original_restrict_styles = wp_json_encode($original_restrict_styles, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT);
                 $inline_script = "
                 jQuery(document).ready( function($) {
-                    $('#ppc-profile-dummy-css-handle-inline-css').html('{$original_restrict_styles}');
+                    $('#ppc-profile-dummy-css-handle-inline-css').text({$original_restrict_styles});
                 });";
                 ppc_add_inline_script($inline_script, 'ppc-profile-dummy-css-handle');
             }
