@@ -58,15 +58,7 @@ class BackupOperations
     public static function create(array $input): array
     {
         $data = (array) self::export([])['configuration'];
-        if (!get_option('capsman_backup_initial') && get_option('capsman_backup')) {
-            update_option('capsman_backup_initial', get_option('capsman_backup'), false);
-            update_option('capsman_backup_initial_datestamp', get_option('capsman_backup_datestamp'), false);
-        }
-        foreach ($data as $key => $value) {
-            update_option($key === 'user_roles' ? 'capsman_backup' : $key . '_backup', $value, false);
-        }
-        update_option('capsman_backup_datestamp', current_time('timestamp'), false);
-        update_option('capsman_last_backup', implode(', ', array_keys($data)), false);
+        self::handler()->createBackup($data);
         return ['backup' => 'capsman_backup', 'sections' => array_keys($data)];
     }
 
