@@ -6,6 +6,12 @@ jQuery(document).ready(function ($) {
   // Initialize
   updateNoticePanel();
 
+  // Expose toolbar toggle state to assistive technology
+  $('#wp-admin-bar-ppc-admin-notices-panel > a').attr({
+    'aria-controls': 'ppc-admin-notices-panel',
+    'aria-expanded': 'false'
+  });
+
   // Add overlay to the DOM
   $('body').append('<div id="ppc-admin-notices-overlay"></div>');
 
@@ -15,13 +21,25 @@ jQuery(document).ready(function ($) {
     togglePanel();
   });
 
-  // Close panel when pressing Escape key
-  $(document).on('keyup', function (e) {
+  // Close panel when pressing Escape key (dismiss an open help tooltip first)
+  $(document).on('keydown', function (e) {
     if (e.key === 'Escape') {
+      let $open_tips = $('.ppc-tool-tip').filter(function () {
+        return $(this).find('.tool-tip-text').is(':visible');
+      });
+      if ($open_tips.length) {
+        $open_tips.addClass('is-dismissed');
+        return;
+      }
       if ($('#ppc-admin-notices-panel').hasClass('open')) {
         togglePanel();
       }
     }
+  });
+
+  // Allow a dismissed help tooltip to show again on the next hover/focus
+  $(document).on('mouseleave focusout', '.ppc-tool-tip', function () {
+    $(this).removeClass('is-dismissed');
   });
 
   // Toggle panel
@@ -34,9 +52,9 @@ jQuery(document).ready(function ($) {
   // -------------------------------------------------------------
   //   Admin notices tab
   // -------------------------------------------------------------
-  $(document).on("click", ".admin-notices-tab .admin-notices-button-group label", function () {
-    var current_button = $(this);
-    var target_value = current_button.find('input').val();
+  $(document).on("change", ".admin-notices-tab .admin-notices-button-group input", function () {
+    var current_button = $(this).closest('label');
+    var target_value = $(this).val();
     var button_group = current_button.closest('.admin-notices-button-group');
     var hide_selector = button_group.attr('data-hide-selector');
 
@@ -61,6 +79,14 @@ jQuery(document).ready(function ($) {
       notice_item = button.closest('.ppc-shown-notice-item');
     }
     let notice_id = notice_item.attr('data-notice-id');
+    let next_items = notice_item.nextAll('.ppc-panel-notice-item');
+    let prev_items = notice_item.prevAll('.ppc-panel-notice-item');
+    let status_message = ppcAdminNoticesData.hidden_status;
+    if (action_type == 'whitelist' && action_option == 'default') {
+      status_message = ppcAdminNoticesData.whitelist_status;
+    } else if (action_type == 'blacklist' && action_option == 'default') {
+      status_message = ppcAdminNoticesData.blacklist_status;
+    }
 
     notice_item.fadeOut(300);
     // move notice to the right tab
@@ -97,6 +123,16 @@ jQuery(document).ready(function ($) {
     notice_item.fadeIn(300);
     // update all tabs and notice counts
     updateAdminNoticesCounts();
+
+    // announce the result and move focus to the next available notice action
+    announceStatus(status_message);
+    let $panel = $('#ppc-admin-notices-panel');
+    if ($panel.hasClass('open')) {
+      let $focus_target = getActionFocusTarget(next_items) || getActionFocusTarget(prev_items);
+      ($focus_target || $panel).trigger('focus');
+    } else {
+      $('#wp-admin-bar-ppc-admin-notices-panel > a').trigger('focus');
+    }
 
     $.post(ajaxurl, {
       'action': 'ppc_admin_notice_action',
@@ -229,8 +265,8 @@ jQuery(document).ready(function ($) {
             //if ($(element).is('.notice'))
             {
               let notice_action_html = '<div class="ppc-notice-action">';
-              notice_action_html += '<div class="action-item-wrap"><div class="ppc-tool-tip down-notice"><div class="dashicons dashicons-editor-help"></div><div class="tool-tip-text"><p>' + ppcAdminNoticesData.whitelist_note + '</p><i></i></div></div><a href="#" class="whitelist">' + ppcAdminNoticesData.whitelist_label + '</a></div>';
-              notice_action_html += '<div class="action-item-wrap"><div class="ppc-tool-tip down-notice"><div class="dashicons dashicons-editor-help"></div><div class="tool-tip-text"><p>' + ppcAdminNoticesData.blacklist_note + '</p><i></i></div></div><a href="#" class="blacklist">' + ppcAdminNoticesData.blacklist_label + '</a></div>';
+              notice_action_html += '<div class="action-item-wrap">' + helpTooltipHtml(ppcAdminNoticesData.whitelist_note, notice_id + '-whitelist') + '<a href="#" class="whitelist">' + ppcAdminNoticesData.whitelist_label + '</a></div>';
+              notice_action_html += '<div class="action-item-wrap">' + helpTooltipHtml(ppcAdminNoticesData.blacklist_note, notice_id + '-blacklist') + '<a href="#" class="blacklist">' + ppcAdminNoticesData.blacklist_label + '</a></div>';
               notice_action_html += '</div>';
               $(element).append(notice_action_html);
             }
@@ -253,8 +289,8 @@ jQuery(document).ready(function ($) {
           //if ($(element).is('.notice'))
           {
             let notice_action_html = '<div class="ppc-notice-action">';
-            notice_action_html += '<div class="action-item-wrap"><div class="ppc-tool-tip down-notice"><div class="dashicons dashicons-editor-help"></div><div class="tool-tip-text"><p>' + ppcAdminNoticesData.whitelist_note + '</p><i></i></div></div><a href="#" class="whitelist undo">' + ppcAdminNoticesData.remove_whitelist_label + '</a></div>';
-            notice_action_html += '<div class="action-item-wrap"><div class="ppc-tool-tip down-notice"><div class="dashicons dashicons-editor-help"></div><div class="tool-tip-text"><p>' + ppcAdminNoticesData.blacklist_note + '</p><i></i></div></div><a href="#" class="blacklist">' + ppcAdminNoticesData.blacklist_label + '</a></div>';
+            notice_action_html += '<div class="action-item-wrap">' + helpTooltipHtml(ppcAdminNoticesData.whitelist_note, notice_id + '-whitelist') + '<a href="#" class="whitelist undo">' + ppcAdminNoticesData.remove_whitelist_label + '</a></div>';
+            notice_action_html += '<div class="action-item-wrap">' + helpTooltipHtml(ppcAdminNoticesData.blacklist_note, notice_id + '-blacklist') + '<a href="#" class="blacklist">' + ppcAdminNoticesData.blacklist_label + '</a></div>';
             notice_action_html += '</div>';
             $(element).addClass('ppc-shown-notice-item').attr('data-notice-id', notice_id);
             $(element).append(notice_action_html);
@@ -271,8 +307,8 @@ jQuery(document).ready(function ($) {
           //if ($(element).is('.notice'))
           {
             let notice_action_html = '<div class="ppc-notice-action">';
-            notice_action_html += '<div class="action-item-wrap"><div class="ppc-tool-tip down-notice"><div class="dashicons dashicons-editor-help"></div><div class="tool-tip-text"><p>' + ppcAdminNoticesData.whitelist_note + '</p><i></i></div></div><a href="#" class="whitelist">' + ppcAdminNoticesData.whitelist_label + '</a></div>';
-            notice_action_html += '<div class="action-item-wrap"><div class="ppc-tool-tip down-notice"><div class="dashicons dashicons-editor-help"></div><div class="tool-tip-text"><p>' + ppcAdminNoticesData.blacklist_note + '</p><i></i></div></div><a href="#" class="blacklist undo">' + ppcAdminNoticesData.remove_blacklist_label + '</a></div>';
+            notice_action_html += '<div class="action-item-wrap">' + helpTooltipHtml(ppcAdminNoticesData.whitelist_note, notice_id + '-whitelist') + '<a href="#" class="whitelist">' + ppcAdminNoticesData.whitelist_label + '</a></div>';
+            notice_action_html += '<div class="action-item-wrap">' + helpTooltipHtml(ppcAdminNoticesData.blacklist_note, notice_id + '-blacklist') + '<a href="#" class="blacklist undo">' + ppcAdminNoticesData.remove_blacklist_label + '</a></div>';
             notice_action_html += '</div>';
             $(element).append(notice_action_html);
           }
@@ -304,10 +340,10 @@ jQuery(document).ready(function ($) {
       info_count = $('.ppc-panel-notice-item.active-notices-item .notice-info, .ppc-panel-notice-item.active-notices-item .info').length;
     }
 
-    let success_count_html = '<span class="success-counter">' + success_count + '</span>';
-    let error_count_html = '<span class="error-counter">' + error_count + '</span>';
-    let warning_count_html = '<span class="warning-counter">' + warning_count + '</span>';
-    let info_count_html = '<span class="info-counter">' + info_count + '</span>';
+    let success_count_html = '<span class="success-counter">' + success_count + '<span class="screen-reader-text"> ' + ppcAdminNoticesData.success_label + '</span></span>';
+    let error_count_html = '<span class="error-counter">' + error_count + '<span class="screen-reader-text"> ' + ppcAdminNoticesData.error_label + '</span></span>';
+    let warning_count_html = '<span class="warning-counter">' + warning_count + '<span class="screen-reader-text"> ' + ppcAdminNoticesData.warning_label + '</span></span>';
+    let info_count_html = '<span class="info-counter">' + info_count + '<span class="screen-reader-text"> ' + ppcAdminNoticesData.info_label + '</span></span>';
     $('#wp-admin-bar-ppc-admin-notices-panel .ppc-admin-notices-count').html(success_count_html + error_count_html + warning_count_html + info_count_html);
     if (success_count > 0) {
       $('.ppc-admin-notices-count .success-counter').show();
@@ -390,9 +426,12 @@ jQuery(document).ready(function ($) {
     const $panel = $('#ppc-admin-notices-panel');
     const $overlay = $('#ppc-admin-notices-overlay');
 
+    const $toggle = $('#wp-admin-bar-ppc-admin-notices-panel > a');
+
     if ($panel.hasClass('open')) {
       $panel.removeClass('open');
       $overlay.fadeOut(200);
+      $toggle.attr('aria-expanded', 'false').trigger('focus');
     } else {
       if (!initialize_notice) {
         if (notice_html && notice_html !== '') {
@@ -404,7 +443,46 @@ jQuery(document).ready(function ($) {
       }
       $panel.addClass('open');
       $overlay.fadeIn(200);
+      $toggle.attr('aria-expanded', 'true');
+      $panel.trigger('focus');
     }
+  }
+
+  // Help tooltip markup: keyboard focusable trigger described by the tooltip text
+  function helpTooltipHtml(note, id_suffix) {
+    let tip_id = 'ppc-notice-tip-' + id_suffix;
+    return '<div class="ppc-tool-tip down-notice">'
+      + '<button type="button" class="ppc-tool-tip-button" aria-describedby="' + tip_id + '">'
+      + '<span class="dashicons dashicons-editor-help" aria-hidden="true"></span>'
+      + '<span class="screen-reader-text">' + ppcAdminNoticesData.help_label + '</span>'
+      + '</button>'
+      + '<div class="tool-tip-text" id="' + tip_id + '" role="tooltip"><p>' + note + '</p><i></i></div>'
+      + '</div>';
+  }
+
+  // First visible notice action link within the given panel items
+  function getActionFocusTarget($items) {
+    let $target = null;
+    $items.each(function () {
+      if ($(this).hasClass('hidden-element')) {
+        return true;
+      }
+      let $link = $(this).find('.ppc-notice-action a').filter(':visible').first();
+      if ($link.length) {
+        $target = $link;
+        return false;
+      }
+    });
+    return $target;
+  }
+
+  // Announce a message through the polite live region
+  function announceStatus(message) {
+    let $status = $('.ppc-admin-notices-status');
+    $status.text('');
+    setTimeout(function () {
+      $status.text($('<div>').html(message).text());
+    }, 100);
   }
 
   // Simple Hash Function for Unique ID for admin notices
