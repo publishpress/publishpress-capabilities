@@ -41,6 +41,8 @@ class Admin_Menus_Filters
             add_action('admin_menu', [$this, 'adminMenuRestriction'], PHP_INT_MAX - 98);
             // Clear stored menu when plugins are deactivated to remove old plugin menu
             add_action('deactivate_plugin', [$this, 'clearStoredData']);
+            add_action('activated_plugin', [$this, 'clearStoredData']);
+            add_action('upgrader_process_complete', [$this, 'clearStoredDataAfterPluginUpgrade'], 10, 2);
             // Clear stored menu snapshots when feature toggles can add or remove submenu items.
             add_action('pp_capabilities_dashboard_feature_updated', [$this, 'clearStoredDataForMenuFeature'], 10, 2);
         }
@@ -160,23 +162,7 @@ class Admin_Menus_Filters
                 $stored_menu = $admin_global_menu;
             }
 
-            if (is_array($admin_global_submenu)
-                && count($admin_global_submenu) > count($submenu)
-            ) {
-                // for submenu, we need to remove any group not in menu before count for fair count
-                $menu_index = array_column($stored_menu, 2);
-
-                $filtered_submenu = array_intersect_key($submenu,
-                    array_flip($menu_index)
-                );
-
-                $filtered_admin_global_submenu = array_intersect_key($admin_global_submenu,
-                    array_flip($menu_index)
-                );
-                if (count($filtered_admin_global_submenu) > count($filtered_submenu)) {
-                    $stored_submenu = $admin_global_submenu;
-                }
-            }
+            $stored_submenu = self::mergeSubmenuSnapshots((array) $admin_global_submenu, $submenu);
 
             if ( get_option('ppc_admin_menus_menu') !== $stored_menu) {//save menu
                 update_option('ppc_admin_menus_menu', $stored_menu);
@@ -196,6 +182,92 @@ class Admin_Menus_Filters
         self::$menu_mapping_index = null;
         delete_option('ppc_admin_menus_menu');
         delete_option('ppc_admin_menus_submenu');
+    }
+
+    /**
+     * Refresh discovery after plugin installs and updates without resetting user settings.
+     *
+     * @param object $upgrader WordPress upgrader instance.
+     * @param array $options Upgrade operation details.
+     * @since 2.54.0
+     */
+    public function clearStoredDataAfterPluginUpgrade($upgrader, $options) {
+        if (isset($options['type'], $options['action']) && $options['type'] === 'plugin'
+            && in_array($options['action'], ['install', 'update'], true)
+        ) {
+            $this->clearStoredData();
+        }
+    }
+
+    /**
+     * Merge discovery snapshots by submenu slug, retaining cached restricted items.
+     * Current entries replace stale metadata; numeric offsets are not item identities.
+     *
+     * @param array $cached Previously captured submenu groups.
+     * @param array $current Submenu groups registered in the current request.
+     * @return array
+     * @since 2.54.0
+     */
+    public static function mergeSubmenuSnapshots($cached, $current) {
+        $cached = self::normalizeSubmenuSnapshot($cached);
+        $current = self::normalizeSubmenuSnapshot($current);
+        foreach ($current as $parent => $items) {
+            if (!isset($cached[$parent]) || !is_array($cached[$parent])) {
+                $cached[$parent] = $items;
+                continue;
+            }
+            $positions = [];
+            foreach ($cached[$parent] as $position => $item) {
+                if (isset($item[2])) {
+                    $positions[$item[2]] = $position;
+                }
+            }
+            foreach ($items as $position => $item) {
+                if (!isset($item[2])) {
+                    continue;
+                }
+                if (isset($positions[$item[2]])) {
+                    $cached[$parent][$positions[$item[2]]] = $item;
+                } elseif (!isset($cached[$parent][$position])) {
+                    $cached[$parent][$position] = $item;
+                    $positions[$item[2]] = $position;
+                } else {
+                    $cached[$parent][] = $item;
+                    end($cached[$parent]);
+                    $positions[$item[2]] = key($cached[$parent]);
+                }
+            }
+            // Follow current registration order without changing cached legacy offsets.
+            $ordered = [];
+            foreach ($items as $item) {
+                $position = $positions[$item[2]];
+                $ordered[$position] = $cached[$parent][$position];
+            }
+            $cached[$parent] = $ordered + $cached[$parent];
+        }
+        return $cached;
+    }
+
+    /**
+     * Missing legacy options can be false; only submenu arrays are renderable.
+     *
+     * @param array $snapshot Submenu groups from discovery or storage.
+     * @return array
+     * @since 2.54.0
+     */
+    private static function normalizeSubmenuSnapshot($snapshot) {
+        foreach ($snapshot as $parent => $items) {
+            if (!is_array($items)) {
+                unset($snapshot[$parent]);
+                continue;
+            }
+            foreach ($items as $position => $item) {
+                if (!is_array($item) || !isset($item[2])) {
+                    unset($snapshot[$parent][$position]);
+                }
+            }
+        }
+        return $snapshot;
     }
 
     public function clearStoredDataForMenuFeature($feature, $status) {
@@ -376,6 +448,14 @@ class Admin_Menus_Filters
                 if (isset($menu_order[$custom_and_new_menu_key]) && is_array($menu_order[$custom_and_new_menu_key])) {
                     $custom_submenu_order = $menu_order[$custom_and_new_menu_key];
 
+                    if (self::hasNewSubmenus($default_submenu, $menu_order)) {
+                        $registered_order = array_column($default_submenu, 2);
+                        $custom_submenu_order = array_merge(
+                            $registered_order,
+                            array_diff($custom_submenu_order, $registered_order)
+                        );
+                    }
+
                     // Add custom submenu items first, in order
                     $ordered_submenu = [];
                     foreach ($custom_submenu_order as $subcustom_and_new_menu_key) {
@@ -401,6 +481,32 @@ class Admin_Menus_Filters
         }
 
         return [$final_menu, $final_submenu];
+    }
+
+    /**
+     * Detect new children without treating deliberately moved submenus as new.
+     * The saved order remains authoritative while all registered children are known.
+     *
+     * @param array $submenu Currently registered children for one parent.
+     * @param array $menu_order Saved submenu orders across parents.
+     * @return bool
+     * @since 2.54.0
+     */
+    private static function hasNewSubmenus($submenu, $menu_order) {
+        $known = [];
+        foreach ($menu_order as $children) {
+            if (is_array($children)) {
+                foreach ($children as $slug) {
+                    $known[htmlspecialchars_decode((string) $slug, ENT_QUOTES)] = true;
+                }
+            }
+        }
+        foreach ($submenu as $item) {
+            if (isset($item[2]) && !isset($known[htmlspecialchars_decode($item[2], ENT_QUOTES)])) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

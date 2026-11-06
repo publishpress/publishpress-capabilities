@@ -1,6 +1,13 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.60.0] - [Unreleased]
+
+- Fixed : Revalidate the affected submenu order when a plugin adds a new entry, preserving custom orders for other menus.
+- Fixed : Prevent Admin Menus errors on fresh sites with missing or invalid menu cache entries.
+- Fixed : Refresh admin menu discovery after plugin changes and preserve newly registered submenus when cached snapshots contain additional menus.
+- Feature : Expose typed MCP actions across Capabilities menus, with previews, permission checks, feature configuration and backup management.
+
 [2.53.0] - 14 October, 2026
 
 - Feature : Move Admin Menus into the free version, #1809

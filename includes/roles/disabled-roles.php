@@ -114,7 +114,7 @@ class PP_Capabilities_Disabled_Roles
      */
     public function filterEditableRoles($roles, $args = [])
     {
-        if (!is_array($roles) || $this->isRoleDataManagementRequest()) {
+        if (!is_array($roles) || $this->isRoleDataManagementRequest() || !empty($args['publishpress_mcp_role_management'])) {
             return $roles;
         }
 
