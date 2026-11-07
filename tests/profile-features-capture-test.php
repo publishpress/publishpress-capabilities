@@ -56,6 +56,21 @@ namespace {
         public function get_last_role() { return 'subscriber'; }
     };
     $user = (object) ['ID' => 2, 'roles' => ['subscriber'], 'canRead' => true];
+    $excludedUser = (object) ['ID' => 3, 'roles' => ['subscriber', 'author'], 'canRead' => true];
+    $users = [$excludedUser, $user];
+    $canEdit = true;
+    $options = ['cme_test_user_excluded_roles' => ['author']];
+    $_REQUEST = ['page' => 'pp-capabilities-profile-features', 'role' => 'subscriber', 'role_refresh' => 1];
+    $redirect = '';
+    try {
+        $controller->profileFeaturesCaptureRedirect();
+    } catch (RuntimeException $error) {
+        $redirect = $error->getMessage();
+    }
+    parse_str((string) parse_url($redirect, PHP_URL_QUERY), $redirectArgs);
+    if (($redirectArgs['ppc_test_user'] ?? '') !== base64_encode($user->ID)) {
+        throw new RuntimeException('Capture must use a testable user when the first user in the role cannot be tested.');
+    }
     $cases = [
         ['subscriber', [], ['administrator'], true, [], false],
         ['administrator', [], [], true, [], false],
