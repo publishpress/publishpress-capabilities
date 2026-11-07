@@ -1675,6 +1675,20 @@ class CapabilityManager
                 $testing_user = $role_user[0];
                 if (!user_can($testing_user->ID, 'read')) {
                     $can_redirect = false;
+                } elseif (!user_can($testing_user->ID, 'manage_options')
+                    && isset($testing_user->roles) && is_array($testing_user->roles)) {
+                    // Block Dashboard Access sends this user to the home page before profile.php loads
+                    foreach ($testing_user->roles as $user_role) {
+                        $role_option = get_option("pp_capabilities_{$user_role}_role_option", []);
+                        if (is_array($role_option) && !empty($role_option)
+                            && !empty($role_option['block_dashboard_access'])
+                            && (int)$role_option['block_dashboard_access'] > 0
+                        ) {
+                            $profile_capture_error = __('Profile items could not be detected because users in this role are blocked from the admin area by the Block Dashboard Access option.', 'capability-manager-enhanced');
+                            $can_redirect = false;
+                            break;
+                        }
+                    }
                 }
 
             }
