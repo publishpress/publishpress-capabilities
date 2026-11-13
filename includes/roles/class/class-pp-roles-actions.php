@@ -161,8 +161,12 @@ class Pp_Roles_Actions
         $nonce = isset($_REQUEST[$query_arg]) ? sanitize_key(wp_unslash($_REQUEST[$query_arg])) : '';
         $checked = !empty($nonce) && wp_verify_nonce($nonce, $action);
         if (!$checked) {
+            $roles_url = esc_url_raw(add_query_arg(['page' => 'pp-capabilities-roles'], admin_url('admin.php')));
+            $referer = wp_get_raw_referer();
+
             $this->terminate_request(
-                esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced')
+                esc_html__('Your link has expired, refresh the page and try again.', 'capability-manager-enhanced'),
+                $referer ? wp_validate_redirect($referer, $roles_url) : $roles_url
             );
         }
     }
@@ -171,16 +175,21 @@ class Pp_Roles_Actions
      * Terminate a role mutation request after a failed authorization guard.
      *
      * @param string $message Error message.
+     * @param string $retry_url Screen to link back to from a non-AJAX error page.
      *
      * @return void
      */
-    protected function terminate_request($message)
+    protected function terminate_request($message, $retry_url = '')
     {
         if ($this->is_ajax()) {
             wp_send_json_error($message, 403);
         }
 
-        wp_die($message, '', ['response' => 403]);
+        wp_die($message, '', [
+            'response' => 403,
+            'link_url' => esc_url($retry_url),
+            'link_text' => esc_html__('Please try again.', 'capability-manager-enhanced'),
+        ]);
     }
 
     /**
