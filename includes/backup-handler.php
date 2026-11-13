@@ -17,6 +17,42 @@ class Capsman_BackupHandler
 		$this->cm = $manager_obj;
 	}
 
+    /**
+     * Persist a backup through the same lifecycle for admin and non-form callers.
+     *
+     * @param array|null $configuration Reviewed option values keyed by native section identifiers.
+     * @return array Stored section identifiers.
+     * @since 2.60.0
+     */
+    public function createBackup(?array $configuration = null): array
+    {
+        global $wpdb;
+        $prefix = $this->cm->ID;
+        $labels = ['user_roles' => __('Roles and Capabilities', 'capability-manager-enhanced')];
+        $native = ['user_roles' => get_option($wpdb->prefix . 'user_roles')];
+        foreach (pp_capabilities_backup_sections() as $section) {
+            foreach ((array) ($section['options'] ?? []) as $option) {
+                $native[$option] = get_option($option);
+                $labels[$option] = $section['label'];
+            }
+        }
+        $configuration = $configuration ?? $native;
+        if (!get_option($prefix . '_backup_initial') && ($previous = get_option($prefix . '_backup'))) {
+            update_option($prefix . '_backup_initial', $previous, false);
+            if ($date = get_option($prefix . '_backup_datestamp')) {
+                update_option($prefix . '_backup_initial_datestamp', $date, false);
+            }
+        }
+        $active = [];
+        foreach ($configuration as $key => $value) {
+            update_option($key === 'user_roles' ? $prefix . '_backup' : $key . '_backup', $value, false);
+            $active[] = $labels[$key] ?? $key;
+        }
+        update_option($prefix . '_last_backup', implode(', ', array_unique($active)));
+        update_option($prefix . '_backup_datestamp', current_time('timestamp'), false);
+        return array_keys($configuration);
+    }
+
 	/**
 	 * Processes backups and restores.
 	 *
@@ -29,48 +65,8 @@ class Capsman_BackupHandler
         if (isset($_POST['save_backup'])) {
 			check_admin_referer('pp-capabilities-backup');
 
-			$wp_roles = $wpdb->prefix . 'user_roles';
-			$cm_roles = $this->cm->ID . '_backup';
-			$cm_roles_initial = $this->cm->ID . '_backup_initial';
-
-            $backup_sections = pp_capabilities_backup_sections();
-
-			if ( ! get_option( $cm_roles_initial ) ) {
-				if ( $current_backup = get_option( $cm_roles ) ) {
-					update_option( $cm_roles_initial, $current_backup, false );
-
-					if ( $initial_datestamp = get_option( $this->cm->ID . '_backup_datestamp' ) ) {
-						update_option($this->cm->ID . '_backup_initial_datestamp', $initial_datestamp, false );
-					}
-				}
-			}
-
-            $active_backup = ['Roles and Capabilities'];
-
-            //role backup
-			$roles = get_option($wp_roles);
-			update_option($cm_roles, $roles, false);
-
-            //other backup
-            foreach($backup_sections as $backup_section){
-                $section_options = $backup_section['options'];
-                if(is_array($section_options) && !empty($section_options)){
-                    foreach($section_options as $section_option){
-                        $active_backup[] = $backup_section['label'];
-                        $current_option = get_option($section_option);
-                        update_option($section_option.'_backup', $current_option, false);
-                    }
-                }
-            }
-
-            $active_backup = array_unique($active_backup);
-
-            //update last backup
-            update_option($this->cm->ID . '_last_backup', implode(', ', $active_backup));
-
-            //backup datestamp and response
-			update_option($this->cm->ID . '_backup_datestamp', current_time( 'timestamp' ), false );
-			ak_admin_notify(__('New backup saved.', 'capability-manager-enhanced'));
+            $this->createBackup();
+            ak_admin_notify(__('New backup saved.', 'capability-manager-enhanced'));
 
         }
 

@@ -7,8 +7,12 @@ namespace PublishPress\Capabilities;
 
 defined('ABSPATH') || exit;
 
+require_once __DIR__ . '/admin-styles-api.php';
+
 class PP_Capabilities_Admin_Styles
 {
+    use AdminStylesApi;
+
     private static $instance = null;
 
     public $settings = [];
