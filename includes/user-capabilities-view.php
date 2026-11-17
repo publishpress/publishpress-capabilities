@@ -234,30 +234,32 @@ if (!defined('ABSPATH')) {
                         <p><?php esc_html_e('This user has no group-assigned extra roles or specific permissions.', 'capability-manager-enhanced'); ?></p>
                     <?php else : ?>
                         <?php foreach ($publishpress_permissions['groups'] as $group) : ?>
-                            <h4><?php echo esc_html($group['name']); ?></h4>
-                            <?php if (!empty($group['roles'])) : ?>
-                                <p><strong><?php printf(esc_html__('Extra Roles (%d)', 'capability-manager-enhanced'), (int) $group['roles_total']); ?></strong></p>
-                                <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
-                                    <?php foreach ($group['roles'] as $role_data) : ?>
-                                        <li><?php echo esc_html($role_data['label']); ?> <code><?php echo esc_html($role_data['slug']); ?></code></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                            <?php if (!empty($group['exceptions'])) : ?>
-                                <p><strong><?php printf(esc_html__('Specific Permissions (%d)', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></strong></p>
-                                <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
-                                    <?php foreach ($group['exceptions'] as $exception) : ?>
-                                        <li>
-                                            <strong><?php echo esc_html($exception['operation']); ?></strong>
-                                            <?php echo esc_html($exception['modification']); ?>
-                                            <span class="ppc-user-permissions-scope"><?php echo esc_html($exception['scope']); ?></span>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                                <?php if ($group['exceptions_total'] > count($group['exceptions'])) : ?>
-                                    <p class="ppc-user-cap-note"><?php printf(esc_html__('Showing the first 50 of %d permissions. Use the Permissions editor to view the full list.', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></p>
+                            <div class="ppc-user-permissions-group">
+                                <h4><?php echo esc_html($group['name']); ?></h4>
+                                <?php if (!empty($group['roles'])) : ?>
+                                    <p><strong><?php printf(esc_html__('Extra Roles (%d)', 'capability-manager-enhanced'), (int) $group['roles_total']); ?></strong></p>
+                                    <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
+                                        <?php foreach ($group['roles'] as $role_data) : ?>
+                                            <li><?php echo esc_html($role_data['label']); ?> <code><?php echo esc_html($role_data['slug']); ?></code></li>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 <?php endif; ?>
-                            <?php endif; ?>
+                                <?php if (!empty($group['exceptions'])) : ?>
+                                    <p><strong><?php printf(esc_html__('Specific Permissions (%d)', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></strong></p>
+                                    <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
+                                        <?php foreach ($group['exceptions'] as $exception) : ?>
+                                            <li>
+                                                <strong><?php echo esc_html($exception['operation']); ?></strong>
+                                                <?php echo esc_html($exception['modification']); ?>
+                                                <span class="ppc-user-permissions-scope"><?php echo esc_html($exception['scope']); ?></span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <?php if ($group['exceptions_total'] > count($group['exceptions'])) : ?>
+                                        <p class="ppc-user-cap-note"><?php printf(esc_html__('Showing the first 50 of %d permissions. Use the Permissions editor to view the full list.', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
 
