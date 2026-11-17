@@ -2,6 +2,7 @@
 title: "How to Recover a Lost Administrator Account"
 order: 48
 doc_category: cme
+section: Troubleshooting Capabilities
 ---
 
 # How to Recover a Lost Administrator Account

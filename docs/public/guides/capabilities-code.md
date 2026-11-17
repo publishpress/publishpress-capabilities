@@ -2,6 +2,7 @@
 title: "How to Add Capabilities Using Code"
 order: 18
 doc_category: cme
+section: Capabilities
 ---
 
 # How to Add Capabilities Using Code

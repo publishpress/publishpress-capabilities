@@ -2,6 +2,7 @@
 title: "How to Use Editor Features"
 order: 32
 doc_category: cme
+section: Editor Features
 ---
 
 # How to Use Editor Features

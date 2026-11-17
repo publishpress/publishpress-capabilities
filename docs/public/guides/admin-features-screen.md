@@ -2,6 +2,7 @@
 title: "How to Use Admin Features"
 order: 7
 doc_category: cme
+section: Admin Features
 ---
 
 # How to Use Admin Features

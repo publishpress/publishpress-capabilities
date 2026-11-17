@@ -2,6 +2,7 @@
 title: "Add Permissions to Custom Post Types"
 order: 26
 doc_category: cme
+section: Post Types
 ---
 
 # Add Permissions to Custom Post Types

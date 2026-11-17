@@ -2,6 +2,7 @@
 title: "What are Unique Capabilities for Taxonomies?"
 order: 53
 doc_category: cme
+section: Taxonomies
 ---
 
 # What are Unique Capabilities for Taxonomies?

@@ -2,6 +2,7 @@
 title: "The Navigation Menus Screen"
 order: 46
 doc_category: cme
+section: Navigation Menus
 ---
 
 # The Navigation Menus Screen

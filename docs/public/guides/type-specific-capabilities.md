@@ -2,6 +2,7 @@
 title: "What are Unique Capabilities for Post Types?"
 order: 56
 doc_category: cme
+section: Post Types
 ---
 
 # What are Unique Capabilities for Post Types?

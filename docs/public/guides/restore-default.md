@@ -2,6 +2,7 @@
 title: "Restore Permissions to the WordPress Defaults"
 order: 52
 doc_category: cme
+section: Backup
 ---
 
 # Restore Permissions to the WordPress Defaults

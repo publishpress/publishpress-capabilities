@@ -2,6 +2,7 @@
 title: "How to Use Admin Styles"
 order: 12
 doc_category: cme
+section: Admin Styles
 ---
 
 # How to Use Admin Styles

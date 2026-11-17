@@ -2,6 +2,7 @@
 title: "Change the Name and Icon for Admin Menu Links"
 order: 22
 doc_category: cme
+section: Admin Menus
 ---
 
 # Change the Name and Icon for Admin Menu Links

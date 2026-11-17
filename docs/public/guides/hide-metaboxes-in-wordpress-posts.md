@@ -2,6 +2,7 @@
 title: "Hide Metaboxes in WordPress Posts (Pro)"
 order: 39
 doc_category: cme
+section: Editor Features
 ---
 
 # Hide Metaboxes in WordPress Posts (Pro)

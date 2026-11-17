@@ -2,6 +2,7 @@
 title: "Echo Knowledge Base Permissions in PublishPress Capabilities"
 order: 31
 doc_category: cme
+section: Integrations
 ---
 
 # Echo Knowledge Base Permissions in PublishPress Capabilities

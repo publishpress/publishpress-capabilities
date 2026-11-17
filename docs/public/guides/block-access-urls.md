@@ -2,6 +2,7 @@
 title: "Block Access to URLs in the WordPress Admin (Pro)"
 order: 16
 doc_category: cme
+section: Admin Features
 ---
 
 # Block Access to URLs in the WordPress Admin (Pro)

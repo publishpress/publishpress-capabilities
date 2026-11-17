@@ -2,6 +2,7 @@
 title: "How to Add New WordPress Capabilities"
 order: 5
 doc_category: cme
+section: Capabilities
 ---
 
 # How to Add New WordPress Capabilities

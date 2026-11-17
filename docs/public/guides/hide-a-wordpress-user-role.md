@@ -2,6 +2,7 @@
 title: "Hide a WordPress User Role"
 order: 34
 doc_category: cme
+section: Roles
 ---
 
 # Hide a WordPress User Role

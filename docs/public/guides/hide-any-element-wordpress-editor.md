@@ -2,6 +2,7 @@
 title: "Hide Any Element in the WordPress Editor (Pro)"
 order: 35
 doc_category: cme
+section: Editor Features
 ---
 
 # Hide Any Element in the WordPress Editor (Pro)

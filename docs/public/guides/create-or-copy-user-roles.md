@@ -2,6 +2,7 @@
 title: "Create or Copy WordPress User Roles"
 order: 25
 doc_category: cme
+section: Roles
 ---
 
 # Create or Copy WordPress User Roles

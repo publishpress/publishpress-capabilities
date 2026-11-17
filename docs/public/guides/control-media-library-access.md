@@ -2,6 +2,7 @@
 title: "Capabilities for the Media Library"
 order: 24
 doc_category: cme
+section: Post Types
 ---
 
 # Capabilities for the Media Library

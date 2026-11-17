@@ -2,6 +2,7 @@
 title: "Hide IDs or Classes"
 order: 38
 doc_category: cme
+section: Frontend Features
 ---
 
 # Hide IDs or Classes

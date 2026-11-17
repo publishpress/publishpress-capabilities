@@ -2,6 +2,7 @@
 title: "Hide Any Element in the WordPress Admin (Pro)"
 order: 36
 doc_category: cme
+section: Admin Features
 ---
 
 # Hide Any Element in the WordPress Admin (Pro)

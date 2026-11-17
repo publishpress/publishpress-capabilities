@@ -2,6 +2,7 @@
 title: "Hide Plugins on the Plugins Screen (Pro)"
 order: 40
 doc_category: cme
+section: Admin Features
 ---
 
 # Hide Plugins on the Plugins Screen (Pro)

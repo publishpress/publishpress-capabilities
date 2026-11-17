@@ -2,6 +2,7 @@
 title: "How to Use PublishPress Capabilities"
 order: 42
 doc_category: cme
+section: Getting Started
 ---
 
 # How to Use PublishPress Capabilities

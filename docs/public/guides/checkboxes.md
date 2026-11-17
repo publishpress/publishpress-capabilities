@@ -2,6 +2,7 @@
 title: "How to Use the Checkboxes in PublishPress Capabilities"
 order: 23
 doc_category: cme
+section: Getting Started
 ---
 
 # How to Use the Checkboxes in PublishPress Capabilities

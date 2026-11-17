@@ -2,6 +2,7 @@
 title: "The Frontend Features Screen"
 order: 33
 doc_category: cme
+section: Frontend Features
 ---
 
 # The Frontend Features Screen

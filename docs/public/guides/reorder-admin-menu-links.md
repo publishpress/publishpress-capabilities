@@ -2,6 +2,7 @@
 title: "Reorder Admin Menu Links"
 order: 51
 doc_category: cme
+section: Admin Menus
 ---
 
 # Reorder Admin Menu Links
