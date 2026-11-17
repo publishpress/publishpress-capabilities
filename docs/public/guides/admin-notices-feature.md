@@ -2,6 +2,7 @@
 title: "The Admin Notices Feature"
 order: 11
 doc_category: cme
+section: Admin Notices
 ---
 
 # The Admin Notices Feature

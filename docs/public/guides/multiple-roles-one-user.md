@@ -2,6 +2,7 @@
 title: "Add a WordPress User to Multiple Roles"
 order: 44
 doc_category: cme
+section: Roles
 ---
 
 # Add a WordPress User to Multiple Roles

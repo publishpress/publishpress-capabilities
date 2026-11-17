@@ -2,6 +2,7 @@
 title: "Differences Between Capabilities Free and Pro"
 order: 20
 doc_category: cme
+section: Getting Started
 ---
 
 # Differences Between Capabilities Free and Pro

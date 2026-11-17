@@ -2,6 +2,7 @@
 title: "Hide Any Element in the WordPress Frontend (Pro)"
 order: 37
 doc_category: cme
+section: Frontend Features
 ---
 
 # Hide Any Element in the WordPress Frontend (Pro)

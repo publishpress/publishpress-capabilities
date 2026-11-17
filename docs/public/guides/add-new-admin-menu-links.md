@@ -2,6 +2,7 @@
 title: "Add New Admin Menu Links (Pro)"
 order: 4
 doc_category: cme
+section: Admin Menus
 ---
 
 # Add New Admin Menu Links (Pro)

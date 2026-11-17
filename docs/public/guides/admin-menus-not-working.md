@@ -2,6 +2,7 @@
 title: "Troubleshooting the Admin Menus Screen (Pro)"
 order: 8
 doc_category: cme
+section: Admin Menus
 ---
 
 # Troubleshooting the Admin Menus Screen (Pro)

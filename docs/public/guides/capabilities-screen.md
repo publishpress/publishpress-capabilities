@@ -2,6 +2,7 @@
 title: "How to Use the Capabilities Screen"
 order: 21
 doc_category: cme
+section: Capabilities
 ---
 
 # How to Use the Capabilities Screen

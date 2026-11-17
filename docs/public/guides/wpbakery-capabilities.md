@@ -2,6 +2,7 @@
 title: "WPBakery Permissions in PublishPress Capabilities"
 order: 59
 doc_category: cme
+section: Integrations
 ---
 
 # WPBakery Permissions in PublishPress Capabilities

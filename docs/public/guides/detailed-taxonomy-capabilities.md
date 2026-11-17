@@ -2,6 +2,7 @@
 title: "Detailed Capabilities for Taxonomies"
 order: 28
 doc_category: cme
+section: Taxonomies
 ---
 
 # Detailed Capabilities for Taxonomies

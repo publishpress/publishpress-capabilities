@@ -2,6 +2,7 @@
 title: "Capabilities Will Not Save For Some Plugins"
 order: 55
 doc_category: cme
+section: Troubleshooting Capabilities
 ---
 
 # Capabilities Will Not Save For Some Plugins

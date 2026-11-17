@@ -2,6 +2,7 @@
 title: "Disable Code Editor"
 order: 30
 doc_category: cme
+section: Roles
 ---
 
 # Disable Code Editor

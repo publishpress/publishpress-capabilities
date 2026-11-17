@@ -2,6 +2,7 @@
 title: "Capabilities Backups in the Database, and Emergency Restores"
 order: 15
 doc_category: cme
+section: Backup
 ---
 
 # Capabilities Backups in the Database, and Emergency Restores

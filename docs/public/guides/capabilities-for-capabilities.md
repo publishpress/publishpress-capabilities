@@ -2,6 +2,7 @@
 title: "Capabilities for PublishPress Capabilities"
 order: 19
 doc_category: cme
+section: Capabilities
 ---
 
 # Capabilities for PublishPress Capabilities

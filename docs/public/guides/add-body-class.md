@@ -2,6 +2,7 @@
 title: "Add Body Class"
 order: 2
 doc_category: cme
+section: Frontend Features
 ---
 
 # Add Body Class

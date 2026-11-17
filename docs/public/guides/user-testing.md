@@ -2,6 +2,7 @@
 title: "Getting Started With User Testing"
 order: 57
 doc_category: cme
+section: User Testing
 ---
 
 # Getting Started With User Testing

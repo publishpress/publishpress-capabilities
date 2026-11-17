@@ -2,6 +2,7 @@
 title: "Access Control for Admin Menu Links"
 order: 1
 doc_category: cme
+section: Admin Menus
 ---
 
 # Access Control for Admin Menu Links

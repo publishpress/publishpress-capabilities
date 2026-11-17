@@ -2,6 +2,7 @@
 title: "Delete WordPress User Roles"
 order: 27
 doc_category: cme
+section: Roles
 ---
 
 # Delete WordPress User Roles

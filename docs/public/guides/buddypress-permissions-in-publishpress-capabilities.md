@@ -2,6 +2,7 @@
 title: "BuddyPress Permissions in PublishPress Capabilities"
 order: 17
 doc_category: cme
+section: Integrations
 ---
 
 # BuddyPress Permissions in PublishPress Capabilities

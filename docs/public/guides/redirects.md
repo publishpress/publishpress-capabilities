@@ -2,6 +2,7 @@
 title: "How to Use Redirects"
 order: 49
 doc_category: cme
+section: Redirects
 ---
 
 # How to Use Redirects

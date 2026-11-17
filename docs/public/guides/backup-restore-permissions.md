@@ -2,6 +2,7 @@
 title: "Backup and Restore User Capabilities"
 order: 14
 doc_category: cme
+section: Backup
 ---
 
 # Backup and Restore User Capabilities

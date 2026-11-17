@@ -2,6 +2,7 @@
 title: "What’s the Difference Between PublishPress Capabilities and PublishPress Permissions?"
 order: 29
 doc_category: cme
+section: Getting Started
 ---
 
 # What’s the Difference Between PublishPress Capabilities and PublishPress Permissions?

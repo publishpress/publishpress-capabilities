@@ -2,6 +2,7 @@
 title: "Add Custom CSS"
 order: 3
 doc_category: cme
+section: Frontend Features
 ---
 
 # Add Custom CSS

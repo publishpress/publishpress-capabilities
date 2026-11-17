@@ -2,6 +2,7 @@
 title: "Rename WordPress User Roles"
 order: 50
 doc_category: cme
+section: Roles
 ---
 
 # Rename WordPress User Roles

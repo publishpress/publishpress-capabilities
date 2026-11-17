@@ -2,6 +2,7 @@
 title: "Control Permissions in WooCommerce"
 order: 58
 doc_category: cme
+section: Integrations
 ---
 
 # Control Permissions in WooCommerce

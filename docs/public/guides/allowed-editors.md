@@ -2,6 +2,7 @@
 title: "Allowed Editors"
 order: 13
 doc_category: cme
+section: Roles
 ---
 
 # Allowed Editors

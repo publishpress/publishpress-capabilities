@@ -2,6 +2,7 @@
 title: "How to Hide Dashboard Widgets"
 order: 41
 doc_category: cme
+section: Admin Features
 ---
 
 # How to Hide Dashboard Widgets

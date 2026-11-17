@@ -2,6 +2,7 @@
 title: "Adding Multiple Roles to a User"
 order: 6
 doc_category: cme
+section: Roles
 ---
 
 # Adding Multiple Roles to a User

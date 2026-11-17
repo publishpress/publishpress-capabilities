@@ -2,6 +2,7 @@
 title: "Admin Notice Types"
 order: 10
 doc_category: cme
+section: Admin Notices
 ---
 
 # Admin Notice Types

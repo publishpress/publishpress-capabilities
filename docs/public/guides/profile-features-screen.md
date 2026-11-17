@@ -2,6 +2,7 @@
 title: "How to Use Profile Features"
 order: 47
 doc_category: cme
+section: Profile Features
 ---
 
 # How to Use Profile Features

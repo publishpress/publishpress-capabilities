@@ -2,6 +2,7 @@
 title: "The Admin Menus Screen"
 order: 9
 doc_category: cme
+section: Admin Menus
 ---
 
 # The Admin Menus Screen

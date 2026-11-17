@@ -2,6 +2,7 @@
 title: "Roles and Permissions on a WordPress Multisite Network"
 order: 45
 doc_category: cme
+section: Multisite
 ---
 
 # Roles and Permissions on a WordPress Multisite Network
