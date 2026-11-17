@@ -1739,6 +1739,26 @@ class PP_Capabilities_Admin_UI {
                 border-bottom: 0;
             }
 
+            .ppc-user-permissions-group {
+                border: 1px solid #dcdcde;
+                margin: 12px 0;
+                padding: 12px;
+            }
+
+            .ppc-user-permissions-group h4 {
+                font-size: 14px;
+                margin: 0 0 12px;
+            }
+
+            .ppc-user-permissions-group .ppc-user-permissions-list {
+                list-style: disc;
+                padding-inline-start: 22px;
+            }
+
+            .ppc-user-permissions-group code {
+                overflow-wrap: anywhere;
+            }
+
             .ppc-user-permissions-scope {
                 color: #50575e;
                 display: block;
