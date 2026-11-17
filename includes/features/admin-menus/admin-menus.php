@@ -764,14 +764,14 @@ $admin_child_menu_option = array_map(
             <?php
             $banner_title  = __('Reset Admin Menus', 'capability-manager-enhanced');
             $banner_messages = ['<p>'];
-            $banner_messages[] = esc_html__('You can reset admin menu order and name to their original position and names. You can also reset menu cache to fix issue of missing menu.', 'capability-manager-enhanced');
+            $banner_messages[] = esc_html__('You can reset the admin menu order and name to their original position and names. You can also reset the menu cache to fix any missing menu issues.', 'capability-manager-enhanced');
             $banner_messages[] = '</p><p>';
             $banner_messages[] = '<input type="checkbox" class="reset-admin-menu-order"> '
                 . esc_html__('Reset Menu Order', 'capability-manager-enhanced') . ' <br />';
             $banner_messages[] = '<input type="checkbox" class="reset-admin-menu-cache"> '
                 . esc_html__('Reset Cached Menu', 'capability-manager-enhanced') . ' <br />';
             $banner_messages[] = '<input type="checkbox" class="reset-admin-menu-names"> '
-                . esc_html__('Reset Menu Names', 'capability-manager-enhanced') . ' <br />';
+                . esc_html__('Reset Menu Names and Icons', 'capability-manager-enhanced') . ' <br />';
             $banner_messages[] = '</p>';
             $banner_messages[] = '<p><a style="color: red; border-color: red;" type="button" class="button ppc-reset-admin-menu-options">' . esc_html__('Reset Selected Option', 'capability-manager-enhanced') . '</a><div class="clear"></div></p>';
             pp_capabilities_sidebox_banner($banner_title, $banner_messages);
