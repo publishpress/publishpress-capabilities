@@ -9,7 +9,7 @@
  * Text Domain: capability-manager-enhanced
  * Domain Path: /languages/
  * Requires at least: 5.5
- * Requires PHP: 7.2.5
+ * Requires PHP: 8.2
  * License: GPLv3
  *
 
@@ -28,13 +28,14 @@
 
 global $wp_version;
 
-$min_php_version = '7.2.5';
+$min_php_version = '8.2';
 $min_wp_version  = '5.5';
 
-$invalid_php_version = version_compare(phpversion(), $min_php_version, '<');
-$invalid_wp_version = version_compare($wp_version, $min_wp_version, '<');
+if (version_compare(PHP_VERSION, $min_php_version, '<')) {
+	return;
+}
 
-if ($invalid_php_version || $invalid_wp_version) {
+if (version_compare($wp_version, $min_wp_version, '<')) {
 	return;
 }
 
