@@ -267,12 +267,12 @@ if (!defined('ABSPATH')) {
                         <div class="ppc-user-permissions-actions">
                             <?php if (!empty($publishpress_permissions['roles_edit_url'])) : ?>
                                 <a href="<?php echo esc_url($publishpress_permissions['roles_edit_url']); ?>" class="button">
-                                    <?php esc_html_e('Edit Extra Roles', 'capability-manager-enhanced'); ?>
+                                    <?php esc_html_e('View Extra Roles', 'capability-manager-enhanced'); ?>
                                 </a>
                             <?php endif; ?>
                             <?php if (!empty($publishpress_permissions['exceptions_edit_url'])) : ?>
                                 <a href="<?php echo esc_url($publishpress_permissions['exceptions_edit_url']); ?>" class="button">
-                                    <?php esc_html_e('Edit Specific Permissions', 'capability-manager-enhanced'); ?>
+                                    <?php esc_html_e('View Specific Permissions', 'capability-manager-enhanced'); ?>
                                 </a>
                             <?php endif; ?>
                         </div>
