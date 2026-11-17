@@ -1,11 +1,25 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.60.0] - [Unreleased]
+[2.54.0] - 17 November, 2026
 
-- Fixed : Revalidate the affected submenu order when a plugin adds a new entry, preserving custom orders for other menus.
-- Fixed : Prevent Admin Menus errors on fresh sites with missing or invalid menu cache entries.
-- Fixed : Refresh admin menu discovery after plugin changes and preserve newly registered submenus when cached snapshots contain additional menus.
-- Feature : Expose typed MCP actions across Capabilities menus, with previews, permission checks, feature configuration and backup management.
+- Feature : Allow compatible AI tools to manage roles, capabilities, menus, feature restrictions, settings, and backups through the WordPress Abilities API, #1898
+- Update : Require PHP 8.2 or newer, #1902
+- Update : Show the selected role in Admin Menus save buttons, #1905
+- Update : Clarify permission links on the User Capabilities screen, #1897
+- Update : Make inherited group permissions easier to scan, #1896
+- Update : Clarify descriptions on the User Capabilities screen, #1895
+- Update : Clarify the options for resetting admin menu names, icons, order, and cache, #1893
+- Fixed : Apply Frontend Features and Navigation Menus restrictions to WPML translations and prevent direct access to restricted pages in classic themes, #1913
+- Fixed : Check administrator permissions when capturing Profile Features and safely apply profile restriction styles, #1906
+- Fixed : Apply unique and detailed capabilities to non-public taxonomies that have an admin interface, #1899
+- Fixed : Provide a link back to a fresh screen when a role form or link expires, #1889
+- Fixed : Show an error and clear the pending highlight when a role cannot be deleted, #1887
+- Fixed : Show a warning instead of switching users when Profile Features capture is blocked by dashboard access restrictions, #1881
+- Fixed : Replace deprecated jQuery calls in Pro license settings, #1891
+- Fixed : Correct an apostrophe in the user group capabilities description, #1894
+- Fixed : Keep the changelog introduction on one line for correct display on the website, #1880
+- Fixed : Preserve custom admin menu orders when plugins add new submenu entries and refresh menu discovery after plugin changes, #1898
+- Fixed : Prevent Admin Menus errors when menu cache entries are missing or invalid, #1898
 
 [2.53.0] - 14 October, 2026
 
