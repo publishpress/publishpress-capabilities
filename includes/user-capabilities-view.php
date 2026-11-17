@@ -17,10 +17,7 @@ if (!defined('ABSPATH')) {
 
     <p>
         <?php
-        printf(
-            esc_html__('Viewing effective capabilities for %s.', 'capability-manager-enhanced'),
-            esc_html($selected_user->display_name)
-        );
+        esc_html_e('You are viewing the capabilities for this specific user.', 'capability-manager-enhanced');
         ?>
     </p>
 
@@ -89,7 +86,7 @@ if (!defined('ABSPATH')) {
                     <?php if ($is_super_admin) : ?>
                         <?php esc_html_e('These include known capabilities WordPress grants through Super Admin access, role assignments, and direct overrides.', 'capability-manager-enhanced'); ?>
                     <?php else : ?>
-                        <?php esc_html_e('These are the capabilities WordPress resolves for this user after role assignments and any direct overrides.', 'capability-manager-enhanced'); ?>
+                        <?php esc_html_e('These are the capabilities assigned to this user in WordPress.', 'capability-manager-enhanced'); ?>
                     <?php endif; ?>
                 </p>
                 <?php if (empty($effective_granted_caps)) : ?>
@@ -173,7 +170,7 @@ if (!defined('ABSPATH')) {
                 </div>
                 <div class="inside">
                     <p class="ppc-user-cap-note">
-                        <?php esc_html_e('Direct Permissions settings for this user. These are separate from WordPress role capabilities.', 'capability-manager-enhanced'); ?>
+                        <?php esc_html_e('These are permissions assigned to the user in the PublishPress Permissions plugin.', 'capability-manager-enhanced'); ?>
                     </p>
 
                     <h3 class="ppc-user-cap-section-title">
