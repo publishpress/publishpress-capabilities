@@ -1566,7 +1566,9 @@ if (!is_admin()) {
                     $taxonomy_id = get_queried_object()->term_id;
                     $taxonnomy_type = get_queried_object()->taxonomy;
                     $option_object = $taxonomy_id . '_' . $taxonnomy_type;
-                    if (in_array($option_object, $disabled_nav_menu_array)) {
+                    //translated terms are restricted through their default-language original
+                    $original_option_object = pp_capabilities_default_language_object_id($taxonomy_id, $taxonnomy_type) . '_' . $taxonnomy_type;
+                    if (in_array($option_object, $disabled_nav_menu_array) || in_array($original_option_object, $disabled_nav_menu_array)) {
                         $ppc_nav_menu_restricted = true;
                         pp_capabilities_nav_menu_access_denied();
                     }
@@ -1574,10 +1576,14 @@ if (!is_admin()) {
 
                 //post, page, cpt check
                 if (is_singular()) {
-                    $post_type = get_post_type();
-                    $post_id = get_the_ID();
+                    //get_the_ID() is empty while the main query is parsed, so fall back to the queried object
+                    $post_id = get_the_ID() ? get_the_ID() : get_queried_object_id();
+                    $post_type = get_post_type($post_id);
                     $option_object = $post_id . '_' . $post_type;
-                    if (in_array($option_object, $disabled_nav_menu_array)) {
+                    //translated posts are restricted through their default-language original
+                    $original_post_id = pp_capabilities_default_language_object_id($post_id, $post_type);
+                    $original_option_object = $original_post_id . '_' . $post_type;
+                    if (in_array($option_object, $disabled_nav_menu_array) || in_array($original_option_object, $disabled_nav_menu_array)) {
                         $ppc_nav_menu_restricted = true;
                         pp_capabilities_nav_menu_access_denied();
                     }
@@ -1587,7 +1593,23 @@ if (!is_admin()) {
 
                 if (!empty($fse_blocked_nav_links)) {
                     //restrict access to url
-                    if (in_array(pp_capabilities_current_url(), $fse_blocked_nav_links)) {
+                    $current_urls = [pp_capabilities_current_url()];
+                    //translated posts are restricted through their default-language original's URL
+                    if (is_singular()) {
+                        $current_post_id = get_the_ID() ? (int) get_the_ID() : (int) get_queried_object_id();
+                        $original_post_id = pp_capabilities_default_language_object_id($current_post_id, get_post_type($current_post_id));
+                        if ($original_post_id && $original_post_id !== $current_post_id) {
+                            $original_url = get_permalink($original_post_id);
+                            $default_language = apply_filters('wpml_default_language', null);
+                            if ($original_url && $default_language) {
+                                $original_url = apply_filters('wpml_permalink', $original_url, $default_language);
+                            }
+                            if ($original_url) {
+                                $current_urls[] = $original_url;
+                            }
+                        }
+                    }
+                    if (array_intersect($current_urls, $fse_blocked_nav_links)) {
                         $ppc_nav_menu_restricted = true;
                         pp_capabilities_nav_menu_access_denied();
                     }
@@ -1645,6 +1667,40 @@ if (!function_exists('pp_capabilities_nav_link_selector')) {
         }
 
         return $link_selector;
+    }
+}
+
+
+/**
+ * Get the ID of an object's original in the site's default language.
+ *
+ * Restrictions are saved for the default-language object, so translations
+ * (e.g. WPML) are mapped back to it. Returns the same ID when no
+ * translation plugin is active or the object has no default-language original.
+ *
+ * @param integer $object_id Post or term ID.
+ * @param string  $type      Post type or taxonomy.
+ *
+ * @return integer
+ */
+if (!function_exists('pp_capabilities_default_language_object_id')) {
+    function pp_capabilities_default_language_object_id($object_id, $type)
+    {
+        $object_id = (int) $object_id;
+
+        if (!$object_id || !$type || !has_filter('wpml_object_id')) {
+            return $object_id;
+        }
+
+        $default_language = apply_filters('wpml_default_language', null);
+
+        if (empty($default_language)) {
+            return $object_id;
+        }
+
+        $original_id = (int) apply_filters('wpml_object_id', $object_id, $type, true, $default_language);
+
+        return $original_id ? $original_id : $object_id;
     }
 }
 
