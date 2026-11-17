@@ -126,7 +126,7 @@ $admin_child_menu_option = array_map(
                                     <img class="loading" src="<?php echo esc_url($capsman->mod_url); ?>/images/wpspin_light.gif" style="display: none">
 
                                     <input type="submit" name="admin-menu-submit"
-                                        value="<?php esc_attr_e('Save Changes') ?>"
+                                        value="<?php echo esc_attr(sprintf(__('Save for %s', 'capability-manager-enhanced'), $role_caption)); ?>"
                                         class="button-primary ppc-admin-menu-submit" style="float:right" />
 
                                     <input type="submit" name="admin-menu-all-submit"
@@ -726,7 +726,7 @@ $admin_child_menu_option = array_map(
                                     </div>
                                 </div>
                                 <input type="submit" name="admin-menu-submit"
-                                    value="<?php esc_attr_e('Save Changes') ?>"
+                                    value="<?php echo esc_attr(sprintf(__('Save for %s', 'capability-manager-enhanced'), $role_caption)); ?>"
                                     class="button-primary ppc-admin-menu-submit" style="float: right; margin-top: 10px;"/>
                                 <input type="submit" name="admin-menu-all-submit"
                                     value="<?php esc_attr_e('Save for All Roles', 'capability-manager-enhanced') ?>"
