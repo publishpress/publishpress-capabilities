@@ -232,7 +232,7 @@ if (!defined('ABSPATH')) {
                     <?php endif; ?>
 
                     <h3 class="ppc-user-cap-section-title"><?php esc_html_e('Inherited Group Permissions', 'capability-manager-enhanced'); ?></h3>
-                    <p class="ppc-user-cap-note"><?php esc_html_e('Extra roles and specific permissions assigned to this user?s active groups, including WordPress role groups. These assignments are managed on the group.', 'capability-manager-enhanced'); ?></p>
+                    <p class="ppc-user-cap-note"><?php esc_html_e('Extra roles and specific permissions assigned to this user\'s active groups, including WordPress role groups. These assignments are managed on the group.', 'capability-manager-enhanced'); ?></p>
                     <?php if (empty($publishpress_permissions['groups'])) : ?>
                         <p><?php esc_html_e('This user has no group-assigned extra roles or specific permissions.', 'capability-manager-enhanced'); ?></p>
                     <?php else : ?>
