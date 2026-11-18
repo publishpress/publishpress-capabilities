@@ -276,6 +276,15 @@ class PP_Capabilities_Frontend_Features_Restrict
             if (in_array($element_id, $frontend_elements)) {
                 return true;
             }
+
+            //translated posts use the element choice of their default-language original
+            $original_post_id = pp_capabilities_default_language_object_id($post->ID, $post->post_type);
+            if ($original_post_id !== (int) $post->ID) {
+                $original_elements = (array) get_post_meta($original_post_id, '_ppc_frontendelements', true);
+                if (in_array($element_id, $original_elements)) {
+                    return true;
+                }
+            }
         }
 
         return false;
