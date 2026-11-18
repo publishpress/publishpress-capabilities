@@ -37,7 +37,7 @@ namespace {
     function update_option($key, $value, $autoload = null) { global $options; $options[$key] = $value; }
     function delete_option($key) { global $options; unset($options[$key]); }
     function sanitize_key($value) { return $value; }
-    function user_can($id, $capability) { global $users; return $users[0]->canRead; }
+    function user_can($id, $capability) { global $users; return $capability === 'manage_options' ? !empty($users[0]->canManage) : $users[0]->canRead; }
     function __($text, $domain = '') { return $text; }
     function admin_url($path) { return $path; }
     function wp_create_nonce($action) { return 'nonce'; }
@@ -111,5 +111,16 @@ namespace {
             }
         }
     }
-    echo "Profile Features capture regression checks passed (7 eligibility scenarios, repeat visits and plain visits).\n";
+
+    $blockedUser = (object) ['ID' => 6, 'roles' => ['contributor'], 'canRead' => true];
+    $users = [$blockedUser];
+    $testingEnabled = true;
+    $canEdit = true;
+    $options = ['pp_capabilities_contributor_role_option' => ['block_dashboard_access' => 1]];
+    $_REQUEST = ['page' => 'pp-capabilities-profile-features', 'role' => 'contributor', 'role_refresh' => 1];
+    $controller->profileFeaturesCaptureRedirect();
+    if (empty($profile_capture_error) || isset($options['capsman_profile_features_elements_testing_role'])) {
+        throw new RuntimeException('A role that blocks dashboard access must warn without starting capture.');
+    }
+    echo "Profile Features capture regression checks passed (7 eligibility scenarios, repeat visits, plain visits and a dashboard-blocked role).\n";
 }

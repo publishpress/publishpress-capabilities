@@ -17,10 +17,7 @@ if (!defined('ABSPATH')) {
 
     <p>
         <?php
-        printf(
-            esc_html__('Viewing effective capabilities for %s.', 'capability-manager-enhanced'),
-            esc_html($selected_user->display_name)
-        );
+        esc_html_e('You are viewing the capabilities for this specific user.', 'capability-manager-enhanced');
         ?>
     </p>
 
@@ -89,7 +86,7 @@ if (!defined('ABSPATH')) {
                     <?php if ($is_super_admin) : ?>
                         <?php esc_html_e('These include known capabilities WordPress grants through Super Admin access, role assignments, and direct overrides.', 'capability-manager-enhanced'); ?>
                     <?php else : ?>
-                        <?php esc_html_e('These are the capabilities WordPress resolves for this user after role assignments and any direct overrides.', 'capability-manager-enhanced'); ?>
+                        <?php esc_html_e('These are the capabilities assigned to this user in WordPress.', 'capability-manager-enhanced'); ?>
                     <?php endif; ?>
                 </p>
                 <?php if (empty($effective_granted_caps)) : ?>
@@ -173,7 +170,7 @@ if (!defined('ABSPATH')) {
                 </div>
                 <div class="inside">
                     <p class="ppc-user-cap-note">
-                        <?php esc_html_e('Direct Permissions settings for this user. These are separate from WordPress role capabilities.', 'capability-manager-enhanced'); ?>
+                        <?php esc_html_e('These are permissions assigned to the user in the PublishPress Permissions plugin.', 'capability-manager-enhanced'); ?>
                     </p>
 
                     <h3 class="ppc-user-cap-section-title">
@@ -232,35 +229,37 @@ if (!defined('ABSPATH')) {
                     <?php endif; ?>
 
                     <h3 class="ppc-user-cap-section-title"><?php esc_html_e('Inherited Group Permissions', 'capability-manager-enhanced'); ?></h3>
-                    <p class="ppc-user-cap-note"><?php esc_html_e('Extra roles and specific permissions assigned to this user?s active groups, including WordPress role groups. These assignments are managed on the group.', 'capability-manager-enhanced'); ?></p>
+                    <p class="ppc-user-cap-note"><?php esc_html_e('Extra roles and specific permissions assigned to this user\'s active groups, including WordPress role groups. These assignments are managed on the group.', 'capability-manager-enhanced'); ?></p>
                     <?php if (empty($publishpress_permissions['groups'])) : ?>
                         <p><?php esc_html_e('This user has no group-assigned extra roles or specific permissions.', 'capability-manager-enhanced'); ?></p>
                     <?php else : ?>
                         <?php foreach ($publishpress_permissions['groups'] as $group) : ?>
-                            <h4><?php echo esc_html($group['name']); ?></h4>
-                            <?php if (!empty($group['roles'])) : ?>
-                                <p><strong><?php printf(esc_html__('Extra Roles (%d)', 'capability-manager-enhanced'), (int) $group['roles_total']); ?></strong></p>
-                                <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
-                                    <?php foreach ($group['roles'] as $role_data) : ?>
-                                        <li><?php echo esc_html($role_data['label']); ?> <code><?php echo esc_html($role_data['slug']); ?></code></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
-                            <?php if (!empty($group['exceptions'])) : ?>
-                                <p><strong><?php printf(esc_html__('Specific Permissions (%d)', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></strong></p>
-                                <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
-                                    <?php foreach ($group['exceptions'] as $exception) : ?>
-                                        <li>
-                                            <strong><?php echo esc_html($exception['operation']); ?></strong>
-                                            <?php echo esc_html($exception['modification']); ?>
-                                            <span class="ppc-user-permissions-scope"><?php echo esc_html($exception['scope']); ?></span>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                                <?php if ($group['exceptions_total'] > count($group['exceptions'])) : ?>
-                                    <p class="ppc-user-cap-note"><?php printf(esc_html__('Showing the first 50 of %d permissions. Use the Permissions editor to view the full list.', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></p>
+                            <div class="ppc-user-permissions-group">
+                                <h4><?php echo esc_html($group['name']); ?></h4>
+                                <?php if (!empty($group['roles'])) : ?>
+                                    <p><strong><?php printf(esc_html__('Extra Roles (%d)', 'capability-manager-enhanced'), (int) $group['roles_total']); ?></strong></p>
+                                    <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
+                                        <?php foreach ($group['roles'] as $role_data) : ?>
+                                            <li><?php echo esc_html($role_data['label']); ?> <code><?php echo esc_html($role_data['slug']); ?></code></li>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 <?php endif; ?>
-                            <?php endif; ?>
+                                <?php if (!empty($group['exceptions'])) : ?>
+                                    <p><strong><?php printf(esc_html__('Specific Permissions (%d)', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></strong></p>
+                                    <ul class="ppc-user-permissions-list ppc-user-permissions-scroll">
+                                        <?php foreach ($group['exceptions'] as $exception) : ?>
+                                            <li>
+                                                <strong><?php echo esc_html($exception['operation']); ?></strong>
+                                                <?php echo esc_html($exception['modification']); ?>
+                                                <span class="ppc-user-permissions-scope"><?php echo esc_html($exception['scope']); ?></span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <?php if ($group['exceptions_total'] > count($group['exceptions'])) : ?>
+                                        <p class="ppc-user-cap-note"><?php printf(esc_html__('Showing the first 50 of %d permissions. Use the Permissions editor to view the full list.', 'capability-manager-enhanced'), (int) $group['exceptions_total']); ?></p>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </div>
                         <?php endforeach; ?>
                     <?php endif; ?>
 
@@ -268,12 +267,12 @@ if (!defined('ABSPATH')) {
                         <div class="ppc-user-permissions-actions">
                             <?php if (!empty($publishpress_permissions['roles_edit_url'])) : ?>
                                 <a href="<?php echo esc_url($publishpress_permissions['roles_edit_url']); ?>" class="button">
-                                    <?php esc_html_e('Edit Extra Roles', 'capability-manager-enhanced'); ?>
+                                    <?php esc_html_e('View Extra Roles', 'capability-manager-enhanced'); ?>
                                 </a>
                             <?php endif; ?>
                             <?php if (!empty($publishpress_permissions['exceptions_edit_url'])) : ?>
                                 <a href="<?php echo esc_url($publishpress_permissions['exceptions_edit_url']); ?>" class="button">
-                                    <?php esc_html_e('Edit Specific Permissions', 'capability-manager-enhanced'); ?>
+                                    <?php esc_html_e('View Specific Permissions', 'capability-manager-enhanced'); ?>
                                 </a>
                             <?php endif; ?>
                         </div>

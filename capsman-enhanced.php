@@ -3,13 +3,13 @@
  * Plugin Name: PublishPress Capabilities
  * Plugin URI: https://publishpress.com/capability-manager/
  * Description: PublishPress Capabilities is the access control plugin for WordPress. You can manage all your WordPress user roles, from Administrators to Subscribers.
- * Version: 2.53.0
+ * Version: 2.54.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: capability-manager-enhanced
  * Domain Path: /languages/
  * Requires at least: 5.5
- * Requires PHP: 7.2.5
+ * Requires PHP: 8.2
  * License: GPLv3
  *
 
@@ -28,13 +28,14 @@
 
 global $wp_version;
 
-$min_php_version = '7.2.5';
+$min_php_version = '8.2';
 $min_wp_version  = '5.5';
 
-$invalid_php_version = version_compare(phpversion(), $min_php_version, '<');
-$invalid_wp_version = version_compare($wp_version, $min_wp_version, '<');
+if (version_compare(PHP_VERSION, $min_php_version, '<')) {
+	return;
+}
 
-if ($invalid_php_version || $invalid_wp_version) {
+if (version_compare($wp_version, $min_wp_version, '<')) {
 	return;
 }
 
@@ -68,7 +69,7 @@ if (
 add_action('plugins_loaded', function () {
 
 	if (!defined('CAPSMAN_VERSION')) {
-		define('CAPSMAN_VERSION', '2.53.0');
+		define('CAPSMAN_VERSION', '2.54.0');
 		define('CAPSMAN_ENH_VERSION', CAPSMAN_VERSION);
 		define('PUBLISHPRESS_CAPS_VERSION', CAPSMAN_VERSION);
 	}
@@ -128,6 +129,7 @@ add_action('plugins_loaded', function () {
 	}
 
 	require_once(dirname(__FILE__) . '/includes/functions.php');
+	require_once __DIR__ . '/includes/mcp-abilities.php';
 
 	if (defined('WP_CLI') && WP_CLI) {
 		require_once __DIR__ . '/includes/functions-admin.php';
