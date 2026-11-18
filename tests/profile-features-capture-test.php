@@ -24,20 +24,42 @@ namespace {
     $testingEnabled = true;
     $options = [];
     $query = [];
+    $superAdmins = [];
+    $wpdb = new class {
+        public function get_blog_prefix($blog_id) { return "wp_{$blog_id}_"; }
+    };
     function is_multisite() { return true; }
     function is_super_admin() { return false; }
     function is_admin() { return true; }
-    function current_user_can($capability, $id = 0) { global $canEdit; return $capability !== 'edit_user' || $canEdit; }
+    function current_user_can($capability, $id = 0) {
+        global $canEdit, $users, $superAdmins;
+        $user = current(array_filter($users, function ($user) use ($id) { return $user->ID === $id; }));
+        return $capability !== 'edit_user' || ($canEdit && !in_array($user->user_login ?? '', $superAdmins, true));
+    }
+    function get_super_admins() { global $superAdmins; return $superAdmins; }
     function pp_capabilities_feature_enabled($feature) { global $testingEnabled; return $feature !== 'user-testing' || $testingEnabled; }
     function get_current_user_id() { return 1; }
     function get_current_blog_id() { return 2; }
     function wp_get_current_user() { global $currentRoles; return (object) ['roles' => $currentRoles]; }
-    function get_users($args) { global $users, $query; $query = $args; return $users; }
+    function get_users($args) {
+        global $users, $query;
+        $query = $args;
+        $found = array_values(array_filter($users, function ($user) use ($args) {
+            return !array_intersect($args['role__not_in'] ?? [], $user->roles)
+                && !in_array($user->user_login ?? '', $args['login__not_in'] ?? [], true)
+                && ((empty($args['capability']) && empty($args['meta_query'])) || $user->canRead);
+        }));
+        return array_slice($found, 0, $args['number'] ?? null);
+    }
     function get_option($key, $default = false) { global $options; return $options[$key] ?? $default; }
     function update_option($key, $value, $autoload = null) { global $options; $options[$key] = $value; }
     function delete_option($key) { global $options; unset($options[$key]); }
     function sanitize_key($value) { return $value; }
-    function user_can($id, $capability) { global $users; return $capability === 'manage_options' ? !empty($users[0]->canManage) : $users[0]->canRead; }
+    function user_can($id, $capability) {
+        global $users;
+        $user = current(array_filter($users, function ($user) use ($id) { return $user->ID === $id; }));
+        return $capability === 'manage_options' ? !empty($user->canManage) : $user->canRead;
+    }
     function __($text, $domain = '') { return $text; }
     function admin_url($path) { return $path; }
     function wp_create_nonce($action) { return 'nonce'; }
@@ -56,6 +78,29 @@ namespace {
         public function get_last_role() { return 'subscriber'; }
     };
     $user = (object) ['ID' => 2, 'roles' => ['subscriber'], 'canRead' => true];
+    $users = [];
+    $superAdmins = [];
+    foreach (range(3, 14) as $id) {
+        $users[] = (object) ['ID' => $id, 'roles' => ['subscriber', 'author'], 'canRead' => true];
+        $users[] = (object) ['ID' => $id + 100, 'roles' => ['subscriber'], 'canRead' => false];
+        $users[] = (object) ['ID' => $id + 200, 'user_login' => "super{$id}", 'roles' => ['subscriber'], 'canRead' => true];
+        $superAdmins[] = "super{$id}";
+    }
+    $users[] = $user;
+    $canEdit = true;
+    $options = ['cme_test_user_excluded_roles' => ['author']];
+    $_REQUEST = ['page' => 'pp-capabilities-profile-features', 'role' => 'subscriber', 'role_refresh' => 1];
+    $redirect = '';
+    try {
+        $controller->profileFeaturesCaptureRedirect();
+    } catch (RuntimeException $error) {
+        $redirect = $error->getMessage();
+    }
+    parse_str((string) parse_url($redirect, PHP_URL_QUERY), $redirectArgs);
+    if (($redirectArgs['ppc_test_user'] ?? '') !== base64_encode($user->ID)) {
+        throw new RuntimeException('Capture must use a testable user when the first users in the role cannot be tested.');
+    }
+    $superAdmins = [];
     $cases = [
         ['subscriber', [], ['administrator'], true, [], false],
         ['administrator', [], [], true, [], false],

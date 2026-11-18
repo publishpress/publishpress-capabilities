@@ -1655,6 +1655,36 @@ class CapabilityManager
                 return;
             }
 
+            // The first user found may fail the User Testing checks below, so ask for one that passes them
+            if (!empty($role_user)
+                && pp_capabilities_feature_enabled('user-testing')
+                && class_exists('PP_Capabilities_Test_User')
+            ) {
+                global $wpdb;
+                $testable_user = get_users(
+                    [
+                        'blog_id'       => get_current_blog_id(),
+                        'role'          => $default_role,
+                        'role__not_in'  => (array) get_option('cme_test_user_excluded_roles', []),
+                        'capability'    => 'read',
+                        // capability matches the role's read even when the user's own read is denied
+                        'meta_query'    => [
+                            [
+                                'key'     => $wpdb->get_blog_prefix(get_current_blog_id()) . 'capabilities',
+                                'value'   => '"read";b:0',
+                                'compare' => 'NOT LIKE',
+                            ],
+                        ],
+                        'login__not_in' => is_multisite() && !is_super_admin() ? get_super_admins() : [],
+                        'exclude'       => [get_current_user_id()],
+                        'number'        => 1,
+                    ]
+                );
+                if (!empty($testable_user)) {
+                    $role_user = $testable_user;
+                }
+            }
+
             if (!empty($role_user)
                 && (!pp_capabilities_feature_enabled('user-testing')
                     || !class_exists('PP_Capabilities_Test_User')
