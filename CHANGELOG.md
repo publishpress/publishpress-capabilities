@@ -1,6 +1,6 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.54.0] - 17 November, 2026
+[2.54.0] - 18 November, 2026
 
 - Feature : Allow compatible AI tools to manage roles, capabilities, menus, feature restrictions, settings, and backups through the WordPress Abilities API, #1898
 - Update : Require PHP 8.2 or newer, #1902
