@@ -45,5 +45,5 @@ To hide these metaboxes, follow these steps:
 
 *Hide Metaboxes WordPress*
 
-- Click “Save Changes”.
+- Click “Save for [Role]”.
 - Visit the post editing screen as a user in the role you selected. You will no longer see the metaboxes you selected.

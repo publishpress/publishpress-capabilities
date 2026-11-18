@@ -29,7 +29,7 @@ Let’s show you some examples of what “Hide CSS Elements” can do.
 
 ![](https://docs-media.publishpress.com/publishpress-capabilities/hide-css-elements-38813936e1.webp)
 
-To enable any of these sample restrictions for a user role, click the box next to the item. Then click “Save Changes” as in this screenshot below:
+To enable any of these sample restrictions for a user role, click the box next to the item. Then click “Save for [Role Name]” as in this screenshot below:
 
 ![Hide CSS elements](https://docs-media.publishpress.com/publishpress-capabilities/hide-css-elements-enable-7f4807be7b.webp)
 

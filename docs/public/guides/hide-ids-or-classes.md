@@ -24,7 +24,7 @@ This guide will show you how to use the “Hide IDs or Classes” option in the 
 
 ![](https://docs-media.publishpress.com/publishpress-capabilities/hide-site-footer-5cf4652087.webp)
 
-- Click the “Save Changes” button.
+- Click the “Save for [role]” button.
 
 ![Save changes to site footer](https://docs-media.publishpress.com/publishpress-capabilities/frontend-save-changes-52c48f9fac.webp)
 
