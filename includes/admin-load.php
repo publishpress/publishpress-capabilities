@@ -1584,7 +1584,10 @@ class PP_Capabilities_Admin_UI {
             add_action('load-' . $hook_suffix, [$this, 'setUserCapabilitiesPageTitle']);
         }
 
+        // add_users_page() attaches the page to profile.php for users who cannot edit users,
+        // so remove it from both parents to keep the page hidden for every role.
         remove_submenu_page('users.php', 'pp-capabilities-user-view');
+        remove_submenu_page('profile.php', 'pp-capabilities-user-view');
     }
 
     /**
