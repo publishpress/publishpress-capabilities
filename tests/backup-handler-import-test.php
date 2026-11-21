@@ -1,5 +1,11 @@
 <?php
 
+define('ABSPATH', dirname(__DIR__) . '/');
+
+function wp_unslash($value) {
+    return $value;
+}
+
 function sanitize_key($key) {
     return preg_replace('/[^a-z0-9_]+/', '_', strtolower((string) $key));
 }
