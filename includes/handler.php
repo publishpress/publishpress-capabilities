@@ -104,6 +104,11 @@ class CapsmanHandler
 			$newname = $this->createNewName(sanitize_text_field(wp_unslash($_POST['capability-name'])), ['allow_dashes' => true]);
 
 			if (empty($newname['error'])) {
+				if (!current_user_can('administrator') && !current_user_can($newname['name'])) {
+					ak_admin_error(__('You do not have permission to grant this capability.', 'capability-manager-enhanced'));
+					return;
+				}
+
 				$role->add_cap($newname['name']);
 
 				// for bbPress < 2.2, need to log customization of roles following bbPress activation
