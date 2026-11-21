@@ -71,6 +71,11 @@ class Capsman_BackupHandler
 	{
 		global $wpdb;
 
+        $actions = array_intersect(['save_backup', 'restore_backup', 'import_backup'], array_keys($_POST));
+        if (count($actions) > 1) {
+            wp_die(esc_html__('Submit one backup action at a time.', 'capability-manager-enhanced'), '', ['response' => 400]);
+        }
+
         if (isset($_POST['save_backup'])) {
 			check_admin_referer('pp-capabilities-backup');
 
@@ -105,8 +110,7 @@ class Capsman_BackupHandler
                             foreach ((array) ($section['options'] ?? []) as $option_key) {
                                 if (!$this->can_write_backup_option($option_key, $section_key)
                                     && false !== get_option($option_key . '_backup', false)) {
-                                    ak_admin_error(__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced'));
-                                    return;
+                                    wp_die(esc_html__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced'), '', ['response' => 403]);
                                 }
                             }
                         }
@@ -217,8 +221,7 @@ class Capsman_BackupHandler
 
             foreach (array_keys($data) as $option_key) {
                 if (!$this->can_write_backup_option($option_key, $allowed_import_options[$option_key]['section'])) {
-                    ak_admin_error(__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced'));
-                    return;
+                    wp_die(esc_html__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced'), '', ['response' => 403]);
                 }
             }
 

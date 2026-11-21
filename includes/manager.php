@@ -98,6 +98,8 @@ function _cme_is_read_removal_blocked( $role_name ) {
  */
 class CapabilityManager
 {
+	private $backup_notices = '';
+
 	/**
 	 * Array with all capabilities to be managed. (Depends on user caps).
 	 * The array keys are the capability, the value is its screen name.
@@ -486,7 +488,7 @@ class CapabilityManager
 			}
 		}
 
-		add_menu_page(
+		$top_level_hook = add_menu_page(
             $cap_title,
             $cap_title,
             $cap_name,
@@ -495,6 +497,9 @@ class CapabilityManager
             'dashicons-admin-network',
             $menu_order
         );
+        if ('pp-capabilities-backup' === $cap_page_slug && $top_level_hook) {
+            add_action("load-$top_level_hook", [$this, 'processBackupPost']);
+        }
 
 		// Translate plugin menu title if needed. Title was passed untranslated to avoid translating hook name, body class, current screen
 		if (($cap_title != $cap_title_i8n) && empty($using_submenu_title)) {
@@ -519,6 +524,9 @@ class CapabilityManager
             ) {
                 //register the menu if enabled
                 $hook = add_submenu_page($cap_page_slug, $subpage_option['title'], $subpage_option['title'], $subpage_option['capabilities'], $subpage_option['page'], $subpage_option['callback']);
+                if ('backup' === $feature && $hook && $hook !== $top_level_hook) {
+                    add_action("load-$hook", [$this, 'processBackupPost']);
+                }
                 if ($feature === 'roles' && !empty($hook)) {
                     add_action(
                         "load-$hook",
@@ -1471,12 +1479,7 @@ class CapabilityManager
 			wp_die('<strong>' . esc_html__('You do not have permission to restore roles.', 'capability-manager-enhanced') . '</strong>');
 		}
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD'])) {
-			check_admin_referer('pp-capabilities-backup');
-			require_once( dirname(__FILE__).'/backup-handler.php' );
-			$cme_backup_handler = new Capsman_BackupHandler( $this );
-			$cme_backup_handler->processBackupTool();
-		}
+		echo wp_kses_post($this->backup_notices);
 
 		if ( isset($_GET['action']) && 'reset-defaults' == $_GET['action']) {
 			check_admin_referer('capsman-reset-defaults');
@@ -1488,6 +1491,20 @@ class CapabilityManager
 		include ( dirname(CME_FILE) . '/includes/backup.php' );
 	}
 
+	public function processBackupPost()
+	{
+		if ('POST' !== ($_SERVER['REQUEST_METHOD'] ?? '')) {
+			return;
+		}
+
+		check_admin_referer('pp-capabilities-backup');
+		require_once __DIR__ . '/backup-handler.php';
+		$handler = new Capsman_BackupHandler($this);
+
+		ob_start();
+		$handler->processBackupTool();
+		$this->backup_notices = ob_get_clean();
+	}
 
 	/**
 	 * Processes export.

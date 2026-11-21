@@ -19,8 +19,25 @@ function is_multisite() {
     return false;
 }
 
-function wp_die($message = '') {
-    throw new Exception($message);
+function wp_die($message = '', $title = '', $args = []) {
+    throw new RuntimeException($message, $args['response'] ?? 500);
+}
+
+function check_admin_referer($action) {}
+
+function pp_capabilities_backup_sections() {
+    return ['capsman_admin_menu_backup' => ['options' => ['capsman_admin_menus']]];
+}
+
+function get_option($key, $default = false) {
+    return [
+        'capsman_backup' => ['editor' => ['name' => 'Editor', 'capabilities' => ['read' => true]]],
+        'capsman_admin_menus_backup' => ['editor' => []],
+    ][$key] ?? $default;
+}
+
+function update_option($key, $value) {
+    throw new RuntimeException('Unauthorized restore must not write ' . $key);
 }
 
 function esc_html__($text, $domain = null) {
@@ -95,3 +112,17 @@ if (isset($result['editor']['capabilities']['manage_options'])) {
 }
 
 echo "PASS: imported roles only preserve capabilities the current user can grant.\n";
+
+$wpdb = (object) ['prefix' => 'wp_'];
+$_POST = ['restore_backup' => '1', 'select_restore' => 'restore'];
+$handler = new Capsman_BackupHandler((object) ['ID' => 'capsman']);
+$denial_status = 0;
+try {
+    $handler->processBackupTool();
+} catch (RuntimeException $error) {
+    $denial_status = $error->getCode();
+}
+if (403 !== $denial_status) {
+    throw new RuntimeException('Backup-only restore must respond with HTTP 403 before writing.');
+}
+echo "PASS: Backup-only restore of Admin Menus settings returns 403.\n";
