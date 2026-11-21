@@ -196,15 +196,29 @@ class PP_Capabilities_Test_User
     {
         $excluded_roles = (array) get_option('cme_test_user_excluded_roles', []);
 
-        $can_test_user  = false;
-        if (current_user_can('manage_capabilities_user_testing')
-            && current_user_can('edit_user', $user->ID)
-            && $user->ID !== get_current_user_id()
-            && !array_intersect($excluded_roles, $user->roles)
+        if (!current_user_can('manage_capabilities_user_testing')
+            || !current_user_can('edit_user', $user->ID)
+            || (int) $user->ID === get_current_user_id()
+            || array_intersect($excluded_roles, $user->roles)
+            || (is_multisite() && !is_user_member_of_blog($user->ID))
         ) {
-            $can_test_user = true;
+            return false;
         }
 
-        return $can_test_user;
+        if (is_multisite() && is_super_admin()) {
+            return true;
+        }
+
+        foreach ($user->allcaps as $capability => $granted) {
+            $is_role = in_array($capability, $user->roles, true);
+            if ($granted
+                && (!$is_role || 'administrator' === $capability || strpos($capability, 'manage_capabilities') === 0)
+                && !current_user_can($capability)
+            ) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

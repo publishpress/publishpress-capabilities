@@ -192,7 +192,7 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
      */
     public function adminUserEditAction($user)
     {
-        if (current_user_can('manage_capabilities_user_testing') && current_user_can('edit_user', $user->ID) && $user->ID !== get_current_user_id()) {
+        if (PP_Capabilities_Test_User::canTestUser($user)) {
             $link = add_query_arg(
                 [
                     'ppc_test_user' => base64_encode($user->ID),
