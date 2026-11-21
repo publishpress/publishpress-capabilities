@@ -19,11 +19,29 @@ class Capsman_BackupHandler
 
     public function can_write_backup_option($option_key, $section_key)
     {
-        if ('capsman_admin_menu_backup' !== $section_key && 'cme_admin_menus_restriction_priority' !== $option_key) {
-            return true;
+        if ($this->is_admin_menus_backup_option($option_key, $section_key)) {
+            return current_user_can('manage_capabilities_admin_menus');
         }
 
-        return current_user_can('manage_capabilities_admin_menus');
+        $feature_capabilities = [
+            'capsman_editor_features_backup' => 'manage_capabilities_editor_features',
+            'capsman_admin_features_backup' => 'manage_capabilities_admin_features',
+            'capsman_admin_styles_backup' => 'manage_capabilities_admin_styles',
+            'capsman_admin_notices_backup' => 'manage_capabilities_admin_notices',
+            'capsman_frontend_features_backup' => 'manage_capabilities_frontend_features',
+            'capsman_profile_features_backup' => 'manage_capabilities_profile_features',
+            'capsman_redirects_backup' => 'manage_capabilities_redirects',
+            'capsman_nav_menu_backup' => 'manage_capabilities_nav_menus',
+            'capsman_settings_backup' => 'manage_capabilities_settings',
+        ];
+
+        return !isset($feature_capabilities[$section_key]) || current_user_can($feature_capabilities[$section_key])
+            || current_user_can('administrator') || (is_multisite() && is_super_admin());
+    }
+
+    public function is_admin_menus_backup_option($option_key, $section_key)
+    {
+        return 'capsman_admin_menu_backup' === $section_key || 'cme_admin_menus_restriction_priority' === $option_key;
     }
 
     /**
@@ -110,7 +128,10 @@ class Capsman_BackupHandler
                             foreach ((array) ($section['options'] ?? []) as $option_key) {
                                 if (!$this->can_write_backup_option($option_key, $section_key)
                                     && false !== get_option($option_key . '_backup', false)) {
-                                    wp_die(esc_html__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced'), '', ['response' => 403]);
+                                    $message = $this->is_admin_menus_backup_option($option_key, $section_key)
+                                        ? esc_html__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced')
+                                        : esc_html__('You do not have permission to restore these feature settings.', 'capability-manager-enhanced');
+                                    wp_die($message, '', ['response' => 403]);
                                 }
                             }
                         }
@@ -221,7 +242,10 @@ class Capsman_BackupHandler
 
             foreach (array_keys($data) as $option_key) {
                 if (!$this->can_write_backup_option($option_key, $allowed_import_options[$option_key]['section'])) {
-                    wp_die(esc_html__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced'), '', ['response' => 403]);
+                    $message = $this->is_admin_menus_backup_option($option_key, $allowed_import_options[$option_key]['section'])
+                        ? esc_html__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced')
+                        : esc_html__('You do not have permission to import these feature settings.', 'capability-manager-enhanced');
+                    wp_die($message, '', ['response' => 403]);
                 }
             }
 

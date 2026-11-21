@@ -8,11 +8,11 @@ function sanitize_text_field($value) {
     return is_scalar($value) ? (string) $value : '';
 }
 
-$can_manage_menus = false;
+$allowed_feature = '';
 
 function current_user_can($capability) {
     return in_array($capability, ['read', 'manage_capabilities_backup'], true)
-        || ('manage_capabilities_admin_menus' === $capability && $GLOBALS['can_manage_menus']);
+        || $capability === $GLOBALS['allowed_feature'];
 }
 
 function is_multisite() {
@@ -60,18 +60,27 @@ if (false !== strpos($backup_handler_source, '! WP_Filesystem()')) {
 
 $handler = new Capsman_BackupHandler(new stdClass());
 foreach ([
-    ['capsman_admin_menus', 'capsman_admin_menu_backup'],
-    ['ppc_admin_menus_settings', 'capsman_admin_menu_backup'],
-    ['cme_admin_menus_restriction_priority', 'capsman_settings_backup'],
-] as [$option_key, $section_key]) {
+    ['capsman_admin_menus', 'capsman_admin_menu_backup', 'admin_menus'],
+    ['ppc_admin_menus_settings', 'capsman_admin_menu_backup', 'admin_menus'],
+    ['cme_admin_menus_restriction_priority', 'capsman_settings_backup', 'admin_menus'],
+    ['capsman_feature_restrict_post', 'capsman_editor_features_backup', 'editor_features'],
+    ['capsman_disabled_admin_features', 'capsman_admin_features_backup', 'admin_features'],
+    ['pp_capabilities_admin_styles', 'capsman_admin_styles_backup', 'admin_styles'],
+    ['cme_admin_notice_options', 'capsman_admin_notices_backup', 'admin_notices'],
+    ['capsman_disabled_frontend_features', 'capsman_frontend_features_backup', 'frontend_features'],
+    ['capsman_profile_features_elements', 'capsman_profile_features_backup', 'profile_features'],
+    ['capsman_role_redirects', 'capsman_redirects_backup', 'redirects'],
+    ['capsman_nav_item_menus', 'capsman_nav_menu_backup', 'nav_menus'],
+    ['cme_role_same_page_redirect_cookie', 'capsman_settings_backup', 'settings'],
+] as [$option_key, $section_key, $capability_suffix]) {
     if ($handler->can_write_backup_option($option_key, $section_key)) {
         throw new RuntimeException('Backup permission alone must not permit writing ' . $option_key);
     }
-    $can_manage_menus = true;
+    $allowed_feature = 'manage_capabilities_' . $capability_suffix;
     if (!$handler->can_write_backup_option($option_key, $section_key)) {
-        throw new RuntimeException('Admin Menus permission must permit writing ' . $option_key);
+        throw new RuntimeException('Matching feature permission must permit writing ' . $option_key);
     }
-    $can_manage_menus = false;
+    $allowed_feature = '';
 }
 if (!$handler->can_write_backup_option('user_roles', 'roles')) {
     throw new RuntimeException('Role-only backups should keep the existing permission policy.');
