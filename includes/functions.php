@@ -803,7 +803,7 @@ if (!function_exists('pp_capabilities_nav_menu_access_denied')) {
     function pp_capabilities_nav_menu_access_denied()
     {
         $forbidden = esc_attr__('You do not have permission to access this page.', 'capability-manager-enhanced');
-        wp_die(esc_html($forbidden));
+        wp_die(esc_html($forbidden), '', ['response' => 403]);
     }
 }
 

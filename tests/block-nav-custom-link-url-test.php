@@ -27,7 +27,7 @@ function wp_parse_str($query, &$arguments) { parse_str($query, $arguments); }
 function get_option($key, $default = false) {
     return 'capsman_nav_item_menus' === $key ? ['subscriber' => ['0|' . $GLOBALS['blocked_url'] . '|custom']] : $default;
 }
-function wp_die($message) { throw new RuntimeException($message); }
+function wp_die($message, $title = '', $args = []) { throw new RuntimeException($message, $args['response'] ?? 500); }
 
 require PUBLISHPRESS_CAPS_ABSPATH . '/includes/functions.php';
 
@@ -60,7 +60,7 @@ foreach ($cases as $label => $case) {
     try {
         $handler(new stdClass());
     } catch (RuntimeException $error) {
-        if ('You do not have permission to access this page.' !== $error->getMessage()) {
+        if (403 !== $error->getCode() || 'You do not have permission to access this page.' !== $error->getMessage()) {
             throw $error;
         }
         $denied = true;
