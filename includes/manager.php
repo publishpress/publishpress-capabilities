@@ -488,7 +488,7 @@ class CapabilityManager
 			}
 		}
 
-		$top_level_hook = add_menu_page(
+		add_menu_page(
             $cap_title,
             $cap_title,
             $cap_name,
@@ -497,9 +497,6 @@ class CapabilityManager
             'dashicons-admin-network',
             $menu_order
         );
-        if ('pp-capabilities-backup' === $cap_page_slug && $top_level_hook) {
-            add_action("load-$top_level_hook", [$this, 'processBackupPost']);
-        }
 
 		// Translate plugin menu title if needed. Title was passed untranslated to avoid translating hook name, body class, current screen
 		if (($cap_title != $cap_title_i8n) && empty($using_submenu_title)) {
@@ -524,9 +521,6 @@ class CapabilityManager
             ) {
                 //register the menu if enabled
                 $hook = add_submenu_page($cap_page_slug, $subpage_option['title'], $subpage_option['title'], $subpage_option['capabilities'], $subpage_option['page'], $subpage_option['callback']);
-                if ('backup' === $feature && $hook && $hook !== $top_level_hook) {
-                    add_action("load-$hook", [$this, 'processBackupPost']);
-                }
                 if ($feature === 'roles' && !empty($hook)) {
                     add_action(
                         "load-$hook",
@@ -540,6 +534,13 @@ class CapabilityManager
             if ($dashboard_screen) {
                 $submenu_slugs[] = $subpage_option['page'];
                 $submenu_slugs_conditions[] = [ $subpage_option['page'], pp_capabilities_feature_enabled($feature)];
+            }
+        }
+
+        if (!empty($sub_menu_pages['backup']['page'])) {
+            $backup_hook = get_plugin_page_hook($sub_menu_pages['backup']['page'], $cap_page_slug);
+            if ($backup_hook) {
+                add_action("load-$backup_hook", [$this, 'processBackupPost']);
             }
         }
 
