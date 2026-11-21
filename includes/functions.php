@@ -1609,9 +1609,12 @@ if (!is_admin()) {
                             }
                         }
                     }
-                    if (array_intersect($current_urls, $fse_blocked_nav_links)) {
-                        $ppc_nav_menu_restricted = true;
-                        pp_capabilities_nav_menu_access_denied();
+                    foreach ($current_urls as $current_url) {
+                        foreach ($fse_blocked_nav_links as $blocked_url) {
+                            if (pp_capabilities_nav_link_matches_url($blocked_url, $current_url)) {
+                                pp_capabilities_nav_menu_access_denied();
+                            }
+                        }
                     }
                     //hide menu item immediately, remove menu item from li after page load
                     add_action('wp_head', function () use ($fse_blocked_nav_links) {
@@ -1641,6 +1644,43 @@ if (!is_admin()) {
     }
 
     add_action('parse_query', 'pp_capabilities_nav_menu_access');
+}
+
+if (!function_exists('pp_capabilities_nav_link_matches_url')) {
+    function pp_capabilities_nav_link_matches_url($blocked_url, $current_url)
+    {
+        $blocked = wp_parse_url(html_entity_decode($blocked_url, ENT_QUOTES, 'UTF-8'));
+        $current = wp_parse_url($current_url);
+
+        if (empty($blocked['host']) || empty($current['host'])
+            || !in_array($blocked['scheme'] ?? '', ['http', 'https'], true)
+            || $blocked['scheme'] !== ($current['scheme'] ?? '')
+            || 0 !== strcasecmp($blocked['host'], $current['host'])) {
+            return false;
+        }
+
+        $default_port = 'https' === $blocked['scheme'] ? 443 : 80;
+        $path = $current['path'] ?? '/';
+        if (($blocked['port'] ?? $default_port) !== ($current['port'] ?? $default_port)
+            || ($blocked['path'] ?? '/') !== $path) {
+            return false;
+        }
+
+        wp_parse_str($blocked['query'] ?? '', $required);
+        wp_parse_str($current['query'] ?? '', $actual);
+
+        if (!$required && $actual && $path === (wp_parse_url(home_url('/'), PHP_URL_PATH) ?: '/') && !is_front_page()) {
+            return false;
+        }
+
+        foreach ($required as $key => $value) {
+            if (!array_key_exists($key, $actual) || $actual[$key] !== $value) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
 
 /**
