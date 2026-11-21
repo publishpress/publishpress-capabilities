@@ -189,6 +189,27 @@ class CapsmanHandler
 		}
 	}
 
+	public function createNewRoleName($name)
+	{
+		$role = $this->createNewName($name);
+		if (!empty($role['error'])) {
+			return $role;
+		}
+
+		require_once __DIR__ . '/mcp/grant-policy.php';
+		$slug = $role['name'];
+		if (\PublishPress\Capabilities\Mcp\GrantPolicy::isProtected($slug) || get_role($slug)) {
+			return ['error' => 'role_exists', 'name' => $slug];
+		}
+		foreach (wp_roles()->roles as $definition) {
+			if (array_key_exists($slug, $definition['capabilities'])) {
+				return ['error' => 'role_exists', 'name' => $slug];
+			}
+		}
+
+		return $role;
+	}
+
 	/**
 	 * Creates a new role.
 	 *
@@ -200,7 +221,7 @@ class CapsmanHandler
 		if ( ! is_array($caps) )
 			$caps = array();
 
-		$role = $this->createNewName($name);
+		$role = $this->createNewRoleName($name);
 		if (!empty($role['error'])) {
 			return false;
 		}

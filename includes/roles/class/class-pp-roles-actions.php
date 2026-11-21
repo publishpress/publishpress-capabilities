@@ -228,7 +228,7 @@ class Pp_Roles_Actions
          */
         require_once(dirname(CME_FILE).'/includes/handler.php');
         $capsman_handler = new CapsmanHandler();
-        $role = $capsman_handler->createNewName(sanitize_key($role_slug));
+        $role = $capsman_handler->createNewRoleName(sanitize_key($role_slug));
 
         /**
          * Check for invalid name entry
