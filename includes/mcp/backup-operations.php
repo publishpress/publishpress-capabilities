@@ -117,6 +117,9 @@ class BackupOperations
             if (!isset($allowed[$key])) {
                 return RoleOperations::error('unsupported_import', __('Configuration contains an unsupported setting.', 'capability-manager-enhanced'));
             }
+            if (!$handler->can_write_backup_option($key, $allowed[$key]['section'])) {
+                return RoleOperations::error('admin_menus_forbidden', __('You do not have permission to restore or import Admin Menus settings.', 'capability-manager-enhanced'));
+            }
             if ($key === 'user_roles') {
                 $selected = $handler->is_selected_roles_import($value);
                 $roles = $selected ? $value['roles'] : $value;

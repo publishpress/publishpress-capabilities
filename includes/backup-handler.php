@@ -17,6 +17,15 @@ class Capsman_BackupHandler
 		$this->cm = $manager_obj;
 	}
 
+    public function can_write_backup_option($option_key, $section_key)
+    {
+        if ('capsman_admin_menu_backup' !== $section_key && 'cme_admin_menus_restriction_priority' !== $option_key) {
+            return true;
+        }
+
+        return current_user_can('manage_capabilities_admin_menus');
+    }
+
     /**
      * Persist a backup through the same lifecycle for admin and non-form callers.
      *
@@ -91,6 +100,16 @@ class Capsman_BackupHandler
 
 				case 'restore':
 					if ($roles = get_option($cm_roles)) {
+
+                        foreach ($backup_sections as $section_key => $section) {
+                            foreach ((array) ($section['options'] ?? []) as $option_key) {
+                                if (!$this->can_write_backup_option($option_key, $section_key)
+                                    && false !== get_option($option_key . '_backup', false)) {
+                                    ak_admin_error(__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced'));
+                                    return;
+                                }
+                            }
+                        }
 
                         $restored_backup = ['Roles and Capabilities'];
 
@@ -195,6 +214,13 @@ class Capsman_BackupHandler
             $skipped_options = array_keys(array_diff_key($data, $allowed_import_options));
 
             $data = $this->filter_import_data_by_allowlist($data, $allowed_import_options);
+
+            foreach (array_keys($data) as $option_key) {
+                if (!$this->can_write_backup_option($option_key, $allowed_import_options[$option_key]['section'])) {
+                    ak_admin_error(__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced'));
+                    return;
+                }
+            }
 
             foreach ( $data as $option_key => $option_value ) {
                 if (!isset($allowed_import_options[$option_key])) {

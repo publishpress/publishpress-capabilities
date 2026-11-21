@@ -8,8 +8,11 @@ function sanitize_text_field($value) {
     return is_scalar($value) ? (string) $value : '';
 }
 
+$can_manage_menus = false;
+
 function current_user_can($capability) {
-    return in_array($capability, ['read', 'manage_capabilities_backup'], true);
+    return in_array($capability, ['read', 'manage_capabilities_backup'], true)
+        || ('manage_capabilities_admin_menus' === $capability && $GLOBALS['can_manage_menus']);
 }
 
 function is_multisite() {
@@ -39,6 +42,24 @@ if (false !== strpos($backup_handler_source, '! WP_Filesystem()')) {
 }
 
 $handler = new Capsman_BackupHandler(new stdClass());
+foreach ([
+    ['capsman_admin_menus', 'capsman_admin_menu_backup'],
+    ['ppc_admin_menus_settings', 'capsman_admin_menu_backup'],
+    ['cme_admin_menus_restriction_priority', 'capsman_settings_backup'],
+] as [$option_key, $section_key]) {
+    if ($handler->can_write_backup_option($option_key, $section_key)) {
+        throw new RuntimeException('Backup permission alone must not permit writing ' . $option_key);
+    }
+    $can_manage_menus = true;
+    if (!$handler->can_write_backup_option($option_key, $section_key)) {
+        throw new RuntimeException('Admin Menus permission must permit writing ' . $option_key);
+    }
+    $can_manage_menus = false;
+}
+if (!$handler->can_write_backup_option('user_roles', 'roles')) {
+    throw new RuntimeException('Role-only backups should keep the existing permission policy.');
+}
+
 $input = [
     'editor' => [
         'name' => 'Editor',
