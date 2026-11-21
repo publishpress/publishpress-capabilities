@@ -35,6 +35,24 @@ class AdminMenusController
         return array_values(array_filter(array_map('sanitize_text_field', wp_unslash($_POST[$field_name])), 'strlen'));
     }
 
+    public static function getEditableRoles()
+    {
+        require_once dirname(__DIR__, 3) . '/framework/lib/users.php';
+
+        $roles = ak_get_roles(true);
+        if (!current_user_can('administrator') && !(is_multisite() && is_super_admin())) {
+            $user = wp_get_current_user();
+            $roles = array_diff_key($roles, array_flip(array_merge(['administrator'], (array) $user->roles)));
+            $max_level = ak_caps2level($user->allcaps);
+            $roles = array_filter($roles, static function ($role_name) use ($max_level) {
+                $role = get_role($role_name);
+                return $role && ak_caps2level($role->capabilities) <= $max_level;
+            }, ARRAY_FILTER_USE_KEY);
+        }
+
+        return array_filter($roles, 'pp_capabilities_is_editable_role', ARRAY_FILTER_USE_KEY);
+    }
+
     private function normalizeOwnRoleAdminMenuRestrictions(array $disabled_menus, array $disabled_child_menus, $role_name, array $current_user_roles)
     {
         if (!in_array($role_name, $current_user_roles, true)) {
@@ -72,7 +90,11 @@ class AdminMenusController
 		}
 
 		$capsman->generateNames();
+		$capsman->roles = array_intersect_key($capsman->roles, self::getEditableRoles());
 		$roles = array_keys($capsman->roles);
+        if (!$roles) {
+            wp_die(esc_html__('You do not have permission to manage menu restrictions for any role.', 'capability-manager-enhanced'), '', ['response' => 403]);
+        }
 
 		if ( ! isset($capsman->current) ) {
 			if ('POST' !== $_SERVER['REQUEST_METHOD'] && !empty($_REQUEST['role'])) {
@@ -85,7 +107,7 @@ class AdminMenusController
 		}
 
 		if ( ! in_array($capsman->current, $roles) ) {
-			$capsman->current = array_shift($roles);
+			$capsman->current = reset($roles);
 		}
 
 		$ppc_admin_menu_reload = '0';
@@ -94,7 +116,10 @@ class AdminMenusController
             if (!wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'pp-capabilities-admin-menus')) {
                 wp_die('<strong>' . esc_html__('You do not have permission to manage menu restrictions.', 'capability-manager-enhanced') . '</strong>');
             } else {
-                $menu_role = sanitize_key($_POST['ppc-admin-menu-role']);
+                $menu_role = sanitize_key(wp_unslash($_POST['ppc-admin-menu-role']));
+                if (!in_array($menu_role, $roles, true)) {
+                    wp_die(esc_html__('You do not have permission to manage menu restrictions for this role.', 'capability-manager-enhanced'), '', ['response' => 403]);
+                }
                 $save_for_all_roles = !empty($_POST['admin-menu-all-submit']);
                 $current_user_roles = (array) wp_get_current_user()->roles;
 
@@ -141,7 +166,7 @@ class AdminMenusController
                         $ppc_admin_menu_reload = '1';
                     }
 
-                    ak_admin_notify(__('Settings updated for all roles.', 'capability-manager-enhanced'));
+                    ak_admin_notify(__('Settings updated for all editable roles.', 'capability-manager-enhanced'));
                 } elseif (in_array($menu_role, $current_user_roles, true)) {
                 	$ppc_admin_menu_reload = '1';
                 }
