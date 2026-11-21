@@ -486,7 +486,7 @@ class CapabilityManager
 			}
 		}
 
-		add_menu_page(
+		$top_level_hook = add_menu_page(
             $cap_title,
             $cap_title,
             $cap_name,
@@ -495,6 +495,9 @@ class CapabilityManager
             'dashicons-admin-network',
             $menu_order
         );
+        if ('pp-capabilities-admin-menus' === $cap_page_slug && $top_level_hook) {
+            add_action("load-$top_level_hook", [\PublishPress\Capabilities\AdminMenusController::instance(), 'validateFormSubmission']);
+        }
 
 		// Translate plugin menu title if needed. Title was passed untranslated to avoid translating hook name, body class, current screen
 		if (($cap_title != $cap_title_i8n) && empty($using_submenu_title)) {
@@ -519,6 +522,9 @@ class CapabilityManager
             ) {
                 //register the menu if enabled
                 $hook = add_submenu_page($cap_page_slug, $subpage_option['title'], $subpage_option['title'], $subpage_option['capabilities'], $subpage_option['page'], $subpage_option['callback']);
+                if ('admin-menus' === $feature && $hook && $hook !== $top_level_hook) {
+                    add_action("load-$hook", [\PublishPress\Capabilities\AdminMenusController::instance(), 'validateFormSubmission']);
+                }
                 if ($feature === 'roles' && !empty($hook)) {
                     add_action(
                         "load-$hook",

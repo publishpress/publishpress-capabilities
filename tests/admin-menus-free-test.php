@@ -18,7 +18,9 @@ function __($text, $domain = '') { return $text; }
 function sanitize_key($value) { return preg_replace('/[^a-z0-9_-]/', '', strtolower($value)); }
 function sanitize_text_field($value) { return strip_tags($value); }
 function wp_unslash($value) { return $value; }
-function wp_verify_nonce($nonce, $action) { return $nonce === 'valid' && $action === 'ppc-admin-menu-nonce'; }
+function wp_verify_nonce($nonce, $action) { return $nonce === 'valid' && in_array($action, ['ppc-admin-menu-nonce', 'pp-capabilities-admin-menus'], true); }
+function esc_html__($text, $domain) { return $text; }
+function wp_die($message, $title, $args) { throw new RuntimeException($message, $args['response']); }
 function current_user_can($cap) { return $cap === 'manage_capabilities_admin_menus' && $GLOBALS['can_manage']; }
 function is_multisite() { return false; }
 function _x($text, $context) { return $text; }
@@ -75,6 +77,22 @@ check($response['status'] === 'success' && $options['ppc_admin_menus_settings'][
 
 $editable_roles = \PublishPress\Capabilities\AdminMenusController::getEditableRoles();
 check(array_keys($editable_roles) === ['author'], 'Role scope must respect role level, own-role protections, and editable role filters');
+$capsman = new class {
+    public $roles = ['administrator' => 'Administrator', 'author' => 'Author'];
+    public function generateNames() {}
+};
+$_SERVER['REQUEST_METHOD'] = 'POST';
+$_POST = ['_wpnonce' => 'valid', 'ppc-admin-menu-role' => 'administrator'];
+$denied = false;
+try {
+    $controller->validateFormSubmission();
+} catch (RuntimeException $error) {
+    $denied = $error->getCode() === 403;
+}
+check($denied, 'Protected role form must be denied with HTTP 403 on screen load');
+$_POST['ppc-admin-menu-role'] = 'author';
+$controller->validateFormSubmission();
+
 $_POST = ['nonce' => 'valid', 'menu_id' => 'edit.php', 'menu_title' => 'Articles', 'menu_type' => 'menu', 'current_role' => 'administrator'];
 $previous_names = $options['ppc_admin_menus_names'];
 try { $shared->ajaxUpdateAdminMenuTitle(); } catch (RuntimeException $error) { $response = json_decode($error->getMessage(), true); }
