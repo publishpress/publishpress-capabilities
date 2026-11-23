@@ -146,6 +146,17 @@
     gap: 10px;
 }
 
+.pp-admin-menu-buttons .ppc-tool-tip:not(.click-tooltip) .tool-tip-text {
+    top: calc(100% + 8px);
+    transform: translateX(-50%);
+}
+
+.pp-admin-menu-buttons .ppc-tool-tip:not(.click-tooltip) .tool-tip-text i {
+    top: auto;
+    bottom: 100%;
+    transform: rotate(180deg);
+}
+
 .pp-capability-menus-wrapper.admin-menus #pp-capability-menu-wrapper table td.ppc-menu-action {
     width: 22%;
 }
