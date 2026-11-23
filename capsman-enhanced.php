@@ -14,7 +14,6 @@
  *
 
  * Copyright (c) 2024 PublishPress
-	if ($pro_active) return;
  * Author: Jordi Canals
  * Copyright (c) 2009, 2010 Jordi Canals
  * ------------------------------------------------------------------------------
