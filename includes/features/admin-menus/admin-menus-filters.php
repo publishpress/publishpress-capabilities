@@ -658,7 +658,7 @@ class Admin_Menus_Filters
         } else {
             $menu_id      = !empty($_POST['menu_id']) ? sanitize_text_field($_POST['menu_id']) : '';
             $menu_title   = !empty($_POST['menu_title']) ? sanitize_text_field($_POST['menu_title']) : '';
-            $current_role = !empty($_POST['current_role']) ? sanitize_text_field($_POST['current_role']) : '';
+            $current_role = isset($_POST['current_role']) ? sanitize_key(wp_unslash($_POST['current_role'])) : '';
             $menu_type    = !empty($_POST['menu_type']) ? sanitize_text_field($_POST['menu_type']) : '';
             $menu_icon    = !empty($_POST['menu_icon']) ? sanitize_text_field($_POST['menu_icon']) : '';
             $scope        = !empty($_POST['scope']) ? sanitize_text_field($_POST['scope']) : 'role';
@@ -666,25 +666,27 @@ class Admin_Menus_Filters
             if (empty($menu_id) || empty($menu_title)) {
                 $response['message'] = __('Invalid data', 'capability-manager-enhanced');
             } else {
+                $editable_roles = AdminMenusController::getEditableRoles();
+                $target_roles = 'all' === $scope ? array_keys($editable_roles) : array_keys(array_intersect_key($editable_roles, [$current_role => true]));
+                if (!$target_roles) {
+                    $response['message'] = __('You do not have permission to rename menus for the selected roles.', 'capability-manager-enhanced');
+                    wp_send_json($response);
+                    return;
+                }
+
                 $admin_menus_names = !empty(get_option('ppc_admin_menus_names')) ? (array) get_option('ppc_admin_menus_names', []) : [];
 
-                if ($scope === 'all') {
-                    // Apply to all roles
-                    foreach (wp_roles()->roles as $role_name => $role_info) {
-                        self::updateMenuAndSubmenuNames($admin_menus_names, $role_name, $menu_id, $menu_type, $menu_title, $menu_icon);
-                    }
-                    $response['message'] = __('Menu Name Updated for all roles.', 'capability-manager-enhanced');
-                } else {
-                    // Apply to current role only
-                    self::updateMenuAndSubmenuNames($admin_menus_names, $current_role, $menu_id, $menu_type, $menu_title, $menu_icon);
-                    $response['message'] = __('Menu Name Updated.', 'capability-manager-enhanced');
+                foreach ($target_roles as $role_name) {
+                    self::updateMenuAndSubmenuNames($admin_menus_names, $role_name, $menu_id, $menu_type, $menu_title, $menu_icon);
                 }
 
                 update_option('ppc_admin_menus_names', $admin_menus_names);
 
                 $response['menu_title'] = $menu_title;
                 $response['status']  = 'success';
-                $response['message'] = __('Menu Name Updated.', 'capability-manager-enhanced');
+                $response['message'] = 'all' === $scope
+                    ? __('Menu Name Updated for all editable roles.', 'capability-manager-enhanced')
+                    : __('Menu Name Updated.', 'capability-manager-enhanced');
             }
         }
 

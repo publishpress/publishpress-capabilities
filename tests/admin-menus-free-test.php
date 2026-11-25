@@ -18,8 +18,25 @@ function __($text, $domain = '') { return $text; }
 function sanitize_key($value) { return preg_replace('/[^a-z0-9_-]/', '', strtolower($value)); }
 function sanitize_text_field($value) { return strip_tags($value); }
 function wp_unslash($value) { return $value; }
-function wp_verify_nonce($nonce, $action) { return $nonce === 'valid' && $action === 'ppc-admin-menu-nonce'; }
-function current_user_can($cap) { return $GLOBALS['can_manage']; }
+function wp_verify_nonce($nonce, $action) { return $nonce === 'valid' && in_array($action, ['ppc-admin-menu-nonce', 'pp-capabilities-admin-menus'], true); }
+function esc_html__($text, $domain) { return $text; }
+function wp_die($message, $title, $args) { throw new RuntimeException($message, $args['response']); }
+function current_user_can($cap) { return $cap === 'manage_capabilities_admin_menus' && $GLOBALS['can_manage']; }
+function is_multisite() { return false; }
+function _x($text, $context) { return $text; }
+function wp_get_current_user() { return (object) ['roles' => ['delegate'], 'allcaps' => ['level_5' => true]]; }
+function get_role($slug) {
+    $levels = ['administrator' => 10, 'editor' => 7, 'delegate' => 5, 'author' => 2, 'subscriber' => 0];
+    return isset($levels[$slug]) ? (object) ['capabilities' => ['level_' . $levels[$slug] => true]] : null;
+}
+function wp_roles() {
+    return new class {
+        public function get_names() {
+            return ['administrator' => 'Administrator', 'editor' => 'Editor', 'delegate' => 'Delegate', 'author' => 'Author', 'subscriber' => 'Subscriber'];
+        }
+    };
+}
+function pp_capabilities_is_editable_role($slug) { return $slug !== 'subscriber'; }
 function wp_send_json($response) { throw new RuntimeException(json_encode($response)); }
 function check($condition, $message) { if (!$condition) { throw new RuntimeException($message); } }
 require dirname(__DIR__) . '/includes/features/admin-menus/admin-menus-functions.php';
@@ -57,4 +74,32 @@ check($response['status'] === 'error' && !isset($options['ppc_admin_menus_settin
 $can_manage = true; $_POST = ['nonce' => 'valid', 'hide_submenu' => 1, 'show_menu_slug' => 1];
 try { $shared->ajaxUpdateAdminMenuSettings(); } catch (RuntimeException $error) { $response = json_decode($error->getMessage(), true); }
 check($response['status'] === 'success' && $options['ppc_admin_menus_settings']['hide_submenu'] === 1, 'Free settings save');
+
+$editable_roles = \PublishPress\Capabilities\AdminMenusController::getEditableRoles();
+check(array_keys($editable_roles) === ['author'], 'Role scope must respect role level, own-role protections, and editable role filters');
+$capsman = new class {
+    public $roles = ['administrator' => 'Administrator', 'author' => 'Author'];
+    public function generateNames() {}
+};
+$_SERVER['REQUEST_METHOD'] = 'POST';
+$_POST = ['_wpnonce' => 'valid', 'ppc-admin-menu-role' => 'administrator'];
+$denied = false;
+try {
+    $controller->validateFormSubmission();
+} catch (RuntimeException $error) {
+    $denied = $error->getCode() === 403;
+}
+check($denied, 'Protected role form must be denied with HTTP 403 on screen load');
+$_POST['ppc-admin-menu-role'] = 'author';
+$controller->validateFormSubmission();
+
+$_POST = ['nonce' => 'valid', 'menu_id' => 'edit.php', 'menu_title' => 'Articles', 'menu_type' => 'menu', 'current_role' => 'administrator'];
+$previous_names = $options['ppc_admin_menus_names'];
+try { $shared->ajaxUpdateAdminMenuTitle(); } catch (RuntimeException $error) { $response = json_decode($error->getMessage(), true); }
+check($response['status'] === 'error' && $options['ppc_admin_menus_names'] === $previous_names, 'Out-of-scope rename must not write');
+$_POST['scope'] = 'all';
+$_POST['current_role'] = 'author';
+try { $shared->ajaxUpdateAdminMenuTitle(); } catch (RuntimeException $error) { $response = json_decode($error->getMessage(), true); }
+check($response['status'] === 'success' && $options['ppc_admin_menus_names']['author']['menu']['edit.php']['title'] === 'Articles', 'Bulk rename updates editable roles');
+check(array_diff_key($options['ppc_admin_menus_names'], ['author' => true]) === array_diff_key($previous_names, ['author' => true]), 'Bulk rename preserves out-of-scope roles');
 echo "Free Admin Menus behavior checks passed.\n";
