@@ -98,6 +98,8 @@ function _cme_is_read_removal_blocked( $role_name ) {
  */
 class CapabilityManager
 {
+	private $backup_notices = '';
+
 	/**
 	 * Array with all capabilities to be managed. (Depends on user caps).
 	 * The array keys are the capability, the value is its screen name.
@@ -540,6 +542,13 @@ class CapabilityManager
             if ($dashboard_screen) {
                 $submenu_slugs[] = $subpage_option['page'];
                 $submenu_slugs_conditions[] = [ $subpage_option['page'], pp_capabilities_feature_enabled($feature)];
+            }
+        }
+
+        if (!empty($sub_menu_pages['backup']['page'])) {
+            $backup_hook = get_plugin_page_hook($sub_menu_pages['backup']['page'], $cap_page_slug);
+            if ($backup_hook) {
+                add_action("load-$backup_hook", [$this, 'processBackupPost']);
             }
         }
 
@@ -1518,12 +1527,7 @@ class CapabilityManager
 			wp_die('<strong>' . esc_html__('You do not have permission to restore roles.', 'capability-manager-enhanced') . '</strong>');
 		}
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD'])) {
-			check_admin_referer('pp-capabilities-backup');
-			require_once( dirname(__FILE__).'/backup-handler.php' );
-			$cme_backup_handler = new Capsman_BackupHandler( $this );
-			$cme_backup_handler->processBackupTool();
-		}
+		echo wp_kses_post($this->backup_notices);
 
 		if ( isset($_GET['action']) && 'reset-defaults' == $_GET['action']) {
 			check_admin_referer('capsman-reset-defaults');
@@ -1535,6 +1539,20 @@ class CapabilityManager
 		include ( dirname(CME_FILE) . '/includes/backup.php' );
 	}
 
+	public function processBackupPost()
+	{
+		if ('POST' !== ($_SERVER['REQUEST_METHOD'] ?? '')) {
+			return;
+		}
+
+		check_admin_referer('pp-capabilities-backup');
+		require_once __DIR__ . '/backup-handler.php';
+		$handler = new Capsman_BackupHandler($this);
+
+		ob_start();
+		$handler->processBackupTool();
+		$this->backup_notices = ob_get_clean();
+	}
 
 	/**
 	 * Processes export.

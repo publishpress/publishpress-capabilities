@@ -17,6 +17,33 @@ class Capsman_BackupHandler
 		$this->cm = $manager_obj;
 	}
 
+    public function can_write_backup_option($option_key, $section_key)
+    {
+        if ($this->is_admin_menus_backup_option($option_key, $section_key)) {
+            return current_user_can('manage_capabilities_admin_menus');
+        }
+
+        $feature_capabilities = [
+            'capsman_editor_features_backup' => 'manage_capabilities_editor_features',
+            'capsman_admin_features_backup' => 'manage_capabilities_admin_features',
+            'capsman_admin_styles_backup' => 'manage_capabilities_admin_styles',
+            'capsman_admin_notices_backup' => 'manage_capabilities_admin_notices',
+            'capsman_frontend_features_backup' => 'manage_capabilities_frontend_features',
+            'capsman_profile_features_backup' => 'manage_capabilities_profile_features',
+            'capsman_redirects_backup' => 'manage_capabilities_redirects',
+            'capsman_nav_menu_backup' => 'manage_capabilities_nav_menus',
+            'capsman_settings_backup' => 'manage_capabilities_settings',
+        ];
+
+        return !isset($feature_capabilities[$section_key]) || current_user_can($feature_capabilities[$section_key])
+            || current_user_can('administrator') || (is_multisite() && is_super_admin());
+    }
+
+    public function is_admin_menus_backup_option($option_key, $section_key)
+    {
+        return 'capsman_admin_menu_backup' === $section_key || 'cme_admin_menus_restriction_priority' === $option_key;
+    }
+
     /**
      * Persist a backup through the same lifecycle for admin and non-form callers.
      *
@@ -61,6 +88,11 @@ class Capsman_BackupHandler
 	function processBackupTool ()
 	{
 		global $wpdb;
+
+        $actions = array_intersect(['save_backup', 'restore_backup', 'import_backup'], array_keys($_POST));
+        if (count($actions) > 1) {
+            wp_die(esc_html__('Submit one backup action at a time.', 'capability-manager-enhanced'), '', ['response' => 400]);
+        }
 
         if (isset($_POST['save_backup'])) {
 			check_admin_referer('pp-capabilities-backup');
@@ -110,6 +142,18 @@ class Capsman_BackupHandler
 
 				case 'restore':
 					if ($roles) {
+
+                        foreach ($backup_sections as $section_key => $section) {
+                            foreach ((array) ($section['options'] ?? []) as $option_key) {
+                                if (!$this->can_write_backup_option($option_key, $section_key)
+                                    && false !== get_option($option_key . '_backup', false)) {
+                                    $message = $this->is_admin_menus_backup_option($option_key, $section_key)
+                                        ? esc_html__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced')
+                                        : esc_html__('You do not have permission to restore these feature settings.', 'capability-manager-enhanced');
+                                    wp_die($message, '', ['response' => 403]);
+                                }
+                            }
+                        }
 
                         $restored_backup = ['Roles and Capabilities'];
 
@@ -214,6 +258,15 @@ class Capsman_BackupHandler
             $skipped_options = array_keys(array_diff_key($data, $allowed_import_options));
 
             $data = $this->filter_import_data_by_allowlist($data, $allowed_import_options);
+
+            foreach (array_keys($data) as $option_key) {
+                if (!$this->can_write_backup_option($option_key, $allowed_import_options[$option_key]['section'])) {
+                    $message = $this->is_admin_menus_backup_option($option_key, $allowed_import_options[$option_key]['section'])
+                        ? esc_html__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced')
+                        : esc_html__('You do not have permission to import these feature settings.', 'capability-manager-enhanced');
+                    wp_die($message, '', ['response' => 403]);
+                }
+            }
 
             foreach ( $data as $option_key => $option_value ) {
                 if (!isset($allowed_import_options[$option_key])) {
