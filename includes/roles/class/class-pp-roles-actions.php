@@ -420,6 +420,10 @@ class Pp_Roles_Actions
         }
 
         $current_role = sanitize_key($_REQUEST['current_role']);
+        if (!pp_capabilities_is_editable_role($current_role, ['force_refresh' => true]) || !($current = get_role($current_role))) {
+            $this->terminate_request(esc_html__('You do not have permission to edit this role.', 'capability-manager-enhanced'));
+        }
+
         if (!empty($_REQUEST['disable_role']) && $current_role === get_option('default_role')) {
             $this->notify(
                 esc_html__('The default role cannot be disabled. Change the default role in WordPress settings first.', 'capability-manager-enhanced')
@@ -437,8 +441,7 @@ class Pp_Roles_Actions
         /**
          * Update role
          */
-        $current = get_role($current_role);
-		$new_title = sanitize_text_field(wp_unslash($_REQUEST['role_name']));
+        $new_title = sanitize_text_field(wp_unslash($_REQUEST['role_name']));
 
         $old_title = $wp_roles->roles[$current->name]['name'];
 		$wp_roles->roles[$current->name]['name'] = $new_title;
