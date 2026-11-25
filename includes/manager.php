@@ -187,6 +187,7 @@ class CapabilityManager
 
         //Initialize plugin capabilities class
         add_action('admin_init', [$this, 'initPluginCapabilities']);
+        add_action('admin_init', [$this, 'validateEditorFeaturesSubmission'], 20);
 	}
 
     /**
@@ -616,6 +617,40 @@ class CapabilityManager
 	}
 
 
+	public function validateEditorFeaturesSubmission()
+	{
+		global $plugin_page;
+
+		if ('pp-capabilities-editor-features' !== $plugin_page || !$this->isEditorFeaturesSubmission()) {
+			return;
+		}
+
+		$this->generateNames();
+		$this->requireEditableEditorFeaturesRole();
+	}
+
+	private function isEditorFeaturesSubmission()
+	{
+		return 'POST' === ($_SERVER['REQUEST_METHOD'] ?? '') && isset($_POST['ppc-editor-features-role']);
+	}
+
+	private function requireEditableEditorFeaturesRole()
+	{
+		$nonce = $_POST['_wpnonce'] ?? '';
+		if ((!current_user_can('manage_capabilities_editor_features') && !current_user_can('administrator') && !(is_multisite() && is_super_admin()))
+			|| !is_string($nonce) || !wp_verify_nonce(sanitize_key(wp_unslash($nonce)), 'pp-capabilities-editor-features')
+		) {
+			wp_die(esc_html__('You do not have permission to manage editor features.', 'capability-manager-enhanced'), '', ['response' => 403]);
+		}
+
+		$role = sanitize_key(wp_unslash($_POST['ppc-editor-features-role']));
+		if (!isset($this->roles[$role]) || !pp_capabilities_is_editable_role($role)) {
+			wp_die(esc_html__('You do not have permission to manage editor features for this role.', 'capability-manager-enhanced'), '', ['response' => 403]);
+		}
+
+		return $role;
+	}
+
 	/**
 	 * Manages Editor Features
 	 *
@@ -644,45 +679,31 @@ class CapabilityManager
 			$this->current = array_shift($roles);
 		}
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && isset($_POST['ppc-editor-features-role']) && !empty($_REQUEST['_wpnonce'])) {
-			if (!wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce'])), 'pp-capabilities-editor-features')) {
-				wp_die('<strong>' . esc_html__('You do not have permission to manage editor features.', 'capability-manager-enhanced') . '</strong>');
-			} else {
-				$this->set_current_role(sanitize_key($_POST['ppc-editor-features-role']));
+		if ($this->isEditorFeaturesSubmission()) {
+			$features_role = $this->requireEditableEditorFeaturesRole();
+			$this->set_current_role($features_role);
 
-				$classic_editor = pp_capabilities_is_classic_editor_available();
+			$classic_editor = pp_capabilities_is_classic_editor_available();
+			$def_post_types = array_unique(apply_filters('pp_capabilities_feature_post_types', ['post', 'page']));
+			$active_tab = isset($_POST['pp_caps_tab']) ? sanitize_key($_POST['pp_caps_tab']) : 'post';
 
-				$def_post_types = array_unique(apply_filters('pp_capabilities_feature_post_types', ['post', 'page']));
+			foreach ($def_post_types as $post_type) {
+				$source_type = isset($_POST['editor-features-all-submit']) ? $active_tab : $post_type;
 
-                $active_tab     = isset($_POST['pp_caps_tab']) ? sanitize_key($_POST['pp_caps_tab']) : 'post';
-
-				foreach ($def_post_types as $post_type) {
-					if ($classic_editor) {
-
-                        if (isset($_POST['editor-features-all-submit'])){
-						    $posted_settings = (isset($_POST["capsman_feature_restrict_classic_{$active_tab}"])) ? array_map('sanitize_text_field', wp_unslash($_POST["capsman_feature_restrict_classic_{$active_tab}"])) : [];
-                        } else {
-                            $posted_settings = (isset($_POST["capsman_feature_restrict_classic_{$post_type}"])) ? array_map('sanitize_text_field', wp_unslash($_POST["capsman_feature_restrict_classic_{$post_type}"])) : [];
-                        }
-
-						$post_features_option = (array)get_option("capsman_feature_restrict_classic_{$post_type}", []);
-						$post_features_option[sanitize_key($_POST['ppc-editor-features-role'])] = $posted_settings;
-						update_option("capsman_feature_restrict_classic_{$post_type}", $post_features_option, false);
-					}
-
-                    if (isset($_POST['editor-features-all-submit'])){
-					    $posted_settings = (isset($_POST["capsman_feature_restrict_{$active_tab}"])) ? array_map('sanitize_text_field', wp_unslash($_POST["capsman_feature_restrict_{$active_tab}"])) : [];
-                    }else {
-					    $posted_settings = (isset($_POST["capsman_feature_restrict_{$post_type}"])) ? array_map('sanitize_text_field', wp_unslash($_POST["capsman_feature_restrict_{$post_type}"])) : [];
-                    }
-
-					$post_features_option = (array)get_option("capsman_feature_restrict_{$post_type}", []);
-					$post_features_option[sanitize_key($_POST['ppc-editor-features-role'])] = $posted_settings;
-					update_option("capsman_feature_restrict_{$post_type}", $post_features_option, false);
+				if ($classic_editor) {
+					$posted_settings = isset($_POST["capsman_feature_restrict_classic_{$source_type}"]) ? array_map('sanitize_text_field', wp_unslash($_POST["capsman_feature_restrict_classic_{$source_type}"])) : [];
+					$post_features_option = (array)get_option("capsman_feature_restrict_classic_{$post_type}", []);
+					$post_features_option[$features_role] = $posted_settings;
+					update_option("capsman_feature_restrict_classic_{$post_type}", $post_features_option, false);
 				}
 
-				ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
+				$posted_settings = isset($_POST["capsman_feature_restrict_{$source_type}"]) ? array_map('sanitize_text_field', wp_unslash($_POST["capsman_feature_restrict_{$source_type}"])) : [];
+				$post_features_option = (array)get_option("capsman_feature_restrict_{$post_type}", []);
+				$post_features_option[$features_role] = $posted_settings;
+				update_option("capsman_feature_restrict_{$post_type}", $post_features_option, false);
 			}
+
+			ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
 		}
 
 		do_action('pp_capabilities_editor_features');
