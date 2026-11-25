@@ -11,3 +11,12 @@ jobs:
     with:
       stable_branch: master
     secrets: inherit
+
+  language-packs:
+    needs: [deploy-wp-org]
+    permissions:
+      contents: write
+    uses: publishpress/github-workflows/.github/workflows/language-pack.yml@v3
+    with:
+      text_domain: capability-manager-enhanced
+    secrets: inherit
