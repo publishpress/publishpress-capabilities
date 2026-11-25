@@ -973,6 +973,26 @@ class CapabilityManager
     }
 
 
+	private function isProfileFeaturesSubmission()
+	{
+		return 'POST' === ($_SERVER['REQUEST_METHOD'] ?? '') && isset($_POST['ppc-profile-features-role']);
+	}
+
+	private function requireEditableProfileFeaturesRole()
+	{
+		$nonce = $_POST['_wpnonce'] ?? '';
+		if (!is_string($nonce) || !wp_verify_nonce(sanitize_key(wp_unslash($nonce)), 'pp-capabilities-profile-features')) {
+			wp_die(esc_html__('You do not have permission to manage profile features.', 'capability-manager-enhanced'), '', ['response' => 403]);
+		}
+
+		$role = sanitize_key(wp_unslash($_POST['ppc-profile-features-role']));
+		if (!isset($this->roles[$role]) || !pp_capabilities_is_editable_role($role)) {
+			wp_die(esc_html__('You do not have permission to manage profile features for this role.', 'capability-manager-enhanced'), '', ['response' => 403]);
+		}
+
+		return $role;
+	}
+
 	/**
 	 * Manages Profile Features
 	 *
@@ -980,8 +1000,7 @@ class CapabilityManager
 	 */
 	public function ManageProfileFeatures() {
 		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_profile_features')) {
-            // TODO: Implement exceptions.
-		    wp_die('<strong>' . esc_html__('You do not have permission to manage admin features.', 'capability-manager-enhanced') . '</strong>');
+			wp_die(esc_html__('You do not have permission to manage profile features.', 'capability-manager-enhanced'), '', ['response' => 403]);
 		}
 
 		$this->generateNames();
@@ -1001,54 +1020,37 @@ class CapabilityManager
 			$this->current = array_shift($roles);
 		}
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && isset($_POST['ppc-profile-features-role']) && !empty($_REQUEST['_wpnonce'])) {
-			if (!wp_verify_nonce(sanitize_key(wp_unslash($_REQUEST['_wpnonce'])), 'pp-capabilities-profile-features')) {
-				wp_die('<strong>' . esc_html__('You do not have permission to manage profile features.', 'capability-manager-enhanced') . '</strong>');
-			} else {
-				$features_role = sanitize_key($_POST['ppc-profile-features-role']);
+		if ($this->isProfileFeaturesSubmission()) {
+			$features_role = $this->requireEditableProfileFeaturesRole();
 
-				$this->set_current_role($features_role);
+			$this->set_current_role($features_role);
 
-                $previous_elements              = !empty(get_option('capsman_profile_features_elements')) ? (array)get_option('capsman_profile_features_elements') : [];
-				$previous_disabled_profile_items = !empty(get_option('capsman_disabled_profile_features')) ? (array)get_option('capsman_disabled_profile_features') : [];
-                $new_disabled_element           = isset($_POST['capsman_disabled_profile_features']) ? array_map('sanitize_text_field', wp_unslash($_POST['capsman_disabled_profile_features'])) : [];
-                $previous_role_disabled_element = !empty($previous_disabled_profile_items[$features_role]) ? (array)$previous_disabled_profile_items[$features_role] : [];
-                $previous_role_element          = !empty($previous_elements[$features_role]) ? (array)$previous_elements[$features_role] : [];
+			$previous_elements = (array) get_option('capsman_profile_features_elements', []);
+			$previous_disabled_profile_items = (array) get_option('capsman_disabled_profile_features', []);
+			$new_disabled_element = isset($_POST['capsman_disabled_profile_features']) ? array_map('sanitize_text_field', wp_unslash($_POST['capsman_disabled_profile_features'])) : [];
+			$previous_role_disabled_element = (array) ($previous_disabled_profile_items[$features_role] ?? []);
+			$previous_role_element = (array) ($previous_elements[$features_role] ?? []);
+			$previous_role_element_items = array_column($previous_role_element, 'elements');
 
-                if (!empty($previous_role_element)) {
-                    $previous_role_element_items = array_column($previous_role_element, 'elements');
-                } else {
-                    $previous_role_element_items = [];
-                }
+			$disabled_element_differences = array_diff($previous_role_disabled_element, $previous_role_element_items);
+			$previous_disabled_profile_items[$features_role] = array_filter(array_merge($new_disabled_element, $disabled_element_differences));
 
+			update_option('capsman_disabled_profile_features', $previous_disabled_profile_items, false);
 
-                $disabled_element_differences   = array_diff($previous_role_disabled_element, $previous_role_element_items);
-                $new_disabled_element_items     = array_merge($new_disabled_element, $disabled_element_differences);
-                $new_disabled_element_items     = array_filter($new_disabled_element_items);
-
-				$previous_disabled_profile_items[$features_role] = $new_disabled_element_items;
-
-				update_option('capsman_disabled_profile_features', $previous_disabled_profile_items, false);
-
-                //update element sort
-				$profile_features_elements_order = !empty($_POST['capsman_profile_features_elements_order']) ? sanitize_text_field(wp_unslash($_POST['capsman_profile_features_elements_order'])) : false;
-                if ($profile_features_elements_order) {
-                    $profile_features_elements_order = explode(",", $profile_features_elements_order);
-                    $profile_features_elements_order = array_filter($profile_features_elements_order);
-                    if (!empty($profile_features_elements_order)) {
-                        $new_elements     = [];
-                        foreach($profile_features_elements_order as $element_key) {
-                            if (isset($previous_role_element[$element_key])) {
-                                $new_elements[$element_key] = $previous_role_element[$element_key];
-                            }
-                        }
-                        $previous_elements[$features_role] = $new_elements;
-                        update_option('capsman_profile_features_elements', $previous_elements, false);
-                    }
-                }
-
-	            ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
+			$profile_features_elements_order = !empty($_POST['capsman_profile_features_elements_order']) ? sanitize_text_field(wp_unslash($_POST['capsman_profile_features_elements_order'])) : '';
+			$element_order = array_filter(explode(',', $profile_features_elements_order));
+			if ($element_order) {
+				$new_elements = [];
+				foreach ($element_order as $element_key) {
+					if (isset($previous_role_element[$element_key])) {
+						$new_elements[$element_key] = $previous_role_element[$element_key];
+					}
+				}
+				$previous_elements[$features_role] = $new_elements;
+				update_option('capsman_profile_features_elements', $previous_elements, false);
 			}
+
+			ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
 		}
 
         include(dirname(CME_FILE) . '/includes/features/profile-features.php');
@@ -1618,6 +1620,13 @@ class CapabilityManager
 
 		if ((!is_multisite() || !is_super_admin()) && !current_user_can('administrator') && !current_user_can('manage_capabilities_profile_features')) {
             return;
+		}
+
+		global $plugin_page;
+		if ('pp-capabilities-profile-features' === $plugin_page && $this->isProfileFeaturesSubmission()) {
+			$this->generateNames();
+			$this->requireEditableProfileFeaturesRole();
+			return;
 		}
 
         if (is_admin() && pp_capabilities_feature_enabled('profile-features') && !empty($_REQUEST['page']) && 'pp-capabilities-profile-features' === $_REQUEST['page']) {
