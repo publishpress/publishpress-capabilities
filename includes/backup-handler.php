@@ -79,9 +79,28 @@ class Capsman_BackupHandler
 
             $backup_sections = pp_capabilities_backup_sections();
 
-            switch ($_POST['select_restore']) {
+            $selection = is_string($_POST['select_restore']) ? sanitize_key(wp_unslash($_POST['select_restore'])) : '';
+            $role_sources = ['restore_initial' => $cm_roles_initial, 'restore' => $cm_roles];
+            if (!isset($role_sources[$selection])
+                && (strpos($selection, 'cme_backup_auto_') !== 0 || !in_array($selection, pp_capabilities_get_auto_backup_option_names(), true))
+            ) {
+                ak_admin_error(__('Restore failed. No backup found.', 'capability-manager-enhanced'));
+                return;
+            }
+
+            $roles = get_option($role_sources[$selection] ?? $selection);
+            if (!$roles || !$this->is_valid_import_role_data($roles)) {
+                ak_admin_error(__('Restore failed. No valid role backup found.', 'capability-manager-enhanced'));
+                return;
+            }
+            if (!$this->can_restore_role_definitions((array) get_option($wp_roles), $roles)) {
+                ak_admin_error(__('You do not have permission to restore protected role capabilities.', 'capability-manager-enhanced'));
+                return;
+            }
+
+            switch ($selection) {
 				case 'restore_initial':
-					if ($roles = get_option($cm_roles_initial)) {
+					if ($roles) {
 						update_option($wp_roles, $roles);
 						ak_admin_notify(__('Roles and Capabilities restored from initial backup.', 'capability-manager-enhanced'));
 					} else {
@@ -90,7 +109,7 @@ class Capsman_BackupHandler
 					break;
 
 				case 'restore':
-					if ($roles = get_option($cm_roles)) {
+					if ($roles) {
 
                         $restored_backup = ['Roles and Capabilities'];
 
@@ -119,7 +138,7 @@ class Capsman_BackupHandler
 					break;
 
 				default:
-                    if ($roles = get_option(sanitize_key($_POST['select_restore']))) {
+                    if ($roles) {
 						update_option($wp_roles, $roles);
 						ak_admin_notify(__('Roles and Capabilities restored from selected auto-backup.', 'capability-manager-enhanced'));
 					} else {
@@ -251,11 +270,36 @@ class Capsman_BackupHandler
 		}
 	}
 
-	/**
-	 * Sanitize role data before import.
-	 *
-	 * @return array
-	 */
+    private function can_restore_role_definitions(array $current, array $restored)
+    {
+        require_once __DIR__ . '/mcp/grant-policy.php';
+
+        foreach (array_keys($current + $restored) as $role) {
+            if (isset($current[$role]) !== isset($restored[$role])
+                && \PublishPress\Capabilities\Mcp\GrantPolicy::isProtected((string) $role)
+                && !current_user_can((string) $role)
+            ) {
+                return false;
+            }
+
+            $before = (array) ($current[$role]['capabilities'] ?? []);
+            $after = (array) ($restored[$role]['capabilities'] ?? []);
+            foreach (array_keys($before + $after) as $capability) {
+                $capability = (string) $capability;
+                if (!\PublishPress\Capabilities\Mcp\GrantPolicy::isProtected($capability)) {
+                    continue;
+                }
+                $was_granted = array_key_exists($capability, $before) ? (bool) $before[$capability] : null;
+                $will_be_granted = array_key_exists($capability, $after) ? (bool) $after[$capability] : null;
+                if ($was_granted !== $will_be_granted && !current_user_can($capability)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     function get_import_option_section($option_key, $backup_sections)
     {
         $option_section = '';
