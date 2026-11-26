@@ -22,8 +22,10 @@ global $capsman, $menu, $submenu, $admin_global_menu, $admin_global_submenu;
 
 $can_add_menu = (bool) apply_filters('pp_capabilities_admin_menus_new_menu_enabled', false);
 
-$ppc_global_menu     = (array)get_option('ppc_admin_menus_menu');
-$ppc_global_submenu  = (array)get_option('ppc_admin_menus_submenu');
+$ppc_global_menu     = get_option('ppc_admin_menus_menu', []);
+$ppc_global_menu     = is_array($ppc_global_menu) ? $ppc_global_menu : [];
+$ppc_global_submenu  = get_option('ppc_admin_menus_submenu', []);
+$ppc_global_submenu  = is_array($ppc_global_submenu) ? $ppc_global_submenu : [];
 $custom_menus        = (array)get_option('ppc_admin_menus_custom_menus', []);
 $all_custom_menus    = !empty($custom_menus['menus']) ? $custom_menus['menus'] : [];
 $all_custom_submenus = !empty($custom_menus['submenus']) ? $custom_menus['submenus'] : [];
@@ -40,22 +42,15 @@ if (is_array($admin_global_menu) && count($admin_global_menu) > count($menu)) {
     $ppc_global_menu   = $admin_global_menu;
 }
 
-if (is_array($admin_global_submenu) && count($admin_global_submenu) > count($submenu)) {
-    // for submenu, we need to remove any group not in menu before count for fair count
-    $menu_index = array_column($menu, 2);
-
-    $filtered_submenu = array_intersect_key($submenu,
-        array_flip($menu_index)
-    );
-
-    $filtered_admin_global_submenu = array_intersect_key($admin_global_submenu,
-        array_flip($menu_index)
-    );
-    if (count($filtered_admin_global_submenu) > count($filtered_submenu)) {
-        $submenu   = $admin_global_submenu;
-        $ppc_global_submenu   = $admin_global_submenu;
-    }
-}
+// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- Restore complete submenu discovery for the restrictions editor.
+$submenu = PublishPress\Capabilities\Admin_Menus_Filters::mergeSubmenuSnapshots(
+    (array) $admin_global_submenu,
+    (array) $submenu
+);
+$ppc_global_submenu = PublishPress\Capabilities\Admin_Menus_Filters::mergeSubmenuSnapshots(
+    $ppc_global_submenu,
+    $submenu
+);
 
 // grouping original menu by their slug to get original position key
 $grouped_menu       = [];
@@ -117,7 +112,8 @@ $admin_child_menu_option = array_map(
                             <td class="content">
 
                                 <div class="publishpress-filters">
-                                    <select name="ppc-admin-menu-role" class="ppc-admin-menu-role">
+                                    <input type="hidden" name="ppc-admin-menu-role" class="ppc-admin-menu-role" value="<?php echo esc_attr($default_role); ?>" />
+                                    <select class="ppc-admin-menu-role-picker" aria-label="<?php esc_attr_e('Role', 'capability-manager-enhanced'); ?>">
                                         <?php
                                         foreach ($roles as $role_name => $name) :
                                             $name = translate_user_role($name);
@@ -126,12 +122,15 @@ $admin_child_menu_option = array_map(
                                         <?php
                                         endforeach;
                                         ?>
-                                    </select> &nbsp;
+                                    </select>
+                                    <button type="button" class="button ppc-switch-role ppc-admin-menu-role-switch">
+                                        <?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?>
+                                    </button>
 
                                     <img class="loading" src="<?php echo esc_url($capsman->mod_url); ?>/images/wpspin_light.gif" style="display: none">
 
                                     <input type="submit" name="admin-menu-submit"
-                                        value="<?php esc_attr_e('Save Changes') ?>"
+                                        value="<?php echo esc_attr(sprintf(__('Save for %s', 'capability-manager-enhanced'), $role_caption)); ?>"
                                         class="button-primary ppc-admin-menu-submit" style="float:right" />
 
                                     <input type="submit" name="admin-menu-all-submit"
@@ -731,7 +730,7 @@ $admin_child_menu_option = array_map(
                                     </div>
                                 </div>
                                 <input type="submit" name="admin-menu-submit"
-                                    value="<?php esc_attr_e('Save Changes') ?>"
+                                    value="<?php echo esc_attr(sprintf(__('Save for %s', 'capability-manager-enhanced'), $role_caption)); ?>"
                                     class="button-primary ppc-admin-menu-submit" style="float: right; margin-top: 10px;"/>
                                 <input type="submit" name="admin-menu-all-submit"
                                     value="<?php esc_attr_e('Save for All Roles', 'capability-manager-enhanced') ?>"
@@ -769,14 +768,14 @@ $admin_child_menu_option = array_map(
             <?php
             $banner_title  = __('Reset Admin Menus', 'capability-manager-enhanced');
             $banner_messages = ['<p>'];
-            $banner_messages[] = esc_html__('You can reset admin menu order and name to their original position and names. You can also reset menu cache to fix issue of missing menu.', 'capability-manager-enhanced');
+            $banner_messages[] = esc_html__('You can reset the admin menu order and name to their original position and names. You can also reset the menu cache to fix any missing menu issues.', 'capability-manager-enhanced');
             $banner_messages[] = '</p><p>';
             $banner_messages[] = '<input type="checkbox" class="reset-admin-menu-order"> '
                 . esc_html__('Reset Menu Order', 'capability-manager-enhanced') . ' <br />';
             $banner_messages[] = '<input type="checkbox" class="reset-admin-menu-cache"> '
                 . esc_html__('Reset Cached Menu', 'capability-manager-enhanced') . ' <br />';
             $banner_messages[] = '<input type="checkbox" class="reset-admin-menu-names"> '
-                . esc_html__('Reset Menu Names', 'capability-manager-enhanced') . ' <br />';
+                . esc_html__('Reset Menu Names and Icons', 'capability-manager-enhanced') . ' <br />';
             $banner_messages[] = '</p>';
             $banner_messages[] = '<p><a style="color: red; border-color: red;" type="button" class="button ppc-reset-admin-menu-options">' . esc_html__('Reset Selected Option', 'capability-manager-enhanced') . '</a><div class="clear"></div></p>';
             pp_capabilities_sidebox_banner($banner_title, $banner_messages);
@@ -841,10 +840,12 @@ $admin_child_menu_option = array_map(
             // -------------------------------------------------------------
             //   Load selected roles menu
             // -------------------------------------------------------------
-            $(document).on('change', '.pp-capability-menus-wrapper .ppc-admin-menu-role', function () {
+            $(document).on('click', '.pp-capability-menus-wrapper .ppc-admin-menu-role-switch', function () {
+                var $rolePicker = $('.pp-capability-menus-wrapper .ppc-admin-menu-role-picker');
+                var role = $rolePicker.val();
 
-                //disable select
-                $('.pp-capability-menus-wrapper .ppc-admin-menu-role').attr('disabled', true);
+                $(this).prop('disabled', true);
+                $rolePicker.prop('disabled', true);
 
                 //hide button
                 $('.pp-capability-menus-wrapper .ppc-admin-menu-submit').hide();
@@ -854,7 +855,7 @@ $admin_child_menu_option = array_map(
                 $('div.publishpress-caps-manage img.loading').show();
 
                 //go to url
-                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + $(this).val() + '';
+                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + encodeURIComponent(role);
 
             });
         });

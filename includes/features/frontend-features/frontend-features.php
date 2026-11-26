@@ -119,7 +119,8 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
                                         ?>
                                     </optgroup>
 
-                                </select> &nbsp;
+                                </select>
+                                <button type="button" class="button ppc-switch-role ppc-frontend-features-role-switch"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button> &nbsp;
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
@@ -351,7 +352,10 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
         // -------------------------------------------------------------
         //   Load selected roles menu
         // -------------------------------------------------------------
-        $(document).on('change', '.pp-capability-menus-wrapper .ppc-frontend-features-role', function() {
+        $(document).on('click', '.pp-capability-menus-wrapper .ppc-frontend-features-role-switch', function () {
+            var role = $('.pp-capability-menus-wrapper .ppc-frontend-features-role').val();
+
+            $(this).attr('disabled', true)
 
             //disable select
             $('.pp-capability-menus-wrapper .ppc-frontend-features-role').attr('disabled', true)
@@ -366,8 +370,15 @@ $frontend_features_elements = PP_Capabilities_Frontend_Features_Data::elementsLa
             //go to url
             window.location =
                 '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-frontend-features&role=')); ?>' +
-                $(this).val() + ''
+                role + ''
 
+        })
+
+        // Save always applies to the loaded role, even if the role selector was changed without switching.
+        $(document).on('submit', 'form', function () {
+            $(this).find('select.ppc-frontend-features-role option').prop('selected', function () {
+                return this.defaultSelected;
+            });
         })
 
     });

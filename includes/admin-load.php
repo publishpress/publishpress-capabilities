@@ -480,45 +480,8 @@ class PP_Capabilities_Admin_UI {
                 return;
             }
 
-            $user = get_user_by('ID', $userId);
-            if (empty($user)) {
-                return;
-            }
-
-            $newRoles = array_unique(
-                array_filter(
-                    array_map('sanitize_key', (array) $_POST['pp_roles'])
-                )
-            );
-            $currentRoles = $user->roles;
-
-            if (empty($newRoles) || !is_array($newRoles)) {
-                return;
-            }
-
-            $editableRoles = function_exists('get_editable_roles')
-                ? array_keys(get_editable_roles())
-                : array_keys(apply_filters('editable_roles', wp_roles()->roles));
-
-            // Reject the request if any submitted role is not editable by current user.
-            if (array_diff($newRoles, $editableRoles)) {
-                return;
-            }
-
-            // Remove all roles
-            foreach ($currentRoles as $role) {
-                // Check if it is a bbPress rule. If so, don't remove it.
-                $isBBPressRole = preg_match('/^bbp_/', $role);
-
-                if (!$isBBPressRole) {
-                    $user->remove_role($role);
-                }
-            }
-
-            // Add new roles in order
-            foreach ($newRoles as $role) {
-                $user->add_role($role);
-            }
+            require_once __DIR__ . '/user-role-assignment.php';
+            \PublishPress\Capabilities\UserRoleAssignment::update((int) $userId, array_map('sanitize_key', wp_unslash((array) $_POST['pp_roles'])));
         }
     }
 
@@ -1621,7 +1584,10 @@ class PP_Capabilities_Admin_UI {
             add_action('load-' . $hook_suffix, [$this, 'setUserCapabilitiesPageTitle']);
         }
 
+        // add_users_page() attaches the page to profile.php for users who cannot edit users,
+        // so remove it from both parents to keep the page hidden for every role.
         remove_submenu_page('users.php', 'pp-capabilities-user-view');
+        remove_submenu_page('profile.php', 'pp-capabilities-user-view');
     }
 
     /**
@@ -1774,6 +1740,26 @@ class PP_Capabilities_Admin_UI {
 
             .ppc-user-permissions-list li:last-child {
                 border-bottom: 0;
+            }
+
+            .ppc-user-permissions-group {
+                border: 1px solid #dcdcde;
+                margin: 12px 0;
+                padding: 12px;
+            }
+
+            .ppc-user-permissions-group h4 {
+                font-size: 14px;
+                margin: 0 0 12px;
+            }
+
+            .ppc-user-permissions-group .ppc-user-permissions-list {
+                list-style: disc;
+                padding-inline-start: 22px;
+            }
+
+            .ppc-user-permissions-group code {
+                overflow-wrap: anywhere;
             }
 
             .ppc-user-permissions-scope {

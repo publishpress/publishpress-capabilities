@@ -17,6 +17,69 @@ class Capsman_BackupHandler
 		$this->cm = $manager_obj;
 	}
 
+    public function can_write_backup_option($option_key, $section_key)
+    {
+        if ($this->is_admin_menus_backup_option($option_key, $section_key)) {
+            return current_user_can('manage_capabilities_admin_menus');
+        }
+
+        $feature_capabilities = [
+            'capsman_editor_features_backup' => 'manage_capabilities_editor_features',
+            'capsman_admin_features_backup' => 'manage_capabilities_admin_features',
+            'capsman_admin_styles_backup' => 'manage_capabilities_admin_styles',
+            'capsman_admin_notices_backup' => 'manage_capabilities_admin_notices',
+            'capsman_frontend_features_backup' => 'manage_capabilities_frontend_features',
+            'capsman_profile_features_backup' => 'manage_capabilities_profile_features',
+            'capsman_redirects_backup' => 'manage_capabilities_redirects',
+            'capsman_nav_menu_backup' => 'manage_capabilities_nav_menus',
+            'capsman_settings_backup' => 'manage_capabilities_settings',
+        ];
+
+        return !isset($feature_capabilities[$section_key]) || current_user_can($feature_capabilities[$section_key])
+            || current_user_can('administrator') || (is_multisite() && is_super_admin());
+    }
+
+    public function is_admin_menus_backup_option($option_key, $section_key)
+    {
+        return 'capsman_admin_menu_backup' === $section_key || 'cme_admin_menus_restriction_priority' === $option_key;
+    }
+
+    /**
+     * Persist a backup through the same lifecycle for admin and non-form callers.
+     *
+     * @param array|null $configuration Reviewed option values keyed by native section identifiers.
+     * @return array Stored section identifiers.
+     * @since 2.60.0
+     */
+    public function createBackup(?array $configuration = null): array
+    {
+        global $wpdb;
+        $prefix = $this->cm->ID;
+        $labels = ['user_roles' => __('Roles and Capabilities', 'capability-manager-enhanced')];
+        $native = ['user_roles' => get_option($wpdb->prefix . 'user_roles')];
+        foreach (pp_capabilities_backup_sections() as $section) {
+            foreach ((array) ($section['options'] ?? []) as $option) {
+                $native[$option] = get_option($option);
+                $labels[$option] = $section['label'];
+            }
+        }
+        $configuration = $configuration ?? $native;
+        if (!get_option($prefix . '_backup_initial') && ($previous = get_option($prefix . '_backup'))) {
+            update_option($prefix . '_backup_initial', $previous, false);
+            if ($date = get_option($prefix . '_backup_datestamp')) {
+                update_option($prefix . '_backup_initial_datestamp', $date, false);
+            }
+        }
+        $active = [];
+        foreach ($configuration as $key => $value) {
+            update_option($key === 'user_roles' ? $prefix . '_backup' : $key . '_backup', $value, false);
+            $active[] = $labels[$key] ?? $key;
+        }
+        update_option($prefix . '_last_backup', implode(', ', array_unique($active)));
+        update_option($prefix . '_backup_datestamp', current_time('timestamp'), false);
+        return array_keys($configuration);
+    }
+
 	/**
 	 * Processes backups and restores.
 	 *
@@ -26,51 +89,16 @@ class Capsman_BackupHandler
 	{
 		global $wpdb;
 
+        $actions = array_intersect(['save_backup', 'restore_backup', 'import_backup'], array_keys($_POST));
+        if (count($actions) > 1) {
+            wp_die(esc_html__('Submit one backup action at a time.', 'capability-manager-enhanced'), '', ['response' => 400]);
+        }
+
         if (isset($_POST['save_backup'])) {
 			check_admin_referer('pp-capabilities-backup');
 
-			$wp_roles = $wpdb->prefix . 'user_roles';
-			$cm_roles = $this->cm->ID . '_backup';
-			$cm_roles_initial = $this->cm->ID . '_backup_initial';
-
-            $backup_sections = pp_capabilities_backup_sections();
-
-			if ( ! get_option( $cm_roles_initial ) ) {
-				if ( $current_backup = get_option( $cm_roles ) ) {
-					update_option( $cm_roles_initial, $current_backup, false );
-
-					if ( $initial_datestamp = get_option( $this->cm->ID . '_backup_datestamp' ) ) {
-						update_option($this->cm->ID . '_backup_initial_datestamp', $initial_datestamp, false );
-					}
-				}
-			}
-
-            $active_backup = ['Roles and Capabilities'];
-
-            //role backup
-			$roles = get_option($wp_roles);
-			update_option($cm_roles, $roles, false);
-
-            //other backup
-            foreach($backup_sections as $backup_section){
-                $section_options = $backup_section['options'];
-                if(is_array($section_options) && !empty($section_options)){
-                    foreach($section_options as $section_option){
-                        $active_backup[] = $backup_section['label'];
-                        $current_option = get_option($section_option);
-                        update_option($section_option.'_backup', $current_option, false);
-                    }
-                }
-            }
-
-            $active_backup = array_unique($active_backup);
-
-            //update last backup
-            update_option($this->cm->ID . '_last_backup', implode(', ', $active_backup));
-
-            //backup datestamp and response
-			update_option($this->cm->ID . '_backup_datestamp', current_time( 'timestamp' ), false );
-			ak_admin_notify(__('New backup saved.', 'capability-manager-enhanced'));
+            $this->createBackup();
+            ak_admin_notify(__('New backup saved.', 'capability-manager-enhanced'));
 
         }
 
@@ -83,9 +111,28 @@ class Capsman_BackupHandler
 
             $backup_sections = pp_capabilities_backup_sections();
 
-            switch ($_POST['select_restore']) {
+            $selection = is_string($_POST['select_restore']) ? sanitize_key(wp_unslash($_POST['select_restore'])) : '';
+            $role_sources = ['restore_initial' => $cm_roles_initial, 'restore' => $cm_roles];
+            if (!isset($role_sources[$selection])
+                && (strpos($selection, 'cme_backup_auto_') !== 0 || !in_array($selection, pp_capabilities_get_auto_backup_option_names(), true))
+            ) {
+                ak_admin_error(__('Restore failed. No backup found.', 'capability-manager-enhanced'));
+                return;
+            }
+
+            $roles = get_option($role_sources[$selection] ?? $selection);
+            if (!$roles || !$this->is_valid_import_role_data($roles)) {
+                ak_admin_error(__('Restore failed. No valid role backup found.', 'capability-manager-enhanced'));
+                return;
+            }
+            if (!$this->can_restore_role_definitions((array) get_option($wp_roles), $roles)) {
+                ak_admin_error(__('You do not have permission to restore protected role capabilities.', 'capability-manager-enhanced'));
+                return;
+            }
+
+            switch ($selection) {
 				case 'restore_initial':
-					if ($roles = get_option($cm_roles_initial)) {
+					if ($roles) {
 						update_option($wp_roles, $roles);
 						ak_admin_notify(__('Roles and Capabilities restored from initial backup.', 'capability-manager-enhanced'));
 					} else {
@@ -94,7 +141,19 @@ class Capsman_BackupHandler
 					break;
 
 				case 'restore':
-					if ($roles = get_option($cm_roles)) {
+					if ($roles) {
+
+                        foreach ($backup_sections as $section_key => $section) {
+                            foreach ((array) ($section['options'] ?? []) as $option_key) {
+                                if (!$this->can_write_backup_option($option_key, $section_key)
+                                    && false !== get_option($option_key . '_backup', false)) {
+                                    $message = $this->is_admin_menus_backup_option($option_key, $section_key)
+                                        ? esc_html__('You do not have permission to restore Admin Menus settings.', 'capability-manager-enhanced')
+                                        : esc_html__('You do not have permission to restore these feature settings.', 'capability-manager-enhanced');
+                                    wp_die($message, '', ['response' => 403]);
+                                }
+                            }
+                        }
 
                         $restored_backup = ['Roles and Capabilities'];
 
@@ -123,7 +182,7 @@ class Capsman_BackupHandler
 					break;
 
 				default:
-                    if ($roles = get_option(sanitize_key($_POST['select_restore']))) {
+                    if ($roles) {
 						update_option($wp_roles, $roles);
 						ak_admin_notify(__('Roles and Capabilities restored from selected auto-backup.', 'capability-manager-enhanced'));
 					} else {
@@ -200,6 +259,15 @@ class Capsman_BackupHandler
 
             $data = $this->filter_import_data_by_allowlist($data, $allowed_import_options);
 
+            foreach (array_keys($data) as $option_key) {
+                if (!$this->can_write_backup_option($option_key, $allowed_import_options[$option_key]['section'])) {
+                    $message = $this->is_admin_menus_backup_option($option_key, $allowed_import_options[$option_key]['section'])
+                        ? esc_html__('You do not have permission to import Admin Menus settings.', 'capability-manager-enhanced')
+                        : esc_html__('You do not have permission to import these feature settings.', 'capability-manager-enhanced');
+                    wp_die($message, '', ['response' => 403]);
+                }
+            }
+
             foreach ( $data as $option_key => $option_value ) {
                 if (!isset($allowed_import_options[$option_key])) {
                     $skipped_options[] = $option_key;
@@ -255,11 +323,36 @@ class Capsman_BackupHandler
 		}
 	}
 
-	/**
-	 * Sanitize role data before import.
-	 *
-	 * @return array
-	 */
+    private function can_restore_role_definitions(array $current, array $restored)
+    {
+        require_once __DIR__ . '/mcp/grant-policy.php';
+
+        foreach (array_keys($current + $restored) as $role) {
+            if (isset($current[$role]) !== isset($restored[$role])
+                && \PublishPress\Capabilities\Mcp\GrantPolicy::isProtected((string) $role)
+                && !current_user_can((string) $role)
+            ) {
+                return false;
+            }
+
+            $before = (array) ($current[$role]['capabilities'] ?? []);
+            $after = (array) ($restored[$role]['capabilities'] ?? []);
+            foreach (array_keys($before + $after) as $capability) {
+                $capability = (string) $capability;
+                if (!\PublishPress\Capabilities\Mcp\GrantPolicy::isProtected($capability)) {
+                    continue;
+                }
+                $was_granted = array_key_exists($capability, $before) ? (bool) $before[$capability] : null;
+                $will_be_granted = array_key_exists($capability, $after) ? (bool) $after[$capability] : null;
+                if ($was_granted !== $will_be_granted && !current_user_can($capability)) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     function get_import_option_section($option_key, $backup_sections)
     {
         $option_section = '';
