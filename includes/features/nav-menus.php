@@ -70,7 +70,7 @@ $nav_menu_item_option = array_key_exists($default_role, $nav_menu_item_option) ?
                                 <td class="content">
 
                                     <div class="publishpress-filters">
-                                        <select name="ppc-nav-menu-role" class="ppc-nav-menu-role">
+                                        <select name="ppc-nav-menu-role" class="ppc-nav-menu-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                             <optgroup label="<?php esc_attr_e('Users');?>">
                                                 <?php
                                                 foreach ($ppc_other_permissions as $p_value => $p_title) {

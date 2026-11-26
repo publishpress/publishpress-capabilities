@@ -413,7 +413,7 @@ div.publishpress-caps-backup td.cme-backup-info li.cme-change {
 
 div.publishpress-caps-backup td.cme-backup-info .cme-plus {
   font-weight: bold;
-  color: #5ECD89;
+  color: #008a20;
 }
 
 .cme-backup-info ul.pp-restore-caps {
@@ -462,7 +462,7 @@ div.publishpress-caps-backup td.cme-backup-info .cme-negate {
 }
 
 .publishpress-caps-backup span.pp-caps-warning {
-  color:red;
+  color: #d63638;
 }
 
 table#akmin tr td input[type=checkbox] {
@@ -1799,7 +1799,19 @@ ul.ppc-redirects-tab li.active a {
 }
 
 .ppc-switch-button .switch input {
-    display: none
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none
+}
+
+.ppc-switch-button .switch input:focus-visible+.slider {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #2271b1;
+    outline: 2px solid transparent
 }
 
 .ppc-switch-button .switch .slider {
@@ -1809,7 +1821,7 @@ ul.ppc-redirects-tab li.active a {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #8c8f94;
     -webkit-transition: 0.4s;
     -moz-transition: 0.4s;
     -ms-transition: 0.4s;
@@ -1840,7 +1852,7 @@ ul.ppc-redirects-tab li.active a {
 }
 
 .ppc-switch-button .switch input:checked+.slider {
-    background-color: #00d084
+    background-color: #2271b1
 }
 
 .ppc-switch-button .switch input:checked+.slider:before {

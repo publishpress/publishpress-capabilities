@@ -66,7 +66,7 @@ $hide_submenu        = !empty($admin_menu_settings['hide_submenu']);
                                             </div>
                                             <div class="clear"></div>
 
-                                            <select name="ppc-admin-features-role" class="ppc-admin-features-role">
+                                            <select name="ppc-admin-features-role" class="ppc-admin-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                                 <?php
                                                 foreach ($roles as $role_name => $name) :
                                                     $name = translate_user_role($name);

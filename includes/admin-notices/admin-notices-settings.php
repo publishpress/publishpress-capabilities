@@ -44,7 +44,7 @@ $notice_type_display = !empty($selected_role_settings['notice_type_display']) ? 
                         <td class="content">
 
                             <div class="publishpress-filters">
-                                <select name="ppc-admin-notices-role" class="ppc-admin-notices-role">
+                                <select name="ppc-admin-notices-role" class="ppc-admin-notices-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                     <?php foreach ($roles as $role => $detail) : ?>
                                         <option value="<?php echo esc_attr($role); ?>" <?php selected($selected_role, $role); ?>>
                                             <?php echo esc_html(translate_user_role($detail['name'])); ?>
