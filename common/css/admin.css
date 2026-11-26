@@ -386,12 +386,52 @@ div.pp-caps-backup-button {
   margin-top: 10px;
 }
 
-div.cme-restore-button {
-  margin-top: 25px;
+#akmin .cme-restore-button {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
 }
 
-#akmin div.cme-restore-button input.button-primary {
-  margin-right: 10px;
+#akmin .cme-restore-button input[name="restore_backup"] {
+    margin: 0;
+}
+
+#akmin .cme-backup-delete-all,
+#akmin .cme-selected-backup-caption {
+    flex-basis: 100%;
+}
+
+#akmin .cme-selected-backup-caption:empty {
+    display: none;
+}
+
+#akmin .cme-backup-delete .tool-tip-text button.button-link {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font: inherit;
+    margin: 0;
+    min-height: 0;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: baseline;
+}
+
+#akmin .cme-backup-delete .tool-tip-text button.button-link-delete {
+    color: #a00;
+}
+
+#akmin .cme-backup-delete .tool-tip-text button.button-link:hover,
+#akmin .cme-backup-delete .tool-tip-text button.button-link:focus-visible {
+    text-decoration: underline;
+}
+
+#akmin .cme-backup-delete .tool-tip-text button.button-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
 }
 
 div.publishpress-caps-backup td.cme-backup-list,

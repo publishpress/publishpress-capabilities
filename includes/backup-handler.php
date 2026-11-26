@@ -89,9 +89,61 @@ class Capsman_BackupHandler
 	{
 		global $wpdb;
 
-        $actions = array_intersect(['save_backup', 'restore_backup', 'import_backup'], array_keys($_POST));
+        $actions = array_intersect(['save_backup', 'restore_backup', 'import_backup', 'delete_auto_backup', 'delete_all_auto_backups'], array_keys($_POST));
         if (count($actions) > 1) {
             wp_die(esc_html__('Submit one backup action at a time.', 'capability-manager-enhanced'), '', ['response' => 400]);
+        }
+
+        if (isset($_POST['delete_auto_backup']) || isset($_POST['delete_all_auto_backups'])) {
+            if (!current_user_can('manage_capabilities_backup')) {
+                wp_die(esc_html__('You do not have permission to delete auto-backups.', 'capability-manager-enhanced'), '', ['response' => 403]);
+            }
+            check_admin_referer('pp-capabilities-backup');
+
+            $delete_all = isset($_POST['delete_all_auto_backups']);
+            $selected = $_POST['select_restore'] ?? '';
+            $selection = is_string($selected) ? wp_unslash($selected) : '';
+            $indexed = pp_capabilities_get_auto_backup_option_names();
+            $auto_backups = array_filter($indexed, static function ($name) {
+                return strpos($name, 'cme_backup_auto_') === 0
+                    && $name !== pp_capabilities_get_auto_backup_legacy_index_option();
+            });
+
+            if (!$delete_all && !in_array($selection, $auto_backups, true)) {
+                ak_admin_error(__('Select an available auto-backup to delete.', 'capability-manager-enhanced'));
+                return;
+            }
+
+            $targets = $delete_all ? array_unique($auto_backups) : [$selection];
+            $removed = [];
+            $deleted = 0;
+            foreach ($targets as $name) {
+                if (delete_option($name)) {
+                    $deleted++;
+                    $removed[] = $name;
+                } elseif (null === get_option($name, null)) {
+                    $removed[] = $name;
+                }
+            }
+
+            if ($removed) {
+                $current_index = pp_capabilities_get_auto_backup_option_names();
+                pp_capabilities_update_auto_backup_option_names(array_diff($current_index, $removed));
+            }
+
+            if ($deleted) {
+                if ($delete_all) {
+                    /* translators: %d: number of auto-backups deleted. */
+                    ak_admin_notify(sprintf(_n('%d auto-backup deleted.', '%d auto-backups deleted.', $deleted, 'capability-manager-enhanced'), $deleted));
+                } else {
+                    ak_admin_notify(__('Auto-backup deleted.', 'capability-manager-enhanced'));
+                }
+            }
+
+            if (!$deleted || count($removed) < count($targets)) {
+                ak_admin_error(__('No additional auto-backups could be deleted.', 'capability-manager-enhanced'));
+            }
+            return;
         }
 
         if (isset($_POST['save_backup'])) {
