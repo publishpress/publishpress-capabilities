@@ -283,8 +283,8 @@
       // Remove image
       $(document).on('click', '.pp-capabilities-remove-button', this.handleRemoveImage);
 
-      // Role change
-      $(document).on('change', '.ppc-admin-styles-role', this.handleRoleChange);
+      // Role switch
+      $(document).on('click', '.ppc-admin-styles-role-switch', this.handleRoleChange);
 
       // Color scheme selection
       $(document).on('click', '.color-option', this.handleSchemeSelection);
@@ -354,6 +354,11 @@
       });
 
       $(document).on('submit', '#ppc-admin-styles-form', function () {
+        // Save always applies to the loaded role, even if the role selector was changed without switching.
+        $(this).find('select.ppc-admin-styles-role option').prop('selected', function () {
+          return this.defaultSelected;
+        });
+
         var $overlay = $('#ppc-admin-styles-overlay');
         if ($overlay.length) {
           $overlay.addClass('is-active').attr('aria-hidden', 'false');
@@ -989,6 +994,15 @@
         elementColors.forms.input_placeholder = this.getMutedTextColor(elementColors.forms.input_background);
       }
 
+      if (elementColors.links) {
+        // Darken template link colours until they meet WCAG AA (4.5:1) on page background and surface.
+        var linkBackgrounds = [palette.background, palette.surface];
+        var self = this;
+        $.each(elementColors.links, function (key, value) {
+          elementColors.links[key] = self.ensureMinContrast(value, linkBackgrounds, 4.5);
+        });
+      }
+
       if (elementColors.tables) {
         elementColors.tables.table_header_text = this.getReadableTextColor(elementColors.tables.table_header_bg);
         elementColors.tables.table_row_color = this.getReadableTextColor(elementColors.tables.table_row_bg);
@@ -1008,6 +1022,7 @@
         var adminBarText = this.getReadableTextColor(elementColors.admin_bar.adminbar_bg);
         elementColors.admin_bar.adminbar_text = adminBarText;
         elementColors.admin_bar.adminbar_icon = adminBarText;
+        elementColors.admin_bar.adminbar_hover_text = this.getReadableTextColor(elementColors.admin_bar.adminbar_hover_bg);
       }
 
       if (elementColors.dashboard_widgets) {
@@ -1321,15 +1336,16 @@
      * Handle role change
      */
     handleRoleChange: function () {
-      var $select = $(this);
+      var $select = $('.ppc-admin-styles-role');
       var selectedRole = $select.val();
 
       if (!selectedRole) {
         return;
       }
 
-      // Disable select during navigation
+      // Disable select and button during navigation
       $select.prop('disabled', true);
+      $(this).prop('disabled', true);
 
       // Show loading
       $('#pp-capability-menu-wrapper').hide();
@@ -1902,6 +1918,9 @@
         if (elementColors.admin_bar.adminbar_hover_bg) {
           css += `#wpadminbar .ab-top-menu > li:hover > .ab-item { background-color: ${elementColors.admin_bar.adminbar_hover_bg} !important; }\n`;
         }
+        if (elementColors.admin_bar.adminbar_hover_text) {
+          css += `#wpadminbar > #wp-toolbar .ab-top-menu > li:hover > .ab-item, #wpadminbar > #wp-toolbar .ab-top-menu > li.hover > .ab-item, #wpadminbar > #wp-toolbar .ab-top-menu > li:hover > .ab-item span, #wpadminbar > #wp-toolbar .ab-top-menu > li.hover > .ab-item span, #wpadminbar .ab-top-menu > li:hover > .ab-item .ab-icon:before, #wpadminbar .ab-top-menu > li.hover > .ab-item .ab-icon:before, #wpadminbar .ab-top-menu > li:hover > .ab-item:before, #wpadminbar .ab-top-menu > li.hover > .ab-item:before { color: ${elementColors.admin_bar.adminbar_hover_text} !important; }\n`;
+        }
       }
 
       // Dashboard widget colors
@@ -2084,28 +2103,130 @@
      * Pick readable text color based on background
      */
     getReadableTextColor: function (color, alternateColor) {
-      var luminance = function (hex) {
-        if (!/^#[0-9a-f]{6}$/i.test(hex || '')) {
-          return 1;
-        }
-        var channels = [1, 3, 5].map(function (offset) {
-          var value = parseInt(hex.slice(offset, offset + 2), 16) / 255;
-          return value <= 0.04045 ? value / 12.92 : Math.pow((value + 0.055) / 1.055, 2.4);
-        });
-        return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
-      };
-      var backgrounds = [this.rgbToHex(color || '#ffffff')];
-      if (alternateColor) {
-        backgrounds.push(this.rgbToHex(alternateColor));
+      var background = this.getRelativeLuminance(this.rgbToHex(color || '#ffffff'));
+      if (background === null) {
+        return '#111827';
       }
-      var contrast = function (text) {
-        var foreground = luminance(text);
-        return Math.min.apply(Math, backgrounds.map(function (background) {
-          var surface = luminance(background);
-          return (Math.max(foreground, surface) + 0.05) / (Math.min(foreground, surface) + 0.05);
+
+      var backgrounds = [background];
+      if (alternateColor) {
+        var alternate = this.getRelativeLuminance(this.rgbToHex(alternateColor));
+        if (alternate !== null) {
+          backgrounds.push(alternate);
+        }
+      }
+
+      var self = this;
+      function minimumContrast(textColor) {
+        var foreground = self.getRelativeLuminance(textColor);
+        return Math.min.apply(Math, backgrounds.map(function (surface) {
+          return self.getContrastRatio(foreground, surface);
         }));
+      }
+
+      var darkContrast = minimumContrast('#111827');
+      var lightContrast = minimumContrast('#f9fafb');
+      var bestColor = darkContrast >= lightContrast ? '#111827' : '#f9fafb';
+      var bestContrast = Math.max(darkContrast, lightContrast);
+
+      if (bestContrast < 4.5) {
+        ['#000000', '#ffffff'].forEach(function (candidate) {
+          var ratio = minimumContrast(candidate);
+          if (ratio > bestContrast) {
+            bestColor = candidate;
+            bestContrast = ratio;
+          }
+        });
+      }
+
+      return bestColor;
+    },
+
+    /**
+     * WCAG 2.x relative luminance of a #rrggbb colour (null if invalid)
+     */
+    getRelativeLuminance: function (hex) {
+      if (!hex || typeof hex !== 'string' || !/^#[0-9a-fA-F]{6}$/.test(hex)) {
+        return null;
+      }
+
+      var channels = [hex.slice(1, 3), hex.slice(3, 5), hex.slice(5, 7)].map(function (part) {
+        var c = parseInt(part, 16) / 255;
+        return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+      });
+
+      return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+    },
+
+    /**
+     * WCAG contrast ratio between two relative luminance values
+     */
+    getContrastRatio: function (l1, l2) {
+      return (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
+    },
+
+    /**
+     * Darken (or lighten, on dark backgrounds) a colour in small steps until it
+     * reaches minRatio contrast against every given background. Keeps the hue.
+     */
+    ensureMinContrast: function (color, backgrounds, minRatio) {
+      if (!color || typeof color !== 'string') {
+        return color;
+      }
+
+      var hex = this.rgbToHex(color);
+      if (hex && /^#[0-9a-fA-F]{3}$/.test(hex)) {
+        hex = '#' + hex[1] + hex[1] + hex[2] + hex[2] + hex[3] + hex[3];
+      }
+      if (this.getRelativeLuminance(hex) === null) {
+        return color;
+      }
+
+      var self = this;
+      var bgLuminances = [];
+      $.each(backgrounds || [], function (i, bg) {
+        var l = self.getRelativeLuminance(bg);
+        if (l !== null) {
+          bgLuminances.push(l);
+        }
+      });
+      if (!bgLuminances.length) {
+        return color;
+      }
+
+      var meetsRatio = function (candidate) {
+        var l = self.getRelativeLuminance(candidate);
+        for (var i = 0; i < bgLuminances.length; i++) {
+          if (self.getContrastRatio(l, bgLuminances[i]) < minRatio) {
+            return false;
+          }
+        }
+        return true;
       };
-      return contrast('#111827') >= contrast('#f9fafb') ? '#111827' : '#f9fafb';
+
+      if (meetsRatio(hex)) {
+        return color;
+      }
+
+      // Mix toward black on light backgrounds, toward white on dark ones.
+      var darkText = ['#111827', '#000000'].indexOf(this.getReadableTextColor(backgrounds[0])) !== -1;
+      var target = darkText ? 0 : 255;
+      var rgb = [parseInt(hex.slice(1, 3), 16), parseInt(hex.slice(3, 5), 16), parseInt(hex.slice(5, 7), 16)];
+      var candidate = hex;
+
+      for (var step = 1; step <= 20; step++) {
+        var amount = step * 0.05;
+        candidate = '#' + rgb.map(function (c) {
+          var mixed = Math.round(c + (target - c) * amount);
+          return ('0' + mixed.toString(16)).slice(-2);
+        }).join('');
+
+        if (meetsRatio(candidate)) {
+          break;
+        }
+      }
+
+      return candidate;
     },
 
     /**
@@ -2113,7 +2234,7 @@
      */
     getMutedTextColor: function (color) {
       var readable = this.getReadableTextColor(color);
-      return readable === '#111827' ? '#6b7280' : '#cbd5e1';
+      return (readable === '#111827' || readable === '#000000') ? '#6b7280' : '#cbd5e1';
     },
 
     /**

@@ -83,6 +83,16 @@ function pp_capabilities_get_permissions_option()
     return [];
 }
 
+function pp_capabilities_is_editable_role($role, $args = [])
+{
+    return $role === 'author';
+}
+
+function get_role($role)
+{
+    return null;
+}
+
 function pp_capabilities_update_permissions_option()
 {
     global $role_mutations;
@@ -142,6 +152,19 @@ foreach ([false, 'http://elsewhere.test/wp-admin/'] as $raw_referer) {
     if ('http://example.test/wp-admin/admin.php?page=pp-capabilities-roles' !== $link_url) {
         fwrite(STDERR, "A failed nonce check without a usable referer did not link to the Roles screen.\n");
         exit(1);
+    }
+}
+
+$valid_nonce = true;
+foreach (['administrator', 'author'] as $role) {
+    $_REQUEST = ['_wpnonce' => 'valid', 'current_role' => $role, 'role_name' => 'Fixture'];
+    try {
+        $actions->edit_role();
+        throw new RuntimeException('Expected protected or missing role to be denied.');
+    } catch (RuntimeException $exception) {
+        if (403 !== $exception->getCode()) {
+            throw $exception;
+        }
     }
 }
 

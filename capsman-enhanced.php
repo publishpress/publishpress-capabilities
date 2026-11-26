@@ -12,9 +12,7 @@
  * Requires PHP: 8.2
  * License: GPLv3
  *
-
  * Copyright (c) 2024 PublishPress
-	if ($pro_active) return;
  * Author: Jordi Canals
  * Copyright (c) 2009, 2010 Jordi Canals
  * ------------------------------------------------------------------------------
@@ -42,6 +40,43 @@ if (version_compare($wp_version, $min_wp_version, '<')) {
 if (!defined('PP_CAPABILITIES_LIB_VENDOR_PATH')) {
 	define('PP_CAPABILITIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
 }
+
+$bundledTranslationsInclude = PP_CAPABILITIES_LIB_VENDOR_PATH . '/publishpress/bundled-translations/core/include.php';
+if (is_readable($bundledTranslationsInclude)) {
+	require_once $bundledTranslationsInclude;
+}
+
+add_action('plugins_loaded', static function () {
+	if (class_exists(\PublishPress\BundledTranslations\BundledTranslations::class)) {
+		$translations = new \PublishPress\BundledTranslations\BundledTranslations('capability-manager-enhanced', __DIR__ . '/languages', __FILE__);
+		$translations->init();
+	}
+});
+
+add_filter('publishpress_bundled_translations_hub_notice_enabled', static function ($enabled, $domain) {
+	return 'capability-manager-enhanced' === $domain ? true : $enabled;
+}, 10, 2);
+
+add_filter('publishpress_bundled_translations_hub_notice_screens', static function ($screens, $domain) {
+	global $plugin_page;
+
+	if ('capability-manager-enhanced' !== $domain || !function_exists('get_current_screen') || !function_exists('pp_capabilities_admin_pages')) {
+		return $screens;
+	}
+
+	$screen = get_current_screen();
+	$pages = array_merge(pp_capabilities_admin_pages(), ['pp-capabilities-user-view']);
+	if (!$screen || !in_array($plugin_page, $pages, true)) {
+		return $screens;
+	}
+
+	$screen_id = preg_replace('/-(network|user)$/', '', $screen->id);
+	if (!str_ends_with($screen_id, '_page_' . $plugin_page)) {
+		return $screens;
+	}
+
+	return array_values(array_unique(array_merge((array) $screens, [$screen->id])));
+}, 10, 2);
 
 $instanceProtectionIncPath = PP_CAPABILITIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
 if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
