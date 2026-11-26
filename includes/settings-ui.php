@@ -35,6 +35,7 @@ class Capabilities_Settings_UI {
                     <li class="nav-tab <?php if ('capabilities' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-capabilities"><?php esc_html_e('Capabilities', 'capability-manager-enhanced');?></a></li>
                     <li class="nav-tab <?php if ('editor-features' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-editor-features"><?php esc_html_e('Editor Features', 'capability-manager-enhanced');?></a></li>
                     <li class="nav-tab <?php if ('profile-features' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-profile-features"><?php esc_html_e('Profile Features', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab <?php if ('admin-menus' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-admin-menus"><?php esc_html_e('Admin Menus', 'capability-manager-enhanced');?></a></li>
                     <?php do_action('pp_capabilities_settings_after_menu_list'); ?>
                     <li class="nav-tab <?php if ('test-user' == $default_tab) echo 'nav-tab-active'?>"><a href="#ppcs-tab-test-user"><?php esc_html_e('User Testing', 'capability-manager-enhanced');?></a></li>
                 </ul>
@@ -45,6 +46,30 @@ class Capabilities_Settings_UI {
                             <td class="content">
 
                             <?php do_action('pp_capabilities_settings_before_menu_content'); ?>
+    <table class="form-table" role="presentation" id="ppcs-tab-admin-menus" style="<?php if ('admin-menus' != $default_tab) echo 'display:none;'; ?>">
+        <tbody>
+            <tr>
+                <?php $checked = checked(!empty(get_option('cme_admin_menus_restriction_priority', 1)), true, false); ?>
+                <th scope="row"> <?php esc_html_e('Admin Menu', 'capability-manager-enhanced'); ?></th>
+                <td>
+                    <label for="" title="<?php esc_attr_e('Admin Menus: treatment of multiple roles', 'capability-manager-enhanced');?>">
+                        <select name="cme_admin_menus_restriction_priority" id="cme_admin_menus_restriction_priority" autocomplete="off">
+                            <option value="0"<?php echo ($checked) ? '' : ' selected';?>>
+                                <?php esc_html_e('Most permissive: Any non-restricted user role allows access', 'capability-manager-enhanced');?>
+                            </option>
+                            <option value="1"<?php echo ($checked) ? ' selected' : '';?>>
+                                <?php esc_html_e('Most restrictive: Any restricted user role prevents access', 'capability-manager-enhanced');?>
+                            </option>
+                        </select>
+                        <div class='cme-subtext'>
+                            <?php esc_html_e('This controls whether the most permissive or restrictive permissions are applied if a user has multiple roles.', 'capability-manager-enhanced');?>
+                        </div>
+                    </label>
+                    <br>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
                             <table class="form-table" role="presentation" id="ppcs-tab-roles" style="<?php if ('roles' != $default_tab) echo 'display: none'?>">
                                 <tbody>

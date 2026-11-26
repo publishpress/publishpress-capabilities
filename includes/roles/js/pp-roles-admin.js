@@ -58,6 +58,14 @@ jQuery(document).ready(function ($) {
                         tr.children().css('backgroundColor', '');
                     }
                 }
+            }).fail(function (xhr) {
+                var res = xhr.responseJSON;
+
+                $('#ajax-response').empty();
+                if (res && res.data) {
+                    $('#ajax-response').append('<div class="notice notice-error is-dismissible"><p>' + res.data + '</p></div>');
+                }
+                tr.children().css('backgroundColor', '');
             });
 
             tr.children().css('backgroundColor', '#f33');

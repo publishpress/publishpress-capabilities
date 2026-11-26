@@ -8,6 +8,8 @@ if (!defined('PP_CAPABILITIES_HIDE_MENU_ON_SUBSITES')) {
     define('PP_CAPABILITIES_HIDE_MENU_ON_SUBSITES', true);
 }
 
+function is_admin() { return false; }
+
 function is_multisite()
 {
     return true;

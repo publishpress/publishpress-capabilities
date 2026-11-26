@@ -173,4 +173,23 @@ foreach ($test_plugin_capabilities as $capability) {
     }
 }
 
+$test_roles = new TestInstallerRoles([
+    'administrator' => ['read' => true],
+    'editor' => ['read' => true],
+]);
+PP_Capabilities_Installer::runUpgradeTasks('2.52.1');
+if (!get_role('administrator')->has_cap('manage_capabilities_admin_menus')) {
+    throw new RuntimeException('Existing Administrators must receive Admin Menus access on upgrade.');
+}
+if (get_role('editor')->has_cap('manage_capabilities_admin_menus')) {
+    throw new RuntimeException('The Admin Menus upgrade must not grant access to Editors.');
+}
+
+// Once the migration version is reached, preserve a deliberate capability removal.
+get_role('administrator')->remove_cap('manage_capabilities_admin_menus');
+PP_Capabilities_Installer::runUpgradeTasks('2.53.0');
+if (get_role('administrator')->has_cap('manage_capabilities_admin_menus')) {
+    throw new RuntimeException('Later upgrades must not repeat the Admin Menus migration.');
+}
+
 echo "Installer capabilities test passed.\n";

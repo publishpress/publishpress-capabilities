@@ -9,6 +9,14 @@ jQuery(function ($) {
     });
 
     /**
+     * Keep user suggestions visible while a search is entered.
+     */
+    $(document).on('input change', '.ppc-test-user-admin-bar-form .search-test-user', function () {
+      $(this).closest('#wp-admin-bar-pp_capabilities_test_user')
+        .toggleClass('ppc-user-search-active', $.trim($(this).val()).length > 0);
+    });
+
+    /**
      * Search for user
      */
     $(document).on('click', '.ppc-test-user-admin-bar-form .test-user-btn', function (event) {

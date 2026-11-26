@@ -1,5 +1,43 @@
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
+
+[2.54.0] - 18 November, 2026
+
+- Feature : Allow compatible AI tools to manage roles, capabilities, menus, feature restrictions, settings, and backups through the WordPress Abilities API, #1898
+- Update : Require PHP 8.2 or newer, #1902
+- Update : Show the selected role in Admin Menus save buttons, #1905
+- Update : Clarify permission links on the User Capabilities screen, #1897
+- Update : Make inherited group permissions easier to scan, #1896
+- Update : Clarify descriptions on the User Capabilities screen, #1895
+- Update : Clarify the options for resetting admin menu names, icons, order, and cache, #1893
+- Fixed : Apply Frontend Features and Navigation Menus restrictions to WPML translations and prevent direct access to restricted pages in classic themes, #1913
+- Fixed : Check administrator permissions when capturing Profile Features and safely apply profile restriction styles, #1906
+- Fixed : Apply unique and detailed capabilities to non-public taxonomies that have an admin interface, #1899
+- Fixed : Provide a link back to a fresh screen when a role form or link expires, #1889
+- Fixed : Show an error and clear the pending highlight when a role cannot be deleted, #1887
+- Fixed : Show a warning instead of switching users when Profile Features capture is blocked by dashboard access restrictions, #1881
+- Fixed : Replace deprecated jQuery calls in Pro license settings, #1891
+- Fixed : Correct an apostrophe in the user group capabilities description, #1894
+- Fixed : Keep the changelog introduction on one line for correct display on the website, #1880
+- Fixed : Preserve custom admin menu orders when plugins add new submenu entries and refresh menu discovery after plugin changes, #1898
+- Fixed : Prevent Admin Menus errors when menu cache entries are missing or invalid, #1898
+
+[2.53.0] - 14 October, 2026
+
+- Feature : Move Admin Menus into the free version, #1809
+- Feature : Add WP-CLI commands to list and restore backups,, #1804
+- Feature : Show inherited group permissions and extra roles on the User Capabilities screen, #1831
+- Update : Add PublishPress Cart capability integration, #1795
+- Update : Add WS Form lock and unlock capabilities for forms and form styles, #1868
+- Update : Match text separators to the normal admin menu typography and preserve the entered case, #1834
+- Update : Restyle the inline Statuses Pro promotion, #1753
+- Fixed : Prevent silent Profile Features capture failures on multisite sub-sites and show an explanation when no eligible user is available, #1845
+- Fixed : Show Profile Features capture warnings only after a capture attempt, #1869
+- Fixed : Prevent fatal errors when saving custom Admin Styles with invalid role settings, #1847
+- Fixed : Apply custom Admin Styles button colors to WordPress/Gutenberg components, including hover and focus states fixing Hub buttons, #1848
+- Fixed : Keep User Switching suggestions open while search text is entered, #1846
+- Fixed : Hide decorative SVG illustrations and external-link icons from assistive technology, #1849
+- Fixed : Add accessible names to plugin selectors, checkboxes, textareas, and style controls, #1850
+- Fixed : Add alt text to generated admin logo and favicon previews, #1851
 
 [2.52.0] - 22 September, 2026
 

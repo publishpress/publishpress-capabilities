@@ -11,6 +11,9 @@
 require_once(dirname(CME_FILE) . '/includes/features/frontend-features/frontend-features-action.php');
 \PublishPress\Capabilities\PP_Capabilities_Frontend_Features_Action::instance();
 
+require_once __DIR__ . '/features/admin-menus/admin-menus-functions.php';
+require_once __DIR__ . '/features/admin-menus/admin-menus-controller.php';
+
 if (!function_exists('cme_fakefunc')) {
     function cme_fakefunc()
     {
@@ -262,6 +265,15 @@ if (!function_exists('pp_capabilities_backup_sections')) {
         $backup_sections['capsman_application_password_capabilities_backup']['label'] = esc_html__('Application Password Capabilities', 'capability-manager-enhanced');
         $backup_sections['capsman_application_password_capabilities_backup']['options'][] = "cme_application_password_capabilities";
 
+    //Admin Menu
+    $admin_menu_options = ['capsman_admin_menus', 'capsman_admin_child_menus', 'ppc_admin_menus_order', 'ppc_admin_menus_names', 'ppc_admin_menus_custom_menus', 'ppc_admin_menus_settings'];
+    $backup_sections['capsman_admin_menu_backup']['label'] = esc_html__('Admin Menu', 'capability-manager-enhanced');
+    foreach($admin_menu_options as $admin_menu_option){
+        $backup_sections['capsman_admin_menu_backup']['options'][] = $admin_menu_option;
+    }
+
+
+
         //settings
         $backup_sections['capsman_settings_backup']['label'] = esc_html__('Settings');
         $backup_sections['capsman_settings_backup']['options'] = pp_capabilities_settings_options();
@@ -349,6 +361,7 @@ if (!function_exists('pp_capabilities_settings_options')) {
             'cme_test_user_admin_bar_search',
             'cme_test_user_footer_notice',
             'cme_test_user_excluded_roles',
+            'cme_admin_menus_restriction_priority',
             'cme_profile_features_auto_redirect',
             'cme_role_same_page_redirect_cookie',
         ];
@@ -428,6 +441,12 @@ if (!function_exists('pp_capabilities_dashboard_options')) {
         $features['admin-styles'] = [
             'label' => esc_html__('Admin Styles', 'capability-manager-enhanced'),
             'description' => esc_html__('Admin Styles allows you to customize the admin area with your own branding.', 'capability-manager-enhanced'),
+        ];
+
+        $features['admin-menus'] = [
+            'label' => esc_html__('Admin Menus', 'capability-manager-enhanced'),
+            'description' => esc_html__('Admin Menus allows you to edit the admin menu links and control who has access.', 'capability-manager-enhanced'),
+            'promo' => 0,
         ];
 
         $features['profile-features'] = [
@@ -531,15 +550,13 @@ if (!function_exists('pp_capabilities_sub_menu_lists')) {
             'callback' => $cme_fakefunc ? 'cme_fakefunc' : [$capsman, 'ManageAdminNotices'],
             'dashboard_control' => true,
         ];
-        if ($cme_fakefunc) {
-            $sub_menu_pages['admin-menus'] = [
-                'title' => __('Admin Menus', 'capability-manager-enhanced'),
-                'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_menus',
-                'page' => 'pp-capabilities-admin-menus',
-                'callback' => 'cme_fakefunc',
-                'dashboard_control' => true,
-            ];
-        }
+        $sub_menu_pages['admin-menus'] = [
+            'title' => __('Admin Menus', 'capability-manager-enhanced'),
+            'capabilities' => $super_user ? 'read' : 'manage_capabilities_admin_menus',
+            'page' => 'pp-capabilities-admin-menus',
+            'callback' => $cme_fakefunc ? 'cme_fakefunc' : [\PublishPress\Capabilities\AdminMenusController::instance(), 'ManageAdminMenus'],
+            'dashboard_control' => true,
+        ];
         $sub_menu_pages['profile-features'] = [
             'title' => __('Profile Features', 'capability-manager-enhanced'),
             'capabilities' => $super_user ? 'read' : 'manage_capabilities_profile_features',

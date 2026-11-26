@@ -803,7 +803,7 @@ if (!function_exists('pp_capabilities_nav_menu_access_denied')) {
     function pp_capabilities_nav_menu_access_denied()
     {
         $forbidden = esc_attr__('You do not have permission to access this page.', 'capability-manager-enhanced');
-        wp_die(esc_html($forbidden));
+        wp_die(esc_html($forbidden), '', ['response' => 403]);
     }
 }
 
@@ -884,7 +884,7 @@ if (!function_exists('pp_capabilities_pro_sidebox')) {
                         <a class="advert-link" href="https://wordpress.org/plugins/capability-manager-enhanced/"
                             target="_blank">
                             <?php echo esc_html__('Request Support', 'capability-manager-enhanced'); ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon" aria-hidden="true" focusable="false">
                                 <path
                                     d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z">
                                 </path>
@@ -895,7 +895,7 @@ if (!function_exists('pp_capabilities_pro_sidebox')) {
                         <?php echo esc_html__('Detailed documentation is also available on the plugin website.', 'capability-manager-enhanced'); ?>
                         <a class="advert-link" href="https://publishpress.com/docs-category/cme/" target="_blank">
                             <?php echo esc_html__('View Knowledge Base', 'capability-manager-enhanced'); ?>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="linkIcon" aria-hidden="true" focusable="false">
                                 <path
                                     d="M18.2 17c0 .7-.6 1.2-1.2 1.2H7c-.7 0-1.2-.6-1.2-1.2V7c0-.7.6-1.2 1.2-1.2h3.2V4.2H7C5.5 4.2 4.2 5.5 4.2 7v10c0 1.5 1.2 2.8 2.8 2.8h10c1.5 0 2.8-1.2 2.8-2.8v-3.6h-1.5V17zM14.9 3v1.5h3.7l-6.4 6.4 1.1 1.1 6.4-6.4v3.7h1.5V3h-6.3z">
                                 </path>
@@ -1566,7 +1566,9 @@ if (!is_admin()) {
                     $taxonomy_id = get_queried_object()->term_id;
                     $taxonnomy_type = get_queried_object()->taxonomy;
                     $option_object = $taxonomy_id . '_' . $taxonnomy_type;
-                    if (in_array($option_object, $disabled_nav_menu_array)) {
+                    //translated terms are restricted through their default-language original
+                    $original_option_object = pp_capabilities_default_language_object_id($taxonomy_id, $taxonnomy_type) . '_' . $taxonnomy_type;
+                    if (in_array($option_object, $disabled_nav_menu_array) || in_array($original_option_object, $disabled_nav_menu_array)) {
                         $ppc_nav_menu_restricted = true;
                         pp_capabilities_nav_menu_access_denied();
                     }
@@ -1574,10 +1576,14 @@ if (!is_admin()) {
 
                 //post, page, cpt check
                 if (is_singular()) {
-                    $post_type = get_post_type();
-                    $post_id = get_the_ID();
+                    //get_the_ID() is empty while the main query is parsed, so fall back to the queried object
+                    $post_id = get_the_ID() ? get_the_ID() : get_queried_object_id();
+                    $post_type = get_post_type($post_id);
                     $option_object = $post_id . '_' . $post_type;
-                    if (in_array($option_object, $disabled_nav_menu_array)) {
+                    //translated posts are restricted through their default-language original
+                    $original_post_id = pp_capabilities_default_language_object_id($post_id, $post_type);
+                    $original_option_object = $original_post_id . '_' . $post_type;
+                    if (in_array($option_object, $disabled_nav_menu_array) || in_array($original_option_object, $disabled_nav_menu_array)) {
                         $ppc_nav_menu_restricted = true;
                         pp_capabilities_nav_menu_access_denied();
                     }
@@ -1587,9 +1593,28 @@ if (!is_admin()) {
 
                 if (!empty($fse_blocked_nav_links)) {
                     //restrict access to url
-                    if (in_array(pp_capabilities_current_url(), $fse_blocked_nav_links)) {
-                        $ppc_nav_menu_restricted = true;
-                        pp_capabilities_nav_menu_access_denied();
+                    $current_urls = [pp_capabilities_current_url()];
+                    //translated posts are restricted through their default-language original's URL
+                    if (is_singular()) {
+                        $current_post_id = get_the_ID() ? (int) get_the_ID() : (int) get_queried_object_id();
+                        $original_post_id = pp_capabilities_default_language_object_id($current_post_id, get_post_type($current_post_id));
+                        if ($original_post_id && $original_post_id !== $current_post_id) {
+                            $original_url = get_permalink($original_post_id);
+                            $default_language = apply_filters('wpml_default_language', null);
+                            if ($original_url && $default_language) {
+                                $original_url = apply_filters('wpml_permalink', $original_url, $default_language);
+                            }
+                            if ($original_url) {
+                                $current_urls[] = $original_url;
+                            }
+                        }
+                    }
+                    foreach ($current_urls as $current_url) {
+                        foreach ($fse_blocked_nav_links as $blocked_url) {
+                            if (pp_capabilities_nav_link_matches_url($blocked_url, $current_url)) {
+                                pp_capabilities_nav_menu_access_denied();
+                            }
+                        }
                     }
                     //hide menu item immediately, remove menu item from li after page load
                     add_action('wp_head', function () use ($fse_blocked_nav_links) {
@@ -1621,6 +1646,43 @@ if (!is_admin()) {
     add_action('parse_query', 'pp_capabilities_nav_menu_access');
 }
 
+if (!function_exists('pp_capabilities_nav_link_matches_url')) {
+    function pp_capabilities_nav_link_matches_url($blocked_url, $current_url)
+    {
+        $blocked = wp_parse_url(html_entity_decode($blocked_url, ENT_QUOTES, 'UTF-8'));
+        $current = wp_parse_url($current_url);
+
+        if (empty($blocked['host']) || empty($current['host'])
+            || !in_array($blocked['scheme'] ?? '', ['http', 'https'], true)
+            || $blocked['scheme'] !== ($current['scheme'] ?? '')
+            || 0 !== strcasecmp($blocked['host'], $current['host'])) {
+            return false;
+        }
+
+        $default_port = 'https' === $blocked['scheme'] ? 443 : 80;
+        $path = $current['path'] ?? '/';
+        if (($blocked['port'] ?? $default_port) !== ($current['port'] ?? $default_port)
+            || ($blocked['path'] ?? '/') !== $path) {
+            return false;
+        }
+
+        wp_parse_str($blocked['query'] ?? '', $required);
+        wp_parse_str($current['query'] ?? '', $actual);
+
+        if (!$required && $actual && $path === (wp_parse_url(home_url('/'), PHP_URL_PATH) ?: '/') && !is_front_page()) {
+            return false;
+        }
+
+        foreach ($required as $key => $value) {
+            if (!array_key_exists($key, $actual) || $actual[$key] !== $value) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
 /**
  * Generate style link selector for a nav link
  *
@@ -1645,6 +1707,40 @@ if (!function_exists('pp_capabilities_nav_link_selector')) {
         }
 
         return $link_selector;
+    }
+}
+
+
+/**
+ * Get the ID of an object's original in the site's default language.
+ *
+ * Restrictions are saved for the default-language object, so translations
+ * (e.g. WPML) are mapped back to it. Returns the same ID when no
+ * translation plugin is active or the object has no default-language original.
+ *
+ * @param integer $object_id Post or term ID.
+ * @param string  $type      Post type or taxonomy.
+ *
+ * @return integer
+ */
+if (!function_exists('pp_capabilities_default_language_object_id')) {
+    function pp_capabilities_default_language_object_id($object_id, $type)
+    {
+        $object_id = (int) $object_id;
+
+        if (!$object_id || !$type || !has_filter('wpml_object_id')) {
+            return $object_id;
+        }
+
+        $default_language = apply_filters('wpml_default_language', null);
+
+        if (empty($default_language)) {
+            return $object_id;
+        }
+
+        $original_id = (int) apply_filters('wpml_object_id', $object_id, $type, true, $default_language);
+
+        return $original_id ? $original_id : $object_id;
     }
 }
 

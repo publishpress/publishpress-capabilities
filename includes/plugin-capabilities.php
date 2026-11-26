@@ -165,6 +165,8 @@ class Plugin_Capabilities
                     'import_form',
                     'publish_form',
                     'read_form',
+                    'lock_form',
+                    'unlock_form',
                     'delete_submission',
                     'edit_submission',
                     'export_submission',
@@ -176,6 +178,8 @@ class Plugin_Capabilities
                     'import_form_style',
                     'publish_form_style',
                     'read_form_style',
+                    'lock_form_style',
+                    'unlock_form_style',
                     'manage_options_wsform',
                 ]
             );

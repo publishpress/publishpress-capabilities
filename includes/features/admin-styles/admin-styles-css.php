@@ -231,6 +231,27 @@ function ppc_generate_advanced_rules_css($advanced_rules) {
     return $css;
 }
 
+/**
+ * Limit scheme button rules to primary/secondary controls outside color pickers.
+ *
+ * @since 2.53.0
+ */
+function ppc_admin_style_button_selectors(string $variant, array $states = ['']): string
+{
+    $buttons = $variant === 'primary'
+        ? ['.wp-core-ui .button-primary', 'input[type=submit].button-primary', '.components-button.is-primary']
+        : ['.wp-core-ui .button:not(.button-primary)', 'input[type=submit].button:not(.button-primary)',
+            '.components-button.is-secondary:not(.is-primary)'];
+    $selectors = [];
+    foreach ($buttons as $button) {
+        foreach ($states as $state) {
+            $selectors[] = $button . $state
+                . ':not(.wp-picker-container *):not(:disabled):not([aria-disabled=true]):not(.disabled)';
+        }
+    }
+    return implode(', ', $selectors);
+}
+
 // Function to generate CSS for element-specific colors
 function ppc_generate_element_colors_css($element_colors) {
     if (empty($element_colors) || !is_array($element_colors)) {
@@ -266,10 +287,10 @@ function ppc_generate_element_colors_css($element_colors) {
         $links = $element_colors['links'];
 
         if (!empty($links['link_default'])) {
-            $css .= "a { color: {$links['link_default']} !important; }\n";
+            $css .= "a:not(.button):not(.components-button):not(.wp-picker-container a) { color: {$links['link_default']} !important; }\n";
         }
         if (!empty($links['link_hover'])) {
-            $css .= "a:hover, a:focus { color: {$links['link_hover']} !important; }\n";
+            $css .= "a:not(.button):not(.components-button):not(.wp-picker-container a):hover, a:not(.button):not(.components-button):not(.wp-picker-container a):focus { color: {$links['link_hover']} !important; }\n";
         }
         if (!empty($links['link_delete'])) {
             $css .= ".wp-core-ui .button-link-delete { color: {$links['link_delete']} !important; }\n";
@@ -320,10 +341,10 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "{$table_scope} table tbody tr { background-color: {$tables['table_row_bg']} !important; }\n";
         }
         if (!empty($tables['table_row_color'])) {
-            $css .= "{$table_scope} table tbody tr td { color: {$tables['table_row_color']} !important; }\n";
+            $css .= "{$table_scope} table tbody tr td, {$table_scope} table tbody tr th { color: {$tables['table_row_color']} !important; }\n";
         }
         if (!empty($tables['table_row_hover_bg'])) {
-            $css .= "{$table_scope} table tbody tr:hover { background-color: {$tables['table_row_hover_bg']} !important; }\n";
+            $css .= "{$table_scope} table tbody tr:hover, {$table_scope} table tbody tr:nth-child(odd):hover { background-color: {$tables['table_row_hover_bg']} !important; }\n";
         }
         if (!empty($tables['table_border'])) {
             $css .= "{$table_scope} table, {$table_scope} table td, {$table_scope} table th { border-color: {$tables['table_border']} !important; }\n";
@@ -332,31 +353,46 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "{$table_scope} table tbody tr:nth-child(odd) { background-color: {$tables['table_alt_row_bg']} !important; }\n";
         }
         if (!empty($tables['table_alt_row_color'])) {
-            $css .= "{$table_scope} table tbody tr:nth-child(odd) td { color: {$tables['table_alt_row_color']} !important; }\n";
+            $css .= "{$table_scope} table tbody tr:nth-child(odd) td, {$table_scope} table tbody tr:nth-child(odd) th { color: {$tables['table_alt_row_color']} !important; }\n";
         }
     }
+
+    $primary_normal = ppc_admin_style_button_selectors('primary', ['']);
+    $primary_states = ppc_admin_style_button_selectors('primary', [':hover', ':focus', ':active']);
+    $primary_text = ppc_admin_style_button_selectors('primary', ['', ':hover', ':focus', ':active']);
+    $primary_focus = ppc_admin_style_button_selectors('primary', [':focus']);
+    $secondary_normal = ppc_admin_style_button_selectors('secondary', ['']);
+    $secondary_states = ppc_admin_style_button_selectors('secondary', [':hover', ':focus', ':active']);
+    $secondary_text = ppc_admin_style_button_selectors('secondary', ['', ':hover', ':focus', ':active']);
+    $secondary_focus = ppc_admin_style_button_selectors('secondary', [':focus']);
 
     // Buttons styling
     if (!empty($element_colors['buttons'])) {
         $buttons = $element_colors['buttons'];
 
         if (!empty($buttons['button_primary_bg'])) {
-            $css .= ".wp-core-ui .button-primary:not(.wp-picker-container .button-primary) { background-color: {$buttons['button_primary_bg']}; }\n";
+            $css .= "{$primary_normal} { background-color: {$buttons['button_primary_bg']} !important; border-color: {$buttons['button_primary_bg']} !important; }\n";
         }
         if (!empty($buttons['button_primary_text'])) {
-            $css .= ".wp-core-ui .button-primary:not(.wp-picker-container .button-primary) { color: {$buttons['button_primary_text']}; }\n";
+            $css .= "{$primary_text} { color: {$buttons['button_primary_text']} !important; }\n";
         }
         if (!empty($buttons['button_primary_hover_bg'])) {
-            $css .= ".wp-core-ui .button-primary:hover:not(.wp-picker-container .button-primary), .wp-core-ui .button-primary:focus:not(.wp-picker-container .button-primary) { background-color: {$buttons['button_primary_hover_bg']}; }\n";
+            $css .= "{$primary_states} { background-color: {$buttons['button_primary_hover_bg']} !important; border-color: {$buttons['button_primary_hover_bg']} !important; }\n";
+        }
+        if (!empty($buttons['button_primary_bg'])) {
+            $css .= "{$primary_focus} { box-shadow: 0 0 0 1px #fff, 0 0 0 3px {$buttons['button_primary_bg']} !important; }\n";
         }
         if (!empty($buttons['button_secondary_bg'])) {
-            $css .= ".wp-core-ui .button:not(.wp-picker-container .button) { background-color: {$buttons['button_secondary_bg']}; }\n";
+            $css .= "{$secondary_normal} { background-color: {$buttons['button_secondary_bg']} !important; border-color: {$buttons['button_secondary_bg']} !important; }\n";
         }
         if (!empty($buttons['button_secondary_text'])) {
-            $css .= ".wp-core-ui .button:not(.wp-picker-container .button) { color: {$buttons['button_secondary_text']}; }\n";
+            $css .= "{$secondary_text} { color: {$buttons['button_secondary_text']} !important; }\n";
         }
         if (!empty($buttons['button_secondary_hover_bg'])) {
-            $css .= ".wp-core-ui .button:hover:not(.wp-picker-container .button), .wp-core-ui .button:focus:not(.wp-picker-container .button) { background-color: {$buttons['button_secondary_hover_bg']}; }\n";
+            $css .= "{$secondary_states} { background-color: {$buttons['button_secondary_hover_bg']} !important; border-color: {$buttons['button_secondary_hover_bg']} !important; }\n";
+        }
+        if (!empty($buttons['button_secondary_text'])) {
+            $css .= "{$secondary_focus} { box-shadow: 0 0 0 1px #fff, 0 0 0 3px {$buttons['button_secondary_text']} !important; }\n";
         }
     }
 
@@ -368,7 +404,7 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "#adminmenu, #adminmenuback, #adminmenuwrap { background-color: {$menu['menu_bg']} !important; }\n";
         }
         if (!empty($menu['menu_text'])) {
-            $css .= "#adminmenu a { color: {$menu['menu_text']} !important; }\n";
+            $css .= "#adminmenu a:not(.button):not(.components-button):not(.wp-picker-container a) { color: {$menu['menu_text']} !important; }\n";
         }
         if (!empty($menu['menu_icon'])) {
             $css .= "#adminmenu .dashicons, #adminmenu .dashicons-before:before { color: {$menu['menu_icon']} !important; }\n";
@@ -378,7 +414,7 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "#adminmenu li:hover, #adminmenu li.opensub > a { background-color: {$menu['menu_hover_bg']} !important; }\n";
         }
         if (!empty($menu['menu_hover_text'])) {
-            $css .= "#adminmenu li:hover a, #adminmenu li.opensub > a { color: {$menu['menu_hover_text']} !important; }\n";
+            $css .= "#adminmenu li:hover a, #adminmenu li.opensub > a:not(.button):not(.components-button):not(.wp-picker-container a) { color: {$menu['menu_hover_text']} !important; }\n";
         }
         if (!empty($menu['menu_current_bg'])) {
             $css .= "#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu > a.wp-has-current-submenu { background-color: {$menu['menu_current_bg']} !important; }\n";
@@ -402,7 +438,7 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "#wpadminbar { background-color: {$adminbar['adminbar_bg']}; }\n";
         }
         if (!empty($adminbar['adminbar_text'])) {
-          $css .= "#wpadminbar .ab-item, #wpadminbar a.ab-item, #wpadminbar > #wp-toolbar a, #wpadminbar > #wp-toolbar span, #wpadminbar > #wp-toolbar span.ab-label, #wpadminbar .ab-submenu .ab-item, #wpadminbar .quicklinks .ab-submenu a, #wpadminbar .quicklinks .menupop ul li a { color: {$adminbar['adminbar_text']} !important; }\n";
+          $css .= "#wpadminbar .ab-item:not(button):not(.button):not(.components-button), #wpadminbar .ab-item:not(button):not(.button):not(.components-button) > .ab-label, #wpadminbar .ab-submenu a:not(.button):not(.components-button) { color: {$adminbar['adminbar_text']} !important; }\n";
         }
         if (!empty($adminbar['adminbar_icon'])) {
             $css .= "#wpadminbar .ab-icon:before, #wpadminbar .ab-item:before, #wpadminbar .dashicons { color: {$adminbar['adminbar_icon']} !important; }\n";
@@ -432,10 +468,10 @@ function ppc_generate_element_colors_css($element_colors) {
             $css .= "#dashboard-widgets .postbox .inside, #dashboard-widgets .postbox .inside p, #dashboard-widgets .postbox .inside li { color: {$widgets['widget_body_text']} !important; }\n";
         }
         if (!empty($widgets['widget_link'])) {
-            $css .= "#dashboard-widgets .postbox .inside a { color: {$widgets['widget_link']} !important; }\n";
+            $css .= "#dashboard-widgets .postbox .inside a:not(.button):not(.components-button):not(.wp-picker-container a) { color: {$widgets['widget_link']} !important; }\n";
         }
         if (!empty($widgets['widget_link_hover'])) {
-            $css .= "#dashboard-widgets .postbox .inside a:hover, #dashboard-widgets .postbox .inside a:focus { color: {$widgets['widget_link_hover']} !important; }\n";
+            $css .= "#dashboard-widgets .postbox .inside a:not(.button):not(.components-button):hover, #dashboard-widgets .postbox .inside a:not(.button):not(.components-button):focus { color: {$widgets['widget_link_hover']} !important; }\n";
         }
     }
 
@@ -608,67 +644,74 @@ CSS;
         $css .= "}\n";
     }
 
+    $primary_normal = ppc_admin_style_button_selectors('primary', ['']);
+    $primary_pressed = ppc_admin_style_button_selectors('primary', [':active']);
+    $primary_focus = ppc_admin_style_button_selectors('primary', [':focus']);
+    $primary_hover = ppc_admin_style_button_selectors('primary', [':hover']);
+    $primary_active = ppc_admin_style_button_selectors('primary', ['.active']);
+    $primary_activehover = ppc_admin_style_button_selectors('primary', ['.active:hover']);
+    $primary_activefocus = ppc_admin_style_button_selectors('primary', ['.active:focus']);
     if (!empty($colors['text'])) {
-        $css .= ".wp-core-ui .button-primary:hover {\n  color: {$colors['text']};\n}\n";
+        $css .= "{$primary_hover} {\n  color: {$colors['text']} !important;\n}\n";
     }
 
     if (!empty($colors['base']) || !empty($colors['text'])) {
-        $css .= ".wp-core-ui .button-primary {\n";
+        $css .= "{$primary_normal} {\n";
         if (!empty($colors['base'])) {
-            $css .= "  background: {$colors['base']};\n";
+            $css .= "  background: {$colors['base']} !important;\n";
             if ($base_darker) {
-                $css .= "  border-color: {$base_darker};\n";
+                $css .= "  border-color: {$base_darker} !important;\n";
             }
         }
         if (!empty($colors['text'])) {
-            $css .= "  color: {$colors['text']};\n";
+            $css .= "  color: {$colors['text']} !important;\n";
         }
         $css .= "}\n";
     }
 
     if (!empty($colors['highlight']) || !empty($colors['text'])) {
-        $css .= ".wp-core-ui .button-primary:hover,\n.wp-core-ui .button-primary:focus {\n";
+        $css .= "{$primary_hover},\n{$primary_focus} {\n";
         if (!empty($colors['highlight'])) {
-            $css .= "  background: {$colors['highlight']};\n  border-color: {$colors['highlight']};\n";
+            $css .= "  background: {$colors['highlight']} !important;\n  border-color: {$colors['highlight']} !important;\n";
         }
         if (!empty($colors['text'])) {
-            $css .= "  color: {$colors['text']};\n";
+            $css .= "  color: {$colors['text']} !important;\n";
         }
         $css .= "}\n";
     }
 
     if (!empty($colors['text']) && !empty($colors['base'])) {
-        $css .= ".wp-core-ui .button-primary:focus {\n  box-shadow: 0 0 0 1px {$colors['text']}, 0 0 0 3px {$colors['base']};\n}\n";
+        $css .= "{$primary_focus} {\n  box-shadow: 0 0 0 1px {$colors['text']}, 0 0 0 3px {$colors['base']} !important;\n}\n";
     }
 
     if (!empty($colors['highlight']) || !empty($colors['text'])) {
-        $css .= ".wp-core-ui .button-primary:active {\n";
+        $css .= "{$primary_pressed} {\n";
         if (!empty($colors['highlight'])) {
-            $css .= "  background: {$colors['highlight']};\n  border-color: {$colors['highlight']};\n";
+            $css .= "  background: {$colors['highlight']} !important;\n  border-color: {$colors['highlight']} !important;\n";
         }
         if (!empty($colors['text'])) {
-            $css .= "  color: {$colors['text']};\n";
+            $css .= "  color: {$colors['text']} !important;\n";
         }
         $css .= "}\n";
     }
 
     if (!empty($colors['base']) || !empty($colors['text'])) {
-        $css .= ".wp-core-ui .button-primary.active,\n.wp-core-ui .button-primary.active:focus,\n.wp-core-ui .button-primary.active:hover {\n";
+        $css .= "{$primary_active},\n{$primary_activefocus},\n{$primary_activehover} {\n";
         if (!empty($colors['base'])) {
-            $css .= "  background: {$colors['base']};\n";
+            $css .= "  background: {$colors['base']} !important;\n";
             if ($base_darker) {
-                $css .= "  border-color: {$base_darker};\n";
+                $css .= "  border-color: {$base_darker} !important;\n";
             }
-            $css .= "  box-shadow: inset 0 2px 5px -3px {$colors['base']};\n";
+            $css .= "  box-shadow: inset 0 2px 5px -3px {$colors['base']} !important;\n";
         }
         if (!empty($colors['text'])) {
-            $css .= "  color: {$colors['text']};\n";
+            $css .= "  color: {$colors['text']} !important;\n";
         }
         $css .= "}\n";
     }
 
     if (!empty($colors['base'])) {
-        $css .= ".wp-core-ui .button-group > .button.active {\n  border-color: {$colors['base']};\n}\n";
+        $css .= ".wp-core-ui .button-group > .button.active {\n  border-color: {$colors['base']} !important;\n}\n";
     }
 
     $css .= "\n/* List tables */\n";

@@ -91,6 +91,7 @@ class PP_Capabilities_Frontend_Features_Metaboxes
                 <select name="<?php echo esc_attr($section_slug); ?>[]"
                     id="<?php echo esc_attr($section_slug); ?>"
                     class="chosen-cpt-select"
+                    aria-label="<?php printf(esc_attr__('Select %1$s', 'capability-manager-enhanced'), esc_html__($section_title)); ?>"
                     data-placeholder="<?php printf(esc_attr__('Select %1$s...', 'capability-manager-enhanced'), esc_html__($section_title)); ?>"
                     multiple>
                     <?php

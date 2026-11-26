@@ -80,6 +80,20 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 $listed_manual_backup = false;
                                 $backup_datestamp = get_option('capsman_backup_datestamp');
                                 $last_caption = ($backup_datestamp) ? sprintf(esc_html__('Last Manual Backup - %s', 'capability-manager-enhanced'), date('j M Y, g:i a', $backup_datestamp)) : esc_html__('Last Backup', 'capability-manager-enhanced');
+
+                                $render_manual_backup = function () use ($backup_datestamp) {
+                                    $manual_date_caption = date('Y-m-d, g:i a', $backup_datestamp);
+                                    $last_backup = get_option('capsman_last_backup');
+                                    if (!$last_backup) {
+                                        $last_backup = __('all roles', 'capability-manager-enhanced');
+                                    }
+                                    ?>
+                                    <li>
+                                    <input type="radio" name="select_restore" value="restore" id="cme_restore_manual">
+                                    <label for="cme_restore_manual"><?php printf(esc_html__('Manual backup of %s (%s)', 'capability-manager-enhanced'), esc_html($last_backup), esc_html($manual_date_caption)); ?></label>
+                                    </li>
+                                    <?php
+                                };
                                 ?>
 
                                 <div id="ppcb-tab-restore" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-restore-tab">
@@ -102,20 +116,10 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                             $arr[1] = str_replace('-', ':', $arr[1]);
                                                             $date_caption = implode(' ', $arr);
 
-                                                            if (!$listed_manual_backup && ($backup_datestamp > strtotime($date_caption))) :
-                                                                $manual_date_caption = date('Y-m-d, g:i a', $backup_datestamp);
-                                                                $last_backup = get_option('capsman_last_backup');
-                                                                if(!$last_backup){
-                                                                    $last_backup = __('all roles', 'capability-manager-enhanced');
-                                                                }
-                                                            ?>
-                                                                <li>
-                                                                <input type="radio" name="select_restore" value="restore" id="cme_restore_manual">
-                                                                <label for="cme_restore_manual"><?php printf(esc_html__('Manual backup of %s (%s)', 'capability-manager-enhanced'), esc_html($last_backup), esc_html($manual_date_caption)); ?></label>
-                                                                </li>
-                                                                <?php
+                                                            if (!$listed_manual_backup && ($backup_datestamp > strtotime($date_caption))) {
+                                                                $render_manual_backup();
                                                                 $listed_manual_backup = true;
-                                                            endif;
+                                                            }
                                                             ?>
 
                                                             <?php
@@ -129,6 +133,14 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                             <label for="<?php echo esc_attr($option_name);?>"><?php printf(esc_html__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_html($date_caption)); ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
+
+                                                        <?php
+                                                        // List the manual backup even if no auto-backup is older than it, or none exist.
+                                                        if (!$listed_manual_backup && $backup_datestamp && get_option('capsman_backup')) {
+                                                            $render_manual_backup();
+                                                            $listed_manual_backup = true;
+                                                        }
+                                                        ?>
 
                                                         <?php
                                                         if ($initial = get_option('capsman_backup_initial')):?>

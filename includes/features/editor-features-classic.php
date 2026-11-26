@@ -4,7 +4,7 @@
     <<?php echo esc_attr($tag_name);?>>
     <tr>
         <th class="restrict-column ppc-menu-row">
-            <input class="check-item gutenberg check-all-menu-item" type="checkbox" data-pp_type="<?php echo esc_attr($type_obj->name);?>" />
+            <input class="check-item gutenberg check-all-menu-item" type="checkbox" aria-label="<?php printf(esc_attr__('Select all %s editor restrictions', 'capability-manager-enhanced'), esc_html__($type_obj->labels->singular_name)); ?>" data-pp_type="<?php echo esc_attr($type_obj->name);?>" />
         </th>
         <th class="menu-column"></th>
     </tr>

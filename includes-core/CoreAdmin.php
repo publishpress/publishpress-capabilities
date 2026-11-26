@@ -61,7 +61,6 @@ class CoreAdmin {
             });
         }
 
-        add_filter('pp_capabilities_sub_menu_lists', [$this, 'actCapabilitiesSubmenus'], 10, 2);
 
         //Editor feature metaboxes promo
         add_action('pp_capabilities_features_gutenberg_after_table_tr', [$this, 'metaboxesPromo']);
@@ -80,36 +79,6 @@ class CoreAdmin {
         //Frontend features promo
         add_action('pp_capabilities_frontend_features_metabox_post_types', [$this, 'frontendFeaturesPromo']);
         // Add frontend feature promo to dashboard
-        add_filter('pp_capabilities_dashboard_features', [$this, 'addFeaturesPromotoDashboard']);
-    }
-
-    function actCapabilitiesSubmenus($sub_menu_pages, $cme_fakefunc) {
-        if (!$cme_fakefunc) {
-            //add admin menu after profile features menu
-            $profile_features_offset = array_search('profile-features', array_keys($sub_menu_pages));
-            $profile_features_menu   = [];
-            $profile_features_menu['admin-menus'] = [
-                'title'             => __('Admin Menus', 'capability-manager-enhanced'),
-                'capabilities'      => (is_multisite() && is_super_admin()) ? 'read' : 'manage_capabilities_admin_menus',
-                'page'              => 'pp-capabilities-admin-menus',
-                'callback'          => [$this, 'AdminMenusPromo'],
-                'dashboard_control' => true,
-            ];
-
-            $sub_menu_pages = array_merge(
-                array_slice($sub_menu_pages, 0, $profile_features_offset),
-                $profile_features_menu,
-                array_slice($sub_menu_pages, $profile_features_offset, null)
-            );
-        }
-
-        return $sub_menu_pages;
-    }
-
-    function AdminMenusPromo() {
-        $asset_suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-        wp_enqueue_style('pp-capabilities-admin-core', plugin_dir_url(CME_FILE) . "includes-core/admin-core{$asset_suffix}.css", [], PUBLISHPRESS_CAPS_VERSION, 'all');
-        include (dirname(__FILE__) . '/admin-menus-promo.php');
     }
 
     function metaboxesPromo(){
@@ -152,21 +121,11 @@ class CoreAdmin {
         include (dirname(__FILE__) . '/frontend-features-promo.php');
     }
 
-    function addFeaturesPromotoDashboard($features) {
-
-        $features['admin-menus'] = [
-            'promo'        => 1,
-            'label'        => esc_html__('Admin Menus', 'capability-manager-enhanced'),
-            'description'  => esc_html__('Admin Menus allows you to edit the admin menu links and control who has access.', 'capability-manager-enhanced'),
-        ];
-
-        return $features;
-    }
-
     function frontendFeaturesPagesPromo(){
         ?>
         <div class="pp-promo-overlay-row div-pp-promo-blur">
             <select class="chosen-cpt-select frontendelements-form-pages"
+                aria-label="<?php esc_attr_e('Pages', 'capability-manager-enhanced'); ?>"
                 data-placeholder="<?php esc_attr_e('Select pages...', 'capability-manager-enhanced'); ?>" multiple>
                 <option value=""></option>
             </select>
