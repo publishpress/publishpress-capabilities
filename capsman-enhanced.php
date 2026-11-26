@@ -12,7 +12,6 @@
  * Requires PHP: 8.2
  * License: GPLv3
  *
-
  * Copyright (c) 2024 PublishPress
  * Author: Jordi Canals
  * Copyright (c) 2009, 2010 Jordi Canals
