@@ -29,7 +29,10 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$auto_backups = pp_capabilities_get_auto_backup_option_names();
+$auto_backups = array_unique(array_filter(pp_capabilities_get_auto_backup_option_names(), static function ($name) {
+    return strpos($name, 'cme_backup_auto_') === 0
+        && $name !== pp_capabilities_get_auto_backup_legacy_index_option();
+}));
 
 $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 ?>
@@ -129,7 +132,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                             ?>
 
                                                             <li>
-                                                            <input type="radio" name="select_restore" value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>" aria-label="<?php printf(esc_attr__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_attr($date_caption)); ?>">
+                                                            <input type="radio" name="select_restore" data-auto-backup value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>" aria-label="<?php printf(esc_attr__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_attr($date_caption)); ?>">
                                                             <label for="<?php echo esc_attr($option_name);?>"><?php printf(esc_html__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_html($date_caption)); ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
@@ -157,6 +160,53 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                     <input type="submit" name="restore_backup"
                                                            value="<?php esc_attr_e('Restore Selected Roles', 'capability-manager-enhanced') ?>"
                                                            class="button-primary"/>
+
+                                                    <?php if ($auto_backups) : ?>
+                                                        <div class="ppc-tool-tip click-tooltip cme-backup-delete">
+                                                            <button type="button" id="cme-delete-auto-backup" class="button cme-backup-delete-toggle"
+                                                                aria-expanded="false" aria-controls="cme-delete-backup-confirmation" disabled>
+                                                                <?php esc_html_e('Delete Selected Backup', 'capability-manager-enhanced'); ?>
+                                                            </button>
+                                                            <div id="cme-delete-backup-confirmation" class="tool-tip-text">
+                                                                <p>
+                                                                    <?php esc_html_e("Delete this auto-backup? This can't be undone.", 'capability-manager-enhanced'); ?>
+                                                                    <button type="submit" name="delete_auto_backup" class="button-link button-link-delete" disabled>
+                                                                        <?php esc_html_e('Delete', 'capability-manager-enhanced'); ?>
+                                                                    </button>
+                                                                    <span aria-hidden="true">|</span>
+                                                                    <button type="button" class="button-link cme-backup-delete-cancel">
+                                                                        <?php esc_html_e('Cancel', 'capability-manager-enhanced'); ?>
+                                                                    </button>
+                                                                </p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="cme-backup-delete-all">
+                                                            <div class="ppc-tool-tip click-tooltip cme-backup-delete">
+                                                                <button type="button" class="button cme-backup-delete-toggle"
+                                                                    aria-expanded="false" aria-controls="cme-delete-all-backups-confirmation">
+                                                                    <?php esc_html_e('Delete All Auto-backups', 'capability-manager-enhanced'); ?>
+                                                                </button>
+                                                                <div id="cme-delete-all-backups-confirmation" class="tool-tip-text">
+                                                                    <p>
+                                                                        <?php
+                                                                        /* translators: %d: number of available auto-backups. */
+                                                                        printf(esc_html__('Delete all %d auto-backups? The initial backup and the manual backup are kept.', 'capability-manager-enhanced'), count($auto_backups));
+                                                                    ?>
+                                                                        <button type="submit" name="delete_all_auto_backups" class="button-link button-link-delete" disabled>
+                                                                            <?php esc_html_e('Delete', 'capability-manager-enhanced'); ?>
+                                                                        </button>
+                                                                        <span aria-hidden="true">|</span>
+                                                                        <button type="button" class="button-link cme-backup-delete-cancel">
+                                                                            <?php esc_html_e('Cancel', 'capability-manager-enhanced'); ?>
+                                                                        </button>
+                                                                    </p>
+                                                                    <i></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
 
                                                     <div class="cme-selected-backup-caption"></div>
                                                     </div>
@@ -408,7 +458,58 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
         /* <![CDATA[ */
         jQuery(document).ready(function ($) {
 
-            $('#cme_select_restore input[name="select_restore"]').on('change click', function () {
+            var $backupChoices = $('#cme_select_restore input[name="select_restore"]');
+            var $deleteSelected = $('#cme-delete-auto-backup');
+
+            var $confirmations = $('.cme-backup-delete');
+
+            function setBackupConfirmation($confirmation, open) {
+                $confirmation.toggleClass('is-active', open);
+                $confirmation.children('.cme-backup-delete-toggle').attr('aria-expanded', open ? 'true' : 'false');
+                $confirmation.find('button[type="submit"]').prop('disabled', !open);
+            }
+
+            function updateDeleteSelected() {
+                var isAutoBackup = $backupChoices.filter(':checked').is('[data-auto-backup]');
+                setBackupConfirmation($deleteSelected.closest('.cme-backup-delete'), false);
+                $deleteSelected.prop('disabled', !isAutoBackup);
+            }
+
+            function toggleBackupConfirmation(event) {
+                event.stopPropagation();
+                var $confirmation = $(this).closest('.cme-backup-delete');
+                var open = !$confirmation.hasClass('is-active');
+                $confirmations.each(function () {
+                    setBackupConfirmation($(this), false);
+                });
+                setBackupConfirmation($confirmation, open);
+                if (open && event.originalEvent && event.originalEvent.detail === 0) {
+                    $confirmation.find('.cme-backup-delete-cancel').trigger('focus');
+                }
+            }
+
+            function closeBackupConfirmation(event) {
+                event.stopPropagation();
+                var $confirmation = $(this).closest('.cme-backup-delete');
+                setBackupConfirmation($confirmation, false);
+                $confirmation.children('.cme-backup-delete-toggle').trigger('focus');
+            }
+
+            $backupChoices.on('change', updateDeleteSelected);
+            updateDeleteSelected();
+            $confirmations.on('click', '.cme-backup-delete-toggle', toggleBackupConfirmation);
+            $confirmations.on('click', '.cme-backup-delete-cancel', closeBackupConfirmation);
+            $confirmations.on('keydown', function (event) {
+                if (event.key === 'Escape' && $(this).hasClass('is-active')) {
+                    closeBackupConfirmation.call(this, event);
+                }
+            });
+            // Let the confirm button submit normally without the shared click-tooltip toggle.
+            $confirmations.on('click', function (event) {
+                event.stopPropagation();
+            });
+
+            $backupChoices.on('change click', function () {
                 $('div.cme-show-backup').hide();
 
                 $('div.cme-selected-backup-caption').html($(this).next('label').html());
@@ -442,6 +543,9 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 
             $('#publishpress-capability-backup-tabs').find('li').click(function (e) {
                 e.preventDefault();
+                $confirmations.each(function () {
+                    setBackupConfirmation($(this), false);
+                });
                 $('#publishpress-capability-backup-tabs').children('li').filter('.nav-tab-active').removeClass('nav-tab-active');
                 $(this).addClass('nav-tab-active');
 
