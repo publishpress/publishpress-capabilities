@@ -5,9 +5,9 @@ Author: PublishPress
 Author URI: https://publishpress.com
 Tags: user role editor, user roles, capabilities, permissions, access control
 Requires at least: 5.5
-Requires PHP: 7.2.5
+Requires PHP: 8.2
 Tested up to: 7.1
-Stable tag: 2.52.0
+Stable tag: 2.54.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -28,7 +28,7 @@ Beyond roles, PublishPress Capabilities cleans up what each role actually sees. 
 3. **Editor Features**: Decide what users see when they're writing posts in the block editor or the Classic Editor.
 4. **Admin Features**: Remove items from the WordPress admin, toolbar, and dashboard widgets.
 5. **Admin Styles**: Customize the admin area with your own branding, per user role.
-6. **Admin Menus (Pro)**: Edit admin menu links and control who can access them.
+6. **Admin Menus**: Edit admin menu links and control who can access them.
 7. **Profile Features**: Hide features for users on the "Profile" screen.
 8. **Redirects**: Control where users are sent when they log in, log out, or register.
 9. **Frontend Features**: Modify your site's frontend by hiding elements or adding CSS, targeted by role.
@@ -80,9 +80,11 @@ The Admin Styles feature allows you to customize the WordPress admin area with y
 
 [Click here to learn about customizing the admin area with your own branding.](https://publishpress.com/knowledge-base/admin-styles/).
 
-## 6. Admin Menus (Pro version) ##
+## 6. Admin Menus ##
 
 With PublishPress Capabilities you can edit all your admin menu links. You can also restrict access to admin menu screens by user roles. This is useful because many plugin do not have any way to control who can access their admin screens.
+
+Adding new menu links, submenu links, and separators is available in PublishPress Capabilities Pro. In the free version, the Add New form previews this feature with an upgrade panel.
 
 [Click to see how to block Admin menu access](https://publishpress.com/knowledge-base/admin-menus-screen/).
 
@@ -212,7 +214,7 @@ Yes. The plugin is tested against the current WordPress release, and the **Edito
 
 = How do I hide admin menu items for a user role? =
 
-Many plugins add admin menu links with no way to control who sees them. PublishPress Capabilities Pro adds an **Admin Menus** screen where you can mark any top-level or sub-menu link as blocked for a given role.
+Many plugins add admin menu links with no way to control who sees them. PublishPress Capabilities adds an **Admin Menus** screen where you can mark any top-level or sub-menu link as blocked for a given role.
 
 In the free version, you can hide a large amount of the admin without touching menus: use **Admin Features** to remove toolbar items and dashboard widgets, **Profile Features** to strip the Profile screen, and the **Capabilities** screen to remove the capability a plugin's menu depends on &#8212; which hides the menu as a side effect.
 
@@ -242,6 +244,21 @@ If you really need to clean up and refresh your site, PublishPress Capabilities 
 
 If you want to proceed, click the “Reset to WordPress defaults” link. PublishPress Capabilities will ask you if you're really sure you want to do this. Click “OK” to continue. Once the process is complete, you'll see the message, “Roles and Capabilities reset to WordPress defaults”.
 
+= How can I recover if I cannot access wp-admin? =
+
+With PublishPress Capabilities active, run these commands through your host's WP-CLI terminal. No WordPress admin login is required:
+
+    wp capabilities backup list
+    wp capabilities backup restore --last
+    wp capabilities backup restore --id=capsman_backup_initial
+    wp capabilities reset-roles
+
+Use an ID returned by the list command. Restore and reset ask for confirmation; add --yes to skip it. On multisite, add --url=https://example.com/subsite/ to select a site. Each command affects only that site.
+
+--last selects the newest manual, automatic or initial backup by its recorded date. Manual backups restore roles and backed-up feature settings, just like the admin Restore tool. Automatic and initial backups restore roles only. Reset removes custom roles and capabilities, just like Reset Roles in wp-admin; use it as a last resort. These commands do not change users' role assignments.
+
+Recovery writes the action and site ID to the PHP error log (wp-content/debug.log when configured with WP_DEBUG_LOG) and stores the latest result in the site's capsman_last_recovery option. Keep the plugin active while recovering; --skip-plugins skips its commands too.
+
 = What happens to my roles if I deactivate or delete the plugin? =
 
 Nothing changes back. WordPress keeps roles and capabilities in its own database option, and PublishPress Capabilities edits that option directly rather than storing a separate copy of your settings. Whatever your roles looked like when you removed the plugin is what they stay &#8212; removing it is not a way to undo a change.
@@ -268,7 +285,7 @@ The Pro version of PublishPress Capabilities allows you to block access to admin
 * Analytics
 * Marketing
 
-It is possible to control who can access these links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. Scroll down and you can enter a red X for any menu link that you don't want users in that role to access. This is a great way to customize a WooCommerce role such as Shop Manager. This approach works for the core WooCommerce plugin and can also be used for WooCommerce add-on plugins such as WooCommerce Subscriptions, WooCommerce Shipping, and WooCommerce Bookings. PublishPress Capabilities can help you manage WooCommerce permissions.
+It is possible to control who can access these links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. Scroll down and you can enter a red X for any menu link that you don't want users in that role to access. This is a great way to customize a WooCommerce role such as Shop Manager. This approach works for the core WooCommerce plugin and can also be used for WooCommerce add-on plugins such as WooCommerce Subscriptions, WooCommerce Shipping, and WooCommerce Bookings. PublishPress Capabilities can help you manage WooCommerce permissions.
 
 [Click here to learn about WooCommerce menu permissions](https://publishpress.com/knowledge-base/control-access-woocommerce-admin-menus/).
 
@@ -284,7 +301,7 @@ When you first install Contact Form 7, you'll see one top-level menu link, plus 
 * Add New
 * Integration
 
-It is possible to control who can access these links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. Scroll down and you can enter a red X for any menu link that you don't want users in the Editor role to access. This approach works for the core Contact Form 7 plugin and can also be used for add-on plugins such as Flamingo which records entries for Contact Form 7 forms.
+It is possible to control who can access these links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. Scroll down and you can enter a red X for any menu link that you don't want users in the Editor role to access. This approach works for the core Contact Form 7 plugin and can also be used for add-on plugins such as Flamingo which records entries for Contact Form 7 forms.
 
 [Click here to learn about Contact Form 7 menu permissions](https://publishpress.com/knowledge-base/control-access-contact-form-7-admin-menus/).
 
@@ -302,7 +319,7 @@ When you first install Yoast SEO, you'll see one top-level menu link, plus at le
 * Tools
 * Premium
 
-It is possible to control who can access these Yoast SEO links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict Yoast SEO access for the “SEO Manager” role. Scroll down and you can enter a red X for any menu link that you don't want users in the SEO Manager role to access.
+It is possible to control who can access these Yoast SEO links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict Yoast SEO access for the “SEO Manager” role. Scroll down and you can enter a red X for any menu link that you don't want users in the SEO Manager role to access.
 
 This approach works for the core Yoast SEO plugin and can also be used for add-on plugins such as Local SEO, WooCommerce SEO, Google News, and more.
 
@@ -326,7 +343,7 @@ When you first install Elementor, you'll see one top-level menu link, plus at le
 * Custom Icons
 * Go Pro
 
-It is possible to control who can access Elementor menu links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area.
+It is possible to control who can access Elementor menu links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area.
 
 In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict Elementor access for the “Administrator” role. If you do this, I would recommend making a copy of the Administrator role so that one role still has full Elementor access. Scroll down and you can enter a red X for any Elementor menu link that you don't want users in the Administrator role to access.
 
@@ -345,7 +362,7 @@ When you first install the Jetpack plugin, you'll see one top-level menu link, p
 * Dashboard
 * Settings
 
-It is possible to control who can access these Jetpack links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict Jetpack access for the “Administrator” role. If you do this, I would recommend making a copy of the Administrator role so that one role still has full Jetpack access. Scroll down and you can enter a red X for any Jetpack menu link that you don't want users in the Administrator role to access. Now when an Administrator logs in to your site, they will not be able to see the Jetpack menu links that you have blocked. This approach works for the core Jetpack plugin and can also be used for add-on plugins such as Jetpack CRM and others.
+It is possible to control who can access these Jetpack links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict Jetpack access for the “Administrator” role. If you do this, I would recommend making a copy of the Administrator role so that one role still has full Jetpack access. Scroll down and you can enter a red X for any Jetpack menu link that you don't want users in the Administrator role to access. Now when an Administrator logs in to your site, they will not be able to see the Jetpack menu links that you have blocked. This approach works for the core Jetpack plugin and can also be used for add-on plugins such as Jetpack CRM and others.
 
 [Click here to learn about Jetpack permissions](https://publishpress.com/knowledge-base/control-access-jetpack-admin-menus/).
 
@@ -368,7 +385,7 @@ When you first install the WPForms plugin, you'll see one top-level menu link, p
 * About Us
 * Community
 
-It is possible to control who can access these WPForms plugin links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict WPForms access for the “Administrator” role. If you do this, I would recommend making a copy of the Administrator role so that one role still has full WPForms access.
+It is possible to control who can access these WPForms plugin links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict WPForms access for the “Administrator” role. If you do this, I would recommend making a copy of the Administrator role so that one role still has full WPForms access.
 
 Scroll down and you can enter a red X for any WPForms menu link that you don't want users in the Administrator role to access. Now when an Administrator logs in to your site, they will not be able to see the WPForms menu links that you have blocked.
 
@@ -395,7 +412,7 @@ When you first install The Events Calendar plugin, you'll see one top-level menu
 * Help
 * Event Add-Ons
 
-It is possible to control who can access these The Events Calendar plugin links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict The Events Calendar access for the “Editor” role. Scroll down and you can enter a red X for any The Events Calendar menu link that you don't want users in the Editor role to access. Now when an Administrator logs in to your site, they will not be able to see the Events Calendar menu links that you have blocked:
+It is possible to control who can access these The Events Calendar plugin links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict The Events Calendar access for the “Editor” role. Scroll down and you can enter a red X for any The Events Calendar menu link that you don't want users in the Editor role to access. Now when an Administrator logs in to your site, they will not be able to see the Events Calendar menu links that you have blocked:
 
 This approach works for the core The Events Calendar plugin and can also be used for add-on plugins such as Virtual Events, Events Tickets, and more.
 
@@ -418,7 +435,7 @@ When you first install Gravity Forms, you'll see one top-level menu link, plus e
 * System Status
 * Help
 
-It is possible to control who can access these links by using the PublishPress Capabilities Pro plugin. After installing PublishPress Capabilities Pro, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict access for the “Editor” role. By default, Editors aren't given access to Gravity Forms, but site administrators often do they give them some access. Scroll down and you can enter a red X for any Gravity Forms menu link that you don't want users in the Editor role to access. Now when an Editor logs in to your site, they will not be able to see the blocked Gravity Forms menu links.
+It is possible to control who can access these links by using the PublishPress Capabilities plugin. After installing PublishPress Capabilities, go to “Capabilities”, then “Admin Menus” in your WordPress admin area. In the top-left corner of this screen, choose the role that you want to edit. For example, you can restrict access for the “Editor” role. By default, Editors aren't given access to Gravity Forms, but site administrators often do they give them some access. Scroll down and you can enter a red X for any Gravity Forms menu link that you don't want users in the Editor role to access. Now when an Editor logs in to your site, they will not be able to see the blocked Gravity Forms menu links.
 
 This approach works for the core Gravity Forms plugin and can also be used for add-on plugins from the official site, or third-party sites.
 

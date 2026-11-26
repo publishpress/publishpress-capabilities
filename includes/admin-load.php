@@ -30,6 +30,10 @@ class PP_Capabilities_Admin_UI {
         add_action('init', [$this, 'featureRestrictionsGutenberg'], PHP_INT_MAX - 1);
 
         if (is_admin()) {
+            require_once __DIR__ . '/features/admin-menus/admin-menus-filters.php';
+            \PublishPress\Capabilities\AdminMenusController::instance();
+            add_action('pp_capabilities_after_role_copied', 'pp_capabilities_admin_menus_after_role_copied', 10, 2);
+
             // Redirect on plugin activation
             add_action('admin_init', [$this, 'redirect_on_activate'], 2000);
 
@@ -476,45 +480,8 @@ class PP_Capabilities_Admin_UI {
                 return;
             }
 
-            $user = get_user_by('ID', $userId);
-            if (empty($user)) {
-                return;
-            }
-
-            $newRoles = array_unique(
-                array_filter(
-                    array_map('sanitize_key', (array) $_POST['pp_roles'])
-                )
-            );
-            $currentRoles = $user->roles;
-
-            if (empty($newRoles) || !is_array($newRoles)) {
-                return;
-            }
-
-            $editableRoles = function_exists('get_editable_roles')
-                ? array_keys(get_editable_roles())
-                : array_keys(apply_filters('editable_roles', wp_roles()->roles));
-
-            // Reject the request if any submitted role is not editable by current user.
-            if (array_diff($newRoles, $editableRoles)) {
-                return;
-            }
-
-            // Remove all roles
-            foreach ($currentRoles as $role) {
-                // Check if it is a bbPress rule. If so, don't remove it.
-                $isBBPressRole = preg_match('/^bbp_/', $role);
-
-                if (!$isBBPressRole) {
-                    $user->remove_role($role);
-                }
-            }
-
-            // Add new roles in order
-            foreach ($newRoles as $role) {
-                $user->add_role($role);
-            }
+            require_once __DIR__ . '/user-role-assignment.php';
+            \PublishPress\Capabilities\UserRoleAssignment::update((int) $userId, array_map('sanitize_key', wp_unslash((array) $_POST['pp_roles'])));
         }
     }
 
@@ -1351,6 +1318,83 @@ class PP_Capabilities_Admin_UI {
         ];
     }
 
+    /**
+     * Read active group assignments without changing stored memberships.
+     *
+     * @since 2.53.0
+     */
+    private function getPublishPressPermissionsGroupData($pp, $user_id)
+    {
+        if (!is_callable([$pp, 'groups'])) {
+            return [];
+        }
+        $group_api = $pp->groups();
+        if (!is_object($group_api) || !is_callable([$group_api, 'getGroupsForUser'])) {
+            return [];
+        }
+
+        $user = get_userdata($user_id);
+        $groups = (array) $group_api->getGroupsForUser($user_id, 'pp_group', ['status' => 'active']);
+        $user_roles = $user ? (array) $user->roles : [];
+        // Resolve current role groups without invoking the membership-writing synchronization API.
+        if (is_callable([$group_api, 'getMetagroup'])) {
+            foreach ($user_roles as $role) {
+                $group = $group_api->getMetagroup('wp_role', $role);
+                if (is_object($group) && !empty($group->ID)) {
+                    $groups[$group->ID] = $group;
+                }
+            }
+        }
+
+        $data = [];
+        foreach ($groups as $group_id => $group) {
+            if (!is_object($group) || !absint($group_id)) {
+                continue;
+            }
+            $is_role_group = isset($group->metagroup_type) && $group->metagroup_type === 'wp_role';
+            $role_slug = isset($group->metagroup_id) ? $group->metagroup_id : '';
+            if ($is_role_group && !in_array($role_slug, ['wp_all', 'wp_auth'], true)
+                && !in_array($role_slug, $user_roles, true)) {
+                continue;
+            }
+            $roles = [];
+            foreach (array_keys((array) $pp->getRoles(absint($group_id), 'pp_group')) as $role_name) {
+                $role_name = sanitize_text_field((string) $role_name);
+                if ($role_name !== '') {
+                    $roles[] = ['slug' => $role_name,
+                        'label' => $this->getPublishPressPermissionsRoleLabel($pp, $role_name)];
+                }
+            }
+            $raw_exceptions = (array) $pp->getExceptions([
+                'agent_type' => 'pp_group', 'agent_id' => absint($group_id), 'assign_for' => '',
+                'post_types' => true, 'taxonomies' => true, 'return_raw_results' => true,
+            ]);
+            if (!$roles && !$raw_exceptions) {
+                continue;
+            }
+            $exceptions = [];
+            foreach (array_slice($raw_exceptions, 0, 50) as $exception) {
+                $exception = is_array($exception) ? (object) $exception : $exception;
+                if (is_object($exception) && !empty($exception->operation)) {
+                    $exceptions[] = $this->getPublishPressPermissionsExceptionLabel($pp, $exception);
+                }
+            }
+            $name = !empty($group->group_name) ? $group->group_name : ($group->name ?? '');
+            if ($is_role_group && in_array($role_slug, $user_roles, true)) {
+                $role_names = wp_roles()->get_names();
+                $name = isset($role_names[$role_slug]) ? translate_user_role($role_names[$role_slug]) : $role_slug;
+            }
+            $data[] = [
+                'id' => absint($group_id),
+                'name' => $name ?: sprintf(__('Group #%d', 'capability-manager-enhanced'), $group_id),
+                'roles' => $roles, 'roles_total' => count($roles),
+                'exceptions' => $exceptions, 'exceptions_total' => count($raw_exceptions),
+            ];
+        }
+        usort($data, static function ($left, $right) { return strnatcasecmp($left['name'], $right['name']); });
+        return $data;
+    }
+
     private function getPublishPressPermissionsUserData($user_id)
     {
         $data = [
@@ -1359,6 +1403,7 @@ class PP_Capabilities_Admin_UI {
             'roles_total' => 0,
             'exceptions' => [],
             'exceptions_total' => 0,
+            'groups' => [],
             'roles_edit_url' => '',
             'exceptions_edit_url' => '',
         ];
@@ -1418,6 +1463,8 @@ class PP_Capabilities_Admin_UI {
 
             $data['exceptions_total'] = count($exceptions);
         }
+
+        $data['groups'] = $this->getPublishPressPermissionsGroupData($pp, absint($user_id));
 
         $can_edit_permissions = current_user_can('pp_administer_content')
             && current_user_can('list_users')
@@ -1537,7 +1584,10 @@ class PP_Capabilities_Admin_UI {
             add_action('load-' . $hook_suffix, [$this, 'setUserCapabilitiesPageTitle']);
         }
 
+        // add_users_page() attaches the page to profile.php for users who cannot edit users,
+        // so remove it from both parents to keep the page hidden for every role.
         remove_submenu_page('users.php', 'pp-capabilities-user-view');
+        remove_submenu_page('profile.php', 'pp-capabilities-user-view');
     }
 
     /**
@@ -1690,6 +1740,26 @@ class PP_Capabilities_Admin_UI {
 
             .ppc-user-permissions-list li:last-child {
                 border-bottom: 0;
+            }
+
+            .ppc-user-permissions-group {
+                border: 1px solid #dcdcde;
+                margin: 12px 0;
+                padding: 12px;
+            }
+
+            .ppc-user-permissions-group h4 {
+                font-size: 14px;
+                margin: 0 0 12px;
+            }
+
+            .ppc-user-permissions-group .ppc-user-permissions-list {
+                list-style: disc;
+                padding-inline-start: 22px;
+            }
+
+            .ppc-user-permissions-group code {
+                overflow-wrap: anywhere;
             }
 
             .ppc-user-permissions-scope {

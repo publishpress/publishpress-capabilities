@@ -1,0 +1,50 @@
+li.ppc-admin-menu-separator.line-separator {
+    clear: both;
+}
+
+li.ppc-admin-menu-separator.line-separator {
+    width: 100%;
+}
+
+li.ppc-admin-menu-separator.line-separator .separator:after,
+ul.wp-submenu li.ppc-admin-menu-separator.line-separator:after {
+    border-bottom: 1px solid hsla(0, 0%, 100%, .2);
+    display: block;
+    margin: 13px 0 8px 0;
+    content: "";
+    width: 100%;
+}
+
+ul.wp-submenu li.ppc-admin-menu-separator.empty-separator:after {
+    display: block;
+    margin: 2px 0 2px 0;
+    content: "";
+    width: 100%;
+}
+
+li.ppc-admin-menu-separator:not(.text-separator) a {
+    display: none !important;
+}
+
+li.ppc-admin-menu-separator.text-separator {
+    cursor: default;
+}
+
+li.ppc-admin-menu-separator.text-separator div.wp-menu-image {
+    display: none;
+}
+
+li.ppc-admin-menu-separator.text-separator a.menu-top {
+    cursor: default;
+    pointer-events: none;
+    padding-left: 12px;
+}
+
+ul.wp-submenu li.ppc-admin-menu-separator.text-separator {
+    padding-top: 6px;
+}
+
+ul.wp-submenu li.ppc-admin-menu-separator.text-separator a {
+    cursor: default;
+    pointer-events: none;
+}

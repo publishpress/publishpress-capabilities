@@ -58,3 +58,7 @@
 .ppc-test-user-search-response h2 {
   color: #E6A341 !important;
 }
+/* Keep the search dropdown open when the pointer leaves entered search text. */
+#wpadminbar #wp-admin-bar-pp_capabilities_test_user.ppc-user-search-active > .ab-sub-wrapper {
+  display: block;
+}

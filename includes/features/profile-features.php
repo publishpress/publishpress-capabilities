@@ -20,7 +20,7 @@
 
 require_once(dirname(CME_FILE) . '/includes/features/restrict-profile-features.php');
 
-global $capsman, $role_has_user;
+global $capsman, $role_has_user, $profile_capture_error;
 
 $roles             = $capsman->roles;
 $default_role      = $capsman->get_last_role();
@@ -45,6 +45,9 @@ if (get_option('cme_profile_features_auto_redirect')) {
         <div id="icon-capsman-admin" class="icon32"></div>
         <h2><?php esc_html_e('Profile Feature Restrictions', 'capability-manager-enhanced'); ?></h2>
 
+        <?php if (!empty($profile_capture_error)) : ?>
+            <div class="notice notice-warning inline"><p><?php echo esc_html($profile_capture_error); ?></p></div>
+        <?php endif; ?>
         <form method="post" id="ppc-profile-features-form" action="admin.php?page=pp-capabilities-profile-features">
             <?php wp_nonce_field('pp-capabilities-profile-features'); ?>
 
@@ -65,7 +68,7 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                             </div>
                                             <div class="clear"></div>
 
-                                            <select name="ppc-profile-features-role" class="ppc-profile-features-role">
+                                            <select name="ppc-profile-features-role" class="ppc-profile-features-role" aria-label="<?php esc_attr_e('Role to configure', 'capability-manager-enhanced'); ?>">
                                                 <?php
                                                 foreach ($roles as $role_name => $name) :
                                                     $name = translate_user_role($name);
@@ -75,7 +78,8 @@ if (get_option('cme_profile_features_auto_redirect')) {
                                                 <?php
                                                 endforeach;
                                                 ?>
-                                            </select> &nbsp;
+                                            </select>
+                                            <button type="button" class="button ppc-switch-role ppc-profile-features-role-switch"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button> &nbsp;
 
                                         <img class="loading" src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"
                                                     alt="" aria-hidden="true" style="display: none">
@@ -311,7 +315,10 @@ if (get_option('cme_profile_features_auto_redirect')) {
                 // -------------------------------------------------------------
                 //   Load selected roles menu
                 // -------------------------------------------------------------
-                $(document).on('change', '.pp-capability-menus-wrapper .ppc-profile-features-role', function() {
+                $(document).on('click', '.pp-capability-menus-wrapper .ppc-profile-features-role-switch', function () {
+                    var role = $('.pp-capability-menus-wrapper .ppc-profile-features-role').val();
+
+                    $(this).attr('disabled', true)
 
                     //disable select
                     $('.pp-capability-menus-wrapper .ppc-profile-features-role').attr('disabled', true)
@@ -324,8 +331,15 @@ if (get_option('cme_profile_features_auto_redirect')) {
                     $('div.publishpress-caps-manage img.loading').show()
 
                     //go to url
-                    window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-profile-features&role=')); ?>' + $(this).val() + ''
+                    window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-profile-features&role=')); ?>' + role + ''
 
+                })
+
+                // Save always applies to the loaded role, even if the role selector was changed without switching.
+                $(document).on('submit', 'form', function () {
+                    $(this).find('select.ppc-profile-features-role option').prop('selected', function () {
+                        return this.defaultSelected;
+                    });
                 })
 
             })

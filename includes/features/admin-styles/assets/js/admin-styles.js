@@ -39,20 +39,24 @@
       return null;
     }
 
-    // If URL API is available, ensure protocol is http/https or relative.
+    // Parse and normalize URL; only allow http/https.
     try {
-      if (typeof URL === 'function') {
-        var parsed = new URL(trimmed, window.location.origin);
-        var protocol = parsed.protocol.toLowerCase();
-        if (protocol !== 'http:' && protocol !== 'https:') {
-          return null;
-        }
+      if (typeof URL !== 'function') {
+        return null;
       }
-    } catch (e) {
-      // If parsing fails, fall back to basic checks and continue.
-    }
 
-    return trimmed;
+      var parsed = new URL(trimmed, window.location.origin);
+      var protocol = parsed.protocol.toLowerCase();
+      if (protocol !== 'http:' && protocol !== 'https:') {
+        return null;
+      }
+
+      // Return canonical URL string instead of raw DOM text.
+      return parsed.href;
+    } catch (e) {
+      // Fail closed when parsing fails.
+      return null;
+    }
   }
 
   var PP_Admin_Styles = {
@@ -279,8 +283,8 @@
       // Remove image
       $(document).on('click', '.pp-capabilities-remove-button', this.handleRemoveImage);
 
-      // Role change
-      $(document).on('change', '.ppc-admin-styles-role', this.handleRoleChange);
+      // Role switch
+      $(document).on('click', '.ppc-admin-styles-role-switch', this.handleRoleChange);
 
       // Color scheme selection
       $(document).on('click', '.color-option', this.handleSchemeSelection);
@@ -350,6 +354,11 @@
       });
 
       $(document).on('submit', '#ppc-admin-styles-form', function () {
+        // Save always applies to the loaded role, even if the role selector was changed without switching.
+        $(this).find('select.ppc-admin-styles-role option').prop('selected', function () {
+          return this.defaultSelected;
+        });
+
         var $overlay = $('#ppc-admin-styles-overlay');
         if ($overlay.length) {
           $overlay.addClass('is-active').attr('aria-hidden', 'false');
@@ -729,12 +738,12 @@
     showLogoPreview: function (url, target) {
       if (target === 'admin_logo') {
         // Add new preview
-        var $preview = $('<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
+        var $preview = $('<img src="' + url + '" alt="' + ppCapabilitiesAdminStyles.labels.adminLogoPreview + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
         $('.logo-preview').empty();
         $('.logo-preview').append($preview);
       } else if (target === 'admin_favicon') {
         // Add new preview
-        var $preview = $('<img src="' + url + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
+        var $preview = $('<img src="' + url + '" alt="' + ppCapabilitiesAdminStyles.labels.adminFaviconPreview + '" style="max-width: 20px; max-height: 20px; vertical-align: middle; margin-right: 5px;"/>');
         $('.favicon-preview').empty();
         $('.favicon-preview').append($preview);
       }
@@ -875,6 +884,22 @@
     /**
      * Build full template colors (general + element colors)
      */
+    /**
+     * Match the selectors used by the saved CSS generator.
+     */
+    buttonSelectors: function (variant, states) {
+      var buttons = variant === 'primary'
+        ? ['.wp-core-ui .button-primary', 'input[type=submit].button-primary', '.components-button.is-primary']
+        : ['.wp-core-ui .button:not(.button-primary)', 'input[type=submit].button:not(.button-primary)', '.components-button.is-secondary:not(.is-primary)'];
+      var selectors = [];
+      buttons.forEach(function (button) {
+        states.forEach(function (state) {
+          selectors.push(button + state + ':not(.wp-picker-container *):not(:disabled):not([aria-disabled=true]):not(.disabled)');
+        });
+      });
+      return selectors.join(', ');
+    },
+
     buildTemplateColors: function (template) {
       if (!template || !template.palette) {
         return null;
@@ -941,13 +966,13 @@
           adminbar_hover_text: 'text'
         },
         dashboard_widgets: {
-          widget_bg: '',
-          widget_border: '',
-          widget_header_bg: '',
-          widget_title_text: '',
-          widget_body_text: '',
-          widget_link: '',
-          widget_link_hover: ''
+          widget_bg: 'surface',
+          widget_border: 'border',
+          widget_header_bg: 'surface_alt',
+          widget_title_text: 'text',
+          widget_body_text: 'text',
+          widget_link: 'accent',
+          widget_link_hover: 'highlight'
         }
       };
 
@@ -960,8 +985,8 @@
       });
 
       if (elementColors.buttons) {
-        elementColors.buttons.button_primary_text = this.getReadableTextColor(elementColors.buttons.button_primary_bg);
-        elementColors.buttons.button_secondary_text = this.getReadableTextColor(elementColors.buttons.button_secondary_bg);
+        elementColors.buttons.button_primary_text = this.getReadableTextColor(elementColors.buttons.button_primary_bg, elementColors.buttons.button_primary_hover_bg);
+        elementColors.buttons.button_secondary_text = this.getReadableTextColor(elementColors.buttons.button_secondary_bg, elementColors.buttons.button_secondary_hover_bg);
       }
 
       if (elementColors.forms) {
@@ -1311,15 +1336,16 @@
      * Handle role change
      */
     handleRoleChange: function () {
-      var $select = $(this);
+      var $select = $('.ppc-admin-styles-role');
       var selectedRole = $select.val();
 
       if (!selectedRole) {
         return;
       }
 
-      // Disable select during navigation
+      // Disable select and button during navigation
       $select.prop('disabled', true);
+      $(this).prop('disabled', true);
 
       // Show loading
       $('#pp-capability-menu-wrapper').hide();
@@ -1669,7 +1695,7 @@
 
       // Primary buttons
       if (colors.base || colors.text) {
-        var btnCss = '.wp-core-ui .button-primary {';
+        var btnCss = this.buttonSelectors('primary', ['']) + ' {';
         if (colors.base) {
           btnCss += `\n        background: ${colors.base} !important;`;
           var darkerBase = this.darkenColor(colors.base, 15);
@@ -1686,7 +1712,7 @@
 
       // Primary buttons hover
       if (colors.highlight || colors.text) {
-        var btnHoverCss = '.wp-core-ui .button-primary:hover,\n      .wp-core-ui .button-primary:focus {';
+        var btnHoverCss = this.buttonSelectors('primary', [':hover', ':focus', ':active']) + ' {';
         if (colors.highlight) {
           btnHoverCss += `\n        background: ${colors.highlight} !important;`;
           btnHoverCss += `\n        border-color: ${colors.highlight} !important;`;
@@ -1743,10 +1769,10 @@
       // Links colors
       if (elementColors.links && Object.keys(elementColors.links).length > 0) {
         if (elementColors.links.link_default) {
-          css += `a { color: ${elementColors.links.link_default} !important; }\n`;
+          css += `a:not(.button):not(.components-button):not(.wp-picker-container a) { color: ${elementColors.links.link_default} !important; }\n`;
         }
         if (elementColors.links.link_hover) {
-          css += `a:hover, a:focus { color: ${elementColors.links.link_hover} !important; }\n`;
+          css += `a:not(.button):not(.components-button):not(.wp-picker-container a):hover, a:not(.button):not(.components-button):not(.wp-picker-container a):focus { color: ${elementColors.links.link_hover} !important; }\n`;
         }
         if (elementColors.links.link_delete) {
           css += `.delete { color: ${elementColors.links.link_delete} !important; }\n`;
@@ -1774,10 +1800,10 @@
           css += `${tableScope} table tbody tr { background-color: ${elementColors.tables.table_row_bg} !important; }\n`;
         }
         if (elementColors.tables.table_row_color) {
-          css += `${tableScope} table tbody tr td { color: ${elementColors.tables.table_row_color} !important; }\n`;
+          css += `${tableScope} table tbody tr td, ${tableScope} table tbody tr th { color: ${elementColors.tables.table_row_color} !important; }\n`;
         }
         if (elementColors.tables.table_row_hover_bg) {
-          css += `${tableScope} table tbody tr:hover { background-color: ${elementColors.tables.table_row_hover_bg} !important; }\n`;
+          css += `${tableScope} table tbody tr:hover, ${tableScope} table tbody tr:nth-child(odd):hover { background-color: ${elementColors.tables.table_row_hover_bg} !important; }\n`;
         }
         if (elementColors.tables.table_border) {
           css += `${tableScope} table { border-color: ${elementColors.tables.table_border} !important; } ${tableScope} table td, ${tableScope} table th { border-color: ${elementColors.tables.table_border} !important; }\n`;
@@ -1786,7 +1812,7 @@
           css += `${tableScope} table tbody tr:nth-child(odd) { background-color: ${elementColors.tables.table_alt_row_bg} !important; }\n`;
         }
         if (elementColors.tables.table_alt_row_color) {
-          css += `${tableScope} table tbody tr:nth-child(odd) td { color: ${elementColors.tables.table_alt_row_color} !important; }\n`;
+          css += `${tableScope} table tbody tr:nth-child(odd) td, ${tableScope} table tbody tr:nth-child(odd) th { color: ${elementColors.tables.table_alt_row_color} !important; }\n`;
         }
       }
 
@@ -1805,29 +1831,44 @@
           css += `input[type="text"], input[type="email"], input[type="password"], input[type="number"], input[type="url"], input[type="tel"], input[type="search"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="file"], textarea, select, .wp-core-ui select { color: ${elementColors.forms.input_text} !important; }\n`;
         }
         if (elementColors.forms.input_placeholder) {
-          css += `input::placeholder, textarea::placeholder, .wp-core-ui select { color: ${elementColors.forms.input_placeholder} !important; }\n`;
+          css += `input::placeholder, textarea::placeholder { color: ${elementColors.forms.input_placeholder} !important; }\n`;
         }
       }
+
+      var primary_normal = this.buttonSelectors('primary', ['']);
+      var primary_states = this.buttonSelectors('primary', [':hover', ':focus', ':active']);
+      var primary_text = this.buttonSelectors('primary', ['', ':hover', ':focus', ':active']);
+      var primary_focus = this.buttonSelectors('primary', [':focus']);
+      var secondary_normal = this.buttonSelectors('secondary', ['']);
+      var secondary_states = this.buttonSelectors('secondary', [':hover', ':focus', ':active']);
+      var secondary_text = this.buttonSelectors('secondary', ['', ':hover', ':focus', ':active']);
+      var secondary_focus = this.buttonSelectors('secondary', [':focus']);
 
       // Buttons colors
       if (elementColors.buttons && Object.keys(elementColors.buttons).length > 0) {
         if (elementColors.buttons.button_primary_bg) {
-          css += `.wp-core-ui .button-primary:not(.wp-picker-container .button-primary), input[type="submit"].button-primary:not(.wp-picker-container input) { background-color: ${elementColors.buttons.button_primary_bg} !important; }\n`;
+          css += `${primary_normal} { background-color: ${elementColors.buttons.button_primary_bg} !important; border-color: ${elementColors.buttons.button_primary_bg} !important; }\n`;
         }
         if (elementColors.buttons.button_primary_text) {
-          css += `.wp-core-ui .button-primary:not(.wp-picker-container .button-primary), input[type="submit"].button-primary:not(.wp-picker-container input) { color: ${elementColors.buttons.button_primary_text} !important; }\n`;
+          css += `${primary_text} { color: ${elementColors.buttons.button_primary_text} !important; }\n`;
         }
         if (elementColors.buttons.button_primary_hover_bg) {
-          css += `.wp-core-ui .button-primary:hover:not(.wp-picker-container .button-primary), input[type="submit"].button-primary:hover:not(.wp-picker-container input) { background-color: ${elementColors.buttons.button_primary_hover_bg} !important; }\n`;
+          css += `${primary_states} { background-color: ${elementColors.buttons.button_primary_hover_bg} !important; border-color: ${elementColors.buttons.button_primary_hover_bg} !important; }\n`;
+        }
+        if (elementColors.buttons.button_primary_bg) {
+          css += `${primary_focus} { box-shadow: 0 0 0 1px #fff, 0 0 0 3px ${elementColors.buttons.button_primary_bg} !important; }\n`;
         }
         if (elementColors.buttons.button_secondary_bg) {
-          css += `.wp-core-ui .button:not(.wp-picker-container .button), input[type="submit"]:not(.wp-picker-container input) { background-color: ${elementColors.buttons.button_secondary_bg} !important; }\n`;
+          css += `${secondary_normal} { background-color: ${elementColors.buttons.button_secondary_bg} !important; border-color: ${elementColors.buttons.button_secondary_bg} !important; }\n`;
         }
         if (elementColors.buttons.button_secondary_text) {
-          css += `.wp-core-ui .button:not(.wp-picker-container .button), input[type="submit"]:not(.wp-picker-container input) { color: ${elementColors.buttons.button_secondary_text} !important; }\n`;
+          css += `${secondary_text} { color: ${elementColors.buttons.button_secondary_text} !important; }\n`;
         }
         if (elementColors.buttons.button_secondary_hover_bg) {
-          css += `.wp-core-ui .button:hover:not(.wp-picker-container .button), input[type="submit"]:hover:not(.wp-picker-container input) { background-color: ${elementColors.buttons.button_secondary_hover_bg} !important; }\n`;
+          css += `${secondary_states} { background-color: ${elementColors.buttons.button_secondary_hover_bg} !important; border-color: ${elementColors.buttons.button_secondary_hover_bg} !important; }\n`;
+        }
+        if (elementColors.buttons.button_secondary_text) {
+          css += `${secondary_focus} { box-shadow: 0 0 0 1px #fff, 0 0 0 3px ${elementColors.buttons.button_secondary_text} !important; }\n`;
         }
       }
 
@@ -1837,7 +1878,7 @@
           css += `#adminmenu, #adminmenuback, #adminmenuwrap { background-color: ${elementColors.admin_menu.menu_bg} !important; }\n`;
         }
         if (elementColors.admin_menu.menu_text) {
-          css += `#adminmenu a { color: ${elementColors.admin_menu.menu_text} !important; }\n`;
+          css += `#adminmenu a:not(.button):not(.components-button):not(.wp-picker-container a) { color: ${elementColors.admin_menu.menu_text} !important; }\n`;
         }
         if (elementColors.admin_menu.menu_icon) {
           css += `#adminmenu .dashicons, #adminmenu .dashicons-before:before { color: ${elementColors.admin_menu.menu_icon} !important; }\n`;
@@ -1847,7 +1888,7 @@
           css += `#adminmenu li:hover > a, #adminmenu li.menu-top:hover { background-color: ${elementColors.admin_menu.menu_hover_bg} !important; }\n`;
         }
         if (elementColors.admin_menu.menu_hover_text) {
-          css += `#adminmenu li:hover > a { color: ${elementColors.admin_menu.menu_hover_text} !important; }\n`;
+          css += `#adminmenu li:hover > a:not(.button):not(.components-button):not(.wp-picker-container a) { color: ${elementColors.admin_menu.menu_hover_text} !important; }\n`;
         }
         if (elementColors.admin_menu.menu_current_bg) {
           css += `#adminmenu li.current a.menu-top, #adminmenu li.wp-has-current-submenu > a.wp-has-current-submenu { background-color: ${elementColors.admin_menu.menu_current_bg} !important; }\n`;
@@ -1869,7 +1910,7 @@
           css += `#wpadminbar { background-color: ${elementColors.admin_bar.adminbar_bg} !important; }\n`;
         }
         if (elementColors.admin_bar.adminbar_text) {
-          css += `#wpadminbar .ab-item, #wpadminbar a.ab-item, #wpadminbar > #wp-toolbar a, #wpadminbar > #wp-toolbar span, #wpadminbar > #wp-toolbar span.ab-label, #wpadminbar .ab-submenu .ab-item, #wpadminbar .quicklinks .ab-submenu a, #wpadminbar .quicklinks .menupop ul li a { color: ${elementColors.admin_bar.adminbar_text} !important; }\n`;
+          css += `#wpadminbar .ab-item:not(button):not(.button):not(.components-button), #wpadminbar .ab-item:not(button):not(.button):not(.components-button) > .ab-label, #wpadminbar .ab-submenu a:not(.button):not(.components-button) { color: ${elementColors.admin_bar.adminbar_text} !important; }\n`;
         }
         if (elementColors.admin_bar.adminbar_icon) {
           css += `#wpadminbar .ab-icon:before, #wpadminbar .ab-item:before, #wpadminbar .dashicons { color: ${elementColors.admin_bar.adminbar_icon} !important; }\n`;
@@ -1900,10 +1941,10 @@
           css += `#dashboard-widgets .postbox .inside, #dashboard-widgets .postbox .inside p, #dashboard-widgets .postbox .inside li { color: ${elementColors.dashboard_widgets.widget_body_text} !important; }\n`;
         }
         if (elementColors.dashboard_widgets.widget_link) {
-          css += `#dashboard-widgets .postbox .inside a { color: ${elementColors.dashboard_widgets.widget_link} !important; }\n`;
+          css += `#dashboard-widgets .postbox .inside a:not(.button):not(.components-button):not(.wp-picker-container a) { color: ${elementColors.dashboard_widgets.widget_link} !important; }\n`;
         }
         if (elementColors.dashboard_widgets.widget_link_hover) {
-          css += `#dashboard-widgets .postbox .inside a:hover, #dashboard-widgets .postbox .inside a:focus { color: ${elementColors.dashboard_widgets.widget_link_hover} !important; }\n`;
+          css += `#dashboard-widgets .postbox .inside a:not(.button):not(.components-button):hover, #dashboard-widgets .postbox .inside a:not(.button):not(.components-button):focus { color: ${elementColors.dashboard_widgets.widget_link_hover} !important; }\n`;
         }
       }
 
@@ -2061,31 +2102,44 @@
     /**
      * Pick readable text color based on background
      */
-    getReadableTextColor: function (color) {
-      if (!color || typeof color !== 'string') {
+    getReadableTextColor: function (color, alternateColor) {
+      var background = this.getRelativeLuminance(this.rgbToHex(color || '#ffffff'));
+      if (background === null) {
         return '#111827';
       }
 
-      var hex = this.rgbToHex(color);
-      if (!hex || hex.indexOf('#') !== 0 || hex.length < 7) {
-        return '#111827';
+      var backgrounds = [background];
+      if (alternateColor) {
+        var alternate = this.getRelativeLuminance(this.rgbToHex(alternateColor));
+        if (alternate !== null) {
+          backgrounds.push(alternate);
+        }
       }
 
-      var luminance = this.getRelativeLuminance(hex);
-      if (luminance === null) {
-        return '#111827';
+      var self = this;
+      function minimumContrast(textColor) {
+        var foreground = self.getRelativeLuminance(textColor);
+        return Math.min.apply(Math, backgrounds.map(function (surface) {
+          return self.getContrastRatio(foreground, surface);
+        }));
       }
 
-      // Pick whichever candidate gives the higher WCAG contrast ratio.
-      var darkContrast = this.getContrastRatio(luminance, this.getRelativeLuminance('#111827'));
-      var lightContrast = this.getContrastRatio(luminance, this.getRelativeLuminance('#f9fafb'));
+      var darkContrast = minimumContrast('#111827');
+      var lightContrast = minimumContrast('#f9fafb');
+      var bestColor = darkContrast >= lightContrast ? '#111827' : '#f9fafb';
+      var bestContrast = Math.max(darkContrast, lightContrast);
 
-      if (Math.max(darkContrast, lightContrast) < 4.5) {
-        // Mid-tone background: fall back to pure black/white to reach WCAG AA where possible.
-        return this.getContrastRatio(luminance, 0) >= this.getContrastRatio(luminance, 1) ? '#000000' : '#ffffff';
+      if (bestContrast < 4.5) {
+        ['#000000', '#ffffff'].forEach(function (candidate) {
+          var ratio = minimumContrast(candidate);
+          if (ratio > bestContrast) {
+            bestColor = candidate;
+            bestContrast = ratio;
+          }
+        });
       }
 
-      return darkContrast >= lightContrast ? '#111827' : '#f9fafb';
+      return bestColor;
     },
 
     /**
@@ -2098,7 +2152,7 @@
 
       var channels = [hex.slice(1, 3), hex.slice(3, 5), hex.slice(5, 7)].map(function (part) {
         var c = parseInt(part, 16) / 255;
-        return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
       });
 
       return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];

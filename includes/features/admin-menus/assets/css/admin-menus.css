@@ -1,0 +1,179 @@
+.pp-capability-menus .menu-item-link .admin-menu-slug {
+    color: #777;
+}
+
+.ppc-menu-row-placeholder {
+    background: #f1f1f1;
+    border: 1px dashed #ccc;
+}
+
+.ppc-menu-highlight {
+    animation: highlightRow 2s ease-in-out;
+}
+
+.admin-menu-highlight {
+  background-color: #fff3cd !important;
+}
+
+.admin-menu-highlight.disabled,
+.ppc-disabled-button {
+    pointer-events: none !important;
+    cursor: not-allowed !important;
+}
+
+.ppc-menu-row {
+    cursor: move;
+}
+
+.ui-sortable-helper {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.ppc-menu-action .add-new-menu .dashicons {
+    vertical-align: text-top;
+}
+
+.ppc-new-menu-form .new-menu-fields {
+    border: 1px solid rgb(204, 204, 204);
+    padding: 8px 15px;
+    margin: 10px 0px;
+    background: rgb(255, 255, 255);
+}
+
+.ppc-new-menu-form .new-menu-fields label {
+    display: block;
+}
+
+.ppc-new-menu-form .new-menu-fields select,
+.ppc-new-menu-form .new-menu-fields input[type=text] {
+    width: 99%;
+}
+
+.menu-form-table {
+    width: 100%;
+}
+
+.pp-capability-menus-wrapper.admin-menus #pp-capability-menu-wrapper {
+    border: none;
+}
+
+.spinner.admin-menu-spinner {
+    float: none;
+}
+
+.spinner.admin-menu-spinner:not(.is-active) {
+    display: none;
+}
+
+.admin-menu-response-message p {
+    margin: .5em 0 !important;
+    padding: 2px !important;
+}
+
+.ppc-icon-picker-popup {
+    position: absolute;
+    z-index: 999999;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    padding: 10px;
+    display: block;
+}
+
+.ppc-icon-picker-container {
+    width: 345px;
+}
+
+.ppc-icon-search {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.ppc-icon-list {
+    max-height: 200px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 5px;
+}
+
+.ppc-icon-list .dashicons {
+    padding: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    color: #50575e;
+}
+
+.ppc-icon-list .dashicons:hover {
+    background: #f0f0f0;
+    border-radius: 3px;
+    color: #2271b1;
+}
+
+.ppc-icon-selector-button {
+    margin-left: 5px !important;
+    vertical-align: middle !important;
+    padding: 4px !important;
+    min-height: 30px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    border-radius: 4px !important;
+    margin-right: 1px !important;
+    margin-top: -5px !important;
+}
+
+.ppc-icon-selector-button .dashicons {
+    vertical-align: middle;
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+}
+
+.pp-admin-menu-buttons .dashicons.delete,
+.pp-admin-menu-buttons .delete-admin-menu {
+    color: #a00;
+}
+
+#pp-capability-menu-wrapper table td .pp-admin-menu-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.pp-admin-menu-buttons .ppc-tool-tip:not(.click-tooltip) .tool-tip-text {
+    top: calc(100% + 8px);
+    transform: translateX(-50%);
+}
+
+.pp-admin-menu-buttons .ppc-tool-tip:not(.click-tooltip) .tool-tip-text i {
+    top: auto;
+    bottom: 100%;
+    transform: rotate(180deg);
+}
+
+.pp-capability-menus-wrapper.admin-menus #pp-capability-menu-wrapper table td.ppc-menu-action {
+    width: 22%;
+}
+/* Position the shared upgrade panel over the complete Free form preview. */
+.ppc-new-menu-promo { position: relative; min-height: 260px; }
+.ppc-new-menu-promo .menu-form-table { filter: blur(2px); pointer-events: none; }
+.ppc-new-menu-promo .ppc-new-menu-promo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.ppc-new-menu-promo-overlay.pp-promo-overlay-row .pp-promo-upgrade-notice {
+    position: static;
+    margin: 10px;
+    width: 450px;
+    max-width: calc(100% - 20px);
+}
