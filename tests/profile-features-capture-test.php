@@ -27,17 +27,62 @@ namespace {
     function is_multisite() { return true; }
     function is_super_admin() { return false; }
     function is_admin() { return true; }
-    function current_user_can($capability, $id = 0) { global $canEdit; return $capability !== 'edit_user' || $canEdit; }
+    function current_user_can($capability, $id = 0) { global $canEdit; return $capability !== 'edit_user' || ($canEdit && $id !== 60); }
     function pp_capabilities_feature_enabled($feature) { global $testingEnabled; return $feature !== 'user-testing' || $testingEnabled; }
     function get_current_user_id() { return 1; }
     function get_current_blog_id() { return 2; }
     function wp_get_current_user() { global $currentRoles; return (object) ['roles' => $currentRoles]; }
-    function get_users($args) { global $users, $query; $query = $args; return $users; }
+    function is_user_member_of_blog($id) { return true; }
+    $wpdb = new class {
+        public $users = 'wp_users';
+        public function get_blog_prefix($id) { return 'wp_' . $id . '_'; }
+        public function prepare($sql, $id) { return sprintf($sql, $id); }
+    };
+    function get_super_admins() { return []; }
+    function add_action($hook, $callback) { $GLOBALS['user_query_hook'] = $callback; }
+    function remove_action($hook, $callback) { unset($GLOBALS['user_query_hook']); }
+    function get_users($args)
+    {
+        global $users, $query, $user_query_hook, $candidate_queries;
+        $query = $args;
+        $after_id = 0;
+        if (isset($args['ppc_profile_capture_after_id'])) {
+            $sql = (object) ['query_vars' => $args, 'query_where' => 'WHERE 1=1'];
+            $user_query_hook($sql);
+            if (!preg_match('/ AND wp_users\\.ID > (\\d+)$/', $sql->query_where, $matches)) {
+                throw new RuntimeException('Expected the user ID cursor in SQL.');
+            }
+            $after_id = (int) $matches[1];
+        }
+
+        $found = [];
+        foreach ($users as $user) {
+            if ($user->ID <= $after_id || in_array($user->ID, $args['exclude'], true)) {
+                continue;
+            }
+            if (isset($args['capability'])
+                && (!($user->storedRead ?? $user->canRead)
+                    || array_intersect($user->roles, $args['role__not_in']))) {
+                continue;
+            }
+            $user->allcaps ??= [];
+            $found[] = $user;
+        }
+        $batch = array_slice($found, 0, $args['number']);
+        if ($args['fields'] === 'ID') {
+            return array_column($batch, 'ID');
+        }
+        $candidate_queries[] = [$after_id, $args['number'], isset($args['capability'])];
+        return $batch;
+    }
     function get_option($key, $default = false) { global $options; return $options[$key] ?? $default; }
     function update_option($key, $value, $autoload = null) { global $options; $options[$key] = $value; }
     function delete_option($key) { global $options; unset($options[$key]); }
     function sanitize_key($value) { return $value; }
-    function user_can($id, $capability) { global $users; return $capability === 'manage_options' ? !empty($users[0]->canManage) : $users[0]->canRead; }
+    function user_can($user, $capability)
+    {
+        return $capability === 'manage_options' ? !empty($user->canManage) : $user->canRead;
+    }
     function __($text, $domain = '') { return $text; }
     function admin_url($path) { return $path; }
     function wp_create_nonce($action) { return 'nonce'; }
@@ -122,5 +167,48 @@ namespace {
     if (empty($profile_capture_error) || isset($options['capsman_profile_features_elements_testing_role'])) {
         throw new RuntimeException('A role that blocks dashboard access must warn without starting capture.');
     }
-    echo "Profile Features capture regression checks passed (7 eligibility scenarios, repeat visits, plain visits and a dashboard-blocked role).\n";
+    $users = [];
+    for ($id = 10; $id < 60; $id++) {
+        $users[] = (object) [
+            'ID' => $id,
+            'roles' => ['subscriber', $id % 2 ? 'author' : 'contributor'],
+            'canRead' => true,
+        ];
+    }
+    $users[] = (object) ['ID' => 60, 'roles' => ['subscriber'], 'canRead' => true];
+    $users[] = (object) ['ID' => 61, 'roles' => ['subscriber'], 'canRead' => true];
+    $candidate_queries = [];
+    $options = [
+        'cme_test_user_excluded_roles' => ['author'],
+        'pp_capabilities_contributor_role_option' => ['block_dashboard_access' => 1],
+    ];
+    $_REQUEST = ['page' => 'pp-capabilities-profile-features', 'role' => 'subscriber', 'role_refresh' => 1];
+    $redirect = '';
+    try {
+        $controller->profileFeaturesCaptureRedirect();
+    } catch (RuntimeException $error) {
+        $redirect = $error->getMessage();
+    }
+    parse_str((string) parse_url($redirect, PHP_URL_QUERY), $redirect_args);
+    if (($redirect_args['ppc_test_user'] ?? '') !== base64_encode('61')
+        || $candidate_queries !== [[0, 1, true], [10, 50, true]]
+        || $profile_capture_error !== ''
+        || isset($user_query_hook)) {
+        throw new RuntimeException('Capture must skip ineligible users and continue with an ID cursor on the filtered query.');
+    }
+
+    $users = [(object) ['ID' => 70, 'roles' => ['subscriber'], 'canRead' => true, 'storedRead' => false]];
+    $candidate_queries = [];
+    $redirect = '';
+    try {
+        $controller->profileFeaturesCaptureRedirect();
+    } catch (RuntimeException $error) {
+        $redirect = $error->getMessage();
+    }
+    parse_str((string) parse_url($redirect, PHP_URL_QUERY), $redirect_args);
+    if (($redirect_args['ppc_test_user'] ?? '') !== base64_encode('70')
+        || $candidate_queries !== [[0, 1, true], [0, 1, false]]) {
+        throw new RuntimeException('Capture must also find a user whose read permission is granted at runtime.');
+    }
+    echo "Profile Features capture regression checks passed.\n";
 }

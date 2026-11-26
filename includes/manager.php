@@ -1689,19 +1689,21 @@ class CapabilityManager
 
             $profile_capture_error = '';
 
-            //get user in current role
-            $role_user = get_users(
-                [
-                    'blog_id' => get_current_blog_id(),
-                    'role'    => $default_role,
-                    'exclude' => [get_current_user_id()],
-                    'number'  => 1,
-                ]
-            );
+            $blog_id = get_current_blog_id();
+            $user_query = [
+                'blog_id' => $blog_id,
+                'role'    => $default_role,
+                'exclude' => [get_current_user_id()],
+                'orderby' => 'ID',
+                'order'   => 'ASC',
+                'number'  => 1,
+                'fields'  => 'ID',
+            ];
+            $role_users = get_users($user_query);
 
             $can_capture_current_user = $default_role === 'administrator'
                 && in_array($default_role, wp_get_current_user()->roles, true);
-            $role_has_user = !empty($role_user) || $can_capture_current_user;
+            $role_has_user = !empty($role_users) || $can_capture_current_user;
 
 			// Check if role is enabled for profile features editing
 			if (!\PublishPress\Capabilities\PP_Capabilities_Profile_Features::isRoleEnabledForProfileFeatures($default_role)) {
@@ -1727,68 +1729,116 @@ class CapabilityManager
                 return;
             }
 
-            if (!empty($role_user)
-                && (!pp_capabilities_feature_enabled('user-testing')
-                    || !class_exists('PP_Capabilities_Test_User')
-                    || !user_can($role_user[0]->ID, 'read')
-                    || !PP_Capabilities_Test_User::canTestUser($role_user[0]))
-            ) {
+            $testing_user = null;
+            if ($role_users) {
                 $profile_capture_error = __('Profile items could not be detected because User Testing is disabled, you cannot test the user in this role, or the user cannot access the Profile screen.', 'capability-manager-enhanced');
-                return;
-            }
+                if (!pp_capabilities_feature_enabled('user-testing') || !class_exists('PP_Capabilities_Test_User')) {
+                    return;
+                }
 
-            if (empty($role_user) && $default_role !== 'administrator') {
-                return;
-            }
+                global $wpdb;
+                $user_query['fields'] = 'all';
+                $filtered_query = $user_query + [
+                    'role__not_in'  => (array) get_option('cme_test_user_excluded_roles', []),
+                    'capability'    => 'read',
+                    'login__not_in' => is_multisite() && !is_super_admin() ? get_super_admins() : [],
+                    'meta_query'    => [
+                        [
+                            'key'     => $wpdb->get_blog_prefix($blog_id) . 'capabilities',
+                            'value'   => '"read";b:0;',
+                            'compare' => 'NOT LIKE',
+                        ],
+                    ],
+                ];
 
-            $can_redirect = true;
+                // Try the indexed ID order with SQL prefilters first. If no candidate
+                // qualifies, retry without the prefilters because runtime grants can
+                // differ from the capabilities stored in user meta.
+                foreach ([$filtered_query, $user_query] as $candidate_query) {
+                    $after_id = 0;
+                    do {
+                        $role_users = $this->getProfileCaptureUsersAfter($candidate_query, $after_id);
+                        foreach ($role_users as $candidate) {
+                            $after_id = (int) $candidate->ID;
+                            if (!user_can($candidate, 'read') || !PP_Capabilities_Test_User::canTestUser($candidate)) {
+                                continue;
+                            }
 
-            if (!empty($role_user)) {
-                $testing_user = $role_user[0];
-                if (!user_can($testing_user->ID, 'read')) {
-                    $can_redirect = false;
-                } elseif (!user_can($testing_user->ID, 'manage_options')
-                    && isset($testing_user->roles) && is_array($testing_user->roles)) {
-                    // Block Dashboard Access sends this user to the home page before profile.php loads
-                    foreach ($testing_user->roles as $user_role) {
-                        $role_option = get_option("pp_capabilities_{$user_role}_role_option", []);
-                        if (is_array($role_option) && !empty($role_option)
-                            && !empty($role_option['block_dashboard_access'])
-                            && (int)$role_option['block_dashboard_access'] > 0
-                        ) {
-                            $profile_capture_error = __('Profile items could not be detected because users in this role are blocked from the admin area by the Block Dashboard Access option.', 'capability-manager-enhanced');
-                            $can_redirect = false;
+                            if (!user_can($candidate, 'manage_options')) {
+                                foreach ($candidate->roles as $user_role) {
+                                    $role_option = get_option("pp_capabilities_{$user_role}_role_option", []);
+                                    if (is_array($role_option) && !empty($role_option['block_dashboard_access']) && (int) $role_option['block_dashboard_access'] > 0) {
+                                        $profile_capture_error = __('Profile items could not be detected because users in this role are blocked from the admin area by the Block Dashboard Access option.', 'capability-manager-enhanced');
+                                        continue 2;
+                                    }
+                                }
+                            }
+
+                            $testing_user = $candidate;
+                            break 3;
+                        }
+
+                        if (!$role_users || count($role_users) < $candidate_query['number']) {
                             break;
                         }
-                    }
+
+                        $candidate_query['number'] = 50;
+                    } while (true);
                 }
 
+                if (!$testing_user) {
+                    return;
+                }
+                $profile_capture_error = '';
             }
 
-            if ($can_redirect) {
-                //redirect user to test link for validation and redirection
-                if (empty($role_user)) {
-                    $test_link = admin_url('profile.php?ppc_profile_element=1');
-                } else {
-                    $test_as_user = $role_user[0];
-                    $test_link = add_query_arg(
-                        [
-                        'ppc_test_user'         => base64_encode($test_as_user->ID),
+            if (!$testing_user) {
+                $test_link = admin_url('profile.php?ppc_profile_element=1');
+            } else {
+                $test_link = add_query_arg(
+                    [
+                        'ppc_test_user'         => base64_encode((string) $testing_user->ID),
                         'profile_feature_action' => 1,
-                        '_wpnonce'              => wp_create_nonce('ppc-test-user')
+                        '_wpnonce'              => wp_create_nonce('ppc-test-user'),
                     ],
-                        admin_url('users.php')
-                    );
-                }
-                if ($refresh_element > 0) {
-                    delete_option('capsman_profile_features_updated');
-                }
-                update_option('capsman_profile_features_elements_testing_role', $default_role, false);
-                wp_safe_redirect($test_link);
-                exit();
+                    admin_url('users.php')
+                );
             }
+
+            if ($refresh_element > 0) {
+                delete_option('capsman_profile_features_updated');
+            }
+            update_option('capsman_profile_features_elements_testing_role', $default_role, false);
+            wp_safe_redirect($test_link);
+            exit();
 		}
     }
+
+    private function getProfileCaptureUsersAfter(array $query, int $after_id)
+    {
+        if (!$after_id) {
+            return get_users($query);
+        }
+
+        $query['ppc_profile_capture_after_id'] = $after_id;
+        $callback = [$this, 'applyProfileCaptureUserCursor'];
+        add_action('pre_user_query', $callback);
+        try {
+            return get_users($query);
+        } finally {
+            remove_action('pre_user_query', $callback);
+        }
+    }
+
+    public function applyProfileCaptureUserCursor($query)
+    {
+        $after_id = (int) ($query->query_vars['ppc_profile_capture_after_id'] ?? 0);
+        if ($after_id > 0) {
+            global $wpdb;
+            $query->query_where .= $wpdb->prepare(" AND {$wpdb->users}.ID > %d", $after_id);
+        }
+    }
+
 }
 
 function cme_publishpressFooter() {
