@@ -118,8 +118,21 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
 	jQuery(document).ready( function($) {
 		$('#publishpress_caps_form').attr('action', 'admin.php?page=pp-capabilities&role=' + $('select[name="role"]').val());
 
-		$('select[name="role"]').change(function(){
-			window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities&role=')); ?>' + $(this).val() + '';
+		$('#pp-role-switch').on('click', function(){
+			$(this).prop('disabled', true);
+			window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities&role=')); ?>' + $('#pp-role-selector').val() + '';
+		});
+
+		// Let Enter activate the button instead of the form's Enter-key handler.
+		$('#pp-role-switch').on('keypress', function(e){
+			e.stopPropagation();
+		});
+
+		// Save always applies to the loaded role, even if the role selector was changed without switching.
+		$('#publishpress_caps_form').on('submit', function(){
+			$('#pp-role-selector option').prop('selected', function(){
+				return this.defaultSelected;
+			});
 		});
 	});
 	/* ]]> */
@@ -190,6 +203,7 @@ if (defined('PUBLISHPRESS_REVISIONS_VERSION') && function_exists('rvy_get_option
                         </optgroup>
                     <?php endif; ?>
                 </select>
+                <button type="button" id="pp-role-switch" class="button ppc-switch-role"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button>
             </div>
 			<?php
 			$img_url = $capsman->mod_url . '/images/';
