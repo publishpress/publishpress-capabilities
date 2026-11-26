@@ -138,6 +138,35 @@ namespace {
             $controller->profileFeaturesCaptureRedirect();
         }
     }
+    $admin = (object) ['ID' => 3, 'roles' => ['administrator'], 'canRead' => true];
+    $administrator_cases = [
+        [false, true, ['administrator'], true, false],
+        [true, false, ['administrator'], true, false],
+        [true, true, ['administrator'], true, true],
+        [false, true, ['editor'], false, false],
+        [true, true, ['editor'], false, true],
+    ];
+    foreach ($administrator_cases as [$canEdit, $testingEnabled, $currentRoles, $shouldRedirect, $dashboardBlocked]) {
+        $users = [$admin];
+        $options = $dashboardBlocked ? [
+            'pp_capabilities_administrator_role_option' => ['block_dashboard_access' => 1],
+        ] : [];
+        $_REQUEST = ['page' => 'pp-capabilities-profile-features', 'role' => 'administrator', 'role_refresh' => 1];
+        $redirect = '';
+        try {
+            $controller->profileFeaturesCaptureRedirect();
+        } catch (RuntimeException $error) {
+            $redirect = $error->getMessage();
+        }
+        if ($shouldRedirect && ($redirect !== 'profile.php?ppc_profile_element=1'
+            || ($options['capsman_profile_features_elements_testing_role'] ?? '') !== 'administrator'
+            || $profile_capture_error !== '')) {
+            throw new RuntimeException('An administrator who cannot test the other administrator must capture from their own Profile screen.');
+        }
+        if (!$shouldRedirect && ($redirect !== '' || empty($profile_capture_error))) {
+            throw new RuntimeException('A user outside the administrator role must still see the warning.');
+        }
+    }
     $users = [$user];
     $testingEnabled = false;
     $canEdit = true;

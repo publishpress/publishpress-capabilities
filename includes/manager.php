@@ -1732,10 +1732,12 @@ class CapabilityManager
             $testing_user = null;
             if ($role_users) {
                 $profile_capture_error = __('Profile items could not be detected because User Testing is disabled, you cannot test the user in this role, or the user cannot access the Profile screen.', 'capability-manager-enhanced');
-                if (!pp_capabilities_feature_enabled('user-testing') || !class_exists('PP_Capabilities_Test_User')) {
-                    return;
-                }
+            }
 
+            if ($role_users
+                && pp_capabilities_feature_enabled('user-testing')
+                && class_exists('PP_Capabilities_Test_User')
+            ) {
                 global $wpdb;
                 $user_query['fields'] = 'all';
                 $filtered_query = $user_query + [
@@ -1785,12 +1787,12 @@ class CapabilityManager
                         $candidate_query['number'] = 50;
                     } while (true);
                 }
-
-                if (!$testing_user) {
-                    return;
-                }
-                $profile_capture_error = '';
             }
+
+            if (!$testing_user && !$can_capture_current_user) {
+                return;
+            }
+            $profile_capture_error = '';
 
             if (!$testing_user) {
                 $test_link = admin_url('profile.php?ppc_profile_element=1');
