@@ -51,9 +51,9 @@ class PP_Capabilities_Test_User_UI extends PP_Capabilities_Test_User
                         type="text"
                         aria-label="' . esc_attr__('Search user', 'capability-manager-enhanced' ) . '"
                         placeholder="' . esc_attr__('Search user...', 'capability-manager-enhanced' ) . '"/>
-                <button class="test-user-btn button"><span class="search-text">' . __( 'Search', 'capability-manager-enhanced' ) . '</span> <span class="spinner ppc-test-user-search-spinner" style="display: none;"></span></button>
+                <button class="test-user-btn button"><span class="search-text">' . __( 'Search', 'capability-manager-enhanced' ) . '</span><span class="screen-reader-text ppc-test-user-searching-text" style="display: none;">' . esc_html__( 'Searching...', 'capability-manager-enhanced' ) . '</span> <span class="spinner ppc-test-user-search-spinner" style="display: none;"></span></button>
 
-                <div class="ppc-test-user-search-response"></div>
+                <div class="ppc-test-user-search-response" role="status" aria-live="polite"></div>
             </div>',
             )
         );
