@@ -27,7 +27,7 @@ Here are the steps on how to hide “Edit with Elementor” on frontend:
 - Provide a title.
 - In the Features field, select “Hide IDs or Classes” and paste the ID there.
 - Specify whether it should apply to the entire site or only a selected page.
-- Click “Add New” and then “Save Changes”.
+- Click “Add New” and then “Save for [Role Name]”.
 
 ![Hide Any Element in the WordPress Frontend with Custom CSS](https://docs-media.publishpress.com/publishpress-capabilities/add-id-on-frontend-feature-64b21e9bfa.webp)
 

@@ -29,7 +29,10 @@
  *  along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-$auto_backups = pp_capabilities_get_auto_backup_option_names();
+$auto_backups = array_unique(array_filter(pp_capabilities_get_auto_backup_option_names(), static function ($name) {
+    return strpos($name, 'cme_backup_auto_') === 0
+        && $name !== pp_capabilities_get_auto_backup_legacy_index_option();
+}));
 
 $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 ?>
@@ -44,11 +47,11 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 
         <div class="pp-columns-wrapper <?php echo ($sidebar_enabled) ? 'pp-enable-sidebar' : ''; ?> clear">
             <div class="pp-column-left">
-                <ul id="publishpress-capability-backup-tabs" class="nav-tab-wrapper">
-                    <li class="nav-tab nav-tab-active"><a href="#ppcb-tab-restore"><?php esc_html_e('Restore', 'capability-manager-enhanced');?></a></li>
-                    <li class="nav-tab"><a href="#ppcb-tab-backup"><?php esc_html_e('Backup', 'capability-manager-enhanced');?></a></li>
-                    <li class="nav-tab"><a href="#ppcb-tab-reset"><?php esc_html_e('Reset Roles', 'capability-manager-enhanced');?></a></li>
-                    <li class="nav-tab"><a href="#ppcb-tab-import-export"><?php esc_html_e('Export / Import', 'capability-manager-enhanced');?></a></li>
+                <ul id="publishpress-capability-backup-tabs" class="nav-tab-wrapper" role="tablist">
+                    <li class="nav-tab nav-tab-active" role="presentation"><a href="#ppcb-tab-restore" id="ppcb-tab-restore-tab" role="tab" aria-controls="ppcb-tab-restore" aria-selected="true"><?php esc_html_e('Restore', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab" role="presentation"><a href="#ppcb-tab-backup" id="ppcb-tab-backup-tab" role="tab" aria-controls="ppcb-tab-backup" aria-selected="false"><?php esc_html_e('Backup', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab" role="presentation"><a href="#ppcb-tab-reset" id="ppcb-tab-reset-tab" role="tab" aria-controls="ppcb-tab-reset" aria-selected="false"><?php esc_html_e('Reset Roles', 'capability-manager-enhanced');?></a></li>
+                    <li class="nav-tab" role="presentation"><a href="#ppcb-tab-import-export" id="ppcb-tab-import-export-tab" role="tab" aria-controls="ppcb-tab-import-export" aria-selected="false"><?php esc_html_e('Export / Import', 'capability-manager-enhanced');?></a></li>
                 </ul>
 
                 <fieldset>
@@ -56,7 +59,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                         <tr>
                             <td class="content">
 
-                                <div id="ppcb-tab-backup" class="postbox ppc-postbox" style="display:none;">
+                                <div id="ppcb-tab-backup" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-backup-tab" style="display:none;">
                                     <h2><?php esc_html_e('Backup Roles and Capabilities', 'capability-manager-enhanced'); ?></h2>
                                     <div>
                                         <p class="description">
@@ -80,9 +83,23 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 $listed_manual_backup = false;
                                 $backup_datestamp = get_option('capsman_backup_datestamp');
                                 $last_caption = ($backup_datestamp) ? sprintf(esc_html__('Last Manual Backup - %s', 'capability-manager-enhanced'), date('j M Y, g:i a', $backup_datestamp)) : esc_html__('Last Backup', 'capability-manager-enhanced');
+
+                                $render_manual_backup = function () use ($backup_datestamp) {
+                                    $manual_date_caption = date('Y-m-d, g:i a', $backup_datestamp);
+                                    $last_backup = get_option('capsman_last_backup');
+                                    if (!$last_backup) {
+                                        $last_backup = __('all roles', 'capability-manager-enhanced');
+                                    }
+                                    ?>
+                                    <li>
+                                    <input type="radio" name="select_restore" value="restore" id="cme_restore_manual">
+                                    <label for="cme_restore_manual"><?php printf(esc_html__('Manual backup of %s (%s)', 'capability-manager-enhanced'), esc_html($last_backup), esc_html($manual_date_caption)); ?></label>
+                                    </li>
+                                    <?php
+                                };
                                 ?>
 
-                                <div id="ppcb-tab-restore" class="postbox ppc-postbox">
+                                <div id="ppcb-tab-restore" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-restore-tab">
                                     <h2><?php esc_html_e('Restore Previous Roles and Capabilities', 'capability-manager-enhanced'); ?></h2>
                                     <div>
                                         <p class="description">
@@ -90,32 +107,22 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                         <?php esc_html_e('On this screen, you can restore an earlier version of your roles and capabilities.', 'capability-manager-enhanced');?>
                                         </p>
 
-                                        <p style="margin-top:15px;"><strong><?php esc_html_e('Available Backups:', 'capability-manager-enhanced'); ?></strong></p>
+                                        <p style="margin-top:15px;" id="cme_select_restore_label"><strong><?php esc_html_e('Available Backups:', 'capability-manager-enhanced'); ?></strong></p>
 
                                         <table width='100%' class="form-table">
                                             <tr>
                                                 <td class="cme-backup-list">
                                                     <div id="cme_select_restore_div">
-                                                    <ul id="cme_select_restore">
+                                                    <ul id="cme_select_restore" role="radiogroup" aria-labelledby="cme_select_restore_label">
                                                         <?php foreach ($auto_backups as $option_name):
                                                             $arr = explode('_', str_replace('cme_backup_auto_', '', $option_name));
                                                             $arr[1] = str_replace('-', ':', $arr[1]);
                                                             $date_caption = implode(' ', $arr);
 
-                                                            if (!$listed_manual_backup && ($backup_datestamp > strtotime($date_caption))) :
-                                                                $manual_date_caption = date('Y-m-d, g:i a', $backup_datestamp);
-                                                                $last_backup = get_option('capsman_last_backup');
-                                                                if(!$last_backup){
-                                                                    $last_backup = __('all roles', 'capability-manager-enhanced');
-                                                                }
-                                                            ?>
-                                                                <li>
-                                                                <input type="radio" name="select_restore" value="restore" id="cme_restore_manual">
-                                                                <label for="cme_restore_manual"><?php printf(esc_html__('Manual backup of %s (%s)', 'capability-manager-enhanced'), esc_html($last_backup), esc_html($manual_date_caption)); ?></label>
-                                                                </li>
-                                                                <?php
+                                                            if (!$listed_manual_backup && ($backup_datestamp > strtotime($date_caption))) {
+                                                                $render_manual_backup();
                                                                 $listed_manual_backup = true;
-                                                            endif;
+                                                            }
                                                             ?>
 
                                                             <?php
@@ -125,10 +132,18 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                             ?>
 
                                                             <li>
-                                                            <input type="radio" name="select_restore" value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>" aria-label="<?php printf(esc_attr__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_attr($date_caption)); ?>">
+                                                            <input type="radio" name="select_restore" data-auto-backup value="<?php echo esc_attr($option_name);?>" id="<?php echo esc_attr($option_name);?>" aria-label="<?php printf(esc_attr__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_attr($date_caption)); ?>">
                                                             <label for="<?php echo esc_attr($option_name);?>"><?php printf(esc_html__('Auto-backup of all roles (%s)', 'capability-manager-enhanced'), esc_html($date_caption)); ?></label>
                                                             </li>
                                                         <?php endforeach; ?>
+
+                                                        <?php
+                                                        // List the manual backup even if no auto-backup is older than it, or none exist.
+                                                        if (!$listed_manual_backup && $backup_datestamp && get_option('capsman_backup')) {
+                                                            $render_manual_backup();
+                                                            $listed_manual_backup = true;
+                                                        }
+                                                        ?>
 
                                                         <?php
                                                         if ($initial = get_option('capsman_backup_initial')):?>
@@ -145,6 +160,53 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                     <input type="submit" name="restore_backup"
                                                            value="<?php esc_attr_e('Restore Selected Roles', 'capability-manager-enhanced') ?>"
                                                            class="button-primary"/>
+
+                                                    <?php if ($auto_backups) : ?>
+                                                        <div class="ppc-tool-tip click-tooltip cme-backup-delete">
+                                                            <button type="button" id="cme-delete-auto-backup" class="button cme-backup-delete-toggle"
+                                                                aria-expanded="false" aria-controls="cme-delete-backup-confirmation" disabled>
+                                                                <?php esc_html_e('Delete Selected Backup', 'capability-manager-enhanced'); ?>
+                                                            </button>
+                                                            <div id="cme-delete-backup-confirmation" class="tool-tip-text">
+                                                                <p>
+                                                                    <?php esc_html_e("Delete this auto-backup? This can't be undone.", 'capability-manager-enhanced'); ?>
+                                                                    <button type="submit" name="delete_auto_backup" class="button-link button-link-delete" disabled>
+                                                                        <?php esc_html_e('Delete', 'capability-manager-enhanced'); ?>
+                                                                    </button>
+                                                                    <span aria-hidden="true">|</span>
+                                                                    <button type="button" class="button-link cme-backup-delete-cancel">
+                                                                        <?php esc_html_e('Cancel', 'capability-manager-enhanced'); ?>
+                                                                    </button>
+                                                                </p>
+                                                                <i></i>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="cme-backup-delete-all">
+                                                            <div class="ppc-tool-tip click-tooltip cme-backup-delete">
+                                                                <button type="button" class="button cme-backup-delete-toggle"
+                                                                    aria-expanded="false" aria-controls="cme-delete-all-backups-confirmation">
+                                                                    <?php esc_html_e('Delete All Auto-backups', 'capability-manager-enhanced'); ?>
+                                                                </button>
+                                                                <div id="cme-delete-all-backups-confirmation" class="tool-tip-text">
+                                                                    <p>
+                                                                        <?php
+                                                                        /* translators: %d: number of available auto-backups. */
+                                                                        printf(esc_html__('Delete all %d auto-backups? The initial backup and the manual backup are kept.', 'capability-manager-enhanced'), count($auto_backups));
+                                                                    ?>
+                                                                        <button type="submit" name="delete_all_auto_backups" class="button-link button-link-delete" disabled>
+                                                                            <?php esc_html_e('Delete', 'capability-manager-enhanced'); ?>
+                                                                        </button>
+                                                                        <span aria-hidden="true">|</span>
+                                                                        <button type="button" class="button-link cme-backup-delete-cancel">
+                                                                            <?php esc_html_e('Cancel', 'capability-manager-enhanced'); ?>
+                                                                        </button>
+                                                                    </p>
+                                                                    <i></i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
 
                                                     <div class="cme-selected-backup-caption"></div>
                                                     </div>
@@ -221,7 +283,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                                     $role_class = (empty($wp_roles->role_objects[$role_name])) ? 'cme-change cme-plus' : '';
                                                                     ?>
 
-                                                                    <h4 class="<?php echo esc_attr($role_class);?>"><?php printf(esc_html__('%s (level %s)', 'capability-manager-enhanced'), esc_html(translate_user_role($role_caption)), esc_html($level)); ?></h4>
+                                                                    <h4 class="<?php echo esc_attr($role_class);?>"><?php printf(esc_html__('%s (level %s)', 'capability-manager-enhanced'), esc_html(translate_user_role($role_caption)), esc_html($level)); ?><?php if ($role_class) : ?> <span class="screen-reader-text"><?php esc_html_e('(will be added)', 'capability-manager-enhanced'); ?></span><?php endif; ?></h4>
 
                                                                     <?php
                                                                     $items = [];
@@ -251,10 +313,17 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                                         ?>
                                                                     <?php endforeach; ?>
 
-                                                                    <?php if ($items) :?>
+                                                                    <?php if ($items) :
+                                                                        // Text equivalents of the add / remove / deny styling, for screen readers.
+                                                                        $change_captions = [
+                                                                            'cme-change cme-plus'   => __('(will be added)', 'capability-manager-enhanced'),
+                                                                            'cme-change cme-minus'  => __('(will be removed)', 'capability-manager-enhanced'),
+                                                                            'cme-change cme-negate' => __('(will be denied)', 'capability-manager-enhanced'),
+                                                                        ];
+                                                                        ?>
                                                                         <ul class="pp-restore-caps">
                                                                         <?php foreach($items as $cap_name => $class) :?>
-                                                                            <li class="<?php echo esc_attr($class);?>"><?php echo esc_html($cap_name);?></li>
+                                                                            <li class="<?php echo esc_attr($class);?>"><?php echo esc_html($cap_name);?><?php if (!empty($change_captions[$class])) : ?> <span class="screen-reader-text"><?php echo esc_html($change_captions[$class]); ?></span><?php endif; ?></li>
                                                                         <?php endforeach; ?>
                                                                         </ul>
                                                                     <?php endif;?>
@@ -276,7 +345,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 </div>
 
 
-                                <div id="ppcb-tab-reset" class="postbox ppc-postbox" style="display:none;">
+                                <div id="ppcb-tab-reset" class="postbox ppc-postbox" role="tabpanel" aria-labelledby="ppcb-tab-reset-tab" style="display:none;">
                                     <h2><?php if (!in_array(get_locale(), ['en_EN', 'en_US'])) esc_html_e('Reset WordPress Defaults', 'capability-manager-enhanced'); else echo 'Reset Roles to WordPress Defaults'; ?></h2>
                                     <div>
                                         <p><span class="pp-caps-warning"><?php esc_html_e('Warning:', 'capability-manager-enhanced'); ?></span> <?php if (!in_array(get_locale(), ['en_EN', 'en_US'])) esc_html_e('Reseting default Roles and Capabilities will set them to the WordPress install defaults.', 'capability-manager-enhanced'); else echo 'This will delete and/or modify stored role definitions.'; ?>
@@ -293,7 +362,7 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                 </div>
 
 
-                                <div id="ppcb-tab-import-export" style="display:none;">
+                                <div id="ppcb-tab-import-export" role="tabpanel" aria-labelledby="ppcb-tab-import-export-tab" style="display:none;">
                                     <div class="postbox ppc-postbox">
                                         <h2><?php esc_html_e('Export Settings', 'capability-manager-enhanced'); ?></h2>
                                         <div>
@@ -306,10 +375,10 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
                                                     </label>
                                                     <div id="pp_capabilities_export_role_selector" class="pp-capabilities-export-role-selector">
                                                         <input type="hidden" name="pp_capabilities_export_roles_present" value="1" />
-                                                        <p class="description">
+                                                        <p class="description" id="pp_capabilities_export_role_selector_label">
                                                             <?php esc_html_e('Select the roles to include in this export.', 'capability-manager-enhanced'); ?>
                                                         </p>
-                                                        <ul>
+                                                        <ul role="group" aria-labelledby="pp_capabilities_export_role_selector_label">
                                                             <?php
                                                             $export_roles = wp_roles()->roles;
                                                             uasort($export_roles, function ($first_role, $second_role) {
@@ -389,7 +458,58 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
         /* <![CDATA[ */
         jQuery(document).ready(function ($) {
 
-            $('#cme_select_restore input[name="select_restore"]').on('change click', function () {
+            var $backupChoices = $('#cme_select_restore input[name="select_restore"]');
+            var $deleteSelected = $('#cme-delete-auto-backup');
+
+            var $confirmations = $('.cme-backup-delete');
+
+            function setBackupConfirmation($confirmation, open) {
+                $confirmation.toggleClass('is-active', open);
+                $confirmation.children('.cme-backup-delete-toggle').attr('aria-expanded', open ? 'true' : 'false');
+                $confirmation.find('button[type="submit"]').prop('disabled', !open);
+            }
+
+            function updateDeleteSelected() {
+                var isAutoBackup = $backupChoices.filter(':checked').is('[data-auto-backup]');
+                setBackupConfirmation($deleteSelected.closest('.cme-backup-delete'), false);
+                $deleteSelected.prop('disabled', !isAutoBackup);
+            }
+
+            function toggleBackupConfirmation(event) {
+                event.stopPropagation();
+                var $confirmation = $(this).closest('.cme-backup-delete');
+                var open = !$confirmation.hasClass('is-active');
+                $confirmations.each(function () {
+                    setBackupConfirmation($(this), false);
+                });
+                setBackupConfirmation($confirmation, open);
+                if (open && event.originalEvent && event.originalEvent.detail === 0) {
+                    $confirmation.find('.cme-backup-delete-cancel').trigger('focus');
+                }
+            }
+
+            function closeBackupConfirmation(event) {
+                event.stopPropagation();
+                var $confirmation = $(this).closest('.cme-backup-delete');
+                setBackupConfirmation($confirmation, false);
+                $confirmation.children('.cme-backup-delete-toggle').trigger('focus');
+            }
+
+            $backupChoices.on('change', updateDeleteSelected);
+            updateDeleteSelected();
+            $confirmations.on('click', '.cme-backup-delete-toggle', toggleBackupConfirmation);
+            $confirmations.on('click', '.cme-backup-delete-cancel', closeBackupConfirmation);
+            $confirmations.on('keydown', function (event) {
+                if (event.key === 'Escape' && $(this).hasClass('is-active')) {
+                    closeBackupConfirmation.call(this, event);
+                }
+            });
+            // Let the confirm button submit normally without the shared click-tooltip toggle.
+            $confirmations.on('click', function (event) {
+                event.stopPropagation();
+            });
+
+            $backupChoices.on('change click', function () {
                 $('div.cme-show-backup').hide();
 
                 $('div.cme-selected-backup-caption').html($(this).next('label').html());
@@ -423,8 +543,14 @@ $sidebar_enabled = defined('PUBLISHPRESS_CAPS_PRO_VERSION') ? false : true;
 
             $('#publishpress-capability-backup-tabs').find('li').click(function (e) {
                 e.preventDefault();
+                $confirmations.each(function () {
+                    setBackupConfirmation($(this), false);
+                });
                 $('#publishpress-capability-backup-tabs').children('li').filter('.nav-tab-active').removeClass('nav-tab-active');
                 $(this).addClass('nav-tab-active');
+
+                $('#publishpress-capability-backup-tabs').find('[role="tab"]').attr('aria-selected', 'false');
+                $(this).find('[role="tab"]').attr('aria-selected', 'true');
 
                 $('div[id^="ppcb-"]').hide();
                 $($(this).find('a').first().attr('href')).show();

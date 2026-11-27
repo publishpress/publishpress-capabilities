@@ -7,7 +7,7 @@ section: Troubleshooting Capabilities
 
 # Capabilities Will Not Save For Some Plugins
 
-Occasionally, you may find that permissions are not stored when you click “Save Changes” in [PublishPress Capabilities](https://publishpress.com/links/capabilities). This will not happen for all the permissions on screen. Only the settings for some plugins will fail to save.
+Occasionally, you may find that permissions are not stored when you click “Save for [Role]” in PublishPress Capabilities. This will not happen for all the permissions on screen. Only the settings for some plugins will fail to save.
 
 ![](https://docs-media.publishpress.com/publishpress-capabilities/save-change-a5f079ad0f.webp)
 

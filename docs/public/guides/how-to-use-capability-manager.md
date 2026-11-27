@@ -75,5 +75,5 @@ This image below shows an example of all three options:
 
 Please note two things:
 
-1. [PublishPress Capabilities](https://publishpress.com/links/capabilities) won’t save your permissions automatically. Click the “Save Changes” button to make sure your changes are applied.
+1. [PublishPress Capabilities](https://publishpress.com/links/capabilities) won’t save your permissions automatically. Click the “Save for [Role]” button to make sure your changes are applied.
 2. Changes **remain in the database** after plugin deactivation. Fortunately, [you can rollback your changes if you make a mistake](https://publishpress.com/knowledge-base/backup-restore-permissions/).

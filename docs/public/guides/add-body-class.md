@@ -24,7 +24,7 @@ This guide will show you how to use the “Add Body Class” option in the “Fr
 
 ![Add new body class](https://docs-media.publishpress.com/publishpress-capabilities/new-body-class-1-372025f150.webp)
 
-- Click the “Save Changes” button.
+- Click the “Save for [Role]” button.
 
 ![](https://docs-media.publishpress.com/publishpress-capabilities/save-body-class-ea8b56e798.webp)
 

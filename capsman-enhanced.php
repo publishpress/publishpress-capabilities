@@ -3,7 +3,7 @@
  * Plugin Name: PublishPress Capabilities
  * Plugin URI: https://publishpress.com/capability-manager/
  * Description: PublishPress Capabilities is the access control plugin for WordPress. You can manage all your WordPress user roles, from Administrators to Subscribers.
- * Version: 2.54.0
+ * Version: 2.55.0
  * Author: PublishPress
  * Author URI: https://publishpress.com/
  * Text Domain: capability-manager-enhanced
@@ -12,9 +12,7 @@
  * Requires PHP: 8.2
  * License: GPLv3
  *
-
  * Copyright (c) 2024 PublishPress
-	if ($pro_active) return;
  * Author: Jordi Canals
  * Copyright (c) 2009, 2010 Jordi Canals
  * ------------------------------------------------------------------------------
@@ -43,6 +41,14 @@ if (!defined('PP_CAPABILITIES_LIB_VENDOR_PATH')) {
 	define('PP_CAPABILITIES_LIB_VENDOR_PATH', __DIR__ . '/lib/vendor');
 }
 
+$bundledTranslationsInclude = PP_CAPABILITIES_LIB_VENDOR_PATH . '/publishpress/bundled-translations/core/include.php';
+if (is_readable($bundledTranslationsInclude)) {
+	require_once $bundledTranslationsInclude;
+}
+
+require_once __DIR__ . '/includes/language-packs.php';
+add_action('plugins_loaded', 'pp_capabilities_init_translations');
+
 $instanceProtectionIncPath = PP_CAPABILITIES_LIB_VENDOR_PATH . '/publishpress/instance-protection/include.php';
 if (is_file($instanceProtectionIncPath) && is_readable($instanceProtectionIncPath)) {
 	require_once $instanceProtectionIncPath;
@@ -69,7 +75,7 @@ if (
 add_action('plugins_loaded', function () {
 
 	if (!defined('CAPSMAN_VERSION')) {
-		define('CAPSMAN_VERSION', '2.54.0');
+		define('CAPSMAN_VERSION', '2.55.0');
 		define('CAPSMAN_ENH_VERSION', CAPSMAN_VERSION);
 		define('PUBLISHPRESS_CAPS_VERSION', CAPSMAN_VERSION);
 	}

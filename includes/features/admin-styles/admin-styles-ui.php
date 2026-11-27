@@ -167,7 +167,8 @@ if ($admin_styles_saved !== false) {
                                         <?php
                                     endforeach;
                                     ?>
-                                </select> &nbsp;
+                                </select>
+                                <button type="button" class="button ppc-switch-role ppc-admin-styles-role-switch"><?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?></button> &nbsp;
 
                                 <img class="loading"
                                     src="<?php echo esc_url_raw($capsman->mod_url); ?>/images/wpspin_light.gif"

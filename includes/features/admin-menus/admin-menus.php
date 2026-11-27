@@ -112,7 +112,8 @@ $admin_child_menu_option = array_map(
                             <td class="content">
 
                                 <div class="publishpress-filters">
-                                    <select name="ppc-admin-menu-role" class="ppc-admin-menu-role">
+                                    <input type="hidden" name="ppc-admin-menu-role" class="ppc-admin-menu-role" value="<?php echo esc_attr($default_role); ?>" />
+                                    <select class="ppc-admin-menu-role-picker" aria-label="<?php esc_attr_e('Role', 'capability-manager-enhanced'); ?>">
                                         <?php
                                         foreach ($roles as $role_name => $name) :
                                             $name = translate_user_role($name);
@@ -121,7 +122,10 @@ $admin_child_menu_option = array_map(
                                         <?php
                                         endforeach;
                                         ?>
-                                    </select> &nbsp;
+                                    </select>
+                                    <button type="button" class="button ppc-switch-role ppc-admin-menu-role-switch">
+                                        <?php esc_html_e('Switch Role', 'capability-manager-enhanced'); ?>
+                                    </button>
 
                                     <img class="loading" src="<?php echo esc_url($capsman->mod_url); ?>/images/wpspin_light.gif" style="display: none">
 
@@ -836,10 +840,12 @@ $admin_child_menu_option = array_map(
             // -------------------------------------------------------------
             //   Load selected roles menu
             // -------------------------------------------------------------
-            $(document).on('change', '.pp-capability-menus-wrapper .ppc-admin-menu-role', function () {
+            $(document).on('click', '.pp-capability-menus-wrapper .ppc-admin-menu-role-switch', function () {
+                var $rolePicker = $('.pp-capability-menus-wrapper .ppc-admin-menu-role-picker');
+                var role = $rolePicker.val();
 
-                //disable select
-                $('.pp-capability-menus-wrapper .ppc-admin-menu-role').attr('disabled', true);
+                $(this).prop('disabled', true);
+                $rolePicker.prop('disabled', true);
 
                 //hide button
                 $('.pp-capability-menus-wrapper .ppc-admin-menu-submit').hide();
@@ -849,7 +855,7 @@ $admin_child_menu_option = array_map(
                 $('div.publishpress-caps-manage img.loading').show();
 
                 //go to url
-                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + $(this).val() + '';
+                window.location = '<?php echo esc_url_raw(admin_url('admin.php?page=pp-capabilities-admin-menus&role=')); ?>' + encodeURIComponent(role);
 
             });
         });

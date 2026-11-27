@@ -1,5 +1,27 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+[2.55.0] - 30 November, 2026
+
+- Added : Delete automatic backups from the Backup screen, #1952
+- Update : Deliver translation updates for Capabilities Free and Pro via Hub, #1931
+- Fixed : Register the installed Free version with Hub and prefer matching downloaded PHP and script catalogs, while preserving bundled fallbacks, Loco overrides and cached packs after Hub is deactivated, #1931
+- Update : Clean up the Free plugin's header, #1909
+- Fixed : Show all manual backups in the Restore list, #1950
+- Fixed : Prevent a startup error in Capabilities Pro when checking whether a feature is enabled, #1946
+- Fixed : Keep capability tooltips visible on the Admin Menus screen, #1904
+- Fixed : Keep Admin Menus restrictions effective across equivalent URLs, including links with query parameters, #1934, #1945
+- Fixed : Keep restricted custom links hidden in Navigation Menus across equivalent URLs, #1935
+- Fixed : Apply feature and role permissions when importing or restoring backups, including Admin Menus settings and privileged roles, #1933, #1938, #1944
+- Fixed : Limit Admin Menus, Editor Features, Profile Features, Frontend Features, Redirects, Navigation Menus, and Roles changes to roles the current user can manage, #1932, #1940, #1941, #1942, #1943
+- Fixed : Prevent new role slugs from conflicting with existing capabilities, #1939
+- Fixed : Check whether the current user is allowed to test the selected account, #1937
+- Fixed : Require permission to grant capabilities from the Add Capability form, #1936
+- Fixed : Hide the User Capabilities submenu under Profile for users who cannot edit users, #1929
+- Fixed : Find Profile Features using an eligible user in the selected role, including the current administrator when needed, #1883, #1885
+- Fixed : Improve text contrast in Admin Styles templates, #1862
+- Fixed : Let keyboard users choose a role before navigating away, #1861
+- Fixed : Improve accessibility on the Dashboard, Settings, and Backup screens and in User Testing, #1860
+
 [2.54.0] - 18 November, 2026
 
 - Feature : Allow compatible AI tools to manage roles, capabilities, menus, feature restrictions, settings, and backups through the WordPress Abilities API, #1898

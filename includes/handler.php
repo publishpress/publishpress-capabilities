@@ -104,6 +104,11 @@ class CapsmanHandler
 			$newname = $this->createNewName(sanitize_text_field(wp_unslash($_POST['capability-name'])), ['allow_dashes' => true]);
 
 			if (empty($newname['error'])) {
+				if (!current_user_can('administrator') && !current_user_can($newname['name'])) {
+					ak_admin_error(__('You do not have permission to grant this capability.', 'capability-manager-enhanced'));
+					return;
+				}
+
 				$role->add_cap($newname['name']);
 
 				// for bbPress < 2.2, need to log customization of roles following bbPress activation
@@ -189,6 +194,27 @@ class CapsmanHandler
 		}
 	}
 
+	public function createNewRoleName($name)
+	{
+		$role = $this->createNewName($name);
+		if (!empty($role['error'])) {
+			return $role;
+		}
+
+		require_once __DIR__ . '/mcp/grant-policy.php';
+		$slug = $role['name'];
+		if (\PublishPress\Capabilities\Mcp\GrantPolicy::isProtected($slug) || get_role($slug)) {
+			return ['error' => 'role_exists', 'name' => $slug];
+		}
+		foreach (wp_roles()->roles as $definition) {
+			if (array_key_exists($slug, $definition['capabilities'])) {
+				return ['error' => 'role_exists', 'name' => $slug];
+			}
+		}
+
+		return $role;
+	}
+
 	/**
 	 * Creates a new role.
 	 *
@@ -200,7 +226,7 @@ class CapsmanHandler
 		if ( ! is_array($caps) )
 			$caps = array();
 
-		$role = $this->createNewName($name);
+		$role = $this->createNewRoleName($name);
 		if (!empty($role['error'])) {
 			return false;
 		}

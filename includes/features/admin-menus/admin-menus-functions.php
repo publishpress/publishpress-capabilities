@@ -2,43 +2,68 @@
 /** Shared Admin Menus helpers. @since 2.53.0 */
 function pp_capabilities_admin_menu_access($slug)
 {
-    $url = (isset($_SERVER['REQUEST_URI'])) ? esc_url_raw($_SERVER['REQUEST_URI']) : '';
-    $url = basename($url);
-    $url = htmlspecialchars($url);
+    global $pagenow, $plugin_page, $typenow, $taxnow;
 
     if (is_multisite() && is_super_admin() && !defined('PP_CAPABILITIES_RESTRICT_SUPER_ADMIN')) {
         return true;
     }
 
-    if (!isset($url)) {
-        return false;
-    }
+    $arguments = wp_unslash($_GET);
+    $arguments['post_type'] = $typenow ?: 'post';
+    $arguments['taxonomy'] = $taxnow ?: 'post_tag';
 
-    $uri = wp_parse_url($url);
-
-    if (!isset($uri['path'])) {
-        return false;
-    }
-
-    if (!isset($uri['query']) && strpos($uri['path'], $slug) !== false) {
-        add_action('load-' . $slug, 'pp_capabilities_admin_menu_access_denied');
-        return true;
-    }
-
-    if ($slug === $url || ($uri['path'] === 'customize.php' && strpos($slug, $uri['path']) !== false)) {
-        add_action('load-' . basename($uri['path']), 'pp_capabilities_admin_menu_access_denied');
-        return true;
-    }
-
-    if ($url == "admin.php?page=$slug") {
+    if (pp_capabilities_admin_menu_matches_screen($slug, (string) $pagenow, (string) $plugin_page, $arguments)) {
         pp_capabilities_admin_menu_access_denied();
     }
+}
+
+function pp_capabilities_admin_menu_matches_screen($slug, $script, $plugin_page, array $arguments)
+{
+    $target = wp_parse_url(html_entity_decode($slug, ENT_QUOTES, 'UTF-8'));
+
+    if (empty($target['path']) || isset($target['scheme']) || isset($target['host'])) {
+        return false;
+    }
+
+    wp_parse_str($target['query'] ?? '', $required);
+    $target_path = $target['path'];
+    if (array_key_exists('page', $required)) {
+        if ($script !== $target_path || !is_string($required['page']) || $plugin_page !== plugin_basename($required['page'])) {
+            return false;
+        }
+        unset($required['page']);
+    } elseif ('' !== $plugin_page) {
+        if ($plugin_page !== plugin_basename($target_path)) {
+            return false;
+        }
+    } elseif ($script !== $target_path) {
+        return false;
+    }
+
+    if ('customize.php' === $target_path && '' === $plugin_page) {
+        return true;
+    }
+
+    if ('' === $plugin_page && in_array($script, ['edit.php', 'post-new.php', 'edit-tags.php'], true)) {
+        $required += ['post_type' => 'post'];
+        if ('edit-tags.php' === $script) {
+            $required += ['taxonomy' => 'post_tag'];
+        }
+    }
+
+    foreach ($required as $name => $value) {
+        if (!array_key_exists($name, $arguments) || $arguments[$name] !== $value) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 function pp_capabilities_admin_menu_access_denied()
 {
     $forbidden = esc_attr__('You do not have permission to access this page.', 'capability-manager-enhanced');
-    wp_die(esc_html($forbidden));
+    wp_die(esc_html($forbidden), '', ['response' => 403]);
 }
 
 function ppc_process_admin_menu_title($title)

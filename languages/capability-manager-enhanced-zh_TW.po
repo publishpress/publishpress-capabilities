@@ -1,0 +1,5978 @@
+# Copyright (C) 2026 PublishPress
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: PublishPress Capabilities 2.55.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/project\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-27T08:35:46+00:00\n"
+"PO-Revision-Date: 2026-11-27 14:17+0000\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: capability-manager-enhanced\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: capsman-enhanced.php:3
+#. Plugin Name of the plugin
+msgid "PublishPress Capabilities"
+msgstr "PublishPress Capabilities"
+
+#: capsman-enhanced.php:4
+#. Plugin URI of the plugin
+msgid "https://publishpress.com/capability-manager/"
+msgstr "https://publishpress.com/capability-manager/"
+
+#: capsman-enhanced.php:5
+#. Description of the plugin
+msgid ""
+"PublishPress Capabilities is the access control plugin for WordPress. You "
+"can manage all your WordPress user roles, from Administrators to "
+"Subscribers."
+msgstr ""
+"PublishPress Capabilities 是 WordPress 的存取控制外掛。您可以管理所有 WordPress "
+"使用者角色，從管理員到訂閱者。"
+
+#: capsman-enhanced.php:7
+#: includes/manager.php:1876
+#: includes/mcp/bootstrap.php:67
+#. Author of the plugin
+msgid "PublishPress"
+msgstr "PublishPress"
+
+#: capsman-enhanced.php:8
+#. Author URI of the plugin
+msgid "https://publishpress.com/"
+msgstr "https://publishpress.com/"
+
+#: capsman-enhanced.php:115
+#, php-format
+msgid ""
+"%1s Error: %2s  PublishPress Capabilities cannot function because another "
+"copy of the plugin is active."
+msgstr "%1s 錯誤：%2s  PublishPress Capabilities 無法運作，因為另一個外掛副本已啟用。"
+
+#: capsman-enhanced.php:144
+msgid "This plugin can be deleted."
+msgstr "可以刪除此外掛。"
+
+#: includes-core/admin-features-promo.php:28
+#: includes-core/admin-features-promo.php:42
+#: includes-core/admin-features-promo.php:57
+#: includes-core/admin-features-promo.php:92
+#: includes-core/admin-features-promo.php:107
+#: includes-core/admin-features-promo.php:122
+msgid "Preview feature restriction"
+msgstr "預覽功能限制"
+
+#: includes-core/admin-features-promo.php:74
+msgid ""
+"You can block pages by URL or hide Admin elements by entering a CSS class "
+"or ID. This feature is available in PublishPress Capabilities Pro."
+msgstr "您可以透過網址封鎖頁面，或輸入 CSS 類別或 ID 來隱藏管理介面元素。此功能適用於 PublishPress Capabilities Pro。"
+
+#: includes-core/admin-features-promo.php:79
+#: includes-core/CoreAdmin.php:56
+#: includes-core/editor-features-promo.php:79
+#: includes-core/frontend-features-promo.php:32
+#: includes/admin-load.php:1843
+#: includes/features/admin-menus/admin-menus.php:155
+#: includes/features/admin-styles/admin-styles-ui.php:354
+msgid "Upgrade to Pro"
+msgstr "升級至 Pro"
+
+#: includes-core/CoreAdmin.php:19
+#, php-format
+msgid ""
+"You're using PublishPress Capabilities Free. The Pro version has more "
+"features and support. %sUpgrade to Pro%s"
+msgstr "您正在使用 PublishPress Capabilities 免費版。Pro 版提供更多功能和支援。%s升級至 Pro%s"
+
+#: includes-core/CoreAdmin.php:106
+msgid "Hide CSS Elements"
+msgstr "隱藏 CSS 元素"
+
+#: includes-core/CoreAdmin.php:107
+msgid "Block by URL"
+msgstr "依網址封鎖"
+
+#: includes-core/CoreAdmin.php:128
+#: includes/features/frontend-features/frontend-features-ui.php:240
+msgid "Pages"
+msgstr "頁面"
+
+#: includes-core/CoreAdmin.php:129
+msgid "Select pages..."
+msgstr "選取頁面..."
+
+#: includes-core/CoreAdmin.php:134
+msgid "You can select page types where this element will be added."
+msgstr "您可以選取要新增此元素的頁面類型。"
+
+#: includes-core/CoreAdmin.php:136
+#: includes-core/frontend-features-promo.php:47
+#: includes-core/frontend-features-promo.php:48
+msgid "Layout spacer"
+msgstr "版面間隔"
+
+#: includes-core/editor-features-promo.php:24
+msgid "Metaboxes"
+msgstr "中繼資料方塊"
+
+#: includes-core/editor-features-promo.php:31
+#: includes-core/editor-features-promo.php:42
+#: includes-core/editor-features-promo.php:52
+#: includes-core/editor-features-promo.php:62
+#: includes-core/editor-features-promo.php:94
+#: includes-core/editor-features-promo.php:104
+#: includes-core/editor-features-promo.php:114
+msgid "Preview editor feature restriction"
+msgstr "預覽編輯器功能限制"
+
+#: includes-core/editor-features-promo.php:36
+msgid "Checklist"
+msgstr "檢查清單"
+
+#: includes-core/editor-features-promo.php:46
+msgid "Editorial Comments"
+msgstr "編輯評論"
+
+#: includes-core/editor-features-promo.php:56
+msgid "Notifications"
+msgstr "通知"
+
+#: includes-core/editor-features-promo.php:66
+msgid "TaxoPress - Settings"
+msgstr "TaxoPress - 設定"
+
+#: includes-core/editor-features-promo.php:74
+msgid ""
+"You can hide plugin metaboxes. You can also hide specific items by entering "
+"their CSS class or ID. This feature is available in PublishPress "
+"Capabilities Pro."
+msgstr ""
+"您可以隱藏外掛的中繼資料方塊，也可以輸入 CSS 類別或 ID 來隱藏特定項目。此功能適用於 PublishPress Capabilities "
+"Pro。"
+
+#: includes-core/editor-features-promo.php:89
+msgid "Custom Items"
+msgstr "自訂項目"
+
+#: includes-core/editor-features-promo.php:98
+msgid "Custom item one"
+msgstr "自訂項目一"
+
+#: includes-core/editor-features-promo.php:108
+msgid "Permalink: Descriptive Caption"
+msgstr "固定網址：描述性標題"
+
+#: includes-core/editor-features-promo.php:118
+msgid "Page Attributes: Order"
+msgstr "頁面屬性：順序"
+
+#: includes-core/frontend-features-promo.php:25
+msgid ""
+"You can use Frontend Features to target specific posts and pages. This "
+"feature is available in PublishPress Capabilities Pro."
+msgstr "您可以使用前台功能指定特定文章和頁面。此功能適用於 PublishPress Capabilities Pro。"
+
+#: includes-core/frontend-features-promo.php:39
+msgid "Post types"
+msgstr "文章類型"
+
+#: includes-core/frontend-features-promo.php:39
+msgid "Select post types..."
+msgstr "選取文章類型..."
+
+#: includes-core/frontend-features-promo.php:44
+msgid ""
+"This will add a metabox on the post editing screen. You can use this "
+"feature to add body classes only for that post."
+msgstr "這會在文章編輯畫面新增中繼資料方塊。您可以使用此功能，僅為該文章新增本文類別。"
+
+#: includes/admin-load.php:405
+msgid "Drag multiple roles selection to change roles order."
+msgstr "拖曳多個角色選取項目以變更角色順序。"
+
+#: includes/admin-load.php:408
+msgid "Page title"
+msgstr "頁面標題"
+
+#: includes/admin-load.php:409
+msgid "Rank Math SEO"
+msgstr "Rank Math SEO"
+
+#: includes/admin-load.php:410
+#: includes/settings-ui.php:346
+msgid "No results match"
+msgstr "找不到符合的結果"
+
+#: includes/admin-load.php:511
+#: includes/admin-load.php:1618
+#: includes/admin-load.php:1631
+#: includes/admin-load.php:1856
+#: includes/functions-admin.php:427
+#: includes/functions-admin.php:519
+#: includes/manager.php:446
+#: includes/roles/class/class-pp-roles-admin.php:667
+#: includes/settings-ui.php:35
+msgid "Capabilities"
+msgstr "權限"
+
+#: includes/admin-load.php:650
+msgid "No permission!"
+msgstr "沒有權限！"
+
+#: includes/admin-load.php:660
+msgid "Invalid nonce token!"
+msgstr "無效的 nonce 權杖！"
+
+#: includes/admin-load.php:665
+#: includes/admin-load.php:672
+msgid "Error: wrong data"
+msgstr "錯誤：資料錯誤"
+
+#: includes/admin-load.php:692
+msgid ""
+"Changes saved. Feature status synchronization has been queued for all "
+"network sites."
+msgstr "變更已儲存。所有網路站台的功能狀態同步作業已排入佇列。"
+
+#: includes/admin-load.php:698
+#: common/js/admin.dev.js:1276
+#: includes/features/admin-menus/assets/js/admin-menus.js:723
+msgid "Changes saved!"
+msgstr "變更已儲存！"
+
+#: includes/admin-load.php:709
+#: includes/admin-notices/admin-notices.php:265
+#: includes/features/admin-menus/admin-menus-filters.php:528
+#: includes/features/admin-menus/admin-menus-filters.php:559
+#: includes/features/admin-menus/admin-menus-filters.php:609
+#: includes/features/admin-menus/admin-menus-filters.php:650
+#: includes/features/admin-menus/admin-menus-filters.php:704
+#: includes/features/frontend-features/frontend-features-action.php:41
+#: includes/features/frontend-features/frontend-features-action.php:110
+#: includes/features/restrict-profile-features.php:29
+msgid "An error occured!"
+msgstr "發生錯誤！"
+
+#: includes/admin-load.php:714
+#: includes/features/admin-menus/admin-menus-filters.php:533
+#: includes/features/admin-menus/admin-menus-filters.php:564
+#: includes/features/admin-menus/admin-menus-filters.php:614
+#: includes/features/admin-menus/admin-menus-filters.php:655
+#: includes/features/admin-menus/admin-menus-filters.php:709
+msgid "Security check failed"
+msgstr "安全性檢查失敗"
+
+#: includes/admin-load.php:716
+#: includes/features/admin-menus/admin-menus-filters.php:535
+#: includes/features/admin-menus/admin-menus-filters.php:566
+#: includes/features/admin-menus/admin-menus-filters.php:616
+#: includes/features/admin-menus/admin-menus-filters.php:657
+#: includes/features/admin-menus/admin-menus-filters.php:711
+msgid "Permission denied"
+msgstr "拒絕存取"
+
+#: includes/admin-load.php:726
+#: includes/features/admin-menus/admin-menus-filters.php:547
+msgid "Settings updated successfully."
+msgstr "設定已成功更新。"
+
+#: includes/admin-load.php:791
+#: includes/features/frontend-features/frontend-features.php:39
+#: includes/features/nav-menus.php:26
+msgid "Logged In Users"
+msgstr "已登入的使用者"
+
+#: includes/admin-load.php:792
+#: includes/features/frontend-features/frontend-features.php:40
+#: includes/features/nav-menus.php:26
+msgid "Logged Out Users"
+msgstr "已登出的使用者"
+
+#: includes/admin-load.php:993
+msgid "PublishPress Capabilities Menu Restriction"
+msgstr "PublishPress Capabilities 選單限制"
+
+#: includes/admin-load.php:994
+msgid "Hide this menu item for the selected roles."
+msgstr "對選取的角色隱藏此選單項目。"
+
+#: includes/admin-load.php:1002
+msgid "Search roles"
+msgstr "搜尋角色"
+
+#: includes/admin-load.php:1008
+msgid "Search by role name"
+msgstr "依角色名稱搜尋"
+
+#: includes/admin-load.php:1012
+msgid "No roles match your search."
+msgstr "找不到符合搜尋條件的角色。"
+
+#: includes/admin-load.php:1013
+msgid "role shown"
+msgstr "個角色已顯示"
+
+#: includes/admin-load.php:1014
+msgid "roles shown"
+msgstr "個角色已顯示"
+
+#: includes/admin-load.php:1037
+#, php-format
+msgid "Need a role-by-role overview? %1$sOpen Navigation Menu Restrictions%2$s."
+msgstr "需要逐一檢視角色嗎？%1$s開啟導覽選單限制%2$s。"
+
+#: includes/admin-load.php:1248
+msgid "Permission"
+msgstr "權限"
+
+#: includes/admin-load.php:1250
+msgid "Enabled"
+msgstr "已啟用"
+
+#: includes/admin-load.php:1251
+msgid "Blocked"
+msgstr "已封鎖"
+
+#: includes/admin-load.php:1252
+msgid "Limited"
+msgstr "受限"
+
+#: includes/admin-load.php:1270
+msgid "All content"
+msgstr "所有內容"
+
+#: includes/admin-load.php:1293
+#, php-format
+msgid "Item #%d"
+msgstr "項目 #%d"
+
+#: includes/admin-load.php:1295
+#, php-format
+msgid "%1$s: %2$s"
+msgstr "%1$s：%2$s"
+
+#: includes/admin-load.php:1301
+#, php-format
+msgid "%s: all items"
+msgstr "%s：所有項目"
+
+#: includes/admin-load.php:1389
+#, php-format
+msgid "Group #%d"
+msgstr "群組 #%d"
+
+#: includes/admin-load.php:1576
+#: includes/admin-load.php:1577
+#: includes/admin-load.php:1606
+#: includes/user-capabilities-view.php:14
+msgid "User Capabilities"
+msgstr "使用者權限"
+
+#: includes/admin-load.php:1634
+msgid "View Capabilities"
+msgstr "檢視權限"
+
+#: includes/admin-load.php:1790
+#: includes/admin-load.php:1805
+msgid "You do not have permission to view user capabilities."
+msgstr "您沒有檢視使用者權限的權限。"
+
+#: includes/admin-load.php:1800
+#: includes/test-user.php:62
+msgid "Unable to retrieve user data."
+msgstr "無法擷取使用者資料。"
+
+#: includes/admin-load.php:1855
+#: includes/dashboard.php:23
+msgid "Dashboard"
+msgstr "dashboard"
+
+#: includes/admin-load.php:1857
+#: includes/admin.php:190
+#: includes/functions-admin.php:422
+#: includes/functions-admin.php:512
+#: includes/roles/roles.php:8
+#: includes/settings-ui.php:34
+msgid "Roles"
+msgstr "角色"
+
+#: includes/admin-load.php:1858
+#: includes/plugin-capabilities/publishpress-cart.php:31
+msgid "Settings"
+msgstr "設定"
+
+#: includes/admin-notices/admin-notices-settings.php:7
+msgid "Success notices"
+msgstr "成功通知"
+
+#: includes/admin-notices/admin-notices-settings.php:8
+msgid "Error notices"
+msgstr "錯誤通知"
+
+#: includes/admin-notices/admin-notices-settings.php:9
+msgid "Warning notices"
+msgstr "警告通知"
+
+#: includes/admin-notices/admin-notices-settings.php:10
+msgid "Info notices"
+msgstr "資訊通知"
+
+#: includes/admin-notices/admin-notices-settings.php:22
+msgid "Current Role"
+msgstr "目前角色"
+
+#: includes/admin-notices/admin-notices-settings.php:33
+#: includes/admin-notices/admin-notices.php:212
+#: includes/admin-notices/admin-notices.php:250
+#: includes/admin-notices/admin-notices.php:253
+#: includes/functions-admin.php:242
+#: includes/functions-admin.php:478
+#: includes/functions-admin.php:547
+msgid "Admin Notices"
+msgstr "admin 通知"
+
+#: includes/admin-notices/admin-notices-settings.php:47
+#: includes/features/admin-features.php:69
+#: includes/features/admin-styles/admin-styles-ui.php:161
+#: includes/features/editor-features.php:82
+#: includes/features/frontend-features/frontend-features.php:90
+#: includes/features/nav-menus.php:73
+#: includes/features/profile-features.php:71
+#: includes/redirects/redirects.php:123
+msgid "Role to configure"
+msgstr "要設定的角色"
+
+#: includes/admin-notices/admin-notices-settings.php:54
+#: includes/admin.php:206
+#: includes/features/admin-features.php:80
+#: includes/features/admin-menus/admin-menus.php:127
+#: includes/features/admin-styles/admin-styles-ui.php:171
+#: includes/features/editor-features.php:92
+#: includes/features/frontend-features/frontend-features.php:123
+#: includes/features/nav-menus.php:97
+#: includes/features/profile-features.php:82
+#: includes/redirects/redirects.php:134
+msgid "Switch Role"
+msgstr "切換角色"
+
+#: includes/admin-notices/admin-notices-settings.php:61
+#: includes/admin-notices/admin-notices-settings.php:153
+#: includes/features/admin-styles/admin-styles-ui.php:181
+#: includes/features/admin-styles/admin-styles-ui.php:843
+#: includes/redirects/redirects.php:117
+#: includes/redirects/redirects.php:325
+msgid "Save for all Roles"
+msgstr "儲存所有角色的設定"
+
+#: includes/admin-notices/admin-notices-settings.php:65
+#: includes/admin-notices/admin-notices-settings.php:157
+#: includes/features/admin-menus/admin-menus.php:133
+#: includes/features/admin-menus/admin-menus.php:733
+#: includes/features/admin-styles/admin-styles-ui.php:185
+#: includes/features/admin-styles/admin-styles-ui.php:847
+#: includes/features/admin-styles/admin-styles.php:1204
+#, php-format
+msgid "Save for %s"
+msgstr "儲存 %s 的設定"
+
+#: includes/admin-notices/admin-notices-settings.php:79
+msgid "Notification center access"
+msgstr "通知中心存取權"
+
+#: includes/admin-notices/admin-notices-settings.php:90
+#, php-format
+msgid "Enable %1$s access to the Admin Notices area."
+msgstr "啟用 %1$s 存取「Admin Notices」區域。"
+
+#: includes/admin-notices/admin-notices-settings.php:97
+msgid "Notifications to remove from WordPress admin pages"
+msgstr "要從 WordPress admin 頁面移除的通知"
+
+#: includes/admin-notices/admin-notices-settings.php:114
+#, php-format
+msgid ""
+"Select the notification types that should be hidden when a user in the %1$s "
+"role is viewing WordPress admin screens."
+msgstr "選取使用者以 %1$s 角色檢視 WordPress admin 畫面時應隱藏的通知類型。"
+
+#: includes/admin-notices/admin-notices-settings.php:114
+#: includes/admin-notices/admin-notices-settings.php:137
+msgid "Click here for more on notice types."
+msgstr "按一下此處，進一步瞭解通知類型。"
+
+#: includes/admin-notices/admin-notices-settings.php:120
+msgid "Notifications to display in the Admin Notices area."
+msgstr "要在「Admin Notices」區域顯示的通知。"
+
+#: includes/admin-notices/admin-notices-settings.php:137
+msgid ""
+"Select the notification types that should be displayed in the Admin Notices "
+"area after been removed from the WordPress admin screens."
+msgstr "選取從 WordPress admin 畫面移除後，應在「Admin Notices」區域顯示的通知類型。"
+
+#: includes/admin-notices/admin-notices-settings.php:171
+msgid ""
+"Admin Notices allows you to clean up the WordPress admin area by organizing "
+"extra messages and advertisements into one place."
+msgstr "Admin Notices 可讓您將額外訊息和廣告集中整理到一處，藉此清理 WordPress admin 區域。"
+
+#: includes/admin-notices/admin-notices-settings.php:173
+#: includes/features/admin-styles/admin-styles-ui.php:863
+msgid "Features include:"
+msgstr "功能包括："
+
+#: includes/admin-notices/admin-notices-settings.php:175
+msgid "Move selected notice types out of admin pages"
+msgstr "將選取的通知類型移出 admin 頁面"
+
+#: includes/admin-notices/admin-notices-settings.php:176
+msgid "Show selected notices in a dedicated Admin Notices panel"
+msgstr "在專用的「Admin Notices」面板中顯示選取的通知"
+
+#: includes/admin-notices/admin-notices-settings.php:177
+msgid "Configure notice visibility by user role"
+msgstr "依使用者角色設定通知的顯示狀態"
+
+#: includes/admin-notices/admin-notices-settings.php:179
+#: includes/admin.php:2073
+#: includes/features/admin-features.php:353
+#: includes/features/admin-menus/admin-menus.php:755
+#: includes/features/admin-styles/admin-styles-ui.php:870
+#: includes/features/editor-features.php:248
+#: includes/features/frontend-features/frontend-features.php:257
+#: includes/features/nav-menus.php:309
+#: includes/features/profile-features.php:261
+#: includes/redirects/redirects.php:340
+msgid "View Documentation"
+msgstr "檢視說明文件"
+
+#: includes/admin-notices/admin-notices-settings.php:180
+msgid "How to use Admin Notices"
+msgstr "如何使用 Admin Notices"
+
+#: includes/admin-notices/admin-notices.php:81
+msgid "Display this notice"
+msgstr "顯示此通知"
+
+#: includes/admin-notices/admin-notices.php:82
+msgid "Silence this notice"
+msgstr "靜音此通知"
+
+#: includes/admin-notices/admin-notices.php:83
+msgid "Hide this notice"
+msgstr "隱藏此通知"
+
+#: includes/admin-notices/admin-notices.php:84
+msgid "Move to Hidden Notices"
+msgstr "移至隱藏通知"
+
+#: includes/admin-notices/admin-notices.php:85
+msgid "Displayed notices will no longer be removed from admin pages."
+msgstr "顯示的通知將不再從 admin 頁面移除。"
+
+#: includes/admin-notices/admin-notices.php:86
+msgid ""
+"This notice will be moved to the \"Silenced Notices\" tab and you will not "
+"receive a notification if it appears again."
+msgstr "此通知將移至「已靜音通知」分頁；如果再次出現，您將不會收到通知。"
+
+#: includes/admin-notices/admin-notices.php:237
+msgid "Hidden Notices"
+msgstr "已隱藏的通知"
+
+#: includes/admin-notices/admin-notices.php:241
+msgid "Silenced Notices"
+msgstr "已靜音的通知"
+
+#: includes/admin-notices/admin-notices.php:251
+msgid "There are currently no admin notices."
+msgstr "目前沒有 admin 通知。"
+
+#: includes/admin-notices/admin-notices.php:251
+msgid "Edit the settings."
+msgstr "編輯設定。"
+
+#: includes/admin-notices/admin-notices.php:274
+#: includes/manager.php:914
+#: includes/manager.php:938
+msgid "You do not have permission to manage admin notices."
+msgstr "您沒有管理 admin 通知的權限。"
+
+#: includes/admin-notices/admin-notices.php:276
+#: includes/features/frontend-features/frontend-features-action.php:56
+#: includes/features/frontend-features/frontend-features-action.php:119
+msgid "Invalid action. Reload this page and try again."
+msgstr "無效的動作。請重新載入此頁面並再試一次。"
+
+#: includes/admin-notices/admin-notices.php:278
+msgid "Invalid form."
+msgstr "表單無效。"
+
+#: includes/admin-notices/admin-notices.php:302
+msgid "Admin notice status updated successfully."
+msgstr "已成功更新 admin 通知狀態。"
+
+#: includes/admin.php:72
+#, php-format
+msgid ""
+"Warning: This role cannot access the dashboard without the read capability. "
+"%1$sGrant the read capability and save%2$s."
+msgstr "警告：此角色沒有 read 權限，因此無法存取 dashboard。%1$s授予 read 權限並儲存%2$s。"
+
+#: includes/admin.php:110
+msgid "Role Capabilities"
+msgstr "角色權限"
+
+#: includes/admin.php:162
+msgid "Search capabilities"
+msgstr "搜尋權限"
+
+#: includes/admin.php:165
+msgid "Search capabilities..."
+msgstr "搜尋權限..."
+
+#: includes/admin.php:178
+msgid "Role to edit"
+msgstr "要編輯的角色"
+
+#: includes/admin.php:181
+msgid "Application Passwords"
+msgstr "應用程式密碼"
+
+#: includes/admin.php:264
+#: includes/admin.php:989
+msgid "Nav Menus (Block)"
+msgstr "導覽選單（區塊）"
+
+#: includes/admin.php:266
+msgid "Block"
+msgstr "區塊"
+
+#: includes/admin.php:273
+#: includes/admin.php:991
+msgid "Nav Menus (Legacy)"
+msgstr "導覽選單（舊版）"
+
+#: includes/admin.php:275
+msgid "Legacy"
+msgstr "舊版"
+
+#: includes/admin.php:327
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#: includes/admin.php:328
+msgid "Visibility"
+msgstr "可見度"
+
+#: includes/admin.php:329
+#: includes/roles/class/class-pp-roles-admin.php:111
+msgid "Editing"
+msgstr "編輯"
+
+#: includes/admin.php:330
+msgid "Deletion"
+msgstr "刪除"
+
+#: includes/admin.php:331
+msgid "Taxonomies"
+msgstr "taxonomies"
+
+#: includes/admin.php:335
+msgid "Listing"
+msgstr "清單"
+
+#: includes/admin.php:339
+msgid "Create Revision"
+msgstr "建立修訂版本"
+
+#: includes/admin.php:343
+msgid "Submit Revision"
+msgstr "提交修訂版本"
+
+#: includes/admin.php:347
+msgid "Approve Revision"
+msgstr "核准修訂版本"
+
+#: includes/admin.php:351
+msgid "Can read posts which are currently published with private visibility."
+msgstr "可以讀取目前以私人可見度發布的文章。"
+
+#: includes/admin.php:352
+msgid ""
+"Has basic editing capability (but may need other capabilities based on post "
+"status and ownership)."
+msgstr "具備基本編輯權限（但可能需要依據文章狀態和擁有者身分具備其他權限）。"
+
+#: includes/admin.php:353
+msgid "Can edit posts which were created by other users."
+msgstr "可以編輯由其他使用者建立的文章。"
+
+#: includes/admin.php:354
+msgid "Can edit posts which are currently published."
+msgstr "可以編輯目前已發布的文章。"
+
+#: includes/admin.php:355
+msgid "Can edit posts which are currently published with private visibility."
+msgstr "可以編輯目前以私人可見度發布的文章。"
+
+#: includes/admin.php:356
+msgid "Can make a post publicly visible."
+msgstr "可以讓文章公開顯示。"
+
+#: includes/admin.php:357
+msgid ""
+"Has basic deletion capability (but may need other capabilities based on "
+"post status and ownership)."
+msgstr "具備基本刪除權限（但可能需要依據文章狀態和擁有者身分具備其他權限）。"
+
+#: includes/admin.php:358
+msgid "Can delete posts which were created by other users."
+msgstr "可以刪除由其他使用者建立的文章。"
+
+#: includes/admin.php:359
+msgid "Can delete posts which are currently published."
+msgstr "可以刪除目前已發布的文章。"
+
+#: includes/admin.php:360
+msgid "Can delete posts which are currently published with private visibility."
+msgstr "可以刪除目前以私人可見度發布的文章。"
+
+#: includes/admin.php:533
+msgid "grant / clear / deny all capabilities"
+msgstr "授予／清除／拒絕所有權限"
+
+#: includes/admin.php:535
+msgid "All capabilities"
+msgstr "所有權限"
+
+#: includes/admin.php:540
+#: includes/manager.php:273
+#: includes/user-capabilities-view.php:146
+msgid "Granted"
+msgstr "已授予"
+
+#: includes/admin.php:541
+#: includes/manager.php:274
+msgid "Not granted"
+msgstr "未授予"
+
+#: includes/admin.php:542
+#: includes/manager.php:275
+#: includes/user-capabilities-view.php:155
+msgid "Denied"
+msgstr "已拒絕"
+
+#: includes/admin.php:543
+#: includes/admin.php:544
+msgid "Mixed"
+msgstr "混合"
+
+#: includes/admin.php:548
+msgid "Global capabilities help"
+msgstr "全域權限說明"
+
+#: includes/admin.php:551
+msgid "Click to grant, clear, or deny capabilities across every tab."
+msgstr "按一下即可在所有索引標籤中授予、清除或拒絕權限。"
+
+#: includes/admin.php:557
+msgid "Capability sections"
+msgstr "權限區段"
+
+#: includes/admin.php:730
+#: includes/admin.php:1258
+#: includes/admin.php:2167
+msgid "Multisite"
+msgstr "多站網路"
+
+#: includes/admin.php:734
+#: includes/admin.php:1262
+msgid "Admin"
+msgstr "admin"
+
+#: includes/admin.php:820
+#: includes/admin.php:1707
+msgid "Invalid Capabilities"
+msgstr "無效的權限"
+
+#: includes/admin.php:826
+#: includes/admin.php:1855
+msgid "Additional"
+msgstr "其他"
+
+#: includes/admin.php:861
+#, php-format
+msgid "Term %s Capabilities"
+msgstr "Term %s 權限"
+
+#: includes/admin.php:864
+#, php-format
+msgid "%s Capabilities"
+msgstr "%s 權限"
+
+#: includes/admin.php:865
+#, php-format
+msgid "Post %s Capabilities"
+msgstr "Post %s 權限"
+
+#: includes/admin.php:868
+msgid "Taxonomy"
+msgstr "taxonomy"
+
+#: includes/admin.php:873
+msgid "Filter by taxonomy"
+msgstr "依 taxonomy 篩選"
+
+#: includes/admin.php:873
+msgid "Filter by post type"
+msgstr "依 post type 篩選"
+
+#: includes/admin.php:885
+#: includes/admin.php:1295
+#: includes/admin.php:1375
+#: includes/admin.php:1411
+#: includes/admin.php:1417
+#: includes/admin.php:1570
+#: includes/admin.php:1691
+#: includes/admin.php:1835
+#: includes/admin.php:2013
+msgid "check / uncheck / negate all"
+msgstr "全選／取消全選／全部反向"
+
+#: includes/admin.php:885
+msgid "Grant, clear, or deny all capabilities in this table"
+msgstr "授予、清除或拒絕此表格中的所有權限"
+
+#: includes/admin.php:914
+#, php-format
+msgid "Toggle all %s capabilities"
+msgstr "切換所有 %s 權限"
+
+#: includes/admin.php:998
+#: includes/pp-ui.php:263
+#: includes/pp-ui.php:342
+#, php-format
+msgid "The slug for this taxonomy is %s"
+msgstr "此 taxonomy 的代稱為 %s"
+
+#: includes/admin.php:1000
+#: includes/pp-ui.php:163
+#, php-format
+msgid "The slug for this post type is %s"
+msgstr "此 post type 的代稱為 %s"
+
+#: includes/admin.php:1013
+#, php-format
+msgid "Toggle all capabilities for %s"
+msgstr "切換 %s 的所有權限"
+
+#: includes/admin.php:1077
+#: includes/admin.php:1328
+#: includes/admin.php:1627
+#: includes/admin.php:1938
+#: includes/admin.php:1939
+#, php-format
+msgid "%s: assigned by Permission Group"
+msgstr "%s：由 Permission Group 指派"
+
+#: includes/admin.php:1080
+#: includes/admin.php:1330
+#: includes/admin.php:1629
+#: includes/admin.php:1756
+#: includes/admin.php:1941
+#, php-format
+msgid "This capability is %s"
+msgstr "此權限為 %s"
+
+#: includes/admin.php:1111
+#, php-format
+msgid "This capability is controlled by %s"
+msgstr "此權限由 %s 控制"
+
+#: includes/admin.php:1114
+#, php-format
+msgid ""
+"This capability is controlled by %s Use the sidebar settings to allow this "
+"to be controlled independently."
+msgstr "此權限由 %s 控制。使用側邊欄設定，允許獨立控制此項目。"
+
+#: includes/admin.php:1131
+msgid "Use the sidebar settings to allow this to be controlled independently."
+msgstr "使用側邊欄設定，允許獨立控制此項目。"
+
+#: includes/admin.php:1133
+#: includes/admin.php:1137
+msgid "This capability is not available for this post type."
+msgstr "此 post type 不提供此權限。"
+
+#: includes/admin.php:1201
+msgid ""
+"Admin listing access is normally provided by the \"Edit\" capabilities. "
+"These \"List\" capabilities only apply if the corresponding \"Edit\" "
+"capability is missing. Also, these \"List\" capabilities can grant access, "
+"but not deny access."
+msgstr ""
+"管理介面清單的存取權通常由 \"Edit\" 權限提供。只有在缺少對應的 \"Edit\" 權限時，這些 \"List\" 權限才會生效。此外，這些 "
+"\"List\" 權限可以授予存取權，但無法拒絕存取。"
+
+#: includes/admin.php:1280
+#: includes/admin.php:1396
+#: includes/admin.php:1555
+#: includes/admin.php:1825
+msgid "Filter capabilities in this section"
+msgstr "篩選此區段中的權限"
+
+#: includes/admin.php:1281
+#: includes/admin.php:1397
+#: includes/admin.php:1556
+#: includes/admin.php:1826
+msgid "Filter by capability"
+msgstr "依權限篩選"
+
+#: includes/admin.php:1284
+#: includes/admin.php:1400
+#: includes/admin.php:1559
+#: includes/admin.php:1829
+msgid "No results found. Please try again with a different word."
+msgstr "找不到結果。請嘗試使用其他字詞。"
+
+#: includes/admin.php:1295
+#: includes/admin.php:1375
+#: includes/admin.php:1411
+#: includes/admin.php:1417
+#: includes/admin.php:1570
+#: includes/admin.php:1691
+#: includes/admin.php:1835
+#: includes/admin.php:2013
+msgid "Capability Name"
+msgstr "權限名稱"
+
+#: includes/admin.php:1392
+msgid "WordPress Core Capabilities"
+msgstr "WordPress 核心權限"
+
+#: includes/admin.php:1533
+#: includes/admin.php:1591
+#: includes/features/admin-styles/admin-styles.php:2093
+#: includes/roles/class/class-pp-roles-admin.php:106
+msgid "General"
+msgstr "一般"
+
+#: includes/admin.php:1551
+#, php-format
+msgid "Plugin Capabilities &ndash; %s"
+msgstr "外掛權限 &ndash; %s"
+
+#: includes/admin.php:1633
+#, php-format
+msgid "The User Testing feature also requires the %1$s edit_users %2$s capability."
+msgstr "使用者測試功能也需要 %1$s edit_users %2$s 權限。"
+
+#: includes/admin.php:1712
+msgid ""
+"The following entries have no effect. Please assign desired capabilities on "
+"the Editing / Deletion / Private tabs."
+msgstr "以下項目不會生效。請在「編輯／刪除／私人」索引標籤中指派所需的權限。"
+
+#: includes/admin.php:1821
+msgid "Additional Capabilities"
+msgstr "額外權限"
+
+#: includes/admin.php:2006
+msgid "You have no additional capabilities."
+msgstr "您沒有額外權限。"
+
+#: includes/admin.php:2027
+msgid "Capabilities allows you change the permissions for any user role."
+msgstr "「權限」可讓您變更任何使用者角色的權限。"
+
+#: includes/admin.php:2028
+#, php-format
+msgid "%1$s = Capability granted %2$s"
+msgstr "%1$s = 已授予的權限 %2$s"
+
+#: includes/admin.php:2028
+#: includes/admin.php:2029
+#: includes/admin.php:2030
+#: includes/features/admin-features.php:348
+#: includes/features/admin-features.php:350
+#: includes/features/admin-menus/admin-menus.php:750
+#: includes/features/admin-menus/admin-menus.php:752
+#: includes/features/editor-features.php:243
+#: includes/features/editor-features.php:245
+#: includes/features/frontend-features/frontend-features.php:252
+#: includes/features/frontend-features/frontend-features.php:254
+#: includes/features/nav-menus.php:304
+#: includes/features/nav-menus.php:306
+#: includes/features/profile-features.php:256
+#: includes/features/profile-features.php:258
+msgid "usage key"
+msgstr "使用方式索引鍵"
+
+#: includes/admin.php:2029
+#, php-format
+msgid "%1$s = Capability not granted %2$s"
+msgstr "%1$s = 未授予的權限 %2$s"
+
+#: includes/admin.php:2030
+#, php-format
+msgid "%1$s = Capability denied, even if granted by another role %2$s"
+msgstr "%1$s = 已拒絕的權限，即使其他角色已授予此權限也一樣 %2$s"
+
+#: includes/admin.php:2038
+#, php-format
+msgid "You can also configure this role as a %sPermission Group%s."
+msgstr "您也可以將此角色設為%s權限群組%s。"
+
+#: includes/admin.php:2058
+msgid "How to use Capabilities"
+msgstr "如何使用「權限」"
+
+#: includes/admin.php:2061
+msgid "Toggle How to use Capabilities panel"
+msgstr "切換「如何使用權限」面板"
+
+#: includes/admin.php:2097
+msgid "Capabilities is Safe to Use"
+msgstr "「權限」可安全使用"
+
+#: includes/admin.php:2100
+msgid "Toggle Capabilities is Safe to Use panel"
+msgstr "切換「權限可安全使用」面板"
+
+#: includes/admin.php:2111
+msgid ""
+"WordPress stores role capabilities in your database, where they remain even "
+"if the plugin is deactivated."
+msgstr "WordPress 會將角色權限儲存在資料庫中，即使停用外掛程式，這些權限仍會保留。"
+
+#: includes/admin.php:2112
+msgid ""
+"Whenever you use PublishPress Capabilities to save changes, it also creates "
+"a backup which you can use to restore a previous configuration."
+msgstr "每當您使用 PublishPress Capabilities 儲存變更時，系統也會建立備份，供您還原先前的設定。"
+
+#: includes/admin.php:2115
+msgid "Go to the Backup feature"
+msgstr "前往「備份」功能"
+
+#: includes/admin.php:2135
+msgid "Add a New Capability"
+msgstr "新增權限"
+
+#: includes/admin.php:2138
+msgid "Toggle Add a New Capability panel"
+msgstr "切換「新增權限」面板"
+
+#: includes/admin.php:2145
+msgid "New capability name"
+msgstr "新權限名稱"
+
+#: includes/admin.php:2147
+msgid "Add to role"
+msgstr "新增至角色"
+
+#: includes/admin.php:2150
+msgid "New capabilities are controlled on the Additonal tab."
+msgstr "新權限可在「其他」索引標籤中控制。"
+
+#: includes/admin.php:2170
+msgid "Toggle Multisite panel"
+msgstr "切換多站點面板"
+
+#: includes/admin.php:2208
+#: includes/user-capabilities-view.php:169
+msgid "PublishPress Permissions"
+msgstr "PublishPress Permissions"
+
+#: includes/admin.php:2210
+msgid ""
+"Automatically define type-specific capabilities for your custom post types "
+"and taxonomies"
+msgstr "自動為您的自訂 post type 和 taxonomies 定義專屬功能"
+
+#: includes/admin.php:2211
+msgid "Watch the post type capabilities tutorial"
+msgstr "觀看 post type 功能教學"
+
+#: includes/admin.php:2214
+msgid "Assign standard WP roles supplementally for a specific post type"
+msgstr "為特定 post type 補充指派標準 WP 角色"
+
+#: includes/admin.php:2215
+msgid "Watch the supplemental role tutorial"
+msgstr "觀看補充角色教學"
+
+#: includes/admin.php:2218
+msgid ""
+"Assign custom WP roles supplementally for a specific post type "
+"<em>(Pro)</em>"
+msgstr "為特定 post type 補充指派自訂 WP 角色 <em>(Pro)</em>"
+
+#: includes/admin.php:2222
+msgid "Customize reading permissions per-category or per-post"
+msgstr "自訂各分類或文章的閱讀權限"
+
+#: includes/admin.php:2223
+msgid "Watch the category permissions tutorial"
+msgstr "觀看分類權限教學"
+
+#: includes/admin.php:2226
+msgid "Customize editing permissions per-category or per-post <em>(Pro)</em>"
+msgstr "自訂各分類或文章的編輯權限 <em>(Pro)</em>"
+
+#: includes/admin.php:2227
+msgid "Watch the page editing permissions tutorial"
+msgstr "觀看頁面編輯權限教學"
+
+#: includes/admin.php:2230
+msgid ""
+"Custom Post Visibility statuses, fully implemented throughout wp-admin "
+"<em>(Pro)</em>"
+msgstr "自訂文章可見狀態，並完整套用至 wp-admin 各處 <em>(Pro)</em>"
+
+#: includes/admin.php:2231
+msgid "Watch the custom post visibility tutorial"
+msgstr "觀看自訂文章可見度教學"
+
+#: includes/admin.php:2234
+msgid ""
+"Custom Moderation statuses for access-controlled, multi-step publishing "
+"workflow <em>(Pro)</em>"
+msgstr "自訂審核狀態，打造具存取控制的多步驟發布工作流程 <em>(Pro)</em>"
+
+#: includes/admin.php:2235
+msgid "Watch the multi-step moderation tutorial"
+msgstr "觀看多步驟審核教學"
+
+#: includes/admin.php:2238
+msgid "Regulate permissions for Edit Flow post statuses <em>(Pro)</em>"
+msgstr "管理 Edit Flow 文章狀態的權限 <em>(Pro)</em>"
+
+#: includes/admin.php:2239
+msgid "Watch the Edit Flow integration tutorial"
+msgstr "觀看 Edit Flow 整合教學"
+
+#: includes/admin.php:2242
+msgid ""
+"Customize the moderated editing of published content with Revisionary or "
+"Post Forking <em>(Pro)</em>"
+msgstr "使用 Revisionary 或 Post Forking 自訂已發布內容的審核式編輯 <em>(Pro)</em>"
+
+#: includes/admin.php:2243
+msgid "Watch the published content revisions tutorial"
+msgstr "觀看已發布內容修訂教學"
+
+#: includes/admin.php:2246
+msgid ""
+"Grant Spectator, Participant or Moderator access to specific bbPress forums "
+"<em>(Pro)</em>"
+msgstr "授予 Spectator、Participant 或 Moderator 存取特定 bbPress 論壇的權限 <em>(Pro)</em>"
+
+#: includes/admin.php:2250
+msgid "Grant supplemental content permissions to a BuddyPress group <em>(Pro)</em>"
+msgstr "授予 BuddyPress 群組補充內容權限 <em>(專業版)</em>"
+
+#: includes/admin.php:2251
+msgid "Watch the BuddyPress content permissions tutorial"
+msgstr "觀看 BuddyPress 內容權限教學"
+
+#: includes/admin.php:2254
+msgid "WPML integration to mirror permissions to translations <em>(Pro)</em>"
+msgstr "WPML 整合功能，可將權限同步至翻譯內容 <em>(專業版)</em>"
+
+#: includes/admin.php:2258
+msgid "Member support forum"
+msgstr "會員支援論壇"
+
+#: includes/admin.php:2265
+#, php-format
+msgid "%1$sgrab%2$s %3$s"
+msgstr "%1$s取得%2$s %3$s"
+
+#: includes/admin.php:2265
+#, php-format
+msgid "%s (free install)"
+msgstr "%s（免費安裝）"
+
+#: includes/admin.php:2267
+#, php-format
+msgid "%1$sbuy%2$s %3$s"
+msgstr "%1$s購買%2$s %3$s"
+
+#: includes/admin.php:2267
+#, php-format
+msgid "%s info/purchase"
+msgstr "%s 資訊／購買"
+
+#: includes/admin.php:2300
+msgid ""
+"Role level is mostly deprecated. However, it still determines eligibility "
+"for Post Author assignment and limits the application of user editing "
+"capabilities."
+msgstr "角色層級大多已棄用。不過，它仍會決定是否符合指派文章作者的資格，並限制使用者編輯功能的適用範圍。"
+
+#: includes/admin.php:2302
+msgid "Level:"
+msgstr "層級："
+
+#: includes/admin.php:2346
+msgid "Create this role definition in new (future) sites"
+msgstr "在新的（未來）網站中建立此角色定義"
+
+#: includes/admin.php:2346
+msgid "Include in new sites."
+msgstr "納入新網站。"
+
+#: includes/admin.php:2349
+msgid "Copy / update this role definition to all sites now"
+msgstr "立即將此角色定義複製／更新至所有網站"
+
+#: includes/admin.php:2349
+msgid "Sync role to all sites."
+msgstr "將角色同步至所有網站。"
+
+#: includes/admin.php:2352
+msgid "Copy option settings to all sites now"
+msgstr "立即將選項設定複製至所有網站"
+
+#: includes/admin.php:2352
+msgid "Sync options to all sites."
+msgstr "將選項同步至所有網站。"
+
+#: includes/application-passwords.php:224
+msgid "Unnamed application password"
+msgstr "未命名的應用程式密碼"
+
+#: includes/backup-handler.php:15
+msgid "You do not have permission to restore backup."
+msgstr "您沒有還原備份的權限。"
+
+#: includes/backup-handler.php:58
+#: includes/backup.php:374
+msgid "Roles and Capabilities"
+msgstr "角色與功能"
+
+#: includes/backup-handler.php:94
+msgid "Submit one backup action at a time."
+msgstr "請一次提交一項備份操作。"
+
+#: includes/backup-handler.php:99
+msgid "You do not have permission to delete auto-backups."
+msgstr "您沒有刪除自動備份的權限。"
+
+#: includes/backup-handler.php:113
+msgid "Select an available auto-backup to delete."
+msgstr "請選取可刪除的自動備份。"
+
+#: includes/backup-handler.php:137
+#. translators: %d: number of auto-backups deleted.
+#, php-format
+msgid "%d auto-backup deleted."
+msgid_plural "%d auto-backups deleted."
+msgstr[0] "已刪除 %d 個自動備份。"
+
+#: includes/backup-handler.php:139
+msgid "Auto-backup deleted."
+msgstr "已刪除自動備份。"
+
+#: includes/backup-handler.php:144
+msgid "No additional auto-backups could be deleted."
+msgstr "無法刪除其他自動備份。"
+
+#: includes/backup-handler.php:153
+msgid "New backup saved."
+msgstr "已儲存新的備份。"
+
+#: includes/backup-handler.php:171
+#: includes/backup-handler.php:191
+#: includes/backup-handler.php:232
+#: includes/backup-handler.php:241
+msgid "Restore failed. No backup found."
+msgstr "還原失敗。找不到備份。"
+
+#: includes/backup-handler.php:177
+msgid "Restore failed. No valid role backup found."
+msgstr "還原失敗。找不到有效的角色備份。"
+
+#: includes/backup-handler.php:181
+msgid "You do not have permission to restore protected role capabilities."
+msgstr "您沒有還原受保護角色功能的權限。"
+
+#: includes/backup-handler.php:189
+msgid "Roles and Capabilities restored from initial backup."
+msgstr "已從初始備份還原角色與功能。"
+
+#: includes/backup-handler.php:203
+msgid "You do not have permission to restore Admin Menus settings."
+msgstr "您沒有還原 admin 選單設定的權限。"
+
+#: includes/backup-handler.php:204
+msgid "You do not have permission to restore these feature settings."
+msgstr "您沒有還原這些功能設定的權限。"
+
+#: includes/backup-handler.php:230
+#, php-format
+msgid "%s restored from last backup."
+msgstr "已從上次備份還原 %s。"
+
+#: includes/backup-handler.php:239
+msgid "Roles and Capabilities restored from selected auto-backup."
+msgstr "已從選取的自動備份還原角色與功能。"
+
+#: includes/backup-handler.php:251
+msgid "Please upload a file to import"
+msgstr "請上傳要匯入的檔案"
+
+#: includes/backup-handler.php:256
+msgid "Please upload a valid .json file"
+msgstr "請上傳有效的 .json 檔案"
+
+#: includes/backup-handler.php:285
+#: includes/backup-handler.php:293
+msgid "Error importing settings! Please try again."
+msgstr "匯入設定時發生錯誤！請再試一次。"
+
+#: includes/backup-handler.php:303
+msgid "Error importing settings! Please check that you uploaded a valid json file."
+msgstr "匯入設定時發生錯誤！請確認您上傳的是有效的 JSON 檔案。"
+
+#: includes/backup-handler.php:317
+msgid "You do not have permission to import Admin Menus settings."
+msgstr "您沒有匯入 admin 選單設定的權限。"
+
+#: includes/backup-handler.php:318
+msgid "You do not have permission to import these feature settings."
+msgstr "您沒有匯入這些功能設定的權限。"
+
+#: includes/backup-handler.php:366
+#, php-format
+msgid "Skipped %d invalid or unsupported import entries."
+msgstr "略過了 %d 個無效或不支援的匯入項目。"
+
+#: includes/backup-handler.php:370
+#, php-format
+msgid "%s successfully imported from uploaded data."
+msgstr "%s 已從上傳的資料成功匯入。"
+
+#: includes/backup-handler.php:372
+msgid "No valid backup data found to import."
+msgstr "找不到有效的備份資料可供匯入。"
+
+#: includes/backup-handler.php:722
+msgid "Roles and Capabilities reset to WordPress defaults"
+msgstr "已將角色和權限重設為 WordPress 預設值"
+
+#: includes/backup.php:42
+msgid "Backup Tool for PublishPress Capabilities"
+msgstr "PublishPress Capabilities 備份工具"
+
+#: includes/backup.php:51
+msgid "Restore"
+msgstr "還原"
+
+#: includes/backup.php:52
+#: includes/functions-admin.php:589
+msgid "Backup"
+msgstr "備份"
+
+#: includes/backup.php:53
+msgid "Reset Roles"
+msgstr "重設角色"
+
+#: includes/backup.php:54
+msgid "Export / Import"
+msgstr "匯出 / 匯入"
+
+#: includes/backup.php:63
+msgid "Backup Roles and Capabilities"
+msgstr "備份角色和權限"
+
+#: includes/backup.php:68
+#, php-format
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes. The initial backup and last %d auto-backups "
+"are kept."
+msgstr "PublishPress Capabilities 會在安裝時以及每次儲存變更時自動建立備份。系統會保留初始備份和最近的 %d 個自動備份。"
+
+#: includes/backup.php:70
+msgid ""
+"A backup created on this screen replaces any previous manual backups, but "
+"is never automatically replaced."
+msgstr "在此畫面建立的備份會取代任何先前的手動備份，但不會自動遭到取代。"
+
+#: includes/backup.php:75
+msgid "Manual Backup"
+msgstr "手動備份"
+
+#: includes/backup.php:85
+#, php-format
+msgid "Last Manual Backup - %s"
+msgstr "上次手動備份 - %s"
+
+#: includes/backup.php:85
+msgid "Last Backup"
+msgstr "上次備份"
+
+#: includes/backup.php:91
+msgid "all roles"
+msgstr "所有角色"
+
+#: includes/backup.php:96
+#, php-format
+msgid "Manual backup of %s (%s)"
+msgstr "%s 的手動備份（%s）"
+
+#: includes/backup.php:103
+msgid "Restore Previous Roles and Capabilities"
+msgstr "還原先前的角色和權限"
+
+#: includes/backup.php:106
+msgid ""
+"PublishPress Capabilities automatically creates a backup on installation "
+"and whenever you save changes."
+msgstr "PublishPress Capabilities 會在安裝時以及每次儲存變更時自動建立備份。"
+
+#: includes/backup.php:107
+msgid ""
+"On this screen, you can restore an earlier version of your roles and "
+"capabilities."
+msgstr "您可以在此畫面還原較早版本的角色和權限。"
+
+#: includes/backup.php:110
+msgid "Available Backups:"
+msgstr "可用的備份："
+
+#: includes/backup.php:135
+#: includes/backup.php:136
+#, php-format
+msgid "Auto-backup of all roles (%s)"
+msgstr "所有角色的自動備份 (%s)"
+
+#: includes/backup.php:152
+msgid "Initial backup of all roles"
+msgstr "所有角色的初始備份"
+
+#: includes/backup.php:161
+msgid "Restore Selected Roles"
+msgstr "還原所選角色"
+
+#: includes/backup.php:168
+msgid "Delete Selected Backup"
+msgstr "刪除所選備份"
+
+#: includes/backup.php:172
+msgid "Delete this auto-backup? This can't be undone."
+msgstr "要刪除此自動備份嗎？此操作無法復原。"
+
+#: includes/backup.php:174
+#: includes/backup.php:198
+#: includes/features/admin-menus/admin-menus.php:502
+#: includes/features/admin-menus/admin-menus.php:659
+msgid "Delete"
+msgstr "刪除"
+
+#: includes/backup.php:178
+#: includes/backup.php:202
+#: includes/features/admin-menus/admin-menus.php:485
+#: includes/features/admin-menus/admin-menus.php:502
+#: includes/features/admin-menus/admin-menus.php:642
+#: includes/features/admin-menus/admin-menus.php:659
+#: includes/features/admin-styles/admin-styles-ui.php:474
+#: includes/features/admin-styles/admin-styles-ui.php:489
+msgid "Cancel"
+msgstr "取消"
+
+#: includes/backup.php:189
+msgid "Delete All Auto-backups"
+msgstr "刪除所有自動備份"
+
+#: includes/backup.php:195
+#. translators: %d: number of available auto-backups.
+#, php-format
+msgid ""
+"Delete all %d auto-backups? The initial backup and the manual backup are "
+"kept."
+msgstr "要刪除所有 %d 個自動備份嗎？初始備份和手動備份會保留。"
+
+#: includes/backup.php:217
+msgid "Show changes from current roles only"
+msgstr "僅顯示目前角色的變更"
+
+#: includes/backup.php:224
+#, php-format
+msgid "Initial Backup - %s"
+msgstr "初始備份 - %s"
+
+#: includes/backup.php:224
+msgid "Initial Backup"
+msgstr "初始備份"
+
+#: includes/backup.php:250
+#, php-format
+msgid "%s (%s roles)"
+msgstr "%s（%s 個角色）"
+
+#: includes/backup.php:257
+msgid "(this role will be removed if you restore backup)"
+msgstr "（還原備份時將移除此角色）"
+
+#: includes/backup.php:286
+#, php-format
+msgid "%s (level %s)"
+msgstr "%s（等級 %s）"
+
+#: includes/backup.php:286
+#: includes/backup.php:319
+msgid "(will be added)"
+msgstr "（將新增）"
+
+#: includes/backup.php:320
+msgid "(will be removed)"
+msgstr "（將移除）"
+
+#: includes/backup.php:321
+msgid "(will be denied)"
+msgstr "（將拒絕）"
+
+#: includes/backup.php:333
+msgid "No changes"
+msgstr "沒有變更"
+
+#: includes/backup.php:349
+msgid "Reset WordPress Defaults"
+msgstr "重設 WordPress 預設值"
+
+#: includes/backup.php:351
+#: includes/backup.php:432
+#: includes/features/profile-features.php:246
+msgid "Warning:"
+msgstr "警告："
+
+#: includes/backup.php:351
+msgid ""
+"Reseting default Roles and Capabilities will set them to the WordPress "
+"install defaults."
+msgstr "重設預設角色與權限將使其恢復為 WordPress 安裝時的預設值。"
+
+#: includes/backup.php:353
+msgid ""
+"If you have installed any plugin that adds new roles or capabilities, these "
+"will be lost."
+msgstr "如果您安裝了會新增角色或權限的外掛，這些新增項目將會遺失。"
+
+#: includes/backup.php:354
+msgid "It is recommended to use this only as a last resource!"
+msgstr "建議僅在最後不得已時才使用此功能！"
+
+#: includes/backup.php:357
+msgid "Reset Roles and Capabilities to WordPress defaults"
+msgstr "將角色與權限重設為 WordPress 預設值"
+
+#: includes/backup.php:359
+msgid ""
+"You are about to reset Roles and Capabilities to WordPress defaults.\n"
+" 'Cancel' to stop, 'OK' to reset."
+msgstr ""
+"您即將將角色與權限重設為 WordPress 預設值。\n"
+" '取消'以停止，'確定'以重設。"
+
+#: includes/backup.php:359
+msgid "Reset to WordPress defaults"
+msgstr "重設為 WordPress 預設值"
+
+#: includes/backup.php:367
+msgid "Export Settings"
+msgstr "匯出設定"
+
+#: includes/backup.php:369
+msgid ""
+"Export the plugin settings for this site as a .json file. This allows you "
+"to easily import the configuration into another site."
+msgstr "將此網站的外掛設定匯出為 .json 檔案。您可以輕鬆地將設定匯入另一個網站。"
+
+#: includes/backup.php:379
+msgid "Select the roles to include in this export."
+msgstr "選取要納入匯出的角色。"
+
+#: includes/backup.php:425
+msgid "Export"
+msgstr "匯出"
+
+#: includes/backup.php:431
+msgid "Import Settings"
+msgstr "匯入設定"
+
+#: includes/backup.php:432
+msgid ""
+"Please make a 'Manual Backup' in the backup tab to enable backup restore in "
+"case anything goes wrong."
+msgstr "請先在備份分頁建立「手動備份」，以便在發生問題時還原備份。"
+
+#: includes/backup.php:433
+msgid ""
+"Import the plugin settings from a .json file. This file can be obtained by "
+"exporting the settings on another site using the form above."
+msgstr "從 .json 檔案匯入外掛設定。您可以使用上方的表單，在另一個網站匯出設定來取得此檔案。"
+
+#: includes/backup.php:434
+msgid ""
+"Before importing, we recommend using the \"Backup\" tab to create a backup "
+"of your current settings."
+msgstr "匯入前，建議您使用「備份」分頁備份目前的設定。"
+
+#: includes/backup.php:436
+msgid "Import settings file"
+msgstr "匯入設定檔案"
+
+#: includes/dashboard.php:78
+msgid "Sync feature status to all sites in this network."
+msgstr "將此網路中的所有網站同步至相同的功能狀態。"
+
+#: includes/dashboard.php:83
+msgid "Network feature synchronization help"
+msgstr "網路功能同步說明"
+
+#: includes/dashboard.php:86
+msgid "Enabling or disabling a feature will apply its new status to all sites."
+msgstr "啟用或停用某項功能，將會把該功能的新狀態套用至所有網站。"
+
+#: includes/features/admin-features.php:46
+msgid "Admin Feature Restrictions"
+msgstr "admin 功能限制"
+
+#: includes/features/admin-features.php:176
+#: includes/features/admin-menus/admin-menus.php:264
+#: includes/features/admin-menus/admin-menus.php:287
+#: includes/features/nav-menus.php:128
+#: includes/features/nav-menus.php:148
+#: includes/features/profile-features.php:111
+#: includes/features/profile-features.php:130
+msgid "Toggle all"
+msgstr "全部切換"
+
+#: includes/features/admin-features.php:251
+msgid "Wildcard enabled"
+msgstr "已啟用萬用字元"
+
+#: includes/features/admin-features.php:253
+msgid "URL targeted"
+msgstr "已指定網址"
+
+#: includes/features/admin-features.php:255
+msgid "URL wildcard"
+msgstr "網址萬用字元"
+
+#: includes/features/admin-features.php:278
+#: includes/features/editor-features-classic.php:123
+#: includes/features/editor-features-gutenberg.php:120
+msgid "Edit"
+msgstr "編輯"
+
+#: includes/features/admin-features.php:346
+#: includes/functions-admin.php:438
+msgid ""
+"Admin Features allows you to remove elements from the admin area and "
+"toolbar."
+msgstr "admin 功能可讓您從 admin 區域和工具列中移除元素。"
+
+#: includes/features/admin-features.php:349
+#: includes/features/admin-menus/admin-menus.php:751
+#: includes/features/editor-features.php:244
+#: includes/features/frontend-features/frontend-features.php:253
+#: includes/features/nav-menus.php:305
+#: includes/features/profile-features.php:257
+msgid "No change"
+msgstr "沒有變更"
+
+#: includes/features/admin-features.php:351
+#: includes/features/admin-menus/admin-menus.php:753
+#: includes/features/editor-features.php:246
+#: includes/features/nav-menus.php:307
+#: includes/features/profile-features.php:259
+msgid "This feature is denied"
+msgstr "此功能已遭拒絕"
+
+#: includes/features/admin-features.php:354
+msgid "How to use Admin Features"
+msgstr "如何使用 admin 功能"
+
+#: includes/features/admin-features.php:358
+msgid "Admin Features Settings"
+msgstr "admin 功能設定"
+
+#: includes/features/admin-features.php:360
+#: includes/features/admin-features.php:361
+#: includes/features/admin-menus/admin-menus.php:762
+msgid "Hide Submenus"
+msgstr "隱藏子選單"
+
+#: includes/features/admin-menus/admin-menus-controller.php:80
+#: includes/features/admin-menus/admin-menus-controller.php:124
+msgid "You do not have permission to manage menu restrictions."
+msgstr "您沒有管理選單限制的權限。"
+
+#: includes/features/admin-menus/admin-menus-controller.php:85
+msgid "You do not have permission to manage menu restrictions for this role."
+msgstr "您沒有管理此角色之選單限制的權限。"
+
+#: includes/features/admin-menus/admin-menus-controller.php:130
+msgid "You do not have permission to manage menu restrictions for any role."
+msgstr "您沒有管理任何角色之選單限制的權限。"
+
+#: includes/features/admin-menus/admin-menus-controller.php:197
+msgid "Settings updated for all editable roles."
+msgstr "已更新所有可編輯角色的設定。"
+
+#: includes/features/admin-menus/admin-menus-controller.php:203
+#: includes/manager.php:721
+#: includes/manager.php:774
+#: includes/manager.php:870
+#: includes/manager.php:963
+#: includes/manager.php:1005
+#: includes/manager.php:1089
+#: includes/manager.php:1148
+msgid "Settings updated."
+msgstr "設定已更新。"
+
+#: includes/features/admin-menus/admin-menus-controller.php:222
+msgid "Saving Menu Order..."
+msgstr "正在儲存選單順序..."
+
+#: includes/features/admin-menus/admin-menus-controller.php:223
+msgid "Saving Menu Name..."
+msgstr "正在儲存選單名稱..."
+
+#: includes/features/admin-menus/admin-menus-controller.php:224
+msgid "Menu Name can not be empty."
+msgstr "選單名稱不可空白。"
+
+#: includes/features/admin-menus/admin-menus-controller.php:225
+msgid "Change Icon"
+msgstr "變更圖示"
+
+#: includes/features/admin-menus/admin-menus-controller.php:226
+msgid "Search icons..."
+msgstr "搜尋圖示..."
+
+#: includes/features/admin-menus/admin-menus-controller.php:227
+msgid "Menu icon updated"
+msgstr "選單圖示已更新"
+
+#: includes/features/admin-menus/admin-menus-controller.php:228
+msgid "Error updating menu icon"
+msgstr "更新選單圖示時發生錯誤"
+
+#: includes/features/admin-menus/admin-menus-controller.php:229
+msgid "Duplicate menu with this Menu URL already exists"
+msgstr "已存在具有此選單 URL 的重複選單"
+
+#: includes/features/admin-menus/admin-menus-controller.php:230
+msgid "Duplicate submenu with the menu url already exist"
+msgstr "已存在具有此選單 URL 的重複子選單"
+
+#: includes/features/admin-menus/admin-menus-filters.php:576
+msgid "Admin Menu Order reset successfully. Reloading page..."
+msgstr "admin 選單順序已成功重設。正在重新載入頁面..."
+
+#: includes/features/admin-menus/admin-menus-filters.php:582
+msgid "Admin Menu Names reset successfully. Reloading page..."
+msgstr "admin 選單名稱已成功重設。正在重新載入頁面..."
+
+#: includes/features/admin-menus/admin-menus-filters.php:588
+msgid "Admin Menu Cache reset successfully. Reloading page..."
+msgstr "admin 選單快取已成功重設。正在重新載入頁面..."
+
+#: includes/features/admin-menus/admin-menus-filters.php:592
+msgid "Admin Menu reset successfully. Reloading page..."
+msgstr "admin 選單已成功重設。正在重新載入頁面..."
+
+#: includes/features/admin-menus/admin-menus-filters.php:639
+msgid "Menu deleted successfully."
+msgstr "選單已成功刪除。"
+
+#: includes/features/admin-menus/admin-menus-filters.php:667
+#: includes/features/admin-menus/admin-menus-filters.php:716
+msgid "Invalid data"
+msgstr "無效的資料"
+
+#: includes/features/admin-menus/admin-menus-filters.php:672
+msgid "You do not have permission to rename menus for the selected roles."
+msgstr "您沒有權限為所選角色重新命名選單。"
+
+#: includes/features/admin-menus/admin-menus-filters.php:688
+msgid "Menu Name Updated for all editable roles."
+msgstr "已為所有可編輯角色更新選單名稱。"
+
+#: includes/features/admin-menus/admin-menus-filters.php:689
+msgid "Menu Name Updated."
+msgstr "選單名稱已更新。"
+
+#: includes/features/admin-menus/admin-menus-filters.php:720
+msgid "Menu Order Updated."
+msgstr "選單順序已更新。"
+
+#: includes/features/admin-menus/admin-menus-functions.php:65
+#: includes/functions.php:805
+msgid "You do not have permission to access this page."
+msgstr "您沒有權限存取此頁面。"
+
+#: includes/features/admin-menus/admin-menus.php:103
+#: includes/functions-admin.php:447
+#: includes/functions-admin.php:554
+#: includes/roles/class/class-pp-roles-admin.php:556
+#: includes/settings-ui.php:38
+msgid "Admin Menus"
+msgstr "admin 選單"
+
+#: includes/features/admin-menus/admin-menus.php:116
+#: includes/features/frontend-features/frontend-features.php:58
+msgid "Role"
+msgstr "角色"
+
+#: includes/features/admin-menus/admin-menus.php:137
+#: includes/features/admin-menus/admin-menus.php:736
+msgid "Save for All Roles"
+msgstr "儲存所有角色的設定"
+
+#: includes/features/admin-menus/admin-menus.php:154
+msgid ""
+"Add custom menu links, submenu links, and separators to the WordPress admin "
+"menu. This feature is available in PublishPress Capabilities Pro."
+msgstr ""
+"在 WordPress admin 選單中新增自訂選單連結、子選單連結和分隔線。此功能適用於 PublishPress Capabilities "
+"Pro。"
+
+#: includes/features/admin-menus/admin-menus.php:162
+msgid "Type:"
+msgstr "類型："
+
+#: includes/features/admin-menus/admin-menus.php:164
+msgid "Menu Link"
+msgstr "選單連結"
+
+#: includes/features/admin-menus/admin-menus.php:165
+msgid "Submenu Link"
+msgstr "子選單連結"
+
+#: includes/features/admin-menus/admin-menus.php:166
+msgid "Menu Separator"
+msgstr "選單分隔線"
+
+#: includes/features/admin-menus/admin-menus.php:167
+msgid "Submenu Separator"
+msgstr "子選單分隔線"
+
+#: includes/features/admin-menus/admin-menus.php:171
+msgid "Position:"
+msgstr "位置："
+
+#: includes/features/admin-menus/admin-menus.php:173
+msgid "After"
+msgstr "之後"
+
+#: includes/features/admin-menus/admin-menus.php:184
+msgid "Menu Title:"
+msgstr "選單標題："
+
+#: includes/features/admin-menus/admin-menus.php:187
+msgid "My Custom Menu"
+msgstr "我的自訂選單"
+
+#: includes/features/admin-menus/admin-menus.php:189
+msgid "Menu Title is required."
+msgstr "必須填寫選單標題。"
+
+#: includes/features/admin-menus/admin-menus.php:192
+msgid "Separator Style"
+msgstr "分隔線樣式"
+
+#: includes/features/admin-menus/admin-menus.php:194
+msgid "Line (____________________)"
+msgstr "線條 (____________________)"
+
+#: includes/features/admin-menus/admin-menus.php:195
+msgid "Empty Space"
+msgstr "空白"
+
+#: includes/features/admin-menus/admin-menus.php:196
+#: includes/features/admin-styles/admin-styles-ui.php:397
+msgid "Text"
+msgstr "文字"
+
+#: includes/features/admin-menus/admin-menus.php:200
+msgid "Separator Color"
+msgstr "分隔線顏色"
+
+#: includes/features/admin-menus/admin-menus.php:205
+msgid "Menu URL:"
+msgstr "選單網址："
+
+#: includes/features/admin-menus/admin-menus.php:209
+#, php-format
+msgid ""
+"Enter an internal link such as %1s or an external link such as %2s. Any "
+"link can only be used once for a Menu URL."
+msgstr "輸入內部連結，例如 %1s，或外部連結，例如 %2s。每個連結只能用作一次選單網址。"
+
+#: includes/features/admin-menus/admin-menus.php:216
+msgid "Menu with this url already exist."
+msgstr "此網址的選單已存在。"
+
+#: includes/features/admin-menus/admin-menus.php:223
+msgid "Menu Capability:"
+msgstr "選單權限："
+
+#: includes/features/admin-menus/admin-menus.php:228
+#, php-format
+msgid ""
+"This is the capability required to see this menu. For example: %1s or %2s "
+"If you're entering a custom capability, remember to add and assign it to "
+"preferred roles on the capabilities page"
+msgstr "這是查看此選單所需的權限。例如：%1s 或 %2s。如果您要輸入自訂權限，請記得在權限頁面新增該權限，並指派給偏好的角色"
+
+#: includes/features/admin-menus/admin-menus.php:235
+msgid "Menu Capability is required."
+msgstr "必須設定選單權限。"
+
+#: includes/features/admin-menus/admin-menus.php:239
+msgid "Menu Icon"
+msgstr "選單圖示"
+
+#: includes/features/admin-menus/admin-menus.php:244
+msgid "Save Menu Link"
+msgstr "儲存選單連結"
+
+#: includes/features/admin-menus/admin-menus.php:270
+msgid "New Menu Link"
+msgstr "新增選單連結"
+
+#: includes/features/admin-menus/admin-menus.php:442
+#: includes/features/admin-menus/admin-menus.php:603
+msgid "(Can't detect menu name)"
+msgstr "(無法偵測選單名稱)"
+
+#: includes/features/admin-menus/admin-menus.php:468
+#: includes/features/admin-menus/admin-menus.php:625
+msgid ""
+"This menu name is not available in menu global data or directly registered "
+"with the menu"
+msgstr "此選單名稱不存在於選單全域資料中，也未直接註冊至選單"
+
+#: includes/features/admin-menus/admin-menus.php:479
+#: includes/features/admin-menus/admin-menus.php:635
+#, php-format
+msgid "%s Role"
+msgstr "%s 角色"
+
+#: includes/features/admin-menus/admin-menus.php:480
+#: includes/features/admin-menus/admin-menus.php:636
+#: includes/roles/class/class-pp-roles-admin.php:577
+msgid "All Roles"
+msgstr "所有角色"
+
+#: includes/features/admin-menus/admin-menus.php:482
+#: includes/features/admin-menus/admin-menus.php:639
+msgid "Save"
+msgstr "儲存"
+
+#: includes/features/admin-menus/admin-menus.php:493
+#: includes/features/admin-menus/admin-menus.php:650
+msgid "This option is disabled to prevent complete lockout"
+msgstr "此選項已停用，以防止完全無法存取"
+
+#: includes/features/admin-menus/admin-menus.php:502
+#: includes/features/admin-menus/admin-menus.php:659
+#, php-format
+msgid "Are you sure you want to delete %1s? %2s %3s"
+msgstr "確定要刪除 %1s 嗎？%2s %3s"
+
+#: includes/features/admin-menus/admin-menus.php:512
+#: includes/features/admin-menus/admin-menus.php:669
+#, php-format
+msgid "The capability required to access this menu is %s"
+msgstr "存取此選單所需的權限為 %s"
+
+#: includes/features/admin-menus/admin-menus.php:517
+#: includes/features/admin-menus/admin-menus.php:674
+msgid "Rename Menu"
+msgstr "重新命名選單"
+
+#: includes/features/admin-menus/admin-menus.php:523
+#: includes/features/admin-menus/admin-menus.php:680
+msgid "Move Up"
+msgstr "上移"
+
+#: includes/features/admin-menus/admin-menus.php:526
+#: includes/features/admin-menus/admin-menus.php:683
+msgid "Move Down"
+msgstr "下移"
+
+#: includes/features/admin-menus/admin-menus.php:720
+msgid "No menu found"
+msgstr "找不到選單"
+
+#: includes/features/admin-menus/admin-menus.php:746
+msgid "How to use Admin Menus"
+msgstr "如何使用 Admin Menus"
+
+#: includes/features/admin-menus/admin-menus.php:748
+#: includes/functions-admin.php:448
+msgid ""
+"Admin Menus allows you to edit the admin menu links and control who has "
+"access."
+msgstr "Admin Menus 可讓您編輯管理選單連結，並控制哪些人可以存取。"
+
+#: includes/features/admin-menus/admin-menus.php:759
+msgid "Admin Menus Settings"
+msgstr "Admin Menus 設定"
+
+#: includes/features/admin-menus/admin-menus.php:764
+msgid "Show Menu Slugs"
+msgstr "顯示選單代稱"
+
+#: includes/features/admin-menus/admin-menus.php:769
+msgid "Reset Admin Menus"
+msgstr "重設管理選單"
+
+#: includes/features/admin-menus/admin-menus.php:771
+msgid ""
+"You can reset the admin menu order and name to their original position and "
+"names. You can also reset the menu cache to fix any missing menu issues."
+msgstr "您可以將管理選單的順序和名稱重設為原始設定。您也可以重設選單快取，以修正選單遺失的問題。"
+
+#: includes/features/admin-menus/admin-menus.php:774
+msgid "Reset Menu Order"
+msgstr "重設選單順序"
+
+#: includes/features/admin-menus/admin-menus.php:776
+msgid "Reset Cached Menu"
+msgstr "重設選單快取"
+
+#: includes/features/admin-menus/admin-menus.php:778
+msgid "Reset Menu Names and Icons"
+msgstr "重設選單名稱和圖示"
+
+#: includes/features/admin-menus/admin-menus.php:780
+msgid "Reset Selected Option"
+msgstr "重設所選選項"
+
+#: includes/features/admin-styles/admin-styles-api.php:24
+msgid "You cannot change styles for this role."
+msgstr "您無法變更此角色的樣式。"
+
+#: includes/features/admin-styles/admin-styles-api.php:38
+msgid "You cannot change admin styles."
+msgstr "您無法變更管理介面樣式。"
+
+#: includes/features/admin-styles/admin-styles-api.php:43
+msgid "Custom style slugs must start with ppc-custom-style-."
+msgstr "自訂樣式代稱必須以 ppc-custom-style- 開頭。"
+
+#: includes/features/admin-styles/admin-styles-api.php:46
+msgid "The Free edition supports one custom admin style."
+msgstr "免費版僅支援一種自訂管理介面樣式。"
+
+#: includes/features/admin-styles/admin-styles-api.php:52
+msgid "A style name is required."
+msgstr "必須提供樣式名稱。"
+
+#: includes/features/admin-styles/admin-styles-api.php:73
+msgid "You cannot delete admin styles."
+msgstr "您無法刪除管理介面樣式。"
+
+#: includes/features/admin-styles/admin-styles-api.php:78
+msgid "Custom style not found."
+msgstr "找不到自訂樣式。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:55
+#: includes/features/admin-styles/admin-styles-ui.php:654
+#: includes/features/admin-styles/admin-styles-ui.php:655
+#: includes/features/admin-styles/admin-styles-ui.php:741
+#: includes/features/admin-styles/admin-styles-ui.php:742
+#: includes/features/admin-styles/admin-styles.php:2378
+#: includes/features/admin-styles/admin-styles.php:2616
+msgid "Default"
+msgstr "預設"
+
+#: includes/features/admin-styles/admin-styles-ui.php:105
+#, php-format
+msgid "Custom style \"%s\" saved successfully."
+msgstr "自訂樣式「%s」已成功儲存。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:114
+#, php-format
+msgid "Custom style \"%s\" deleted successfully."
+msgstr "自訂樣式「%s」已成功刪除。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:123
+msgid "Custom style name cannot be empty."
+msgstr "自訂樣式名稱不得空白。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:132
+msgid "Admin styles saved successfully."
+msgstr "管理介面樣式已成功儲存。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:140
+#: includes/functions-admin.php:236
+#: includes/functions-admin.php:442
+#: includes/functions-admin.php:540
+msgid "Admin Styles"
+msgstr "管理介面樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:204
+msgid "Setting"
+msgstr "設定"
+
+#: includes/features/admin-styles/admin-styles-ui.php:207
+msgid "Value"
+msgstr "值"
+
+#: includes/features/admin-styles/admin-styles-ui.php:216
+msgid "Admin Color Scheme"
+msgstr "admin 色彩配置"
+
+#: includes/features/admin-styles/admin-styles-ui.php:219
+msgid ""
+"Sets the admin color scheme for all users. Click a scheme to preview it "
+"instantly."
+msgstr "為所有使用者設定 admin 色彩配置。點選配置即可立即預覽。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:223
+msgid "Start from template"
+msgstr "從範本開始"
+
+#: includes/features/admin-styles/admin-styles-ui.php:227
+msgid "Blank Template"
+msgstr "空白範本"
+
+#: includes/features/admin-styles/admin-styles-ui.php:237
+msgid "Add Custom Style"
+msgstr "新增自訂樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:267
+msgid "Edit custom style"
+msgstr "編輯自訂樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:315
+msgid "Edit Color Style"
+msgstr "編輯色彩樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:318
+msgid ""
+"Customize colors for different admin elements. Changes are previewed "
+"instantly."
+msgstr "自訂不同 admin 元素的色彩。變更會立即預覽。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:349
+msgid ""
+"Add more than one custom admin styles. This feature is available in "
+"PublishPress Capabilities Pro."
+msgstr "新增多個自訂 admin 樣式。此功能適用於 PublishPress Capabilities Pro。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:373
+msgid ""
+"Add CSS selectors (class or ID), choose a style variation, and set a brand "
+"color."
+msgstr "新增 CSS 選擇器（類別或 ID）、選擇樣式變化版本，並設定品牌色彩。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:379
+msgid "Add New Element"
+msgstr "新增元素"
+
+#: includes/features/admin-styles/admin-styles-ui.php:385
+#: includes/features/admin-styles/admin-styles-ui.php:387
+msgid "Selector"
+msgstr "選擇器"
+
+#: includes/features/admin-styles/admin-styles-ui.php:390
+msgid "e.g. .publishpress-wrap h1, #my-plugin-header"
+msgstr "例如 .publishpress-wrap h1、#my-plugin-header"
+
+#: includes/features/admin-styles/admin-styles-ui.php:393
+#: includes/features/admin-styles/admin-styles-ui.php:394
+msgid "Variation"
+msgstr "變化版本"
+
+#: includes/features/admin-styles/admin-styles-ui.php:396
+msgid "Background"
+msgstr "背景"
+
+#: includes/features/admin-styles/admin-styles-ui.php:398
+msgid "Border"
+msgstr "邊框"
+
+#: includes/features/admin-styles/admin-styles-ui.php:402
+#: includes/features/admin-styles/admin-styles-ui.php:404
+msgid "Brand Color"
+msgstr "品牌色彩"
+
+#: includes/features/admin-styles/admin-styles-ui.php:413
+#: includes/features/admin-styles/admin-styles-ui.php:551
+#: includes/features/admin-styles/admin-styles-ui.php:587
+msgid "Remove"
+msgstr "移除"
+
+#: includes/features/admin-styles/admin-styles-ui.php:429
+#: includes/features/admin-styles/admin-styles.php:1222
+msgid "Custom Style Name"
+msgstr "自訂樣式名稱"
+
+#: includes/features/admin-styles/admin-styles-ui.php:437
+msgid "e.g., Company Branding, Dark Mode"
+msgstr "例如：公司品牌風格、深色模式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:480
+#: includes/features/admin-styles/admin-styles-ui.php:488
+msgid "Delete Custom Style"
+msgstr "刪除自訂樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:486
+#, php-format
+msgid "Are you sure you want to delete this %1s? %2s %3s"
+msgstr "確定要刪除此 %1s 嗎？%2s %3s"
+
+#: includes/features/admin-styles/admin-styles-ui.php:487
+msgid "Custom Style"
+msgstr "自訂樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:512
+msgid "Save Custom Style"
+msgstr "儲存自訂樣式"
+
+#: includes/features/admin-styles/admin-styles-ui.php:526
+msgid "Custom Admin Logo"
+msgstr "自訂 admin 標誌"
+
+#: includes/features/admin-styles/admin-styles-ui.php:529
+msgid ""
+"Upload a custom logo to replace the WordPress icon in the admin bar. "
+"Recommended: 20px by 20px in SVG or PNG format."
+msgstr "上傳自訂標誌，取代 admin 工具列中的 WordPress 圖示。建議使用 SVG 或 PNG 格式，尺寸為 20px x 20px。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:540
+#: includes/features/admin-styles/admin-styles.php:1206
+msgid "Admin logo preview"
+msgstr "admin 標誌預覽"
+
+#: includes/features/admin-styles/admin-styles-ui.php:546
+#: includes/features/admin-styles/admin-styles-ui.php:582
+#: includes/features/admin-styles/admin-styles.php:1200
+msgid "Select Image"
+msgstr "選取圖片"
+
+#: includes/features/admin-styles/admin-styles-ui.php:561
+msgid "Custom Favicon"
+msgstr "自訂網站圖示"
+
+#: includes/features/admin-styles/admin-styles-ui.php:564
+msgid ""
+"Upload a custom favicon for the admin area. Recommended: 16px by 16px or "
+"32px by 32px in SVG or PNG format."
+msgstr "為 admin 區域上傳自訂網站圖示。建議使用 SVG 或 PNG 格式，尺寸為 16px x 16px 或 32px x 32px。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:575
+#: includes/features/admin-styles/admin-styles.php:1207
+msgid "Admin favicon preview"
+msgstr "admin 網站圖示預覽"
+
+#: includes/features/admin-styles/admin-styles-ui.php:596
+msgid "Admin Font Family"
+msgstr "admin 字型系列"
+
+#: includes/features/admin-styles/admin-styles-ui.php:599
+msgid "Set a font stack for the admin area, for example \"Segoe UI\", sans-serif."
+msgstr "設定 admin 區域的字型堆疊，例如 \"Segoe UI\", sans-serif。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:606
+msgid "Preset Fonts"
+msgstr "預設字型"
+
+#: includes/features/admin-styles/admin-styles-ui.php:607
+msgid "Custom Value"
+msgstr "自訂值"
+
+#: includes/features/admin-styles/admin-styles-ui.php:611
+msgid "Admin font family preset"
+msgstr "admin 字型系列預設值"
+
+#: includes/features/admin-styles/admin-styles-ui.php:622
+msgid "Custom admin font family"
+msgstr "自訂 admin 字型系列"
+
+#: includes/features/admin-styles/admin-styles-ui.php:634
+msgid "Admin Font Size"
+msgstr "admin 字型大小"
+
+#: includes/features/admin-styles/admin-styles-ui.php:637
+msgid ""
+"Set a base font size for the admin area. Leave empty to use the default "
+"WordPress size."
+msgstr "設定 admin 區域的基本字型大小。留空則使用 WordPress 預設大小。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:657
+#: includes/features/admin-styles/admin-styles-ui.php:744
+msgid "Named Sizes"
+msgstr "命名大小"
+
+#: includes/features/admin-styles/admin-styles-ui.php:663
+#: includes/features/admin-styles/admin-styles-ui.php:750
+msgid "Pixel Sizes"
+msgstr "像素大小"
+
+#: includes/features/admin-styles/admin-styles-ui.php:676
+msgid "Typography Overrides"
+msgstr "字體排版覆寫"
+
+#: includes/features/admin-styles/admin-styles-ui.php:678
+msgid "Optional target-specific typography rules for common admin elements."
+msgstr "適用於常見 admin 元素的選用目標專屬字體排版規則。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:684
+msgid "Body Text"
+msgstr "內文"
+
+#: includes/features/admin-styles/admin-styles-ui.php:685
+#: includes/features/admin-styles/admin-styles.php:2119
+msgid "Links"
+msgstr "連結"
+
+#: includes/features/admin-styles/admin-styles-ui.php:686
+msgid "Headings"
+msgstr "標題"
+
+#: includes/features/admin-styles/admin-styles-ui.php:687
+#: includes/features/admin-styles/admin-styles.php:2243
+#: includes/functions-admin.php:270
+#: includes/settings-ui.php:53
+msgid "Admin Menu"
+msgstr "admin 選單"
+
+#: includes/features/admin-styles/admin-styles-ui.php:688
+#: includes/features/admin-styles/admin-styles.php:2285
+msgid "Admin Bar"
+msgstr "admin 工具列"
+
+#: includes/features/admin-styles/admin-styles-ui.php:689
+msgid "Form Fields"
+msgstr "表單欄位"
+
+#: includes/features/admin-styles/admin-styles-ui.php:690
+#: includes/features/admin-styles/admin-styles.php:2213
+msgid "Buttons"
+msgstr "按鈕"
+
+#: includes/features/admin-styles/admin-styles-ui.php:696
+msgid "Target"
+msgstr "目標"
+
+#: includes/features/admin-styles/admin-styles-ui.php:697
+msgid "Font Family"
+msgstr "字型家族"
+
+#: includes/features/admin-styles/admin-styles-ui.php:698
+msgid "Font Size"
+msgstr "字型大小"
+
+#: includes/features/admin-styles/admin-styles-ui.php:717
+msgid "Preset"
+msgstr "預設值"
+
+#: includes/features/admin-styles/admin-styles-ui.php:718
+#: includes/roles/class/class-pp-roles-list-table.php:425
+msgid "Custom"
+msgstr "自訂"
+
+#: includes/features/admin-styles/admin-styles-ui.php:722
+#, php-format
+msgid "Font family for %s"
+msgstr "%s 的字型家族"
+
+#: includes/features/admin-styles/admin-styles-ui.php:732
+#, php-format
+msgid "Custom font family for %s"
+msgstr "%s 的自訂字型家族"
+
+#: includes/features/admin-styles/admin-styles-ui.php:740
+#, php-format
+msgid "Font size for %s"
+msgstr "%s 的字型大小"
+
+#: includes/features/admin-styles/admin-styles-ui.php:767
+msgid "Admin Footer Text"
+msgstr "admin 頁尾文字"
+
+#: includes/features/admin-styles/admin-styles-ui.php:770
+msgid ""
+"Replace the default \"Thanks for creating with WordPress\" message in the "
+"admin footer."
+msgstr "取代 admin 頁尾預設的 \"感謝您使用 WordPress 創作\" 訊息。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:784
+msgid "Replace \"Howdy\""
+msgstr "取代 \"您好\""
+
+#: includes/features/admin-styles/admin-styles-ui.php:787
+msgid "Replace \"Howdy\" in the admin bar."
+msgstr "取代 admin 工具列中的 \"您好\"。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:800
+msgid "Control Settings"
+msgstr "控制設定"
+
+#: includes/features/admin-styles/admin-styles-ui.php:802
+msgid "Control how admin styles are applied to users."
+msgstr "控制如何將 admin 樣式套用至使用者。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:811
+msgid "Hide Admin Color Scheme settings in user profile"
+msgstr "在使用者個人資料中隱藏 admin 色彩配置設定"
+
+#: includes/features/admin-styles/admin-styles-ui.php:813
+msgid ""
+"When enabled, users cannot see or change color scheme settings in their "
+"profile. Role-based settings will be applied."
+msgstr "啟用後，使用者將無法在個人資料中查看或變更色彩配置設定。系統會套用依角色設定的選項。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:821
+msgid "Force role settings (override user selection)"
+msgstr "強制套用角色設定（覆寫使用者選擇）"
+
+#: includes/features/admin-styles/admin-styles-ui.php:823
+msgid ""
+"When enabled, role settings will always apply, overriding any user "
+"selection even if the color scheme UI is visible to them."
+msgstr "啟用後，系統一律會套用角色設定，覆寫使用者選擇，即使使用者看得到色彩配置介面也一樣。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:861
+msgid ""
+"Admin Styles allows you to customize the WordPress admin area with your own "
+"branding."
+msgstr "Admin Styles 可讓您使用自己的品牌風格自訂 WordPress admin 區域。"
+
+#: includes/features/admin-styles/admin-styles-ui.php:865
+msgid "Custom admin color schemes"
+msgstr "自訂 admin 色彩配置"
+
+#: includes/features/admin-styles/admin-styles-ui.php:866
+msgid "Replace the WordPress logo and favicon"
+msgstr "取代 WordPress 標誌和網站圖示"
+
+#: includes/features/admin-styles/admin-styles-ui.php:867
+msgid "Custom footer text"
+msgstr "自訂頁尾文字"
+
+#: includes/features/admin-styles/admin-styles-ui.php:868
+msgid "Replace \"Howdy\" text"
+msgstr "取代 \"您好\" 文字"
+
+#: includes/features/admin-styles/admin-styles-ui.php:871
+msgid "How to use Admin Styles"
+msgstr "如何使用 Admin Styles"
+
+#: includes/features/admin-styles/admin-styles.php:880
+msgid "Security check failed."
+msgstr "安全性檢查失敗。"
+
+#: includes/features/admin-styles/admin-styles.php:885
+#: includes/manager.php:884
+msgid "You do not have permission to manage admin styles."
+msgstr "您沒有管理 admin 樣式的權限。"
+
+#: includes/features/admin-styles/admin-styles.php:949
+msgid "No role specified."
+msgstr "未指定角色。"
+
+#: includes/features/admin-styles/admin-styles.php:1201
+msgid "Use this Image"
+msgstr "使用這張圖片"
+
+#: includes/features/admin-styles/admin-styles.php:1202
+msgid "Saving..."
+msgstr "儲存中..."
+
+#: includes/features/admin-styles/admin-styles.php:1203
+msgid "Settings saved."
+msgstr "設定已儲存。"
+
+#: includes/features/admin-styles/admin-styles.php:1205
+msgid "Current logo preview"
+msgstr "目前標誌預覽"
+
+#: includes/features/admin-styles/admin-styles.php:1208
+msgid "Add New Custom Style"
+msgstr "新增自訂樣式"
+
+#: includes/features/admin-styles/admin-styles.php:1209
+msgid "Edit Custom Style"
+msgstr "編輯自訂樣式"
+
+#: includes/features/admin-styles/admin-styles.php:1210
+#, php-format
+msgid "Are you sure you want to delete \"%s\" custom style?"
+msgstr "確定要刪除「%s」自訂樣式嗎？"
+
+#: includes/features/admin-styles/admin-styles.php:1211
+msgid "this custom style"
+msgstr "此自訂樣式"
+
+#: includes/features/admin-styles/admin-styles.php:1212
+msgid "Primary Button"
+msgstr "主要按鈕"
+
+#: includes/features/admin-styles/admin-styles.php:1213
+msgid "Hover State"
+msgstr "滑鼠懸停狀態"
+
+#: includes/features/admin-styles/admin-styles.php:1214
+msgid "Notification"
+msgstr "通知"
+
+#: includes/features/admin-styles/admin-styles.php:1215
+msgid "Live preview of your custom color scheme"
+msgstr "自訂色彩配置的即時預覽"
+
+#: includes/features/admin-styles/admin-styles.php:1216
+msgid "Custom Style Name is required."
+msgstr "必須填寫自訂樣式名稱。"
+
+#: includes/features/admin-styles/admin-styles.php:1217
+msgid "Main Admin Color is required."
+msgstr "必須填寫主要 admin 色彩。"
+
+#: includes/features/admin-styles/admin-styles.php:1218
+msgid "PublishPress Custom"
+msgstr "PublishPress 自訂"
+
+#: includes/features/admin-styles/admin-styles.php:1219
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#: includes/features/admin-styles/admin-styles.php:1220
+msgid "Change how this style is displayed"
+msgstr "變更此樣式的顯示方式"
+
+#: includes/features/admin-styles/admin-styles.php:1221
+msgid "Enter a name for your custom style"
+msgstr "輸入自訂樣式的名稱"
+
+#: includes/features/admin-styles/admin-styles.php:1235
+msgid "Forest"
+msgstr "森林"
+
+#: includes/features/admin-styles/admin-styles.php:1252
+msgid "Mint Breeze"
+msgstr "薄荷微風"
+
+#: includes/features/admin-styles/admin-styles.php:1269
+msgid "Cherry"
+msgstr "櫻桃"
+
+#: includes/features/admin-styles/admin-styles.php:1286
+msgid "Graphite"
+msgstr "石墨色"
+
+#: includes/features/admin-styles/admin-styles.php:1303
+msgid "Midnight Teal"
+msgstr "午夜藍綠色"
+
+#: includes/features/admin-styles/admin-styles.php:1320
+msgid "Sunrise"
+msgstr "日出"
+
+#: includes/features/admin-styles/admin-styles.php:1337
+msgid "Desert Sand"
+msgstr "沙漠沙色"
+
+#: includes/features/admin-styles/admin-styles.php:1354
+msgid "Amber Glow"
+msgstr "琥珀光暈"
+
+#: includes/features/admin-styles/admin-styles.php:1371
+msgid "Citrus"
+msgstr "柑橘"
+
+#: includes/features/admin-styles/admin-styles.php:1388
+msgid "Ocean Deep"
+msgstr "深海"
+
+#: includes/features/admin-styles/admin-styles.php:1405
+msgid "Sage"
+msgstr "鼠尾草"
+
+#: includes/features/admin-styles/admin-styles.php:1422
+msgid "Modern Slate"
+msgstr "現代石板灰"
+
+#: includes/features/admin-styles/admin-styles.php:1439
+msgid "Royal Plum"
+msgstr "皇家梅紫"
+
+#: includes/features/admin-styles/admin-styles.php:1456
+msgid "Nordic"
+msgstr "北歐"
+
+#: includes/features/admin-styles/admin-styles.php:1473
+msgid "Lagoon"
+msgstr "潟湖"
+
+#: includes/features/admin-styles/admin-styles.php:1490
+msgid "Ink"
+msgstr "墨色"
+
+#: includes/features/admin-styles/admin-styles.php:1507
+msgid "Orchid"
+msgstr "蘭花"
+
+#: includes/features/admin-styles/admin-styles.php:1524
+msgid "Cobalt"
+msgstr "鈷藍"
+
+#: includes/features/admin-styles/admin-styles.php:1541
+msgid "Stone"
+msgstr "石頭"
+
+#: includes/features/admin-styles/admin-styles.php:1558
+msgid "Facebook Classic"
+msgstr "Facebook Classic"
+
+#: includes/features/admin-styles/admin-styles.php:1575
+msgid "Twitter Classic"
+msgstr "Twitter Classic"
+
+#: includes/features/admin-styles/admin-styles.php:1592
+msgid "Twitter Modern"
+msgstr "Twitter Modern"
+
+#: includes/features/admin-styles/admin-styles.php:2094
+msgid "Main Admin Color settings"
+msgstr "主要管理員色彩設定"
+
+#: includes/features/admin-styles/admin-styles.php:2097
+msgid "Main Admin Color"
+msgstr "主要管理員顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2098
+msgid "Primary brand color"
+msgstr "主要品牌顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2101
+msgid "Text Color"
+msgstr "文字顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2102
+msgid "Primary text color"
+msgstr "主要文字顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2105
+msgid "Highlight Color"
+msgstr "醒目提示顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2106
+msgid "Used for hovers and highlights"
+msgstr "用於滑鼠懸停和醒目提示"
+
+#: includes/features/admin-styles/admin-styles.php:2109
+msgid "Notification Color"
+msgstr "通知顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2110
+msgid "Used for alerts and notifications"
+msgstr "用於警示和通知"
+
+#: includes/features/admin-styles/admin-styles.php:2113
+msgid "Background Color"
+msgstr "背景顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2114
+msgid "Page background color"
+msgstr "頁面背景顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2120
+msgid "Link element colors"
+msgstr "連結元素顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2123
+msgid "Default Link Color"
+msgstr "預設連結顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2124
+msgid "Standard link color"
+msgstr "標準連結顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2127
+msgid "Link Hover Color"
+msgstr "連結懸停顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2128
+msgid "Color on hover"
+msgstr "滑鼠懸停時的顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2131
+msgid "Delete Link Color"
+msgstr "刪除連結顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2132
+msgid "Color for delete/trash actions"
+msgstr "用於刪除／垃圾桶操作的顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2135
+msgid "Trash Link Color"
+msgstr "垃圾桶連結顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2136
+msgid "Color for trash actions"
+msgstr "用於垃圾桶操作的顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2139
+msgid "Spam Link Color"
+msgstr "垃圾郵件連結顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2140
+msgid "Color for spam actions"
+msgstr "垃圾訊息操作顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2143
+msgid "Inactive Link Color"
+msgstr "非作用中連結顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2144
+msgid "Color for inactive items"
+msgstr "非作用中項目顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2149
+msgid "Tables"
+msgstr "表格"
+
+#: includes/features/admin-styles/admin-styles.php:2150
+msgid "Table element colors"
+msgstr "表格元素顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2153
+msgid "Table Header Background"
+msgstr "表格標題背景"
+
+#: includes/features/admin-styles/admin-styles.php:2157
+msgid "Table Header Text"
+msgstr "表格標題文字"
+
+#: includes/features/admin-styles/admin-styles.php:2161
+msgid "Table Row Background"
+msgstr "表格列背景"
+
+#: includes/features/admin-styles/admin-styles.php:2165
+msgid "Table Row Text Color"
+msgstr "表格列文字顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2169
+msgid "Row Hover Background"
+msgstr "滑鼠懸停時的列背景"
+
+#: includes/features/admin-styles/admin-styles.php:2173
+msgid "Table Border Color"
+msgstr "表格框線顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2177
+msgid "Alternate Row Background"
+msgstr "交錯列背景"
+
+#: includes/features/admin-styles/admin-styles.php:2181
+msgid "Alternate Row Text Color"
+msgstr "交錯列文字顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2187
+msgid "Forms"
+msgstr "表單"
+
+#: includes/features/admin-styles/admin-styles.php:2188
+msgid "Form input colors"
+msgstr "表單輸入欄位顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2191
+msgid "Input Border Color"
+msgstr "輸入欄位框線顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2195
+msgid "Input Focus Border"
+msgstr "輸入欄位焦點框線"
+
+#: includes/features/admin-styles/admin-styles.php:2199
+msgid "Input Background Color"
+msgstr "輸入欄位背景顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2203
+msgid "Input Text Color"
+msgstr "輸入欄位文字顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2207
+msgid "Placeholder Text Color"
+msgstr "預留位置文字顏色"
+
+#: includes/features/admin-styles/admin-styles.php:2214
+msgid "Button colors"
+msgstr "按鈕色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2217
+msgid "Primary Button Background"
+msgstr "主要按鈕背景"
+
+#: includes/features/admin-styles/admin-styles.php:2221
+msgid "Primary Button Text"
+msgstr "主要按鈕文字"
+
+#: includes/features/admin-styles/admin-styles.php:2225
+msgid "Primary Button Hover"
+msgstr "主要按鈕懸停效果"
+
+#: includes/features/admin-styles/admin-styles.php:2229
+msgid "Secondary Button Background"
+msgstr "次要按鈕背景"
+
+#: includes/features/admin-styles/admin-styles.php:2233
+msgid "Secondary Button Text"
+msgstr "次要按鈕文字"
+
+#: includes/features/admin-styles/admin-styles.php:2237
+msgid "Secondary Button Hover"
+msgstr "次要按鈕懸停效果"
+
+#: includes/features/admin-styles/admin-styles.php:2244
+msgid "Admin menu colors"
+msgstr "admin 選單色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2247
+msgid "Menu Background"
+msgstr "選單背景"
+
+#: includes/features/admin-styles/admin-styles.php:2251
+msgid "Menu Text Color"
+msgstr "選單文字色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2255
+msgid "Menu Icon Color"
+msgstr "選單圖示色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2259
+msgid "Menu Hover Background"
+msgstr "選單懸停背景"
+
+#: includes/features/admin-styles/admin-styles.php:2263
+msgid "Menu Hover Text"
+msgstr "選單懸停文字"
+
+#: includes/features/admin-styles/admin-styles.php:2267
+msgid "Current Menu Background"
+msgstr "目前選單背景"
+
+#: includes/features/admin-styles/admin-styles.php:2271
+msgid "Current Menu Text"
+msgstr "目前選單文字"
+
+#: includes/features/admin-styles/admin-styles.php:2275
+msgid "Submenu Background"
+msgstr "子選單背景"
+
+#: includes/features/admin-styles/admin-styles.php:2279
+msgid "Submenu Text Color"
+msgstr "子選單文字色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2286
+msgid "Admin bar colors"
+msgstr "admin 列色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2289
+msgid "Admin Bar Background"
+msgstr "admin 列背景"
+
+#: includes/features/admin-styles/admin-styles.php:2293
+msgid "Admin Bar Text"
+msgstr "admin 列文字"
+
+#: includes/features/admin-styles/admin-styles.php:2297
+msgid "Admin Bar Icon"
+msgstr "admin 工具列圖示"
+
+#: includes/features/admin-styles/admin-styles.php:2301
+msgid "Admin Bar Hover Background"
+msgstr "admin 工具列懸停背景"
+
+#: includes/features/admin-styles/admin-styles.php:2305
+msgid "Admin Bar Hover Text"
+msgstr "admin 工具列懸停文字"
+
+#: includes/features/admin-styles/admin-styles.php:2311
+msgid "Dashboard Widgets"
+msgstr "dashboard widgets"
+
+#: includes/features/admin-styles/admin-styles.php:2312
+msgid "Dashboard widget colors"
+msgstr "dashboard widget 色彩"
+
+#: includes/features/admin-styles/admin-styles.php:2315
+msgid "Widget Background"
+msgstr "widget 背景"
+
+#: includes/features/admin-styles/admin-styles.php:2319
+msgid "Widget Border"
+msgstr "widget 邊框"
+
+#: includes/features/admin-styles/admin-styles.php:2323
+msgid "Widget Header Background"
+msgstr "widget 標題背景"
+
+#: includes/features/admin-styles/admin-styles.php:2327
+msgid "Widget Title Text"
+msgstr "widget 標題文字"
+
+#: includes/features/admin-styles/admin-styles.php:2331
+msgid "Widget Body Text"
+msgstr "widget 內文"
+
+#: includes/features/admin-styles/admin-styles.php:2335
+msgid "Widget Link"
+msgstr "widget 連結"
+
+#: includes/features/admin-styles/admin-styles.php:2339
+msgid "Widget Link Hover"
+msgstr "widget 懸停連結"
+
+#: includes/features/admin-styles/admin-styles.php:2345
+#: includes/roles/class/class-pp-roles-admin.php:123
+msgid "Advanced"
+msgstr "進階"
+
+#: includes/features/admin-styles/admin-styles.php:2346
+msgid "Custom selector color rules"
+msgstr "自訂選取器色彩規則"
+
+#: includes/features/editor-features-classic.php:1
+#, php-format
+msgid "Classic Editor %s Restrictions"
+msgstr "Classic Editor %s 限制"
+
+#: includes/features/editor-features-classic.php:7
+#: includes/features/editor-features-gutenberg.php:7
+#, php-format
+msgid "Select all %s editor restrictions"
+msgstr "選取所有 %s 編輯器限制"
+
+#: includes/features/editor-features-classic.php:162
+#: includes/features/editor-features-gutenberg.php:158
+#, php-format
+msgid ""
+"No metaboxes found for %1s. %2s Click here %3s to visit the %4s screen and "
+"refresh this page afterwards to load the new metaboxes."
+msgstr "找不到 %1s 的中繼框。%2s 按一下這裡 %3s 前往 %4s 畫面，然後重新整理此頁面以載入新的中繼框。"
+
+#: includes/features/editor-features-gutenberg.php:1
+#, php-format
+msgid "Gutenberg Editor %s Restrictions"
+msgstr "Gutenberg Editor %s 限制"
+
+#: includes/features/editor-features.php:69
+msgid "Editor Feature Restrictions"
+msgstr "編輯器功能限制"
+
+#: includes/features/editor-features.php:116
+#: includes/features/editor-features.php:222
+msgid "Save for all Post Types"
+msgstr "套用至所有文章類型"
+
+#: includes/features/editor-features.php:120
+#: includes/features/editor-features.php:122
+#: includes/features/editor-features.php:226
+#: includes/features/editor-features.php:228
+#, php-format
+msgid "Save %s Restrictions"
+msgstr "儲存 %s 限制"
+
+#: includes/features/editor-features.php:129
+msgid "Gutenberg"
+msgstr "Gutenberg"
+
+#: includes/features/editor-features.php:132
+msgid "Classic"
+msgstr "傳統編輯器"
+
+#: includes/features/editor-features.php:137
+msgid "show Classic Editor controls"
+msgstr "顯示傳統編輯器控制項"
+
+#: includes/features/editor-features.php:241
+#: includes/functions-admin.php:433
+msgid "Editor Features allows you to remove elements from the post editing screen."
+msgstr "編輯器功能可讓您從文章編輯畫面中移除元素。"
+
+#: includes/features/editor-features.php:249
+msgid "How to use Editor Features"
+msgstr "如何使用編輯器功能"
+
+#: includes/features/frontend-features/frontend-features-action.php:54
+#: includes/features/frontend-features/frontend-features-action.php:117
+#: includes/manager.php:842
+msgid "You do not have permission to manage frontend features."
+msgstr "您沒有管理前台功能的權限。"
+
+#: includes/features/frontend-features/frontend-features-action.php:58
+#: includes/features/frontend-features/frontend-features-ui.php:151
+msgid "All fields are required."
+msgstr "所有欄位皆為必填。"
+
+#: includes/features/frontend-features/frontend-features-action.php:60
+msgid "Load on page types is required."
+msgstr "必須選擇載入的頁面類型。"
+
+#: includes/features/frontend-features/frontend-features-action.php:92
+msgid "Frontend element item updated. Save changes to enable for role."
+msgstr "前台元素項目已更新。儲存變更以啟用此角色的功能。"
+
+#: includes/features/frontend-features/frontend-features-action.php:94
+msgid "New frontend element added. Save changes to enable for role."
+msgstr "已新增前台元素。儲存變更以啟用此角色的功能。"
+
+#: includes/features/frontend-features/frontend-features-action.php:121
+msgid "Invalid request!."
+msgstr "無效的要求！"
+
+#: includes/features/frontend-features/frontend-features-action.php:136
+msgid "Selected item deleted successfully"
+msgstr "已成功刪除所選項目"
+
+#: includes/features/frontend-features/frontend-features-data.php:38
+msgid "Site Dark Mode"
+msgstr "網站深色模式"
+
+#: includes/features/frontend-features/frontend-features-data.php:54
+msgid "Site Light Mode"
+msgstr "網站淺色模式"
+
+#: includes/features/frontend-features/frontend-features-data.php:70
+msgid "Hide Twenty Twenty-Three Credit Footer"
+msgstr "隱藏 Twenty Twenty-Three 頁尾版權資訊"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:55
+#: includes/features/frontend-features/frontend-features.php:70
+#: includes/functions-admin.php:247
+#: includes/functions-admin.php:463
+#: includes/functions-admin.php:575
+msgid "Frontend Features"
+msgstr "前台功能"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:77
+msgid "Choose Frontend Features that will apply to this post."
+msgstr "選擇要套用至此文章的前台功能。"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:94
+#, php-format
+msgid "Select %1$s"
+msgstr "選取 %1$s"
+
+#: includes/features/frontend-features/frontend-features-metaboxes.php:95
+#, php-format
+msgid "Select %1$s..."
+msgstr "選取 %1$s..."
+
+#: includes/features/frontend-features/frontend-features-ui.php:42
+msgid ""
+"This feature allows you to modify the site frontend by hiding IDs or "
+"classes, adding CSS styles, or adding body classes."
+msgstr "此功能可讓您透過隱藏 ID 或類別、加入 CSS 樣式或加入 body 類別，修改網站前端。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:45
+msgid "Editing:"
+msgstr "編輯："
+
+#: includes/features/frontend-features/frontend-features-ui.php:53
+msgid "Title:"
+msgstr "標題："
+
+#: includes/features/frontend-features/frontend-features-ui.php:57
+msgid "Title"
+msgstr "標題"
+
+#: includes/features/frontend-features/frontend-features-ui.php:59
+msgid "This will only show here in the WordPress admin area."
+msgstr "此內容只會顯示在 WordPress admin 區域。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:66
+msgid "Features:"
+msgstr "功能："
+
+#: includes/features/frontend-features/frontend-features-ui.php:73
+msgid "Hide IDs or Classes"
+msgstr "隱藏 ID 或類別"
+
+#: includes/features/frontend-features/frontend-features-ui.php:74
+msgid "Add Custom CSS"
+msgstr "新增自訂 CSS"
+
+#: includes/features/frontend-features/frontend-features-ui.php:75
+msgid "Add Body Class"
+msgstr "新增 Body 類別"
+
+#: includes/features/frontend-features/frontend-features-ui.php:79
+msgid "IDs or classes to hide"
+msgstr "要隱藏的 ID 或類別"
+
+#: includes/features/frontend-features/frontend-features-ui.php:81
+msgid ""
+"Enter IDs or classes to hide. Separate multiple values with a comma "
+"(.custom-item-one, .custom-item-two, #new-item-id)."
+msgstr "輸入要隱藏的 ID 或類別。多個值請以逗號分隔（.custom-item-one, .custom-item-two, #new-item-id）。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:87
+#: includes/features/frontend-features/frontend-features-ui.php:231
+msgid "Custom CSS"
+msgstr "自訂 CSS"
+
+#: includes/features/frontend-features/frontend-features-ui.php:92
+msgid ""
+"Enter custom CSS to be added to frontend pages. Examples: .custom-style-1 { "
+"color: red; } #custom-header { background: red; } "
+msgstr ""
+"輸入要新增至前端頁面的自訂 CSS。例如：.custom-style-1 { color: red; } #custom-header { "
+"background: red; } "
+
+#: includes/features/frontend-features/frontend-features-ui.php:96
+msgid "Body classes"
+msgstr "Body 類別"
+
+#: includes/features/frontend-features/frontend-features-ui.php:98
+msgid "Enter classes to add the body HTML. Do not include the . before the HTML."
+msgstr "輸入要新增至 body HTML 的類別。請勿在 HTML 前加上 .。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:99
+msgid "Separate multiple values with a space (custom-style-one custom-style-two)."
+msgstr "多個值請以空格分隔（custom-style-one custom-style-two）。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:100
+msgid "You can add the CSS for your classes by clicking \"Add Custom CSS\"."
+msgstr "您可以點選「新增自訂 CSS」來為類別新增 CSS。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:101
+msgid ""
+"Enter classes that should be added to the body HTML. Separate multiple "
+"values with a space (custom-item-one custom-item-two)."
+msgstr "輸入要新增至 body HTML 的類別。多個值請以空格分隔（custom-item-one custom-item-two）。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:109
+msgid "Load on page types:"
+msgstr "載入於頁面類型："
+
+#: includes/features/frontend-features/frontend-features-ui.php:116
+msgid "Whole Site"
+msgstr "整個網站"
+
+#: includes/features/frontend-features/frontend-features-ui.php:117
+msgid "Selected Pages"
+msgstr "已選取的頁面"
+
+#: includes/features/frontend-features/frontend-features-ui.php:125
+msgid "This feature will be added to all pages."
+msgstr "此功能將新增至所有頁面。"
+
+#: includes/features/frontend-features/frontend-features-ui.php:133
+msgid "Add post metabox:"
+msgstr "新增文章中繼資料框："
+
+#: includes/features/frontend-features/frontend-features-ui.php:148
+msgid "Cancel Edit"
+msgstr "取消編輯"
+
+#: includes/features/frontend-features/frontend-features-ui.php:152
+#: includes/features/frontend-features/frontend-features-ui.php:155
+#: includes/features/restrict-editor-features.php:47
+#: includes/roles/roles.php:10
+msgid "Add New"
+msgstr "新增"
+
+#: includes/features/frontend-features/frontend-features-ui.php:153
+msgid "Save Edit"
+msgstr "儲存編輯"
+
+#: includes/features/frontend-features/frontend-features-ui.php:221
+msgid "Hidden IDs or Classes"
+msgstr "隱藏的 ID 或類別"
+
+#: includes/features/frontend-features/frontend-features-ui.php:226
+msgid "Body Class"
+msgstr "主體類別"
+
+#: includes/features/frontend-features/frontend-features-ui.php:248
+msgid "Post Type Metabox"
+msgstr "post type 中繼資料框"
+
+#: includes/features/frontend-features/frontend-features.php:153
+#, php-format
+msgid "Enable Frontend Features for %1$s Role"
+msgstr "為 %1$s 角色啟用前端功能"
+
+#: includes/features/frontend-features/frontend-features.php:250
+#: includes/functions-admin.php:464
+msgid ""
+"Frontend Features allows you to add or remove elements from the frontend of "
+"your site."
+msgstr "前端功能可讓您在網站前端新增或移除元素。"
+
+#: includes/features/frontend-features/frontend-features.php:255
+msgid "Apply custom styling"
+msgstr "套用自訂樣式"
+
+#: includes/features/frontend-features/frontend-features.php:258
+msgid "How to use Frontend Features"
+msgstr "如何使用前端功能"
+
+#: includes/features/nav-menus.php:61
+msgid "Navigation Menu Restrictions"
+msgstr "導覽選單限制"
+
+#: includes/features/nav-menus.php:276
+msgid ""
+"There are no frontend menu links. To control access to navigation menus, "
+"please add menu links."
+msgstr "沒有前端選單連結。若要控管對導覽選單的存取權，請新增選單連結。"
+
+#: includes/features/nav-menus.php:302
+#: includes/functions-admin.php:469
+msgid "Navigation Menus allows you to block access to frontend menu links."
+msgstr "導覽選單可讓您封鎖對前端選單連結的存取權。"
+
+#: includes/features/nav-menus.php:310
+msgid "How to use Navigation Menus"
+msgstr "如何使用導覽選單"
+
+#: includes/features/profile-features.php:46
+msgid "Profile Feature Restrictions"
+msgstr "個人資料功能限制"
+
+#: includes/features/profile-features.php:145
+msgid "Click the \"Find profile items for this role\" button."
+msgstr "點選「尋找此角色的個人資料項目」按鈕。"
+
+#: includes/features/profile-features.php:147
+msgid ""
+"There are no users in this role. Please select a role that has users and is "
+"able to access the \"Profile\" screen."
+msgstr "此角色沒有使用者。請選取一個包含使用者且可存取「個人資料」畫面的角色。"
+
+#: includes/features/profile-features.php:244
+msgid "Allow PublishPress to find profile items for this role."
+msgstr "允許 PublishPress 為此角色尋找個人資料項目。"
+
+#: includes/features/profile-features.php:245
+msgid "Find profile items for this role"
+msgstr "為此角色尋找個人資料項目"
+
+#: includes/features/profile-features.php:246
+#, php-format
+msgid "The %s role is not enabled for editing. The Find button is disabled."
+msgstr "%s 角色未啟用編輯功能。「尋找」按鈕已停用。"
+
+#: includes/features/profile-features.php:247
+#, php-format
+msgid "This feature will test the \"Profile\" screen as a user in the %s role."
+msgstr "此功能會以 %s 角色的使用者身分測試「個人資料」畫面。"
+
+#: includes/features/profile-features.php:249
+msgid "Refresh Profile Features"
+msgstr "重新整理個人資料功能"
+
+#: includes/features/profile-features.php:254
+#: includes/functions-admin.php:454
+msgid "Profile Features allows you to remove elements from the Profile screen."
+msgstr "「個人資料功能」可讓您從個人資料畫面移除元素。"
+
+#: includes/features/profile-features.php:262
+msgid "How to use Profile Features"
+msgstr "如何使用個人資料功能"
+
+#: includes/features/restrict-admin-features.php:36
+msgid "Hide Default Items"
+msgstr "隱藏預設項目"
+
+#: includes/features/restrict-admin-features.php:37
+msgid "Hide Admin Toolbar"
+msgstr "隱藏 admin 工具列"
+
+#: includes/features/restrict-admin-features.php:38
+msgid "Hide Dashboard Widgets"
+msgstr "隱藏 dashboard 小工具"
+
+#: includes/features/restrict-admin-features.php:91
+msgid "Mobile Menu Toggle"
+msgstr "行動版選單切換"
+
+#: includes/features/restrict-admin-features.php:92
+msgid "WordPress Logo"
+msgstr "WordPress 標誌"
+
+#: includes/features/restrict-admin-features.php:93
+msgid "WordPress External Links"
+msgstr "WordPress 外部連結"
+
+#: includes/features/restrict-admin-features.php:96
+msgid "Right bar"
+msgstr "右側欄"
+
+#: includes/features/restrict-admin-features.php:97
+msgid "User actions"
+msgstr "使用者操作"
+
+#: includes/features/restrict-admin-features.php:98
+#: includes/features/restrict-admin-features.php:99
+msgid "New"
+msgstr "新增"
+
+#: includes/features/restrict-admin-features.php:100
+msgid "User Display Name"
+msgstr "使用者顯示名稱"
+
+#: includes/features/restrict-admin-features.php:101
+msgid "Yoast SEO"
+msgstr "Yoast SEO"
+
+#: includes/features/restrict-admin-features.php:102
+msgid "Edit Post"
+msgstr "編輯文章"
+
+#: includes/features/restrict-admin-features.php:103
+msgid "Edit Site"
+msgstr "編輯網站"
+
+#: includes/features/restrict-admin-features.php:189
+msgid "Thank you for creating with WordPress"
+msgstr "感謝您使用 WordPress 創作"
+
+#: includes/features/restrict-admin-features.php:239
+#: includes/mcp/feature-operations.php:311
+msgid "Welcome panel"
+msgstr "歡迎面板"
+
+#: includes/features/restrict-admin-features.php:273
+msgid "Remove Admin Toolbar"
+msgstr "移除 admin 工具列"
+
+#: includes/features/restrict-editor-features.php:40
+msgid "Top Tabs"
+msgstr "頂部分頁"
+
+#: includes/features/restrict-editor-features.php:59
+msgid "Slug"
+msgstr "代稱"
+
+#: includes/features/restrict-editor-features.php:62
+msgid "Media Buttons (all)"
+msgstr "媒體按鈕（全部）"
+
+#: includes/features/restrict-editor-features.php:67
+msgid "HTML Editor Button"
+msgstr "HTML 編輯器按鈕"
+
+#: includes/features/restrict-editor-features.php:72
+msgid "Word count"
+msgstr "字數"
+
+#: includes/features/restrict-editor-features.php:77
+#: includes/features/restrict-editor-features.php:78
+msgid "Publish Box"
+msgstr "發布方塊"
+
+#: includes/features/restrict-editor-features.php:85
+msgid "Publish Actions"
+msgstr "發布操作"
+
+#: includes/features/restrict-editor-features.php:91
+msgid "Taxonomy Boxes"
+msgstr "taxonomy 方塊"
+
+#: includes/features/restrict-editor-features.php:126
+msgid "Page Boxes"
+msgstr "頁面方塊"
+
+#: includes/features/restrict-editor-features.php:148
+msgid "Other Boxes"
+msgstr "其他方塊"
+
+#: includes/features/restrict-editor-features.php:150
+msgid "Featured Image"
+msgstr "精選圖片"
+
+#: includes/features/restrict-editor-features.php:164
+msgid "Coupon Description"
+msgstr "優惠券說明"
+
+#: includes/features/restrict-editor-features.php:382
+msgid "Top Bar - Left"
+msgstr "頂端列 - 左側"
+
+#: includes/features/restrict-editor-features.php:383
+msgid "Add block"
+msgstr "新增區塊"
+
+#: includes/features/restrict-editor-features.php:384
+msgid "Modes"
+msgstr "模式"
+
+#: includes/features/restrict-editor-features.php:388
+msgid "Outline"
+msgstr "大綱"
+
+#: includes/features/restrict-editor-features.php:389
+msgid "Document Overview"
+msgstr "文件總覽"
+
+#: includes/features/restrict-editor-features.php:390
+msgid "Document Bar Title"
+msgstr "文件標題列"
+
+#: includes/features/restrict-editor-features.php:393
+msgid "Top Bar - Right"
+msgstr "頂端列 - 右側"
+
+#: includes/features/restrict-editor-features.php:395
+msgid "Switch to Draft"
+msgstr "切換為草稿"
+
+#: includes/features/restrict-editor-features.php:398
+msgid "Publish / Update"
+msgstr "發佈 / 更新"
+
+#: includes/features/restrict-editor-features.php:400
+msgid "Options"
+msgstr "選項"
+
+#: includes/features/restrict-editor-features.php:403
+msgid "Body"
+msgstr "內文"
+
+#: includes/features/restrict-editor-features.php:415
+msgid "Add new block"
+msgstr "新增區塊"
+
+#: includes/features/restrict-editor-features.php:420
+msgid "Document Panel"
+msgstr "文件面板"
+
+#: includes/features/restrict-editor-features.php:421
+msgid "Settings Panel"
+msgstr "設定面板"
+
+#: includes/features/restrict-editor-features.php:422
+msgid "Status & visibility"
+msgstr "狀態與可見度"
+
+#: includes/features/restrict-editor-features.php:428
+msgid "Permalink"
+msgstr "固定連結"
+
+#: includes/features/restrict-editor-features.php:461
+msgid "Featured image"
+msgstr "精選圖片"
+
+#: includes/features/restrict-editor-features.php:476
+msgid "Post Attributes"
+msgstr "文章屬性"
+
+#: includes/features/restrict-editor-features.php:482
+#: includes/features/restrict-editor-features.php:483
+msgid "Block Panel"
+msgstr "區塊面板"
+
+#: includes/features/restrict-editor-features.php:484
+msgid "Paragraph"
+msgstr "段落"
+
+#: includes/features/restrict-editor-features.php:485
+msgid "Typography"
+msgstr "排版"
+
+#: includes/features/restrict-editor-features.php:486
+msgid "Color settings"
+msgstr "色彩設定"
+
+#: includes/features/restrict-editor-features.php:487
+msgid "Text settings"
+msgstr "文字設定"
+
+#: includes/features/restrict-profile-features.php:53
+msgid "This role is not enabled for profile feature editing."
+msgstr "此角色未啟用個人資料功能編輯權限。"
+
+#: includes/features/restrict-profile-features.php:118
+msgid "An error occurred!"
+msgstr "發生錯誤！"
+
+#: includes/features/restrict-profile-features.php:131
+msgid "Profile features access disabled."
+msgstr "個人檔案功能存取已停用。"
+
+#: includes/features/restrict-profile-features.php:136
+msgid "Invalid role provided."
+msgstr "提供的角色無效。"
+
+#: includes/features/restrict-profile-features.php:144
+msgid "Profile features access enabled for this role."
+msgstr "已為此角色啟用個人檔案功能存取。"
+
+#: includes/functions-admin.php:220
+#: includes/functions-admin.php:432
+#: includes/functions-admin.php:526
+#: includes/roles/class/class-pp-roles-admin.php:553
+#: includes/settings-ui.php:36
+msgid "Editor Features"
+msgstr "編輯器功能"
+
+#: includes/functions-admin.php:231
+#: includes/functions-admin.php:437
+#: includes/functions-admin.php:533
+#: includes/roles/class/class-pp-roles-admin.php:554
+msgid "Admin Features"
+msgstr "admin 功能"
+
+#: includes/functions-admin.php:251
+#: includes/functions-admin.php:453
+#: includes/functions-admin.php:561
+#: includes/roles/class/class-pp-roles-admin.php:555
+#: includes/settings-ui.php:37
+msgid "Profile Features"
+msgstr "個人檔案功能"
+
+#: includes/functions-admin.php:257
+#: includes/functions-admin.php:458
+#: includes/functions-admin.php:568
+msgid "Redirects"
+msgstr "重新導向"
+
+#: includes/functions-admin.php:261
+msgid "Nav Menu"
+msgstr "導覽選單"
+
+#: includes/functions-admin.php:265
+msgid "Application Password Capabilities"
+msgstr "應用程式密碼權限"
+
+#: includes/functions-admin.php:423
+msgid ""
+"Roles allows you to create, edit, and delete all the user roles on your "
+"site."
+msgstr "「角色」可讓您建立、編輯及刪除網站上的所有使用者角色。"
+
+#: includes/functions-admin.php:428
+msgid "Capabilities allows you to change the permissions for any user role."
+msgstr "「權限」可讓您變更任何使用者角色的權限。"
+
+#: includes/functions-admin.php:443
+msgid "Admin Styles allows you to customize the admin area with your own branding."
+msgstr "「admin 樣式」可讓您使用自己的品牌風格自訂 admin 區域。"
+
+#: includes/functions-admin.php:459
+msgid ""
+"Redirects allows you to redirect users in a role after Registration, Login "
+"or Logout."
+msgstr "「重新導向」可讓您在使用者註冊、登入或登出後，重新導向特定角色的使用者。"
+
+#: includes/functions-admin.php:468
+#: includes/functions-admin.php:582
+#: includes/roles/class/class-pp-roles-admin.php:557
+msgid "Navigation Menus"
+msgstr "導覽選單"
+
+#: includes/functions-admin.php:473
+#: includes/settings-ui.php:40
+#: includes/test-user-ui.php:38
+msgid "User Testing"
+msgstr "使用者測試"
+
+#: includes/functions-admin.php:474
+msgid ""
+"Test your site by instantly logging in as another user. Available accounts "
+"include any which the current user can edit."
+msgstr "立即以其他使用者身分登入，即可測試您的網站。可用帳戶包括目前使用者可以編輯的所有帳戶。"
+
+#: includes/functions-admin.php:479
+msgid ""
+"Remove Admin Notices from WordPress admin screen and organize them in to a "
+"single area."
+msgstr "從 WordPress admin 畫面移除 admin 通知，並將它們整理到同一個區域。"
+
+#: includes/functions.php:713
+msgid "Login permission denied."
+msgstr "登入權限遭拒。"
+
+#: includes/functions.php:878
+msgid "Need PublishPress Capabilities Support?"
+msgstr "需要 PublishPress Capabilities 支援嗎？"
+
+#: includes/functions.php:883
+msgid "If you need help or have a new feature request, let us know."
+msgstr "如果您需要協助或有新功能需求，請告訴我們。"
+
+#: includes/functions.php:886
+msgid "Request Support"
+msgstr "請求支援"
+
+#: includes/functions.php:895
+msgid "Detailed documentation is also available on the plugin website."
+msgstr "外掛網站上也提供詳細說明文件。"
+
+#: includes/functions.php:897
+msgid "View Knowledge Base"
+msgstr "檢視知識庫"
+
+#: includes/functions.php:1129
+msgid "Social Links"
+msgstr "社群連結"
+
+#: includes/functions.php:1130
+msgid "Page Lists"
+msgstr "頁面清單"
+
+#: includes/handler.php:45
+msgid "New role created."
+msgstr "已建立新角色。"
+
+#: includes/handler.php:51
+msgid "Error: Failed creating the new role."
+msgstr "錯誤：建立新角色失敗。"
+
+#: includes/handler.php:71
+#: includes/handler.php:97
+#: includes/manager.php:1369
+msgid "The selected role is not editable."
+msgstr "所選角色無法編輯。"
+
+#: includes/handler.php:108
+msgid "You do not have permission to grant this capability."
+msgstr "您沒有授予此功能權限的權限。"
+
+#: includes/handler.php:130
+msgid "Incorrect capability name."
+msgstr "功能權限名稱不正確。"
+
+#: includes/handler.php:135
+msgid "Type / Taxonomy settings saved."
+msgstr "類型／taxonomy 設定已儲存。"
+
+#: includes/handler.php:138
+msgid "Bad form received."
+msgstr "收到的表單無效。"
+
+#: includes/handler.php:268
+msgid "You cannot remove Manage Capabilities from Administrators"
+msgstr "您無法從管理員角色中移除「管理功能權限」"
+
+#: includes/handler.php:366
+msgid "The selected application password is not editable."
+msgstr "所選的應用程式密碼無法編輯。"
+
+#: includes/handler.php:370
+msgid "Application password capabilities saved."
+msgstr "應用程式密碼功能權限已儲存。"
+
+#: includes/handler.php:377
+msgid "Network synchronization requires a main-site network administrator."
+msgstr "網路同步需要主網站的網路管理員。"
+
+#: includes/handler.php:381
+msgid "Choose an existing role and a synchronization operation."
+msgstr "請選擇現有角色和同步作業。"
+
+#: includes/manager.php:251
+msgid "This capability is explicitly negated. Click to add/remove normally."
+msgstr "此功能權限已明確設為否定。按一下即可正常新增／移除。"
+
+#: includes/manager.php:259
+msgid "Explicity negate this capability by storing as disabled"
+msgstr "將此功能權限儲存為停用狀態，以明確設為否定"
+
+#: includes/manager.php:260
+msgid "Explicitly negate these capabilities by storing as disabled"
+msgstr "將這些功能權限儲存為停用狀態，以明確設為否定"
+
+#: includes/manager.php:261
+msgid "Post type registration does not define this capability distinctly"
+msgstr "Post type 註冊未明確定義此功能"
+
+#: includes/manager.php:263
+msgid "Add or remove this capability from the WordPress role"
+msgstr "從 WordPress 角色新增或移除此功能"
+
+#: includes/manager.php:264
+msgid "Add or remove capability from the role normally"
+msgstr "依一般方式從角色新增或移除此功能"
+
+#: includes/manager.php:265
+msgid "Are you sure you want to delete this item ?"
+msgstr "確定要刪除此項目嗎？"
+
+#: includes/manager.php:266
+msgid "Add or clear custom item entry before saving changes."
+msgstr "請先新增或清除自訂項目項目，再儲存變更。"
+
+#: includes/manager.php:267
+#, php-format
+msgid "Found %1$d match in %2$d tab"
+msgstr "在 %2$d 個索引標籤中找到 %1$d 個符合項目"
+
+#: includes/manager.php:268
+#, php-format
+msgid "Found %1$d match in %2$d tabs"
+msgstr "在 %2$d 個索引標籤中找到 %1$d 個符合項目"
+
+#: includes/manager.php:269
+#, php-format
+msgid "Found %1$d matches in %2$d tab"
+msgstr "在 %2$d 個索引標籤中找到 %1$d 個符合項目"
+
+#: includes/manager.php:270
+#, php-format
+msgid "Found %1$d matches in %2$d tabs"
+msgstr "在 %2$d 個索引標籤中找到 %1$d 個符合項目"
+
+#: includes/manager.php:271
+#, php-format
+msgid "No matches found for \"%s\""
+msgstr "找不到符合「%s」的項目"
+
+#: includes/manager.php:588
+#: includes/roles/class/class-pp-roles-list-table.php:178
+msgid "Select all roles"
+msgstr "選取所有角色"
+
+#: includes/manager.php:589
+#: includes/roles/class/class-pp-roles-admin.php:172
+#: includes/roles/class/class-pp-roles-list-table.php:179
+msgid "Role Name"
+msgstr "角色名稱"
+
+#: includes/manager.php:591
+#: includes/roles/class/class-pp-roles-list-table.php:181
+msgid "Role Type"
+msgstr "角色類型"
+
+#: includes/manager.php:592
+#: includes/roles/class/class-pp-roles-list-table.php:182
+msgid "Default Role"
+msgstr "預設角色"
+
+#: includes/manager.php:593
+#: includes/roles/class/class-pp-roles-list-table.php:183
+msgid "Admin Access"
+msgstr "admin 存取權"
+
+#: includes/manager.php:620
+msgid "You do not have permission to manage roles."
+msgstr "您沒有管理角色的權限。"
+
+#: includes/manager.php:658
+#: includes/manager.php:677
+msgid "You do not have permission to manage editor features."
+msgstr "您沒有管理編輯器功能的權限。"
+
+#: includes/manager.php:663
+msgid "You do not have permission to manage editor features for this role."
+msgstr "您沒有管理此角色編輯器功能的權限。"
+
+#: includes/manager.php:736
+#: includes/manager.php:758
+#: includes/manager.php:977
+#: includes/manager.php:1164
+msgid "You do not have permission to manage admin features."
+msgstr "您沒有管理 admin 功能的權限。"
+
+#: includes/manager.php:817
+msgid "You do not have permission to save these settings."
+msgstr "您沒有儲存這些設定的權限。"
+
+#: includes/manager.php:823
+msgid "You do not have permission to save settings for this role."
+msgstr "您沒有權限儲存此角色的設定。"
+
+#: includes/manager.php:1021
+#: includes/manager.php:1039
+msgid "You do not have permission to manage profile features."
+msgstr "您沒有權限管理個人資料功能。"
+
+#: includes/manager.php:1026
+msgid "You do not have permission to manage profile features for this role."
+msgstr "您沒有權限管理此角色的個人資料功能。"
+
+#: includes/manager.php:1104
+msgid "You do not have permission to manage redirect."
+msgstr "您沒有權限管理重新導向。"
+
+#: includes/manager.php:1256
+#: includes/manager.php:1307
+#: includes/manager.php:1325
+msgid "You do not have permission to manage capabilities."
+msgstr "您沒有權限管理功能權限。"
+
+#: includes/manager.php:1334
+msgid "Network sync completed."
+msgstr "網路同步已完成。"
+
+#: includes/manager.php:1336
+msgid "Network sync has been queued and will continue in the background."
+msgstr "網路同步已排入佇列，將在背景繼續執行。"
+
+#: includes/manager.php:1352
+msgid "New capability added to role."
+msgstr "已將新功能權限新增至角色。"
+
+#: includes/manager.php:1398
+msgid "Bad form Received"
+msgstr "收到無效的表單"
+
+#: includes/manager.php:1527
+msgid "You do not have permission to restore roles."
+msgstr "您沒有權限還原角色。"
+
+#: includes/manager.php:1574
+msgid "You do not have permission to perform this action."
+msgstr "您沒有權限執行此動作。"
+
+#: includes/manager.php:1594
+msgid "Select at least one role to export."
+msgstr "請至少選取一個要匯出的角色。"
+
+#: includes/manager.php:1728
+msgid ""
+"There are no users in this role on this site. Add a user to this role, then "
+"find profile items again."
+msgstr "此網站上沒有屬於此角色的使用者。請將使用者新增至此角色，然後再次尋找個人資料項目。"
+
+#: includes/manager.php:1734
+msgid ""
+"Profile items could not be detected because User Testing is disabled, you "
+"cannot test the user in this role, or the user cannot access the Profile "
+"screen."
+msgstr "無法偵測個人資料項目，原因可能是「使用者測試」已停用、您無法測試此角色中的使用者，或該使用者無法存取個人資料畫面。"
+
+#: includes/manager.php:1773
+msgid ""
+"Profile items could not be detected because users in this role are blocked "
+"from the admin area by the Block Dashboard Access option."
+msgstr "無法偵測個人資料項目，因為此角色中的使用者因「封鎖 dashboard 存取」選項而無法進入 admin 區域。"
+
+#: includes/manager.php:1853
+#, php-format
+msgid "If you like %s, please leave us a %s rating. Thank you!"
+msgstr "如果您喜歡 %s，請給我們 %s 評分。謝謝！"
+
+#: includes/manager.php:1855
+msgid "five-star"
+msgstr "五星"
+
+#: includes/manager.php:1864
+msgid "About PublishPress Capabilities"
+msgstr "關於 PublishPress Capabilities"
+
+#: includes/manager.php:1864
+msgid "About"
+msgstr "關於"
+
+#: includes/manager.php:1866
+msgid "Capabilites Documentation"
+msgstr "Capabilites 文件"
+
+#: includes/manager.php:1866
+msgid "Documentation"
+msgstr "說明文件"
+
+#: includes/manager.php:1868
+msgid "Contact the PublishPress team"
+msgstr "聯絡 PublishPress 團隊"
+
+#: includes/manager.php:1868
+msgid "Contact"
+msgstr "聯絡我們"
+
+#: includes/mcp/ability-registry.php:41
+msgid "Use the exact input types shown in discovery."
+msgstr "使用探索結果中顯示的確切輸入類型。"
+
+#: includes/mcp/ability-registry.php:77
+msgid "List capabilities"
+msgstr "列出功能"
+
+#: includes/mcp/ability-registry.php:78
+msgid ""
+"List known role, post-type and taxonomy capabilities, optionally filtered "
+"by name."
+msgstr "列出已知的角色、文章類型和 taxonomy 功能，可選擇依名稱篩選。"
+
+#: includes/mcp/ability-registry.php:86
+msgid "Compare roles"
+msgstr "比較角色"
+
+#: includes/mcp/ability-registry.php:87
+msgid ""
+"Compare stored role grants and denials. Null means a capability is absent, "
+"false means explicitly denied."
+msgstr "比較已儲存的角色授權與拒絕項目。Null 表示功能不存在；false 表示明確拒絕。"
+
+#: includes/mcp/ability-registry.php:95
+msgid "Create role"
+msgstr "建立角色"
+
+#: includes/mcp/ability-registry.php:96
+msgid ""
+"Create an empty role or copy capabilities from source_role. Does not "
+"overwrite an existing role. Use update-role-capabilities for grants. MCP "
+"refuses copying administrator-level capabilities."
+msgstr ""
+"建立空白角色，或從 source_role 複製功能。若角色已存在，則不會覆寫。使用 update-role-capabilities "
+"進行授權。MCP 拒絕複製管理員層級的功能。"
+
+#: includes/mcp/ability-registry.php:106
+msgid "Rename role"
+msgstr "重新命名角色"
+
+#: includes/mcp/ability-registry.php:107
+msgid ""
+"Change a role display name while retaining its slug, users, settings and "
+"capabilities."
+msgstr "變更角色的顯示名稱，同時保留其代稱、使用者、設定和功能。"
+
+#: includes/mcp/ability-registry.php:116
+#: includes/roles/class/class-pp-roles-admin.php:259
+msgid "Delete role"
+msgstr "刪除角色"
+
+#: includes/mcp/ability-registry.php:117
+msgid ""
+"Delete a custom editable role. Existing users with no remaining role move "
+"to the site default. System/default/own roles are protected."
+msgstr "刪除可編輯的自訂角色。沒有其他角色的現有使用者會移至網站預設角色。系統角色、預設角色和自己的角色受到保護。"
+
+#: includes/mcp/ability-registry.php:127
+msgid "Update role capabilities"
+msgstr "更新角色功能"
+
+#: includes/mcp/ability-registry.php:128
+msgid ""
+"Patch capabilities: grant=true, deny=false, remove=unset. Unmentioned "
+"capabilities remain unchanged. Use dry_run to inspect before/after without "
+"saving. Changes are validated before writes. MCP refuses new "
+"administrator-level grants, including in dry runs."
+msgstr ""
+"修補功能：grant=true 表示授權，deny=false 表示拒絕，remove=unset 表示移除設定。未提及的功能維持不變。使用 "
+"dry_run 檢視變更前後的狀態，但不儲存。寫入前會驗證變更。MCP 拒絕新增管理員層級的授權，包括在 dry run 中。"
+
+#: includes/mcp/ability-registry.php:146
+msgid "Get role options"
+msgstr "取得角色選項"
+
+#: includes/mcp/ability-registry.php:147
+msgid ""
+"Read role editor preference, login/dashboard access and assignment "
+"disabling settings."
+msgstr "讀取角色編輯器偏好設定、登入／dashboard 存取權，以及停用指派的設定。"
+
+#: includes/mcp/ability-registry.php:155
+msgid "Update role options"
+msgstr "更新角色選項"
+
+#: includes/mcp/ability-registry.php:156
+msgid ""
+"Patch role options without changing capabilities. "
+"Administrator/default/own-role lockout protections apply."
+msgstr "修補角色選項，不變更功能。適用管理員、預設角色和自己的角色鎖定保護措施。"
+
+#: includes/mcp/ability-registry.php:189
+msgid "List features"
+msgstr "列出功能"
+
+#: includes/mcp/ability-registry.php:190
+msgid ""
+"Discover all Capabilities menus, enabled states, permission names and "
+"supported configuration fields."
+msgstr "探索所有 Capabilities 選單、啟用狀態、權限名稱及支援的設定欄位。"
+
+#: includes/mcp/ability-registry.php:198
+msgid "Set feature enabled"
+msgstr "設定功能啟用狀態"
+
+#: includes/mcp/ability-registry.php:199
+msgid ""
+"Enable or disable a Capabilities dashboard feature on this site. Disabled "
+"features reject their configuration actions."
+msgstr "在此網站啟用或停用 Capabilities dashboard 功能。停用的功能會拒絕其設定操作。"
+
+#: includes/mcp/ability-registry.php:208
+msgid "Get feature choices"
+msgstr "取得功能選項"
+
+#: includes/mcp/ability-registry.php:209
+msgid ""
+"Discover existing editor/admin elements, captured profile/frontend "
+"elements, menu snapshots with exact restriction_value identifiers, "
+"navigation items or admin style templates. Does not capture new browser UI."
+msgstr ""
+"探索現有的編輯器/admin 元素、擷取的個人檔案/前端元素、含有確切 restriction_value 識別碼的選單快照、導覽項目或 admin "
+"樣式範本。不會擷取新的瀏覽器 UI。"
+
+#: includes/mcp/ability-registry.php:217
+msgid "Get feature settings"
+msgstr "取得功能設定"
+
+#: includes/mcp/ability-registry.php:218
+msgid ""
+"Read a role's settings for an enabled feature. Editor restrictions are "
+"specific to post_type and editor. Navigation also supports ppc_guest and "
+"ppc_users."
+msgstr "讀取某個角色針對已啟用功能的設定。編輯器限制會依 post_type 和 editor 區分。導覽也支援 ppc_guest 和 ppc_users。"
+
+#: includes/mcp/ability-registry.php:232
+msgid "Update feature settings"
+msgstr "更新功能設定"
+
+#: includes/mcp/ability-registry.php:233
+msgid ""
+"Patch feature settings for one role. List fields replace their lists; "
+"unmentioned fields and other roles remain unchanged. dry_run validates and "
+"returns proposed values without saving. Discover fields with list-features. "
+"For admin-menus, first get-feature-choices and use discovery "
+"restriction_value identifiers. New unknown menu identifiers are rejected."
+msgstr ""
+"修補單一角色的功能設定。清單欄位會取代原有清單；未提及的欄位和其他角色則維持不變。dry_run 會驗證並傳回預計值，但不會儲存。使用 "
+"list-features 探索欄位。對於 admin-menus，請先執行 get-feature-choices，並使用探索到的 "
+"restriction_value 識別碼。拒絕新的未知選單識別碼。"
+
+#: includes/mcp/ability-registry.php:246
+msgid "Bulk update feature settings"
+msgstr "批次更新功能設定"
+
+#: includes/mcp/ability-registry.php:247
+msgid ""
+"Apply the same feature settings to multiple roles, validating all targets "
+"before writing. dry_run returns proposed settings only."
+msgstr "將相同的功能設定套用至多個角色，並在寫入前驗證所有目標。dry_run 只會傳回預計設定。"
+
+#: includes/mcp/ability-registry.php:256
+msgid "Get plugin settings"
+msgstr "取得外掛設定"
+
+#: includes/mcp/ability-registry.php:257
+msgid ""
+"Read Capabilities > Settings and the supported setting descriptions. "
+"Includes Roles > Multiples roles on Add New User and User Edit (Edit User), "
+"Editor Features > Show private post types, Capabilities visibility, User "
+"Testing, Admin Menus and Pro settings."
+msgstr ""
+"讀取 Capabilities > Settings 及支援的設定說明。包括在 Add New User 和 User Edit (Edit "
+"User) 中的 Roles > Multiples roles、Editor Features > Show private post "
+"types、Capabilities 可見度、User Testing、Admin Menus 和 Pro 設定。"
+
+#: includes/mcp/ability-registry.php:265
+msgid "Update plugin settings"
+msgstr "更新外掛設定"
+
+#: includes/mcp/ability-registry.php:266
+msgid ""
+"Enable, disable or update Capabilities > Settings options. Supports "
+"multiple roles on Add New User or User Edit (Edit User), Show private post "
+"types under Editor Features or Capabilities, User Testing and Admin Menus "
+"settings. Read get-plugin-settings to identify the exact field. Change only "
+"the requested field. This saves individual settings, unlike "
+"set-feature-enabled which toggles whole screens."
+msgstr ""
+"啟用、停用或更新 Capabilities > Settings 選項。支援 Add New User 或 User Edit (Edit User) "
+"中的多個角色、Editor Features 或 Capabilities 下的 Show private post types、User "
+"Testing 和 Admin Menus 設定。讀取 get-plugin-settings "
+"以找出確切欄位。只變更要求的欄位。此操作會儲存個別設定，與切換整個畫面的 set-feature-enabled 不同。"
+
+#: includes/mcp/ability-registry.php:283
+msgid "List backups"
+msgstr "列出備份"
+
+#: includes/mcp/ability-registry.php:284
+msgid ""
+"List saved manual, initial and automatic Capabilities role backups. Returns "
+"identifiers for restore-backup."
+msgstr "列出已儲存的手動、初始和自動 Capabilities 角色備份。傳回供 restore-backup 使用的識別碼。"
+
+#: includes/mcp/ability-registry.php:292
+msgid "Create backup"
+msgstr "建立備份"
+
+#: includes/mcp/ability-registry.php:293
+msgid ""
+"Save the current roles and plugin feature settings using the existing "
+"manual backup format. Replaces the last manual backup."
+msgstr "使用現有的手動備份格式，儲存目前的角色和外掛功能設定。取代最後一份手動備份。"
+
+#: includes/mcp/ability-registry.php:303
+msgid "Restore backup"
+msgstr "還原備份"
+
+#: includes/mcp/ability-registry.php:304
+msgid ""
+"Restore a listed backup. Manual backups include feature settings; "
+"initial/automatic backups restore roles. Use dry_run before applying."
+msgstr "還原列出的備份。手動備份包含功能設定；初始／自動備份會還原角色。套用前請使用 dry_run。"
+
+#: includes/mcp/ability-registry.php:313
+msgid "Export configuration"
+msgstr "匯出設定"
+
+#: includes/mcp/ability-registry.php:314
+msgid ""
+"Export plugin-owned configuration in the same allowlisted format used by "
+"the Backup screen. Returns available_sections for selective export and "
+"optionally filters user_roles by role slug. Contains permission "
+"configuration, not password secrets."
+msgstr ""
+"以與「備份」畫面相同的允許清單格式，匯出由外掛程式管理的設定。傳回可供選擇性匯出的 available_sections，並可選擇依角色代稱篩選 "
+"user_roles。包含權限設定，不包含密碼機密資料。"
+
+#: includes/mcp/ability-registry.php:323
+msgid "Import configuration"
+msgstr "匯入設定"
+
+#: includes/mcp/ability-registry.php:324
+msgid ""
+"Validate and import a configuration export using the existing backup "
+"validators. Reject unsupported entries before writing; dry_run validates "
+"without saving. MCP rejects new administrator-level grants."
+msgstr "使用現有的備份驗證器驗證並匯入設定匯出檔。寫入前拒絕不支援的項目；dry_run 會驗證但不儲存。MCP 會拒絕新的管理員層級授權。"
+
+#: includes/mcp/ability-registry.php:344
+msgid "Save interface element"
+msgstr "儲存介面元素"
+
+#: includes/mcp/ability-registry.php:345
+msgid ""
+"Create or update a profile selector or frontend selector/CSS/body-class "
+"element. Does not enable it for a role; use update-feature-settings "
+"afterwards."
+msgstr "建立或更新個人資料選擇器，或前端選擇器／CSS／主體類別元素。此操作不會為角色啟用該元素；之後請使用 update-feature-settings。"
+
+#: includes/mcp/ability-registry.php:363
+msgid "Delete interface element"
+msgstr "刪除介面元素"
+
+#: includes/mcp/ability-registry.php:364
+msgid ""
+"Delete a profile/frontend element and remove its saved restriction "
+"references."
+msgstr "刪除個人資料／前端元素，並移除已儲存的限制參照。"
+
+#: includes/mcp/ability-registry.php:374
+msgid "Update admin menu presentation"
+msgstr "更新管理員選單呈現方式"
+
+#: includes/mcp/ability-registry.php:375
+msgid ""
+"Rename menus for a role, set global menu/submenu ordering, update menu UI "
+"settings, or reset custom presentation. This does not change capabilities."
+msgstr "重新命名角色的選單、設定全域選單／子選單排序、更新選單 UI 設定，或重設自訂呈現方式。此操作不會變更功能。"
+
+#: includes/mcp/ability-registry.php:394
+msgid "Save admin style"
+msgstr "儲存管理員樣式"
+
+#: includes/mcp/ability-registry.php:395
+msgid ""
+"Create/update a named custom admin color style using existing sanitizers "
+"and CSS generation. Free supports one custom style; Pro supports multiple."
+msgstr "使用現有的清理器和 CSS 產生功能，建立／更新具名的自訂管理員色彩樣式。Free 支援一種自訂樣式；Pro 支援多種。"
+
+#: includes/mcp/ability-registry.php:409
+msgid "Delete admin style"
+msgstr "刪除管理員樣式"
+
+#: includes/mcp/ability-registry.php:410
+msgid ""
+"Delete a custom admin style and its generated CSS. Roles using it return to "
+"the default color scheme."
+msgstr "刪除自訂管理員樣式及其產生的 CSS。使用該樣式的角色會恢復為預設色彩配置。"
+
+#: includes/mcp/ability-registry.php:424
+msgid "List application password scopes"
+msgstr "列出應用程式密碼範圍"
+
+#: includes/mcp/ability-registry.php:425
+msgid ""
+"List manageable application password names and denied capabilities. Returns "
+"no plaintext passwords or hashes. Requires the application-password "
+"capabilities feature to be enabled."
+msgstr "列出可管理的應用程式密碼名稱和遭拒的功能。不會傳回明文密碼或雜湊值。必須啟用應用程式密碼功能。"
+
+#: includes/mcp/ability-registry.php:435
+msgid "Update application password scope"
+msgstr "更新應用程式密碼範圍"
+
+#: includes/mcp/ability-registry.php:436
+msgid ""
+"Replace the denied capability list for one application password. "
+"Restrictions only reduce its user's capabilities; they do not grant "
+"privileges."
+msgstr "取代單一應用程式密碼的遭拒功能清單。限制只會縮減其使用者的功能，不會授予權限。"
+
+#: includes/mcp/ability-registry.php:452
+msgid "Update user roles"
+msgstr "更新使用者角色"
+
+#: includes/mcp/ability-registry.php:453
+msgid ""
+"Replace an existing site user's assigned roles using the profile form "
+"rules. Requires multiple-role editing to be enabled, preserves forum roles, "
+"and supports dry_run. Newly assigned administrator-level roles are refused "
+"by MCP."
+msgstr ""
+"使用個人資料表單規則，取代現有網站使用者已指派的角色。需要啟用多重角色編輯功能，會保留論壇角色，並支援 dry_run。MCP 會拒絕新指派的 "
+"admin 層級角色。"
+
+#: includes/mcp/ability-registry.php:478
+msgid "Get user capabilities"
+msgstr "取得使用者功能權限"
+
+#: includes/mcp/ability-registry.php:479
+msgid ""
+"Inspect a site member's roles and effective capability values, as on the "
+"User Capabilities screen. No identity switching or user changes."
+msgstr "檢視網站成員的角色和有效功能權限值，與「使用者功能權限」畫面相同。不會切換身分或變更使用者。"
+
+#: includes/mcp/ability-registry.php:487
+msgid "Check user capability"
+msgstr "檢查使用者功能權限"
+
+#: includes/mcp/ability-registry.php:488
+msgid ""
+"Test a user's effective permission, optionally for an object ID. Applies "
+"WordPress permission filters without impersonating that user or changing "
+"the MCP session."
+msgstr "測試使用者的有效權限，也可指定物件 ID。此功能會套用 WordPress 權限篩選器，但不會模擬該使用者身分，也不會變更 MCP 工作階段。"
+
+#: includes/mcp/advanced-operations.php:29
+msgid "Choose an editable role for profile capture."
+msgstr "選擇可編輯的角色以擷取個人資料。"
+
+#: includes/mcp/advanced-operations.php:74
+msgid "A post type or taxonomy does not exist."
+msgstr "post type 或 taxonomy 不存在。"
+
+#: includes/mcp/advanced-operations.php:130
+msgid "Post not found."
+msgstr "找不到文章。"
+
+#: includes/mcp/advanced-operations.php:136
+msgid "A frontend element does not exist."
+msgstr "前端元素不存在。"
+
+#: includes/mcp/advanced-operations.php:153
+msgid "Invalid menu slug."
+msgstr "無效的選單代稱。"
+
+#: includes/mcp/advanced-operations.php:157
+msgid "Custom menu not found."
+msgstr "找不到自訂選單。"
+
+#: includes/mcp/advanced-operations.php:162
+msgid "Title, capability and submenu parent are required."
+msgstr "標題、功能權限和子選單上層項目皆為必填。"
+
+#: includes/mcp/advanced-operations.php:165
+msgid "Unsupported menu URL."
+msgstr "不支援此選單網址。"
+
+#: includes/mcp/advanced-registry.php:33
+msgid "Prepare profile capture"
+msgstr "準備擷取個人資料"
+
+#: includes/mcp/advanced-registry.php:34
+msgid ""
+"Enable/disable the existing five-minute profile capture window and return "
+"the admin page to visit. Actual DOM capture runs in the browser with its "
+"own authenticated session."
+msgstr "啟用／停用現有的五分鐘個人資料擷取時段，並傳回要前往的 admin 頁面。實際的 DOM 擷取會在瀏覽器中使用其自身已驗證的工作階段執行。"
+
+#: includes/mcp/advanced-registry.php:46
+msgid "Update admin feature UI settings"
+msgstr "更新 admin 功能 UI 設定"
+
+#: includes/mcp/advanced-registry.php:47
+msgid ""
+"Set the Admin Features hide-submenu preference. This is a global "
+"presentation preference, not a role access rule."
+msgstr "設定 Admin Features 的隱藏子選單偏好。這是全域呈現偏好設定，不是角色存取規則。"
+
+#: includes/mcp/advanced-registry.php:58
+msgid "Get type capability settings"
+msgstr "取得類型功能權限設定"
+
+#: includes/mcp/advanced-registry.php:59
+msgid ""
+"Read type-specific post/taxonomy capability mappings and discover "
+"registered types."
+msgstr "讀取特定類型的文章／taxonomy 功能權限對應，並探索已註冊的類型。"
+
+#: includes/mcp/advanced-registry.php:67
+msgid "Update type capability settings"
+msgstr "更新類型功能權限設定"
+
+#: includes/mcp/advanced-registry.php:68
+msgid ""
+"Patch type-specific capabilities and detailed taxonomy mapping. Detailed "
+"taxonomies also enable type-specific capabilities. Takes effect on the next "
+"request."
+msgstr "修補類型專屬功能權限及詳細分類法對應。詳細分類法也會啟用類型專屬功能權限。將於下次請求時生效。"
+
+#: includes/mcp/advanced-registry.php:77
+msgid "Set role level"
+msgstr "設定角色等級"
+
+#: includes/mcp/advanced-registry.php:78
+msgid ""
+"Set a legacy WordPress role level from 0 to 10. Administrator stays at "
+"level 10. dry_run previews capability changes."
+msgstr "設定舊版 WordPress 角色等級，範圍為 0 到 10。管理員維持在等級 10。dry_run 可預覽功能權限變更。"
+
+#: includes/mcp/advanced-registry.php:87
+msgid "Reset roles"
+msgstr "重設角色"
+
+#: includes/mcp/advanced-registry.php:88
+msgid ""
+"Role reset requires the native Backup screen. MCP refuses recovery hooks "
+"that could introduce administrator-level grants."
+msgstr "重設角色需要使用原生備份畫面。MCP 會拒絕可能授予管理員等級權限的復原掛鉤。"
+
+#: includes/mcp/advanced-registry.php:98
+msgid "Test user access"
+msgstr "測試使用者存取權"
+
+#: includes/mcp/advanced-registry.php:99
+msgid ""
+"Test an eligible user’s permission through the User Testing access rules "
+"without switching cookies or the MCP identity."
+msgstr "透過「使用者測試」存取規則，測試符合資格的使用者權限，不必切換 Cookie 或 MCP 身分。"
+
+#: includes/mcp/advanced-registry.php:113
+msgid "Sync role network"
+msgstr "同步角色網路"
+
+#: includes/mcp/advanced-registry.php:114
+msgid ""
+"Queue the existing role/capability and option synchronization across "
+"network sites. Requires a main-site network administrator. MCP refuses "
+"synchronization of roles with administrator-level capabilities."
+msgstr "將現有角色／功能權限與選項同步作業加入佇列，並同步至網路中的網站。需要主網站網路管理員權限。MCP 會拒絕同步具有管理員等級功能權限的角色。"
+
+#: includes/mcp/advanced-registry.php:135
+msgid "Get post frontend elements"
+msgstr "取得文章前端元素"
+
+#: includes/mcp/advanced-registry.php:136
+msgid ""
+"Read a post’s frontend element overrides (Pro), respecting edit_post "
+"permission."
+msgstr "讀取文章的前端元素覆寫設定（Pro），並遵守 edit_post 權限。"
+
+#: includes/mcp/advanced-registry.php:144
+msgid "Set post frontend elements"
+msgstr "設定文章前端元素"
+
+#: includes/mcp/advanced-registry.php:145
+msgid ""
+"Replace a post’s enabled frontend element overrides (Pro). Empty list "
+"clears them."
+msgstr "取代文章已啟用的前端元素覆寫設定（Pro）。清單留空即可清除。"
+
+#: includes/mcp/advanced-registry.php:154
+msgid "Manage custom admin menu"
+msgstr "管理自訂管理選單"
+
+#: includes/mcp/advanced-registry.php:155
+msgid ""
+"Create/update/delete a custom admin menu or separator (Pro). Menu data "
+"contains no executable callbacks. Refreshes menu snapshots."
+msgstr "建立／更新／刪除自訂管理選單或分隔線（Pro）。選單資料不包含可執行的回呼。會重新整理選單快照。"
+
+#: includes/mcp/backup-operations.php:36
+msgid "Choose section identifiers returned by export discovery."
+msgstr "選擇匯出探索功能傳回的區段識別碼。"
+
+#: includes/mcp/backup-operations.php:39
+msgid "Role selection requires the user_roles export section."
+msgstr "選取角色需要 user_roles 匯出區段。"
+
+#: includes/mcp/backup-operations.php:47
+msgid "An export role does not exist."
+msgstr "匯出角色不存在。"
+
+#: includes/mcp/backup-operations.php:97
+msgid "Choose a backup returned by list-backups."
+msgstr "選擇 list-backups 傳回的備份。"
+
+#: includes/mcp/backup-operations.php:118
+msgid "Configuration contains an unsupported setting."
+msgstr "設定包含不受支援的選項。"
+
+#: includes/mcp/backup-operations.php:122
+msgid "You do not have permission to restore or import Admin Menus settings."
+msgstr "您沒有還原或匯入管理選單設定的權限。"
+
+#: includes/mcp/backup-operations.php:124
+msgid "You do not have permission to restore or import these feature settings."
+msgstr "您沒有還原或匯入這些功能設定的權限。"
+
+#: includes/mcp/backup-operations.php:130
+msgid "Invalid role definitions."
+msgstr "角色定義無效。"
+
+#: includes/mcp/backup-operations.php:147
+msgid "The administrator role must retain access to WordPress and Capabilities."
+msgstr "管理員角色必須保留對 WordPress 和 Capabilities 的存取權。"
+
+#: includes/mcp/backup-operations.php:150
+msgid "Imported roles must include the default role."
+msgstr "匯入的角色必須包含預設角色。"
+
+#: includes/mcp/backup-operations.php:155
+msgid "Invalid configuration value."
+msgstr "設定值無效。"
+
+#: includes/mcp/backup-operations.php:161
+msgid "No configuration was supplied."
+msgstr "未提供任何設定。"
+
+#: includes/mcp/bootstrap.php:68
+msgid "Actions provided by PublishPress plugins."
+msgstr "PublishPress 外掛提供的動作。"
+
+#: includes/mcp/custom-rule-operations.php:57
+msgid "A label and selector or URL are required."
+msgstr "必須提供標籤和選擇器或 URL。"
+
+#: includes/mcp/custom-rule-operations.php:79
+msgid "Custom rule not found."
+msgstr "找不到自訂規則。"
+
+#: includes/mcp/custom-rule-operations.php:110
+msgid "List custom rules"
+msgstr "列出自訂規則"
+
+#: includes/mcp/custom-rule-operations.php:111
+msgid ""
+"List Pro custom editor selectors, hidden admin elements or blocked URLs, "
+"including the exact restriction values used by feature settings."
+msgstr "列出 Pro 自訂編輯器選擇器、隱藏的管理介面元素或封鎖的 URL，包括功能設定所使用的確切限制值。"
+
+#: includes/mcp/custom-rule-operations.php:119
+msgid "Save custom rule"
+msgstr "儲存自訂規則"
+
+#: includes/mcp/custom-rule-operations.php:120
+msgid ""
+"Create/update a Pro custom editor selector, admin CSS hiding rule or "
+"blocked-URL rule. Save its restriction_value in the role feature settings "
+"to enable it."
+msgstr ""
+"建立／更新 Pro 自訂編輯器選擇器、管理介面 CSS 隱藏規則或封鎖 URL 規則。將其 restriction_value "
+"儲存至角色功能設定中以啟用此規則。"
+
+#: includes/mcp/custom-rule-operations.php:131
+msgid "Delete custom rule"
+msgstr "刪除自訂規則"
+
+#: includes/mcp/custom-rule-operations.php:132
+msgid "Delete a Pro custom restriction rule and its role restriction references."
+msgstr "刪除 Pro 自訂限制規則及其角色限制參照。"
+
+#: includes/mcp/feature-operations.php:82
+msgid "Unknown feature."
+msgstr "未知功能。"
+
+#: includes/mcp/feature-operations.php:90
+msgid "This post type is not available in Editor Features."
+msgstr "此 post type 無法在編輯器功能中使用。"
+
+#: includes/mcp/feature-operations.php:104
+#: includes/mcp/role-operations.php:118
+#: includes/mcp/role-operations.php:293
+#: includes/mcp/role-read-abilities.php:121
+msgid "Role not found."
+msgstr "找不到角色。"
+
+#: includes/mcp/feature-operations.php:145
+#: includes/mcp/interface-operations.php:36
+#: includes/mcp/interface-operations.php:82
+#: includes/mcp/interface-operations.php:116
+#: includes/mcp/role-operations.php:198
+#: includes/mcp/role-operations.php:218
+#: includes/mcp/role-operations.php:310
+msgid "The role is not editable."
+msgstr "此角色無法編輯。"
+
+#: includes/mcp/feature-operations.php:157
+msgid "A profile element in the order does not exist."
+msgstr "順序中不存在某個個人檔案元素。"
+
+#: includes/mcp/feature-operations.php:168
+msgid "Redirects must be valid URLs on this site."
+msgstr "重新導向網址必須是此網站上的有效網址。"
+
+#: includes/mcp/feature-operations.php:270
+msgid "Network synchronization requires the main-site network administrator."
+msgstr "網路同步需要主網站的網路管理員。"
+
+#: includes/mcp/feature-operations.php:275
+msgid "This feature cannot be toggled."
+msgstr "無法切換此功能。"
+
+#: includes/mcp/feature-operations.php:308
+msgid "Admin Toolbar"
+msgstr "admin 工具列"
+
+#: includes/mcp/feature-operations.php:309
+msgid "Header and Footer"
+msgstr "頁首與頁尾"
+
+#: includes/mcp/feature-operations.php:310
+msgid "Dashboard widgets"
+msgstr "dashboard 小工具"
+
+#: includes/mcp/feature-operations.php:317
+msgid "Choose an existing role to discover Profile Features."
+msgstr "選擇現有角色以探索個人檔案功能。"
+
+#: includes/mcp/feature-operations.php:397
+msgid ""
+"Use restriction_value from the selected editor layout. Custom selectors and "
+"metaboxes require Pro and previously saved or captured data."
+msgstr "使用所選編輯器版面的 restriction_value。自訂選取器和中繼資料框需要 Pro，以及先前儲存或擷取的資料。"
+
+#: includes/mcp/feature-operations.php:398
+msgid ""
+"Use restriction_value for toolbar, header/footer and dashboard items. Visit "
+"the WordPress dashboard as an authorized administrator to refresh captured "
+"widgets and toolbar nodes."
+msgstr ""
+"對工具列、頁首／頁尾和 dashboard 項目使用 restriction_value。以獲授權的管理員身分前往 WordPress "
+"dashboard，重新整理擷取的小工具和工具列節點。"
+
+#: includes/mcp/feature-operations.php:399
+msgid ""
+"Profile choices belong to the selected role. If empty or incomplete, use "
+"prepare-profile-capture for that role and complete capture in the browser. "
+"Use each element restriction_value when saving disabled items."
+msgstr ""
+"個人檔案選項屬於所選角色。如果選項為空或不完整，請對該角色使用 "
+"prepare-profile-capture，並在瀏覽器中完成擷取。儲存停用的項目時，請使用各元素的 restriction_value。"
+
+#: includes/mcp/feature-operations.php:400
+msgid ""
+"These are saved frontend selectors, styles and body-class elements with "
+"their page and post-type scopes. Use restriction_value to select them. Use "
+"save-interface-element to create a missing element. Reading choices does "
+"not install demo elements."
+msgstr ""
+"這些是已儲存的前端選取器、樣式和 body-class 元素，以及其頁面和文章類型範圍。使用 restriction_value 選取它們。使用 "
+"save-interface-element 建立缺少的元素。讀取選項不會安裝示範元素。"
+
+#: includes/mcp/feature-operations.php:401
+msgid ""
+"Notice types and toolbar access are configured with the fields below. Read "
+"actual per-role settings with get-feature-settings."
+msgstr "通知類型和工具列存取權是使用下方欄位設定的。使用 get-feature-settings 讀取各角色的實際設定。"
+
+#: includes/mcp/feature-operations.php:402
+msgid ""
+"Read actual per-role redirect targets with get-feature-settings. Use "
+"WordPress content lookup to resolve a destination rather than guessing a "
+"post ID."
+msgstr "使用 get-feature-settings 讀取各角色的實際重新導向目標。請使用 WordPress 內容查詢來解析目的地，不要猜測文章 ID。"
+
+#: includes/mcp/feature-operations.php:403
+msgid ""
+"These are existing navigation menus and their items. Use their actual "
+"menu-item IDs when saving restrictions."
+msgstr "這些是現有的導覽選單及其項目。儲存限制時，請使用其實際的選單項目 ID。"
+
+#: includes/mcp/feature-operations.php:404
+msgid ""
+"These are available templates, saved custom styles and color schemes. Read "
+"actual per-role style settings with get-feature-settings."
+msgstr "這些是可用的範本、已儲存的自訂樣式和色彩配置。使用 get-feature-settings 讀取各角色的實際樣式設定。"
+
+#: includes/mcp/feature-operations.php:409
+msgid "Use the menu discovery restriction values and refresh instructions."
+msgstr "使用選單探索限制值和重新整理指示。"
+
+#: includes/mcp/feature-operations.php:447
+msgid ""
+"Editor Features > Show private post types. Display non-public post types in "
+"Editor Features. This does not change the Capabilities screen visibility "
+"setting."
+msgstr "編輯器功能 > 顯示私人文章類型。在編輯器功能中顯示非公開文章類型。這不會變更 Capabilities 畫面的可見性設定。"
+
+#: includes/mcp/feature-operations.php:448
+msgid ""
+"Capabilities > Show private taxonomies. Include non-public taxonomies when "
+"editing role capabilities."
+msgstr "Capabilities > 顯示私人 taxonomies。編輯角色功能時，包含非公開 taxonomies。"
+
+#: includes/mcp/feature-operations.php:449
+msgid ""
+"Capabilities > Show private post types. Include non-public post types when "
+"editing role capabilities, not the Editor Features setting."
+msgstr "功能 > 顯示私人文章類型。編輯角色權限時，包含非公開文章類型，而非「編輯器功能」設定。"
+
+#: includes/mcp/feature-operations.php:450
+msgid ""
+"Capabilities > Application password capabilities. Enable "
+"per-application-password capability restrictions."
+msgstr "功能 > 應用程式密碼功能。啟用依應用程式密碼限制功能的選項。"
+
+#: includes/mcp/feature-operations.php:451
+msgid ""
+"Roles > Multiples roles on \"Add New User\" screen. Allow assigning "
+"multiple roles when creating a new user. This is separate from editing "
+"existing users."
+msgstr "角色 >「新增使用者」畫面中的多重角色。建立新使用者時，允許指派多個角色。此設定與編輯現有使用者分開。"
+
+#: includes/mcp/feature-operations.php:452
+msgid ""
+"Roles > Multiples roles on \"User Edit\" screen. Enable multiple-role "
+"editing for existing users on Edit User. This is separate from Add New User."
+msgstr "角色 >「編輯使用者」畫面中的多重角色。啟用在「編輯使用者」頁面編輯現有使用者多個角色的功能。此設定與「新增使用者」分開。"
+
+#: includes/mcp/feature-operations.php:453
+msgid ""
+"Editor Features > Classic Editor tab. Show controls for Classic Editor "
+"restrictions."
+msgstr "編輯器功能 > 傳統編輯器分頁。顯示傳統編輯器限制的控制項。"
+
+#: includes/mcp/feature-operations.php:454
+msgid "User Testing > Admin Bar. Add the user-testing link to the admin toolbar."
+msgstr "使用者測試 > 管理工具列。將使用者測試連結加入管理工具列。"
+
+#: includes/mcp/feature-operations.php:455
+msgid ""
+"User Testing > Admin Bar search. Allow searching for a user to test from "
+"the toolbar."
+msgstr "使用者測試 > 管理工具列搜尋。允許從工具列搜尋要測試的使用者。"
+
+#: includes/mcp/feature-operations.php:456
+msgid ""
+"User Testing > Front End footer notice. Show a return link while testing a "
+"user."
+msgstr "使用者測試 > 前台頁尾通知。測試使用者時顯示返回連結。"
+
+#: includes/mcp/feature-operations.php:457
+msgid ""
+"Admin Menus > Treatment of multiple roles. True selects most restrictive, "
+"false selects most permissive."
+msgstr "管理選單 > 多重角色的處理方式。設為 true 時選取限制最嚴格的角色，設為 false 時選取限制最寬鬆的角色。"
+
+#: includes/mcp/feature-operations.php:458
+msgid ""
+"Profile Features > Automatic redirection. Control automatic redirection "
+"during profile feature capture."
+msgstr "個人資料功能 > 自動重新導向。控制擷取個人資料功能時的自動重新導向。"
+
+#: includes/mcp/feature-operations.php:459
+msgid ""
+"Redirects > Return to the same page. Track the last visited page for "
+"applicable login redirects."
+msgstr "重新導向 > 返回同一頁面。追蹤適用的登入重新導向所需的上一個瀏覽頁面。"
+
+#: includes/mcp/feature-operations.php:460
+msgid ""
+"User Testing > Exclude role from User Testing. List role slugs whose users "
+"cannot be tested."
+msgstr "使用者測試 > 從使用者測試中排除角色。列出不得進行測試的使用者所屬角色代稱。"
+
+#: includes/mcp/feature-operations.php:461
+msgid "Pro > Display PublishPress branding. Show or hide plugin branding."
+msgstr "Pro > 顯示 PublishPress 品牌標示。顯示或隱藏外掛品牌標示。"
+
+#: includes/mcp/feature-operations.php:462
+msgid ""
+"Pro > Custom status control. Enable supported custom status capability "
+"handling when the status integration is available."
+msgstr "Pro > 自訂狀態控制。狀態整合功能可用時，啟用支援的自訂狀態功能處理。"
+
+#: includes/mcp/feature-operations.php:463
+msgid ""
+"Pro > Custom status post permissions. Enable post-specific status "
+"capabilities. Requires custom status control."
+msgstr "Pro > 自訂狀態文章權限。啟用文章專屬的狀態功能。需要自訂狀態控制。"
+
+#: includes/mcp/feature-operations.php:464
+msgid ""
+"Pro > Privacy statuses. Enable privacy status integration when its "
+"dependencies are available."
+msgstr "Pro > 隱私狀態。相依項目可用時，啟用隱私狀態整合功能。"
+
+#: includes/mcp/feature-operations.php:465
+msgid ""
+"Pro > Custom privacy editing capabilities. Use the available privacy "
+"integration editing rules."
+msgstr "Pro > 自訂隱私編輯功能。使用可用的隱私整合編輯規則。"
+
+#: includes/mcp/feature-operations.php:478
+msgid ""
+"Use the exact setting types shown in discovery. Lists must contain values "
+"of the declared type."
+msgstr "使用探索結果中顯示的確切設定類型。清單必須包含宣告類型的值。"
+
+#: includes/mcp/feature-operations.php:505
+msgid "An excluded role does not exist."
+msgstr "排除的角色不存在。"
+
+#: includes/mcp/grant-policy.php:68
+msgid ""
+"MCP tools cannot grant administrator-level access. Use the WordPress admin "
+"screens for this change."
+msgstr "MCP 工具無法授予管理員層級的存取權。請使用 WordPress 管理介面進行此變更。"
+
+#: includes/mcp/interface-operations.php:28
+msgid "Use the element identifier returned by discovery."
+msgstr "使用 discovery 傳回的元素識別碼。"
+
+#: includes/mcp/interface-operations.php:32
+msgid "An element label is required."
+msgstr "必須提供元素標籤。"
+
+#: includes/mcp/interface-operations.php:39
+msgid "A selector is required."
+msgstr "必須提供選擇器。"
+
+#: includes/mcp/interface-operations.php:47
+msgid "A selector, stylesheet, or body class is required."
+msgstr "必須提供選擇器、樣式表或 body 類別。"
+
+#: includes/mcp/interface-operations.php:50
+msgid "Specify page types or post types."
+msgstr "指定頁面類型或 post type。"
+
+#: includes/mcp/interface-operations.php:54
+msgid "A post type does not exist."
+msgstr "post type 不存在。"
+
+#: includes/mcp/interface-operations.php:79
+msgid "Element not found."
+msgstr "找不到元素。"
+
+#: includes/mcp/interface-operations.php:111
+msgid "The menu action is missing required fields."
+msgstr "選單動作缺少必要欄位。"
+
+#: includes/mcp/interface-operations.php:144
+msgid "Unsupported menu action."
+msgstr "不支援此選單動作。"
+
+#: includes/mcp/interface-operations.php:166
+msgid "You cannot manage this application password."
+msgstr "您無法管理此應用程式密碼。"
+
+#: includes/mcp/interface-operations.php:177
+msgid "A capability is not recognized."
+msgstr "無法辨識此功能。"
+
+#: includes/mcp/menu-discovery.php:64
+msgid ""
+"Use restriction_value exactly as returned. If discovery is empty or a menu "
+"is missing, open the Admin Menus page as an authorized administrator, then "
+"request choices again. Do not invent identifiers or infer which menus a "
+"role can access from this snapshot."
+msgstr ""
+"請使用原樣的 restriction_value（如傳回的值）。如果 discovery 結果為空或缺少選單，請以授權管理員身分開啟 admin "
+"Menus 頁面，然後再次要求選項。請勿自行編造識別碼，也不要根據此快照推斷某個角色可存取哪些選單。"
+
+#: includes/mcp/menu-discovery.php:76
+msgid ""
+"A new menu restriction was not found in discovery. Request "
+"get-feature-choices for admin-menus and use its restriction_value. If "
+"missing, open the Admin Menus page and try again."
+msgstr ""
+"在 discovery 中找不到新的選單限制。請要求取得 admin-menus 的 get-feature-choices，並使用其 "
+"restriction_value。如果缺少此值，請開啟 admin Menus 頁面並再試一次。"
+
+#: includes/mcp/pro-settings-operations.php:69
+msgid "The Pro settings integration is not available."
+msgstr "Pro 設定整合無法使用。"
+
+#: includes/mcp/pro-settings-operations.php:74
+msgid ""
+"Custom status settings are unavailable or controlled by the active status "
+"integration."
+msgstr "自訂狀態設定無法使用，或由目前啟用的狀態整合控制。"
+
+#: includes/mcp/pro-settings-operations.php:79
+msgid ""
+"Enable supported custom status control before status-specific editing "
+"capabilities."
+msgstr "請先啟用支援的自訂狀態控制，再使用狀態專屬的編輯功能。"
+
+#: includes/mcp/pro-settings-operations.php:85
+msgid "Privacy settings require the active Permissions Pro status integration."
+msgstr "隱私設定需要目前啟用的 Permissions Pro 狀態整合。"
+
+#: includes/mcp/pro-settings-operations.php:91
+msgid "A requested privacy setting is locked by site configuration."
+msgstr "網站組態已鎖定要求的隱私設定。"
+
+#: includes/mcp/role-operations.php:139
+msgid ""
+"Use an unused role slug, 2–40 lowercase letters, numbers or underscores, "
+"starting with a letter."
+msgstr "請使用尚未使用的角色代稱，長度為 2–40 個小寫字母、數字或底線，且須以字母開頭。"
+
+#: includes/mcp/role-operations.php:142
+msgid "A capability already uses this name."
+msgstr "已有功能使用此名稱。"
+
+#: includes/mcp/role-operations.php:147
+msgid "The source role is not editable."
+msgstr "來源角色不可編輯。"
+
+#: includes/mcp/role-operations.php:162
+#: includes/mcp/role-operations.php:202
+msgid "A role name is required."
+msgstr "必須提供角色名稱。"
+
+#: includes/mcp/role-operations.php:167
+msgid "The role could not be created."
+msgstr "無法建立角色。"
+
+#: includes/mcp/role-operations.php:226
+msgid "You cannot change that capability."
+msgstr "您無法變更該項功能權限。"
+
+#: includes/mcp/role-operations.php:238
+msgid "Administrators must retain read, manage_options and manage_capabilities."
+msgstr "管理員必須保留 read、manage_options 和 manage_capabilities。"
+
+#: includes/mcp/role-operations.php:241
+msgid "The default role must retain read access."
+msgstr "預設角色必須保留讀取權限。"
+
+#: includes/mcp/role-operations.php:246
+msgid "This role must retain read access to avoid dashboard lockout."
+msgstr "此角色必須保留 dashboard 的讀取權限，以避免無法存取 dashboard。"
+
+#: includes/mcp/role-operations.php:274
+msgid "System, default and uneditable roles cannot be deleted."
+msgstr "系統角色、預設角色和不可編輯的角色無法刪除。"
+
+#: includes/mcp/role-operations.php:277
+msgid "You cannot delete your own role."
+msgstr "您無法刪除自己的角色。"
+
+#: includes/mcp/role-operations.php:282
+#: includes/roles/class/class-pp-roles-actions.php:648
+msgid "The role could not be deleted."
+msgstr "無法刪除角色。"
+
+#: includes/mcp/role-operations.php:314
+msgid "PublishPress Permissions is not active."
+msgstr "PublishPress Permissions 未啟用。"
+
+#: includes/mcp/role-operations.php:317
+msgid "Only the main-site network administrator can configure new-site roles."
+msgstr "只有主站網路管理員可以設定新網站的角色。"
+
+#: includes/mcp/role-operations.php:320
+msgid "Classic Editor is not installed."
+msgstr "未安裝 Classic Editor。"
+
+#: includes/mcp/role-operations.php:323
+msgid "WooCommerce is not active."
+msgstr "WooCommerce 未啟用。"
+
+#: includes/mcp/role-operations.php:327
+msgid "You cannot lock out administrators or your own role."
+msgstr "您無法鎖定管理員或自己的角色。"
+
+#: includes/mcp/role-operations.php:331
+msgid "The default role cannot be disabled."
+msgstr "無法停用預設角色。"
+
+#: includes/mcp/role-operations.php:367
+msgid "This role level cannot be changed."
+msgstr "無法變更此角色層級。"
+
+#: includes/mcp/role-read-abilities.php:54
+msgid "List roles"
+msgstr "列出角色"
+
+#: includes/mcp/role-read-abilities.php:55
+msgid ""
+"List the current site’s registered role slugs and names. Does not change "
+"roles or return users."
+msgstr "列出目前網站已註冊的角色代稱和名稱。不會變更角色或傳回使用者。"
+
+#: includes/mcp/role-read-abilities.php:73
+msgid "Get role capabilities"
+msgstr "取得角色功能權限"
+
+#: includes/mcp/role-read-abilities.php:74
+msgid ""
+"Read a registered role’s stored capability grants and denials. These are "
+"role settings, not an individual user’s effective permissions."
+msgstr "讀取已註冊角色儲存的功能授權與拒絕設定。這些是角色設定，而非個別使用者的有效權限。"
+
+#: includes/mcp/user-operations.php:25
+#: includes/mcp/user-operations.php:39
+#: includes/user-role-assignment.php:41
+msgid "User not found on this site."
+msgstr "在此網站上找不到使用者。"
+
+#: includes/mcp/user-operations.php:57
+msgid "Enable multiple-role editing in the plugin settings first."
+msgstr "請先在外掛設定中啟用多重角色編輯。"
+
+#: includes/plugin-capabilities/publishpress-cart.php:34
+msgid "Products"
+msgstr "商品"
+
+#: includes/plugin-capabilities/publishpress-cart.php:35
+msgid "Orders"
+msgstr "訂單"
+
+#: includes/plugin-capabilities/publishpress-cart.php:36
+msgid "Subscriptions"
+msgstr "訂閱"
+
+#: includes/plugin-capabilities/publishpress-cart.php:49
+msgid "Upsell Paths"
+msgstr "追加銷售路徑"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:28
+msgid "Permissions & Access"
+msgstr "權限與存取"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:29
+msgid "Administer advanced content permissions and visibility rules."
+msgstr "管理進階內容權限與可見性規則。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:30
+msgid "Manage plugin permission settings."
+msgstr "管理外掛權限設定。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:31
+msgid "Bypass content restrictions for editorial workflows."
+msgstr "在編輯工作流程中略過內容限制。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:32
+msgid "Set custom post statuses for content items."
+msgstr "為內容項目設定自訂文章狀態。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:33
+msgid "Force Quick Edit access when restrictions would otherwise block it."
+msgstr "在限制原本會封鎖快速編輯時，強制允許存取快速編輯。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:35
+msgid "Roles & Groups"
+msgstr "角色與群組"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:36
+msgid "Assign or change role assignments for users."
+msgstr "為使用者指派或變更角色。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:37
+msgid "Create new permission groups."
+msgstr "建立新的權限群組。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:38
+msgid "Edit existing permission groups."
+msgstr "編輯現有的權限群組。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:39
+msgid "Delete permission groups."
+msgstr "刪除權限群組。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:40
+msgid "Add or remove members from permission groups."
+msgstr "新增或移除權限群組的成員。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:41
+msgid "Create network-wide permission groups in multisite."
+msgstr "在多站台環境中建立全網路共用的權限群組。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:42
+msgid "Manage members of network-wide permission groups."
+msgstr "管理全網路權限群組的成員。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:44
+msgid "Exception Management"
+msgstr "例外管理"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:45
+msgid "Set per-item association exceptions."
+msgstr "設定每個項目的關聯例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:46
+msgid "Set per-item edit exceptions."
+msgstr "設定每個項目的編輯例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:47
+msgid "Set per-item read exceptions."
+msgstr "設定每個項目的讀取例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:48
+msgid "Set per-item revision exceptions."
+msgstr "設定每個項目的修訂版本例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:49
+msgid "Set taxonomy term assignment exceptions."
+msgstr "設定 taxonomy 詞彙指派例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:50
+msgid "Set taxonomy term association exceptions."
+msgstr "設定 taxonomy 詞彙關聯例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:51
+msgid "Set taxonomy term management exceptions."
+msgstr "設定 taxonomy 詞彙管理例外。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:53
+msgid "Content Associations"
+msgstr "內容關聯"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:54
+msgid "Associate users or groups with any page."
+msgstr "將使用者或群組與任何頁面建立關聯。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:55
+msgid "Define and apply custom post statuses."
+msgstr "定義並套用自訂文章狀態。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:56
+msgid "Define custom privacy policies for content."
+msgstr "為內容定義自訂隱私權政策。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:57
+msgid "Moderate any item regardless of authorship."
+msgstr "不論作者為何，皆可審核任何項目。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:59
+msgid "Media & Misc"
+msgstr "媒體與其他"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:60
+msgid "Edit attachments uploaded by the current user."
+msgstr "編輯目前使用者上傳的附件。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:61
+msgid "List unattached files uploaded by other users."
+msgstr "列出其他使用者上傳且未附加的檔案。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:62
+msgid "List all media library files."
+msgstr "列出媒體庫中的所有檔案。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:63
+msgid "Exempt user from edit-circle restrictions."
+msgstr "使用者不受編輯圈限制。"
+
+#: includes/plugin-capabilities/publishpress-permissions.php:64
+msgid "Exempt user from read-circle restrictions."
+msgstr "使用者不受讀取圈限制。"
+
+#: includes/pp-ui.php:62
+#, php-format
+msgid "see %1$sRole Usage%2$s: \"Pattern Roles\""
+msgstr "請參閱 %1$s角色用途%2$s：「模式角色」"
+
+#: includes/pp-ui.php:64
+#, php-format
+msgid "activate %1$sAdvanced settings%2$s, see Role Usage"
+msgstr "啟用 %1$s進階設定%2$s，請參閱角色用途"
+
+#: includes/pp-ui.php:69
+#, php-format
+msgid ""
+"\"Posts\" capabilities selected here also define type-specific role "
+"assignment for Permission Groups%s."
+msgstr "在此選取的「文章」功能也會定義權限群組%s的特定類型角色指派。"
+
+#: includes/pp-ui.php:71
+#, php-format
+msgid ""
+"\"Posts\" capabilities selected here also define type-specific role "
+"assignment for Permit Groups%s."
+msgstr "在此選取的「文章」功能也會定義許可群組%s的特定類型角色指派。"
+
+#: includes/pp-ui.php:79
+#, php-format
+msgid ""
+"Capabilities for custom statuses can be manually added here. (See "
+"%sPermissions > Post Statuses%s for applicable names). %sSupplemental "
+"status-specific roles%s are usually more convenient, though."
+msgstr "可在此手動新增自訂狀態的功能。（適用名稱請參閱 %s權限 > 文章狀態%s）。不過，%s狀態專屬補充角色%s通常更方便使用。"
+
+#: includes/pp-ui.php:81
+msgid ""
+"Capabilities for custom statuses can be manually added here. Or activate "
+"the PP Custom Post Statuses extension to assign status-specific "
+"supplemental roles."
+msgstr "可在此手動新增自訂狀態的功能。或者啟用 PP 自訂文章狀態擴充功能，以指派狀態專屬的補充角色。"
+
+#: includes/pp-ui.php:84
+msgid ""
+"Capabilities for custom statuses can be manually added to a role here (see "
+"Conditions > Status > Capability Mapping for applicable names). However, it "
+"is usually more convenient to use Permit Groups to assign a supplemental "
+"status-specific role."
+msgstr "可在此手動將自訂狀態的功能新增至角色（適用名稱請參閱條件 > 狀態 > 功能對應）。不過，使用許可群組指派狀態專屬的補充角色通常更方便。"
+
+#: includes/pp-ui.php:108
+msgid "Unique Post Type Capabilities"
+msgstr "獨立文章類型功能"
+
+#: includes/pp-ui.php:120
+#. translators: %1$s and %2$s are link tags for 'Find out more.'
+#, php-format
+msgid ""
+"Allow post type permissions to be controlled separately from other areas of "
+"WordPress. %1$sFind out more.%2$s"
+msgstr "允許將文章類型權限與 WordPress 的其他區域分開控制。%1$s深入瞭解。%2$s"
+
+#: includes/pp-ui.php:191
+msgid "Use the \"Create\" capability for selected post types"
+msgstr "對選取的文章類型使用「建立」功能"
+
+#: includes/pp-ui.php:192
+msgid ""
+"This will cause a new capability to be required for creating posts, and "
+"enable a checkbox column here for role assignments. Normally, post creation "
+"is controlled by the \"Edit\" capability."
+msgstr "這會要求建立文章時必須具備新的功能，並在此啟用角色指派核取方塊欄。通常，文章建立是由「編輯」功能控制。"
+
+#: includes/pp-ui.php:200
+#: includes/pp-ui.php:286
+#: includes/pp-ui.php:365
+msgid "Update"
+msgstr "更新"
+
+#: includes/pp-ui.php:221
+msgid "Unique Taxonomy Capabilities"
+msgstr "獨立分類法功能"
+
+#: includes/pp-ui.php:230
+msgid ""
+"Allow taxonomy permissions to be controlled separately from other areas of "
+"WordPress."
+msgstr "允許將分類法權限與 WordPress 的其他區域分開控制。"
+
+#: includes/pp-ui.php:301
+msgid "Detailed Taxonomy Capabilities"
+msgstr "詳細分類法功能"
+
+#: includes/pp-ui.php:311
+msgid ""
+"Allow \"Edit\", \"Delete\" and \"Assign\" capabilities separately from the "
+"\"Manage\" capability."
+msgstr "允許將「編輯」、「刪除」和「指派」功能與「管理」功能分開。"
+
+#: includes/redirects/redirects.php:35
+#: includes/redirects/redirects.php:54
+msgid "Login Redirect"
+msgstr "登入重新導向"
+
+#: includes/redirects/redirects.php:39
+#: includes/redirects/redirects.php:63
+msgid "Logout Redirect"
+msgstr "登出重新導向"
+
+#: includes/redirects/redirects.php:43
+#: includes/redirects/redirects.php:72
+msgid "Registration Redirect"
+msgstr "註冊重新導向"
+
+#: includes/redirects/redirects.php:47
+#: includes/redirects/redirects.php:81
+msgid "First Login Redirect"
+msgstr "首次登入重新導向"
+
+#: includes/redirects/redirects.php:55
+msgid "Enter the URL users in this role should be redirected to after login."
+msgstr "輸入此角色的使用者登入後要重新導向至的 URL。"
+
+#: includes/redirects/redirects.php:64
+msgid "Enter the URL users in this role should be redirected to after logout."
+msgstr "輸入此角色的使用者登出後要重新導向至的 URL。"
+
+#: includes/redirects/redirects.php:73
+msgid "Enter the URL users in this role should be redirected to after registration."
+msgstr "輸入此角色的使用者註冊後要重新導向至的 URL。"
+
+#: includes/redirects/redirects.php:82
+msgid ""
+"Enter the URL users in this role should be redirected to after their first "
+"login."
+msgstr "輸入此角色的使用者首次登入後要重新導向至的 URL。"
+
+#: includes/redirects/redirects.php:94
+#, php-format
+msgid "%s Redirects"
+msgstr "%s 重新導向"
+
+#: includes/redirects/redirects.php:112
+#: includes/redirects/redirects.php:320
+#: includes/roles/class/class-pp-roles-admin.php:542
+msgid "Save Changes"
+msgstr "儲存變更"
+
+#: includes/redirects/redirects.php:216
+msgid "Redirect users to the URL they were viewing before login."
+msgstr "將使用者重新導向至登入前瀏覽的 URL。"
+
+#: includes/redirects/redirects.php:228
+msgid "Redirect users to a specified URL."
+msgstr "將使用者重新導向至指定的 URL。"
+
+#: includes/redirects/redirects.php:245
+msgid "Enter the relative path only without domain for login redirect."
+msgstr "登入重新導向請僅輸入相對路徑，不含網域。"
+
+#: includes/redirects/redirects.php:246
+msgid "You must enter the Login Redirect URL."
+msgstr "您必須輸入登入重新導向 URL。"
+
+#: includes/redirects/redirects.php:279
+msgid "Enter the relative path only without domain for logout redirect."
+msgstr "登出重新導向請僅輸入相對路徑，不含網域。"
+
+#: includes/redirects/redirects.php:338
+msgid ""
+"Redirect Features allows you to redirect users in a role after "
+"Registration, Login or Logout."
+msgstr "「重新導向」功能可讓您在使用者註冊、登入或登出後，將特定角色的使用者重新導向。"
+
+#: includes/redirects/redirects.php:341
+msgid "How to use Redirect Features"
+msgstr "如何使用「重新導向」功能"
+
+#: includes/roles/class/class-pp-roles-actions.php:148
+#: includes/roles/class/class-pp-roles-actions.php:269
+msgid "You do not have sufficient permissions to perform this action."
+msgstr "您沒有足夠的權限可以執行此動作。"
+
+#: includes/roles/class/class-pp-roles-actions.php:168
+#: includes/test-user.php:53
+msgid "Your link has expired, refresh the page and try again."
+msgstr "您的連結已過期，請重新整理頁面後再試一次。"
+
+#: includes/roles/class/class-pp-roles-actions.php:191
+msgid "Please try again."
+msgstr "請再試一次。"
+
+#: includes/roles/class/class-pp-roles-actions.php:211
+#: includes/roles/class/class-pp-roles-actions.php:274
+#: includes/roles/class/class-pp-roles-actions.php:419
+#: includes/roles/class/class-pp-roles-actions.php:564
+#: includes/roles/class/class-pp-roles-actions.php:696
+#: includes/roles/class/class-pp-roles-actions.php:762
+msgid "Missing parameters, refresh the page and try again."
+msgstr "缺少參數，請重新整理頁面後再試一次。"
+
+#: includes/roles/class/class-pp-roles-actions.php:238
+#, php-format
+msgid "Invalid role name entry: %s"
+msgstr "角色名稱輸入無效：%s"
+
+#: includes/roles/class/class-pp-roles-actions.php:250
+#, php-format
+msgid "The role \"%s\" already exists. Please choose a different name."
+msgstr "角色「%s」已存在。請選擇其他名稱。"
+
+#: includes/roles/class/class-pp-roles-actions.php:292
+msgid ""
+"Something went wrong, the system wasn't able to create the role, refresh "
+"the page and try again."
+msgstr "發生錯誤，系統無法建立角色，請重新整理頁面後再試一次。"
+
+#: includes/roles/class/class-pp-roles-actions.php:383
+#, php-format
+msgid "The new role %s was created successfully."
+msgstr "%s 角色已成功建立。"
+
+#: includes/roles/class/class-pp-roles-actions.php:424
+msgid "You do not have permission to edit this role."
+msgstr "您沒有編輯此角色的權限。"
+
+#: includes/roles/class/class-pp-roles-actions.php:429
+#: includes/roles/class/class-pp-roles-admin.php:244
+msgid ""
+"The default role cannot be disabled. Change the default role in WordPress "
+"settings first."
+msgstr "無法停用預設角色。請先在 WordPress 設定中變更預設角色。"
+
+#: includes/roles/class/class-pp-roles-actions.php:500
+#, php-format
+msgid "%s role updated successfully."
+msgstr "%s 角色已成功更新。"
+
+#: includes/roles/class/class-pp-roles-actions.php:572
+#, php-format
+msgid "Cannot delete default role. You <a href=\"%s\">have to change it first</a>."
+msgstr "無法刪除預設角色。您必須先<a href=\"%s\">變更預設角色</a>。"
+
+#: includes/roles/class/class-pp-roles-actions.php:591
+msgid "Deleting a system role is not allowed."
+msgstr "不允許刪除系統角色。"
+
+#: includes/roles/class/class-pp-roles-actions.php:615
+#, php-format
+msgid "%1$d users moved to default role %2$s."
+msgstr "%1$d 位使用者已移至預設角色 %2$s。"
+
+#: includes/roles/class/class-pp-roles-actions.php:620
+#, php-format
+msgid "The role %1$s was successfully deleted. %2$s"
+msgstr "角色 %1$s 已成功刪除。%2$s"
+
+#: includes/roles/class/class-pp-roles-actions.php:626
+#, php-format
+msgid "The selected %1$s roles were successfully deleted. %2$s"
+msgstr "所選的 %1$s 個角色已成功刪除。%2$s"
+
+#: includes/roles/class/class-pp-roles-actions.php:707
+#, php-format
+msgid "The role %1$s was successfully hidden."
+msgstr "角色 %1$s 已成功隱藏。"
+
+#: includes/roles/class/class-pp-roles-actions.php:772
+#, php-format
+msgid "The role %1$s was successfully unhidden."
+msgstr "角色 %1$s 已成功取消隱藏。"
+
+#: includes/roles/class/class-pp-roles-admin.php:117
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/roles/class/class-pp-roles-admin.php:129
+msgid "Disable / Delete"
+msgstr "停用 / 刪除"
+
+#: includes/roles/class/class-pp-roles-admin.php:158
+msgid "Gutenberg editor"
+msgstr "Gutenberg 編輯器"
+
+#: includes/roles/class/class-pp-roles-admin.php:160
+msgid "Classic editor"
+msgstr "傳統編輯器"
+
+#: includes/roles/class/class-pp-roles-admin.php:182
+msgid "Role Slug"
+msgstr "角色代稱"
+
+#: includes/roles/class/class-pp-roles-admin.php:183
+msgid ""
+"The \"slug\" is the URL-friendly version of the role. It is usually all "
+"lowercase and contains only letters, numbers and underscores."
+msgstr "「代稱」是角色適用於網址的版本。通常全部使用小寫，且只包含字母、數字和底線。"
+
+#: includes/roles/class/class-pp-roles-admin.php:194
+msgid "Block Login"
+msgstr "封鎖登入"
+
+#: includes/roles/class/class-pp-roles-admin.php:195
+msgid "Block users in this role from logging into the site."
+msgstr "封鎖此角色的使用者登入網站。"
+
+#: includes/roles/class/class-pp-roles-admin.php:204
+msgid "Block Dashboard Access"
+msgstr "封鎖 dashboard 存取"
+
+#: includes/roles/class/class-pp-roles-admin.php:205
+msgid "Block users in this role from accessing admin area."
+msgstr "禁止此角色的使用者存取管理區域。"
+
+#: includes/roles/class/class-pp-roles-admin.php:216
+msgid "Role Level"
+msgstr "角色等級"
+
+#: includes/roles/class/class-pp-roles-admin.php:217
+msgid ""
+"Each user role has a level from 0 to 10. The Subscriber role defaults to "
+"the lowest level (0). The Administrator role defaults to level 10."
+msgstr "每個使用者角色都有 0 到 10 的等級。訂閱者角色的預設等級最低（0）。管理員角色的預設等級為 10。"
+
+#: includes/roles/class/class-pp-roles-admin.php:242
+msgid "Disable Role"
+msgstr "停用角色"
+
+#: includes/roles/class/class-pp-roles-admin.php:246
+#, php-format
+msgid ""
+"Disable \"%s\" role for new user assignments. Existing users will keep this "
+"role and its capabilities."
+msgstr "停用新使用者指派「%s」角色。現有使用者會保留此角色及其功能。"
+
+#: includes/roles/class/class-pp-roles-admin.php:260
+msgid ""
+"Deleting this role will completely remove it from database and is "
+"irrecoverable."
+msgstr "刪除此角色將會從資料庫中將其完全移除，且無法復原。"
+
+#: includes/roles/class/class-pp-roles-admin.php:271
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Disable Code Editor"
+msgstr "停用程式碼編輯器"
+
+#: includes/roles/class/class-pp-roles-admin.php:272
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Disable the \"Code editor\" option for the Gutenberg block editor."
+msgstr "停用 Gutenberg 區塊編輯器的「程式碼編輯器」選項。"
+
+#: includes/roles/class/class-pp-roles-admin.php:283
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Control Allowed Editors"
+msgstr "控管允許的編輯器"
+
+#: includes/roles/class/class-pp-roles-admin.php:284
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Select the allowed editor options for users in this role."
+msgstr "選取此角色使用者可使用的編輯器選項。"
+
+#: includes/roles/class/class-pp-roles-admin.php:297
+msgid "Disable WooCommerce admin restrictions"
+msgstr "停用 WooCommerce 管理區域限制"
+
+#: includes/roles/class/class-pp-roles-admin.php:298
+#, php-format
+msgid ""
+"By default, WooCommerce prevents most users from accessing the WordPress "
+"admin area. When enabled, this setting will remove those restrictions for "
+"this role. %1s Click here for more details. %2s"
+msgstr ""
+"根據預設，WooCommerce 會阻止大多數使用者存取 WordPress 管理區域。啟用此設定後，將會為此角色移除這些限制。%1s "
+"按一下這裡以瞭解詳細資訊。%2s"
+
+#: includes/roles/class/class-pp-roles-admin.php:358
+msgid "Slug already exists"
+msgstr "代稱已存在"
+
+#: includes/roles/class/class-pp-roles-admin.php:385
+#. Translators: "Editor" means post editor like Gutenberg
+msgid "Select allowed editor"
+msgstr "選取允許的編輯器"
+
+#: includes/roles/class/class-pp-roles-admin.php:386
+#. Translators: "Editor" means post editor like Gutenberg
+msgid ""
+"You must select at least one editor for the role when managing allowed "
+"editor."
+msgstr "管理允許的編輯器時，您必須為此角色至少選取一個編輯器。"
+
+#: includes/roles/class/class-pp-roles-admin.php:415
+#, php-format
+msgid "Select %s"
+msgstr "選取 %s"
+
+#: includes/roles/class/class-pp-roles-admin.php:438
+msgid "Read more on Role Level."
+msgstr "進一步瞭解角色等級。"
+
+#: includes/roles/class/class-pp-roles-admin.php:451
+#: includes/roles/roles-functions.php:34
+msgid "Are you sure you want to delete this role?"
+msgstr "確定要刪除此角色嗎？"
+
+#: includes/roles/class/class-pp-roles-admin.php:536
+#, php-format
+msgid ""
+"%s role copied. Please click the \"Create Role\" button to create this new "
+"role."
+msgstr "%s 角色已複製。請按一下「建立角色」按鈕以建立此新角色。"
+
+#: includes/roles/class/class-pp-roles-admin.php:569
+#, php-format
+msgid "Edit Role: %s"
+msgstr "編輯角色：%s"
+
+#: includes/roles/class/class-pp-roles-admin.php:571
+msgid "Copy Role"
+msgstr "複製角色"
+
+#: includes/roles/class/class-pp-roles-admin.php:573
+msgid "Create New Role"
+msgstr "建立新角色"
+
+#: includes/roles/class/class-pp-roles-admin.php:682
+#, php-format
+msgid "These can be edited on the %1s Capabilities screen %2s"
+msgstr "可在 %1s 權限畫面 %2s 上編輯這些項目"
+
+#: includes/roles/class/class-pp-roles-admin.php:710
+msgid "Load More"
+msgstr "載入更多"
+
+#: includes/roles/class/class-pp-roles-admin.php:713
+msgid "Load Less"
+msgstr "載入較少"
+
+#: includes/roles/class/class-pp-roles-list-table.php:86
+#, php-format
+msgid "All %s"
+msgid_plural "All %s"
+msgstr[0] "全部 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:87
+#, php-format
+msgid "Mine %s"
+msgid_plural "Mine %s"
+msgstr[0] "我的 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:88
+#, php-format
+msgid "Has Users %s"
+msgid_plural "Has Users %s"
+msgstr[0] "有使用者 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:89
+#, php-format
+msgid "No Users %s"
+msgid_plural "No Users %s"
+msgstr[0] "沒有使用者 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:90
+#, php-format
+msgid "Disabled %s"
+msgid_plural "Disabled %s"
+msgstr[0] "已停用 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:91
+#, php-format
+msgid "Editable %s"
+msgid_plural "Editable %s"
+msgstr[0] "可編輯 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:92
+#, php-format
+msgid "Uneditable %s"
+msgid_plural "Uneditable %s"
+msgstr[0] "不可編輯 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:93
+#, php-format
+msgid "System %s"
+msgid_plural "System %s"
+msgstr[0] "系統 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:242
+msgid "Copy"
+msgstr "複製"
+
+#: includes/roles/class/class-pp-roles-list-table.php:247
+msgid "(non-editable role)"
+msgstr "(不可編輯的角色)"
+
+#: includes/roles/class/class-pp-roles-list-table.php:265
+msgid "Unhide"
+msgstr "取消隱藏"
+
+#: includes/roles/class/class-pp-roles-list-table.php:340
+#, php-format
+msgid "Select role %s"
+msgstr "選取角色 %s"
+
+#: includes/roles/class/class-pp-roles-list-table.php:359
+msgid "Your Role"
+msgstr "您的角色"
+
+#: includes/roles/class/class-pp-roles-list-table.php:363
+msgid "Disabled"
+msgstr "已停用"
+
+#: includes/roles/class/class-pp-roles-list-table.php:423
+msgid "WordPress Core"
+msgstr "WordPress 核心"
+
+#: includes/roles/class/class-pp-roles-list-table.php:718
+msgid "Search Roles"
+msgstr "搜尋角色"
+
+#: includes/settings-ui.php:55
+msgid "Admin Menus: treatment of multiple roles"
+msgstr "管理選單：多個角色的處理方式"
+
+#: includes/settings-ui.php:58
+msgid "Most permissive: Any non-restricted user role allows access"
+msgstr "最寬鬆：任何未受限制的使用者角色皆可存取"
+
+#: includes/settings-ui.php:61
+msgid "Most restrictive: Any restricted user role prevents access"
+msgstr "最嚴格：任何受限制的使用者角色皆會阻止存取"
+
+#: includes/settings-ui.php:65
+msgid ""
+"This controls whether the most permissive or restrictive permissions are "
+"applied if a user has multiple roles."
+msgstr "如果使用者有多個角色，這項設定會決定要套用最寬鬆或最嚴格的權限。"
+
+#: includes/settings-ui.php:78
+msgid "Multiples roles on \"Add New User\" screen"
+msgstr "「新增使用者」畫面上的多個角色"
+
+#: includes/settings-ui.php:83
+msgid "This allows you to assign a new user to multiples roles."
+msgstr "這項設定可讓您將新使用者指派給多個角色。"
+
+#: includes/settings-ui.php:91
+msgid "Multiples roles on \"User Edit\" screen"
+msgstr "「編輯使用者」畫面上的多個角色"
+
+#: includes/settings-ui.php:96
+msgid "This allows you to assign an existing user to multiple roles."
+msgstr "這項設定可讓您將現有使用者指派給多個角色。"
+
+#: includes/settings-ui.php:104
+msgid "Set login redirect cookie"
+msgstr "設定登入重新導向 Cookie"
+
+#: includes/settings-ui.php:109
+msgid ""
+"Use cookie to determine pages users were viewing before login. This is "
+"useful when login redirect is not working correctly due to wp_get_referer() "
+"limitation."
+msgstr "使用 Cookie 判斷使用者登入前瀏覽的頁面。當登入重新導向因 wp_get_referer() 的限制而無法正常運作時，這項功能就很有用。"
+
+#: includes/settings-ui.php:122
+#: includes/settings-ui.php:169
+msgid "Show private post types"
+msgstr "顯示私人文章類型"
+
+#: includes/settings-ui.php:127
+msgid ""
+"This will show all post types on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr "這會在「權限」畫面顯示所有文章類型，包括通常在 WordPress 管理區中隱藏的類型。"
+
+#: includes/settings-ui.php:135
+msgid "Show private taxonomies"
+msgstr "顯示私人 taxonomies"
+
+#: includes/settings-ui.php:140
+msgid ""
+"This will show all taxonomies on the \"Capabilities\" screen, even ones "
+"normally hidden in the WordPress admin area."
+msgstr "這會在「權限」畫面顯示所有 taxonomies，包括通常在 WordPress 管理區中隱藏的項目。"
+
+#: includes/settings-ui.php:148
+msgid "Application password capabilities"
+msgstr "應用程式密碼權限"
+
+#: includes/settings-ui.php:153
+msgid ""
+"Allow the Capabilities screen to deny selected capabilities for individual "
+"WordPress application passwords."
+msgstr "允許在「權限」畫面中，為個別 WordPress 應用程式密碼拒絕指定的權限。"
+
+#: includes/settings-ui.php:174
+msgid ""
+"Show all post types on the \"Editor Features\" screen, even ones normally "
+"hidden in the WordPress admin area."
+msgstr "在「編輯器功能」畫面顯示所有文章類型，包括通常在 WordPress 管理區中隱藏的類型。"
+
+#: includes/settings-ui.php:182
+msgid "Enable Classic Editor tab"
+msgstr "啟用傳統編輯器索引標籤"
+
+#: includes/settings-ui.php:187
+msgid "Always show the Classic Editor tab in \"Editor Features\" screen."
+msgstr "一律在「編輯器功能」畫面顯示傳統編輯器索引標籤。"
+
+#: includes/settings-ui.php:200
+msgid "Admin Bar modification"
+msgstr "管理列修改"
+
+#: includes/settings-ui.php:205
+msgid "When testing, display a caption and return link in the Admin Bar."
+msgstr "測試時，在管理列中顯示說明文字和返回連結。"
+
+#: includes/settings-ui.php:213
+msgid "Admin Bar search"
+msgstr "管理列搜尋"
+
+#: includes/settings-ui.php:218
+msgid "Add option to search and user testing in the Admin Bar."
+msgstr "在管理列中新增搜尋和使用者測試選項。"
+
+#: includes/settings-ui.php:226
+msgid "Front End footer notice"
+msgstr "前台頁尾通知"
+
+#: includes/settings-ui.php:231
+msgid "When testing, display a return link in the front end footer."
+msgstr "測試時，在前台頁尾顯示返回連結。"
+
+#: includes/settings-ui.php:242
+msgid "Exclude role from User Testing"
+msgstr "從使用者測試中排除角色"
+
+#: includes/settings-ui.php:249
+msgid "Select roles..."
+msgstr "選取角色..."
+
+#: includes/settings-ui.php:263
+msgid "Exclude users in selected roles from User Testing."
+msgstr "從使用者測試中排除屬於所選角色的使用者。"
+
+#: includes/settings-ui.php:277
+msgid "Automatically refresh profile elements"
+msgstr "自動重新整理個人資料元素"
+
+#: includes/settings-ui.php:282
+msgid ""
+"Always try to automatically find profile elements. This may cause temporary "
+"issues when updating user roles that do not have access to the WordPress "
+"admin area."
+msgstr "一律嘗試自動尋找個人資料元素。更新無法存取 WordPress 管理區域的使用者角色時，這可能會造成暫時性問題。"
+
+#: includes/settings.php:13
+msgid "Capabilities Settings"
+msgstr "功能設定"
+
+#: includes/test-user-ui.php:52
+msgid "Search user"
+msgstr "搜尋使用者"
+
+#: includes/test-user-ui.php:53
+msgid "Search user..."
+msgstr "搜尋使用者..."
+
+#: includes/test-user-ui.php:54
+msgid "Search"
+msgstr "搜尋"
+
+#: includes/test-user-ui.php:54
+msgid "Searching..."
+msgstr "搜尋中..."
+
+#: includes/test-user-ui.php:71
+msgid "No results found."
+msgstr "找不到結果。"
+
+#: includes/test-user-ui.php:80
+msgid "Permission denied."
+msgstr "權限遭拒。"
+
+#: includes/test-user-ui.php:181
+#: includes/test-user-ui.php:205
+msgid "Test user"
+msgstr "測試使用者"
+
+#: includes/test-user-ui.php:211
+msgid "Test this user"
+msgstr "測試此使用者"
+
+#: includes/test-user-ui.php:256
+msgid "Testing: "
+msgstr "測試： "
+
+#: includes/test-user-ui.php:270
+#, php-format
+msgid "%1$sReturn to Administrator view%2$s"
+msgstr "%1$s返回管理員檢視畫面%2$s"
+
+#: includes/test-user-ui.php:317
+#, php-format
+msgid "Testing as user: %1$s. %2$sReturn to Administrator view%3$s"
+msgstr "以此使用者身分測試：%1$s。%2$s返回管理員檢視畫面%3$s"
+
+#: includes/user-capabilities-view.php:15
+msgid "Back to Users"
+msgstr "返回使用者"
+
+#: includes/user-capabilities-view.php:20
+msgid "You are viewing the capabilities for this specific user."
+msgstr "您正在檢視此特定使用者的功能權限。"
+
+#: includes/user-capabilities-view.php:26
+msgid "Username"
+msgstr "使用者名稱"
+
+#: includes/user-capabilities-view.php:32
+msgid "Email"
+msgstr "電子郵件"
+
+#: includes/user-capabilities-view.php:38
+#: includes/user-capabilities-view.php:58
+msgid "Assigned Roles"
+msgstr "已指派的角色"
+
+#: includes/user-capabilities-view.php:44
+msgid "Network Access"
+msgstr "網路存取權"
+
+#: includes/user-capabilities-view.php:45
+msgid "Super Admin"
+msgstr "超級管理員"
+
+#: includes/user-capabilities-view.php:50
+msgid "Granted Capabilities"
+msgstr "已授予的功能權限"
+
+#: includes/user-capabilities-view.php:62
+msgid "This user has no assigned roles."
+msgstr "此使用者沒有已指派的角色。"
+
+#: includes/user-capabilities-view.php:82
+#, php-format
+msgid "Granted Capabilities (%d)"
+msgstr "已授予的功能權限 (%d)"
+
+#: includes/user-capabilities-view.php:87
+msgid ""
+"These include known capabilities WordPress grants through Super Admin "
+"access, role assignments, and direct overrides."
+msgstr "這些包括 WordPress 透過超級管理員存取權、角色指派和直接覆寫所授予的已知功能權限。"
+
+#: includes/user-capabilities-view.php:89
+msgid "These are the capabilities assigned to this user in WordPress."
+msgstr "這些是 WordPress 中指派給此使用者的功能權限。"
+
+#: includes/user-capabilities-view.php:93
+msgid "This user has no granted capabilities."
+msgstr "此使用者沒有已授予的功能權限。"
+
+#: includes/user-capabilities-view.php:96
+msgid "Search granted capabilities"
+msgstr "搜尋已授予的功能權限"
+
+#: includes/user-capabilities-view.php:102
+msgid "Search granted capabilities..."
+msgstr "搜尋已授予的功能權限..."
+
+#: includes/user-capabilities-view.php:108
+msgid "Type to filter this capability list."
+msgstr "輸入文字以篩選此功能權限清單。"
+
+#: includes/user-capabilities-view.php:116
+msgid "No granted capabilities match your search."
+msgstr "找不到符合搜尋條件的已授予功能權限。"
+
+#: includes/user-capabilities-view.php:125
+#, php-format
+msgid "Denied Capabilities (%d)"
+msgstr "拒絕的權限（%d）"
+
+#: includes/user-capabilities-view.php:140
+msgid "Direct User Overrides"
+msgstr "直接使用者覆寫"
+
+#: includes/user-capabilities-view.php:143
+msgid ""
+"These entries are stored directly on the user account instead of coming "
+"from a role."
+msgstr "這些項目直接儲存在使用者帳戶中，而非從角色繼承。"
+
+#: includes/user-capabilities-view.php:173
+msgid ""
+"These are permissions assigned to the user in the PublishPress Permissions "
+"plugin."
+msgstr "這些是指派給使用者的 PublishPress Permissions 外掛權限。"
+
+#: includes/user-capabilities-view.php:179
+#: includes/user-capabilities-view.php:240
+#, php-format
+msgid "Extra Roles (%d)"
+msgstr "額外角色（%d）"
+
+#: includes/user-capabilities-view.php:186
+msgid "This user has no direct extra roles."
+msgstr "此使用者沒有直接指派的額外角色。"
+
+#: includes/user-capabilities-view.php:201
+#: includes/user-capabilities-view.php:248
+#, php-format
+msgid "Specific Permissions (%d)"
+msgstr "特定權限（%d）"
+
+#: includes/user-capabilities-view.php:208
+msgid "This user has no direct specific permissions."
+msgstr "此使用者沒有直接指派的特定權限。"
+
+#: includes/user-capabilities-view.php:223
+#: includes/user-capabilities-view.php:259
+#, php-format
+msgid ""
+"Showing the first 50 of %d permissions. Use the Permissions editor to view "
+"the full list."
+msgstr "顯示 %d 項權限中的前 50 項。請使用「權限編輯器」檢視完整清單。"
+
+#: includes/user-capabilities-view.php:231
+msgid "Inherited Group Permissions"
+msgstr "繼承的群組權限"
+
+#: includes/user-capabilities-view.php:232
+msgid ""
+"Extra roles and specific permissions assigned to this user's active groups, "
+"including WordPress role groups. These assignments are managed on the group."
+msgstr "指派給此使用者所屬啟用群組（包括 WordPress 角色群組）的額外角色與特定權限。這些指派項目由群組管理。"
+
+#: includes/user-capabilities-view.php:234
+msgid "This user has no group-assigned extra roles or specific permissions."
+msgstr "此使用者沒有由群組指派的額外角色或特定權限。"
+
+#: includes/user-capabilities-view.php:270
+msgid "View Extra Roles"
+msgstr "檢視額外角色"
+
+#: includes/user-capabilities-view.php:275
+msgid "View Specific Permissions"
+msgstr "檢視特定權限"
+
+#: includes/user-role-assignment.php:36
+msgid "You cannot change roles for this user."
+msgstr "您無法變更此使用者的角色。"
+
+#: includes/user-role-assignment.php:50
+msgid "Choose existing roles that you are allowed to assign."
+msgstr "選擇您有權指派的現有角色。"
+
+#: includes/user-role-assignment.php:55
+msgid "A disabled role cannot be assigned."
+msgstr "已停用的角色無法指派。"
+
+#: includes/user-role-assignment.php:59
+msgid "You cannot remove your own roles through this action."
+msgstr "您無法透過此操作移除自己的角色。"
+
+#: common/js/admin.dev.js:1118
+#: includes/features/admin-menus/assets/js/admin-menus.js:184
+msgid "Updating Settings..."
+msgstr "正在更新設定..."
+
+#: common/js/admin.dev.js:1154
+msgid "Updating access..."
+msgstr "正在更新存取權..."
+
+#: common/js/admin.dev.js:1173
+#: common/js/admin.dev.js:1178
+msgid "Error updating access."
+msgstr "更新存取權時發生錯誤。"
+
+#: common/js/admin.dev.js:1276
+#: includes/features/admin-menus/assets/js/admin-menus.js:723
+msgid " Error: changes can't be saved."
+msgstr " 錯誤：無法儲存變更。"
+
+#: includes/features/admin-menus/assets/js/admin-menus.js:141
+msgid "Deleting menu..."
+msgstr "正在刪除選單..."
+
+#: includes/features/admin-menus/assets/js/admin-menus.js:208
+msgid "You must check at least one option to reset."
+msgstr "您必須至少勾選一個選項才能重設。"
+
+#: includes/features/admin-menus/assets/js/admin-menus.js:220
+msgid "Resetting option..."
+msgstr "正在重設選項..."

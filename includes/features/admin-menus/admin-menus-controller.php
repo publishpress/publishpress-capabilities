@@ -35,6 +35,59 @@ class AdminMenusController
         return array_values(array_filter(array_map('sanitize_text_field', wp_unslash($_POST[$field_name])), 'strlen'));
     }
 
+    public static function getEditableRoles()
+    {
+        require_once dirname(__DIR__, 3) . '/framework/lib/users.php';
+
+        $roles = ak_get_roles(true);
+        if (!current_user_can('administrator') && !(is_multisite() && is_super_admin())) {
+            $user = wp_get_current_user();
+            $roles = array_diff_key($roles, array_flip(array_merge(['administrator'], (array) $user->roles)));
+            $max_level = ak_caps2level($user->allcaps);
+            $roles = array_filter($roles, static function ($role_name) use ($max_level) {
+                $role = get_role($role_name);
+                return $role && ak_caps2level($role->capabilities) <= $max_level;
+            }, ARRAY_FILTER_USE_KEY);
+        }
+
+        return array_filter($roles, 'pp_capabilities_is_editable_role', ARRAY_FILTER_USE_KEY);
+    }
+
+    private function getScreenRoles($capsman)
+    {
+        $capsman->generateNames();
+        return array_intersect_key($capsman->roles, self::getEditableRoles());
+    }
+
+    private function isFormSubmission()
+    {
+        return 'POST' === ($_SERVER['REQUEST_METHOD'] ?? '') && isset($_POST['ppc-admin-menu-role']);
+    }
+
+    public function validateFormSubmission()
+    {
+        global $capsman;
+
+        if ($this->isFormSubmission()) {
+            $this->requireEditableSubmittedRole(array_keys($this->getScreenRoles($capsman)));
+        }
+    }
+
+    private function requireEditableSubmittedRole(array $roles)
+    {
+        $nonce = $_POST['_wpnonce'] ?? '';
+        if (!is_string($nonce) || !wp_verify_nonce(sanitize_key(wp_unslash($nonce)), 'pp-capabilities-admin-menus')) {
+            wp_die(esc_html__('You do not have permission to manage menu restrictions.', 'capability-manager-enhanced'), '', ['response' => 403]);
+        }
+
+        $menu_role = sanitize_key(wp_unslash($_POST['ppc-admin-menu-role']));
+        if (!in_array($menu_role, $roles, true)) {
+            wp_die(esc_html__('You do not have permission to manage menu restrictions for this role.', 'capability-manager-enhanced'), '', ['response' => 403]);
+        }
+
+        return $menu_role;
+    }
+
     private function normalizeOwnRoleAdminMenuRestrictions(array $disabled_menus, array $disabled_child_menus, $role_name, array $current_user_roles)
     {
         if (!in_array($role_name, $current_user_roles, true)) {
@@ -71,8 +124,11 @@ class AdminMenusController
 		    wp_die('<strong>' . esc_html__('You do not have permission to manage menu restrictions.', 'capability-manager-enhanced') . '</strong>');
 		}
 
-		$capsman->generateNames();
+		$capsman->roles = $this->getScreenRoles($capsman);
 		$roles = array_keys($capsman->roles);
+        if (!$roles) {
+            wp_die(esc_html__('You do not have permission to manage menu restrictions for any role.', 'capability-manager-enhanced'), '', ['response' => 403]);
+        }
 
 		if ( ! isset($capsman->current) ) {
 			if ('POST' !== $_SERVER['REQUEST_METHOD'] && !empty($_REQUEST['role'])) {
@@ -85,16 +141,13 @@ class AdminMenusController
 		}
 
 		if ( ! in_array($capsman->current, $roles) ) {
-			$capsman->current = array_shift($roles);
+			$capsman->current = reset($roles);
 		}
 
 		$ppc_admin_menu_reload = '0';
 
-		if (!empty($_SERVER['REQUEST_METHOD']) && ('POST' == $_SERVER['REQUEST_METHOD']) && isset($_POST['ppc-admin-menu-role']) && !empty($_REQUEST['_wpnonce'])) {
-            if (!wp_verify_nonce(sanitize_key($_REQUEST['_wpnonce']), 'pp-capabilities-admin-menus')) {
-                wp_die('<strong>' . esc_html__('You do not have permission to manage menu restrictions.', 'capability-manager-enhanced') . '</strong>');
-            } else {
-                $menu_role = sanitize_key($_POST['ppc-admin-menu-role']);
+		if ($this->isFormSubmission()) {
+                $menu_role = $this->requireEditableSubmittedRole($roles);
                 $save_for_all_roles = !empty($_POST['admin-menu-all-submit']);
                 $current_user_roles = (array) wp_get_current_user()->roles;
 
@@ -141,7 +194,7 @@ class AdminMenusController
                         $ppc_admin_menu_reload = '1';
                     }
 
-                    ak_admin_notify(__('Settings updated for all roles.', 'capability-manager-enhanced'));
+                    ak_admin_notify(__('Settings updated for all editable roles.', 'capability-manager-enhanced'));
                 } elseif (in_array($menu_role, $current_user_roles, true)) {
                 	$ppc_admin_menu_reload = '1';
                 }
@@ -149,7 +202,6 @@ class AdminMenusController
                 if (!$save_for_all_roles) {
                     ak_admin_notify(__('Settings updated.', 'capability-manager-enhanced'));
                 }
-            }
 		}
 
         $url = plugin_dir_url(CME_FILE);
