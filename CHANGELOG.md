@@ -1,6 +1,6 @@
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-[2.55.0] - 27 November, 2026
+[2.55.0] - 30 November, 2026
 
 - Added : Delete automatic backups from the Backup screen, #1952
 - Update : Deliver translation updates for Capabilities Free and Pro via Hub, #1931
