@@ -4,6 +4,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Added : Delete automatic backups from the Backup screen, #1952
 - Update : Deliver translation updates for Capabilities Free and Pro via Hub, #1931
+- Fixed : Register the installed Free version with Hub and prefer matching downloaded PHP and script catalogs, while preserving bundled fallbacks, Loco overrides and cached packs after Hub is deactivated, #1931
 - Update : Clean up the Free plugin's header, #1909
 - Fixed : Show all manual backups in the Restore list, #1950
 - Fixed : Prevent a startup error in Capabilities Pro when checking whether a feature is enabled, #1946
